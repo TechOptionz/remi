@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+body{margin:0;background:#15181d;color:#e9e6df;font-family:'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#e9e6df;text-decoration:none}a:hover{color:#d9a55a}
+input,button{font-family:inherit}
+input::placeholder{color:rgba(233,230,223,.4)}
+@keyframes rp-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+
+<!-- ANNOUNCEMENT -->
+<div style="background:#d9a55a;color:#15181d;text-align:center;padding:10px 20px;font-size:13px;font-weight:600;letter-spacing:.02em">Free live training · Leading without carrying everyone · <a href="#contact" style="color:#15181d;text-decoration:underline;text-underline-offset:3px">Register free</a></div>
+
+<div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+
+<!-- HEADER -->
+<header style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0">
+  <a href="#top" style="font-family:'Instrument Serif',serif;font-size:28px;letter-spacing:.01em;color:#e9e6df;white-space:nowrap">Remi Pearson</a>
+  <nav aria-label="Primary" class="rp-nav" style="display:flex;gap:30px;font-size:14px;font-weight:500;color:rgba(233,230,223,.8)">
+    <a href="#podcast" style="color:inherit">Podcast</a>
+    <a href="#work" style="color:inherit">Speaking</a>
+    <a href="#work" style="color:inherit">Frameworks</a>
+    <a href="#story" style="color:inherit">About</a>
+    <a href="#contact" style="color:inherit">Contact</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:12px">
+    <a href="#contact" style="display:inline-block;background:#e9e6df;color:#15181d;padding:12px 20px;font-size:13px;font-weight:700;border-radius:999px" style-hover="background:#d9a55a;color:#15181d">Book a call</a>
+    <button onClick="{{ toggleMenu }}" aria-label="Menu" class="rp-burger" style="display:none;width:44px;height:44px;border:1px solid rgba(233,230,223,.25);background:transparent;border-radius:999px;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px">
+      <span style="display:block;width:18px;height:2px;background:#e9e6df"></span>
+      <span style="display:block;width:18px;height:2px;background:#e9e6df"></span>
+    </button>
+  </div>
+</header>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <nav aria-label="Mobile" style="display:flex;flex-direction:column;gap:2px;padding:8px 0 20px;border-bottom:1px solid rgba(233,230,223,.12);font-family:'Instrument Serif',serif;font-size:34px">
+    <a onClick="{{ toggleMenu }}" href="#podcast" style="padding:8px 0">Podcast</a>
+    <a onClick="{{ toggleMenu }}" href="#work" style="padding:8px 0">Speaking</a>
+    <a onClick="{{ toggleMenu }}" href="#work" style="padding:8px 0">Frameworks</a>
+    <a onClick="{{ toggleMenu }}" href="#story" style="padding:8px 0">About</a>
+    <a onClick="{{ toggleMenu }}" href="#contact" style="padding:8px 0;color:#d9a55a">Contact</a>
+  </nav>
+</sc-if>
+
+<!-- HERO -->
+<section id="top" aria-label="Introduction" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,5vw,72px);align-items:center;padding:clamp(48px,7vw,104px) 0">
+  <div style="animation:rp-rise .7s ease-out both">
+    <p style="margin:0 0 24px;font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#d9a55a">Let truth lead</p>
+    <h1 style="margin:0 0 26px;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(50px,6.4vw,96px);line-height:1;letter-spacing:-.01em;color:#f5f2ea">Ideas.<br>Leadership.<br><em style="color:#d9a55a">Impact.</em></h1>
+    <p style="margin:0 0 36px;max-width:44ch;font-size:clamp(17px,1.3vw,20px);line-height:1.6;color:rgba(233,230,223,.78)">Business leader, speaker and strategist. Two decades of building companies and the frameworks people use to think clearly about leadership, truth and what actually changes behaviour.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px">
+      <a href="#contact" style="display:inline-block;background:#d9a55a;color:#15181d;padding:16px 28px;font-size:14px;font-weight:700;border-radius:999px" style-hover="background:#e9e6df;color:#15181d">Book a call</a>
+      <button onClick="{{ openVideo }}" style="display:inline-flex;align-items:center;gap:10px;background:transparent;border:1px solid rgba(233,230,223,.35);color:#e9e6df;padding:15px 26px;font-size:14px;font-weight:600;border-radius:999px;cursor:pointer" style-hover="border-color:#e9e6df">
+        <span style="display:inline-block;width:0;height:0;border-left:9px solid #e9e6df;border-top:6px solid transparent;border-bottom:6px solid transparent"></span> Watch the intro
+      </button>
+    </div>
+  </div>
+  <div style="position:relative;aspect-ratio:1/1;max-width:560px;justify-self:end;width:100%">
+    <div style="position:absolute;inset:0;border-radius:24px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.5)">
+      <image-slot id="hero-portrait" shape="rounded" radius="24" placeholder="Portrait of Remi — dark, warm studio light"></image-slot>
+    </div>
+    <button onClick="{{ openVideo }}" aria-label="Play intro video" style="position:absolute;left:-16px;bottom:32px;display:flex;align-items:center;gap:14px;background:#15181d;border:1px solid rgba(233,230,223,.15);color:#e9e6df;padding:12px 18px 12px 12px;border-radius:999px;cursor:pointer;box-shadow:0 12px 40px rgba(0,0,0,.4)">
+      <span style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#d9a55a"><span style="display:block;width:0;height:0;border-left:12px solid #15181d;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px"></span></span>
+      <span style="text-align:left;line-height:1.2"><span style="display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(233,230,223,.6)">Featured talk</span><span style="display:block;font-size:14px;font-weight:600">18 min</span></span>
+    </button>
+  </div>
+</section>
+
+<!-- PODCAST / MEDIA -->
+<section id="podcast" aria-labelledby="pod-h" style="padding:clamp(48px,7vw,96px) 0;border-top:1px solid rgba(233,230,223,.1)">
+  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:36px">
+    <div>
+      <p style="margin:0 0 14px;font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#d9a55a">Latest</p>
+      <h2 id="pod-h" style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4vw,60px);line-height:1;color:#f5f2ea">Ideas worth your time</h2>
+    </div>
+    <a href="#podcast" style="font-size:14px;font-weight:600;color:rgba(233,230,223,.8);border-bottom:1px solid rgba(233,230,223,.4);padding-bottom:3px">All content →</a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:18px">
+    <sc-for list="{{ featured }}" as="item" hint-placeholder-count="4">
+      <a href="#podcast" style="display:flex;flex-direction:column;gap:14px;background:#1c2128;border:1px solid rgba(233,230,223,.08);border-radius:16px;padding:14px;color:#e9e6df;transition:transform .2s,border-color .2s" style-hover="transform:translateY(-4px);border-color:rgba(217,165,90,.5);color:#e9e6df">
+        <div style="aspect-ratio:1/1;position:relative;border-radius:10px;overflow:hidden"><image-slot id="{{ item.slotId }}" shape="rounded" radius="10" placeholder="{{ item.placeholder }}"></image-slot></div>
+        <div style="padding:2px 6px 8px;display:flex;flex-direction:column;gap:8px">
+          <span style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#d9a55a">{{ item.category }}</span>
+          <span style="font-family:'Instrument Serif',serif;font-size:22px;line-height:1.15;color:#f5f2ea;text-wrap:pretty">{{ item.title }}</span>
+          <span style="font-size:13px;color:rgba(233,230,223,.55)">{{ item.length }}</span>
+        </div>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<!-- IF THIS IS YOU -->
+<section aria-label="If this is you" style="padding:clamp(48px,7vw,96px) 0;text-align:center">
+  <p style="margin:0 0 28px;font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#d9a55a">If this is you</p>
+  <div style="max-width:24ch;margin:0 auto;font-family:'Instrument Serif',serif;font-size:clamp(30px,3.6vw,54px);line-height:1.15;color:#f5f2ea;text-wrap:balance">
+    <p style="margin:0">You are capable, self-aware and still stuck.</p>
+    <p style="margin:0;color:rgba(233,230,223,.55)">You carry the team, the decisions and the doubt.</p>
+    <p style="margin:0">The thinking that got you here cannot take you further.</p>
+  </div>
+  <a href="#work" style="display:inline-block;margin-top:36px;font-size:14px;font-weight:600;border-bottom:1px solid rgba(233,230,223,.4);padding-bottom:3px">See how Remi works with leaders</a>
+</section>
+
+<!-- STORY -->
+<section id="story" aria-labelledby="story-h" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(32px,5vw,80px);align-items:center;padding:clamp(48px,7vw,96px) 0;border-top:1px solid rgba(233,230,223,.1)">
+  <div style="aspect-ratio:4/5;position:relative;max-width:520px;width:100%;border-radius:20px;overflow:hidden">
+    <image-slot id="story-portrait" shape="rounded" radius="20" placeholder="Candid photo of Remi — on stage or at work"></image-slot>
+  </div>
+  <div>
+    <p style="margin:0 0 20px;font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#d9a55a">My story</p>
+    <h2 id="story-h" style="margin:0 0 24px;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(32px,3.4vw,50px);line-height:1.1;color:#f5f2ea;text-wrap:pretty">I built companies before I understood the thinking that was running them.</h2>
+    <p style="margin:0 0 18px;font-size:18px;line-height:1.6;color:rgba(233,230,223,.78)">More than twenty years leading teams, training thousands of leaders and writing books that reached millions. Everything I teach I learned by getting it wrong first.</p>
+    <p style="margin:0 0 32px;font-size:18px;line-height:1.6;color:rgba(233,230,223,.78)">Today I work with founders, executives and teams who want straight answers and lasting change, not motivation.</p>
+    <a href="#story" style="display:inline-block;font-size:14px;font-weight:600;border-bottom:1px solid rgba(233,230,223,.4);padding-bottom:3px">Read the full story</a>
+  </div>
+</section>
+
+<!-- WAYS TO WORK -->
+<section id="work" aria-label="Ways to work with Remi" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px;padding:0 0 clamp(48px,7vw,96px)">
+  <div style="background:#d9a55a;color:#15181d;border-radius:20px;padding:clamp(28px,3.5vw,48px);display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-height:340px">
+    <div>
+      <p style="margin:0 0 14px;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.7">Free live training</p>
+      <h2 style="margin:0 0 14px;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(30px,3vw,44px);line-height:1.05">Leading without carrying everyone</h2>
+      <p style="margin:0;font-size:16px;line-height:1.55;color:#2a2318">A free session on the T.R.U.S.T.M.E. model: seven levels of thinking and why you cannot skip one. Come, watch, decide nothing.</p>
+    </div>
+    <a href="#contact" style="align-self:flex-start;background:#15181d;color:#e9e6df;padding:14px 24px;border-radius:999px;font-size:14px;font-weight:700" style-hover="background:#2a2f38;color:#e9e6df">Register free →</a>
+  </div>
+  <div style="background:#1c2128;border:1px solid rgba(233,230,223,.08);border-radius:20px;padding:clamp(28px,3.5vw,48px);display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-height:340px">
+    <div>
+      <p style="margin:0 0 14px;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#d9a55a">Speaking</p>
+      <h2 style="margin:0 0 14px;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(30px,3vw,44px);line-height:1.05;color:#f5f2ea">Bring Remi to your stage</h2>
+      <p style="margin:0;font-size:16px;line-height:1.55;color:rgba(233,230,223,.72)">Keynotes and conference sessions on leadership, truth and change for audiences who want more than a pep talk.</p>
+    </div>
+    <a href="#contact" onClick="{{ presetSpeaking }}" style="align-self:flex-start;border:1px solid rgba(233,230,223,.35);color:#e9e6df;padding:13px 24px;border-radius:999px;font-size:14px;font-weight:700" style-hover="border-color:#d9a55a;color:#d9a55a">Speaking enquiry</a>
+  </div>
+  <div style="background:#1c2128;border:1px solid rgba(233,230,223,.08);border-radius:20px;padding:clamp(28px,3.5vw,48px);display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-height:340px">
+    <div>
+      <p style="margin:0 0 14px;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#d9a55a">Talk it through</p>
+      <h2 style="margin:0 0 14px;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(30px,3vw,44px);line-height:1.05;color:#f5f2ea">Still weighing it up? Let's talk.</h2>
+      <p style="margin:0;font-size:16px;line-height:1.55;color:rgba(233,230,223,.72)">A relaxed conversation about where you are and what is in the way. No script, no pitch.</p>
+    </div>
+    <a href="#contact" style="align-self:flex-start;border:1px solid rgba(233,230,223,.35);color:#e9e6df;padding:13px 24px;border-radius:999px;font-size:14px;font-weight:700" style-hover="border-color:#d9a55a;color:#d9a55a">Book a call</a>
+  </div>
+</section>
+
+<!-- MAILING LIST / CONTACT -->
+<section id="contact" aria-labelledby="ml-h" style="border-top:1px solid rgba(233,230,223,.1);padding:clamp(48px,7vw,96px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(28px,5vw,72px);align-items:center">
+  <div>
+    <p style="margin:0 0 14px;font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#d9a55a">Stay close</p>
+    <h2 id="ml-h" style="margin:0 0 16px;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,3.6vw,54px);line-height:1.05;color:#f5f2ea;text-wrap:pretty">Join the mailing list and get the Leadership Starter Kit.</h2>
+    <p style="margin:0;font-size:17px;line-height:1.6;color:rgba(233,230,223,.72);max-width:44ch">One thoughtful email a fortnight. Frameworks, talks and what Remi is thinking about. Unsubscribe any time.</p>
+  </div>
+  <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+    <form onSubmit="{{ submit }}" data-crm="gohighlevel" style="display:flex;flex-direction:column;gap:14px;background:#1c2128;border:1px solid rgba(233,230,223,.08);border-radius:20px;padding:clamp(24px,3vw,40px)">
+      <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(233,230,223,.6)">Name<input name="name" required placeholder="Your name" style="background:#15181d;border:1px solid rgba(233,230,223,.15);color:#e9e6df;padding:14px 16px;font-size:16px;border-radius:12px;outline:none;letter-spacing:0;text-transform:none;font-weight:400" style-focus="border-color:#d9a55a"></label>
+      <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(233,230,223,.6)">Email<input name="email" type="email" required placeholder="you@company.com" style="background:#15181d;border:1px solid rgba(233,230,223,.15);color:#e9e6df;padding:14px 16px;font-size:16px;border-radius:12px;outline:none;letter-spacing:0;text-transform:none;font-weight:400" style-focus="border-color:#d9a55a"></label>
+      <label style="display:flex;flex-direction:column;gap:8px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(233,230,223,.6)">I'm interested in
+        <select name="interest" value="{{ interest }}" onChange="{{ setInterest }}" style="background:#15181d;border:1px solid rgba(233,230,223,.15);color:#e9e6df;padding:14px 16px;font-size:16px;border-radius:12px;outline:none;letter-spacing:0;text-transform:none;font-weight:400;appearance:none">
+          <option value="Starter Kit">The Starter Kit</option>
+          <option value="Speaking">Speaking</option>
+          <option value="Podcast / Media">Podcast / Media</option>
+          <option value="Facilitation">Facilitation</option>
+          <option value="Book a call">Book a call</option>
+        </select>
+      </label>
+      <button type="submit" style="margin-top:6px;background:#d9a55a;color:#15181d;border:0;padding:16px 24px;font-size:14px;font-weight:700;border-radius:999px;cursor:pointer" style-hover="background:#e9e6df">Join + get the Starter Kit</button>
+      <span style="font-size:12px;color:rgba(233,230,223,.45);text-align:center">Your details are never shared.</span>
+    </form>
+  </sc-if>
+  <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+    <div style="background:#1c2128;border:1px solid rgba(217,165,90,.4);border-radius:20px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:12px;min-height:300px;justify-content:center">
+      <p style="margin:0;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#d9a55a">Received</p>
+      <h3 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;color:#f5f2ea">Thank you.</h3>
+      <p style="margin:0;font-size:16px;line-height:1.55;color:rgba(233,230,223,.72)">Check your inbox for the Starter Kit. Remi's team replies to enquiries within two business days.</p>
+      <button onClick="{{ reset }}" style="align-self:flex-start;margin-top:8px;background:transparent;border:1px solid rgba(233,230,223,.3);color:#e9e6df;padding:10px 18px;font-size:13px;font-weight:600;border-radius:999px;cursor:pointer">Send another</button>
+    </div>
+  </sc-if>
+</section>
+
+<!-- FOOTER -->
+<footer style="border-top:1px solid rgba(233,230,223,.1);padding:clamp(40px,5vw,72px) 0 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:36px 28px">
+  <div style="grid-column:span 1;display:flex;flex-direction:column;gap:16px">
+    <span style="font-family:'Instrument Serif',serif;font-size:32px;color:#f5f2ea">Remi Pearson</span>
+    <p style="margin:0;font-size:15px;line-height:1.55;color:rgba(233,230,223,.6);max-width:30ch">Business leader, speaker and strategist. Let truth lead.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+    <span style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#d9a55a;margin-bottom:6px">Explore</span>
+    <a href="#podcast" style="color:rgba(233,230,223,.75)">Podcast</a><a href="#work" style="color:rgba(233,230,223,.75)">Speaking</a><a href="#work" style="color:rgba(233,230,223,.75)">Frameworks</a><a href="#story" style="color:rgba(233,230,223,.75)">About</a><a href="#contact" style="color:rgba(233,230,223,.75)">Contact</a>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+    <span style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#d9a55a;margin-bottom:6px">Begin</span>
+    <a href="#contact" style="color:rgba(233,230,223,.75)">Register for the training</a><a href="#contact" style="color:rgba(233,230,223,.75)">Book a call</a><a href="#contact" style="color:rgba(233,230,223,.75)">Speaking enquiry</a><a href="#contact" style="color:rgba(233,230,223,.75)">Get the Starter Kit</a>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+    <span style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#d9a55a;margin-bottom:6px">Follow</span>
+    <a href="#" style="color:rgba(233,230,223,.75)">LinkedIn</a><a href="#" style="color:rgba(233,230,223,.75)">Instagram</a><a href="#" style="color:rgba(233,230,223,.75)">YouTube</a><a href="#" style="color:rgba(233,230,223,.75)">Podcast</a>
+  </div>
+  <div style="grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:24px;border-top:1px solid rgba(233,230,223,.1);font-size:13px;color:rgba(233,230,223,.45)">
+    <span>© 2026 Remi Pearson. All rights reserved.</span>
+    <a href="#" style="color:rgba(233,230,223,.45)">Privacy</a>
+  </div>
+</footer>
+</div>
+
+<sc-if value="{{ videoOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeVideo }}" role="dialog" aria-modal="true" aria-label="Featured video" style="position:fixed;inset:0;background:rgba(10,12,15,.92);display:flex;align-items:center;justify-content:center;padding:24px;z-index:50">
+    <div style="width:min(1100px,100%);aspect-ratio:16/9;background:#000;border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)">
+      <iframe title="Remi Pearson — featured talk" src="https://player.vimeo.com/video/{{ videoId }}?autoplay=1&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen style="width:100%;height:100%;border:0;display:block"></iframe>
+    </div>
+    <button onClick="{{ closeVideo }}" aria-label="Close" style="position:absolute;top:20px;right:24px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(233,230,223,.4);background:transparent;color:#e9e6df;font-size:22px;cursor:pointer">×</button>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;videoId&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;1221386697&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Featured video&quot;}}">
+class Component extends DCLogic {
+  state = { menuOpen: false, videoOpen: false, sent: false, interest: 'Starter Kit' };
+  componentDidMount() {
+    this._styleEl = document.createElement('style');
+    this._styleEl.textContent = '@media (max-width:899px){.rp-nav{display:none!important}.rp-burger{display:flex!important}}';
+    document.head.appendChild(this._styleEl);
+  }
+  componentWillUnmount() { this._styleEl && this._styleEl.remove(); }
+  renderVals() {
+    const featured = [
+      { slotId: 'v2-feat-1', category: 'Talk', title: 'You cannot lead everyone from the same place', length: '18 min', placeholder: 'Talk thumbnail' },
+      { slotId: 'v2-feat-2', category: 'Framework', title: 'Meet the T.R.U.S.T.M.E. model', length: '6 min read', placeholder: 'Framework graphic' },
+      { slotId: 'v2-feat-3', category: 'Podcast', title: 'How do I lead without carrying everybody?', length: '42 min', placeholder: 'Podcast cover' },
+      { slotId: 'v2-feat-4', category: 'Article', title: 'The thinking that created the problem cannot solve it', length: '8 min read', placeholder: 'Article image' },
+    ];
+    return {
+      featured,
+      menuOpen: this.state.menuOpen,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      videoOpen: this.state.videoOpen,
+      videoId: this.props.videoId ?? '1221386697',
+      openVideo: () => this.setState({ videoOpen: true }),
+      closeVideo: () => this.setState({ videoOpen: false }),
+      sent: this.state.sent, notSent: !this.state.sent,
+      interest: this.state.interest,
+      setInterest: e => this.setState({ interest: e.target.value }),
+      presetSpeaking: () => this.setState({ interest: 'Speaking' }),
+      submit: e => { e.preventDefault(); console.log('lead → GoHighLevel', Object.fromEntries(new FormData(e.target))); this.setState({ sent: true }); },
+      reset: () => this.setState({ sent: false }),
+    };
+  }
+}
+</script>
+</body>
+</html>
