@@ -30,7 +30,7 @@
     });
     closePip();
     setMuted(true);
-    $('.cta-photo').src = ['C1', 'C1T', 'C2'].includes(hero) ? 'assets/photos/story.jpg' : 'assets/photos/cta-remi.jpg';
+    $('.cta-photo').src = ['C1', 'C1T', 'C2'].includes(hero) ? 'assets/photos/story.webp' : 'assets/photos/cta-remi.webp';
     $$('[data-set-hero]').forEach(b => b.setAttribute('aria-checked', String(b.dataset.setHero === hero)));
     onScroll();
   }
