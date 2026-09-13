@@ -125,6 +125,16 @@
   });
   $('.js-reset').addEventListener('click', () => { form.reset(); sent.hidden = true; form.hidden = false; });
 
+  // ---------- Newsletter ----------
+  const newsForm = $('.news-form');
+  newsForm.addEventListener('submit', e => {
+    e.preventDefault();
+    // TODO: connect to the mailing list provider
+    console.log('newsletter signup', newsForm.elements.email.value);
+    newsForm.hidden = true;
+    $('.news-thanks').hidden = false;
+  });
+
   applyPalette();
   applyHero();
 })();
