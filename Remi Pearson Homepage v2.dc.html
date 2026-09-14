@@ -20,13 +20,14 @@ input::placeholder{color:rgba(var(--ink-rgb),.4)}
 @keyframes rp-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes rp-fade{from{opacity:0}to{opacity:1}}
 @keyframes rp-grow{from{opacity:0;transform:translate(30%,30%) scale(.35)}to{opacity:1;transform:none}}
+@keyframes rp-dot{0%,80%,100%{transform:translateY(0);opacity:.5}40%{transform:translateY(-4px);opacity:1}}
 @keyframes rp-kb{from{transform:scaleX(-1) scale(1.02)}to{transform:scaleX(-1) scale(1.1)}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 @keyframes rp-scroll{0%{transform:translateX(-50%) scaleY(0);transform-origin:top}50%{transform:translateX(-50%) scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:translateX(-50%) scaleY(0);transform-origin:bottom}}
 </style>
 </helmet>
 
-<div style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+<div data-full="{{ fullScreen }}" style="max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
 
 <!-- HEADER -->
 <header data-on-video="{{ onVideo }}" data-scrolled="{{ scrolled }}" style="position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px clamp(20px,5vw,64px);margin:0 calc(-1 * clamp(20px,5vw,64px));min-height:92px;box-sizing:border-box;background:transparent;border-bottom:1px solid transparent;transition:background .3s ease,border-color .3s ease,box-shadow .3s ease,padding .3s ease">
@@ -49,6 +50,7 @@ input::placeholder{color:rgba(var(--ink-rgb),.4)}
           <a href="#top" onClick="{{ pickC1 }}" style="padding:10px 12px;border-radius:10px;color:inherit;display:flex;justify-content:space-between;gap:12px" style-hover="background:rgba(var(--ink-rgb),.06)">C1 · Portrait, text &amp; video <span style="opacity:.5">{{ tickC1 }}</span></a>
           <a href="#top" onClick="{{ pickC1T }}" style="padding:10px 12px;border-radius:10px;color:inherit;display:flex;justify-content:space-between;gap:12px" style-hover="background:rgba(var(--ink-rgb),.06)">C1-Transitions <span style="opacity:.5">{{ tickC1T }}</span></a>
           <a href="#top" onClick="{{ pickC2 }}" style="padding:10px 12px;border-radius:10px;color:inherit;display:flex;justify-content:space-between;gap:12px" style-hover="background:rgba(var(--ink-rgb),.06)">C2 · Picture-in-picture video <span style="opacity:.5">{{ tickC2 }}</span></a>
+          <a href="#top" onClick="{{ pickC3 }}" style="padding:10px 12px;border-radius:10px;color:inherit;display:flex;justify-content:space-between;gap:12px" style-hover="background:rgba(var(--ink-rgb),.06)">Full screen C3 <span style="opacity:.5">{{ tickC3 }}</span></a>
           <a href="#top" onClick="{{ pickD }}" style="padding:10px 12px;border-radius:10px;color:inherit;display:flex;justify-content:space-between;gap:12px" style-hover="background:rgba(var(--ink-rgb),.06)">D · Full-screen video <span style="opacity:.5">{{ tickD }}</span></a>
           <span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);padding:14px 12px 4px;border-top:1px solid rgba(var(--ink-rgb),.1);margin-top:6px">Palette</span>
           <a href="#top" onClick="{{ pickPal0 }}" style="padding:10px 12px;border-radius:10px;color:inherit;display:flex;justify-content:space-between;gap:12px" style-hover="background:rgba(var(--ink-rgb),.06)">White & gold <span style="opacity:.5">{{ tickPal0 }}</span></a>
@@ -84,6 +86,7 @@ input::placeholder{color:rgba(var(--ink-rgb),.4)}
     <a onClick="{{ pickC1 }}" href="#top" style="padding:6px 0;font-size:24px">C1 · Portrait, text &amp; video</a>
     <a onClick="{{ pickC1T }}" href="#top" style="padding:6px 0;font-size:24px">C1-Transitions</a>
     <a onClick="{{ pickC2 }}" href="#top" style="padding:6px 0;font-size:24px">C2 · Picture-in-picture video</a>
+    <a onClick="{{ pickC3 }}" href="#top" style="padding:6px 0;font-size:24px">Full screen C3</a>
     <a onClick="{{ pickD }}" href="#top" style="padding:6px 0;font-size:24px">D · Full-screen video</a>
     <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-family:'Manrope',sans-serif;padding-top:16px">Variants · Palette</span>
     <a onClick="{{ pickPal0 }}" href="#top" style="padding:6px 0;font-size:24px">White & gold</a>
@@ -169,7 +172,7 @@ input::placeholder{color:rgba(var(--ink-rgb),.4)}
   <div class="rp-c1-top" style="position:relative;margin:0 calc(-1 * clamp(20px,5vw,64px));min-height:clamp(600px,86vh,920px);display:flex;align-items:center;overflow:hidden;background:var(--card)">
     <img src="./assets/photos/cta-remi.jpg" alt="Remi Pearson speaking" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:32% 12%;transform:scaleX(-1)">
     <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(to right, var(--bg) 0%, rgba(var(--bg-rgb),.9) 30%, rgba(var(--bg-rgb),.35) 46%, rgba(var(--bg-rgb),0) 58%)"></div>
-    <div style="position:relative;box-sizing:border-box;width:100%;max-width:1280px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,5vw,64px)">
+    <div class="rp-full-inner" style="position:relative;box-sizing:border-box;width:100%;max-width:1280px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,5vw,64px)">
     <div class="rp-c1-copy" style="max-width:min(520px,46%)">
 
       <p style="margin:0 0 22px;font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)">Strategist · Speaker · Author</p>
@@ -411,7 +414,7 @@ input::placeholder{color:rgba(var(--ink-rgb),.4)}
 <section aria-label="Closing invitation" style="position:relative;margin:0 calc(-1 * clamp(20px,5vw,64px));padding:clamp(56px,8vw,112px) clamp(20px,5vw,64px);overflow:hidden;background:var(--card)">
   <img src="{{ ctaPhoto }}" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:28% 20%;-webkit-mask-image:linear-gradient(to right, rgba(0,0,0,.95) 0%, rgba(0,0,0,.6) 42%, rgba(0,0,0,0) 72%);mask-image:linear-gradient(to right, rgba(0,0,0,.95) 0%, rgba(0,0,0,.6) 42%, rgba(0,0,0,0) 72%)">
   <div style="position:absolute;inset:0;background:linear-gradient(to bottom, var(--card) 0%, transparent 18%, transparent 82%, var(--card) 100%)"></div>
-  <div style="position:relative;max-width:1152px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:32px;align-items:center">
+  <div class="rp-full-inner" style="position:relative;max-width:1152px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:32px;align-items:center">
     <div aria-hidden="true" style="min-height:clamp(220px,32vw,420px)"></div>
     <div style="display:flex;flex-direction:column;align-items:flex-start;gap:18px;max-width:520px">
       <p style="margin:0;font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)">Next step</p>
@@ -437,27 +440,64 @@ input::placeholder{color:rgba(var(--ink-rgb),.4)}
 <!-- CHAT LAUNCHER -->
 <div style="position:fixed;right:clamp(16px,2.5vw,28px);bottom:clamp(16px,2.5vw,28px);z-index:45;display:flex;flex-direction:column;align-items:flex-end;gap:12px">
   <sc-if value="{{ chatOpen }}" hint-placeholder-val="{{ false }}">
-    <div role="dialog" aria-label="Chat with Remi's team" style="width:min(340px,calc(100vw - 32px));background:var(--card);color:var(--ink);border:1px solid rgba(var(--ink-rgb),.12);border-radius:18px;box-shadow:0 30px 80px rgba(var(--shadow-rgb),.4);overflow:hidden;animation:rp-rise .3s ease-out both">
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;background:var(--accent);color:var(--on-accent)">
-        <div style="display:flex;align-items:center;gap:10px"><span style="width:8px;height:8px;border-radius:50%;background:currentColor"></span><span style="font-size:14px;font-weight:700">Remi's team</span></div>
-        <button onClick="{{ toggleChat }}" aria-label="Close chat" style="width:28px;height:28px;border-radius:50%;border:0;background:rgba(0,0,0,.15);color:inherit;font-size:16px;line-height:1;cursor:pointer">×</button>
-      </div>
-      <div style="padding:16px;display:flex;flex-direction:column;gap:12px;font-size:15px;line-height:1.5">
-        <div style="background:rgba(var(--ink-rgb),.06);padding:12px 14px;border-radius:14px 14px 14px 4px;max-width:90%">Hi. Looking to book Remi for a keynote, a strategy day, or media? Tell us a little and we'll reply within one business day.</div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <a href="#contact" onClick="{{ toggleChat }}" style="border:1px solid rgba(var(--ink-rgb),.25);color:inherit;padding:8px 12px;border-radius:999px;font-size:13px;font-weight:600" style-hover="border-color:var(--accent);color:var(--accent)">Keynote</a>
-          <a href="#contact" onClick="{{ toggleChat }}" style="border:1px solid rgba(var(--ink-rgb),.25);color:inherit;padding:8px 12px;border-radius:999px;font-size:13px;font-weight:600" style-hover="border-color:var(--accent);color:var(--accent)">Strategy day</a>
-          <a href="#contact" onClick="{{ toggleChat }}" style="border:1px solid rgba(var(--ink-rgb),.25);color:inherit;padding:8px 12px;border-radius:999px;font-size:13px;font-weight:600" style-hover="border-color:var(--accent);color:var(--accent)">Podcast / media</a>
+    <div role="dialog" aria-label="Talk to Remi" style="width:min(380px,calc(100vw - 32px));height:min(580px,calc(100svh - 120px));display:flex;flex-direction:column;background:var(--card);color:var(--ink);border:1px solid rgba(var(--ink-rgb),.12);border-radius:22px;box-shadow:0 30px 80px rgba(var(--shadow-rgb),.4);overflow:hidden;animation:rp-rise .3s ease-out both">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 16px 14px 18px;border-bottom:1px solid rgba(var(--ink-rgb),.1)">
+        <div style="display:flex;align-items:center;gap:12px;min-width:0">
+          <span style="position:relative;flex:none;width:42px;height:42px">
+            <img src="./assets/photos/story.jpg" alt="" style="width:42px;height:42px;border-radius:50%;object-fit:cover;object-position:50% 20%;display:block">          </span>
+          <span style="display:flex;flex-direction:column;gap:2px;min-width:0">
+            <span style="font-family:'Instrument Serif',serif;font-size:22px;line-height:1;color:var(--ink-strong)">Talk to Remi</span>          </span>
         </div>
+        <button onClick="{{ toggleChat }}" aria-label="Close chat" style="flex:none;width:34px;height:34px;border-radius:50%;border:1px solid rgba(var(--ink-rgb),.18);background:transparent;color:inherit;font-size:18px;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center" style-hover="background:rgba(var(--ink-rgb),.08)">×</button>
       </div>
-      <div style="display:flex;gap:8px;padding:0 16px 16px">
-        <input placeholder="Type a message…" style="flex:1;min-width:0;background:transparent;border:1px solid rgba(var(--ink-rgb),.2);color:inherit;padding:10px 14px;border-radius:999px;font-size:14px;outline:none;font-family:inherit">
-        <button aria-label="Send" style="width:40px;height:40px;border-radius:50%;border:0;background:var(--accent);color:var(--on-accent);cursor:pointer;display:inline-flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <div ref="{{ chatLogRef }}" role="log" aria-live="polite" style="flex:1;overflow-y:auto;padding:18px 16px;display:flex;flex-direction:column;gap:12px;font-size:14px;line-height:1.5">
+        <span style="align-self:center;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(var(--ink-rgb),.4)">Today</span>
+        <sc-for list="{{ chatItems }}" as="item" hint-placeholder-count="2">
+          <div style="display:flex;flex-direction:column;gap:8px;max-width:85%;align-self:{{ item.align }};align-items:{{ item.align }};animation:rp-rise .3s ease-out both">
+            <div style="padding:11px 14px;background:{{ item.bg }};color:{{ item.fg }};border-radius:{{ item.radius }};text-wrap:pretty">{{ item.text }}</div>
+            <sc-if value="{{ item.hasCta }}" hint-placeholder-val="{{ false }}">
+              <a href="#contact" onClick="{{ item.onCta }}" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:var(--on-accent);padding:9px 14px;border-radius:999px;font-size:13px;font-weight:700" style-hover="background:var(--ink);color:var(--bg)">{{ item.cta }} →</a>
+            </sc-if>
+          </div>
+        </sc-for>
+        <sc-if value="{{ chatTyping }}" hint-placeholder-val="{{ false }}">
+          <div aria-label="Typing" style="align-self:flex-start;display:inline-flex;gap:5px;padding:14px 16px;background:rgba(var(--ink-rgb),.07);border-radius:16px 16px 16px 4px">
+            <span style="width:6px;height:6px;border-radius:50%;background:rgba(var(--ink-rgb),.55);animation:rp-dot 1s ease-in-out infinite"></span>
+            <span style="width:6px;height:6px;border-radius:50%;background:rgba(var(--ink-rgb),.55);animation:rp-dot 1s ease-in-out .15s infinite"></span>
+            <span style="width:6px;height:6px;border-radius:50%;background:rgba(var(--ink-rgb),.55);animation:rp-dot 1s ease-in-out .3s infinite"></span>
+          </div>
+        </sc-if>
+        <sc-if value="{{ chatFresh }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-wrap:wrap;gap:8px;padding-top:4px">
+            <sc-for list="{{ chatQuick }}" as="q" hint-placeholder-count="4">
+              <button onClick="{{ q.onPick }}" style="background:transparent;border:1px solid rgba(var(--accent-rgb),.5);color:var(--ink);padding:8px 13px;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit" style-hover="background:rgba(var(--accent-rgb),.12);border-color:var(--accent)">{{ q.label }}</button>
+            </sc-for>
+          </div>
+        </sc-if>
       </div>
+      <form onSubmit="{{ sendChatForm }}" style="display:flex;gap:8px;align-items:center;padding:12px 14px;border-top:1px solid rgba(var(--ink-rgb),.1)">
+        <input value="{{ chatDraft }}" onChange="{{ setChatDraft }}" aria-label="Message" placeholder="Ask about keynotes, strategy days…" style="flex:1;min-width:0;background:var(--bg);border:1px solid rgba(var(--ink-rgb),.15);color:inherit;padding:12px 16px;border-radius:999px;font-size:14px;outline:none;font-family:inherit" style-focus="border-color:var(--accent)">
+        <button type="submit" aria-label="Send" style="flex:none;width:44px;height:44px;border-radius:50%;border:0;background:var(--accent);color:var(--on-accent);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:transform .2s ease" style-hover="transform:scale(1.06)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </form>
+      <a href="#contact" onClick="{{ toggleChat }}" style="display:block;padding:0 16px 12px;text-align:center;font-size:12px;color:rgba(var(--ink-rgb),.5)" style-hover="color:var(--accent)">Prefer a form? Send a full enquiry</a>
     </div>
   </sc-if>
-  <button onClick="{{ toggleChat }}" aria-label="Chat with Remi's team" style="width:56px;height:56px;border-radius:50%;border:0;background:var(--accent);color:var(--on-accent);box-shadow:0 14px 40px rgba(var(--shadow-rgb),.35);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:transform .25s ease" style-hover="transform:translateY(-3px) scale(1.04)">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H8l-5 3 1.4-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01" stroke-width="3"/></svg>
+  <sc-if value="{{ chatTeaser }}" hint-placeholder-val="{{ true }}">
+    <button onClick="{{ toggleChat }}" class="rp-chat-teaser" style="display:flex;align-items:center;gap:10px;background:var(--card);color:var(--ink);border:1px solid rgba(var(--ink-rgb),.12);padding:10px 16px 10px 10px;border-radius:999px;box-shadow:0 14px 40px rgba(var(--shadow-rgb),.25);cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;animation:rp-rise .5s cubic-bezier(.2,.7,.2,1) 2s both" style-hover="border-color:rgba(var(--accent-rgb),.6)">
+      <img src="./assets/photos/story.jpg" alt="" style="width:30px;height:30px;border-radius:50%;object-fit:cover;object-position:50% 20%">
+      Have a question? Talk to Remi
+    </button>
+  </sc-if>
+  <button onClick="{{ toggleChat }}" aria-label="{{ chatLauncherLabel }}" aria-expanded="{{ chatOpen }}" style="position:relative;width:58px;height:58px;border-radius:50%;border:0;background:var(--accent);color:var(--on-accent);box-shadow:0 14px 40px rgba(var(--shadow-rgb),.35);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:transform .25s ease" style-hover="transform:translateY(-3px) scale(1.04)">
+    <sc-if value="{{ chatClosed }}" hint-placeholder-val="{{ true }}">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H8l-5 3 1.4-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01" stroke-width="3"/></svg>
+    </sc-if>
+    <sc-if value="{{ chatOpen }}" hint-placeholder-val="{{ false }}">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </sc-if>
+    <sc-if value="{{ chatTeaser }}" hint-placeholder-val="{{ true }}">
+      <span aria-hidden="true" style="position:absolute;top:2px;right:2px;width:12px;height:12px;border-radius:50%;background:#e5484d;border:2px solid var(--bg)"></span>
+    </sc-if>
   </button>
 </div>
 
@@ -495,10 +535,28 @@ input::placeholder{color:rgba(var(--ink-rgb),.4)}
   </div>
 </sc-if>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;hero&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;A&quot;,&quot;B&quot;,&quot;B3&quot;,&quot;C&quot;,&quot;C1&quot;,&quot;C1T&quot;,&quot;C2&quot;,&quot;D&quot;],&quot;default&quot;:&quot;A&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;A/B · Home hero&quot;},&quot;palette&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;White &amp; gold&quot;,&quot;Espresso &amp; rust&quot;,&quot;Oxblood &amp; parchment&quot;,&quot;Parchment &amp; rust&quot;,&quot;Midnight &amp; gold&quot;],&quot;default&quot;:&quot;White &amp; gold&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Colour&quot;},&quot;videoId&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;1221386697&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Featured video&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;hero&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;A&quot;,&quot;B&quot;,&quot;B3&quot;,&quot;C&quot;,&quot;C1&quot;,&quot;C1T&quot;,&quot;C2&quot;,&quot;C3&quot;,&quot;D&quot;],&quot;default&quot;:&quot;A&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;A/B · Home hero&quot;},&quot;palette&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;White &amp; gold&quot;,&quot;Espresso &amp; rust&quot;,&quot;Oxblood &amp; parchment&quot;,&quot;Parchment &amp; rust&quot;,&quot;Midnight &amp; gold&quot;],&quot;default&quot;:&quot;White &amp; gold&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Colour&quot;},&quot;videoId&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;1221386697&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Featured video&quot;}}">
 class Component extends DCLogic {
-  state = { menuOpen: false, videoOpen: false, sent: false, interest: 'Facilitation', abOpen: false, hero: null, chatOpen: false, muted: true };
+  state = { menuOpen: false, videoOpen: false, sent: false, interest: 'Facilitation', abOpen: false, hero: null, chatOpen: false, chatSeen: false, chatDraft: '', chatTyping: false, chatMsgs: [{ from: 'team', text: "Hi, thanks for stopping by. Ask about keynotes, strategy days, media or Remi's books and programs. Pick a topic or type a question." }], muted: true };
   heroVideoRef = React.createRef();
+  chatLogRef = React.createRef();
+  chatReplies = {
+    Speaking: { text: "Remi speaks at conferences and leadership events on truth, leadership and decision-making. Share your date, location and audience size and the team will come back to you.", cta: 'Send a speaking enquiry', interest: 'Speaking' },
+    Facilitation: { text: "Remi facilitates strategy days, offsites and board sessions. Tell us a little about the team and what's on the table, and we'll be in touch.", cta: 'Send a facilitation enquiry', interest: 'Facilitation' },
+    Media: { text: "Thanks for thinking of Remi. Send the show or publication, the topic and your timing, and the team will reply.", cta: 'Send a media request', interest: 'Media' },
+    Products: { text: "Remi's books and self-paced programs are built on her frames. Leave your details and we'll point you to what fits.", cta: 'Ask about books & programs', interest: 'Products' },
+    Coaching: { text: "Remi doesn't take on individual coaching, but her books and programs work through the same frames. Would one of those help?", cta: 'See books & programs', interest: 'Products' },
+    Other: { text: "Good question. I can help with keynotes, strategy days, media and Remi's books and programs. For anything else, send the details through the enquiry form and Remi's team will pick it up.", cta: 'Open the enquiry form', interest: 'Other' },
+  };
+  sendChat(raw) {
+    const text = (raw || '').trim();
+    if (!text || this.state.chatTyping) return;
+    const t = text.toLowerCase();
+    const topic = /coach/.test(t) ? 'Coaching' : /keynote|speak|stage|conference|event/.test(t) ? 'Speaking' : /strateg|facilitat|offsite|board|workshop/.test(t) ? 'Facilitation' : /podcast|media|interview|press/.test(t) ? 'Media' : /book|program|course|product/.test(t) ? 'Products' : 'Other';
+    this.setState(s => ({ chatMsgs: [...s.chatMsgs, { from: 'me', text }], chatDraft: '', chatTyping: true }));
+    clearTimeout(this._chatTimer);
+    this._chatTimer = setTimeout(() => this.setState(s => ({ chatTyping: false, chatMsgs: [...s.chatMsgs, { from: 'team', topic, ...this.chatReplies[topic] }] })), 1100);
+  }
   postVimeo(method, value) { const f = this.heroVideoRef.current; if (f && f.contentWindow) f.contentWindow.postMessage(JSON.stringify({ method, value }), '*'); }
   applyPalette() {
     const p = {
@@ -513,20 +571,27 @@ class Component extends DCLogic {
     Object.entries(p).forEach(([k,v]) => r.setProperty('--'+k, v));
     const h = p.bg.replace('#',''); r.setProperty('--bg-rgb', [0,2,4].map(i => parseInt(h.slice(i,i+2),16)).join(','));
   }
-  componentDidUpdate() { this.applyPalette(); }
+  componentDidUpdate(_, prev = {}) {
+    this.applyPalette();
+    const log = this.chatLogRef.current;
+    if (log && (prev.chatMsgs !== this.state.chatMsgs || prev.chatTyping !== this.state.chatTyping || !prev.chatOpen)) log.scrollTop = log.scrollHeight;
+  }
   componentDidMount() {
     this.applyPalette();
     this._onScroll = () => { const s = window.scrollY > 24; if (s !== !!this.state.scrolled) this.setState({ scrolled: s }); };
     window.addEventListener('scroll', this._onScroll, { passive: true }); this._onScroll();
+    this._onKey = e => { if (e.key === 'Escape' && this.state.chatOpen) this.setState({ chatOpen: false }); };
+    window.addEventListener('keydown', this._onKey);
     this._styleEl = document.createElement('style');
     this._styleEl.textContent = '@media (max-width:899px){.rp-nav{display:none!important}.rp-burger{display:flex!important}}';
     this._styleEl.textContent += 'header[data-scrolled="true"]{background:rgba(var(--bg-rgb),.88)!important;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:rgba(var(--ink-rgb),.1)!important;box-shadow:0 10px 30px rgba(var(--shadow-rgb),.12);padding-top:14px!important;padding-bottom:14px!important;min-height:72px!important}';
     this._styleEl.textContent += 'header[data-on-video="true"]{color:#f8f3ea;background:transparent!important;border-bottom-color:transparent!important;text-shadow:0 1px 10px rgba(0,0,0,.8)}header[data-on-video="true"] nav button{background:rgba(0,0,0,.45)!important;backdrop-filter:blur(8px)}header[data-on-video="true"] img{filter:drop-shadow(0 2px 10px rgba(0,0,0,.7))}header[data-on-video="true"] nav a,header[data-on-video="true"] nav button{color:#f8f3ea!important;border-color:rgba(248,243,234,.45)!important}header[data-on-video="true"]>div>a{background:#f8f3ea!important;color:#0d0c0b!important}header[data-on-video="true"] .rp-burger{border-color:rgba(248,243,234,.45)!important}header[data-on-video="true"] .rp-burger span{background:#f8f3ea!important}header[data-on-video="true"] img[src*="remi-logo-ink"],header[data-on-video="true"] img[src*="remi-logo-rust"]{display:none!important}header[data-on-video="true"] img[src$="remi-logo.png"]{display:block!important}';
     this._styleEl.textContent += '@media (max-width:760px){.rp-c1-top{align-items:flex-end!important;min-height:0!important}.rp-c1-top>img{height:60%!important;object-position:50% 0!important}.rp-c1-top>div[aria-hidden]{background:linear-gradient(to top, var(--bg) 0%, var(--bg) 42%, rgba(var(--bg-rgb),0) 62%)!important}.rp-c1-top>div:last-child{padding-top:54vw!important}.rp-c1-copy{max-width:100%!important}}';
-    this._styleEl.textContent += '@media (max-width:760px){}';
+    this._styleEl.textContent += '@media (max-width:640px){.rp-chat-teaser{display:none!important}}';
+    this._styleEl.textContent += '[data-full="true"]{max-width:none!important}[data-full="true"] .rp-full-inner{max-width:none!important}@media (min-width:761px){[data-full="true"] .rp-c1-top{min-height:calc(100svh - 92px)!important;max-height:none!important}}';
     document.head.appendChild(this._styleEl);
   }
-  componentWillUnmount() { this._styleEl && this._styleEl.remove(); window.removeEventListener('scroll', this._onScroll); }
+  componentWillUnmount() { this._styleEl && this._styleEl.remove(); window.removeEventListener('scroll', this._onScroll); window.removeEventListener('keydown', this._onKey); clearTimeout(this._chatTimer); }
   renderVals() {
     const featured = [
       { slotId: 'v2-feat-1', src: './assets/photos/frame-1.jpg', category: 'Frame 01', title: 'The T.R.U.S.T.M.E. model', length: 'Seven levels of thinking', placeholder: 'Frame diagram' },
@@ -541,21 +606,34 @@ class Component extends DCLogic {
     const pick = h => () => this.setState({ hero: h, abOpen: false, menuOpen: false });
     return {
       ...palVals,
-      chatOpen: this.state.chatOpen, toggleChat: () => this.setState(s => ({ chatOpen: !s.chatOpen })),
+      chatOpen: this.state.chatOpen, chatClosed: !this.state.chatOpen,
+      toggleChat: () => this.setState(s => ({ chatOpen: !s.chatOpen, chatSeen: true })),
+      chatLauncherLabel: this.state.chatOpen ? 'Close chat' : 'Talk to Remi',
+      chatTeaser: !this.state.chatSeen && !this.state.chatOpen,
+      chatLogRef: this.chatLogRef,
+      chatTyping: this.state.chatTyping,
+      chatFresh: !this.state.chatTyping && this.state.chatMsgs.length === 1,
+      chatDraft: this.state.chatDraft,
+      setChatDraft: e => this.setState({ chatDraft: e.target.value }),
+      sendChatForm: e => { e.preventDefault(); this.sendChat(this.state.chatDraft); },
+      chatQuick: ['Keynote speaking', 'Strategy day', 'Podcast / media', 'Books & programs'].map(label => ({ label, onPick: () => this.sendChat(label) })),
+      chatItems: this.state.chatMsgs.map(m => m.from === 'me'
+        ? { text: m.text, align: 'flex-end', bg: 'var(--accent)', fg: 'var(--on-accent)', radius: '16px 16px 4px 16px', hasCta: false }
+        : { text: m.text, align: 'flex-start', bg: 'rgba(var(--ink-rgb),.07)', fg: 'var(--ink)', radius: '16px 16px 16px 4px', hasCta: !!m.cta, cta: m.cta, onCta: () => this.setState({ interest: m.interest, chatOpen: false }) }),
       onVideo: hero === 'D' && !this.state.scrolled ? 'true' : 'false',
       scrolled: this.state.scrolled ? 'true' : 'false',
-      heroA: hero === 'A', heroB: hero === 'B', heroB3: hero === 'B3', heroC: hero === 'C', ctaPhoto: (hero === 'C1' || hero === 'C1T' || hero === 'C2') ? './assets/photos/story.jpg' : './assets/photos/cta-remi.jpg',
-      heroC1: hero === 'C1', heroC1T: hero === 'C1T', heroC2: hero === 'C2',
+      heroA: hero === 'A', heroB: hero === 'B', heroB3: hero === 'B3', heroC: hero === 'C', ctaPhoto: (hero === 'C1' || hero === 'C1T' || hero === 'C2' || hero === 'C3') ? './assets/photos/story.jpg' : './assets/photos/cta-remi.jpg',
+      heroC1: hero === 'C1', heroC1T: hero === 'C1T', heroC2: hero === 'C2' || hero === 'C3', fullScreen: hero === 'C3' ? 'true' : 'false',
       pipSmall: !this.state.pipOpen, pipBig: !!this.state.pipOpen,
       expandPip: () => this.setState({ pipOpen: true }), shrinkPip: () => this.setState({ pipOpen: false }), heroD: hero === 'D', notHeroD: hero !== 'D',
-      tickA: hero === 'A' ? '✓' : '', tickB: hero === 'B' ? '✓' : '', tickB3: hero === 'B3' ? '✓' : '', tickC: hero === 'C' ? '✓' : '', tickC1: hero === 'C1' ? '✓' : '', tickC1T: hero === 'C1T' ? '✓' : '', tickC2: hero === 'C2' ? '✓' : '', tickD: hero === 'D' ? '✓' : '',
+      tickA: hero === 'A' ? '✓' : '', tickB: hero === 'B' ? '✓' : '', tickB3: hero === 'B3' ? '✓' : '', tickC: hero === 'C' ? '✓' : '', tickC1: hero === 'C1' ? '✓' : '', tickC1T: hero === 'C1T' ? '✓' : '', tickC2: hero === 'C2' ? '✓' : '', tickC3: hero === 'C3' ? '✓' : '',tickD: hero === 'D' ? '✓' : '',
       abOpen: this.state.abOpen,
       toggleAb: () => this.setState(s => ({ abOpen: !s.abOpen })),
       heroVideoRef: this.heroVideoRef,
       muteLabel: this.state.muted ? 'Sound off' : 'Sound on',
       muteDot: this.state.muted ? 'rgba(248,243,234,.45)' : '#e2b76a',
       toggleMute: () => { const m = !this.state.muted; this.setState({ muted: m }); this.postVimeo('setMuted', m); if (!m) this.postVimeo('setVolume', 1); },
-      pickA: pick('A'), pickB: pick('B'), pickB3: pick('B3'), pickC: pick('C'), pickC1: pick('C1'), pickC1T: pick('C1T'), pickC2: pick('C2'), pickD: pick('D'),
+      pickA: pick('A'), pickB: pick('B'), pickB3: pick('B3'), pickC: pick('C'), pickC1: pick('C1'), pickC1T: pick('C1T'), pickC2: pick('C2'), pickC3: pick('C3'),pickD: pick('D'),
       featured,
       menuOpen: this.state.menuOpen,
       toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
