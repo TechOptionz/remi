@@ -39,6 +39,7 @@
         <button type="button" role="menuitemradio" data-set-hero="C1">C1 · Portrait, text &amp; video</button>
         <button type="button" role="menuitemradio" data-set-hero="C1T">C1-Transitions</button>
         <button type="button" role="menuitemradio" data-set-hero="C2">C2 · Picture-in-picture video</button>
+        <button type="button" role="menuitemradio" data-set-hero="C3">Full screen C3</button>
         <button type="button" role="menuitemradio" data-set-hero="D">D · Full-screen video</button>
         <span class="variants-label variants-label--sep">Palette</span>
         <button type="button" role="menuitemradio" data-set-palette="white-gold">White &amp; gold</button>
@@ -71,6 +72,7 @@
   <button type="button" data-set-hero="C1">C1 · Portrait, text &amp; video</button>
   <button type="button" data-set-hero="C1T">C1-Transitions</button>
   <button type="button" data-set-hero="C2">C2 · Picture-in-picture video</button>
+  <button type="button" data-set-hero="C3">Full screen C3</button>
   <button type="button" data-set-hero="D">D · Full-screen video</button>
   <span class="mobile-label">Variants · Palette</span>
   <button type="button" data-set-palette="white-gold">White &amp; gold</button>
@@ -164,8 +166,8 @@
   </div>
 </section>
 
-<!-- HERO C2 · Picture-in-picture video -->
-<section data-hero="C2" class="hero-c2" aria-label="Introduction" hidden>
+<!-- HERO C2 · Picture-in-picture video  /  C3 · same, full screen -->
+<section data-hero="C2 C3" class="hero-c2" aria-label="Introduction" hidden>
   <div class="portrait-top portrait-top--tall">
     <img class="portrait-img" src="assets/photos/cta-remi.webp" alt="Remi Pearson speaking">
     <div class="portrait-fade" aria-hidden="true"></div>
@@ -229,7 +231,7 @@
 </section>
 
 <!-- IN THE ROOM (all heroes except D) -->
-<section class="band" data-hero="A B B3 C C1 C1T C2" aria-label="Remi at work">
+<section class="band" data-hero="A B B3 C C1 C1T C2 C3" aria-label="Remi at work">
   <img loading="lazy" decoding="async" src="assets/photos/band-1.webp" alt="Remi in the room">
   <img loading="lazy" decoding="async" src="assets/photos/band-2.webp" alt="Remi on stage">
   <img loading="lazy" decoding="async" src="assets/photos/band-3.webp" alt="Remi in the studio">
@@ -444,28 +446,37 @@
   <button type="button" class="video-modal-close js-close-video" aria-label="Close">×</button>
 </div>
 
-<!-- CHAT LAUNCHER -->
+<!-- CHAT -->
 <div class="chat">
-  <div class="chat-panel" role="dialog" aria-label="Chat with Remi's team" hidden>
+  <div class="chat-panel" role="dialog" aria-label="Talk to Remi" hidden>
     <div class="chat-head">
-      <div><span class="dot"></span><strong>Remi's team</strong></div>
+      <div class="chat-id">
+        <img src="assets/photos/story.webp" alt="" width="42" height="42">
+        <strong>Talk to Remi</strong>
+      </div>
       <button type="button" class="chat-close js-chat-toggle" aria-label="Close chat">×</button>
     </div>
-    <div class="chat-body">
-      <div class="bubble">Hi. Looking to book Remi for a keynote, a strategy day, or media? Tell us a little and we'll reply within one business day.</div>
+    <div class="chat-log" role="log" aria-live="polite">
+      <span class="chat-day">Today</span>
+      <div class="msg msg--them"><div class="bubble">Hi, thanks for stopping by. Ask about keynotes, strategy days, media or Remi's books and programs. Pick a topic or type a question.</div></div>
       <div class="chips">
-        <a href="#contact" class="chip js-chat-toggle" data-interest="Speaking">Keynote</a>
-        <a href="#contact" class="chip js-chat-toggle" data-interest="Facilitation">Strategy day</a>
-        <a href="#contact" class="chip js-chat-toggle" data-interest="Media">Podcast / media</a>
+        <button type="button" class="chip" data-chat-say="Keynote speaking">Keynote speaking</button>
+        <button type="button" class="chip" data-chat-say="Strategy day">Strategy day</button>
+        <button type="button" class="chip" data-chat-say="Podcast / media">Podcast / media</button>
+        <button type="button" class="chip" data-chat-say="Books &amp; programs">Books &amp; programs</button>
       </div>
     </div>
-    <div class="chat-input">
-      <input placeholder="Type a message…" aria-label="Message">
-      <button type="button" aria-label="Send"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-    </div>
+    <form class="chat-input">
+      <input name="message" placeholder="Ask about keynotes, strategy days…" aria-label="Message" autocomplete="off">
+      <button type="submit" aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </form>
+    <a href="#contact" class="chat-form-link js-chat-toggle">Prefer a form? Send a full enquiry</a>
   </div>
-  <button type="button" class="chat-launcher js-chat-toggle" aria-label="Chat with Remi's team" aria-expanded="false">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H8l-5 3 1.4-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01" stroke-width="3"/></svg>
+  <button type="button" class="chat-teaser js-chat-toggle"><img src="assets/photos/story.webp" alt="" width="30" height="30">Have a question? Talk to Remi</button>
+  <button type="button" class="chat-launcher js-chat-toggle" aria-label="Talk to Remi" aria-expanded="false">
+    <svg class="icon-chat" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H8l-5 3 1.4-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01" stroke-width="3"/></svg>
+    <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    <span class="chat-badge" aria-hidden="true"></span>
   </button>
 </div>
 </body>

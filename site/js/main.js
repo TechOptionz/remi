@@ -1,7 +1,7 @@
 // Remi Pearson homepage — variants, header state, mobile menu, video, chat, enquiry form.
 (function () {
   const VIDEO_ID = '1221386697';
-  const HEROES = ['A', 'B', 'B3', 'C', 'C1', 'C1T', 'C2', 'D'];
+  const HEROES = ['A', 'B', 'B3', 'C', 'C1', 'C1T', 'C2', 'C3', 'D'];
   const PALETTES = ['white-gold', 'espresso-rust', 'oxblood-parchment', 'parchment-rust', 'midnight-gold'];
 
   const $ = (s, root = document) => root.querySelector(s);
@@ -30,7 +30,7 @@
     });
     closePip();
     setMuted(true);
-    $('.cta-photo').src = ['C1', 'C1T', 'C2'].includes(hero) ? 'assets/photos/story.webp' : 'assets/photos/cta-remi.webp';
+    $('.cta-photo').src = ['C1', 'C1T', 'C2', 'C3'].includes(hero) ? 'assets/photos/story.webp' : 'assets/photos/cta-remi.webp';
     $$('[data-set-hero]').forEach(b => b.setAttribute('aria-checked', String(b.dataset.setHero === hero)));
     onScroll();
   }
@@ -100,17 +100,82 @@
 
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape') return;
-    setModal(false); setVariants(false);
+    setModal(false); setVariants(false); setChat(false);
     if (!pipBig.hidden) closePip();
   });
 
-  // ---------- Chat launcher ----------
+  // ---------- Chat ----------
+  // Scripted replies matched on keywords; swap sendChat's reply step for a real backend later.
+  const CHAT_REPLIES = {
+    Speaking: { text: "Remi speaks at conferences and leadership events on truth, leadership and decision-making. Share your date, location and audience size and the team will come back to you.", cta: 'Send a speaking enquiry', interest: 'Speaking' },
+    Facilitation: { text: "Remi facilitates strategy days, offsites and board sessions. Tell us a little about the team and what's on the table, and we'll be in touch.", cta: 'Send a facilitation enquiry', interest: 'Facilitation' },
+    Media: { text: 'Thanks for thinking of Remi. Send the show or publication, the topic and your timing, and the team will reply.', cta: 'Send a media request', interest: 'Media' },
+    Products: { text: "Remi's books and self-paced programs are built on her frames. Leave your details and we'll point you to what fits.", cta: 'Ask about books & programs', interest: 'Products' },
+    Coaching: { text: "Remi doesn't take on individual coaching, but her books and programs work through the same frames. Would one of those help?", cta: 'See books & programs', interest: 'Products' },
+    Other: { text: "Good question. I can help with keynotes, strategy days, media and Remi's books and programs. For anything else, send the details through the enquiry form and Remi's team will pick it up.", cta: 'Open the enquiry form', interest: 'Other' },
+  };
+  const chat = $('.chat');
   const chatPanel = $('.chat-panel');
+  const chatLog = $('.chat-log');
+  const chatForm = $('.chat-input');
   const launcher = $('.chat-launcher');
-  $$('.js-chat-toggle').forEach(el => el.addEventListener('click', () => {
-    chatPanel.hidden = !chatPanel.hidden;
-    launcher.setAttribute('aria-expanded', String(!chatPanel.hidden));
-  }));
+  let chatBusy = false;
+  const scrollChat = () => { chatLog.scrollTop = chatLog.scrollHeight; };
+
+  function setChat(open) {
+    chatPanel.hidden = !open;
+    chat.classList.toggle('is-open', open);
+    if (open) { chat.classList.add('is-seen'); scrollChat(); }
+    launcher.setAttribute('aria-expanded', String(open));
+    launcher.setAttribute('aria-label', open ? 'Close chat' : 'Talk to Remi');
+  }
+  $$('.js-chat-toggle').forEach(el => el.addEventListener('click', () => setChat(chatPanel.hidden)));
+
+  function addChatMsg(who, text, reply) {
+    const msg = document.createElement('div');
+    msg.className = `msg msg--${who}`;
+    const bubble = document.createElement('div');
+    bubble.className = 'bubble';
+    bubble.textContent = text;
+    msg.append(bubble);
+    if (reply) {
+      const cta = document.createElement('a');
+      cta.href = '#contact';
+      cta.className = 'chat-cta';
+      cta.textContent = `${reply.cta} →`;
+      cta.addEventListener('click', () => { $('.enquiry-form').elements.interest.value = reply.interest; setChat(false); });
+      msg.append(cta);
+    }
+    chatLog.append(msg);
+    scrollChat();
+  }
+
+  function sendChat(raw) {
+    const text = raw.trim();
+    if (!text || chatBusy) return;
+    $('.chips', chatLog)?.remove();
+    addChatMsg('me', text);
+    chatBusy = true;
+    const typing = document.createElement('div');
+    typing.className = 'typing';
+    typing.setAttribute('aria-label', 'Typing');
+    typing.innerHTML = '<span></span><span></span><span></span>';
+    chatLog.append(typing);
+    scrollChat();
+    const t = text.toLowerCase();
+    const topic = /coach/.test(t) ? 'Coaching'
+      : /keynote|speak|stage|conference|event/.test(t) ? 'Speaking'
+      : /strateg|facilitat|offsite|board|workshop/.test(t) ? 'Facilitation'
+      : /podcast|media|interview|press/.test(t) ? 'Media'
+      : /book|program|course|product/.test(t) ? 'Products' : 'Other';
+    setTimeout(() => {
+      typing.remove();
+      addChatMsg('them', CHAT_REPLIES[topic].text, CHAT_REPLIES[topic]);
+      chatBusy = false;
+    }, 1100);
+  }
+  $$('[data-chat-say]').forEach(b => b.addEventListener('click', () => sendChat(b.dataset.chatSay)));
+  chatForm.addEventListener('submit', e => { e.preventDefault(); sendChat(chatForm.elements.message.value); chatForm.reset(); });
 
   // ---------- Enquiry form ----------
   const form = $('.enquiry-form');
