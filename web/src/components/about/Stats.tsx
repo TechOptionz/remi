@@ -17,7 +17,7 @@ export default function Stats() {
           <li key={i}><span className="stats-strip-icon"><Icon name={s.icon} size={38} strokeWidth={1.2} /></span><span>{s.label}</span></li>
         ))}
       </ul>
-      <Link href="/#rabbit-holes" className="btn btn--primary btn--caps btn--big">Watch or listen to Perspectives</Link>
+      <Link href="/perspectives" className="btn btn--primary btn--caps btn--big">Watch or listen to Perspectives</Link>
     </section>
   );
 }

@@ -12,7 +12,7 @@ export const SITE = {
 export type NavItem = { label: string; href: string; children?: NavItem[] };
 
 export const NAV: NavItem[] = [
-  { label: 'Perspectives', href: '/#rabbit-holes' },
+  { label: 'Perspectives', href: '/perspectives' },
   { label: 'Ideas & Models', href: '/ideas-models', children: [{ label: 'The T.R.U.S.T.M.E. model', href: '/trustme-model' }] },
   { label: 'Programs', href: '/#work' },
   { label: 'Books', href: '/#work' },

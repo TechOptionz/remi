@@ -34,6 +34,11 @@ const ICONS = {
   target: <><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1.5" /></>,
   knot: <><circle cx="9" cy="9" r="4" /><circle cx="15" cy="9" r="4" /><circle cx="9" cy="15" r="4" /><circle cx="15" cy="15" r="4" /></>,
   burst: <path d="M12 3v5M12 16v5M3 12h5M16 12h5M5.6 5.600l3.5 3.500M14.9 14.900l3.5 3.500M18.4 5.600l-3.5 3.500M9.1 14.900l-3.5 3.5" />,
+  eye: <><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z" /><circle cx="12" cy="12" r="3" /></>,
+  headphones: <path d="M4 15v-3a8 8 0 0 1 16 0v3M4 15a2 2 0 0 1 2-2h1v7H6a2 2 0 0 1-2-2zM20 15a2 2 0 0 0-2-2h-1v7h1a2 2 0 0 0 2-2z" />,
+  summit: <path d="M3 21l6-10 4 5 3-4 5 9zM13 3v6M13 3h5l-1.5 1.5L18 6h-5" />,
+  waves: <><circle cx="12" cy="12" r="9" /><path d="M7.5 9.5c3-1 6-.8 9 .7M8 12.500c2.5-.8 5-.6 7.5.6M8.5 15.300c2-.6 4-.4 6 .5" /></>,
+  search: <><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.500L21 21" /></>,
 } as const;
 
 export type IconName = keyof typeof ICONS;
