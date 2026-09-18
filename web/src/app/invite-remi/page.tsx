@@ -1,9 +1,11 @@
-// Invite Remi. Sections live in components/invite/. InviteForm must stay last (CSS: main > .band-dark:last-child).
+// Invite Remi. Sections live in components/invite/, grouped in the three parts of the design.
 import type { Metadata } from 'next';
 import InviteHero from '@/components/invite/InviteHero';
 import Rooms from '@/components/invite/Rooms';
 import Formats from '@/components/invite/Formats';
 import Founders from '@/components/invite/Founders';
+import FoundersQuote from '@/components/invite/FoundersQuote';
+import SomethingElse from '@/components/invite/SomethingElse';
 import Topics from '@/components/invite/Topics';
 import FitCheck from '@/components/invite/FitCheck';
 import InviteForm from '@/components/invite/InviteForm';
@@ -16,10 +18,15 @@ export const metadata: Metadata = {
 export default function InvitePage() {
   return (
     <main>
+      {/* Part One */}
       <InviteHero />
       <Rooms />
+      {/* Part Two */}
       <Formats />
       <Founders />
+      <FoundersQuote />
+      <SomethingElse />
+      {/* Part Three */}
       <Topics />
       <FitCheck />
       <InviteForm />

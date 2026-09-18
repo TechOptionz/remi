@@ -54,3 +54,48 @@
 .practice h3 { margin:2px 0 6px; font-family:var(--serif); font-weight:400; font-size:clamp(21px,1.9vw,26px); line-height:1.15; color:var(--ink-strong); }
 .practice p { margin:0; font-size:15px; line-height:1.55; color:rgba(var(--ink-rgb),.72); }
 
+
+/* ============ Designed "parts" — shared by About Remi and Invite Remi ============ */
+:root { --hand:'Caveat','Segoe Script',cursive; }
+.section--tight { padding:clamp(32px,4.2vw,56px) 0; }
+.section--flush { border-top:0; padding-top:0; }
+.centered { text-align:center; }
+.part-head { display:grid; grid-template-columns:minmax(0,5fr) minmax(0,6fr); gap:clamp(24px,4vw,56px); align-items:start; margin-bottom:clamp(24px,3vw,36px); }
+.part-head--center { align-items:center; }
+.part-head--portrait { grid-template-columns:minmax(0,6fr) minmax(0,4fr); align-items:end; }
+.part-head .eyebrow { margin-bottom:14px; }
+.part-title { margin:0 0 20px; font-family:var(--serif); font-weight:400; font-size:clamp(38px,4.6vw,68px); line-height:.98; text-transform:uppercase; color:var(--ink-strong); text-wrap:balance; }
+.part-title--sm { font-size:clamp(28px,3.2vw,44px); line-height:1.05; }
+.part-title--xs { font-size:clamp(22px,2.2vw,30px); line-height:1.1; margin-bottom:14px; }
+.part-title--accent { color:var(--accent); }
+.part-lede { margin:0 0 20px; max-width:42ch; font-size:16px; line-height:1.6; color:rgba(var(--ink-rgb),.78); }
+.part-lede:last-child { margin-bottom:0; }
+.part-lede--wide { max-width:54ch; }
+.part-lede--center { margin-inline:auto; max-width:66ch; }
+.part-lede--rule { padding-bottom:14px; border-bottom:2px solid var(--accent); }
+.part-photo { display:block; width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:6px; background:var(--card); }
+.part-portrait { display:block; width:100%; aspect-ratio:1/1; object-fit:cover; object-position:50% 20%; border-radius:6px; background:var(--card); }
+.btn--caps { letter-spacing:.14em; text-transform:uppercase; }
+.icon-square--sm { width:34px; height:34px; border-radius:8px; }
+.hand-quote { margin:0; font-family:var(--hand); font-size:clamp(26px,2.8vw,38px); line-height:1.2; color:var(--accent); transform:rotate(-2deg); text-wrap:balance; }
+.hand-quote p { margin:0; }
+.hand-quote--center { margin:clamp(24px,3vw,40px) auto 0; max-width:30em; text-align:center; transform:rotate(-1deg); }
+.hand-quote--marks { color:var(--ink-strong); }
+.hand-quote--marks p::before { content:"“"; margin-right:.2em; color:var(--accent); }
+.hand-quote--marks p::after { content:"”"; margin-left:.15em; color:var(--accent); }
+.serif-quote { margin:clamp(20px,2.5vw,32px) 0 0; }
+.serif-quote p { margin:0; font-family:var(--serif); font-size:clamp(24px,2.5vw,34px); line-height:1.2; color:var(--ink-strong); text-wrap:balance; }
+.serif-quote p::before { content:"“"; margin-right:.15em; color:var(--accent); }
+.serif-quote p::after { content:"”"; margin-left:.1em; color:var(--accent); }
+.serif-quote--center { margin:clamp(24px,3vw,36px) auto; max-width:46em; text-align:center; }
+.dot-list { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; justify-content:center; font-size:13px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-strong); }
+.dot-list li + li::before { content:"•"; margin:0 12px; color:var(--accent); }
+.dot-list--accent { justify-content:flex-start; font-size:15px; letter-spacing:0; text-transform:none; color:var(--accent); line-height:1.6; }
+.dot-list--accent li + li::before { margin:0 8px; }
+@media (max-width:900px) {
+  .part-head, .part-head--portrait { grid-template-columns:1fr; }
+  .part-portrait { max-width:360px; }
+}
+.part-photo { object-position:50% 25%; }
+.part-portrait { aspect-ratio:5/4; }
+.hand-quote--marks::after { content:""; display:block; width:60%; height:3px; margin:12px 0 0 auto; background:var(--accent); border-radius:999px; }

@@ -22,14 +22,12 @@ export default function InviteForm() {
   useEffect(() => { if (sent) sentBox.current?.focus(); }, [sent]);
 
   return (
-    <section id="invite-form" className="band-dark" aria-labelledby="form-h">
-      <div className="invite-panel">
-        <p className="eyebrow">Send the invitation</p>
-        <h2 id="form-h" className="h2">Tell me what you're imagining</h2>
-        <p className="section-sub">Have something else in mind? Wonderful. The most interesting invitations do not always arrive with a familiar label.</p>
+    <section id="invite-form" className="section section--tight section--flush" aria-labelledby="form-h">
+      <div className="band-dark invite-panel">
+        <h2 id="form-h" className="invite-panel-title"><span className="underline">Tell me what you're imagining</span></h2>
         <form ref={form} className="invite-form" data-crm="gohighlevel" data-chat-form="invitation" hidden={sent}
           onSubmit={e => { e.preventDefault(); submitLead('invitation', e.currentTarget); setSent(true); }}>
-          <div className="invite-col">
+          <div className="invite-col invite-col--inline">
             <label>Your name<input name="name" required autoComplete="name" /></label>
             <label>Email<input name="email" type="email" required autoComplete="email" /></label>
             <label>Organisation<input name="organisation" autoComplete="organization" /></label>

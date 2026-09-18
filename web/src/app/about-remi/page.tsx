@@ -2,9 +2,15 @@
 import type { Metadata } from 'next';
 import AboutHero from '@/components/about/AboutHero';
 import LifesWork from '@/components/about/LifesWork';
-import Stats from '@/components/about/Stats';
+import ChangePossible from '@/components/about/ChangePossible';
+import InsideTheGap from '@/components/about/InsideTheGap';
+import Relationships from '@/components/about/Relationships';
+import Models from '@/components/about/Models';
+import BuiltBusiness from '@/components/about/BuiltBusiness';
+import ShinyThings from '@/components/about/ShinyThings';
 import Foundation from '@/components/about/Foundation';
 import ProperConversation from '@/components/about/ProperConversation';
+import Stats from '@/components/about/Stats';
 import DoingNow from '@/components/about/DoingNow';
 import AboutCta from '@/components/about/AboutCta';
 
@@ -22,11 +28,21 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main>
+      {/* Part One */}
       <AboutHero />
       <LifesWork />
-      <Stats />
+      {/* Part Two */}
+      <ChangePossible />
+      <InsideTheGap />
+      <Relationships />
+      {/* Part Three */}
+      <Models />
+      <BuiltBusiness />
+      <ShinyThings />
+      {/* Part Four */}
       <Foundation />
       <ProperConversation />
+      <Stats />
       <DoingNow />
       <AboutCta />
     </main>

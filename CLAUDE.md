@@ -27,3 +27,5 @@ Commands (run inside `web/`): `npm run dev` (local preview), `npm run build` (st
 - Internal page links use `next/link` with clean routes (`/about-remi`, not `.html`); same-page anchors use plain `<a href="#id">`.
 - Preset a form from any link: `data-interest="Speaking"` (homepage enquiry form, or `/?interest=Speaking#contact`) and `data-invite="Speaking"` (invite form, or `/invite-remi?invite=Speaking#invite-form`). Values must match `INTERESTS` / `INVITATIONS` in `content/site.ts`.
 - Use plain `<img>` (static export, no image optimisation). Keep existing class names — the CSS targets them.
+- About Remi and Invite Remi follow the design screenshots in `Photos-Images/` (19–22 and 23–25). Each page file groups its sections under `{/* Part One */}` … comments matching those screenshots.
+- Shared building blocks for these designed pages: `.part-head`, `.part-title` (`--sm`, `--xs`, `--accent`), `.part-lede`, `.hand-quote`, `.serif-quote`, `.dot-list`, `.section--tight`, `.section--flush` (all in `styles/inner-pages.css`), and `<Icon name="…" />` from `components/shared/Icon.tsx` (add new line icons there).

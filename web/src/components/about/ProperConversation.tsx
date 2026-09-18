@@ -1,17 +1,17 @@
-import Link from 'next/link';
+const GUESTS = ['Richard Schwartz', 'Peter Singer', 'Michael E. Gerber', 'Dr Julie Smith', 'Dr Shefali Tsabary', 'Oliver Burkeman'];
 
-// A PROPER CONVERSATION
+// Handwritten giving quote + stage selfie, then I LOVE A PROPER CONVERSATION + audience photo (2 × 2 grid)
 export default function ProperConversation() {
   return (
-    <section className="section about-split about-split--flip" aria-labelledby="convo-h">
-      <img className="about-side-photo" loading="lazy" decoding="async" src="/assets/photos/about-audience.webp" alt="Remi speaking to a seated audience" />
+    <section className="section section--tight section--flush convo-grid" aria-labelledby="convo-h">
+      <p className="hand-quote"><span className="underline">If we had the ability to help, then we had a responsibility to notice where help was needed.</span></p>
+      <img loading="lazy" decoding="async" src="/assets/photos/invite-stage.webp" alt="Remi taking a selfie with a theatre full of people cheering" />
       <div>
-        <p className="eyebrow">Perspectives</p>
-        <h2 id="convo-h" className="about-h2"><span className="underline">I love a proper conversation</span></h2>
-        <p className="body-xl">I love conversations where both people think, question, challenge, laugh and occasionally change their minds. That is what Perspectives is for.</p>
-        <p className="guests"><span className="guests-label">Guests have included</span> Richard Schwartz · Peter Singer · Michael E. Gerber · Dr Julie Smith · Dr Shefali Tsabary · Oliver Burkeman</p>
-        <Link href="/#rabbit-holes" className="btn btn--primary">Watch or listen to Perspectives</Link>
+        <h2 id="convo-h" className="part-title part-title--sm"><span className="underline">I love a proper conversation</span></h2>
+        <p className="part-lede">I love conversations where both people think, question, challenge, laugh and occasionally change their minds. That is what Perspectives is for.</p>
+        <ul className="dot-list dot-list--accent">{GUESTS.map(g => <li key={g}>{g}</li>)}</ul>
       </div>
+      <img loading="lazy" decoding="async" src="/assets/photos/about-audience.webp" alt="Remi speaking to a seated audience" />
     </section>
   );
 }
