@@ -1,13 +1,12 @@
 # Versioning
-- Frozen snapshots live in `versions/` and are never edited: `v1.0` (light editorial, video-first), `v2.0` (dark, Rashid-style structure).
-- Working files at root: `Remi Pearson Homepage v2.dc.html` is the live one being iterated.
-- When the user says "lock this in" / "save as version", copy the working file to `versions/… vX.Y.dc.html` (bump minor for tweaks, major for redesigns) and note it here.
+- Design-tool files live in `design/` (not part of the website). Frozen snapshots live in `design/versions/` and are never edited: `v1.0` (light editorial, video-first), `v2.0` (dark, Rashid-style structure).
+- Working file: `design/Remi Pearson Homepage v2.dc.html` is the live one being iterated.
+- When the user says "lock this in" / "save as version", copy the working file to `design/versions/… vX.Y.dc.html` (bump minor for tweaks, major for redesigns) and note it here.
 
-# Website (Next.js) — `web/`
-The live website is the Next.js app in `web/` (App Router, TypeScript, static export → `web/out`, deployed by Netlify via `netlify.toml`).
-`site/` is the previous hand-written HTML version, kept only for reference — do not edit it.
+# Website (Next.js) — repo root
+The live website is the Next.js app at the repo root (App Router, TypeScript, static export → `out/`, deployed by Netlify via `netlify.toml`). The old hand-written HTML site was removed once the migration was complete (it remains in git history).
 
-Commands (run inside `web/`): `npm run dev` (local preview), `npm run build` (static build, must pass before committing), `npm run typecheck`.
+Commands (run from the repo root): `npm run dev` (local preview), `npm run build` (static build, must pass before committing), `npm run typecheck`.
 
 ## Where things live
 - `src/app/<route>/page.tsx` — one file per page. It only lists that page's sections in order and sets the page title/description. Routes: `/`, `/perspectives`, `/about-remi`, `/ideas-models`, `/trustme-model`, `/invite-remi`.
