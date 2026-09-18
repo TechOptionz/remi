@@ -2,3 +2,28 @@
 - Frozen snapshots live in `versions/` and are never edited: `v1.0` (light editorial, video-first), `v2.0` (dark, Rashid-style structure).
 - Working files at root: `Remi Pearson Homepage v2.dc.html` is the live one being iterated.
 - When the user says "lock this in" / "save as version", copy the working file to `versions/… vX.Y.dc.html` (bump minor for tweaks, major for redesigns) and note it here.
+
+# Website (Next.js) — `web/`
+The live website is the Next.js app in `web/` (App Router, TypeScript, static export → `web/out`, deployed by Netlify via `netlify.toml`).
+`site/` is the previous hand-written HTML version, kept only for reference — do not edit it.
+
+Commands (run inside `web/`): `npm run dev` (local preview), `npm run build` (static build, must pass before committing), `npm run typecheck`.
+
+## Where things live
+- `src/app/<route>/page.tsx` — one file per page. It only lists that page's sections in order and sets the page title/description. Routes: `/`, `/about-remi`, `/ideas-models`, `/trustme-model`, `/invite-remi`.
+- `src/app/layout.tsx` — fonts, global CSS, and the chrome on every page: Header, Footer, ChatWidget.
+- `src/components/<page>/` — one component per visible section (`home/`, `about/`, `trustme/`, `invite/`, `ideas/`). Section copy is written inline in its file: to change wording, edit that section's file.
+- `src/components/home/hero/` — the home hero: `Hero.tsx` (picks the variant + video modal), `variants.tsx` (layouts A, B, C, C1, C2/C3, D), `parts.tsx` (shared title, buttons, Vimeo frame).
+- `src/components/layout/` — Header, VariantsMenu, Footer. `src/components/shared/` — ChatWidget, NewsletterForm, SocialLinks, TrustmeLevels.
+- `src/content/site.ts` — anything shared or list-like: nav links, header CTA, hero copy, hero/palette options, social links, footer copy, form dropdown options, T.R.U.S.T.M.E. levels, Vimeo ID. `src/content/chat.ts` — chat copy, scripted replies, keyword matching.
+- `src/lib/site-state.tsx` — palette + hero variant state (localStorage, `?palette=` / `?hero=`). `src/lib/forms.ts` — `usePresetSelect` and `submitLead`, the single stub where all forms submit (TODO: GoHighLevel / mailing list).
+- `src/styles/` — plain CSS, one file per area, imported in order by `index.css` (order matters). Colours come from the palette tokens in `tokens.css`; `ideas-models.css` uses fixed colours by design.
+- `public/assets/` — images, referenced as `/assets/...`.
+
+## Conventions
+- Add a section: create `src/components/<page>/<Name>.tsx`, add it to that page's `page.tsx`, put its CSS in the matching file in `src/styles/`.
+- Add a page: create `src/app/<route>/page.tsx` with `metadata`, add it to `NAV` in `src/content/site.ts`.
+- Components are server components unless they need state/events; those start with `'use client'`.
+- Internal page links use `next/link` with clean routes (`/about-remi`, not `.html`); same-page anchors use plain `<a href="#id">`.
+- Preset a form from any link: `data-interest="Speaking"` (homepage enquiry form, or `/?interest=Speaking#contact`) and `data-invite="Speaking"` (invite form, or `/invite-remi?invite=Speaking#invite-form`). Values must match `INTERESTS` / `INVITATIONS` in `content/site.ts`.
+- Use plain `<img>` (static export, no image optimisation). Keep existing class names — the CSS targets them.
