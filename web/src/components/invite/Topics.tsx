@@ -10,13 +10,12 @@ const TOPICS: { icon: IconName; title: string; text: React.ReactNode }[] = [
   { icon: 'sprout', title: 'Building beyond the founder', text: 'Turning expertise into intellectual property, moving from practice to business, building an asset instead of a job and creating something valuable enough to sell.' },
 ];
 
-// PART THREE · WHAT COULD WE TALK ABOUT — intro with portrait, then six numbered themes
+// WHAT COULD WE TALK ABOUT — intro with portrait, then six numbered themes
 export default function Topics() {
   return (
     <section className="section section--tight" aria-labelledby="talk-h">
       <div className="part-head part-head--portrait">
         <div>
-          <p className="eyebrow">Invite Remi · Part Three</p>
           <h2 id="talk-h" className="part-title">What could we talk about?</h2>
           <p className="part-lede part-lede--rule">Quite a lot, as it happens. My work crosses the emotional, relational, intellectual and commercial architecture of how people change, decide, lead, influence and build.</p>
         </div>

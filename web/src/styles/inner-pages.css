@@ -9,7 +9,7 @@
 .icon-ring, .icon-square { display:inline-flex; align-items:center; justify-content:center; flex:none; color:var(--accent); border:1px solid rgba(var(--accent-rgb),.45); }
 .icon-ring { width:56px; height:56px; border-radius:50%; }
 .icon-square { width:52px; height:52px; border-radius:12px; }
-.page-cta { margin-inline:calc(-1 * var(--gutter)); padding:clamp(56px,8vw,104px) var(--gutter); background:var(--accent); color:var(--on-accent); text-align:center; }
+.page-cta { margin-inline:calc(50% - 50vw); padding:clamp(56px,8vw,104px) calc(50vw - 50%); background:var(--accent); color:var(--on-accent); text-align:center; }
 .page-cta h2 { margin:0 auto 28px; max-width:20ch; font-family:var(--serif); font-weight:400; font-size:clamp(36px,4.6vw,64px); line-height:1.02; text-wrap:balance; }
 .page-cta .btn { background:var(--bg); color:var(--ink); }
 .page-cta .btn:hover { background:var(--card); color:var(--ink); }
@@ -57,7 +57,7 @@
 
 /* ============ Designed "parts" — shared by About Remi and Invite Remi ============ */
 :root { --hand:'Caveat','Segoe Script',cursive; }
-.section--tight { padding:clamp(32px,4.2vw,56px) 0; }
+.section--tight { padding:clamp(32px,4.2vw,56px) 0; border-top:0; }
 .section--flush { border-top:0; padding-top:0; }
 .centered { text-align:center; }
 .part-head { display:grid; grid-template-columns:minmax(0,5fr) minmax(0,6fr); gap:clamp(24px,4vw,56px); align-items:start; margin-bottom:clamp(24px,3vw,36px); }

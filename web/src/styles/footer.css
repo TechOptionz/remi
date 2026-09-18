@@ -2,7 +2,8 @@
 .footer {
   --ink-rgb:var(--footer-ink-rgb); --ink:rgb(var(--footer-ink-rgb)); --ink-strong:rgb(var(--footer-ink-rgb));
   --accent:var(--footer-accent); --on-accent:var(--footer-bg); --bg:var(--footer-bg);
-  margin-inline:calc(-1 * var(--gutter)); padding:clamp(56px,7vw,104px) var(--gutter) 28px;
+  /* Full-bleed: spans the viewport while its content stays aligned with the page column */
+  margin-inline:calc(50% - 50vw); padding:clamp(56px,7vw,104px) calc(50vw - 50%) 28px;
   background:var(--footer-bg); color:var(--ink); overflow:hidden;
 }
 .footer a { color:rgba(var(--ink-rgb),.72); }

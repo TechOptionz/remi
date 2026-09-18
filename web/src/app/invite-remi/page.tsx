@@ -1,4 +1,4 @@
-// Invite Remi. Sections live in components/invite/, grouped in the three parts of the design.
+// Invite Remi. Sections live in components/invite/.
 import type { Metadata } from 'next';
 import InviteHero from '@/components/invite/InviteHero';
 import Rooms from '@/components/invite/Rooms';
@@ -18,15 +18,12 @@ export const metadata: Metadata = {
 export default function InvitePage() {
   return (
     <main>
-      {/* Part One */}
       <InviteHero />
       <Rooms />
-      {/* Part Two */}
       <Formats />
       <Founders />
       <FoundersQuote />
       <SomethingElse />
-      {/* Part Three */}
       <Topics />
       <FitCheck />
       <InviteForm />

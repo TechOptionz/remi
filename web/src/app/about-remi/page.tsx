@@ -28,18 +28,14 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main>
-      {/* Part One */}
       <AboutHero />
       <LifesWork />
-      {/* Part Two */}
       <ChangePossible />
       <InsideTheGap />
       <Relationships />
-      {/* Part Three */}
       <Models />
       <BuiltBusiness />
       <ShinyThings />
-      {/* Part Four */}
       <Foundation />
       <ProperConversation />
       <Stats />

@@ -8,7 +8,7 @@ const THEMES: { icon: IconName; label: string }[] = [
   { icon: 'heartCrack', label: 'Rupture & repair' },
 ];
 
-// RELATIONSHIPS BRING ALL OUR SHIT TO THE SURFACE — two photos, centred statement, four themes and the CTA; closes Part Two
+// RELATIONSHIPS BRING ALL OUR SHIT TO THE SURFACE — two photos, centred statement, four themes and the CTA
 export default function Relationships() {
   return (
     <section className="section section--tight section--flush centered" aria-labelledby="rel-h">

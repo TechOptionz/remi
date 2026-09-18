@@ -3,7 +3,7 @@
 .band-dark {
   --ink-rgb:var(--footer-ink-rgb); --ink:rgb(var(--footer-ink-rgb)); --ink-strong:rgb(var(--footer-ink-rgb));
   --accent:var(--footer-accent); --on-accent:var(--footer-bg); --bg:var(--footer-bg); --card:rgba(var(--footer-ink-rgb),.05);
-  margin-inline:calc(-1 * var(--gutter)); padding:clamp(56px,7vw,96px) var(--gutter);
+  margin-inline:calc(50% - 50vw); padding:clamp(56px,7vw,96px) calc(50vw - 50%);
   background:var(--footer-bg); color:var(--ink);
 }
 main > .band-dark:last-child { border-bottom:1px solid rgba(var(--footer-ink-rgb),.14); }

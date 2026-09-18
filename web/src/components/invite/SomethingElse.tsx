@@ -1,4 +1,4 @@
-// HAVE SOMETHING ELSE IN MIND? — photo left, prompt and button right; closes Part Two
+// HAVE SOMETHING ELSE IN MIND? — photo left, prompt and button right
 export default function SomethingElse() {
   return (
     <section className="section section--tight section--flush something-else" aria-labelledby="else-h">

@@ -10,13 +10,12 @@ const FORMATS: { icon: IconName; title: string; text: string }[] = [
   { icon: 'star', title: 'One-off masterclasses & guest experiences', text: 'A substantial contribution inside an established program, retreat or community when the audience and question are genuinely interesting.' },
 ];
 
-// PART TWO · INVITATIONS THAT LIGHT ME UP — intro with photo collage, then the seven formats (4 + 3, centred)
+// INVITATIONS THAT LIGHT ME UP — intro with photo collage, then the seven formats (4 + 3, centred)
 export default function Formats() {
   return (
     <section className="section section--tight" aria-labelledby="light-h">
       <div className="part-head">
         <div>
-          <p className="eyebrow eyebrow--rule">Invite Remi · Part Two</p>
           <h2 id="light-h" className="part-title">Here are the invitations that light me up</h2>
           <p className="part-lede">I am interested in ideas, intelligent people and experiences with enough room for discovery. The format matters far less than the quality of the question and the people gathered around it.</p>
         </div>

@@ -1,12 +1,11 @@
 const CAUSES = ['Animals Asia', 'Moon Bear Rescue', 'People and communities experiencing profound hardship'];
 
-// PART FOUR · SUCCESS WAS ALWAYS MEANT TO TRAVEL FURTHER THAN ME — intro with group photo, then the giving statement
+// SUCCESS WAS ALWAYS MEANT TO TRAVEL FURTHER THAN ME — intro with group photo, then the giving statement
 export default function Foundation() {
   return (
     <section className="section section--tight" aria-labelledby="foundation-h">
       <div className="part-head">
         <div>
-          <p className="eyebrow">About Remi · Part Four</p>
           <h2 id="foundation-h" className="part-title"><span className="underline">Success was always meant to travel further than me</span></h2>
           <p className="part-lede">As The Coaching Institute grew, I became increasingly aware that the opportunity to pursue a meaningful life was not equally available to everyone. So I founded The Coaching Institute Foundation.</p>
         </div>

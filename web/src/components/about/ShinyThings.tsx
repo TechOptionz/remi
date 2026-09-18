@@ -7,7 +7,7 @@ const AWARDS = [
   "National finalist and People's Choice recognition",
 ];
 
-// A LOVELY COLLECTION OF SHINY THINGS · BUILT WITH WONDERFUL PEOPLE — awards, banner, quote and CTA; closes Part Three
+// A LOVELY COLLECTION OF SHINY THINGS · BUILT WITH WONDERFUL PEOPLE — awards, banner, quote and CTA
 export default function ShinyThings() {
   return (
     <section className="section section--tight section--flush" aria-labelledby="shiny-h">

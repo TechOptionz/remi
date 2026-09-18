@@ -8,13 +8,12 @@ const MODELS: { icon: IconName; title: string; text: string; href: string }[] = 
   { icon: 'burst', title: 'Ultimate Influence', text: 'Helping someone make a quality buying decision without scripts, manipulation or pressure.', href: '/ideas-models#part-8' },
 ];
 
-// PART THREE · I MAKE MODELS BECAUSE I CAN'T LEAVE A GOOD QUESTION ALONE — intro with portrait, then the four models
+// I MAKE MODELS BECAUSE I CAN'T LEAVE A GOOD QUESTION ALONE — intro with portrait, then the four models
 export default function Models() {
   return (
     <section className="section section--tight" aria-labelledby="models-h">
       <div className="part-head">
         <div>
-          <p className="eyebrow">About Remi · Part Three</p>
           <h2 id="models-h" className="part-title"><span className="underline">I make models because I can't leave a good question alone</span></h2>
           <p className="part-lede">When I encounter a problem that existing ideas do not adequately explain, I tend to disappear down the rabbit hole until I can see its underlying structure.</p>
         </div>

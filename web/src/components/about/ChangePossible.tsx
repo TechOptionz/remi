@@ -6,13 +6,12 @@ const NOTES: { icon: IconName; know: string; still: string }[] = [
   { icon: 'spiral', know: 'I recognise the pattern.', still: "I still cannot stop it when I'm triggered." },
 ];
 
-// PART TWO · I'M INTERESTED IN WHAT MAKES CHANGE POSSIBLE — intro with teaching photo, then three "I know… I still…" notes
+// I'M INTERESTED IN WHAT MAKES CHANGE POSSIBLE — intro with teaching photo, then three "I know… I still…" notes
 export default function ChangePossible() {
   return (
     <section className="section section--tight" aria-labelledby="change-h">
       <div className="part-head">
         <div>
-          <p className="eyebrow">About Remi · Part Two</p>
           <h2 id="change-h" className="part-title"><span className="underline">I'm interested in what makes change possible</span></h2>
           <p className="part-lede">Much of personal development helps people understand themselves. That matters, but understanding a pattern does not necessarily change what happens when the pattern is activated.</p>
         </div>
