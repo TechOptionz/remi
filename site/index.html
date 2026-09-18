@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" data-palette="white-gold">
+<html lang="en" data-palette="parchment-rust">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Remi Pearson — Strategist, Speaker, Author</title>
-<meta name="description" content="Remi Pearson works with leaders, project managers and business owners on the thinking behind their decisions.">
+<title>Remi Pearson — Let truth lead</title>
+<meta name="description" content="I'm Remi. I'm fascinated by why intelligent, self-aware humans get stuck — and how truth can set us free.">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
+<script src="js/site.js" defer></script>
+<script src="js/chat.js" defer></script>
 <script src="js/main.js" defer></script>
 </head>
 <body>
@@ -23,27 +25,29 @@
     <img class="logo-ink" src="assets/remi-logo-ink.webp" alt="Remi — Let truth lead">
   </a>
   <nav aria-label="Primary" class="nav">
-    <a href="#frames">Frames</a>
-    <a href="#work">Facilitation</a>
-    <a href="#work">Speaking</a>
-    <a href="#work">Products</a>
-    <a href="#story">About</a>
+    <a href="#rabbit-holes">Perspectives</a>
+    <div class="nav-item">
+      <a href="ideas-models.html" class="nav-link">Ideas &amp; Models</a>
+      <div class="nav-sub">
+        <a href="trustme-model.html">The T.R.U.S.T.M.E. model</a>
+      </div>
+    </div>
+    <a href="#work">Programs</a>
+    <a href="#work">Books</a>
+    <a href="about-remi.html">About Remi</a>
+    <a href="invite-remi.html">Invite Remi</a>
     <div class="variants">
       <button type="button" class="variants-btn" aria-expanded="false" aria-haspopup="true">Variants <span aria-hidden="true">▾</span></button>
       <div class="variants-panel" hidden>
         <div class="variants-head"><span class="variants-label">Home hero</span><button type="button" class="variants-close" aria-label="Close menu">×</button></div>
         <button type="button" role="menuitemradio" data-set-hero="A">A · Statement</button>
         <button type="button" role="menuitemradio" data-set-hero="B">B · Video first, text below</button>
-        <button type="button" role="menuitemradio" data-set-hero="B3">B3 · Cinematic, no text</button>
         <button type="button" role="menuitemradio" data-set-hero="C">C · Split</button>
         <button type="button" role="menuitemradio" data-set-hero="C1">C1 · Portrait, text &amp; video</button>
-        <button type="button" role="menuitemradio" data-set-hero="C1T">C1-Transitions</button>
         <button type="button" role="menuitemradio" data-set-hero="C2">C2 · Picture-in-picture video</button>
         <button type="button" role="menuitemradio" data-set-hero="C3">Full screen C3</button>
         <button type="button" role="menuitemradio" data-set-hero="D">D · Full-screen video</button>
         <span class="variants-label variants-label--sep">Palette</span>
-        <button type="button" role="menuitemradio" data-set-palette="white-gold">White &amp; gold</button>
-        <button type="button" role="menuitemradio" data-set-palette="espresso-rust">Espresso &amp; rust</button>
         <button type="button" role="menuitemradio" data-set-palette="oxblood-parchment">Oxblood &amp; parchment</button>
         <button type="button" role="menuitemradio" data-set-palette="parchment-rust">Parchment &amp; rust</button>
         <button type="button" role="menuitemradio" data-set-palette="midnight-gold">Midnight &amp; gold</button>
@@ -51,32 +55,29 @@
     </div>
   </nav>
   <div class="header-actions">
-    <a href="#contact" class="btn btn--ink btn--sm">Work with Remi</a>
+    <a href="#rabbit-holes" class="btn btn--ink btn--sm">Show me where to start</a>
     <button type="button" class="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
       <span></span><span></span>
     </button>
   </div>
 </header>
 <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile" hidden>
-  <a href="#frames">Frames</a>
-  <a href="#work">Facilitation</a>
-  <a href="#work">Speaking</a>
-  <a href="#work">Products</a>
-  <a href="#story">About</a>
-  <a href="#contact" class="accent">Contact</a>
+  <a href="#rabbit-holes">Perspectives</a>
+  <a href="ideas-models.html">Ideas &amp; Models</a>
+  <a href="trustme-model.html" class="mobile-sub">The T.R.U.S.T.M.E. model</a>
+  <a href="#work">Programs</a>
+  <a href="#work">Books</a>
+  <a href="about-remi.html">About Remi</a>
+  <a href="invite-remi.html" class="accent">Invite Remi</a>
   <span class="mobile-label">Variants · Home hero</span>
   <button type="button" data-set-hero="A">A · Statement</button>
   <button type="button" data-set-hero="B">B · Video first</button>
-  <button type="button" data-set-hero="B3">B3 · Cinematic, no text</button>
   <button type="button" data-set-hero="C">C · Split</button>
   <button type="button" data-set-hero="C1">C1 · Portrait, text &amp; video</button>
-  <button type="button" data-set-hero="C1T">C1-Transitions</button>
   <button type="button" data-set-hero="C2">C2 · Picture-in-picture video</button>
   <button type="button" data-set-hero="C3">Full screen C3</button>
   <button type="button" data-set-hero="D">D · Full-screen video</button>
   <span class="mobile-label">Variants · Palette</span>
-  <button type="button" data-set-palette="white-gold">White &amp; gold</button>
-  <button type="button" data-set-palette="espresso-rust">Espresso &amp; rust</button>
   <button type="button" data-set-palette="oxblood-parchment">Oxblood &amp; parchment</button>
   <button type="button" data-set-palette="parchment-rust">Parchment &amp; rust</button>
   <button type="button" data-set-palette="midnight-gold">Midnight &amp; gold</button>
@@ -85,11 +86,11 @@
 <!-- HERO A · Statement -->
 <section data-hero="A" class="hero" aria-label="Introduction">
   <p class="eyebrow">Strategist · Speaker · Author</p>
-  <h1 class="hero-title">Ideas. Leadership. <em>Impact.</em></h1>
-  <p class="hero-lede">Remi Pearson works with leaders, project managers and business owners on the thinking behind their decisions. Two decades of building companies, and a set of original frames for seeing what is really going on.</p>
+  <h1 class="hero-title">Let truth <em>lead.</em></h1>
+  <p class="hero-lede">I'm Remi. I'm fascinated by why intelligent, self-aware humans get stuck — and how truth can set us free.</p>
   <div class="btn-row">
-    <a href="#contact" class="btn btn--primary">Bring Remi to your team</a>
-    <a href="#frames" class="btn btn--ghost">See how Remi thinks</a>
+    <a href="#rabbit-holes" class="btn btn--primary">Show me where to start</a>
+    <button type="button" class="btn btn--ghost js-open-video"><span class="play" aria-hidden="true"></span> Watch perspectives</button>
   </div>
   <div class="hero-video">
     <div class="video-frame">
@@ -108,33 +109,27 @@
   <div class="hero-b-copy">
     <div>
       <p class="eyebrow">Strategist · Speaker · Author</p>
-      <h1 class="hero-title hero-title--stack">Ideas.<br>Leadership.<br><em>Impact.</em></h1>
+      <h1 class="hero-title hero-title--stack">Let truth<br><em>lead.</em></h1>
     </div>
     <div class="hero-b-side">
-      <p class="hero-lede">Remi Pearson works with leaders, project managers and business owners on the thinking behind their decisions. Two decades of building companies, and a set of original frames for seeing what is really going on.</p>
+      <p class="hero-lede">I'm Remi. I'm fascinated by why intelligent, self-aware humans get stuck — and how truth can set us free.</p>
       <div class="btn-row btn-row--start">
-        <a href="#contact" class="btn btn--primary">Bring Remi to your team</a>
-        <a href="#frames" class="btn btn--ghost">See how Remi thinks</a>
+        <a href="#rabbit-holes" class="btn btn--primary">Show me where to start</a>
+        <button type="button" class="btn btn--ghost js-open-video"><span class="play" aria-hidden="true"></span> Watch perspectives</button>
       </div>
     </div>
   </div>
-</section>
-
-<!-- HERO B3 · Cinematic, no text -->
-<section data-hero="B3" class="hero-b3" aria-label="Introduction" hidden>
-  <iframe class="cover-video js-hero-video" title="Remi Pearson — introduction" data-vimeo="dnt=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;controls=0&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;autopause=0&amp;background=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-  <button type="button" class="mute-btn js-mute" aria-label="Toggle sound"><span class="mute-dot"></span><span class="mute-label">Sound off</span></button>
 </section>
 
 <!-- HERO C · Split -->
 <section data-hero="C" class="hero-c" aria-label="Introduction" hidden>
   <div>
     <p class="eyebrow">Strategist · Speaker · Author</p>
-    <h1 class="hero-title hero-title--stack hero-title--c">Ideas.<br>Leadership.<br><em>Impact.</em></h1>
-    <p class="hero-lede">Remi Pearson works with leaders, project managers and business owners on the thinking behind their decisions. Two decades of building companies, and a set of original frames for seeing what is really going on.</p>
+    <h1 class="hero-title hero-title--stack hero-title--c">Let truth<br><em>lead.</em></h1>
+    <p class="hero-lede">I'm Remi. I'm fascinated by why intelligent, self-aware humans get stuck — and how truth can set us free.</p>
     <div class="btn-row btn-row--start">
-      <a href="#contact" class="btn btn--primary">Bring Remi to your team</a>
-      <a href="#frames" class="btn btn--ghost">See how Remi thinks</a>
+      <a href="#rabbit-holes" class="btn btn--primary">Show me where to start</a>
+      <button type="button" class="btn btn--ghost js-open-video"><span class="play" aria-hidden="true"></span> Watch perspectives</button>
     </div>
   </div>
   <div class="video-frame">
@@ -142,24 +137,24 @@
   </div>
 </section>
 
-<!-- HERO C1 · Portrait, text & video  /  C1T · same, with transitions -->
-<section data-hero="C1 C1T" class="hero-c1" aria-label="Introduction" hidden>
+<!-- HERO C1 · Portrait, text & video -->
+<section data-hero="C1" class="hero-c1" aria-label="Introduction" hidden>
   <div class="portrait-top">
     <img class="portrait-img" src="assets/photos/cta-remi.webp" alt="Remi Pearson speaking">
     <div class="portrait-fade" aria-hidden="true"></div>
     <div class="portrait-inner">
       <div class="portrait-copy">
-        <p class="eyebrow t-rise t-1">Strategist · Speaker · Author</p>
-        <h1 class="hero-title hero-title--stack hero-title--c1 t-rise t-2">Ideas.<br>Leadership.<br><em>Impact.</em></h1>
-        <p class="hero-lede t-rise t-3">Remi Pearson works with leaders, project managers and business owners on the thinking behind their decisions. Two decades of building companies, and a set of original frames for seeing what is really going on.</p>
-        <div class="btn-row btn-row--start t-rise t-4">
-          <a href="#contact" class="btn btn--primary">Bring Remi to your team</a>
-          <button type="button" class="btn btn--ghost js-open-video"><span class="play" aria-hidden="true"></span> Watch Remi in 90 seconds</button>
+        <p class="eyebrow">Strategist · Speaker · Author</p>
+        <h1 class="hero-title hero-title--stack hero-title--c1">Let truth<br><em>lead.</em></h1>
+        <p class="hero-lede">I'm Remi. I'm fascinated by why intelligent, self-aware humans get stuck — and how truth can set us free.</p>
+        <div class="btn-row btn-row--start">
+          <a href="#rabbit-holes" class="btn btn--primary">Show me where to start</a>
+          <button type="button" class="btn btn--ghost js-open-video"><span class="play" aria-hidden="true"></span> Watch perspectives</button>
         </div>
       </div>
     </div>
   </div>
-  <div class="hero-video t-rise t-5">
+  <div class="hero-video">
     <div class="video-frame">
       <iframe title="Remi Pearson — introduction" data-vimeo="dnt=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;autopause=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
     </div>
@@ -174,11 +169,11 @@
     <div class="portrait-inner">
       <div class="portrait-copy">
         <p class="eyebrow">Strategist · Speaker · Author</p>
-        <h1 class="hero-title hero-title--stack hero-title--c1">Ideas.<br>Leadership.<br><em>Impact.</em></h1>
-        <p class="hero-lede">Remi Pearson works with leaders, project managers and business owners on the thinking behind their decisions. Two decades of building companies, and a set of original frames for seeing what is really going on.</p>
+        <h1 class="hero-title hero-title--stack hero-title--c1">Let truth<br><em>lead.</em></h1>
+        <p class="hero-lede">I'm Remi. I'm fascinated by why intelligent, self-aware humans get stuck — and how truth can set us free.</p>
         <div class="btn-row btn-row--start">
-          <a href="#contact" class="btn btn--primary">Bring Remi to your team</a>
-          <button type="button" class="btn btn--ghost js-pip-open"><span class="play" aria-hidden="true"></span> Watch Remi in 90 seconds</button>
+          <a href="#rabbit-holes" class="btn btn--primary">Show me where to start</a>
+          <button type="button" class="btn btn--ghost js-pip-open"><span class="play" aria-hidden="true"></span> Watch perspectives</button>
         </div>
       </div>
     </div>
@@ -219,23 +214,65 @@
 <section data-hero="D" class="hero-d-intro" aria-label="Introduction copy" hidden>
   <div>
     <p class="eyebrow">Strategist · Speaker · Author</p>
-    <h1 class="hero-title hero-title--stack">Ideas.<br>Leadership.<br><em>Impact.</em></h1>
+    <h1 class="hero-title hero-title--stack">Let truth<br><em>lead.</em></h1>
   </div>
   <div class="hero-b-side">
-    <p class="hero-lede">Remi Pearson works with leaders, project managers and business owners on the thinking behind their decisions. Two decades of building companies, and a set of original frames for seeing what is really going on.</p>
+    <p class="hero-lede">I'm Remi. I'm fascinated by why intelligent, self-aware humans get stuck — and how truth can set us free.</p>
     <div class="btn-row btn-row--start">
-      <a href="#contact" class="btn btn--primary">Bring Remi to your team</a>
-      <a href="#frames" class="btn btn--ghost">See how Remi thinks</a>
+      <a href="#rabbit-holes" class="btn btn--primary">Show me where to start</a>
+      <button type="button" class="btn btn--ghost js-open-video"><span class="play" aria-hidden="true"></span> Watch perspectives</button>
     </div>
   </div>
 </section>
 
 <!-- IN THE ROOM (all heroes except D) -->
-<section class="band" data-hero="A B B3 C C1 C1T C2 C3" aria-label="Remi at work">
+<section class="band" data-hero="A B C C1 C2 C3" aria-label="Remi at work">
   <img loading="lazy" decoding="async" src="assets/photos/band-1.webp" alt="Remi in the room">
   <img loading="lazy" decoding="async" src="assets/photos/band-2.webp" alt="Remi on stage">
   <img loading="lazy" decoding="async" src="assets/photos/band-3.webp" alt="Remi in the studio">
   <img loading="lazy" decoding="async" src="assets/photos/band-4.webp" alt="Remi with online audiences">
+</section>
+
+<!-- WHICH RABBIT HOLE -->
+<section id="rabbit-holes" class="section holes" aria-labelledby="holes-h">
+  <div class="holes-head">
+    <h2 id="holes-h" class="holes-title">Which rabbit hole shall we <em>disappear down?</em></h2>
+  </div>
+  <div class="holes-grid">
+    <a href="ideas-models.html#part-4" class="hole-card hole-card--accent">
+      <div><h3>I know better. Why do I still keep doing this?</h3><p>Patterns, triggers and protective responses that insight alone has not changed.</p></div>
+      <span class="hole-more">Explore <span aria-hidden="true">→</span></span>
+    </a>
+    <a href="ideas-models.html#part-3" class="hole-card">
+      <div><h3>Why does loving someone bring all my shit to the surface?</h3><p>Attachment, boundaries, conflict, intimacy and the moments you leave yourself.</p></div>
+      <span class="hole-more">Explore <span aria-hidden="true">→</span></span>
+    </a>
+    <a href="ideas-models.html#part-4" class="hole-card">
+      <div><h3>Tell me the truth. What am I not seeing?</h3><p>Decisions, contradictions and stories that keep your life out of alignment.</p></div>
+      <span class="hole-more">Explore <span aria-hidden="true">→</span></span>
+    </a>
+    <a href="ideas-models.html#part-6" class="hole-card hole-card--dark">
+      <div><h3>How do I lead without carrying everybody?</h3><p>Leadership, accountability, culture, holding space and honest conversations.</p></div>
+      <span class="hole-more">Explore <span aria-hidden="true">→</span></span>
+    </a>
+    <a href="ideas-models.html#part-8" class="hole-card">
+      <div><h3>How do I sell without scripts, pressure or bullshit?</h3><p>Consultative sales, ethical influence, presenting and moving a room.</p></div>
+      <span class="hole-more">Explore <span aria-hidden="true">→</span></span>
+    </a>
+    <a href="ideas-models.html#part-8" class="hole-card hole-card--dark">
+      <div><h3>I've built myself a job. How do I build an asset?</h3><p>Turn expertise into intellectual property and build beyond the founder.</p></div>
+      <span class="hole-more">Explore <span aria-hidden="true">→</span></span>
+    </a>
+  </div>
+</section>
+
+<!-- CURIOUS -->
+<section class="section curious" aria-labelledby="curious-h">
+  <div>
+    <h2 id="curious-h" class="h2">Curious about the thinking behind the work?</h2>
+    <p class="body-lg">Explore Remi's original models, methods and ideas.</p>
+  </div>
+  <a href="ideas-models.html" class="btn btn--primary">Explore ideas &amp; models</a>
 </section>
 
 <!-- FRAMES -->
@@ -245,11 +282,11 @@
     <h2 id="frames-h" class="frames-title">Original models for <em>thinking clearly</em></h2>
     <div class="frames-intro">
       <p>Each frame names something leaders feel but rarely see. Used in boardrooms, on stages and in Remi's books.</p>
-      <a href="#frames" class="text-link">Explore the frames →</a>
+      <a href="ideas-models.html" class="text-link">Explore the ideas &amp; models →</a>
     </div>
   </div>
   <div class="frames-grid">
-    <a href="#frames" class="frame-card">
+    <a href="trustme-model.html" class="frame-card">
       <div class="frame-media"><img loading="lazy" decoding="async" src="assets/photos/frame-1.webp" alt=""></div>
       <div class="frame-body">
         <div class="frame-top"><span class="card-cat">Frame 01</span><span class="frame-arrow" aria-hidden="true">→</span></div>
@@ -257,7 +294,7 @@
         <p class="frame-sub">Seven levels of thinking</p>
       </div>
     </a>
-    <a href="#frames" class="frame-card">
+    <a href="ideas-models.html" class="frame-card">
       <div class="frame-media"><img loading="lazy" decoding="async" src="assets/photos/frame-2.webp" alt=""></div>
       <div class="frame-body">
         <div class="frame-top"><span class="card-cat">Frame 02</span><span class="frame-arrow" aria-hidden="true">→</span></div>
@@ -265,7 +302,7 @@
         <p class="frame-sub">Accountability and readiness</p>
       </div>
     </a>
-    <a href="#frames" class="frame-card">
+    <a href="ideas-models.html" class="frame-card">
       <div class="frame-media"><img loading="lazy" decoding="async" src="assets/photos/frame-3.webp" alt=""></div>
       <div class="frame-body">
         <div class="frame-top"><span class="card-cat">Frame 03</span><span class="frame-arrow" aria-hidden="true">→</span></div>
@@ -273,7 +310,7 @@
         <p class="frame-sub">Reading collective thinking</p>
       </div>
     </a>
-    <a href="#frames" class="frame-card">
+    <a href="ideas-models.html" class="frame-card">
       <div class="frame-media"><img loading="lazy" decoding="async" src="assets/photos/frame-4.webp" alt=""></div>
       <div class="frame-body">
         <div class="frame-top"><span class="card-cat">Frame 04</span><span class="frame-arrow" aria-hidden="true">→</span></div>
@@ -282,6 +319,26 @@
       </div>
     </a>
   </div>
+</section>
+
+<!-- T.R.U.S.T.M.E. MODEL (full page: trustme-model.html) -->
+<section id="trustme" class="section model-intro" aria-labelledby="trustme-h">
+  <div>
+    <p class="eyebrow">Ideas &amp; models</p>
+    <h2 id="trustme-h" class="h2">Meet the T.R.U.S.T.M.E. model</h2>
+    <p class="body-lg">People do not all make sense of the world from the same place. T.R.U.S.T.M.E. reveals the level of thinking shaping what a person, group or organisation notices, values, fears and can take responsibility for.</p>
+    <p class="aside-note">Under pressure, our natural level becomes easier to see.</p>
+    <a href="trustme-model.html" class="btn btn--primary">Explore the model →</a>
+  </div>
+  <ol class="levels" reversed aria-label="The seven levels of T.R.U.S.T.M.E.">
+    <li class="level"><span class="level-num">7</span><span class="level-name">Evolution</span><span class="level-q">What serves the whole now?</span></li>
+    <li class="level level--dark"><span class="level-num">6</span><span class="level-name">Meaning</span><span class="level-q">What are we contributing beyond ourselves?</span></li>
+    <li class="level level--accent"><span class="level-num">5</span><span class="level-name">Tenacity</span><span class="level-q">How do we improve and achieve?</span></li>
+    <li class="level"><span class="level-num">4</span><span class="level-name">Systems</span><span class="level-q">How do we make this stable and repeatable?</span></li>
+    <li class="level level--dark"><span class="level-num">3</span><span class="level-name">Uniqueness</span><span class="level-q">Who am I when I stop conforming?</span></li>
+    <li class="level"><span class="level-num">2</span><span class="level-name">Relatability</span><span class="level-q">Where do I belong and whose truth do I trust?</span></li>
+    <li class="level level--accent"><span class="level-num">1</span><span class="level-name">Trust</span><span class="level-q">Can I survive and am I enough?</span></li>
+  </ol>
 </section>
 
 <!-- WHO THIS IS FOR -->
@@ -304,10 +361,10 @@
   <img loading="lazy" decoding="async" class="story-photo" src="assets/photos/story.webp" alt="Photo of Remi Pearson">
   <div>
     <p class="eyebrow">About Remi</p>
-    <h2 id="story-h" class="h2 h2--story">Twenty-three years of building, leading and writing down what actually works.</h2>
-    <p class="body-xl">Remi has founded and run companies, trained thousands of leaders and written books that have reached millions. The frames on this site were built in those rooms, not in theory.</p>
-    <p class="body-xl">Today she works at the strategic level: facilitating leadership teams, speaking to large audiences and publishing the models. She is not available for individual coaching.</p>
-    <a href="#story" class="text-link">Read Remi's full bio</a>
+    <h2 id="story-h" class="h2 h2--story">Twenty-three years following one question.</h2>
+    <p class="body-xl">In 2003 I wasn't searching for a new career. I needed to understand why some people are defined by what happened to them, while others somehow find a way to become more fully themselves.</p>
+    <p class="body-xl">That question led me into coaching, psychology, attachment, trauma and the emotional architecture beneath the patterns we repeat. The business, the books, the models and the stages all came later.</p>
+    <a href="about-remi.html" class="text-link">Read Remi's full story →</a>
   </div>
 </section>
 
@@ -335,7 +392,7 @@
       <h2>Take the frames with you</h2>
       <p>Books, self-paced programs and tools built on Remi's models, for leaders who want to work through the thinking on their own terms.</p>
     </div>
-    <a href="#contact" class="btn btn--outline" data-interest="Products">Browse products</a>
+    <a href="#contact" class="btn btn--outline" data-interest="Products">Browse books &amp; programs</a>
   </div>
 </section>
 
@@ -347,7 +404,7 @@
     <p class="body-lg">Remi's team responds to speaking, facilitation, media and product enquiries within two business days. Individual coaching requests cannot be accommodated.</p>
   </div>
   <div>
-    <form class="enquiry-form" data-crm="gohighlevel">
+    <form class="enquiry-form" data-crm="gohighlevel" data-chat-form="interest">
       <label>Name<input name="name" required placeholder="Your name" autocomplete="name"></label>
       <label>Email<input name="email" type="email" required placeholder="you@company.com" autocomplete="email"></label>
       <label>I'm interested in
@@ -391,25 +448,27 @@
   <div class="footer-top">
     <div class="footer-brand">
       <img src="assets/remi-logo.webp" alt="Remi — Let truth lead" width="167" height="60" loading="lazy" decoding="async">
-      <p class="footer-statement">Clear thinking for the people who <em>set direction.</em></p>
-      <a href="#contact" class="btn btn--footer">Work with Remi →</a>
+      <p class="footer-statement">Fancy a proper <em>conversation?</em></p>
+      <a href="invite-remi.html" class="btn btn--footer">Invite Remi →</a>
     </div>
     <div class="footer-news">
-      <p class="footer-head">The Frames, in your inbox</p>
-      <p class="footer-news-copy">Occasional notes on leadership, truth and decision-making. No noise, unsubscribe anytime.</p>
+      <p class="footer-head">I'll write when I have something worth saying</p>
+      <p class="footer-news-copy">Thoughtful ideas, new conversations and the occasional invitation.</p>
       <form class="news-form">
+        <label class="sr-only" for="news-name">First name</label>
+        <input id="news-name" name="firstName" placeholder="Your first name" autocomplete="given-name">
         <label class="sr-only" for="news-email">Email address</label>
-        <input id="news-email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
-        <button type="submit">Subscribe</button>
+        <input id="news-email" name="email" type="email" required placeholder="Your email address" autocomplete="email">
+        <button type="submit">Keep me in the conversation</button>
       </form>
-      <p class="news-thanks" hidden>Thank you, you're on the list.</p>
+      <p class="news-thanks" hidden>Thank you, you're in the conversation.</p>
     </div>
   </div>
 
   <div class="footer-links">
     <nav class="footer-col" aria-label="Explore">
       <span class="footer-head">Explore</span>
-      <a href="#frames">Frames</a><a href="#work">Facilitation</a><a href="#work">Speaking</a><a href="#work">Products</a><a href="#story">About</a>
+      <a href="#rabbit-holes">Perspectives</a><a href="ideas-models.html">Ideas &amp; Models</a><a href="trustme-model.html">The T.R.U.S.T.M.E. model</a><a href="#work">Programs</a><a href="#work">Books</a><a href="about-remi.html">About Remi</a><a href="invite-remi.html">Invite Remi</a>
     </nav>
     <nav class="footer-col" aria-label="Enquire">
       <span class="footer-head">Enquire</span>
@@ -438,7 +497,7 @@
 </footer>
 </div>
 
-<!-- VIDEO MODAL (C1, C1T) -->
+<!-- VIDEO MODAL (C1) -->
 <div class="video-modal" role="dialog" aria-modal="true" aria-label="Featured video" hidden>
   <div class="video-modal-frame">
     <iframe title="Remi Pearson — featured talk" data-vimeo="autoplay=1&amp;dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
@@ -446,38 +505,6 @@
   <button type="button" class="video-modal-close js-close-video" aria-label="Close">×</button>
 </div>
 
-<!-- CHAT -->
-<div class="chat">
-  <div class="chat-panel" role="dialog" aria-label="Talk to Remi" hidden>
-    <div class="chat-head">
-      <div class="chat-id">
-        <img src="assets/photos/story.webp" alt="" width="42" height="42">
-        <strong>Talk to Remi</strong>
-      </div>
-      <button type="button" class="chat-close js-chat-toggle" aria-label="Close chat">×</button>
-    </div>
-    <div class="chat-log" role="log" aria-live="polite">
-      <span class="chat-day">Today</span>
-      <div class="msg msg--them"><div class="bubble">Hi, thanks for stopping by. Ask about keynotes, strategy days, media or Remi's books and programs. Pick a topic or type a question.</div></div>
-      <div class="chips">
-        <button type="button" class="chip" data-chat-say="Keynote speaking">Keynote speaking</button>
-        <button type="button" class="chip" data-chat-say="Strategy day">Strategy day</button>
-        <button type="button" class="chip" data-chat-say="Podcast / media">Podcast / media</button>
-        <button type="button" class="chip" data-chat-say="Books &amp; programs">Books &amp; programs</button>
-      </div>
-    </div>
-    <form class="chat-input">
-      <input name="message" placeholder="Ask about keynotes, strategy days…" aria-label="Message" autocomplete="off">
-      <button type="submit" aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-    </form>
-    <a href="#contact" class="chat-form-link js-chat-toggle">Prefer a form? Send a full enquiry</a>
-  </div>
-  <button type="button" class="chat-teaser js-chat-toggle"><img src="assets/photos/story.webp" alt="" width="30" height="30">Have a question? Talk to Remi</button>
-  <button type="button" class="chat-launcher js-chat-toggle" aria-label="Talk to Remi" aria-expanded="false">
-    <svg class="icon-chat" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H8l-5 3 1.4-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01" stroke-width="3"/></svg>
-    <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-    <span class="chat-badge" aria-hidden="true"></span>
-  </button>
-</div>
+<!-- CHAT: injected by js/chat.js so every page shares one widget -->
 </body>
 </html>

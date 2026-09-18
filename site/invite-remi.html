@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" data-palette="parchment-rust">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invite Remi — Remi Pearson</title>
+<meta name="description" content="Invite Remi Pearson to your podcast, panel, stage, senior team, roundtable, salon, documentary, festival or something wonderfully difficult to categorise.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/site.js" defer></script>
+<script src="js/chat.js" defer></script>
+<script src="js/invite.js" defer></script>
+</head>
+<body>
+<div class="wrap" id="top">
+
+<!-- HEADER -->
+<header class="site-header" data-scrolled="false">
+  <a href="index.html" class="logo" aria-label="Remi Pearson — home">
+    <img class="logo-gold" src="assets/remi-logo.webp" alt="Remi — Let truth lead">
+    <img class="logo-rust" src="assets/remi-logo-rust.webp" alt="Remi — Let truth lead">
+    <img class="logo-ink" src="assets/remi-logo-ink.webp" alt="Remi — Let truth lead">
+  </a>
+  <nav aria-label="Primary" class="nav">
+    <a href="index.html#rabbit-holes">Perspectives</a>
+    <div class="nav-item">
+      <a href="ideas-models.html" class="nav-link">Ideas &amp; Models</a>
+      <div class="nav-sub">
+        <a href="trustme-model.html">The T.R.U.S.T.M.E. model</a>
+      </div>
+    </div>
+    <a href="index.html#work">Programs</a>
+    <a href="index.html#work">Books</a>
+    <a href="about-remi.html">About Remi</a>
+    <a href="invite-remi.html" class="is-current" aria-current="page">Invite Remi</a>
+    <div class="variants">
+      <button type="button" class="variants-btn" aria-expanded="false" aria-haspopup="true">Variants <span aria-hidden="true">▾</span></button>
+      <div class="variants-panel" hidden>
+        <div class="variants-head"><span class="variants-label">Home hero</span><button type="button" class="variants-close" aria-label="Close menu">×</button></div>
+        <button type="button" role="menuitemradio" data-set-hero="A">A · Statement</button>
+        <button type="button" role="menuitemradio" data-set-hero="B">B · Video first, text below</button>
+        <button type="button" role="menuitemradio" data-set-hero="C">C · Split</button>
+        <button type="button" role="menuitemradio" data-set-hero="C1">C1 · Portrait, text &amp; video</button>
+        <button type="button" role="menuitemradio" data-set-hero="C2">C2 · Picture-in-picture video</button>
+        <button type="button" role="menuitemradio" data-set-hero="C3">Full screen C3</button>
+        <button type="button" role="menuitemradio" data-set-hero="D">D · Full-screen video</button>
+        <span class="variants-label variants-label--sep">Palette</span>
+        <button type="button" role="menuitemradio" data-set-palette="oxblood-parchment">Oxblood &amp; parchment</button>
+        <button type="button" role="menuitemradio" data-set-palette="parchment-rust">Parchment &amp; rust</button>
+        <button type="button" role="menuitemradio" data-set-palette="midnight-gold">Midnight &amp; gold</button>
+      </div>
+    </div>
+  </nav>
+  <div class="header-actions">
+    <a href="index.html#rabbit-holes" class="btn btn--ink btn--sm">Show me where to start</a>
+    <button type="button" class="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile" hidden>
+  <a href="index.html#rabbit-holes">Perspectives</a>
+  <a href="ideas-models.html">Ideas &amp; Models</a>
+  <a href="trustme-model.html" class="mobile-sub">The T.R.U.S.T.M.E. model</a>
+  <a href="index.html#work">Programs</a>
+  <a href="index.html#work">Books</a>
+  <a href="about-remi.html">About Remi</a>
+  <a href="invite-remi.html" class="accent" aria-current="page">Invite Remi</a>
+  <span class="mobile-label">Variants · Home hero</span>
+  <button type="button" data-set-hero="A">A · Statement</button>
+  <button type="button" data-set-hero="B">B · Video first</button>
+  <button type="button" data-set-hero="C">C · Split</button>
+  <button type="button" data-set-hero="C1">C1 · Portrait, text &amp; video</button>
+  <button type="button" data-set-hero="C2">C2 · Picture-in-picture video</button>
+  <button type="button" data-set-hero="C3">Full screen C3</button>
+  <button type="button" data-set-hero="D">D · Full-screen video</button>
+  <span class="mobile-label">Variants · Palette</span>
+  <button type="button" data-set-palette="oxblood-parchment">Oxblood &amp; parchment</button>
+  <button type="button" data-set-palette="parchment-rust">Parchment &amp; rust</button>
+  <button type="button" data-set-palette="midnight-gold">Midnight &amp; gold</button>
+</nav>
+
+<main>
+<!-- INVITE ME INTO AN INTERESTING ROOM -->
+<section class="page-hero invite-hero" aria-labelledby="page-h">
+  <div class="invite-copy">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Invite Remi</span>
+    </nav>
+    <h1 id="page-h" class="invite-title">Invite me<br>into an<br>interesting<br><span class="underline">room</span></h1>
+    <p class="body-xl">I love intelligent conversations, thoughtful people and rooms where something real might happen.</p>
+    <p class="body-xl">Invite me to your podcast, panel, stage, senior team, roundtable, salon, documentary, festival or something wonderfully difficult to categorise.</p>
+    <div class="quote-row">
+      <p class="quote-note">“The best conversations are rarely the ones where everybody already agrees.”</p>
+      <svg class="quote-arrow" width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10c22-4 40 6 44 30"/><path d="M40 33l10 8 6-11"/></svg>
+    </div>
+  </div>
+  <div class="collage">
+    <img class="photo-print collage-main" src="assets/photos/invite-stage.webp" alt="Remi taking a selfie with a theatre full of people cheering">
+    <img class="photo-print collage-small" src="assets/photos/invite-portrait.webp" alt="Remi smiling">
+  </div>
+</section>
+
+<!-- WHAT KIND OF ROOM -->
+<section id="rooms" class="section rooms-section" aria-labelledby="rooms-h">
+  <h2 id="rooms-h" class="rooms-title"><span class="underline">What kind of room are we creating?</span></h2>
+  <div class="rooms">
+    <article class="room-card">
+      <span class="room-icon"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h10a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M16 8h4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1v3l-4-3h-3a2 2 0 0 1-2-2v-1"/></svg></span>
+      <div class="room-body"><h3>A proper conversation</h3><p>Podcasts, interviews, fireside chats and reciprocal conversations where both people get to think.</p></div>
+      <a href="#invite-form" class="btn btn--primary btn--wide" data-invite="Conversation">Invite me to a conversation</a>
+    </article>
+    <article class="room-card">
+      <span class="room-icon"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="6" ry="3.5"/><circle cx="12" cy="4.5" r="1.5"/><circle cx="4" cy="8" r="1.5"/><circle cx="20" cy="8" r="1.5"/><circle cx="4" cy="16.5" r="1.5"/><circle cx="20" cy="16.5" r="1.5"/><circle cx="12" cy="20" r="1.5"/></svg></span>
+      <div class="room-body"><h3>An interesting room</h3><p>Panels, roundtables, salons, private gatherings, festivals and ideas that refuse to fit neatly into a box.</p></div>
+      <a href="#invite-form" class="btn btn--primary btn--wide" data-invite="Room">Invite me into the room</a>
+    </article>
+    <article class="room-card">
+      <span class="room-icon"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3l4 3-2 3-4-3z"/><path d="M7 8l7 8M6 9l3 8"/><ellipse cx="13" cy="19" rx="8" ry="2.5"/></svg></span>
+      <div class="room-body"><h3>A stage that matters</h3><p>Keynotes, public lectures and high-impact experiences designed to move a room, not merely address it.</p></div>
+      <a href="#invite-form" class="btn btn--primary btn--wide" data-invite="Speaking">Invite me to the stage</a>
+    </article>
+    <article class="room-card">
+      <span class="room-icon"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="3"/><circle cx="5" cy="9" r="2.2"/><circle cx="19" cy="9" r="2.2"/><path d="M7 20c0-3 2.2-5.5 5-5.5s5 2.5 5 5.5M1.5 19c0-2.4 1.5-4.3 3.5-4.3M22.5 19c0-2.4-1.5-4.3-3.5-4.3"/></svg></span>
+      <div class="room-body"><h3>A senior team ready to move</h3><p>High-level facilitation for boards, founders, executive teams and senior leaders when truth, alignment, relationships and consequential decisions matter.</p></div>
+      <a href="#invite-form" class="btn btn--primary btn--wide" data-invite="Facilitation">Invite me to facilitate</a>
+    </article>
+  </div>
+  <div class="center-cta">
+    <p>Not sure where your invitation belongs? Wonderful.<br><span>Tell me what you're imagining.</span></p>
+    <a href="#invite-form" class="btn btn--primary btn--big" data-invite="Other">Start the conversation</a>
+  </div>
+</section>
+
+<!-- INVITATIONS THAT LIGHT ME UP -->
+<section class="section" aria-labelledby="light-h">
+  <p class="eyebrow">Formats</p>
+  <h2 id="light-h" class="h2">Here are the invitations that light me up</h2>
+  <p class="section-sub">I am interested in ideas, intelligent people and experiences with enough room for discovery. The format matters far less than the quality of the question and the people gathered around it.</p>
+  <div class="formats">
+    <article class="format">
+      <span class="icon-square"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8"/></svg></span>
+      <div><h3>Long-form conversations</h3><p>Podcasts, video interviews, radio, fireside chats and conversations where neither person is simply waiting for the next question.</p></div>
+    </article>
+    <article class="format">
+      <span class="icon-square"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h10a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M16 8h4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1v3l-4-3h-3a2 2 0 0 1-2-2v-1"/></svg></span>
+      <div><h3>Panels &amp; public dialogue</h3><p>Expert panels, debates and moderated conversations exploring more than one honest perspective.</p></div>
+    </article>
+    <article class="format">
+      <span class="icon-square"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="6" ry="3.5"/><circle cx="12" cy="4.5" r="1.5"/><circle cx="4" cy="8" r="1.5"/><circle cx="20" cy="8" r="1.5"/><circle cx="4" cy="16.5" r="1.5"/><circle cx="20" cy="16.5" r="1.5"/><circle cx="12" cy="20" r="1.5"/></svg></span>
+      <div><h3>Roundtables, salons &amp; private gatherings</h3><p>Small, exceptional rooms where founders, thinkers and practitioners can speak candidly and go somewhere unexpected.</p></div>
+    </article>
+    <article class="format">
+      <span class="icon-square"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-5 9 5H3zM5.5 9v8.5M9.8 9v8.5M14.2 9v8.5M18.5 9v8.5M4 17.5h16M3 21h18"/></svg></span>
+      <div><h3>Festivals, universities &amp; ideas events</h3><p>Writers' festivals, book events, public lectures and intelligent gatherings across psychology, relationships, leadership and human behaviour.</p></div>
+    </article>
+    <article class="format">
+      <span class="icon-square"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1V5zM12 6v14"/></svg></span>
+      <div><h3>Books &amp; editorial projects</h3><p>Forewords, expert commentary, substantive interviews, collaborative chapters and contributions to books worth helping into the world.</p></div>
+    </article>
+    <article class="format">
+      <span class="icon-square"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="10" width="12" height="10" rx="2"/><path d="M15 13l6-3v10l-6-3"/><circle cx="6.5" cy="6" r="2.5"/><circle cx="12" cy="6" r="2.5"/></svg></span>
+      <div><h3>Documentary &amp; media</h3><p>Documentaries, thoughtful media appearances and projects exploring the human questions beneath the obvious story.</p></div>
+    </article>
+    <article class="format">
+      <span class="icon-square"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3z"/></svg></span>
+      <div><h3>One-off masterclasses &amp; guest experiences</h3><p>A substantial contribution inside an established program, retreat or community when the audience and question are genuinely interesting.</p></div>
+    </article>
+  </div>
+</section>
+
+<!-- FOR FOUNDERS, BOARDS & SENIOR TEAMS -->
+<section class="band-dark" aria-labelledby="founders-h">
+  <div class="founders">
+    <img class="invite-photo founders-photo" loading="lazy" decoding="async" src="assets/photos/invite-teaching.webp" alt="Remi teaching in front of a screen that reads “You can't be happy living someone else's comfort level”">
+    <div>
+      <p class="eyebrow">Senior work</p>
+      <h2 id="founders-h" class="h2">For founders, boards &amp; senior teams</h2>
+      <blockquote class="founders-quote"><p>“I know how to hold a room when the truth is difficult, the stakes are real and everyone present is highly capable.”</p></blockquote>
+      <div class="founder-cards">
+        <article class="room-card">
+          <h3>Senior team facilitation</h3>
+          <p>Designing and holding consequential conversations for boards, founders, executive teams and senior leaders when truth, alignment, relationships and difficult decisions matter.</p>
+          <a href="#invite-form" class="text-link" data-invite="Facilitation">Invite Remi to facilitate →</a>
+        </article>
+        <article class="room-card">
+          <h3>High-level strategic consulting</h3>
+          <p>Working with founders, owners, boards and senior leaders on alignment, leadership, culture, intellectual property, consultative sales and building an asset beyond the founder.</p>
+          <a href="#invite-form" class="text-link" data-invite="Consulting">Explore strategic consulting →</a>
+        </article>
+      </div>
+      <p class="founders-note">This is senior-level facilitation and strategic consulting. It is not middle-management training, operational hand-holding or ongoing accountability.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT COULD WE TALK ABOUT -->
+<section class="section" aria-labelledby="talk-h">
+  <p class="eyebrow">Themes</p>
+  <h2 id="talk-h" class="h2">What could we talk about?</h2>
+  <p class="section-sub">Quite a lot, as it happens. My work crosses the emotional, relational, intellectual and commercial architecture of how people change, decide, lead, influence and build.</p>
+  <div class="topics">
+    <article class="topic-card">
+      <span class="topic-num" aria-hidden="true">01</span>
+      <h3>Human change, trauma &amp; protective patterns</h3>
+      <p>Emotion Integration Technique, IFS and parts work, holding space, emotional integration and why insight alone so rarely creates change.</p>
+    </article>
+    <article class="topic-card">
+      <span class="topic-num" aria-hidden="true">02</span>
+      <h3>Relationships, attachment &amp; repair</h3>
+      <p>Attachment patterns, self-abandonment, boundaries, conflict, intimacy, rupture and the difficult work of remaining ourselves while loving another person.</p>
+    </article>
+    <article class="topic-card">
+      <span class="topic-num" aria-hidden="true">03</span>
+      <h3>Truth, alignment &amp; decision-making</h3>
+      <p>Let Truth Lead, the Critical Alignment Model, values, perception and what becomes possible when we stop negotiating with what we already know.</p>
+    </article>
+    <article class="topic-card">
+      <span class="topic-num" aria-hidden="true">04</span>
+      <h3>Leadership, culture &amp; senior team facilitation</h3>
+      <p>Disruptive Leadership, <a href="trustme-model.html">T.R.U.S.T.M.E.</a>, accountability, healthy culture and holding the room when difficult conversations and consequential decisions matter.</p>
+    </article>
+    <article class="topic-card">
+      <span class="topic-num" aria-hidden="true">05</span>
+      <h3>Consultative sales &amp; ethical influence</h3>
+      <p>Ultimate Influence, diagnosing before prescribing, selling intangible value and helping someone make a quality decision without scripts, pressure or bullshit.</p>
+    </article>
+    <article class="topic-card">
+      <span class="topic-num" aria-hidden="true">06</span>
+      <h3>Building beyond the founder</h3>
+      <p>Turning expertise into intellectual property, moving from practice to business, building an asset instead of a job and creating something valuable enough to sell.</p>
+    </article>
+  </div>
+</section>
+
+<!-- FIT -->
+<section class="section" aria-labelledby="fit-h">
+  <p class="eyebrow">Is this the right room?</p>
+  <h2 id="fit-h" class="h2">A quick, honest fit check</h2>
+  <div class="fit-lists">
+    <div>
+      <h3>We'll probably be a wonderful fit if…</h3>
+      <ul class="fit-list fit-list--yes">
+        <li>You value depth more than performance.</li>
+        <li>You want thought, challenge and genuine conversation.</li>
+        <li>You need someone who can hold a room of highly capable people without shrinking, rescuing or taking over.</li>
+        <li>You care about what happens in the room, not merely who appears on the program.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Probably not my room if…</h3>
+      <ul class="fit-list fit-list--no">
+        <li>You want a rehearsed motivational speech with no conversation.</li>
+        <li>You need recurring middle-management training.</li>
+        <li>You are looking for operational consulting or ongoing accountability.</li>
+        <li>You want somebody to make a difficult subject sound conveniently simple.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="pull-quote pull-quote--center">I don't need a perfect brief. I need enough truth to know whether we could create something worthwhile together.</p>
+</section>
+
+<!-- TELL ME WHAT YOU'RE IMAGINING -->
+<section id="invite-form" class="band-dark" aria-labelledby="form-h">
+  <div class="invite-panel">
+    <p class="eyebrow">Send the invitation</p>
+    <h2 id="form-h" class="h2">Tell me what you're imagining</h2>
+    <p class="section-sub">Have something else in mind? Wonderful. The most interesting invitations do not always arrive with a familiar label.</p>
+    <form class="invite-form" data-crm="gohighlevel" data-chat-form="invitation">
+      <div class="invite-col">
+        <label>Your name<input name="name" required autocomplete="name"></label>
+        <label>Email<input name="email" type="email" required autocomplete="email"></label>
+        <label>Organisation<input name="organisation" autocomplete="organization"></label>
+        <label>What are you inviting me to?
+          <select name="invitation" required>
+            <option value="Conversation">A proper conversation — podcast, interview, fireside chat</option>
+            <option value="Room">An interesting room — panel, roundtable, salon, festival</option>
+            <option value="Speaking">A stage — keynote or public lecture</option>
+            <option value="Facilitation">Senior team facilitation</option>
+            <option value="Consulting">High-level strategic consulting</option>
+            <option value="Media">Books, editorial, documentary or media</option>
+            <option value="Other">Something else</option>
+          </select>
+        </label>
+        <label>Date, location or online<input name="when"></label>
+      </div>
+      <div class="invite-col">
+        <label>Who will be in the room?<textarea name="audience" rows="3"></textarea></label>
+        <label>What would you love us to explore?<textarea name="explore" rows="3"></textarea></label>
+        <label>Why does this feel like the right fit?<textarea name="fit" rows="3"></textarea></label>
+      </div>
+      <div class="invite-actions">
+        <button type="submit" class="btn btn--primary">Send the invitation</button>
+        <span class="fine">My team will read your invitation and come back to you with the next sensible step.</span>
+      </div>
+    </form>
+    <div class="invite-sent" tabindex="-1" hidden>
+      <p class="card-eyebrow">Received</p>
+      <h3>Thank you.</h3>
+      <p>My team will read your invitation and come back to you with the next sensible step.</p>
+      <button type="button" class="btn btn--outline btn--sm js-invite-reset">Send another</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="assets/remi-logo.webp" alt="Remi — Let truth lead" width="167" height="60" loading="lazy" decoding="async">
+      <p class="footer-statement">Fancy a proper <em>conversation?</em></p>
+      <a href="#invite-form" class="btn btn--footer">Invite Remi →</a>
+    </div>
+    <div class="footer-news">
+      <p class="footer-head">I'll write when I have something worth saying</p>
+      <p class="footer-news-copy">Thoughtful ideas, new conversations and the occasional invitation.</p>
+      <form class="news-form">
+        <label class="sr-only" for="news-name">First name</label>
+        <input id="news-name" name="firstName" placeholder="Your first name" autocomplete="given-name">
+        <label class="sr-only" for="news-email">Email address</label>
+        <input id="news-email" name="email" type="email" required placeholder="Your email address" autocomplete="email">
+        <button type="submit">Keep me in the conversation</button>
+      </form>
+      <p class="news-thanks" hidden>Thank you, you're in the conversation.</p>
+    </div>
+  </div>
+
+  <div class="footer-links">
+    <nav class="footer-col" aria-label="Explore">
+      <span class="footer-head">Explore</span>
+      <a href="index.html#rabbit-holes">Perspectives</a><a href="ideas-models.html">Ideas &amp; Models</a><a href="trustme-model.html">The T.R.U.S.T.M.E. model</a><a href="index.html#work">Programs</a><a href="index.html#work">Books</a><a href="about-remi.html">About Remi</a><a href="invite-remi.html">Invite Remi</a>
+    </nav>
+    <nav class="footer-col" aria-label="Enquire">
+      <span class="footer-head">Enquire</span>
+      <a href="index.html?interest=Facilitation#contact">Strategy facilitation</a><a href="index.html?interest=Speaking#contact">Keynote speaking</a><a href="index.html?interest=Media#contact">Media requests</a><a href="index.html?interest=Products#contact">Books &amp; programs</a>
+    </nav>
+    <div class="footer-col">
+      <span class="footer-head">Follow Remi</span>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5ZM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.3-.02-3-1.83-3s-2.1 1.43-2.1 2.9V21H9z"/></svg></a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .6 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8ZM9.8 15.1V8.9L15.6 12z"/></svg></a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.4H7.4V14h2.8v8z"/></svg></a>
+        <a href="#" aria-label="Podcast"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></a>
+      </div>
+      <p class="footer-note">Let truth lead.</p>
+    </div>
+  </div>
+
+  <div class="footer-base">
+    <div class="footer-base-brand">
+      <img src="assets/remi-logo.webp" alt="Remi — Let truth lead" width="122" height="44" loading="lazy" decoding="async">
+      <span>© 2026 Remi Pearson. All rights reserved.</span>
+    </div>
+    <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#top">Back to top ↑</a></div>
+  </div>
+</footer>
+</div>
+</body>
+</html>

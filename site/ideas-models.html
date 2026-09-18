@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en" data-palette="parchment-rust">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ideas &amp; Models — Remi Pearson</title>
+<meta name="description" content="Things Remi Pearson has spent years trying to figure out: the models and ideas behind the work, from the Self-Esteem Triad to T.R.U.S.T.M.E., the Critical Alignment Model and Core → Improve → Innovate.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=Noto+Serif+Display:wdth,wght@62.5,600;62.5,700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/site.js" defer></script>
+<script src="js/chat.js" defer></script>
+</head>
+<body>
+<div class="wrap" id="top">
+
+<!-- HEADER -->
+<header class="site-header" data-scrolled="false">
+  <a href="index.html" class="logo" aria-label="Remi Pearson — home">
+    <img class="logo-gold" src="assets/remi-logo.webp" alt="Remi — Let truth lead">
+    <img class="logo-rust" src="assets/remi-logo-rust.webp" alt="Remi — Let truth lead">
+    <img class="logo-ink" src="assets/remi-logo-ink.webp" alt="Remi — Let truth lead">
+  </a>
+  <nav aria-label="Primary" class="nav">
+    <a href="index.html#rabbit-holes">Perspectives</a>
+    <div class="nav-item">
+      <a href="ideas-models.html" class="nav-link is-current" aria-current="page">Ideas &amp; Models</a>
+      <div class="nav-sub">
+        <a href="trustme-model.html">The T.R.U.S.T.M.E. model</a>
+      </div>
+    </div>
+    <a href="index.html#work">Programs</a>
+    <a href="index.html#work">Books</a>
+    <a href="about-remi.html">About Remi</a>
+    <a href="invite-remi.html">Invite Remi</a>
+    <div class="variants">
+      <button type="button" class="variants-btn" aria-expanded="false" aria-haspopup="true">Variants <span aria-hidden="true">▾</span></button>
+      <div class="variants-panel" hidden>
+        <div class="variants-head"><span class="variants-label">Home hero</span><button type="button" class="variants-close" aria-label="Close menu">×</button></div>
+        <button type="button" role="menuitemradio" data-set-hero="A">A · Statement</button>
+        <button type="button" role="menuitemradio" data-set-hero="B">B · Video first, text below</button>
+        <button type="button" role="menuitemradio" data-set-hero="C">C · Split</button>
+        <button type="button" role="menuitemradio" data-set-hero="C1">C1 · Portrait, text &amp; video</button>
+        <button type="button" role="menuitemradio" data-set-hero="C2">C2 · Picture-in-picture video</button>
+        <button type="button" role="menuitemradio" data-set-hero="C3">Full screen C3</button>
+        <button type="button" role="menuitemradio" data-set-hero="D">D · Full-screen video</button>
+        <span class="variants-label variants-label--sep">Palette</span>
+        <button type="button" role="menuitemradio" data-set-palette="oxblood-parchment">Oxblood &amp; parchment</button>
+        <button type="button" role="menuitemradio" data-set-palette="parchment-rust">Parchment &amp; rust</button>
+        <button type="button" role="menuitemradio" data-set-palette="midnight-gold">Midnight &amp; gold</button>
+      </div>
+    </div>
+  </nav>
+  <div class="header-actions">
+    <a href="index.html#rabbit-holes" class="btn btn--ink btn--sm">Show me where to start</a>
+    <button type="button" class="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile" hidden>
+  <a href="index.html#rabbit-holes">Perspectives</a>
+  <a href="ideas-models.html" aria-current="page">Ideas &amp; Models</a>
+  <a href="trustme-model.html" class="mobile-sub">The T.R.U.S.T.M.E. model</a>
+  <a href="index.html#work">Programs</a>
+  <a href="index.html#work">Books</a>
+  <a href="about-remi.html">About Remi</a>
+  <a href="invite-remi.html" class="accent">Invite Remi</a>
+  <span class="mobile-label">Variants · Home hero</span>
+  <button type="button" data-set-hero="A">A · Statement</button>
+  <button type="button" data-set-hero="B">B · Video first</button>
+  <button type="button" data-set-hero="C">C · Split</button>
+  <button type="button" data-set-hero="C1">C1 · Portrait, text &amp; video</button>
+  <button type="button" data-set-hero="C2">C2 · Picture-in-picture video</button>
+  <button type="button" data-set-hero="C3">Full screen C3</button>
+  <button type="button" data-set-hero="D">D · Full-screen video</button>
+  <span class="mobile-label">Variants · Palette</span>
+  <button type="button" data-set-palette="oxblood-parchment">Oxblood &amp; parchment</button>
+  <button type="button" data-set-palette="parchment-rust">Parchment &amp; rust</button>
+  <button type="button" data-set-palette="midnight-gold">Midnight &amp; gold</button>
+</nav>
+
+<main class="ideas">
+<div class="ideas-page">
+
+<!-- PART ONE · THINGS I'VE SPENT YEARS TRYING TO FIGURE OUT -->
+<section id="part-1" class="ideas-part ideas-intro" aria-labelledby="p1-h">
+  <img class="ideas-compass" src="assets/ideas/im-compass.webp" alt="" aria-hidden="true">
+  <div class="ideas-intro-copy">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Ideas &amp; Models</span></nav>
+    <p class="ideas-eyebrow">Ideas &amp; Models · Part One</p>
+    <h1 id="p1-h" class="ideas-title">Things I've spent years trying to figure out</h1>
+    <p class="ideas-hand ideas-hand--underline">I cannot leave a good question alone.</p>
+    <p class="ideas-body">Most of what I've created began with something I could not explain, something I had lived, witnessed or watched people struggle with long after the obvious answers had failed.</p>
+    <p class="ideas-body">So I kept following the question.</p>
+  </div>
+  <figure class="ideas-map">
+    <img src="assets/ideas/im-map.webp" alt="A hand-drawn map. Let Truth Lead sits at the centre, with paths out to Human Needs &amp; Self, Emotional Change, Meaning &amp; Alignment, Leadership &amp; Human Systems, and Influence &amp; Building Beyond You.">
+    <a class="ideas-hotspot" href="#part-3" style="--x:36.5%;--y:2%;--w:26%;--h:23%" aria-label="Human needs &amp; self — Part Three"></a>
+    <a class="ideas-hotspot" href="#part-4" style="--x:3%;--y:31%;--w:29%;--h:31%" aria-label="Emotional change — Part Four"></a>
+    <a class="ideas-hotspot" href="#part-5" style="--x:68%;--y:28%;--w:31%;--h:32%" aria-label="Meaning &amp; alignment — Part Five"></a>
+    <a class="ideas-hotspot" href="#part-6" style="--x:11%;--y:69%;--w:29%;--h:29%" aria-label="Leadership &amp; human systems — Part Six"></a>
+    <a class="ideas-hotspot" href="#part-8" style="--x:56%;--y:69%;--w:32%;--h:29%" aria-label="Influence &amp; building beyond you — Part Eight"></a>
+    <a class="ideas-hotspot" href="#part-2" style="--x:40%;--y:38%;--w:20%;--h:30%" aria-label="Let truth lead — the body of work at a glance"></a>
+  </figure>
+  <div class="ideas-note-row">
+    <img class="ideas-note-arrow" src="assets/ideas/im-arrow.webp" alt="" aria-hidden="true">
+    <p class="ideas-note">This is not one model.<br>It is a body of work.</p>
+  </div>
+  <p class="ideas-body ideas-body--inset">Some of it helps us understand what shaped us. Some helps us change what happens in the moment. Some helps leaders and organisations see where alignment is breaking. And some helps people sell, lead and build without manipulation, rescuing or becoming the entire asset.</p>
+  <a href="#part-2" class="ideas-btn">See the body of work <span aria-hidden="true">→</span></a>
+  <a href="#part-2" class="ideas-next"><span class="star" aria-hidden="true">✳</span> Continue to Part Two · The complete map <span aria-hidden="true">⟶</span></a>
+</section>
+
+<!-- PART TWO · THE BODY OF WORK, AT A GLANCE -->
+<section id="part-2" class="ideas-part" aria-labelledby="p2-h">
+  <div class="ideas-head">
+    <div>
+      <p class="ideas-eyebrow">Ideas &amp; Models · Part Two</p>
+      <h2 id="p2-h" class="ideas-title">The body of work, at a glance</h2>
+      <p class="ideas-hand ideas-hand--underline">Not every idea does the same job. Here is the map before we go wandering through it.</p>
+    </div>
+    <img class="ideas-art" src="assets/ideas/p2-compass.webp" alt="" aria-hidden="true">
+  </div>
+  <ol class="glance">
+    <li class="glance-group">
+      <div class="glance-head"><div class="glance-name-row"><span class="glance-num">1</span><a href="#part-3" class="glance-name">Human foundations</a></div><img class="glance-art" src="assets/ideas/p2-v1.webp" alt="" aria-hidden="true"></div>
+      <ul class="glance-cards">
+        <li><a href="#part-3" class="glance-card"><span class="glance-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4l8 15H4z"/></svg></span><span><span class="glance-title">Self-Esteem Triad</span><span class="glance-q">Needs. Boundaries. Emotions.</span><span class="glance-tag">Fifteen Emotional Needs · Within the Emotions arm</span></span></a></li>
+        <li><a href="#part-3" class="glance-card"><span class="glance-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l9 17H3z"/><path d="M12 10v4M12 16.5v.5"/></svg></span><span><span class="glance-title">Safe versus Risky Problems</span><span class="glance-q">Am I fixing out there so I do not have to turn within?</span></span></a></li>
+      </ul>
+    </li>
+    <li class="glance-group">
+      <div class="glance-head"><div class="glance-name-row"><span class="glance-num">2</span><a href="#part-4" class="glance-name">Emotional change</a></div><img class="glance-art" src="assets/ideas/p2-v2.webp" alt="" aria-hidden="true"></div>
+      <ul class="glance-cards">
+        <li><a href="#part-4" class="glance-card"><span class="glance-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 12a3 3 0 1 1 3 3 6 6 0 1 1-6-6 9 9 0 1 1 9 9"/></svg></span><span><span class="glance-title">Deep State Repatterning</span><span class="glance-q">How is the past still shaping what happens now?</span></span></a></li>
+        <li><a href="#part-4" class="glance-card"><span class="glance-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 17c3 0 4-4 7-4s4 4 7 4 4-4 6-4M2 21c3 0 4-3 7-3s4 3 7 3 4-3 6-3M13 6a4 4 0 0 1 6 4"/></svg></span><span><span class="glance-title">Emotion Integration Technique</span><span class="glance-q">What do I do in the live moment of activation?</span></span></a></li>
+      </ul>
+    </li>
+    <li class="glance-group">
+      <div class="glance-head"><div class="glance-name-row"><span class="glance-num">3</span><a href="#part-5" class="glance-name">Meaning &amp; alignment</a></div><img class="glance-art" src="assets/ideas/p2-v3.webp" alt="" aria-hidden="true"></div>
+      <ul class="glance-cards">
+        <li><a href="#part-4" class="glance-card"><span class="glance-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M12 8l1.5 3 3 1-3 1-1.5 3-1.5-3-3-1 3-1z"/></svg></span><span><span class="glance-title">Values Alignment Model</span><span class="glance-q">How do I build a meaningful life that is actually mine?</span></span></a></li>
+        <li><a href="#part-5" class="glance-card"><span class="glance-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="10" r="5"/><circle cx="15" cy="10" r="5"/><circle cx="12" cy="15" r="5"/></svg></span><span><span class="glance-title">Critical Alignment Model</span><span class="glance-q">Where is alignment really breaking?</span><span class="glance-tag">Meta Dynamics Profiling Tool · The measurement application</span></span></a></li>
+      </ul>
+    </li>
+    <li class="glance-group">
+      <div class="glance-head"><div class="glance-name-row"><span class="glance-num">4</span><a href="#part-6" class="glance-name">Leadership &amp; evolution</a></div><img class="glance-art" src="assets/ideas/p2-v4.webp" alt="" aria-hidden="true"></div>
+      <ul class="glance-cards">
+        <li><a href="trustme-model.html" class="glance-card"><span class="glance-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><path d="M3 20v-5a3 3 0 0 1 6 0v5M9 20v-5a3 3 0 0 1 6 0v5M15 20v-5a3 3 0 0 1 6 0v5"/></svg></span><span><span class="glance-title">T.R.U.S.T.M.E.</span><span class="glance-q">What operating logic is this person, team or organisation using?</span></span></a></li>
+        <li><a href="#part-6" class="glance-card"><span class="glance-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21l6-10 4 5 3-4 5 9zM13 3v6M13 3h5l-1.5 1.5L18 6h-5"/></svg></span><span><span class="glance-title">Disruptive Leadership</span><span class="glance-q">How do I lead without carrying everybody?</span></span></a></li>
+        <li><a href="#part-7" class="glance-card"><span class="glance-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></span><span><span class="glance-title">Four Quadrants to Leadership</span><span class="glance-q">Can I lead and manage myself before I lead and manage others?</span><span class="glance-tag">Benchmarking · Critical Thinking · CAM Top Five · Written &amp; Unwritten Ground Rules · First 90 Days · 90-Day Review</span></span></a></li>
+      </ul>
+    </li>
+    <li class="glance-group">
+      <div class="glance-head"><div class="glance-name-row"><span class="glance-num">5</span><a href="#part-8" class="glance-name">Influence &amp; enterprise</a></div><img class="glance-art" src="assets/ideas/p2-v5.webp" alt="" aria-hidden="true"></div>
+      <ul class="glance-cards">
+        <li><a href="#part-8" class="glance-card"><span class="glance-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 11l4-4 5 3 4-3 5 4-5 5-4-3-5 3z"/></svg></span><span><span class="glance-title">Ultimate Influence Consultative Sales</span><span class="glance-q">How do I help someone make a quality buying decision?</span></span></a></li>
+        <li><a href="#part-8" class="glance-card"><span class="glance-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V6M16 20v-8M22 20V4M3 20h20M4 9l6-3 6 4 6-6"/></svg></span><span><span class="glance-title">Core → Improve → Innovate</span><span class="glance-q">What deserves most of my attention?</span><span class="glance-tag">Practice to Business · The field-tested application</span></span></a></li>
+      </ul>
+    </li>
+  </ol>
+  <p class="research-thread"><span class="rt-label"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="M15 15l6 6"/></svg> Research thread</span><span>Values, meaning, organisational wellbeing, leadership, reliability and validity.</span></p>
+  <p class="ideas-hand ideas-hand--center">Different questions. Different models. One body of work.</p>
+  <a href="#part-3" class="ideas-btn">Start with the human foundations <span aria-hidden="true">→</span></a>
+  <a href="#part-3" class="ideas-next"><span class="star" aria-hidden="true">✳</span> Continue to Part Three · Human foundations <span aria-hidden="true">⟶</span></a>
+</section>
+
+<!-- PART THREE · SELF-ESTEEM -->
+<section id="part-3" class="ideas-part" aria-labelledby="p3-h">
+  <div class="ideas-head">
+    <div>
+      <p class="ideas-eyebrow">Ideas &amp; Models · Part Three</p>
+      <h2 id="p3-h" class="ideas-title">Self-esteem is something we live.</h2>
+      <p class="ideas-body">It is shaped by whether we know what we need, honour where we end and another person begins, and remain in relationship with our emotional truth.</p>
+    </div>
+    <img class="ideas-art" src="assets/ideas/p3-scene.webp" alt="" aria-hidden="true">
+  </div>
+  <h3 class="ideas-h3">The Self-Esteem Triad</h3>
+  <p class="ideas-hand ideas-hand--center ideas-hand--tight">Needs. Boundaries. Emotions.</p>
+  <img class="ideas-art ideas-art--center triad-art" src="assets/ideas/p3-triad.webp" alt="The Self-Esteem Triad. Needs: know what matters to you; recognise, express and take responsibility for what you need. Boundaries: the line at which you can love someone and still love and take care of yourself; boundaries clarify what is yours, what is not and what behaviour you will accept. Emotions: vital information about what needs attention, protection, expression or completion; speak for your emotions, not from them. At the centre: worthy, lovable, enough.">
+  <div class="hd-box needs">
+    <img class="needs-trees needs-trees--a" src="assets/ideas/p3-trees-a.webp" alt="" aria-hidden="true">
+    <h3 class="ideas-h3 ideas-h3--tight">The Fifteen Emotional Needs</h3>
+    <p class="ideas-hand ideas-hand--center ideas-hand--sm">The emotional-needs map created by Remi Pearson.</p>
+    <div class="needs-cols">
+      <div><h4 class="needs-h needs-h--rust">Safety &amp; connection</h4><ol class="needs-list"><li>Safety &amp; Security</li><li>Stability &amp; Predictability</li><li>Attachment &amp; Belonging</li><li>Love &amp; Acceptance</li><li>To Matter, Be Seen &amp; Truly Known</li></ol></div>
+      <div><h4 class="needs-h needs-h--gold">Selfhood &amp; agency</h4><ol class="needs-list" start="6"><li>Authenticity &amp; Truth</li><li>Emotional Expression</li><li>Autonomy &amp; Agency</li><li>Freedom &amp; Sovereignty</li><li>Competence &amp; Capability</li></ol></div>
+      <div><h4 class="needs-h needs-h--olive">Wholeness &amp; expansion</h4><ol class="needs-list" start="11"><li>Self-Worth &amp; Identity</li><li>Playfulness, Joy &amp; Aliveness</li><li>Meaning &amp; Purpose</li><li>Growth &amp; Expansion</li><li>Transcendence &amp; Existential Peace</li></ol></div>
+    </div>
+    <p class="ideas-hand ideas-hand--center ideas-hand--sm needs-foot"><span class="star" aria-hidden="true">✳</span> Emotions help reveal which need is asking for our attention.</p>
+    <img class="needs-trees needs-trees--b" src="assets/ideas/p3-trees-b.webp" alt="" aria-hidden="true">
+  </div>
+  <h3 class="ideas-h3 ideas-h3--stars"><span class="star" aria-hidden="true">✳</span> Safe versus Risky Problems <span class="star" aria-hidden="true">✳</span></h3>
+  <div class="safe-grid">
+    <div class="hd-box safe-box">
+      <div class="safe-item"><img src="assets/ideas/p3-wrench.webp" alt="" aria-hidden="true"><div><h4 class="safe-h safe-h--olive">Safe problem</h4><p>Fix it out there.</p></div></div>
+      <div class="safe-item"><img src="assets/ideas/p3-heart.webp" alt="" aria-hidden="true"><div><h4 class="safe-h safe-h--rust">Risky truth</h4><p>Turn toward what is here.</p><p class="safe-qs">What is coming up for me?<br>What is this asking me to notice?<br>What needs my attention?</p></div></div>
+      <img class="safe-mtn" src="assets/ideas/p3-mtn.webp" alt="" aria-hidden="true">
+    </div>
+    <p class="ideas-hand safe-note"><span class="star" aria-hidden="true">✳</span> The risk is not danger. It is the vulnerability of staying with ourselves.</p>
+  </div>
+  <a href="#part-4" class="ideas-btn">Continue to human change &amp; meaning <span aria-hidden="true">→</span></a>
+  <a href="#part-4" class="ideas-next"><span class="star" aria-hidden="true">✳</span> Continue to Part Four · Past, present &amp; future <span aria-hidden="true">⟶</span></a>
+</section>
+
+<!-- PART FOUR · PAST, PRESENT & FUTURE -->
+<section id="part-4" class="ideas-part" aria-labelledby="p4-h">
+  <div class="ideas-head">
+    <div>
+      <p class="ideas-eyebrow">Ideas &amp; Models · Part Four</p>
+      <h2 id="p4-h" class="ideas-title ideas-title--rule">Change has a past, a present and a future</h2>
+      <p class="ideas-body">Knowing why a pattern exists is not the same as being free to respond differently. These three models work at different points in the human-change journey.</p>
+    </div>
+    <img class="ideas-art" src="assets/ideas/p4-tags.webp" alt="" aria-hidden="true">
+  </div>
+  <div class="journey">
+    <img class="journey-line" src="assets/ideas/p4-timeline.webp" alt="Past, present, future" aria-hidden="true">
+    <div class="journey-model">
+      <h3 class="ideas-h3 ideas-h3--left">Deep State Repatterning<sup>™</sup></h3>
+      <p class="ideas-hand ideas-hand--label">Human question:</p>
+      <p class="ideas-body ideas-body--sm">Why does something that happened long ago still have so much power now?</p>
+      <p class="ideas-hand ideas-hand--label">Accurate explanation:</p>
+      <p class="ideas-body ideas-body--sm">A complete methodology for finding the emotional history beneath a current pattern, loosening the charge and limiting beliefs attached to earlier experiences, reclaiming the authentic self and carrying new learning into action.</p>
+      <p class="ideas-hand ideas-hand--tags">Detailed Personal History · emotional and belief release · Five Steps to Lack · Five Steps to Self-Love · future vision</p>
+      <a href="index.html?interest=Products#contact" class="ideas-btn ideas-btn--sm">Explore DSR <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="journey-art"></div>
+    <div class="journey-model">
+      <h3 class="ideas-h3 ideas-h3--left">Emotion Integration Technique</h3>
+      <p class="ideas-hand ideas-hand--label">Human question:</p>
+      <p class="ideas-body ideas-body--sm">What happens in the thirty seconds when I know better and still leave myself?</p>
+      <p class="ideas-hand ideas-hand--label">Accurate explanation:</p>
+      <p class="ideas-body ideas-body--sm">EIT works in the live moment of activation. Catch the Point of Departure. Stay with the emotion beneath the protective response. Choose while remaining connected to yourself.</p>
+      <p class="ideas-steps">Catch <span aria-hidden="true">→</span> Stay <span aria-hidden="true">→</span> Choose</p>
+      <a href="index.html?interest=Products#contact" class="ideas-btn ideas-btn--sm">Explore EIT <span aria-hidden="true">→</span></a>
+    </div>
+    <img class="journey-art ideas-art" src="assets/ideas/p4-woman.webp" alt="" aria-hidden="true">
+    <div class="journey-model">
+      <h3 class="ideas-h3 ideas-h3--left">Values Alignment Model</h3>
+      <p class="ideas-hand ideas-hand--label">Human question:</p>
+      <p class="ideas-body ideas-body--sm">How do I build a life that feels meaningful because it is actually mine?</p>
+      <p class="ideas-hand ideas-hand--label">Accurate explanation:</p>
+      <p class="ideas-body ideas-body--sm">A research-informed framework for strengthening meaning in life by connecting personal values with self-concordant goals, action, self-regulation and reflection.</p>
+      <p class="ideas-steps">Exploration <span aria-hidden="true">→</span> Elicitation <span aria-hidden="true">→</span> Direction <span aria-hidden="true">→</span> Action <span aria-hidden="true">→</span> Reflection</p>
+      <p class="ideas-fine">Developed through Remi's Master of Applied Positive Psychology capstone, drawing on positive psychology, evidence-based coaching, ACT and self-concordance research.</p>
+      <a href="#part-9" class="ideas-btn ideas-btn--sm">Read the research <span aria-hidden="true">→</span></a>
+    </div>
+    <img class="journey-art ideas-art" src="assets/ideas/p4-compass.webp" alt="" aria-hidden="true">
+  </div>
+  <p class="ideas-hand ideas-hand--center">Different questions. Different moments. One human life.</p>
+  <a href="#part-5" class="ideas-btn">Continue to alignment <span aria-hidden="true">→</span></a>
+</section>
+
+<!-- PART FIVE · THE CRITICAL ALIGNMENT MODEL -->
+<section id="part-5" class="ideas-part" aria-labelledby="p5-h">
+  <div class="ideas-head ideas-head--note">
+    <div>
+      <p class="ideas-eyebrow">Ideas &amp; Models · Part Five</p>
+      <h2 id="p5-h" class="ideas-title ideas-title--rule">The gap is never just the gap</h2>
+      <p class="ideas-body">When something keeps failing, leaders often prescribe more effort. CAM asks a better question: where is alignment actually breaking?</p>
+    </div>
+    <div class="head-note"><p class="ideas-hand">Different gap.<br>Different intervention.</p><img class="ideas-art" src="assets/ideas/p5-arrow.webp" alt="" aria-hidden="true"></div>
+  </div>
+  <h3 class="ideas-h3">The Critical Alignment Model</h3>
+  <p class="ideas-hand ideas-hand--center ideas-hand--sm">Created by Remi Pearson</p>
+  <img class="ideas-art ideas-art--center cam-art" src="assets/ideas/p5-cam.webp" alt="The Critical Alignment Model: four domains around a compass. Environment — vision, culture, personal strength and the conditions people need to thrive. Structure — strategy, innovation, planning and decision-making. Implementation — autonomy, order, sustained focus and turning intention into results. People — mentoring, connection, social skill and mindful leadership.">
+  <div class="panel panel--dark research-panel">
+    <img class="research-mag" src="assets/ideas/p5-magnifier.webp" alt="" aria-hidden="true">
+    <h3 class="ideas-h3 panel-title">I didn't want a model that only sounded clever</h3>
+    <p class="panel-body">I hired researchers to challenge CAM, operationalise it and build a profiling tool that could be tested for reliability and validity.</p>
+    <ul class="stats-row">
+      <li><span class="stat-big">4</span><span class="stat-lbl">Domains</span></li>
+      <li><span class="stat-big">16</span><span class="stat-lbl">Leadership dimensions</span></li>
+      <li><span class="stat-big">41</span><span class="stat-lbl">Thinking characteristics</span></li>
+      <li><span class="stat-big">535</span><span class="stat-lbl">People in the normative sample</span></li>
+    </ul>
+    <div class="research-foot"><p class="panel-body">The final 16 dimensions returned internal-consistency coefficients from .692 to .904. Factor analysis closely reproduced CAM's Environment, Structure, Implementation and People domains.</p><img src="assets/ideas/p5-chart.webp" alt="" aria-hidden="true"></div>
+  </div>
+  <div class="two-up">
+    <div><h3 class="ideas-h3 ideas-h3--rust">CAM is the model</h3><p class="ideas-body ideas-body--sm">It reveals where alignment is breaking and what kind of thinking or action the situation requires.</p><a href="index.html?interest=Products#contact" class="ideas-btn ideas-btn--sm">Explore CAM <span aria-hidden="true">→</span></a></div>
+    <div><h3 class="ideas-h3 ideas-h3--rust">The Meta Dynamics™ Profiling Tool is the measurement</h3><p class="ideas-body ideas-body--sm">It translates CAM into a developmental assessment of thinking preferences across 16 dimensions and 41 characteristics.</p><a href="index.html?interest=Products#contact" class="ideas-btn ideas-btn--sm">Take the mini profiler <span aria-hidden="true">→</span></a></div>
+  </div>
+  <p class="ideas-hand ideas-hand--center"><span class="star" aria-hidden="true">✳</span> Not a personality label. A development map. <span class="star" aria-hidden="true">✳</span></p>
+  <a href="#part-6" class="ideas-btn">Continue to leadership, evolution &amp; decision <span aria-hidden="true">→</span></a>
+</section>
+
+<!-- PART SIX · T.R.U.S.T.M.E. & DISRUPTIVE LEADERSHIP -->
+<section id="part-6" class="ideas-part" aria-labelledby="p6-h">
+  <div class="ideas-head">
+    <div>
+      <p class="ideas-eyebrow">Ideas &amp; Models · Part Six</p>
+      <h2 id="p6-h" class="ideas-title ideas-title--rule">The thinking that got us here may not get us there</h2>
+      <p class="ideas-body">People, teams and organisations do not need the same thing at every stage. The useful question is not which level sounds best. It is which kind of thinking the present problem requires.</p>
+    </div>
+    <img class="ideas-art" src="assets/ideas/p6-star.webp" alt="" aria-hidden="true">
+  </div>
+  <h3 class="ideas-h3 ideas-h3--left">The T.R.U.S.T.M.E. Model</h3>
+  <p class="ideas-hand ideas-hand--sm">Created by Remi Pearson · informed by Spiral Dynamics</p>
+  <div class="trustme-grid">
+    <img class="ideas-art" src="assets/ideas/p6-spiral.webp" alt="The seven levels of T.R.U.S.T.M.E., rising in a spiral: 1 Trust, 2 Relatability, 3 Uniqueness, 4 Systems, 5 Tenacity, 6 Meaning, 7 Evolution.">
+    <div>
+      <p class="ideas-body ideas-body--sm">T.R.U.S.T.M.E. reveals the operating logic a person, team or organisation returns to, especially under pressure. Every level solves a problem, creates new limits and points toward the thinking required next.</p>
+      <div class="head-note head-note--inline"><img class="ideas-art" src="assets/ideas/p6-arrow.webp" alt="" aria-hidden="true"><p class="ideas-hand">You cannot solve a problem from the same thinking that created it.</p></div>
+      <a href="trustme-model.html" class="ideas-btn ideas-btn--sm">Explore T.R.U.S.T.M.E. <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+  <div class="panel panel--rust">
+    <h3 class="ideas-h3 panel-title">Disruptive Leadership</h3>
+    <p class="ideas-hand ideas-hand--center ideas-hand--cream">How do I lead without carrying everybody?</p>
+    <p class="panel-body panel-body--center">A philosophy and practice of leadership built on truth, responsibility, accountability, healthy relationships and the ability to hold space. Set clear standards. Give honest feedback. Develop capable people. Stop rescuing, controlling or rewarding helplessness.</p>
+    <img class="dl-icons" src="assets/ideas/p6-icons.webp" alt="" aria-hidden="true">
+    <ul class="dl-labels"><li>Truth</li><li>Responsibility</li><li>Accountability</li><li>Healthy relationships</li><li>Holding space</li></ul>
+    <div class="panel-actions">
+      <p class="ideas-hand ideas-hand--cream ideas-hand--sm">High standards and humanity belong in the same room.</p>
+      <a href="index.html?interest=Products#contact" class="ideas-btn ideas-btn--outline">Explore Disruptive Leadership <span aria-hidden="true">→</span></a>
+      <a href="index.html?interest=Products#contact" class="ideas-btn ideas-btn--outline">Meet the book <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+  <a href="#part-7" class="ideas-btn ideas-btn--dark">Continue to the practice of leadership <span aria-hidden="true">→</span></a>
+</section>
+
+<!-- PART SEVEN · THE FOUR QUADRANTS -->
+<section id="part-7" class="ideas-part" aria-labelledby="p7-h">
+  <div class="ideas-head">
+    <div>
+      <p class="ideas-eyebrow">Ideas &amp; Models · Part Seven</p>
+      <h2 id="p7-h" class="ideas-title ideas-title--rule">Leadership is not one job.</h2>
+      <p class="ideas-body">Before we can lead and manage other people well, we have to be able to lead and manage ourselves. They are different capabilities, and confusing them creates a great deal of noise.</p>
+    </div>
+    <img class="ideas-art" src="assets/ideas/p7-star.webp" alt="" aria-hidden="true">
+  </div>
+  <h3 class="ideas-h3 ideas-h3--left">The Four Quadrants to Leadership</h3>
+  <p class="ideas-hand ideas-hand--sm">Developed and used by Remi Pearson.</p>
+  <div class="quad-grid">
+    <img class="ideas-art" src="assets/ideas/p7-quad.webp" alt="The Four Quadrants to Leadership. 1 Self leadership — ownership, responsibility, self-awareness, judgement, learning and modelling the standard. 2 Self-management — priorities, benchmarks, follow-through, initiative, systems and sustained delivery. 3 Leadership of others — vision, trust, emotional intelligence, feedback, possibility and developing capability. 4 Management of others — clear outcomes, reporting, training, performance, appropriate direction and accountability.">
+    <div class="head-note head-note--inline"><img class="ideas-art" src="assets/ideas/p7-arrow.webp" alt="" aria-hidden="true"><p class="ideas-hand ideas-hand--underline">Ninety per cent of effective leadership begins with the ability to lead yourself.</p></div>
+  </div>
+  <h3 class="ideas-h3 ideas-h3--left ideas-h3--rule">The tools that make it practical</h3>
+  <div class="tools">
+    <article class="tool"><h4>Benchmarking &amp; modelling excellence</h4><p>Decide what excellent looks like. Find an aligned model of excellence. Study the thinking, process and standards. Apply it, measure it and adapt.</p><p class="ideas-hand ideas-hand--sm">Research-informed practice, not a claim that everything must be invented from scratch.</p></article>
+    <article class="tool"><h4>Critical thinking criteria</h4><p>What is the rationale? What facts are needed? What problem does this solve? Which CAM domain is actually weak? What are the consequences, costs and possibilities? Is the decision replicable and sustainable?</p><p class="ideas-hand ideas-hand--sm">A decision tool for replacing reflex with inquiry.</p></article>
+    <article class="tool"><h4>The first 90 days leadership playbook</h4><p>Listen and observe. Learn the culture and values. Diagnose Environment, Structure, Implementation and People. Establish benchmarks, dashboards, communication rhythms and feedback.</p><p class="ideas-hand ideas-hand--sm">A field-tested application guide, not another abstract model.</p></article>
+  </div>
+  <div class="hd-box toolkit">
+    <p class="toolkit-label">Also in the toolkit</p>
+    <div class="toolkit-cols">
+      <div><h4>CAM Top Five System</h4><p>Weekly priorities that keep 90-day goals moving.</p></div>
+      <div><h4>Written &amp; unwritten ground rules</h4><p>The culture on paper versus what actually happens.</p></div>
+      <div><h4>90-day review</h4><p>Benchmarks, development, performance and the next cycle.</p></div>
+    </div>
+  </div>
+  <p class="ideas-hand ideas-hand--center">Truth before certainty. Standards before slogans. Capability before rescue.</p>
+  <a href="#part-8" class="ideas-btn ideas-btn--dark">Continue to influence &amp; building beyond you <span aria-hidden="true">→</span></a>
+  <a href="#part-8" class="ideas-next">Continue to <span class="rust">Part Eight</span> · Influence &amp; enterprise</a>
+</section>
+
+<!-- PART EIGHT · INFLUENCE & ENTERPRISE -->
+<section id="part-8" class="ideas-part" aria-labelledby="p8-h">
+  <div class="ideas-head">
+    <div>
+      <p class="ideas-eyebrow">Ideas &amp; Models · Part Eight</p>
+      <h2 id="p8-h" class="ideas-title ideas-title--rule">Help people decide. Build something that doesn't need you.</h2>
+      <p class="ideas-body">These two bodies of work came from the same refusal: I did not want good people manipulated into buying, and I did not want talented founders trapped inside the thing they had built.</p>
+    </div>
+    <img class="ideas-art" src="assets/ideas/p8-star.webp" alt="" aria-hidden="true">
+  </div>
+  <div class="ui-grid">
+    <div>
+      <h3 class="ideas-h3 ideas-h3--left">Ultimate Influence Consultative Sales</h3>
+      <p class="ideas-hand">How do I help someone make a quality buying decision without scripts, pressure or bullshit?</p>
+      <p class="ideas-body ideas-body--sm">Diagnose before prescribing. Understand the buyer's values, needs and decision process. Communicate intangible value clearly. Recommend only when there is a genuine match.</p>
+    </div>
+    <div class="ui-steps">
+      <img class="ideas-art" src="assets/ideas/p8-path.webp" alt="" aria-hidden="true">
+      <ol class="ui-list"><li>Connect</li><li>Build</li><li>Flip</li><li>Match</li><li>Recommend</li><li>Backtrack</li><li>Close</li><li>Future pace</li></ol>
+      <div class="head-note head-note--inline ui-note"><img class="ideas-art" src="assets/ideas/p8-arrow.webp" alt="" aria-hidden="true"><p class="ideas-hand ideas-hand--sm">A conversation, not a performance.</p></div>
+    </div>
+  </div>
+  <a href="index.html?interest=Products#contact" class="ideas-btn ideas-btn--sm ideas-btn--right">Explore Ultimate Influence <span aria-hidden="true">→</span></a>
+  <div class="panel panel--rust">
+    <h3 class="ideas-h3 panel-title">Core <span aria-hidden="true">→</span> Improve <span aria-hidden="true">→</span> Innovate</h3>
+    <p class="panel-body panel-body--center">A Meta Dynamics model created by Remi Pearson.</p>
+    <p class="ideas-hand ideas-hand--center ideas-hand--cream ideas-hand--underline-cream">What deserves my attention if I want to build something stable, useful and able to live beyond me?</p>
+    <div class="cii-grid">
+      <img src="assets/ideas/p8-circles.webp" alt="Core, 70%: the most important thing. Do what works consistently until it is stable, systemised and replicable by others. Improve, 20%: strengthen what already works so it stays relevant, robust, fit for purpose and scalable. Innovate, 10%: add what is genuinely new only after Core is cared for and dependable.">
+      <div>
+        <h4 class="cii-h">From practice to business</h4>
+        <div class="cii-cols">
+          <div><h5>Practice</h5><p>The owner delivers the widget. The owner goes away and so does the income.</p></div>
+          <div><h5>Business</h5><p>Core can be delivered by others through documented systems, benchmarks and capability.</p></div>
+        </div>
+        <p class="ideas-hand ideas-hand--center ideas-hand--cream ideas-hand--sm">Income should be the least surprising thing about the business.</p>
+      </div>
+    </div>
+    <ul class="proof-row"><li><span>Nearly $200M</span>in revenue</li><li><span>11,000+</span>coaches trained</li><li><span>The Coaching Institute</span>built &amp; sold</li></ul>
+    <div class="panel-actions panel-actions--two">
+      <a href="index.html?interest=Products#contact" class="ideas-btn ideas-btn--outline">Explore Core <span aria-hidden="true">→</span> Improve <span aria-hidden="true">→</span> Innovate <span aria-hidden="true">→</span></a>
+      <a href="invite-remi.html?invite=Consulting#invite-form" class="ideas-btn ideas-btn--outline">Build something beyond me <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+  <a href="#part-9" class="ideas-btn ideas-btn--dark">Continue to the research &amp; next steps <span aria-hidden="true">→</span></a>
+  <a href="#part-9" class="ideas-next">Continue to Part Nine · Research &amp; next steps</a>
+</section>
+
+<!-- PART NINE · RESEARCH & NEXT STEPS -->
+<section id="part-9" class="ideas-part" aria-labelledby="p9-h">
+  <div class="ideas-head">
+    <div>
+      <p class="ideas-eyebrow">Ideas &amp; Models · <span class="rust">Part Nine</span></p>
+      <h2 id="p9-h" class="ideas-title">I'll keep following the questions.</h2>
+      <p class="ideas-hand">An idea should be useful enough to live beyond the page.</p>
+      <p class="ideas-body">I love the process of discovery. But I do not want a clever-sounding model simply because it makes a good diagram. Where research can challenge, strengthen or operationalise an idea, I want it in the room.</p>
+    </div>
+    <img class="ideas-art" src="assets/ideas/p9-compass.webp" alt="" aria-hidden="true">
+  </div>
+  <h3 class="ideas-h3 ideas-h3--rules"><span></span>The Research Thread<span></span></h3>
+  <div class="research-cards">
+    <article class="hd-box rcard"><h4>Values Alignment Model</h4><p>Created through Remi's Master of Applied Positive Psychology capstone.</p><p>Research-informed by positive psychology, evidence-based coaching, self-concordance, values, goals, ACT and self-regulation.</p><a href="index.html?interest=Products#contact" class="ideas-btn ideas-btn--sm">Read the research <span aria-hidden="true">→</span></a></article>
+    <article class="hd-box rcard"><h4>Organisational Wellbeing</h4><p>An applied study of The Coaching Institute's culture during COVID.</p><p>The work identified authentic leadership and playfulness as important positive practices alongside established organisational-wellbeing research.</p><a href="index.html?interest=Products#contact" class="ideas-btn ideas-btn--sm">Explore the study <span aria-hidden="true">→</span></a></article>
+    <article class="hd-box rcard"><h4>Critical Alignment &amp; the Profiler</h4><p>CAM was challenged, operationalised and translated into the Meta Dynamics Profiling Tool.</p><p>Reliability and factor analysis were used to test the measurement application.</p><a href="index.html?interest=Products#contact" class="ideas-btn ideas-btn--sm">See the evidence <span aria-hidden="true">→</span></a></article>
+  </div>
+  <p class="hd-box credit-box">Everything on this page was created by Remi Pearson, with intellectual foundations acknowledged where relevant. T.R.U.S.T.M.E. is informed by Spiral Dynamics. The Meta Dynamics Profiler is the measurement application of CAM.</p>
+  <div class="next-grid">
+    <img class="next-photo" src="assets/ideas/p9-photo.webp" alt="Remi Pearson">
+    <div>
+      <h3 class="ideas-h3">Where shall we go next?</h3>
+      <div class="next-cards">
+        <article class="hd-box ncard"><img src="assets/ideas/p9-mic.webp" alt="" aria-hidden="true"><h4>Watch Perspectives</h4><p>Come for the conversation. Stay for the question.</p><a href="index.html#rabbit-holes" class="ideas-btn ideas-btn--sm">Watch or listen <span aria-hidden="true">→</span></a></article>
+        <article class="hd-box ncard"><img src="assets/ideas/p9-comp.webp" alt="" aria-hidden="true"><h4>Explore the programs</h4><p>Do something useful with all this.</p><a href="index.html#work" class="ideas-btn ideas-btn--sm">See the programs <span aria-hidden="true">→</span></a></article>
+        <article class="hd-box ncard"><img src="assets/ideas/p9-books.webp" alt="" aria-hidden="true"><h4>Meet the books</h4><p>Six books. A few questions I still cannot leave alone.</p><a href="index.html#work" class="ideas-btn ideas-btn--sm">Meet the books <span aria-hidden="true">→</span></a></article>
+        <article class="hd-box ncard"><img src="assets/ideas/p9-star.webp" alt="" aria-hidden="true"><h4>Invite Remi</h4><p>Podcasts, panels, keynotes, books and senior-level facilitation.</p><a href="invite-remi.html" class="ideas-btn ideas-btn--sm">Invite Remi <span aria-hidden="true">→</span></a></article>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel--dark keep-band">
+    <h3 class="ideas-h3 keep-title">Keep me in the conversation</h3>
+    <p class="panel-body">Thoughtful ideas, new Perspectives conversations and the occasional invitation. I'll write when I have something worth saying.</p>
+    <form class="news-form keep-form"><label class="sr-only" for="keep-email">Email address</label><input id="keep-email" name="email" type="email" required placeholder="Your email address" autocomplete="email"><button type="submit">I'm in <span aria-hidden="true">→</span></button></form>
+    <p class="news-thanks" hidden>Thank you, you're in the conversation.</p>
+  </div>
+  <div class="sign-off">
+    <img class="ideas-art" src="assets/ideas/p9-ltl.webp" alt="Let Truth Lead.">
+    <img class="ideas-art" src="assets/ideas/p9-remi.webp" alt="Remi">
+  </div>
+</section>
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="assets/remi-logo.webp" alt="Remi — Let truth lead" width="167" height="60" loading="lazy" decoding="async">
+      <p class="footer-statement">Fancy a proper <em>conversation?</em></p>
+      <a href="invite-remi.html#invite-form" class="btn btn--footer">Invite Remi →</a>
+    </div>
+    <div class="footer-news">
+      <p class="footer-head">I'll write when I have something worth saying</p>
+      <p class="footer-news-copy">Thoughtful ideas, new conversations and the occasional invitation.</p>
+      <form class="news-form">
+        <label class="sr-only" for="news-name">First name</label>
+        <input id="news-name" name="firstName" placeholder="Your first name" autocomplete="given-name">
+        <label class="sr-only" for="news-email">Email address</label>
+        <input id="news-email" name="email" type="email" required placeholder="Your email address" autocomplete="email">
+        <button type="submit">Keep me in the conversation</button>
+      </form>
+      <p class="news-thanks" hidden>Thank you, you're in the conversation.</p>
+    </div>
+  </div>
+
+  <div class="footer-links">
+    <nav class="footer-col" aria-label="Explore">
+      <span class="footer-head">Explore</span>
+      <a href="index.html#rabbit-holes">Perspectives</a><a href="ideas-models.html">Ideas &amp; Models</a><a href="trustme-model.html">The T.R.U.S.T.M.E. model</a><a href="index.html#work">Programs</a><a href="index.html#work">Books</a><a href="about-remi.html">About Remi</a><a href="invite-remi.html">Invite Remi</a>
+    </nav>
+    <nav class="footer-col" aria-label="Enquire">
+      <span class="footer-head">Enquire</span>
+      <a href="index.html?interest=Facilitation#contact">Strategy facilitation</a><a href="index.html?interest=Speaking#contact">Keynote speaking</a><a href="index.html?interest=Media#contact">Media requests</a><a href="index.html?interest=Products#contact">Books &amp; programs</a>
+    </nav>
+    <div class="footer-col">
+      <span class="footer-head">Follow Remi</span>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5ZM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.3-.02-3-1.83-3s-2.1 1.43-2.1 2.9V21H9z"/></svg></a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .6 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8ZM9.8 15.1V8.9L15.6 12z"/></svg></a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.4H7.4V14h2.8v8z"/></svg></a>
+        <a href="#" aria-label="Podcast"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></a>
+      </div>
+      <p class="footer-note">Let truth lead.</p>
+    </div>
+  </div>
+
+  <div class="footer-base">
+    <div class="footer-base-brand">
+      <img src="assets/remi-logo.webp" alt="Remi — Let truth lead" width="122" height="44" loading="lazy" decoding="async">
+      <span>© 2026 Remi Pearson. All rights reserved.</span>
+    </div>
+    <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#top">Back to top ↑</a></div>
+  </div>
+</footer>
+</div>
+</body>
+</html>
