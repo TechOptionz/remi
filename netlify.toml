@@ -1,12 +1,21 @@
-# The deployable website lives in site/ — the repo root holds design files.
+# The website is the Next.js app at the repo root — it builds to static files in out/.
+# (design/ holds the design-tool files and is not deployed.)
 [build]
-  publish = "site"
-  command = ""
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "22"
 
 [[headers]]
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/*.html"

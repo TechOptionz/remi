@@ -1,0 +1,31 @@
+/* ============ Palettes ============ */
+[data-palette="midnight-gold"] {
+  --bg:#15181d; --bg-rgb:21,24,29; --card:#1c2128;
+  --ink:#e9e6df; --ink-strong:#f5f2ea; --ink-rgb:233,230,223;
+  --accent:#d9a55a; --accent-rgb:217,165,90; --on-accent:#15181d;
+  --shadow-rgb:0,0,0; --shadow-a:.5;
+  --logo-gold:block; --logo-rust:none; --logo-ink:none;
+}
+[data-palette="oxblood-parchment"] {
+  --bg:#3a181b; --bg-rgb:58,24,27; --card:#472124;
+  --ink:#f2e6d6; --ink-strong:#fbf3e6; --ink-rgb:242,230,214;
+  --accent:#e39a5a; --accent-rgb:227,154,90; --on-accent:#2a1012;
+  --shadow-rgb:20,5,5; --shadow-a:.5;
+  --logo-gold:block; --logo-rust:none; --logo-ink:none;
+}
+/* Default palette; :where() keeps it zero-specificity so any data-palette block overrides it regardless of order */
+:where(:root),
+[data-palette="parchment-rust"] {
+  --bg:#efe5d3; --bg-rgb:239,229,211; --card:#f7f0e3;
+  --ink:#2b2622; --ink-strong:#1e1b18; --ink-rgb:43,38,34;
+  --accent:#b5501e; --accent-rgb:181,80,30; --on-accent:#f7f0e3;
+  --shadow-rgb:80,50,20; --shadow-a:.5;
+  --logo-gold:none; --logo-rust:block; --logo-ink:none;
+}
+
+/* Footer is always a deep band; tokens tuned per palette */
+[data-palette="midnight-gold"]     { --footer-bg:#0d0f13; --footer-ink-rgb:233,230,223; --footer-accent:#d9a55a; }
+[data-palette="oxblood-parchment"] { --footer-bg:#240e10; --footer-ink-rgb:242,230,214; --footer-accent:#e39a5a; }
+:where(:root),
+[data-palette="parchment-rust"]    { --footer-bg:#221d19; --footer-ink-rgb:247,240,227; --footer-accent:#e07a45; }
+

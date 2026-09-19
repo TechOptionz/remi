@@ -1,0 +1,51 @@
+/* ============ Header ============ */
+.site-header {
+  position:sticky; top:0; z-index:30;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+  margin-inline:calc(-1 * var(--gutter)); padding:22px var(--gutter); min-height:92px;
+  background:transparent; border-bottom:1px solid transparent;
+  transition:background .3s ease, border-color .3s ease, box-shadow .3s ease, padding .3s ease, min-height .3s ease;
+}
+.site-header[data-scrolled="true"] {
+  background:rgba(var(--bg-rgb),.88); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border-bottom-color:rgba(var(--ink-rgb),.1); box-shadow:0 10px 30px rgba(var(--shadow-rgb),.12);
+  padding-block:14px; min-height:72px;
+}
+.logo { display:flex; align-items:center; height:44px; }
+.logo img { height:46px; width:auto; }
+.nav { display:flex; align-items:center; gap:30px; font-size:14px; font-weight:500; }
+.nav a { color:rgba(var(--ink-rgb),.8); }
+.nav a:hover { color:var(--accent); }
+.nav .is-current { color:var(--accent); }
+
+/* Drop-down sub-navigation (Ideas & Models, Books) — opens on hover and keyboard focus */
+.nav-item { position:relative; display:flex; align-items:center; }
+.nav-link::after { content:"▾"; margin-left:5px; font-size:9px; opacity:.6; }
+.nav-sub { position:absolute; top:calc(100% + 12px); left:-14px; z-index:40; min-width:260px; display:flex; flex-direction:column; gap:2px; padding:8px; background:var(--card); border:1px solid rgba(var(--ink-rgb),.12); border-radius:14px; box-shadow:0 20px 60px rgba(var(--shadow-rgb),.25); text-shadow:none; opacity:0; visibility:hidden; transform:translateY(6px); transition:opacity .2s ease, transform .2s ease, visibility .2s; }
+.nav-sub::before { content:""; position:absolute; left:0; right:0; top:-14px; height:14px; }
+.nav-item:hover .nav-sub, .nav-item:focus-within .nav-sub { opacity:1; visibility:visible; transform:none; }
+.nav .nav-sub a { padding:10px 12px; border-radius:10px; color:var(--ink); white-space:nowrap; }
+.nav .nav-sub a:hover { background:rgba(var(--ink-rgb),.06); color:var(--accent); }
+.nav .nav-sub a[aria-current="page"] { color:var(--accent); }
+.site-header[data-on-video="true"] .nav .nav-sub a { color:var(--ink); border-color:transparent; }
+.header-actions { display:flex; align-items:center; gap:12px; }
+.header-actions .btn { white-space:nowrap; }
+/* The hero repeats this call to action, so the header copy steps aside on phones */
+@media (max-width:560px) { .header-actions .btn { display:none; } }
+.burger { display:none; width:44px; height:44px; border:1px solid rgba(var(--ink-rgb),.25); background:transparent; border-radius:999px; cursor:pointer; flex-direction:column; align-items:center; justify-content:center; gap:5px; }
+.burger span { display:block; width:18px; height:2px; background:var(--ink); }
+.mobile-nav { display:flex; flex-direction:column; gap:2px; padding:8px 0 20px; border-bottom:1px solid rgba(var(--ink-rgb),.12); font-family:var(--serif); font-size:34px; }
+.mobile-nav a { padding:8px 0; }
+.mobile-nav .accent { color:var(--accent); }
+.mobile-nav .mobile-sub { padding:4px 0 4px 20px; font-size:22px; color:rgba(var(--ink-rgb),.7); }
+.mobile-nav [aria-current="page"] { color:var(--accent); }
+@media (max-width:899px) {
+  .nav { display:none; }
+  .burger { display:flex; }
+}
+@media (min-width:900px) { .mobile-nav { display:none !important; } }
+
+
+/* Keep nav links on one line and tighten the gaps on narrower desktops */
+.nav a { white-space:nowrap; }
+@media (max-width:1180px) { .nav { gap:18px; font-size:13px; } }

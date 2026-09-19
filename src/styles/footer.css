@@ -1,0 +1,48 @@
+/* Footer — deep band; re-maps ink/accent tokens so shared components work inside it */
+.footer {
+  --ink-rgb:var(--footer-ink-rgb); --ink:rgb(var(--footer-ink-rgb)); --ink-strong:rgb(var(--footer-ink-rgb));
+  --accent:var(--footer-accent); --on-accent:var(--footer-bg); --bg:var(--footer-bg);
+  /* Full-bleed: spans the viewport while its content stays aligned with the page column */
+  margin-inline:calc(50% - 50vw); padding:clamp(56px,7vw,104px) calc(50vw - 50%) 28px;
+  background:var(--footer-bg); color:var(--ink); overflow:hidden;
+}
+.footer a { color:rgba(var(--ink-rgb),.72); }
+.footer a:hover { color:var(--accent); }
+.footer-head { margin:0 0 6px; font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); }
+
+.footer-top { display:grid; grid-template-columns:minmax(0,6fr) minmax(0,5fr); gap:clamp(40px,6vw,96px); align-items:end; padding-bottom:clamp(40px,5vw,64px); border-bottom:1px solid rgba(var(--ink-rgb),.14); }
+.footer-brand { display:flex; flex-direction:column; align-items:flex-start; }
+.footer-brand img { height:60px; width:auto; }
+.footer-statement { margin:clamp(24px,3vw,36px) 0 clamp(24px,3vw,32px); max-width:15ch; font-family:var(--serif); font-size:clamp(36px,4vw,58px); line-height:1.02; letter-spacing:-.01em; color:var(--ink-strong); text-wrap:balance; }
+.footer-statement em { color:var(--accent); }
+.footer .btn--footer { background:var(--accent); color:var(--on-accent); }
+.footer .btn--footer:hover { background:var(--ink); color:var(--footer-bg); }
+
+.footer-news { padding:clamp(24px,3vw,36px); border:1px solid rgba(var(--ink-rgb),.14); border-radius:20px; background:rgba(var(--ink-rgb),.04); }
+.footer-news-copy { margin:8px 0 20px; font-size:15px; line-height:1.55; color:rgba(var(--ink-rgb),.65); }
+.news-form { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.news-form input { min-width:0; padding:13px 16px; border:1px solid rgba(var(--ink-rgb),.2); border-radius:999px; background:rgba(var(--ink-rgb),.04); color:var(--ink); font-size:15px; outline:none; transition:border-color .2s; }
+.news-form input:focus { border-color:var(--accent); }
+.news-form button { grid-column:1 / -1; padding:13px 22px; border:0; border-radius:999px; background:var(--accent); color:var(--on-accent); font-size:14px; font-weight:700; cursor:pointer; transition:background .2s, color .2s; }
+@media (max-width:480px) { .news-form { grid-template-columns:1fr; } }
+.news-form button:hover { background:var(--ink); color:var(--footer-bg); }
+.news-thanks { margin:0; padding:14px 0 4px; font-size:15px; font-weight:600; color:var(--accent); }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+.footer-links { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr)); gap:36px 32px; padding:clamp(40px,5vw,60px) 0 clamp(24px,3vw,40px); }
+.footer-col { display:flex; flex-direction:column; align-items:flex-start; gap:12px; font-size:15px; }
+.footer-social { display:flex; flex-wrap:wrap; gap:10px; }
+.footer-social a { display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; border:1px solid rgba(var(--ink-rgb),.2); color:var(--ink); }
+.footer-social a:hover { background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
+.footer-note { margin:8px 0 0; font-family:var(--serif); font-style:italic; font-size:20px; color:rgba(var(--ink-rgb),.55); }
+
+.footer-base { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px 24px; padding:28px max(0px, calc(90px - (50vw - 50%))) 0 0; border-top:1px solid rgba(var(--ink-rgb),.14); font-size:13px; color:rgba(var(--ink-rgb),.5); }
+.footer-base-brand { display:flex; flex-wrap:wrap; align-items:center; gap:12px 24px; }
+.footer-base-brand img { height:44px; width:auto; }
+.footer-legal { display:flex; flex-wrap:wrap; gap:24px; }
+.footer-base a { color:inherit; }
+@media (max-width:800px) {
+  .footer-top { grid-template-columns:1fr; align-items:start; }
+  .footer-base { padding-right:0; padding-bottom:72px; }
+}
+
