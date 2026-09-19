@@ -12,13 +12,13 @@ export default function RabbitHoleRows() {
       <div className="hole-rows">
         {RABBIT_HOLES.map(h => (
           <article className="hole-row" key={h.title}>
-            <span className="hole-row-art"><Icon name={h.icon} size={96} strokeWidth={0.8} /></span>
+            <span className="hole-row-art"><Icon name={h.icon} size={48} strokeWidth={1.2} /></span>
             <div>
               <h3>{h.title}</h3>
               <p>{h.question}</p>
               <p className="hole-row-explore"><strong>Explore:</strong> {h.explore.join(' · ')}</p>
-              <a href="#archive" className="btn btn--primary btn--caps" data-topic={h.topic}>{h.cta}</a>
             </div>
+            <a href="#archive" className="btn btn--primary btn--caps" data-topic={h.topic}>{h.cta}</a>
           </article>
         ))}
       </div>

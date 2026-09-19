@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function RemiAsGuest() {
   return (
     <section className="section section--tight section--flush guest-split" aria-labelledby="guest-h">
-      <img loading="lazy" decoding="async" src="/assets/photos/about-remi.webp" alt="Remi smiling, in a cream jumper" />
+      <img loading="lazy" decoding="async" src="/assets/photos/perspectives-guest.webp" alt="Remi smiling, holding her BraveHeart journal" />
       <div>
         <h2 id="guest-h" className="part-title part-title--sm"><span className="underline">When somebody else asks the questions</span></h2>
         <p className="part-lede">I enjoy being interviewed just as much as hosting. A thoughtful interviewer can take my own ideas somewhere I had not expected them to go.</p>

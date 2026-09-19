@@ -11,11 +11,13 @@ export default function Featured() {
         <p className="part-lede part-lede--center persp-sub">Famous guest or not, the question is always the reason to press play.</p>
       </div>
       <div className="featured-cards">
-        {FEATURED_IDS.map(id => {
+        {FEATURED_IDS.map((id, i) => {
           const c = CONVERSATIONS.find(x => x.id === id)!;
+          // the full-width last card crops the bottom of the image, which cuts off a name printed on it
+          const wide = i === FEATURED_IDS.length - 1 && FEATURED_IDS.length % 2 === 1;
           return (
             <article className="featured-card" key={c.id}>
-              <EpisodeImage conversation={c} />
+              <EpisodeImage conversation={c} nameWhenCropped={wide && c.imageHasName} />
               <div className="featured-card-body">
                 <h3>{c.title}</h3>
                 <p>{c.blurb}</p>

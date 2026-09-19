@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Icon from '@/components/shared/Icon';
-import { PERSPECTIVES_STATS } from '@/content/perspectives';
+import { LISTEN_LINKS, PERSPECTIVES_STATS } from '@/content/perspectives';
 
 // I LOVE A CONVERSATION THAT CHANGES MY MIND — intro copy and note left, studio photo right, then the headline numbers
 export default function PerspectivesHero() {
@@ -15,8 +15,13 @@ export default function PerspectivesHero() {
           <p className="part-lede">Ideas, psychology, philosophy, relationships, culture, leadership, business and whatever else seems worth following.</p>
           <p className="part-lede">I am not interested in interviewing somebody while they politely wait for my next question. I want the conversation neither of us could have planned before we sat down.</p>
           <p className="quote-note persp-note">Come for the idea. Stay for where the conversation goes.</p>
+          <ul className="persp-channels" aria-label="Where to watch and listen">
+            {LISTEN_LINKS.map(l => (
+              <li key={l.label}><a href={l.href} target="_blank" rel="noopener"><Icon name={l.icon} size={18} />{l.label}</a></li>
+            ))}
+          </ul>
         </div>
-        <img className="persp-hero-photo" src="/assets/photos/perspectives-hero.webp" alt="Remi smiling at a podcast microphone in front of a wall of books" />
+        <img className="persp-hero-photo" src="/assets/photos/perspectives-hero-crop.webp" alt="Remi smiling at a podcast microphone in front of a wall of books" />
       </div>
       <ul className="persp-stats">
         {PERSPECTIVES_STATS.map(s => (

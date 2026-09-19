@@ -29,4 +29,14 @@ Commands (run from the repo root): `npm run dev` (local preview), `npm run build
 - About Remi and Invite Remi follow the design screenshots in `Photos-Images/` (19–22 and 23–25). The screenshots are split into "parts", but the pages deliberately show no part labels or dividers.
 - Shared building blocks for these designed pages: `.part-head`, `.part-title` (`--sm`, `--xs`, `--accent`), `.part-lede`, `.hand-quote`, `.serif-quote`, `.dot-list`, `.section--tight`, `.section--flush` (all in `styles/inner-pages.css`), and `<Icon name="…" />` from `components/shared/Icon.tsx` (add new line icons there).
 - Ideas & Models is composed, not pasted: `components/ideas/ui.tsx` holds its building blocks (`Part`, `PartHead`, `Hand`, `Body`, `H3`, `Btn`, `NextLink`, `Art`, `HeadNote`, `Panel`, `Box`), each `PartN….tsx` composes them, and lists/cards (glance index, emotional needs, journey models, stats, tools, research and next-step cards, map hotspots) live in `content/ideas.ts`. Headings and body copy stay in the part files. The hand-drawn diagrams are images in `public/assets/ideas/`.
-- Perspectives (`/perspectives`, design screenshots 26–29): sections in `components/perspectives/`, styles in `styles/perspectives.css`. Every episode lives once in `CONVERSATIONS` in `content/perspectives.ts`; "places to begin", the featured cards and the searchable archive all read from it (episode `href`s and the YouTube/Spotify/Apple links are still placeholders). Any element with `data-topic="<Topic>"` opens the archive filtered to that topic. Episodes without an `image` render a Perspectives-branded tile (`EpisodeImage`).
+- Perspectives (`/perspectives`, design screenshots 26–29): sections in `components/perspectives/`, styles in `styles/perspectives.css`. Every episode lives once in `CONVERSATIONS` in `content/perspectives.ts`; "places to begin", the featured cards and the searchable archive all read from it (episode `href`s are the YouTube links; the channel links live in `CHANNEL_URLS`). Set `imageHasName` when the artwork already prints the guest's name. Any element with `data-topic="<Topic>"` opens the archive filtered to that topic. Episodes without an `image` render a Perspectives-branded tile (`EpisodeImage`).
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

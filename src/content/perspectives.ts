@@ -8,19 +8,19 @@ export type Topic = (typeof TOPICS)[number];
 // ---------- Conversations ----------
 // Add every episode here; the archive, "places to begin" and "too good to leave in the archive" all read from this list.
 // List order = "Most watched". `date` (YYYY-MM-DD) drives "Newest". `image` is optional: without one the card shows a Perspectives tile.
-// TODO: replace each `href: '#'` with the episode's watch/listen URL.
 export type Conversation = {
   id: string; title: string; guest: string; topic: Topic; blurb: string;
   href: string; image?: string; date?: string;
+  imageHasName?: boolean; // the image already shows the guest's name, so don't overlay it
   tone?: 'dark' | 'gold' | 'bronze'; // tile colour when there is no image
 };
 export const CONVERSATIONS: Conversation[] = [
-  { id: 'schwartz', title: 'What are your parts trying to protect?', guest: 'Dr Richard Schwartz', topic: 'Human change', blurb: 'Dr Richard Schwartz on Internal Family Systems.', href: '#', tone: 'dark' },
-  { id: 'richo', title: 'Relationships: should I stay or should I go?', guest: 'Dr David Richo', topic: 'Relationships', blurb: 'Psychotherapist Dr David Richo on readiness, endings and adult love.', href: '#', tone: 'gold' },
-  { id: 'burkeman', title: 'How are you choosing to spend your 4,000 weeks?', guest: 'Oliver Burkeman', topic: 'Ideas & meaning', blurb: 'Oliver Burkeman on time, distraction and cosmic insignificance.', href: '#', tone: 'gold' },
-  { id: 'singer', title: 'What do we owe one another?', guest: 'Peter Singer', topic: 'Ideas & meaning', blurb: 'Peter Singer on ethics, suffering and the choices we make.', href: '#', tone: 'gold' },
-  { id: 'gerber', title: 'The man behind the myth', guest: 'Michael E. Gerber', topic: 'Founders & business', blurb: 'Michael E. Gerber on entrepreneurship, systems and building beyond yourself.', href: '#', image: '/assets/photos/perspectives-gerber.webp' },
-  { id: 'nash', title: 'What does it take to build something people said would never work?', guest: 'Tony Nash', topic: 'Founders & business', blurb: 'Talking business with Tony Nash, founder of Booktopia.', href: '#', tone: 'bronze' },
+  { id: 'schwartz', title: 'What are your parts trying to protect?', guest: 'Dr Richard Schwartz', topic: 'Human change', blurb: 'Dr Richard Schwartz on Internal Family Systems.', href: 'https://youtu.be/MroXcSrTqvs', image: '/assets/photos/perspectives-schwartz.webp', imageHasName: true },
+  { id: 'richo', title: 'Relationships: should I stay or should I go?', guest: 'Dr David Richo', topic: 'Relationships', blurb: 'Psychotherapist Dr David Richo on readiness, endings and adult love.', href: 'https://youtu.be/TovKLawEzQU', image: '/assets/photos/perspectives-richo.webp' },
+  { id: 'burkeman', title: 'How are you choosing to spend your 4,000 weeks?', guest: 'Oliver Burkeman', topic: 'Ideas & meaning', blurb: 'Oliver Burkeman on time, distraction and cosmic insignificance.', href: 'https://youtu.be/e4R45ZeSxfU', image: '/assets/photos/perspectives-burkeman.webp', imageHasName: true },
+  { id: 'singer', title: 'What do we owe one another?', guest: 'Peter Singer', topic: 'Ideas & meaning', blurb: 'Peter Singer on ethics, suffering and the choices we make.', href: 'https://youtu.be/Nf7GihfVjqw', image: '/assets/photos/perspectives-singer.webp', imageHasName: true },
+  { id: 'gerber', title: 'The man behind the myth', guest: 'Michael E. Gerber', topic: 'Founders & business', blurb: 'Michael E. Gerber on entrepreneurship, systems and building beyond yourself.', href: 'https://youtu.be/2H6kUOOm68E', image: '/assets/photos/perspectives-gerber.webp', imageHasName: true },
+  { id: 'nash', title: 'What does it take to build something people said would never work?', guest: 'Tony Nash', topic: 'Founders & business', blurb: 'Talking business with Tony Nash, founder of Booktopia.', href: 'https://youtu.be/bXiNCEf8QfU', image: '/assets/photos/perspectives-nash.webp', imageHasName: true },
 ];
 
 /** "Three very different places to begin": conversation ids with the longer intro shown on those cards. */
@@ -48,9 +48,15 @@ export const RABBIT_HOLES: { icon: IconName; title: string; question: string; ex
   { icon: 'summit', title: 'People who built something unlikely', question: 'What happens inside the mind of someone who creates what did not previously exist, persists when it makes no sense and eventually makes it work?', explore: ['entrepreneurship', 'leadership', 'brands', 'risk', 'the long game', 'building beyond yourself'], cta: 'Explore builders & founders', topic: 'Founders & business' },
 ];
 
-// ---------- Where to watch and listen (TODO: real channel URLs) ----------
+// ---------- Where to watch and listen — the channel URLs, used in the hero and the bottom band ----------
+// The podcast is "BraveHeart with Remi Pearson (formerly Perspectives Podcast)".
+export const CHANNEL_URLS = {
+  youtube: 'https://www.youtube.com/channel/UC7zP_SmBHzsZG8lmInQBgHQ',
+  spotify: 'https://open.spotify.com/show/354ePLIvSfb32sFMGP30nE',
+  apple: 'https://podcasts.apple.com/us/podcast/braveheart-with-remi-pearson-formerly-perspectives/id1458461238',
+};
 export const LISTEN_LINKS: { icon: IconName; label: string; href: string }[] = [
-  { icon: 'play', label: 'Watch on YouTube', href: 'https://www.youtube.com/' },
-  { icon: 'waves', label: 'Listen on Spotify', href: 'https://open.spotify.com/' },
-  { icon: 'mic', label: 'Listen on Apple Podcasts', href: 'https://podcasts.apple.com/' },
+  { icon: 'play', label: 'Watch on YouTube', href: CHANNEL_URLS.youtube },
+  { icon: 'waves', label: 'Listen on Spotify', href: CHANNEL_URLS.spotify },
+  { icon: 'mic', label: 'Listen on Apple Podcasts', href: CHANNEL_URLS.apple },
 ];

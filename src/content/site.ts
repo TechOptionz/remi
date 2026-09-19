@@ -60,12 +60,12 @@ export const HERO_COPY = {
 // ---------- Social links ----------
 export type SocialId = 'linkedin' | 'instagram' | 'youtube' | 'facebook' | 'x' | 'podcast';
 export const SOCIAL: { id: SocialId; label: string; href: string }[] = [
-  { id: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/' },
-  { id: 'instagram', label: 'Instagram', href: 'https://www.instagram.com/' },
-  { id: 'youtube', label: 'YouTube', href: 'https://www.youtube.com/' },
-  { id: 'facebook', label: 'Facebook', href: 'https://www.facebook.com/' },
-  { id: 'x', label: 'X', href: '#' }, // shown in hero D only
-  { id: 'podcast', label: 'Podcast', href: '#' },
+  { id: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/remi-sharon-pearson/' },
+  { id: 'instagram', label: 'Instagram', href: 'https://www.instagram.com/remi.sharon.pearson/' },
+  { id: 'youtube', label: 'YouTube', href: 'https://www.youtube.com/channel/UC7zP_SmBHzsZG8lmInQBgHQ' },
+  { id: 'facebook', label: 'Facebook', href: 'https://www.facebook.com/Remi.Sharon.Pearson' },
+  { id: 'x', label: 'X', href: 'https://twitter.com/remi_pearson' }, // shown in hero D only
+  { id: 'podcast', label: 'Podcast', href: 'https://podcasts.apple.com/us/podcast/braveheart-with-remi-pearson-formerly-perspectives/id1458461238' },
 ];
 
 // ---------- Footer ----------
