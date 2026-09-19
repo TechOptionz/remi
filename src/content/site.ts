@@ -24,6 +24,7 @@ export const HEADER_CTA = { label: 'Show me where to start', href: '/#rabbit-hol
 
 // ---------- Variants menu (design review tool: home hero layout + colour palette) ----------
 export const HEROES = [
+  { id: 'E', label: 'E · Let truth lead', shortLabel: 'E · Let truth lead' },
   { id: 'A', label: 'A · Statement', shortLabel: 'A · Statement' },
   { id: 'B', label: 'B · Video first, text below', shortLabel: 'B · Video first' },
   { id: 'C', label: 'C · Split', shortLabel: 'C · Split' },
@@ -33,7 +34,7 @@ export const HEROES = [
   { id: 'D', label: 'D · Full-screen video', shortLabel: 'D · Full-screen video' },
 ] as const;
 export type HeroId = (typeof HEROES)[number]['id'];
-export const DEFAULT_HERO: HeroId = 'A';
+export const DEFAULT_HERO: HeroId = 'E';
 
 // Menu order differs from the default: palettes are defined in styles/tokens.css
 export const PALETTES = [
@@ -53,6 +54,7 @@ export const HERO_COPY = {
   primaryCta: { label: 'Show me where to start', href: '#rabbit-holes' },
   videoCta: 'Watch perspectives',
   portrait: { src: '/assets/photos/cta-remi.webp', alt: 'Remi Pearson speaking' },
+  photo: { src: '/assets/photos/remi-pink-jacket.webp', alt: 'Remi Pearson smiling' },
 };
 
 // ---------- Social links ----------

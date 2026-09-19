@@ -50,6 +50,30 @@
 button.btn { font-family:inherit; }
 .btn .play { margin-right:6px; }
 
+/* E · Let truth lead — text left, photo right */
+.hero-e { position:relative; padding-top:clamp(24px,3vw,40px); margin-bottom:clamp(40px,6vw,72px); display:grid; grid-template-columns:minmax(0,6fr) minmax(0,6fr); gap:clamp(24px,4vw,56px); align-items:stretch; }
+.hero-e-copy { position:relative; padding:clamp(28px,5vw,56px) 0 clamp(56px,7vw,88px); display:flex; flex-direction:column; align-items:flex-start; justify-content:center; }
+.hero-e-spark { display:block; margin-bottom:18px; color:var(--accent); opacity:.85; }
+.hero-e-title { margin:0 0 22px; font-family:var(--serif); font-weight:400; font-size:clamp(48px,6.6vw,108px); line-height:.92; letter-spacing:-.01em; text-transform:uppercase; color:var(--ink-strong); }
+.hero-e .hero-lede { margin:0 0 32px; max-width:36ch; }
+.hero-e-btns { flex-wrap:nowrap; gap:10px; }
+.hero-e-btns .btn { padding:14px 22px; white-space:nowrap; }
+.hero-e-arrow { align-self:flex-end; margin:20px 8% 0 0; color:var(--accent); opacity:.85; }
+.hero-e-photo { position:relative; margin-right:calc(-1 * var(--gutter)); min-height:clamp(420px,62vh,760px); overflow:hidden; background:var(--card); }
+.hero-e-photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 22%; }
+.hero-e-fade { position:absolute; inset:0; background:linear-gradient(to right, var(--bg) 0%, rgba(var(--bg-rgb),.7) 6%, rgba(var(--bg-rgb),0) 16%); }
+@media (max-width:900px) {
+  .hero-e { grid-template-columns:1fr; }
+  .hero-e-copy { padding-bottom:clamp(32px,6vw,48px); }
+  .hero-e-btns { flex-wrap:wrap; }
+  .hero-e-photo { margin-inline:calc(-1 * var(--gutter)); min-height:clamp(320px,60vw,480px); }
+  .hero-e-fade { background:linear-gradient(to bottom, var(--bg) 0%, rgba(var(--bg-rgb),.7) 6%, rgba(var(--bg-rgb),0) 18%); }
+  .hero-e-arrow { display:none; }
+}
+@media (max-width:520px) {
+  .hero-e-btns .btn { padding:13px 18px; font-size:13px; }
+}
+
 /* B */
 .hero--b { padding-top:clamp(20px,3vw,36px); text-align:left; }
 .hero-video--tall { width:min(100%, calc((100vh - 150px) * 16 / 9)); }

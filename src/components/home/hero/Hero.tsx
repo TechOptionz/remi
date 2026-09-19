@@ -3,7 +3,7 @@
 // Home hero: renders the variant picked in the Variants menu, plus the shared video modal.
 import { useEffect, useState } from 'react';
 import { useSiteState } from '@/lib/site-state';
-import { HeroA, HeroB, HeroC, HeroC1, HeroC2, HeroD } from './variants';
+import { HeroA, HeroB, HeroC, HeroC1, HeroC2, HeroD, HeroE } from './variants';
 import { VIMEO, VimeoFrame } from './parts';
 
 export default function Hero() {
@@ -19,6 +19,7 @@ export default function Hero() {
 
   return (
     <>
+      {hero === 'E' && <HeroE onWatch={onWatch} />}
       {hero === 'A' && <HeroA onWatch={onWatch} />}
       {hero === 'B' && <HeroB onWatch={onWatch} />}
       {hero === 'C' && <HeroC onWatch={onWatch} />}
