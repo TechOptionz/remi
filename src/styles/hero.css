@@ -59,7 +59,7 @@ button.btn { font-family:inherit; }
 .hero-e-btns { flex-wrap:nowrap; gap:10px; }
 .hero-e-btns .btn { padding:14px 22px; white-space:nowrap; }
 .hero-e-arrow { align-self:flex-end; margin:20px 8% 0 0; color:var(--accent); opacity:.85; }
-.hero-e-photo { position:relative; margin-right:calc(-1 * var(--gutter)); min-height:clamp(420px,62vh,760px); overflow:hidden; background:var(--card); }
+.hero-e-photo { position:relative; margin-right:calc(-1 * (var(--gutter) + max(0px, (100vw - 1280px) / 2))); min-height:clamp(420px,62vh,760px); overflow:hidden; background:var(--card); }
 .hero-e-photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 22%; }
 .hero-e-fade { position:absolute; inset:0; background:linear-gradient(to right, var(--bg) 0%, rgba(var(--bg-rgb),.7) 6%, rgba(var(--bg-rgb),0) 16%); }
 @media (max-width:900px) {

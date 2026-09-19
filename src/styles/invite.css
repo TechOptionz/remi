@@ -14,7 +14,7 @@ main > .band-dark:last-child { border-bottom:1px solid rgba(var(--footer-ink-rgb
 .invite-hero { display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(28px,4vw,64px); align-items:start; }
 .invite-title { margin:0 0 28px; font-family:var(--serif); font-weight:400; font-size:clamp(48px,5.4vw,88px); line-height:.92; letter-spacing:-.01em; text-transform:uppercase; color:var(--ink-strong); }
 .underline { position:relative; display:inline-block; }
-.underline::after { content:""; position:absolute; left:-2%; right:-2%; bottom:-.06em; height:.09em; background:var(--accent); border-radius:999px; transform:rotate(-.8deg); opacity:.9; }
+.underline::after { content:""; position:absolute; left:0; right:0; bottom:-.06em; height:.09em; background:var(--accent); border-radius:999px; transform:rotate(-.8deg); opacity:.9; }
 .invite-copy .body-xl { max-width:40ch; font-size:17px; }
 .quote-row { display:flex; align-items:center; gap:12px; margin-top:24px; }
 .quote-note { margin:0; padding:20px 34px; max-width:26ch; border:1.5px solid var(--accent); border-radius:50%; font-family:var(--serif); font-style:italic; font-size:clamp(19px,1.7vw,23px); line-height:1.25; color:var(--accent); text-align:center; transform:rotate(-4deg); }
@@ -129,3 +129,11 @@ main > .band-dark:last-child { border-bottom:1px solid rgba(var(--footer-ink-rgb
 .invite-form .invite-col--inline label > * { flex:0 0 62%; min-width:0; }
 .invite-actions .btn { letter-spacing:.14em; text-transform:uppercase; }
 @media (max-width:520px) { .invite-form .invite-col--inline label { flex-direction:column; align-items:stretch; } }
+
+/* Alignment fixes */
+.room-card { grid-template-rows:1fr auto; }
+@media (max-width:520px) { .room-card { grid-template-rows:none; } }
+.founder-card .btn { display:flex; align-items:center; justify-content:center; min-height:60px; }
+.invite-form select { text-overflow:ellipsis; white-space:nowrap; overflow:hidden; }
+.hand-quote--center .underline::after, .fit-lists .underline::after { left:0; right:0; }
+.invite-form { align-items:start; }

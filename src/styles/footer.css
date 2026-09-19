@@ -36,7 +36,7 @@
 .footer-social a:hover { background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
 .footer-note { margin:8px 0 0; font-family:var(--serif); font-style:italic; font-size:20px; color:rgba(var(--ink-rgb),.55); }
 
-.footer-base { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px 24px; padding:28px 80px 0 0; border-top:1px solid rgba(var(--ink-rgb),.14); font-size:13px; color:rgba(var(--ink-rgb),.5); }
+.footer-base { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px 24px; padding:28px max(0px, calc(90px - (50vw - 50%))) 0 0; border-top:1px solid rgba(var(--ink-rgb),.14); font-size:13px; color:rgba(var(--ink-rgb),.5); }
 .footer-base-brand { display:flex; flex-wrap:wrap; align-items:center; gap:12px 24px; }
 .footer-base-brand img { height:44px; width:auto; }
 .footer-legal { display:flex; flex-wrap:wrap; gap:24px; }

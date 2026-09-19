@@ -45,3 +45,7 @@
 }
 @media (min-width:900px) { .mobile-nav { display:none !important; } }
 
+
+/* Keep nav links on one line and tighten the gaps on narrower desktops */
+.nav a { white-space:nowrap; }
+@media (max-width:1180px) { .nav { gap:18px; font-size:13px; } }

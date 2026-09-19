@@ -10,8 +10,12 @@ function DisruptiveLeadership() {
       <H3 className="panel-title">Disruptive Leadership</H3>
       <Hand v={['center', 'cream']}>How do I lead without carrying everybody?</Hand>
       <p className="panel-body panel-body--center">A philosophy and practice of leadership built on truth, responsibility, accountability, healthy relationships and the ability to hold space. Set clear standards. Give honest feedback. Develop capable people. Stop rescuing, controlling or rewarding helplessness.</p>
-      <img className="dl-icons" src="/assets/ideas/p6-icons.webp" alt="" aria-hidden="true" />
-      <ul className="dl-labels">{DISRUPTIVE_LEADERSHIP_PILLARS.map(p => <li key={p}>{p}</li>)}</ul>
+      <div className="dl-strip">
+        <div className="dl-strip-inner">
+          <img className="dl-icons" src="/assets/ideas/p6-icons.webp" alt="" aria-hidden="true" />
+          <ul className="dl-labels">{DISRUPTIVE_LEADERSHIP_PILLARS.map(p => <li key={p}>{p}</li>)}</ul>
+        </div>
+      </div>
       <div className="panel-actions">
         <Hand v={['cream', 'sm']}>High standards and humanity belong in the same room.</Hand>
         <Btn href={PRODUCTS_HREF} v={['outline']}>Explore Disruptive Leadership</Btn>
