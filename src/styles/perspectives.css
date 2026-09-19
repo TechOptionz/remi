@@ -1,7 +1,7 @@
 /* ============ Perspectives ============ */
 .persp-hero { display:grid; grid-template-columns:minmax(0,5fr) minmax(0,6fr); gap:clamp(24px,4vw,56px); align-items:center; }
 .persp-hero .part-lede { font-size:17px; }
-.persp-hero-photo { display:block; width:100%; aspect-ratio:4/5; object-fit:cover; object-position:50% 20%; border-radius:6px; background:var(--card); }
+.persp-hero-photo { display:block; width:100%; aspect-ratio:1/1; object-fit:cover; object-position:50% 25%; border-radius:6px; background:var(--card); }
 .persp-channels { list-style:none; margin:20px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:10px 24px; }
 .persp-channels a { display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); }
 .persp-channels a:hover { color:var(--ink-strong); }
