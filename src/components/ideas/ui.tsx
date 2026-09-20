@@ -36,7 +36,7 @@ export function PartHead({ n, title, rule, aside, note, children }: {
 }) {
   return (
     <div className={cx('ideas-head', note && 'ideas-head--note')}>
-      <div>
+      <div className="ideas-head-copy">
         <h2 id={`p${n}-h`} className={cx('ideas-title', rule && 'ideas-title--rule')}>{title}</h2>
         {children}
       </div>

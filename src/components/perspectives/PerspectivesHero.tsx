@@ -16,9 +16,18 @@ export default function PerspectivesHero() {
           <p className="part-lede">I am not interested in interviewing somebody while they politely wait for my next question. I want the conversation neither of us could have planned before we sat down.</p>
           <p className="quote-note persp-note">Come for the idea. Stay for where the conversation goes.</p>
           <ul className="persp-channels" aria-label="Where to watch and listen">
-            {LISTEN_LINKS.map(l => (
-              <li key={l.label}><a href={l.href} target="_blank" rel="noopener"><Icon name={l.icon} size={18} />{l.label}</a></li>
-            ))}
+            {/* "Watch on YouTube" is set on two lines ("Watch on" / "YouTube") so all three links share one row */}
+            {LISTEN_LINKS.map(l => {
+              const cut = l.label.indexOf(' on ') + 3;
+              return (
+                <li key={l.label}>
+                  <a href={l.href} target="_blank" rel="noopener">
+                    <Icon name={l.icon} size={18} />
+                    <span><span className="persp-channels-lead">{l.label.slice(0, cut)}</span> <span>{l.label.slice(cut + 1)}</span></span>
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
         <img className="persp-hero-photo" src="/assets/photos/perspectives-hero-crop.webp" alt="Remi smiling at a podcast microphone in front of a wall of books" />

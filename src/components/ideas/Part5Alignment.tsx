@@ -1,5 +1,6 @@
 import { CAM_PAIR, CAM_STATS, PRODUCTS_HREF } from '@/content/ideas';
-import { Art, Body, Btn, H3, Hand, HeadNote, Panel, Part, PartHead, Star } from './ui';
+import { Body, Btn, H3, Hand, HeadNote, Panel, Part, PartHead, Star } from './ui';
+import ZoomArt from './ZoomArt';
 
 const CAM_ALT = 'The Critical Alignment Model: four domains around a compass. Environment — vision, culture, personal strength and the conditions people need to thrive. Structure — strategy, innovation, planning and decision-making. Implementation — autonomy, order, sustained focus and turning intention into results. People — mentoring, connection, social skill and mindful leadership.';
 
@@ -28,7 +29,7 @@ export default function Part5Alignment() {
       </PartHead>
       <H3>The Critical Alignment Model</H3>
       <Hand v={['center', 'sm']}>Created by Remi Pearson</Hand>
-      <Art name="p5-cam" alt={CAM_ALT} className="ideas-art--center cam-art" />
+      <ZoomArt name="p5-cam" alt={CAM_ALT} label="the Critical Alignment Model" className="ideas-art--center ideas-bleed cam-art" />
       <ResearchPanel />
       <div className="two-up">
         {CAM_PAIR.map(item => (

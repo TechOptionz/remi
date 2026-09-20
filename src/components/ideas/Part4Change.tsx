@@ -28,16 +28,17 @@ function JourneyModelCard({ model }: { model: JourneyModel }) {
 export default function Part4Change() {
   return (
     <Part n={4}>
-      <PartHead n={4} rule title="Change has a past, a present and a future" aside={<Art name="p4-tags" />}>
+      <PartHead n={4} rule title="Change has a past, a present and a future" aside={<Art name="p4-tags" className="ideas-art--figure" />}>
         <Body>Knowing why a pattern exists is not the same as being free to respond differently. These three models work at different points in the human-change journey.</Body>
       </PartHead>
       <div className="journey">
         <img className="journey-line" src="/assets/ideas/p4-timeline.webp" alt="Past, present, future" aria-hidden="true" />
+        {/* .journey-row is display:contents on desktop (cells of the grid); on mobile it stacks the art above its model */}
         {JOURNEY.map(model => (
-          <Fragment key={model.title}>
+          <div className="journey-row" key={model.title}>
             <JourneyModelCard model={model} />
             {model.art ? <Art name={model.art} className="journey-art" /> : <div className="journey-art"></div>}
-          </Fragment>
+          </div>
         ))}
       </div>
       <Hand v={['center']}>Different questions. Different moments. One human life.</Hand>

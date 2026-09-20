@@ -1,5 +1,6 @@
 import { EMOTIONAL_NEEDS } from '@/content/ideas';
 import { Art, Body, Box, Btn, H3, Hand, Img, NextLink, Part, PartHead, Star } from './ui';
+import ZoomArt from './ZoomArt';
 
 const TRIAD_ALT = 'The Self-Esteem Triad. Needs: know what matters to you; recognise, express and take responsibility for what you need. Boundaries: the line at which you can love someone and still love and take care of yourself; boundaries clarify what is yours, what is not and what behaviour you will accept. Emotions: vital information about what needs attention, protection, expression or completion; speak for your emotions, not from them. At the centre: worthy, lovable, enough.';
 
@@ -51,7 +52,7 @@ export default function Part3SelfEsteem() {
       </PartHead>
       <H3>The Self-Esteem Triad</H3>
       <Hand v={['center', 'tight']}>Needs. Boundaries. Emotions.</Hand>
-      <Art name="p3-triad" alt={TRIAD_ALT} className="ideas-art--center triad-art" />
+      <ZoomArt name="p3-triad" alt={TRIAD_ALT} label="the Self-Esteem Triad" className="ideas-art--center ideas-bleed triad-art" />
       <EmotionalNeeds />
       <H3 v={['stars']}><Star /> Safe versus Risky Problems <Star /></H3>
       <SafeVersusRisky />

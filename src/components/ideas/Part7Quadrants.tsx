@@ -1,5 +1,6 @@
 import { LEADERSHIP_TOOLS, TOOLKIT } from '@/content/ideas';
 import { Art, Body, Box, Btn, H3, Hand, HeadNote, NextLink, Part, PartHead, Rust } from './ui';
+import ZoomArt from './ZoomArt';
 
 const QUAD_ALT = 'The Four Quadrants to Leadership. 1 Self leadership — ownership, responsibility, self-awareness, judgement, learning and modelling the standard. 2 Self-management — priorities, benchmarks, follow-through, initiative, systems and sustained delivery. 3 Leadership of others — vision, trust, emotional intelligence, feedback, possibility and developing capability. 4 Management of others — clear outcomes, reporting, training, performance, appropriate direction and accountability.';
 
@@ -13,7 +14,7 @@ export default function Part7Quadrants() {
       <H3 v={['left']}>The Four Quadrants to Leadership</H3>
       <Hand v={['sm']}>Developed and used by Remi Pearson.</Hand>
       <div className="quad-grid">
-        <Art name="p7-quad" alt={QUAD_ALT} />
+        <ZoomArt name="p7-quad" alt={QUAD_ALT} label="the Four Quadrants to Leadership" className="ideas-bleed" artClassName="quad-art" />
         <HeadNote art="p7-arrow" inline><Hand v={['underline']}>Ninety per cent of effective leadership begins with the ability to lead yourself.</Hand></HeadNote>
       </div>
       <H3 v={['left', 'rule']}>The tools that make it practical</H3>

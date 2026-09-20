@@ -2,9 +2,20 @@
 .persp-hero { display:grid; grid-template-columns:minmax(0,5fr) minmax(0,6fr); gap:clamp(24px,4vw,56px); align-items:center; }
 .persp-hero .part-lede { font-size:17px; }
 .persp-hero-photo { display:block; width:100%; aspect-ratio:1/1; object-fit:cover; object-position:50% 25%; border-radius:6px; background:var(--card); }
-.persp-channels { list-style:none; margin:20px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:10px 24px; }
-.persp-channels a { display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); }
-.persp-channels a:hover { color:var(--ink-strong); }
+/* Watch / listen links: always one row. Each label sits on two lines ("Watch on" / "YouTube") so three fit in the text column */
+.persp-channels { list-style:none; margin:22px 0 0; padding:0; display:grid; grid-template-columns:repeat(3,auto); justify-content:start; gap:12px clamp(16px,2.2vw,30px); }
+.persp-channels a { display:inline-flex; align-items:center; gap:10px; font-size:12px; font-weight:700; letter-spacing:.1em; line-height:1.4; text-transform:uppercase; color:var(--accent); }
+.persp-channels a span span { display:block; }
+.persp-channels-lead { font-weight:600; color:rgba(var(--ink-rgb),.62); transition:color .2s; }
+.persp-channels a:hover, .persp-channels a:hover .persp-channels-lead { color:var(--ink-strong); }
+.persp-channels svg { flex:none; }
+/* On phones: three equal tiles, icon above its label */
+@media (max-width:520px) {
+  .persp-channels { grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+  .persp-channels li { display:flex; }
+  .persp-channels a { flex:1; flex-direction:column; justify-content:flex-start; gap:7px; padding:12px 4px 10px; border:1px solid rgba(var(--accent-rgb),.4); border-radius:10px; font-size:10px; letter-spacing:.04em; line-height:1.35; text-align:center; }
+  .persp-channels a:hover { border-color:var(--ink-strong); }
+}
 .persp-note { display:inline-block; margin-top:8px; font-family:var(--hand); font-style:normal; font-size:clamp(22px,2vw,27px); }
 .persp-sub { font-size:17px; margin-bottom:clamp(24px,3vw,36px); }
 .persp-stats { list-style:none; margin:clamp(28px,3.5vw,44px) 0 0; padding:clamp(16px,2vw,24px) 0; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr)); gap:16px 0; border-block:1px solid rgba(var(--accent-rgb),.5); }
