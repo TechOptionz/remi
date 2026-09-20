@@ -1,10 +1,11 @@
 // Homepage. Each section is its own component in components/home/ — reorder or remove them here.
+// The first six follow the homepage design (Photos-Images/NEW HOME PAGE PART ONE + PART TWO).
 import Hero from '@/components/home/hero/Hero';
-import PhotoBand from '@/components/home/PhotoBand';
 import RabbitHoles from '@/components/home/RabbitHoles';
 import Curious from '@/components/home/Curious';
-import Frames from '@/components/home/Frames';
-import TrustmeIntro from '@/components/home/TrustmeIntro';
+import HomePerspectives from '@/components/home/HomePerspectives';
+import EntryProducts from '@/components/home/EntryProducts';
+import FigureOut from '@/components/home/FigureOut';
 import WhoThisIsFor from '@/components/home/WhoThisIsFor';
 import Story from '@/components/home/Story';
 import WaysToWork from '@/components/home/WaysToWork';
@@ -15,11 +16,11 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <PhotoBand />
       <RabbitHoles />
       <Curious />
-      <Frames />
-      <TrustmeIntro />
+      <HomePerspectives />
+      <EntryProducts />
+      <FigureOut />
       <WhoThisIsFor />
       <Story />
       <WaysToWork />

@@ -1,14 +1,18 @@
 import Link from 'next/link';
+import { Brush, Sym } from './ui';
 
-// CURIOUS
+// CURIOUS — paper on the left tearing into a charcoal panel that holds the button (home design part 1)
 export default function Curious() {
   return (
-    <section className="section curious" aria-labelledby="curious-h">
-      <div>
-        <h2 id="curious-h" className="h2">Curious about the thinking behind the work?</h2>
-        <p className="body-lg">Explore Remi's original models, methods and ideas.</p>
+    <section className="curious" aria-labelledby="curious-h">
+      <div className="curious-copy">
+        <h2 id="curious-h" className="hm-h2 hm-h2--plain">Curious about the thinking <Brush>behind the work?</Brush></h2>
+        <p>Explore Remi’s original models, methods and ideas.</p>
       </div>
-      <Link href="/ideas-models" className="btn btn--primary">Explore ideas &amp; models</Link>
+      <div className="curious-panel">
+        <Link href="/ideas-models" className="hm-btn">Explore ideas &amp; models</Link>
+        <Sym name="hm-arrow-dark" className="curious-arrow" />
+      </div>
     </section>
   );
 }

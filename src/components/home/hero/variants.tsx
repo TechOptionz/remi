@@ -15,17 +15,14 @@ export function HeroE({ onWatch }: Props) {
   return (
     <section className="hero-e" aria-label="Introduction">
       <div className="hero-e-copy">
-        <span className="hero-e-spark" aria-hidden="true"><Icon name="sparkle" size={28} strokeWidth={1.2} /></span>
+        <span className="hero-e-spark" aria-hidden="true"><img src="/assets/home/hm-spark.webp" alt="" /></span>
         <h1 className="hero-e-title">{HERO_COPY.titleStart}<br /><span className="underline">{HERO_COPY.titleEm.replace(/\.$/, '')}</span></h1>
         <Lede />
         <div className="btn-row btn-row--start hero-e-btns">
           <a href={HERO_COPY.primaryCta.href} className="btn btn--primary">{HERO_COPY.primaryCta.label}</a>
           <button type="button" className="btn btn--ghost" onClick={onWatch}><span className="play" aria-hidden="true"></span> {HERO_COPY.videoCta}</button>
         </div>
-        <svg className="hero-e-arrow" width="72" height="88" viewBox="0 0 72 88" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <path d="M8 8c30 4 42 24 34 56" />
-          <path d="M52 50l-10 14-14-6" />
-        </svg>
+        <img className="hero-e-arrow" src="/assets/home/hm-hero-arrow.webp" alt="" aria-hidden="true" />
       </div>
       <div className="hero-e-photo">
         <img src={HERO_COPY.photo.src} alt={HERO_COPY.photo.alt} />
