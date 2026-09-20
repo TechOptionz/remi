@@ -5,13 +5,13 @@ export default function ProperConversation() {
   return (
     <section className="section section--tight section--flush convo-grid" aria-labelledby="convo-h">
       <p className="hand-quote"><span className="underline">If we had the ability to help, then we had a responsibility to notice where help was needed.</span></p>
-      <img loading="lazy" decoding="async" src="/assets/photos/invite-stage.webp" alt="Remi taking a selfie with a theatre full of people cheering" />
+      <img loading="lazy" decoding="async" src="/assets/photos/about-convo-a.webp" alt="Remi laughing behind a podcast microphone in front of bookshelves" />
       <div>
         <h2 id="convo-h" className="part-title part-title--sm"><span className="underline">I love a proper conversation</span></h2>
         <p className="part-lede">I love conversations where both people think, question, challenge, laugh and occasionally change their minds. That is what Perspectives is for.</p>
         <ul className="dot-list dot-list--accent">{GUESTS.map(g => <li key={g}>{g}</li>)}</ul>
       </div>
-      <img loading="lazy" decoding="async" src="/assets/photos/about-audience.webp" alt="Remi speaking to a seated audience" />
+      <img loading="lazy" decoding="async" src="/assets/photos/about-convo-b.webp" alt="Remi in conversation with two hosts on a television set" />
     </section>
   );
 }

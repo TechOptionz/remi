@@ -13,8 +13,8 @@ export default function Relationships() {
   return (
     <section className="section section--tight section--flush centered" aria-labelledby="rel-h">
       <div className="photo-pair">
-        <img loading="lazy" decoding="async" src="/assets/photos/about-community.webp" alt="Remi with a room full of people cheering" />
-        <img loading="lazy" decoding="async" src="/assets/photos/group-screens.webp" alt="Remi with a group of participants in front of screens full of online attendees" />
+        <img loading="lazy" decoding="async" src="/assets/photos/about-rel-a.webp" alt="Remi reaching across a crowded room to shake a participant’s hand" />
+        <img loading="lazy" decoding="async" src="/assets/photos/about-rel-b.webp" alt="Remi’s team holding up copies of her book among balloons" />
       </div>
       <h2 id="rel-h" className="part-title part-title--sm"><span className="underline">Relationships bring all our shit to the surface</span></h2>
       <p className="part-lede part-lede--center">Relationships are where attachment patterns stop being interesting theories and become lived experiences.</p>

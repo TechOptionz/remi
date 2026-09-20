@@ -9,7 +9,7 @@ export default function Foundation() {
           <h2 id="foundation-h" className="part-title"><span className="underline">Success was always meant to travel further than me</span></h2>
           <p className="part-lede">As The Coaching Institute grew, I became increasingly aware that the opportunity to pursue a meaningful life was not equally available to everyone. So I founded The Coaching Institute Foundation.</p>
         </div>
-        <img className="part-photo" loading="lazy" decoding="async" src="/assets/photos/group-screens.webp" alt="Remi with a group of participants in front of screens full of online attendees" />
+        <img className="part-photo" loading="lazy" decoding="async" src="/assets/photos/about-foundation.webp" alt="Remi, arms wide, in front of screens full of online attendees" />
       </div>
       <div className="giving centered">
         <h3 className="part-title part-title--sm part-title--accent">Millions of dollars contributed to causes <span className="underline">around the world</span></h3>

@@ -120,7 +120,7 @@ export const RESEARCH = [
 ];
 export const NEXT_STEPS = [
   { art: 'p9-mic', title: 'Watch Perspectives', text: 'Come for the conversation. Stay for the question.', cta: 'Watch or listen', href: '/perspectives' },
-  { art: 'p9-comp', title: 'Explore the programs', text: 'Do something useful with all this.', cta: 'See the programs', href: '/#work' },
+  { art: 'p9-comp', title: 'Explore the programs', text: 'Do something useful with all this.', cta: 'See the programs', href: '/programs' },
   { art: 'p9-books', title: 'Meet the books', text: 'Six books. A few questions I still cannot leave alone.', cta: 'Meet the books', href: '/#work' },
   { art: 'p9-star', title: 'Invite Remi', text: 'Podcasts, panels, keynotes, books and senior-level facilitation.', cta: 'Invite Remi', href: '/invite-remi' },
 ];

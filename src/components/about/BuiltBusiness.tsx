@@ -19,8 +19,8 @@ export default function BuiltBusiness() {
           <p className="part-lede">I built The Coaching Institute from a spare room into one of Australasia's most successful coaching schools, then built it beyond my own delivery and sold it.</p>
         </div>
         <div className="photo-stack">
-          <img loading="lazy" decoding="async" src="/assets/photos/about-community.webp" alt="Remi with a room full of people cheering" />
-          <img loading="lazy" decoding="async" src="/assets/photos/invite-stage.webp" alt="Remi taking a selfie with a theatre full of people cheering" />
+          <img loading="lazy" decoding="async" src="/assets/photos/about-built-a.webp" alt="Remi with a room of people in fancy dress at a Coaching Institute celebration" />
+          <img loading="lazy" decoding="async" src="/assets/photos/about-built-b.webp" alt="Remi and a large group posing together at an event" />
         </div>
       </div>
       <ul className="facts">

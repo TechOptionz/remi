@@ -17,7 +17,7 @@ export default function AboutHero() {
         <p className="body-xl">I began training as a coach because I needed to understand.</p>
         <p className="support-note">If you are struggling right now, please reach out. In Australia, Lifeline is available 24 hours a day on <a href="tel:131114">13 11 14</a>.</p>
       </div>
-      <img className="about-photo" src="/assets/photos/about-remi.webp" alt="Remi Pearson smiling, in a cream jumper" />
+      <img className="about-photo" src="/assets/photos/about-hero.webp" alt="Remi Pearson smiling, arm raised, in a pink jacket" />
     </section>
   );
 }

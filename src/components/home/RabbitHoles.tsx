@@ -16,7 +16,7 @@ export default function RabbitHoles() {
           <div><h3>Why does loving someone bring all my shit to the surface?</h3><p>Attachment, boundaries, conflict, intimacy and the moments you leave yourself.</p></div>
           <span className="hole-more">Explore <span aria-hidden="true">→</span></span>
         </Link>
-        <Link href="/ideas-models#part-4" className="hole-card">
+        <Link href="/ideas-models#part-5" className="hole-card">
           <div><h3>Tell me the truth. What am I not seeing?</h3><p>Decisions, contradictions and stories that keep your life out of alignment.</p></div>
           <span className="hole-more">Explore <span aria-hidden="true">→</span></span>
         </Link>

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'About Remi — Remi Pearson',
     description: "In 2003 Remi wasn't searching for a new career. One burning question became her life's work.",
-    images: ['/assets/photos/about-remi.webp'],
+    images: ['/assets/photos/about-hero.webp'],
     type: 'profile',
   },
 };

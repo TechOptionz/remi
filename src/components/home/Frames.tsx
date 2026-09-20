@@ -21,7 +21,7 @@ export default function Frames() {
             <p className="frame-sub">Seven levels of thinking</p>
           </div>
         </Link>
-        <Link href="/ideas-models" className="frame-card">
+        <Link href="/ideas-models#part-6" className="frame-card">
           <div className="frame-media"><img loading="lazy" decoding="async" src="/assets/photos/frame-2.webp" alt="" /></div>
           <div className="frame-body">
             <div className="frame-top"><span className="card-cat">Frame 02</span><span className="frame-arrow" aria-hidden="true">→</span></div>
@@ -29,7 +29,7 @@ export default function Frames() {
             <p className="frame-sub">Accountability and readiness</p>
           </div>
         </Link>
-        <Link href="/ideas-models" className="frame-card">
+        <Link href="/ideas-models#part-6" className="frame-card">
           <div className="frame-media"><img loading="lazy" decoding="async" src="/assets/photos/frame-3.webp" alt="" /></div>
           <div className="frame-body">
             <div className="frame-top"><span className="card-cat">Frame 03</span><span className="frame-arrow" aria-hidden="true">→</span></div>
@@ -37,7 +37,7 @@ export default function Frames() {
             <p className="frame-sub">Reading collective thinking</p>
           </div>
         </Link>
-        <Link href="/ideas-models" className="frame-card">
+        <Link href="/ideas-models#part-4" className="frame-card">
           <div className="frame-media"><img loading="lazy" decoding="async" src="/assets/photos/frame-4.webp" alt="" /></div>
           <div className="frame-body">
             <div className="frame-top"><span className="card-cat">Frame 04</span><span className="frame-arrow" aria-hidden="true">→</span></div>
