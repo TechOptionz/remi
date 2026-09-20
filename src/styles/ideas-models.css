@@ -198,7 +198,7 @@
 .glance-head { flex-direction:column; align-items:flex-start; gap:8px; }
 .glance-name-row { display:flex; align-items:center; gap:14px; }
 .glance-art { width:100%; max-width:300px; mix-blend-mode:multiply; margin-left:-10px; }
-.glance-group:last-child .glance-art { aspect-ratio:912 / 199; object-fit:cover; object-position:50% 100%; }
+.glance-group:last-child .glance-art { aspect-ratio:912 / 199; object-fit:cover; object-position:50% 100%; -webkit-mask-image:linear-gradient(to bottom,transparent,#000 22%); mask-image:linear-gradient(to bottom,transparent,#000 22%); }
 @media (max-width:700px) { .glance-art { max-width:230px; } }
 
 /* Part Three */
@@ -292,7 +292,7 @@
 /* Part Seven */
 .quad-grid { display:grid; grid-template-columns:minmax(0,3fr) minmax(0,1fr); gap:clamp(12px,2vw,32px); align-items:start; margin-bottom:clamp(20px,3vw,36px); }
 .quad-grid > .zoom-art { width:100%; }
-.quad-art { aspect-ratio:1745 / 1042; object-fit:cover; object-position:0 0; }
+.quad-art { aspect-ratio:1745 / 1042; object-fit:cover; object-position:0 0; -webkit-mask-image:linear-gradient(to left,transparent,#000 6%); mask-image:linear-gradient(to left,transparent,#000 6%); }
 .tools { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)); gap:clamp(14px,2vw,24px); margin:clamp(20px,3vw,32px) 0; }
 .tool { border:1.5px solid rgba(var(--ink-rgb),.55); border-radius:10px 8px 11px 9px / 9px 11px 8px 10px; overflow:hidden; display:flex; flex-direction:column; }
 .tool h4 { margin:0; padding:16px 18px; background:#a44a18 url(/assets/ideas/rust.webp) repeat; background-size:464px 222px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(20px,2vw,24px); line-height:1.05; text-transform:uppercase; text-align:center; color:#f6ecdc; }

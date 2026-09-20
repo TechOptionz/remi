@@ -12,8 +12,9 @@ export const metadata: Metadata = {
   description: "I'm Remi. I'm fascinated by why intelligent, self-aware humans get stuck — and how truth can set us free.",
 };
 
-// Instrument Serif + Manrope site-wide; Noto Serif Display + Caveat for the hand-drawn Ideas & Models page
-const FONTS = 'https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=Noto+Serif+Display:wdth,wght@62.5,600;62.5,700&family=Caveat:wght@500;600&display=swap';
+// Instrument Serif + Manrope site-wide; Noto Serif Display + Caveat for the hand-drawn Ideas & Models page;
+// League Gothic (condensed width) for the Perspectives rabbit-hole sheet
+const FONTS = 'https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=Noto+Serif+Display:wdth,wght@62.5,600;62.5,700&family=Caveat:wght@500;600&family=League+Gothic:wdth@75..100&display=swap';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

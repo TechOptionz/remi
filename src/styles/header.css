@@ -34,7 +34,8 @@
 @media (max-width:560px) { .header-actions .btn { display:none; } }
 .burger { display:none; width:44px; height:44px; border:1px solid rgba(var(--ink-rgb),.25); background:transparent; border-radius:999px; cursor:pointer; flex-direction:column; align-items:center; justify-content:center; gap:5px; }
 .burger span { display:block; width:18px; height:2px; background:var(--ink); }
-.mobile-nav { display:flex; flex-direction:column; gap:2px; padding:8px 0 20px; border-bottom:1px solid rgba(var(--ink-rgb),.12); font-family:var(--serif); font-size:34px; }
+/* Full-screen sheet under the sticky header, so it opens wherever the page is scrolled to (it used to sit at the top of the page flow) */
+.mobile-nav { position:fixed; inset:0; z-index:29; display:flex; flex-direction:column; gap:2px; padding:100px var(--gutter) 32px; overflow-y:auto; overscroll-behavior:contain; background:var(--bg); font-family:var(--serif); font-size:34px; }
 .mobile-nav a { padding:8px 0; }
 .mobile-nav .accent { color:var(--accent); }
 .mobile-nav .mobile-sub { padding:4px 0 4px 20px; font-size:22px; color:rgba(var(--ink-rgb),.7); }

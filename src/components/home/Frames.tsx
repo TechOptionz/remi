@@ -13,7 +13,7 @@ export default function Frames() {
         </div>
       </div>
       <div className="frames-grid">
-        <Link href="/trustme-model" className="frame-card">
+        <Link href="/ideas-models#part-6" className="frame-card">
           <div className="frame-media"><img loading="lazy" decoding="async" src="/assets/photos/frame-1.webp" alt="" /></div>
           <div className="frame-body">
             <div className="frame-top"><span className="card-cat">Frame 01</span><span className="frame-arrow" aria-hidden="true">→</span></div>
