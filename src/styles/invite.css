@@ -104,10 +104,12 @@ main > .band-dark:last-child { border-bottom:1px solid rgba(var(--footer-ink-rgb
 
 .band-dark.invite-panel { margin-inline:0; padding:clamp(22px,3vw,40px); border-radius:10px; }
 .invite-panel-title { margin:0 0 clamp(18px,2.2vw,28px); font-family:var(--serif); font-weight:400; font-size:clamp(26px,2.8vw,38px); line-height:1.05; text-transform:uppercase; color:var(--ink-strong); }
-.invite-col--inline label { flex-direction:row; align-items:center; gap:14px; }
-.invite-col--inline label > * { flex:1; min-width:0; }
-.invite-form { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px clamp(24px,4vw,56px); }
+.invite-form { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px clamp(24px,4vw,56px); align-items:stretch; }
+/* Both columns stack their caption above the field, so the five short fields on the left and the
+   three long answers on the right line up; the textareas grow to finish level with the last input. */
 .invite-col { display:flex; flex-direction:column; gap:12px; }
+.invite-col:not(.invite-col--inline) label { flex:1 1 0; min-height:0; }
+.invite-col:not(.invite-col--inline) textarea { flex:1 1 auto; min-height:70px; }
 .invite-form label { display:flex; flex-direction:column; gap:6px; font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(var(--ink-rgb),.6); }
 .invite-form input, .invite-form select, .invite-form textarea { width:100%; padding:10px 14px; background:rgba(var(--ink-rgb),.05); border:1px solid rgba(var(--ink-rgb),.2); border-radius:6px; color:var(--ink); font:inherit; font-size:15px; font-weight:400; letter-spacing:0; text-transform:none; outline:none; appearance:none; }
 .invite-form select option { color:#1a1816; }
@@ -121,14 +123,10 @@ main > .band-dark:last-child { border-bottom:1px solid rgba(var(--footer-ink-rgb
 .invite-sent p { margin:0; font-size:16px; line-height:1.55; color:rgba(var(--ink-rgb),.72); }
 .invite-sent .btn { align-self:flex-start; margin-top:8px; }
 @media (max-width:760px) { .invite-form { grid-template-columns:1fr; } }
-@media (max-width:520px) { .invite-col--inline label { flex-direction:column; align-items:stretch; gap:6px; } }
 
 .founders-title::after { content:""; display:block; width:min(180px,40%); height:3px; margin:14px auto 0; background:var(--accent); border-radius:999px; transform:rotate(-.8deg); }
 .founder-card .btn { align-self:stretch; width:auto; }
-.invite-form .invite-col--inline label { flex-direction:row; align-items:center; justify-content:space-between; gap:14px; text-align:left; }
-.invite-form .invite-col--inline label > * { flex:0 0 62%; min-width:0; }
 .invite-actions .btn { letter-spacing:.14em; text-transform:uppercase; }
-@media (max-width:520px) { .invite-form .invite-col--inline label { flex-direction:column; align-items:stretch; } }
 
 /* Alignment fixes */
 .room-card { grid-template-rows:1fr auto; }
@@ -136,4 +134,3 @@ main > .band-dark:last-child { border-bottom:1px solid rgba(var(--footer-ink-rgb
 .founder-card .btn { display:flex; align-items:center; justify-content:center; min-height:60px; }
 .invite-form select { text-overflow:ellipsis; white-space:nowrap; overflow:hidden; }
 .hand-quote--center .underline::after, .fit-lists .underline::after { left:0; right:0; }
-.invite-form { align-items:start; }

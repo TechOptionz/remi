@@ -34,7 +34,7 @@ export const HEROES = [
   { id: 'D', label: 'D · Full-screen video', shortLabel: 'D · Full-screen video' },
 ] as const;
 export type HeroId = (typeof HEROES)[number]['id'];
-export const DEFAULT_HERO: HeroId = 'E';
+export const DEFAULT_HERO: HeroId = 'C2';
 
 // Menu order differs from the default: palettes are defined in styles/tokens.css
 export const PALETTES = [

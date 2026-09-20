@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { HEADER_CTA, HEROES, NAV, PALETTES, SITE, type HeroId, type NavItem, type PaletteId } from '@/content/site';
+import { HEADER_CTA, NAV, SITE, type HeroId, type NavItem, type PaletteId } from '@/content/site';
 import { useSiteState } from '@/lib/site-state';
 import VariantsMenu from './VariantsMenu';
 
@@ -74,10 +74,6 @@ export default function Header() {
           const className = ['sub' in item ? 'mobile-sub' : '', item.href === '/invite-remi' ? 'accent' : ''].join(' ').trim() || undefined;
           return <Link href={item.href} key={item.label} className={className} onClick={() => setMenuOpen(false)} {...current(item)}>{item.label}</Link>;
         })}
-        <span className="mobile-label">Variants · Home hero</span>
-        {HEROES.map(h => <button type="button" key={h.id} aria-checked={h.id === hero} onClick={() => pickHero(h.id)}>{h.shortLabel}</button>)}
-        <span className="mobile-label">Variants · Palette</span>
-        {PALETTES.map(p => <button type="button" key={p.id} aria-checked={p.id === palette} onClick={() => pickPalette(p.id)}>{p.label}</button>)}
       </nav>
     </>
   );

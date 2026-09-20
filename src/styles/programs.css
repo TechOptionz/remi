@@ -165,11 +165,12 @@ main > .ry-band:last-child { border-bottom:1px solid rgba(var(--ink-rgb),.14); }
 .ry-form textarea { min-height:96px; resize:vertical; line-height:1.5; }
 .ry-form input:focus, .ry-form textarea:focus { border-color:var(--accent); }
 .ry-form input::placeholder { color:rgba(var(--ink-rgb),.35); }
-.ry-choices { margin:0; padding:0; border:0; min-width:0; display:flex; flex-wrap:wrap; gap:10px; }
-.ry-choices legend { margin-bottom:10px; padding:0; }
-.ry-choices label { position:relative; flex-direction:row; font-size:14px; font-weight:500; letter-spacing:0; text-transform:none; color:var(--ink); cursor:pointer; }
+.ry-choices { margin:0; padding:0; border:0; min-width:0; display:flex; flex-wrap:wrap; gap:8px; }
+/* The legend takes its own row so the four options share the full width of the form */
+.ry-choices legend { flex:0 0 100%; margin-bottom:10px; padding:0; }
+.ry-choices label { position:relative; flex-direction:row; font-size:13px; font-weight:500; letter-spacing:0; text-transform:none; color:var(--ink); cursor:pointer; }
 .ry-choices input { position:absolute; inset:0; opacity:0; cursor:pointer; }
-.ry-choices span { display:block; padding:11px 18px; border:1px solid rgba(var(--ink-rgb),.28); border-radius:999px; transition:background .2s, color .2s, border-color .2s; }
+.ry-choices span { display:block; padding:10px 14px; border:1px solid rgba(var(--ink-rgb),.28); border-radius:999px; white-space:nowrap; transition:background .2s, color .2s, border-color .2s; }
 .ry-choices label:hover span { border-color:var(--accent); }
 .ry-choices input:checked + span { background:var(--accent); border-color:var(--accent); color:var(--on-accent); font-weight:700; }
 .ry-choices input:focus-visible + span { outline:2px solid var(--accent); outline-offset:3px; }

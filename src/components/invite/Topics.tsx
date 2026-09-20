@@ -19,7 +19,7 @@ export default function Topics() {
           <h2 id="talk-h" className="part-title">What could we talk about?</h2>
           <p className="part-lede part-lede--rule">Quite a lot, as it happens. My work crosses the emotional, relational, intellectual and commercial architecture of how people change, decide, lead, influence and build.</p>
         </div>
-        <img className="part-portrait" loading="lazy" decoding="async" src="/assets/photos/about-remi.webp" alt="Remi smiling, in a cream jumper" />
+        <img className="part-portrait" loading="lazy" decoding="async" src="/assets/photos/about-convo-a.webp" alt="Remi laughing behind a podcast microphone in front of a wall of books" />
       </div>
       <div className="topics">
         {TOPICS.map((t, i) => (

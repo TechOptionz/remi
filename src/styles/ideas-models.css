@@ -351,7 +351,7 @@
 .ncard img { width:64px; mix-blend-mode:multiply; margin-bottom:8px; }
 .ncard h4 { margin:0 0 8px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:20px; line-height:1.05; text-transform:uppercase; }
 .ncard p { margin:0 0 12px; font-size:13px; line-height:1.45; }
-.ncard .ideas-btn--sm { margin:auto 0 0; padding:8px 12px; font-size:12px; letter-spacing:.1em; font-family:var(--sans); font-weight:700; }
+.ncard .ideas-btn--sm { align-self:stretch; margin:auto 0 0; padding:8px 6px; font-size:12px; letter-spacing:.05em; font-family:var(--sans); font-weight:700; white-space:nowrap; }
 .keep-band { display:grid; grid-template-columns:auto minmax(0,1fr) minmax(0,1fr); gap:16px clamp(16px,3vw,40px); align-items:center; padding-block:clamp(20px,2.5vw,30px); margin-bottom:clamp(20px,3vw,36px); }
 .keep-title { margin:0; font-size:clamp(24px,2.6vw,32px); text-align:left; color:#f6ecdc; }
 .keep-band .panel-body { margin:0; font-size:14px; }
@@ -359,6 +359,10 @@
 .keep-form input { min-width:0; padding:12px 14px; border:0; background:transparent; color:#f6ecdc; font-size:13px; letter-spacing:.1em; text-transform:uppercase; outline:none; }
 .keep-form input::placeholder { color:rgba(246,236,220,.6); }
 .keep-form button { padding:12px 18px; border:0; border-radius:4px; background:#a44a18 url(/assets/ideas/rust.webp) repeat; background-size:464px 222px; color:#f6ecdc; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:18px; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; }
+/* The shared .news-form hover paints the button with var(--ink), which is all but
+   invisible on this dark panel — the rust button lightens on hover instead. */
+.keep-form button { transition:background-color .2s, color .2s; }
+.keep-form button:hover, .keep-form button:focus-visible { background-color:#c4601f; color:#fff; }
 .keep-band .news-thanks { grid-column:1 / -1; color:#d98a4f; }
 .sign-off { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px; }
 .sign-off img:first-child { width:min(55%,460px); }
