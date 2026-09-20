@@ -14,7 +14,7 @@ export type NavItem = { label: string; href: string; children?: NavItem[] };
 export const NAV: NavItem[] = [
   { label: 'Perspectives', href: '/perspectives' },
   { label: 'Ideas & Models', href: '/ideas-models', children: [{ label: 'The T.R.U.S.T.M.E. model', href: '/trustme-model' }] },
-  { label: 'Programs', href: '/#work' },
+  { label: 'Programs', href: '/programs' },
   { label: 'Books', href: '/#work' },
   { label: 'About Remi', href: '/about-remi' },
   { label: 'Invite Remi', href: '/invite-remi' },

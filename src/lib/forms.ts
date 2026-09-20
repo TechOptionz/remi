@@ -39,9 +39,9 @@ export function usePresetSelect(ref: RefObject<HTMLSelectElement | null>, param:
 }
 
 /** Single place every form submits through. */
-export function submitLead(kind: 'enquiry' | 'invitation' | 'newsletter', form: HTMLFormElement) {
+export function submitLead(kind: 'enquiry' | 'invitation' | 'waitlist' | 'newsletter', form: HTMLFormElement) {
   const data = Object.fromEntries(new FormData(form));
-  // TODO: replace with the GoHighLevel webhook / form endpoint (enquiry, invitation) and the mailing list provider (newsletter)
+  // TODO: replace with the GoHighLevel webhook / form endpoint (enquiry, invitation, waitlist) and the mailing list provider (newsletter)
   console.log(`${kind} → CRM`, data);
   return data;
 }
