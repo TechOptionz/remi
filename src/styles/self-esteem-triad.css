@@ -26,6 +26,10 @@
 .triad-three li:nth-child(2) a { background-color:#8d6f2b; }
 .triad-three li:nth-child(3) a { background-color:#5f5e34; }
 
+/* The main diagram: a finished plate, shown framed rather than blended into the paper */
+.triad-diagram { width:min(100%,900px); margin:0 auto clamp(24px,3vw,40px); border-radius:6px; box-shadow:0 10px 30px rgba(var(--ink-rgb),.2); overflow:hidden; }
+.triad-diagram > img { display:block; mix-blend-mode:normal; }
+
 /* The three arms */
 .arm { padding:clamp(20px,3vw,36px) 0; scroll-margin-top:90px; }
 .arm + .arm { border-top:1px dashed rgba(var(--ink-rgb),.28); }
