@@ -18,7 +18,7 @@ function DisruptiveLeadership() {
       </div>
       <div className="panel-actions">
         <Hand v={['cream', 'sm']}>High standards and humanity belong in the same room.</Hand>
-        <Btn href={PRODUCTS_HREF} v={['outline']}>Explore Disruptive Leadership</Btn>
+        <Btn href="/ideas-models/disruptive-leadership" v={['outline']}>Explore Disruptive Leadership</Btn>
         <Btn href={PRODUCTS_HREF} v={['outline']}>Meet the book</Btn>
       </div>
     </Panel>

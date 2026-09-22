@@ -31,7 +31,7 @@ export const GLANCE: { name: string; href: string; art: string; cards: GlanceCar
   ] },
   { name: 'Leadership & evolution', href: '#part-6', art: 'p2-v4', cards: [
     { href: '/ideas-models/trustme-model', icon: 'team', title: 'T.R.U.S.T.M.E.', question: 'What operating logic is this person, team or organisation using?' },
-    { href: '#part-6', icon: 'summit', title: 'Disruptive Leadership', question: 'How do I lead without carrying everybody?' },
+    { href: '/ideas-models/disruptive-leadership', icon: 'summit', title: 'Disruptive Leadership', question: 'How do I lead without carrying everybody?' },
     { href: '#part-7', icon: 'quadrants', title: 'Four Quadrants to Leadership', question: 'Can I lead and manage myself before I lead and manage others?', tag: 'Benchmarking · Critical Thinking · CAM Top Five · Written & Unwritten Ground Rules · First 90 Days · 90-Day Review' },
   ] },
   { name: 'Influence & enterprise', href: '#part-8', art: 'p2-v5', cards: [
