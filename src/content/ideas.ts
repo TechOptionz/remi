@@ -26,7 +26,7 @@ export const GLANCE: { name: string; href: string; art: string; cards: GlanceCar
     { href: '/ideas-models/emotion-integration-technique', icon: 'waves', title: 'Emotion Integration Technique', question: 'What do I do in the live moment of activation?' },
   ] },
   { name: 'Meaning & alignment', href: '#part-5', art: 'p2-v3', cards: [
-    { href: '#part-4', icon: 'rose', title: 'Values Alignment Model', question: 'How do I build a meaningful life that is actually mine?' },
+    { href: '/ideas-models/values-alignment-technique', icon: 'rose', title: 'Values Alignment Model', question: 'How do I build a meaningful life that is actually mine?' },
     { href: '#part-5', icon: 'venn', title: 'Critical Alignment Model', question: 'Where is alignment really breaking?', tag: 'Meta Dynamics Profiling Tool · The measurement application' },
   ] },
   { name: 'Leadership & evolution', href: '#part-6', art: 'p2-v4', cards: [
@@ -70,7 +70,7 @@ export const JOURNEY: JourneyModel[] = [
     explanation: 'A research-informed framework for strengthening meaning in life by connecting personal values with self-concordant goals, action, self-regulation and reflection.',
     steps: ['Exploration', 'Elicitation', 'Direction', 'Action', 'Reflection'],
     fine: "Developed through Remi's Master of Applied Positive Psychology capstone, drawing on positive psychology, evidence-based coaching, ACT and self-concordance research.",
-    cta: { label: 'Read the research', href: '#part-9' }, art: 'p4-compass' },
+    cta: { label: 'Explore the technique', href: '/ideas-models/values-alignment-technique' }, art: 'p4-compass' },
 ];
 
 // ---------- Part Five: the research behind CAM ----------
