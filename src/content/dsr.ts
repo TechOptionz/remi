@@ -18,7 +18,7 @@ export const TEST_QUESTIONS = ['Is the charge still there?', 'Is the memory flat
 /** The other deep work DSR can hold. */
 export const HELD_WORK: { title: string; text: string; href?: string }[] = [
   { title: 'Parts work / IFS', text: 'Helps a younger part reveal what it protected, what it feared and what it needed.' },
-  { title: 'Emotion Integration Technique', text: 'Approaches the avoided emotional experience in manageable increments.', href: '/ideas-models#part-4' },
+  { title: 'Emotion Integration Technique', text: 'Approaches the avoided emotional experience in manageable increments.', href: '/ideas-models/emotion-integration-technique' },
   { title: 'Attachment work', text: 'Clarifies why closeness, separation, dependence or autonomy carries a particular threat.' },
   { title: 'The Self-Esteem Triad', text: 'Reveals what happened to self-trust, self-worth and personal authority.', href: '/ideas-models/self-esteem-triad' },
 ];
@@ -27,5 +27,5 @@ export const HELD_WORK: { title: string; text: string; href?: string }[] = [
 export const RELATED = [
   { title: 'The Self-Esteem Triad', text: 'Needs, boundaries and emotions, with worthy, lovable and enough at the centre.', href: '/ideas-models/self-esteem-triad', cta: 'Read the triad', art: 'p3-heart' },
   { title: 'Safe Problems, Risky Truths', text: 'What the problem we keep trying to solve may be protecting us from.', href: '/ideas-models/safe-problems-risky-truths', cta: 'Read on', art: 'p3-wrench' },
-  { title: 'Emotion Integration Technique', text: 'What to do in the live moment of activation.', href: '/ideas-models#part-4', cta: 'Explore EIT', art: 'p4-woman' },
+  { title: 'Emotion Integration Technique', text: 'What to do in the live moment of activation.', href: '/ideas-models/emotion-integration-technique', cta: 'Explore EIT', art: 'p4-woman' },
 ];

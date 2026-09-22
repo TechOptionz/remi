@@ -1,0 +1,32 @@
+/* ============ Emotion Integration Technique (/ideas-models/emotion-integration-technique) ============ */
+/* Shares the chapter layout of the other Ideas & Models chapters; only its own pieces live here. */
+
+/* Moving outward: each layer a wider ring around the last */
+.eit-layers { margin:8px 0 0; padding:0; position:sticky; top:96px; }
+.eit-rings { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+.eit-ring { padding:14px 18px; border:1.5px solid rgba(var(--ink-rgb),.55); border-radius:9px 7px 10px 8px / 8px 10px 7px 9px; background:rgba(255,255,255,.3); }
+.eit-ring:nth-child(2) { margin-inline:-4%; }
+.eit-ring:nth-child(3) { margin-inline:-8%; }
+.eit-ring--yes { background:rgba(var(--rust-rgb),.1); border-color:var(--rust); }
+.eit-ring-n { display:block; font-size:10px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); }
+.eit-ring-q { margin:4px 0 6px; font-size:14.5px; line-height:1.45; }
+.eit-ring-a { margin:0; font-family:var(--hand); font-weight:500; font-size:24px; line-height:1; color:var(--rust); }
+
+/* The three movements */
+.eit-moves { list-style:none; margin:8px 0 8px; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:clamp(12px,2vw,20px); counter-reset:move; }
+.eit-moves li { counter-increment:move; padding:18px 20px; border:1.5px solid rgba(var(--ink-rgb),.55); border-radius:9px 7px 10px 8px / 8px 10px 7px 9px; }
+.eit-moves h4 { margin:0 0 6px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(22px,2.4vw,30px); line-height:1; text-transform:uppercase; color:var(--rust); }
+.eit-moves h4::before { content:counter(move) " · "; color:var(--gold); }
+.eit-moves p { margin:0; font-size:14.5px; line-height:1.5; }
+
+/* From the branch down to the root */
+.eit-roots { list-style:none; margin:0 0 18px; padding:0; display:flex; flex-wrap:wrap; align-items:center; gap:6px 10px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(18px,1.9vw,24px); text-transform:uppercase; color:var(--ink); }
+.eit-roots li + li::before { content:"↓"; margin-right:10px; color:var(--gold); }
+.eit-roots li:last-child { color:var(--rust); }
+
+/* The tree: a small square image, so it sits beside the copy rather than filling the column */
+.eit-tree-wrap { position:sticky; top:96px; }
+.eit-tree { position:static; max-width:440px; margin:6px auto 0; }
+.eit-tree-cap { margin:14px 0 0; font-size:clamp(18px,1.8vw,21px); }
+
+@media (max-width:900px) { .eit-layers, .eit-tree-wrap { position:static; } .eit-ring:nth-child(2), .eit-ring:nth-child(3) { margin-inline:0; } }

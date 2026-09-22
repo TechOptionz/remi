@@ -23,7 +23,7 @@ export const GLANCE: { name: string; href: string; art: string; cards: GlanceCar
   ] },
   { name: 'Emotional change', href: '#part-4', art: 'p2-v2', cards: [
     { href: '/ideas-models/deep-state-repatterning', icon: 'spiral', title: 'Deep State Repatterning', question: 'How is the past still shaping what happens now?' },
-    { href: '#part-4', icon: 'waves', title: 'Emotion Integration Technique', question: 'What do I do in the live moment of activation?' },
+    { href: '/ideas-models/emotion-integration-technique', icon: 'waves', title: 'Emotion Integration Technique', question: 'What do I do in the live moment of activation?' },
   ] },
   { name: 'Meaning & alignment', href: '#part-5', art: 'p2-v3', cards: [
     { href: '#part-4', icon: 'rose', title: 'Values Alignment Model', question: 'How do I build a meaningful life that is actually mine?' },
@@ -64,7 +64,7 @@ export const JOURNEY: JourneyModel[] = [
     question: 'What happens in the thirty seconds when I know better and still leave myself?',
     explanation: 'EIT works in the live moment of activation. Catch the Point of Departure. Stay with the emotion beneath the protective response. Choose while remaining connected to yourself.',
     steps: ['Catch', 'Stay', 'Choose'],
-    cta: { label: 'Explore EIT', href: PRODUCTS_HREF }, art: 'p4-woman' },
+    cta: { label: 'Explore EIT', href: '/ideas-models/emotion-integration-technique' }, art: 'p4-woman' },
   { title: 'Values Alignment Model',
     question: 'How do I build a life that feels meaningful because it is actually mine?',
     explanation: 'A research-informed framework for strengthening meaning in life by connecting personal values with self-concordant goals, action, self-regulation and reflection.',

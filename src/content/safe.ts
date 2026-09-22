@@ -24,5 +24,5 @@ export const INQUIRY = [
 export const RELATED = [
   { title: 'The Self-Esteem Triad', text: 'Needs, boundaries and emotions, with worthy, lovable and enough at the centre.', href: '/ideas-models/self-esteem-triad', cta: 'Read the triad', art: 'p3-heart' },
   { title: 'The Fifteen Emotional Needs', text: 'The developmental hierarchy inside the Needs arm.', href: '/ideas-models/self-esteem-triad#fifteen-needs', cta: 'See the needs', art: 'p3-mtn' },
-  { title: 'Emotion Integration Technique', text: 'What to do in the live moment of activation.', href: '/ideas-models#part-4', cta: 'Explore EIT', art: 'p4-woman' },
+  { title: 'Emotion Integration Technique', text: 'What to do in the live moment of activation.', href: '/ideas-models/emotion-integration-technique', cta: 'Explore EIT', art: 'p4-woman' },
 ];
