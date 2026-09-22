@@ -1,4 +1,5 @@
 import { EMOTIONAL_NEEDS } from '@/content/ideas';
+import { TRIAD_PAGE_HREF } from '@/content/triad';
 import { Art, Body, Box, Btn, H3, Hand, Img, NextLink, Part, PartHead, Star } from './ui';
 import ZoomArt from './ZoomArt';
 
@@ -53,6 +54,7 @@ export default function Part3SelfEsteem() {
       <H3>The Self-Esteem Triad</H3>
       <Hand v={['center', 'tight']}>Needs. Boundaries. Emotions.</Hand>
       <ZoomArt name="p3-triad" alt={TRIAD_ALT} label="the Self-Esteem Triad" className="ideas-art--center ideas-bleed triad-art" />
+      <Btn href={TRIAD_PAGE_HREF} v={['sm']}>Read the Self-Esteem Triad in full</Btn>
       <EmotionalNeeds />
       <H3 v={['stars']}><Star /> Safe versus Risky Problems <Star /></H3>
       <SafeVersusRisky />

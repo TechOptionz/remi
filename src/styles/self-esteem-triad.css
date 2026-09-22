@@ -1,0 +1,102 @@
+/* ============ The Self-Esteem Triad (/ideas-models/self-esteem-triad) ============ */
+/* A chapter of Ideas & Models on its own page: same paper, inks and building blocks (ideas-models.css), plus the
+   pieces below. Colours are fixed, like the rest of the hand-drawn map. */
+.triad .ideas-part { border-top:0; padding-block:clamp(20px,3vw,36px); }
+.triad .ideas-part + .ideas-part { border-top:1px dashed rgba(var(--ink-rgb),.28); }
+.triad-prose { max-width:none; }
+.triad-prose .ideas-body { max-width:none; }
+.triad-prose .ideas-hand--sm { margin:4px 0 22px; }
+.triad .ideas-h3--rule { margin-bottom:22px; }
+.triad .ideas-h3--left { text-align:left; }
+.triad .ideas-part > .ideas-h3:first-child { margin-top:0; }
+
+/* Intro: the "I am" lines in a hand-drawn box; the I-amness note */
+.triad-intro .ideas-eyebrow { margin-bottom:10px; }
+.triad-iam { display:flex; flex-direction:column; gap:2px; width:fit-content; max-width:100%; margin:0 0 26px; padding:16px 26px 18px; border:1.5px solid rgba(var(--ink-rgb),.6); border-radius:14px 10px 13px 11px / 11px 13px 10px 14px; box-shadow:inset 0 0 0 3px var(--paper), inset 0 0 0 4px rgba(var(--ink-rgb),.35); font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(22px,2.4vw,30px); line-height:1.15; text-transform:uppercase; color:var(--ink); }
+.triad-iam span:first-child { color:var(--rust); }
+.triad-iam--stand { margin:8px 0 10px; }
+.triad-iam--stand span:first-child { color:var(--ink); }
+.triad-iam--stand span:last-child { color:var(--rust); }
+.triad-note { width:fit-content; margin:8px 0 26px; }
+
+/* Why: the three capacities as three stamped words */
+.triad-three { list-style:none; margin:4px 0 8px; padding:0; display:flex; flex-wrap:wrap; justify-content:center; gap:12px 18px; }
+.triad-three a { display:inline-block; padding:12px 28px; background:#a44a18 url(/assets/ideas/rust.webp) repeat; background-size:464px 222px; border-radius:5px 7px 4px 8px / 7px 4px 8px 5px; box-shadow:inset 0 0 0 1px rgba(60,20,0,.35); color:#f6ecdc; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(22px,2.6vw,32px); line-height:1; letter-spacing:.06em; text-transform:uppercase; transition:transform .2s; }
+.triad-three a:hover { color:#fff; transform:translateY(-2px); }
+.triad-three li:nth-child(2) a { background-color:#8d6f2b; }
+.triad-three li:nth-child(3) a { background-color:#5f5e34; }
+
+/* The three arms */
+.arm { padding:clamp(20px,3vw,36px) 0; scroll-margin-top:90px; }
+.arm + .arm { border-top:1px dashed rgba(var(--ink-rgb),.28); }
+.arm-head { display:flex; gap:18px; align-items:center; margin-bottom:18px; scroll-margin-top:90px; }
+.arm-num { display:inline-flex; align-items:center; justify-content:center; width:56px; height:56px; border:2px solid var(--gold); border-radius:50% 48% 52% 50% / 52% 50% 50% 48%; box-shadow:inset 0 0 0 3px var(--paper), inset 0 0 0 4px rgba(168,134,60,.5); font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:28px; color:var(--ink); }
+.arm-name { margin:0; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(34px,4.4vw,58px); line-height:.95; text-transform:uppercase; }
+.arm-name--rust { color:var(--rust); } .arm-name--gold { color:var(--gold); } .arm-name--olive { color:#6b6a3c; }
+.arm-q { margin:6px 0 0; font-family:var(--hand); font-weight:500; font-size:clamp(21px,2.3vw,27px); line-height:1.15; color:var(--ink); }
+.arm-box { width:100%; margin:0 0 22px; padding:18px 26px 18px 22px; }
+.arm-list { margin:0; padding:0; list-style:none; }
+.arm-box:not(.arm-box--voices) .arm-list { columns:2; column-gap:40px; }
+.arm-box .arm-list li { break-inside:avoid; }
+.arm-list li { position:relative; padding-left:22px; font-size:15.5px; line-height:1.5; }
+.arm-list li + li { margin-top:8px; }
+.arm-list li::before { content:"✳"; position:absolute; left:0; top:0; color:var(--gold); }
+.arm-box--voices { display:grid; grid-template-columns:72px minmax(0,1fr); gap:18px; align-items:center; }
+.arm-box-art { width:72px; mix-blend-mode:multiply; }
+.arm-voices { margin:0; padding:0; list-style:none; font-family:var(--hand); font-weight:500; font-size:clamp(20px,2vw,24px); line-height:1.25; color:var(--rust); }
+.arm-voices li + li { margin-top:6px; }
+.arm-close { margin:0 0 6px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(20px,2vw,26px); text-transform:uppercase; color:var(--ink); }
+.arm-close .star { color:var(--gold); margin-right:6px; }
+
+/* Centre panel */
+.centre-title { text-align:left; font-size:clamp(26px,3vw,40px); }
+.centre-lines { list-style:none; margin:8px 0 22px; padding:18px 22px; border:1.5px solid rgba(246,236,220,.5); border-radius:6px 8px 5px 9px / 8px 5px 9px 6px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:600; font-size:clamp(18px,1.9vw,23px); line-height:1.3; color:#f6ecdc; }
+.centre-lines li + li { margin-top:6px; }
+.centre-quote { margin:0; max-width:none; font-family:var(--hand); font-weight:500; font-size:clamp(23px,2.5vw,30px); line-height:1.2; color:#e8b183; }
+
+/* The fifteen emotional needs: poster beside the three stages */
+.fifteen-anchor { position:relative; top:-90px; }
+.fifteen-grid { display:grid; grid-template-columns:minmax(0,5fr) minmax(0,6fr); gap:clamp(20px,3.5vw,48px); align-items:start; margin:8px 0 clamp(20px,3vw,32px); }
+.fifteen-poster { border-radius:6px; box-shadow:0 10px 30px rgba(var(--ink-rgb),.2); overflow:hidden; }
+.fifteen-poster > img { display:block; mix-blend-mode:normal; }
+.fifteen-stages { display:flex; flex-direction:column; gap:14px; }
+.stage { padding:14px 20px 16px; border:1.5px solid rgba(var(--ink-rgb),.55); border-radius:9px 7px 10px 8px / 8px 10px 7px 9px; border-left-width:6px; }
+.stage--rust { border-left-color:#7a2436; } .stage--gold { border-left-color:#8d6f2b; } .stage--olive { border-left-color:#2e2b28; }
+.stage-eyebrow { margin:0; font-size:10px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); }
+.stage-title { margin:0 0 2px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(22px,2.4vw,30px); line-height:1; text-transform:uppercase; color:var(--ink); }
+.stage-lede { margin:0 0 10px; font-family:var(--hand); font-weight:500; font-size:19px; color:var(--rust); }
+.stage-list { margin:0; padding:0; list-style:none; counter-reset:need; }
+.stage-list li { counter-increment:need; display:grid; grid-template-columns:28px 1fr; align-items:center; padding:5px 0; border-top:1px solid rgba(var(--ink-rgb),.18); font-size:15px; line-height:1.4; }
+.stage-list li::before { content:counter(need); display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border:1.5px solid var(--gold); border-radius:50%; font-size:11px; font-weight:700; color:var(--ink); }
+.stage-list[start="6"] { counter-reset:need 5; } .stage-list[start="11"] { counter-reset:need 10; }
+.stage-note { margin:4px 0 0 !important; }
+.stage-note .star { color:var(--gold); }
+
+/* How to begin: one box per arm */
+.explore-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:clamp(14px,2vw,24px); margin:8px 0 26px; }
+.explore { padding:20px 22px 22px; }
+.explore-h { margin:0 0 12px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(22px,2.2vw,28px); line-height:1.05; text-transform:uppercase; }
+.explore--rust .explore-h { color:var(--rust); } .explore--gold .explore-h { color:var(--gold); } .explore--olive .explore-h { color:#6b6a3c; }
+
+/* Related + CTA */
+.related-cards { grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); margin-bottom:8px; }
+.centre-panel .panel-body { max-width:none; }
+.triad-cta { text-align:center; }
+.triad-cta .panel-title { text-align:center; }
+.triad-cta .panel-body { max-width:64ch; }
+.triad-notify { width:min(100%,560px); margin:6px auto 0; }
+.triad-thanks { text-align:center; color:#f6ecdc; }
+.triad .ideas-part:last-child { padding-bottom:0; }
+
+@media (max-width:900px) { .fifteen-grid { grid-template-columns:1fr; } .fifteen-poster { max-width:520px; margin-inline:auto; } }
+@media (max-width:760px) {
+  .arm-box:not(.arm-box--voices) .arm-list { columns:1; }
+  .triad-iam { padding:14px 18px 16px; font-size:clamp(19px,5.4vw,24px); }
+  .triad-three a { padding:10px 18px; font-size:clamp(18px,5vw,22px); }
+  .arm-head { gap:12px; }
+  .arm-num { width:44px; height:44px; font-size:22px; }
+  .arm-box { padding:16px 18px; }
+  .arm-box--voices { grid-template-columns:1fr; }
+  .arm-box-art { display:none; }
+  .related-cards { grid-template-columns:1fr; }
+}

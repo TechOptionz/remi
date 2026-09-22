@@ -18,7 +18,7 @@ export type GlanceIconName = 'triangle' | 'warning' | 'spiral' | 'waves' | 'rose
 export type GlanceCard = { href: string; icon: GlanceIconName; title: string; question: string; tag?: string };
 export const GLANCE: { name: string; href: string; art: string; cards: GlanceCard[] }[] = [
   { name: 'Human foundations', href: '#part-3', art: 'p2-v1', cards: [
-    { href: '#part-3', icon: 'triangle', title: 'Self-Esteem Triad', question: 'Needs. Boundaries. Emotions.', tag: 'Fifteen Emotional Needs · Within the Emotions arm' },
+    { href: '/ideas-models/self-esteem-triad', icon: 'triangle', title: 'Self-Esteem Triad', question: 'Needs. Boundaries. Emotions.', tag: 'Fifteen Emotional Needs · Within the Needs arm' },
     { href: '#part-3', icon: 'warning', title: 'Safe versus Risky Problems', question: 'Am I fixing out there so I do not have to turn within?' },
   ] },
   { name: 'Emotional change', href: '#part-4', art: 'p2-v2', cards: [
