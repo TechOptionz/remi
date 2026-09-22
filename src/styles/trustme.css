@@ -1,0 +1,68 @@
+/* ============ The T.R.U.S.T.M.E. Model (/ideas-models/trustme-model) ============ */
+/* Shares the chapter layout of the other Ideas & Models chapters; only its own pieces live here. */
+.tm-plate { width:min(100%,720px); margin-bottom:10px; }
+.tm-head-art { max-width:150px; }
+.tm { --tm-i:var(--rust); --tm-we:#4a6a8a; }
+
+/* Development alternates between I and we: the seven levels as a rising stack, I-levels stepped right, we-levels left */
+.tm-stack { margin:8px 0 0; padding:0; position:sticky; top:96px; }
+.tm-rungs { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; }
+.tm-rung { display:grid; grid-template-columns:30px minmax(0,1fr) auto; grid-template-areas:"n name focus" "n tag focus"; column-gap:10px; align-items:center; width:88%; padding:8px 12px; border:1.5px solid rgba(var(--ink-rgb),.5); border-radius:9px 7px 10px 8px / 8px 10px 7px 9px; background:rgba(255,255,255,.3); }
+.tm-rung--i { margin-left:auto; border-color:var(--tm-i); }
+.tm-rung--we { margin-right:auto; border-color:var(--tm-we); }
+.tm-rung-n { grid-area:n; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:18px; color:var(--gold); }
+.tm-rung-name { grid-area:name; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(15px,1.5vw,19px); line-height:1.05; text-transform:uppercase; }
+.tm-rung-tag { grid-area:tag; font-size:12px; line-height:1.3; color:rgba(var(--ink-rgb),.8); }
+.tm-rung-focus { grid-area:focus; font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; }
+.tm-rung--i .tm-rung-focus { color:var(--tm-i); }
+.tm-rung--we .tm-rung-focus { color:var(--tm-we); }
+
+/* The resourceful and unresourceful expression: a two-column table, one row per level */
+.tm-expr { margin:8px 0 6px; padding:0; }
+.tm-expr-head { display:grid; grid-template-columns:110px minmax(0,1fr) minmax(0,1fr); gap:0 16px; padding:0 16px 10px; }
+.tm-expr-head::before { content:""; }
+.tm-expr-col strong { display:block; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(18px,1.9vw,24px); line-height:1; text-transform:uppercase; }
+.tm-expr-col--low strong { color:rgba(var(--ink-rgb),.7); }
+.tm-expr-col--high strong { color:var(--rust); }
+.tm-expr-col span { display:block; margin-top:4px; font-family:var(--hand); font-weight:500; font-size:19px; line-height:1.15; color:rgba(var(--ink-rgb),.8); }
+.tm-expr-rows { list-style:none; margin:0; padding:0; border-top:1.5px solid rgba(var(--ink-rgb),.55); }
+.tm-expr-row { display:grid; grid-template-columns:110px minmax(0,1fr) minmax(0,1fr); gap:0 16px; padding:10px 16px; border-bottom:1px solid rgba(var(--ink-rgb),.25); font-size:14px; line-height:1.4; }
+.tm-expr-level { font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:16px; text-transform:uppercase; }
+.tm-expr-low { color:rgba(var(--ink-rgb),.75); }
+.tm-expr-high { color:var(--ink); }
+.tm-expr-high::before { content:"✳ "; color:var(--gold); }
+
+/* Each level's heading: number, name, and what it is about */
+.tm-level-h { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; }
+.tm-level-n { color:var(--gold); }
+.tm-level-meta { font-family:var(--sans); font-size:13px; font-weight:400; letter-spacing:0; text-transform:none; color:rgba(var(--ink-rgb),.8); }
+.tm-level-meta em { font-style:italic; }
+.tm-focus { font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; }
+.tm-focus--i { color:var(--tm-i); }
+.tm-focus--we { color:var(--tm-we); }
+
+/* Team clashes: how each level experiences its neighbour */
+.tm-clashes { margin:8px 0 0; padding:0; position:sticky; top:96px; }
+.tm-clashes ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; }
+.tm-clashes li { display:grid; grid-template-columns:auto auto auto; grid-template-areas:"from arrow to" "as as as"; column-gap:8px; align-items:baseline; justify-content:start; padding:8px 14px; border:1.5px solid rgba(var(--ink-rgb),.5); border-radius:9px 7px 10px 8px / 8px 10px 7px 9px; background:rgba(255,255,255,.3); }
+.tm-clash-from, .tm-clash-to { font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:15px; text-transform:uppercase; }
+.tm-clash-from { grid-area:from; } .tm-clash-to { grid-area:to; color:var(--rust); } .tm-clash-arrow { grid-area:arrow; color:var(--gold); }
+.tm-clash-as { grid-area:as; font-family:var(--hand); font-weight:500; font-size:19px; line-height:1.1; color:rgba(var(--ink-rgb),.85); }
+
+/* The next problem each level must solve */
+.tm-next { margin:0 0 18px; padding:0; list-style:none; counter-reset:next; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:8px; }
+.tm-next li { counter-increment:next; display:grid; grid-template-columns:34px minmax(0,1fr); grid-template-areas:"n level" "n must"; column-gap:12px; align-items:center; padding:10px 16px; border:1.5px solid rgba(var(--ink-rgb),.55); border-radius:9px 7px 10px 8px / 8px 10px 7px 9px; }
+.tm-next li::before { content:counter(next); grid-row:1 / 3; display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border:1.5px solid var(--gold); border-radius:50% 48% 52% 50% / 52% 50% 50% 48%; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:16px; }
+.tm-next-level { grid-area:level; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:17px; line-height:1.05; text-transform:uppercase; }
+.tm-next-must { grid-area:must; font-size:14px; line-height:1.4; }
+
+@media (max-width:900px) {
+  .tm-stack, .tm-clashes { position:static; max-width:520px; margin:8px auto 0; }
+  .tm-expr-head, .tm-expr-row { grid-template-columns:90px minmax(0,1fr) minmax(0,1fr); gap:0 10px; padding-inline:8px; }
+}
+@media (max-width:600px) {
+  .tm-expr-head { display:none; }
+  .tm-expr-row { grid-template-columns:1fr; gap:2px; }
+  .tm-expr-low::before { content:"Unresourceful · "; font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+  .tm-expr-high::before { content:"Resourceful · "; font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--rust); }
+}

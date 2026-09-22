@@ -69,6 +69,6 @@ export const WORK_WITH = [
 /** Related ideas. */
 export const RELATED = [
   { title: 'Values Alignment Technique', text: 'Understanding what is driving your life before deciding where to take it.', href: '/ideas-models/values-alignment-technique', cta: 'Explore VAT', art: 'p4-compass' },
-  { title: 'T.R.U.S.T.M.E.', text: 'What operating logic is this person, team or organisation using?', href: '/ideas-models#part-6', cta: 'See the levels', art: 'p6-spiral' },
+  { title: 'T.R.U.S.T.M.E.', text: 'What operating logic is this person, team or organisation using?', href: '/ideas-models/trustme-model', cta: 'See the levels', art: 'p6-spiral' },
   { title: 'Safe Problems, Risky Truths', text: 'What the problem we keep trying to solve may be protecting us from.', href: '/ideas-models/safe-problems-risky-truths', cta: 'Read on', art: 'p3-wrench' },
 ];

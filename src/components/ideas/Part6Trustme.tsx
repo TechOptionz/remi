@@ -39,6 +39,7 @@ export default function Part6Trustme() {
         <div>
           <Body sm>T.R.U.S.T.M.E. reveals the operating logic a person, team or organisation returns to, especially under pressure. Every level solves a problem, creates new limits and points toward the thinking required next.</Body>
           <HeadNote art="p6-arrow" inline><Hand>You cannot solve a problem from the same thinking that created it.</Hand></HeadNote>
+          <Btn href="/ideas-models/trustme-model" v={['sm']}>Explore the seven levels</Btn>
         </div>
       </div>
       <DisruptiveLeadership />
