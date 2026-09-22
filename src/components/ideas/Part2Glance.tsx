@@ -11,7 +11,7 @@ const GLANCE_ICONS: Record<GlanceIconName, React.ReactNode> = {
   venn: <><circle cx="9" cy="10" r="5" /><circle cx="15" cy="10" r="5" /><circle cx="12" cy="15" r="5" /></>,
   team: <><circle cx="6" cy="6" r="2" /><circle cx="12" cy="6" r="2" /><circle cx="18" cy="6" r="2" /><path d="M3 20v-5a3 3 0 0 1 6 0v5M9 20v-5a3 3 0 0 1 6 0v5M15 20v-5a3 3 0 0 1 6 0v5" /></>,
   summit: <path d="M3 21l6-10 4 5 3-4 5 9zM13 3v6M13 3h5l-1.5 1.5L18 6h-5" />,
-  quadrants: <><circle cx="12" cy="12" r="9" /><path d="M12 3v18M3 12h18" /></>,
+  days: <><path d="M3 17l6-5 5 3 7-9" /><circle cx="9" cy="12" r="2" /><circle cx="14" cy="15" r="2" /><circle cx="21" cy="6" r="2" /></>,
   exchange: <path d="M3 11l4-4 5 3 4-3 5 4-5 5-4-3-5 3z" />,
   growth: <path d="M4 20V10M10 20V6M16 20v-8M22 20V4M3 20h20M4 9l6-3 6 4 6-6" />,
 };

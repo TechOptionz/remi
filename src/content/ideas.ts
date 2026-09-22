@@ -14,7 +14,7 @@ export const MAP_HOTSPOTS = [
 ];
 
 // ---------- Part Two: the body of work at a glance ----------
-export type GlanceIconName = 'triangle' | 'warning' | 'spiral' | 'waves' | 'rose' | 'venn' | 'team' | 'summit' | 'quadrants' | 'exchange' | 'growth';
+export type GlanceIconName = 'triangle' | 'warning' | 'spiral' | 'waves' | 'rose' | 'venn' | 'team' | 'summit' | 'days' | 'exchange' | 'growth';
 export type GlanceCard = { href: string; icon: GlanceIconName; title: string; question: string; tag?: string };
 export const GLANCE: { name: string; href: string; art: string; cards: GlanceCard[] }[] = [
   { name: 'Human foundations', href: '#part-3', art: 'p2-v1', cards: [
@@ -32,7 +32,7 @@ export const GLANCE: { name: string; href: string; art: string; cards: GlanceCar
   { name: 'Leadership & evolution', href: '#part-6', art: 'p2-v4', cards: [
     { href: '/ideas-models/trustme-model', icon: 'team', title: 'T.R.U.S.T.M.E.', question: 'What operating logic is this person, team or organisation using?' },
     { href: '/ideas-models/disruptive-leadership', icon: 'summit', title: 'Disruptive Leadership', question: 'How do I lead without carrying everybody?' },
-    { href: '#part-7', icon: 'quadrants', title: 'Four Quadrants to Leadership', question: 'Can I lead and manage myself before I lead and manage others?', tag: 'Benchmarking · Critical Thinking · CAM Top Five · Written & Unwritten Ground Rules · First 90 Days · 90-Day Review' },
+    { href: '/ideas-models/first-90-days', icon: 'days', title: 'Your First 90 Days as a Leader', question: 'Observe before you intervene. Understand before you decide.', tag: 'Benchmarking · Critical Thinking · CAM Top Five · Written & Unwritten Ground Rules · 90-Day Review' },
   ] },
   { name: 'Influence & enterprise', href: '#part-8', art: 'p2-v5', cards: [
     { href: '#part-8', icon: 'exchange', title: 'Ultimate Influence Consultative Sales', question: 'How do I help someone make a quality buying decision?' },
@@ -92,7 +92,6 @@ export const DISRUPTIVE_LEADERSHIP_PILLARS = ['Truth', 'Responsibility', 'Accoun
 export const LEADERSHIP_TOOLS = [
   { title: 'Benchmarking & modelling excellence', text: 'Decide what excellent looks like. Find an aligned model of excellence. Study the thinking, process and standards. Apply it, measure it and adapt.', note: 'Research-informed practice, not a claim that everything must be invented from scratch.' },
   { title: 'Critical thinking criteria', text: 'What is the rationale? What facts are needed? What problem does this solve? Which CAM domain is actually weak? What are the consequences, costs and possibilities? Is the decision replicable and sustainable?', note: 'A decision tool for replacing reflex with inquiry.' },
-  { title: 'The first 90 days leadership playbook', text: 'Listen and observe. Learn the culture and values. Diagnose Environment, Structure, Implementation and People. Establish benchmarks, dashboards, communication rhythms and feedback.', note: 'A field-tested application guide, not another abstract model.' },
 ];
 export const TOOLKIT = [
   { title: 'CAM Top Five System', text: 'Weekly priorities that keep 90-day goals moving.' },

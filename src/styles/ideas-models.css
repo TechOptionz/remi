@@ -290,9 +290,6 @@
 }
 
 /* Part Seven */
-.quad-grid { display:grid; grid-template-columns:minmax(0,3fr) minmax(0,1fr); gap:clamp(12px,2vw,32px); align-items:start; margin-bottom:clamp(20px,3vw,36px); }
-.quad-grid > .zoom-art { width:100%; }
-.quad-art { aspect-ratio:1745 / 1042; object-fit:cover; object-position:0 0; -webkit-mask-image:linear-gradient(to left,transparent,#000 6%); mask-image:linear-gradient(to left,transparent,#000 6%); }
 .tools { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)); gap:clamp(14px,2vw,24px); margin:clamp(20px,3vw,32px) 0; }
 .tool { border:1.5px solid rgba(var(--ink-rgb),.55); border-radius:10px 8px 11px 9px / 9px 11px 8px 10px; overflow:hidden; display:flex; flex-direction:column; }
 .tool h4 { margin:0; padding:16px 18px; background:#a44a18 url(/assets/ideas/rust.webp) repeat; background-size:464px 222px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(20px,2vw,24px); line-height:1.05; text-transform:uppercase; text-align:center; color:#f6ecdc; }
@@ -306,7 +303,19 @@
 @media (max-width:700px) { .toolkit-cols > div { border-left:0; padding:0; } }
 .toolkit-cols h4 { margin:0 0 6px; font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
 .toolkit-cols p { margin:0; font-size:14px; line-height:1.5; }
-@media (max-width:760px) { .quad-grid { grid-template-columns:1fr; } }
+
+
+/* Part Seven: the 90-days poster, then the three phases in a strip (full chapter styles in f90.css) */
+.f90-art { width:min(100%,980px); margin:0 auto clamp(16px,2.5vw,28px); }
+.f90-art .ideas-art { mix-blend-mode:normal; border-radius:6px; box-shadow:0 10px 30px rgba(var(--ink-rgb),.2); }
+.f90-phases { list-style:none; margin:0 0 clamp(16px,2.5vw,28px); padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:12px; }
+.f90-phase-sm { padding:14px 16px 12px; border:1.5px solid rgba(var(--ink-rgb),.5); border-top-width:5px; border-radius:9px 7px 10px 8px / 8px 10px 7px 9px; }
+.f90-phase-sm--1 { border-top-color:#b8862e; } .f90-phase-sm--2 { border-top-color:#c04a1e; } .f90-phase-sm--3 { border-top-color:#8a1a12; }
+.f90-phase-sm .f90-phase-days { display:block; font-size:10px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); }
+.f90-phase-sm h4 { margin:4px 0 6px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(18px,1.8vw,24px); line-height:1.05; text-transform:uppercase; }
+.f90-phase-sm p { margin:0; font-size:13px; font-style:italic; line-height:1.45; color:rgba(var(--ink-rgb),.85); }
+.f90-part-actions { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px 24px; margin-bottom:clamp(20px,3vw,36px); }
+.f90-part-actions .head-note { margin:0; }
 
 /* Part Eight */
 .ui-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(20px,3vw,48px); align-items:start; margin-top:clamp(12px,2vw,24px); }

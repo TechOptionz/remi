@@ -6,7 +6,7 @@ import Part3SelfEsteem from '@/components/ideas/Part3SelfEsteem';
 import Part4Change from '@/components/ideas/Part4Change';
 import Part5Alignment from '@/components/ideas/Part5Alignment';
 import Part6Trustme from '@/components/ideas/Part6Trustme';
-import Part7Quadrants from '@/components/ideas/Part7Quadrants';
+import Part7FirstDays from '@/components/ideas/Part7FirstDays';
 import Part8Influence from '@/components/ideas/Part8Influence';
 import Part9Research from '@/components/ideas/Part9Research';
 
@@ -25,7 +25,7 @@ export default function IdeasModelsPage() {
         <Part4Change />
         <Part5Alignment />
         <Part6Trustme />
-        <Part7Quadrants />
+        <Part7FirstDays />
         <Part8Influence />
         <Part9Research />
       </div>

@@ -1,0 +1,44 @@
+/* ============ Your First 90 Days as a Leader (/ideas-models/first-90-days) ============ */
+/* Shares the chapter layout of the other Ideas & Models chapters; only its own pieces live here.
+   The three phases keep the poster's colours (gold, rust, oxblood). */
+.f90-plate { width:100%; max-width:none; margin-bottom:10px; }
+.f90-head-art { max-width:300px; margin-top:0; }
+.f90 { --f90-1:#b8862e; --f90-2:#c04a1e; --f90-3:#8a1a12; }
+.f90-rule-label { margin:18px 0 -2px; font-size:10.5px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); }
+
+/* The CAM lens: five steps in the order a leader learns to see */
+.f90-lens { margin:8px 0 0; padding:14px 16px 12px; position:sticky; top:96px; border:1.5px solid rgba(var(--ink-rgb),.55); border-radius:9px 7px 10px 8px / 8px 10px 7px 9px; background:rgba(255,255,255,.3); }
+.f90-lens-t { display:block; margin-bottom:10px; font-size:10px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); }
+.f90-lens-steps { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:4px; counter-reset:lens; }
+.f90-lens-step { counter-increment:lens; display:flex; align-items:center; gap:10px; padding:6px 10px; border:1.5px solid rgba(var(--ink-rgb),.4); border-radius:8px 6px 9px 7px / 7px 9px 6px 8px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(15px,1.5vw,18px); text-transform:uppercase; }
+.f90-lens-step::before { content:counter(lens); width:22px; height:22px; display:inline-flex; align-items:center; justify-content:center; border:1.5px solid var(--gold); border-radius:50% 48% 52% 50% / 52% 50% 50% 48%; font-size:12px; }
+.f90-lens-step--expressed { background:rgba(var(--rust-rgb),.08); border-color:var(--rust); }
+.f90-lens-s { margin:10px 0 0; font-size:12.5px; line-height:1.45; color:rgba(var(--ink-rgb),.8); }
+.f90-lens-s b { font-weight:700; }
+
+/* Each month's heading: number, title and its days */
+.f90-month-h { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; }
+.f90-month-n { color:var(--gold); }
+.f90-month-days { padding:2px 10px; border:1.5px solid currentColor; border-radius:6px 5px 7px 5px / 5px 7px 5px 6px; font-family:var(--sans); font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; }
+.f90-month-h--1 .f90-month-days { color:var(--f90-1); } .f90-month-h--2 .f90-month-days { color:var(--f90-2); } .f90-month-h--3 .f90-month-days { color:var(--f90-3); }
+
+/* The phase card from the poster, beside each month */
+.f90-phase { position:sticky; top:96px; margin:8px 0 0; padding:16px 18px 14px; border:1.5px solid rgba(var(--ink-rgb),.5); border-top-width:5px; border-radius:9px 7px 10px 8px / 8px 10px 7px 9px; background:rgba(255,255,255,.3); }
+.f90-phase--1 { border-top-color:var(--f90-1); } .f90-phase--2 { border-top-color:var(--f90-2); } .f90-phase--3 { border-top-color:var(--f90-3); }
+.f90-phase-days { display:block; font-size:10px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); }
+.f90-phase h4 { margin:4px 0 10px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(20px,2vw,26px); line-height:1.05; text-transform:uppercase; }
+.f90-phase ul { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:6px; }
+.f90-phase li { padding:3px 10px; border:1px solid rgba(var(--ink-rgb),.45); border-radius:5px; font-size:13px; font-style:italic; }
+.f90-phase-note { margin:12px 0 0; font-family:var(--hand); font-weight:500; font-size:20px; line-height:1.15; color:var(--rust); }
+
+/* Month three: which model to reach for */
+.f90-models { margin:0 0 18px; padding:0; list-style:none; }
+.f90-models li { position:relative; padding-left:22px; font-size:15.5px; line-height:1.55; }
+.f90-models li + li { margin-top:8px; }
+.f90-models li::before { content:"✳"; position:absolute; left:0; top:0; color:var(--gold); }
+.f90-models a { color:var(--rust); text-decoration:underline; text-underline-offset:3px; font-weight:700; }
+
+/* Continue the work: four steps */
+.f90-continue { grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); }
+
+@media (max-width:900px) { .f90-lens, .f90-phase { position:static; max-width:520px; margin:8px auto 0; } }
