@@ -22,7 +22,7 @@ export const GLANCE: { name: string; href: string; art: string; cards: GlanceCar
     { href: '/ideas-models/safe-problems-risky-truths', icon: 'warning', title: 'Safe versus Risky Problems', question: 'Am I fixing out there so I do not have to turn within?' },
   ] },
   { name: 'Emotional change', href: '#part-4', art: 'p2-v2', cards: [
-    { href: '#part-4', icon: 'spiral', title: 'Deep State Repatterning', question: 'How is the past still shaping what happens now?' },
+    { href: '/ideas-models/deep-state-repatterning', icon: 'spiral', title: 'Deep State Repatterning', question: 'How is the past still shaping what happens now?' },
     { href: '#part-4', icon: 'waves', title: 'Emotion Integration Technique', question: 'What do I do in the live moment of activation?' },
   ] },
   { name: 'Meaning & alignment', href: '#part-5', art: 'p2-v3', cards: [
@@ -59,7 +59,7 @@ export const JOURNEY: JourneyModel[] = [
     question: 'Why does something that happened long ago still have so much power now?',
     explanation: 'A complete methodology for finding the emotional history beneath a current pattern, loosening the charge and limiting beliefs attached to earlier experiences, reclaiming the authentic self and carrying new learning into action.',
     tags: 'Detailed Personal History · emotional and belief release · Five Steps to Lack · Five Steps to Self-Love · future vision',
-    cta: { label: 'Explore DSR', href: PRODUCTS_HREF }, art: null },
+    cta: { label: 'Explore DSR', href: '/ideas-models/deep-state-repatterning' }, art: null },
   { title: 'Emotion Integration Technique',
     question: 'What happens in the thirty seconds when I know better and still leave myself?',
     explanation: 'EIT works in the live moment of activation. Catch the Point of Departure. Stay with the emotion beneath the protective response. Choose while remaining connected to yourself.',
