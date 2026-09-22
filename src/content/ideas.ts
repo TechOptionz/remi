@@ -19,7 +19,7 @@ export type GlanceCard = { href: string; icon: GlanceIconName; title: string; qu
 export const GLANCE: { name: string; href: string; art: string; cards: GlanceCard[] }[] = [
   { name: 'Human foundations', href: '#part-3', art: 'p2-v1', cards: [
     { href: '/ideas-models/self-esteem-triad', icon: 'triangle', title: 'Self-Esteem Triad', question: 'Needs. Boundaries. Emotions.', tag: 'Fifteen Emotional Needs · Within the Needs arm' },
-    { href: '#part-3', icon: 'warning', title: 'Safe versus Risky Problems', question: 'Am I fixing out there so I do not have to turn within?' },
+    { href: '/ideas-models/safe-problems-risky-truths', icon: 'warning', title: 'Safe versus Risky Problems', question: 'Am I fixing out there so I do not have to turn within?' },
   ] },
   { name: 'Emotional change', href: '#part-4', art: 'p2-v2', cards: [
     { href: '#part-4', icon: 'spiral', title: 'Deep State Repatterning', question: 'How is the past still shaping what happens now?' },

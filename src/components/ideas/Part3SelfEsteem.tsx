@@ -1,5 +1,6 @@
 import { EMOTIONAL_NEEDS } from '@/content/ideas';
 import { TRIAD_PAGE_HREF } from '@/content/triad';
+import { SAFE_PAGE_HREF } from '@/content/safe';
 import { Art, Body, Box, Btn, H3, Hand, Img, NextLink, Part, PartHead, Star } from './ui';
 import ZoomArt from './ZoomArt';
 
@@ -58,6 +59,7 @@ export default function Part3SelfEsteem() {
       <EmotionalNeeds />
       <H3 v={['stars']}><Star /> Safe versus Risky Problems <Star /></H3>
       <SafeVersusRisky />
+      <Btn href={SAFE_PAGE_HREF} v={['sm']}>Read Safe Problems, Risky Truths in full</Btn>
       <Btn href="#part-4">Continue to human change &amp; meaning</Btn>
       <NextLink href="#part-4" decorated>Continue to past, present &amp; future</NextLink>
     </Part>

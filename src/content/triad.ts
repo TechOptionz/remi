@@ -81,6 +81,6 @@ export const STAND_LINES = ['This is who I am.', 'This is what I feel.', 'This i
 /** Related ideas. The Emotional Intimacy Threshold has no page yet, so it points at the body of work. */
 export const RELATED = [
   { title: 'The Fifteen Emotional Needs', text: 'The developmental hierarchy inside the Needs arm.', href: '#fifteen-needs', cta: 'See the needs', art: 'p3-mtn' },
-  { title: 'Safe Problems and Risky Problems', text: 'Am I fixing out there so I do not have to turn within?', href: '/ideas-models#part-3', cta: 'Read on', art: 'p3-wrench' },
+  { title: 'Safe Problems and Risky Problems', text: 'Am I fixing out there so I do not have to turn within?', href: '/ideas-models/safe-problems-risky-truths', cta: 'Read on', art: 'p3-wrench' },
   { title: 'Emotional Intimacy Threshold', text: 'Where closeness starts to feel unsafe, and what happens next.', href: '/ideas-models', cta: 'Explore the models', art: 'p3-heart' },
 ];
