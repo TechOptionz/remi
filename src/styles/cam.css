@@ -1,0 +1,33 @@
+/* ============ The Critical Alignment Model (/ideas-models/critical-alignment-model) ============ */
+/* Shares the chapter layout of the other Ideas & Models chapters; only its own pieces live here. */
+.cam-plate { width:100%; margin-bottom:10px; }
+.cam-head-note { max-width:220px; }
+
+/* The alignment gap: the five dimensions in sequence, split by the line between intended and expressed */
+.cam-line { margin:8px 0 0; padding:0; position:sticky; top:96px; }
+.cam-half { padding:12px 14px 10px; border:1.5px solid rgba(var(--ink-rgb),.55); border-radius:9px 7px 10px 8px / 8px 10px 7px 9px; background:rgba(255,255,255,.3); }
+.cam-half--below { background:rgba(var(--rust-rgb),.08); border-color:var(--rust); }
+.cam-half-t { display:block; margin-bottom:8px; font-size:10px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); }
+.cam-half--below .cam-half-t { color:var(--rust); }
+.cam-half-s { margin:8px 0 0; font-size:12.5px; line-height:1.4; color:rgba(var(--ink-rgb),.8); }
+.cam-dims { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; }
+.cam-dim { padding:8px 12px; border:1.5px solid rgba(var(--ink-rgb),.4); border-radius:8px 6px 9px 7px / 7px 9px 6px 8px; }
+.cam-dim--purpose { background:#a44a18 url(/assets/ideas/rust.webp) repeat; background-size:464px 222px; border-color:rgba(60,20,0,.35); color:#f6ecdc; }
+.cam-dim h4 { margin:0 0 2px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(16px,1.6vw,20px); line-height:1.05; text-transform:uppercase; }
+.cam-dim p { margin:0; font-size:12.5px; line-height:1.4; }
+.cam-gap { position:relative; margin:14px 0 12px; border-top:2px solid var(--rust); text-align:center; }
+.cam-gap span { position:relative; top:-9px; padding:0 8px; background:var(--paper); font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--rust); }
+
+/* Where to begin: the sequence before the conversation reaches People */
+.cam-begin { margin:0 0 18px; padding:0; list-style:none; counter-reset:begin; display:grid; gap:8px; }
+.cam-begin li { counter-increment:begin; display:grid; grid-template-columns:34px minmax(0,1fr); gap:12px; align-items:center; padding:10px 16px; border:1.5px solid rgba(var(--ink-rgb),.55); border-radius:9px 7px 10px 8px / 8px 10px 7px 9px; font-size:15.5px; line-height:1.45; }
+.cam-begin li::before { content:counter(begin); display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border:1.5px solid var(--gold); border-radius:50% 48% 52% 50% / 52% 50% 50% 48%; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:16px; }
+.cam-begin li:last-child { background:rgba(var(--rust-rgb),.08); border-color:var(--rust); }
+
+/* Work with the model: three next steps side by side in the rust panel */
+.cam-work-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:clamp(16px,2.5vw,32px); margin-top:8px; }
+.cam-work-item { display:flex; flex-direction:column; align-items:center; gap:14px; }
+.cam-work-item .panel-body { margin:0; max-width:36ch; }
+.cam-work-item .ideas-btn { margin-top:auto; }
+
+@media (max-width:900px) { .cam-line { position:static; max-width:520px; margin:8px auto 0; } }

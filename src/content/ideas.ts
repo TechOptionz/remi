@@ -27,7 +27,7 @@ export const GLANCE: { name: string; href: string; art: string; cards: GlanceCar
   ] },
   { name: 'Meaning & alignment', href: '#part-5', art: 'p2-v3', cards: [
     { href: '/ideas-models/values-alignment-technique', icon: 'rose', title: 'Values Alignment Model', question: 'How do I build a meaningful life that is actually mine?' },
-    { href: '#part-5', icon: 'venn', title: 'Critical Alignment Model', question: 'Where is alignment really breaking?', tag: 'Meta Dynamics Profiling Tool · The measurement application' },
+    { href: '/ideas-models/critical-alignment-model', icon: 'venn', title: 'Critical Alignment Model', question: 'Where is alignment really breaking?', tag: 'Meta Dynamics Profiling Tool · The measurement application' },
   ] },
   { name: 'Leadership & evolution', href: '#part-6', art: 'p2-v4', cards: [
     { href: '#part-6', icon: 'team', title: 'T.R.U.S.T.M.E.', question: 'What operating logic is this person, team or organisation using?' },
@@ -81,8 +81,8 @@ export const CAM_STATS = [
   { num: '535', label: 'People in the normative sample' },
 ];
 export const CAM_PAIR = [
-  { title: 'CAM is the model', text: 'It reveals where alignment is breaking and what kind of thinking or action the situation requires.', cta: 'Explore CAM' },
-  { title: 'The Meta Dynamics™ Profiling Tool is the measurement', text: 'It translates CAM into a developmental assessment of thinking preferences across 16 dimensions and 41 characteristics.', cta: 'Take the mini profiler' },
+  { title: 'CAM is the model', text: 'It reveals where alignment is breaking and what kind of thinking or action the situation requires.', cta: 'Explore CAM', href: '/ideas-models/critical-alignment-model' },
+  { title: 'The Meta Dynamics™ Profiling Tool is the measurement', text: 'It translates CAM into a developmental assessment of thinking preferences across 16 dimensions and 41 characteristics.', cta: 'Take the mini profiler', href: PRODUCTS_HREF },
 ];
 
 // ---------- Part Six ----------

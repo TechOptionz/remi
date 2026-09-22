@@ -1,4 +1,4 @@
-import { CAM_PAIR, CAM_STATS, PRODUCTS_HREF } from '@/content/ideas';
+import { CAM_PAIR, CAM_STATS } from '@/content/ideas';
 import { Body, Btn, H3, Hand, HeadNote, Panel, Part, PartHead, Star } from './ui';
 import ZoomArt from './ZoomArt';
 
@@ -33,7 +33,7 @@ export default function Part5Alignment() {
       <ResearchPanel />
       <div className="two-up">
         {CAM_PAIR.map(item => (
-          <div key={item.title}><H3 v={['rust']}>{item.title}</H3><Body sm>{item.text}</Body><Btn href={PRODUCTS_HREF} v={['sm']}>{item.cta}</Btn></div>
+          <div key={item.title}><H3 v={['rust']}>{item.title}</H3><Body sm>{item.text}</Body><Btn href={item.href} v={['sm']}>{item.cta}</Btn></div>
         ))}
       </div>
       <Hand v={['center']}><Star /> Not a personality label. A development map. <Star /></Hand>
