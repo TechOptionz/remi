@@ -3,7 +3,13 @@
 /* The model diagram is drawn on white: multiply it onto the parchment so it blends in, unframed, at a readable size (tap to enlarge for detail) */
 .cam-plate { width:min(100%,680px); margin-bottom:10px; border-radius:0; box-shadow:none; overflow:visible; }
 .triad-diagram.cam-plate > img { mix-blend-mode:multiply; }
-.cam-head-note { max-width:220px; }
+/* The model diagram is the hero illustration, beside the title and opening (under the intro on phones) */
+.cam-hero-fig { margin:0 0 clamp(16px,2vw,28px); align-self:start; }
+.cam-hero-fig .cam-plate { width:100%; margin:0; }
+.cam-hero-fig .cam-plate > img { width:100%; height:auto; }
+@media (max-width:760px) {
+  .ideas-head > .cam-hero-fig { grid-column:1 / -1; grid-row:auto; width:min(100%,460px); justify-self:center; margin:12px 0 22px; }
+}
 
 /* The alignment gap: the five dimensions in sequence, split by the line between intended and expressed */
 .cam-line { margin:8px 0 0; padding:0; position:sticky; top:96px; }
