@@ -66,7 +66,7 @@ export default function Header() {
           {NAV.map(item => item.children ? (
             <div className="nav-item" key={item.label}>
               <Link href={item.href} className={`nav-link${isCurrent(item) || hasCurrentChild(item) ? ' is-current' : ''}`} {...current(item)}>{item.label}</Link>
-              <span className="nav-caret" aria-hidden="true">▾</span>
+              <span className="nav-caret" aria-hidden="true"><svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M1 1l4 4 4-4" /></svg></span>
               <div className={`nav-sub${item.children.some(c => c.group) ? ' nav-sub--groups' : ''}`}>
                 {groupLinks(item.children).map(run => {
                   const links = run.items.map(child => <Link href={child.href} key={child.label} {...current(child)}>{child.label}</Link>);

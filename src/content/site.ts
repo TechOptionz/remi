@@ -141,3 +141,15 @@ export const TRUSTME_INTRO = {
   body: 'People do not all make sense of the world from the same place. T.R.U.S.T.M.E. reveals the level of thinking shaping what a person, group or organisation notices, values, fears and can take responsibility for.',
   note: 'Under pressure, our natural level becomes easier to see.',
 };
+
+// Award badges in the marquee under the About Remi hero (components/about/Awards.tsx). Images come from
+// The Coaching Institute's site and live in public/assets/awards/; `h` is the display height in px, matching the desktop size on thecoachinginstitute.com.au.
+export const AWARDS: { src: string; alt: string; width: number; height: number; h: number }[] = [
+  { src: '/assets/awards/telstra-business-awards-2008-winner.webp', alt: 'Telstra Business Awards — 2008 Victorian Australian Government Micro Business Award Winner', width: 261, height: 73, h: 73 },
+  { src: '/assets/awards/telstra-business-womens-awards-2010-winner.webp', alt: "Telstra Business Women's Awards — 2010 Victorian Winner", width: 248, height: 68, h: 68 },
+  { src: '/assets/awards/telstra-business-womens-awards-2007-finalist.webp', alt: "Telstra Business Women's Awards — 2007 Victorian Australian Government Business Innovation Award Finalist", width: 220, height: 70, h: 75 },
+  { src: '/assets/awards/telstra-business-womens-awards-2008-finalist.webp', alt: "Telstra Business Women's Awards — 2008 Victorian Finalist, Yellow™ Business Owner Award", width: 220, height: 70, h: 73 },
+  { src: '/assets/awards/jobadvisor-coolest-companies-diversity-2016.webp', alt: 'JobAdvisor Coolest Companies for Diversity — Top 10 2016', width: 105, height: 100, h: 100 },
+  { src: '/assets/awards/word-of-mouth-service-award-2016.webp', alt: 'Word of Mouth 2016 Service Award', width: 105, height: 105, h: 105 },
+  { src: '/assets/awards/great-place-to-work-certified.webp', alt: 'Great Place to Work Certified, Australia', width: 63, height: 107, h: 107 },
+];

@@ -84,3 +84,19 @@
 }
 
 @media (min-width:481px) and (max-width:900px) { .model-cards { grid-template-columns:repeat(2,1fr); } }
+
+/* Awards marquee under the hero — no plate, runs the full width of the window (body clips the overflow).
+   The track holds the list twice and slides by half its width, so the loop is seamless. */
+.award-marquee { width:100vw; margin-inline:calc(50% - 50vw); text-align:center; }
+.award-marquee-title { margin:0 0 20px; padding-inline:20px; }
+.award-marquee-window { overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); }
+.award-marquee-track { display:flex; width:max-content; animation:award-marquee-scroll 40s linear infinite; }
+.award-marquee-window:hover .award-marquee-track { animation-play-state:paused; }
+.award-marquee-list { list-style:none; margin:0; padding:0; display:flex; flex:none; align-items:center; gap:clamp(40px,5vw,72px); padding-right:clamp(40px,5vw,72px); }
+.award-marquee-list img { display:block; width:auto; max-width:none; }
+@keyframes award-marquee-scroll { to { transform:translateX(-50%); } }
+@media (prefers-reduced-motion:reduce) {
+  .award-marquee-track { animation:none; width:auto; }
+  .award-marquee-list { flex-wrap:wrap; justify-content:center; gap:20px 32px; padding:0 20px; }
+  .award-marquee-list[aria-hidden] { display:none; }
+}

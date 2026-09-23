@@ -1,6 +1,7 @@
 // About Remi. Sections live in components/about/.
 import type { Metadata } from 'next';
 import AboutHero from '@/components/about/AboutHero';
+import Awards from '@/components/about/Awards';
 import LifesWork from '@/components/about/LifesWork';
 import ChangePossible from '@/components/about/ChangePossible';
 import InsideTheGap from '@/components/about/InsideTheGap';
@@ -29,6 +30,7 @@ export default function AboutPage() {
   return (
     <main>
       <AboutHero />
+      <Awards />
       <LifesWork />
       <ChangePossible />
       <InsideTheGap />
