@@ -4,6 +4,7 @@ import '@/styles/index.css';
 import { DEFAULT_PALETTE } from '@/content/site';
 import { PALETTE_BOOT_SCRIPT, SiteStateProvider } from '@/lib/site-state';
 import Header from '@/components/layout/Header';
+import ScrollToTop from '@/components/layout/ScrollToTop';
 import Footer from '@/components/layout/Footer';
 import ChatWidget from '@/components/shared/ChatWidget';
 
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <SiteStateProvider>
+          <ScrollToTop />
           <div className="wrap" id="top">
             <Header />
             {children}

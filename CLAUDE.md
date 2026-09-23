@@ -10,7 +10,7 @@ Commands (run from the repo root): `npm run dev` (local preview), `npm run build
 
 ## Where things live
 - `src/app/<route>/page.tsx` — one file per page. It only lists that page's sections in order and sets the page title/description. Routes: `/`, `/perspectives`, `/about-remi`, `/ideas-models`, `/programs`, `/invite-remi`.
-- `src/app/layout.tsx` — fonts, global CSS, and the chrome on every page: Header, Footer, ChatWidget.
+- `src/app/layout.tsx` — fonts, global CSS, and the chrome on every page: Header, Footer, ChatWidget, and `ScrollToTop` (every page change opens at the very top, except `#id` links and back/forward).
 - `src/components/<page>/` — one component per visible section (`home/`, `about/`, `invite/`, `ideas/`). Section copy is written inline in its file: to change wording, edit that section's file.
 - `src/components/home/hero/` — the home hero: `Hero.tsx` (picks the variant + video modal), `variants.tsx` (layouts A, B, C, C1, C2/C3, D), `parts.tsx` (shared title, buttons, Vimeo frame).
 - `src/components/layout/` — Header, VariantsMenu, SiteSearch, Footer. `src/components/shared/` — ChatWidget, NewsletterForm, SocialLinks, TrustmeLevels.
