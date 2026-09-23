@@ -1,9 +1,6 @@
-import ZoomArt from '@/components/ideas/ZoomArt';
 import { Body, H3, Hand, Part, Star } from '@/components/ideas/ui';
 
-const TRIAD_ALT = 'The Self-Esteem Triad: three interdependent dimensions of self-esteem. A triangle whose three sides are Emotional Needs, Boundaries and Emotions, with Worthy, Lovable, Enough at the centre. Each side strengthens and protects the others.';
-
-// WHY I CREATED THE MODEL — willpower versus foundations, then the diagram
+// WHY I CREATED THE MODEL — willpower versus foundations (the diagram is the page's hero illustration)
 export default function TriadWhy() {
   return (
     <Part n={2}>
@@ -23,7 +20,6 @@ export default function TriadWhy() {
         <li><a href="#emotions">Emotions</a></li>
       </ul>
       <Hand v={['center', 'tight']}><Star /> At the centre is the lived experience of being worthy, lovable and enough. <Star /></Hand>
-      <ZoomArt name="triad-diagram" alt={TRIAD_ALT} label="the Self-Esteem Triad" className="triad-diagram" />
     </Part>
   );
 }

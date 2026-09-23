@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import { Art, Body, Hand, Part, PartHead } from '@/components/ideas/ui';
 
-// SELF-ESTEEM IS SOMETHING WE LIVE — breadcrumb, title, the "I am" lines, why confidence is not the same thing, I-amness
+const TRIAD_ALT = 'The Self-Esteem Triad: a triangle whose three sides are Emotional Needs, Boundaries and Emotions, with Worthy, Lovable, Enough at the centre. Each side strengthens and protects the others.';
+
+// SELF-ESTEEM IS SOMETHING WE LIVE — breadcrumb, title beside the triad (triangle only), the "I am" lines, why confidence is not the same thing, I-amness
 export default function TriadIntro() {
   return (
     <Part n={1} className="triad-intro">
@@ -11,7 +13,11 @@ export default function TriadIntro() {
         <span aria-current="page">The Self-Esteem Triad</span>
       </nav>
       <p className="ideas-eyebrow">Human foundations · A mental model</p>
-      <PartHead n={1} title="The Self-Esteem Triad" aside={<Art name="p3-scene" className="ideas-art--figure" />}>
+      <PartHead n={1} title="The Self-Esteem Triad" aside={
+          <figure className="triad-hero-fig">
+            <Art name="triad-hero" alt={TRIAD_ALT} />
+          </figure>
+        }>
         <Hand v={['underline']}>Self-esteem is something we live.</Hand>
         <Body>It is a grounded sense of:</Body>
         <p className="triad-iam">

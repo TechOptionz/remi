@@ -104,3 +104,11 @@
   .arm-box-art { display:none; }
   .related-cards { grid-template-columns:1fr; }
 }
+
+/* The triad (triangle only, triad-hero.webp: the diagram cropped, its paper flattened to white) is the hero illustration,
+   multiplied onto the parchment beside the title (under the intro on phones) */
+.triad-hero-fig { margin:0 0 clamp(16px,2vw,28px); align-self:start; }
+.triad-hero-fig > img { display:block; width:100%; height:auto; mix-blend-mode:multiply; }
+@media (max-width:760px) {
+  .ideas-head > .triad-hero-fig { grid-column:1 / -1; grid-row:auto; width:min(100%,420px); justify-self:center; margin:12px 0 22px; }
+}
