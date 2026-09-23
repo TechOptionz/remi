@@ -32,11 +32,12 @@ export default function Part6Trustme() {
       <PartHead n={6} rule title="The thinking that got us here may not get us there" aside={<Art name="p6-star" />}>
         <Body>People, teams and organisations do not need the same thing at every stage. The useful question is not which level sounds best. It is which kind of thinking the present problem requires.</Body>
       </PartHead>
-      <H3 v={['left']}>The T.R.U.S.T.M.E. Model</H3>
-      <Hand v={['sm']}>Created by Remi Pearson · informed by Spiral Dynamics</Hand>
+      {/* The title sits beside the spiral, so the copy fills the column instead of floating in the middle of it */}
       <div className="trustme-grid">
         <Art name="p6-spiral" alt={SPIRAL_ALT} />
         <div>
+          <H3 v={['left']}>The T.R.U.S.T.M.E. Model</H3>
+          <Hand v={['sm']}>Created by Remi Pearson · informed by Spiral Dynamics</Hand>
           <Body sm>T.R.U.S.T.M.E. reveals the operating logic a person, team or organisation returns to, especially under pressure. Every level solves a problem, creates new limits and points toward the thinking required next.</Body>
           <HeadNote art="p6-arrow" inline><Hand>You cannot solve a problem from the same thinking that created it.</Hand></HeadNote>
           <Btn href="/ideas-models/trustme-model" v={['sm']}>Explore the seven levels</Btn>

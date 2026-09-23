@@ -103,6 +103,9 @@
 /* --- shared pieces for parts two to nine --- */
 .ideas-head { position:relative; display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:clamp(20px,3vw,48px); align-items:start; }
 .ideas-head > .ideas-art { width:100%; max-width:340px; justify-self:end; margin-top:-24px; }
+/* A figure taller than its intro (Part 4's rope) hangs beside the copy and into the space below,
+   instead of stretching the header and leaving a gap under the intro */
+@media (min-width:761px) { .ideas-head > .ideas-art--hang { position:absolute; top:0; right:0; width:min(340px,40%); pointer-events:none; } }
 .ideas-art { mix-blend-mode:multiply; }
 .ideas-art--center { display:block; margin:0 auto clamp(24px,3vw,40px); }
 /* Lettered diagrams open full-size (ZoomArt.tsx): the button covers the figure, the dialog pans on small screens */
@@ -235,10 +238,11 @@
 @media (max-width:700px) { .needs-cols { gap:22px 0; } .needs-cols > div { padding:0; border-left:0; } }
 
 /* Part Four */
-.journey { display:grid; grid-template-columns:110px minmax(0,1fr) minmax(0,300px); gap:16px clamp(16px,3vw,40px); align-items:start; margin-top:clamp(12px,2vw,24px); }
+.journey { display:grid; grid-template-columns:96px minmax(0,1fr) minmax(0,280px); gap:16px clamp(16px,3vw,40px); align-items:start; margin-top:clamp(12px,2vw,24px); }
 .journey-line { grid-row:1 / span 3; width:100%; mix-blend-mode:multiply; }
 .journey-model { padding-bottom:12px; }
 .journey-model .ideas-h3 { margin-top:0; font-size:clamp(24px,2.6vw,32px); }
+.journey-model .ideas-body { max-width:64ch; }
 .journey-art { width:100%; align-self:center; }
 .journey-row { display:contents; }
 @media (max-width:760px) {
@@ -271,15 +275,21 @@
 }
 
 /* Part Six */
-.trustme-grid { display:grid; grid-template-columns:minmax(0,11fr) minmax(0,9fr); gap:clamp(20px,3vw,48px); align-items:center; }
+.trustme-grid { display:grid; grid-template-columns:minmax(0,11fr) minmax(0,9fr); gap:clamp(20px,3vw,48px); align-items:center; margin-top:clamp(20px,3vw,40px); }
 .trustme-grid > .ideas-art { width:100%; }
 .trustme-grid .ideas-btn--sm { margin-bottom:0; }
+.trustme-grid .ideas-h3 { margin-top:0; }
 .dl-strip { overflow-x:auto; overscroll-behavior-x:contain; }
 .dl-strip-inner { width:min(100%,760px); margin-inline:auto; }
 .dl-icons { display:block; width:100%; margin:8px 0 4px; }
 .dl-labels { list-style:none; margin:0 0 22px; padding:0; width:100%; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); transform:translateX(-2.7%); gap:8px; text-align:center; font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#f6ecdc; }
 @media (max-width:760px) {
   .trustme-grid { grid-template-columns:1fr; }
+  /* Phones read title → spiral → copy, as before the title moved beside the spiral */
+  .trustme-grid { gap:0; }
+  .trustme-grid > div { display:contents; }
+  .trustme-grid .ideas-h3, .trustme-grid .ideas-hand--sm { order:-1; }
+  .trustme-grid > .ideas-art { margin-bottom:20px; }
   /* No sideways scrolling: the strip image is hidden and each pillar gets its own medallion, cut from the same
      image (--p is that icon's horizontal position in the strip), wrapping 3 + 2 */
   .dl-strip { overflow:visible; margin:6px 0 24px; }
@@ -320,7 +330,7 @@
 .f90-part-actions .head-note { margin:0; }
 
 /* Part Eight */
-.ui-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(20px,3vw,48px); align-items:start; margin-top:clamp(12px,2vw,24px); }
+.ui-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(20px,3vw,48px); align-items:center; margin-top:clamp(12px,2vw,24px); }
 .ui-steps { display:grid; grid-template-columns:120px minmax(0,1fr); gap:0 16px; align-items:start; }
 .ui-steps > .ideas-art { width:100%; grid-row:1 / span 2; }
 .ui-list { list-style:none; margin:0; padding:0; counter-reset:step; }

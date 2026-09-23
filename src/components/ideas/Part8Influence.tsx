@@ -11,6 +11,7 @@ function UltimateInfluence() {
         <H3 v={['left']}>Ultimate Influence Consultative Sales</H3>
         <Hand>How do I help someone make a quality buying decision without scripts, pressure or bullshit?</Hand>
         <Body sm>Diagnose before prescribing. Understand the buyer's values, needs and decision process. Communicate intangible value clearly. Recommend only when there is a genuine match.</Body>
+        <Btn href={PRODUCTS_HREF} v={['sm']}>Explore Ultimate Influence</Btn>
       </div>
       <div className="ui-steps">
         <Art name="p8-path" />
@@ -55,7 +56,6 @@ export default function Part8Influence() {
         <Body>These two bodies of work came from the same refusal: I did not want good people manipulated into buying, and I did not want talented founders trapped inside the thing they had built.</Body>
       </PartHead>
       <UltimateInfluence />
-      <Btn href={PRODUCTS_HREF} v={['sm', 'right']}>Explore Ultimate Influence</Btn>
       <CoreImproveInnovate />
     </Part>
   );

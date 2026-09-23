@@ -28,7 +28,7 @@ function JourneyModelCard({ model }: { model: JourneyModel }) {
 export default function Part4Change() {
   return (
     <Part n={4}>
-      <PartHead n={4} rule title="Change has a past, a present and a future" aside={<Art name="p4-tags" className="ideas-art--figure" />}>
+      <PartHead n={4} rule title="Change has a past, a present and a future" aside={<Art name="p4-tags" className="ideas-art--figure ideas-art--hang" />}>
         <Body>Knowing why a pattern exists is not the same as being free to respond differently. These three models work at different points in the human-change journey.</Body>
       </PartHead>
       <div className="journey">
