@@ -28,6 +28,13 @@
 .nav .nav-sub a:hover { background:rgba(var(--ink-rgb),.06); color:var(--accent); }
 .nav .nav-sub a[aria-current="page"] { color:var(--accent); }
 .site-header[data-on-video="true"] .nav .nav-sub a { color:var(--ink); border-color:transparent; }
+.nav-caret { margin-left:5px; font-size:10px; opacity:.55; transition:transform .2s ease; }
+.nav-item:hover .nav-caret, .nav-item:focus-within .nav-caret { transform:rotate(180deg); }
+/* Grouped drop-down (Ideas & Models): the overview link across the top, then the groups in two columns */
+.nav-sub--groups { display:grid; grid-template-columns:repeat(2, minmax(230px, auto)); gap:2px 10px; width:max-content; padding:10px; }
+.nav-sub--groups > a { grid-column:1 / -1; margin-bottom:4px; font-weight:600; }
+.nav-sub-group { display:flex; flex-direction:column; gap:2px; padding:4px 0; }
+.nav-sub-label { padding:6px 12px 4px; font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:rgba(var(--ink-rgb),.5); }
 .header-actions { display:flex; align-items:center; gap:12px; }
 .header-actions .btn { white-space:nowrap; }
 /* The hero repeats this call to action, so the header copy steps aside on phones */

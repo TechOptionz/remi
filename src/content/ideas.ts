@@ -15,28 +15,28 @@ export const MAP_HOTSPOTS = [
 
 // ---------- Part Two: the body of work at a glance ----------
 export type GlanceIconName = 'triangle' | 'warning' | 'spiral' | 'waves' | 'rose' | 'venn' | 'team' | 'summit' | 'days' | 'exchange' | 'growth';
-export type GlanceCard = { href: string; icon: GlanceIconName; title: string; question: string; tag?: string };
+export type GlanceCard = { href: string; icon: GlanceIconName; title: string };
 export const GLANCE: { name: string; href: string; art: string; cards: GlanceCard[] }[] = [
   { name: 'Human foundations', href: '#part-3', art: 'p2-v1', cards: [
-    { href: '/ideas-models/self-esteem-triad', icon: 'triangle', title: 'Self-Esteem Triad', question: 'Needs. Boundaries. Emotions.', tag: 'Fifteen Emotional Needs · Within the Needs arm' },
-    { href: '/ideas-models/safe-problems-risky-truths', icon: 'warning', title: 'Safe versus Risky Problems', question: 'Am I fixing out there so I do not have to turn within?' },
+    { href: '/ideas-models/self-esteem-triad', icon: 'triangle', title: 'Self-Esteem Triad' },
+    { href: '/ideas-models/safe-problems-risky-truths', icon: 'warning', title: 'Safe versus Risky Problems' },
   ] },
   { name: 'Emotional change', href: '#part-4', art: 'p2-v2', cards: [
-    { href: '/ideas-models/deep-state-repatterning', icon: 'spiral', title: 'Deep State Repatterning', question: 'How is the past still shaping what happens now?' },
-    { href: '/ideas-models/emotion-integration-technique', icon: 'waves', title: 'Emotion Integration Technique', question: 'What do I do in the live moment of activation?' },
+    { href: '/ideas-models/deep-state-repatterning', icon: 'spiral', title: 'Deep State Repatterning' },
+    { href: '/ideas-models/emotion-integration-technique', icon: 'waves', title: 'Emotion Integration Technique' },
   ] },
   { name: 'Meaning & alignment', href: '#part-5', art: 'p2-v3', cards: [
-    { href: '/ideas-models/values-alignment-technique', icon: 'rose', title: 'Values Alignment Model', question: 'How do I build a meaningful life that is actually mine?' },
-    { href: '/ideas-models/critical-alignment-model', icon: 'venn', title: 'Critical Alignment Model', question: 'Where is alignment really breaking?', tag: 'Meta Dynamics Profiling Tool · The measurement application' },
+    { href: '/ideas-models/values-alignment-technique', icon: 'rose', title: 'Values Alignment Model' },
+    { href: '/ideas-models/critical-alignment-model', icon: 'venn', title: 'Critical Alignment Model' },
   ] },
   { name: 'Leadership & evolution', href: '#part-6', art: 'p2-v4', cards: [
-    { href: '/ideas-models/trustme-model', icon: 'team', title: 'T.R.U.S.T.M.E.', question: 'What operating logic is this person, team or organisation using?' },
-    { href: '/ideas-models/disruptive-leadership', icon: 'summit', title: 'Disruptive Leadership', question: 'How do I lead without carrying everybody?' },
-    { href: '/ideas-models/first-90-days', icon: 'days', title: 'Your First 90 Days as a Leader', question: 'Observe before you intervene. Understand before you decide.', tag: 'Benchmarking · Critical Thinking · CAM Top Five · Written & Unwritten Ground Rules · 90-Day Review' },
+    { href: '/ideas-models/trustme-model', icon: 'team', title: 'T.R.U.S.T.M.E.' },
+    { href: '/ideas-models/disruptive-leadership', icon: 'summit', title: 'Disruptive Leadership' },
+    { href: '/ideas-models/first-90-days', icon: 'days', title: 'Your First 90 Days as a Leader' },
   ] },
   { name: 'Influence & enterprise', href: '#part-8', art: 'p2-v5', cards: [
-    { href: '#part-8', icon: 'exchange', title: 'Ultimate Influence Consultative Sales', question: 'How do I help someone make a quality buying decision?' },
-    { href: '#part-8', icon: 'growth', title: 'Core → Improve → Innovate', question: 'What deserves most of my attention?', tag: 'Practice to Business · The field-tested application' },
+    { href: '#part-8', icon: 'exchange', title: 'Ultimate Influence Consultative Sales' },
+    { href: '#part-8', icon: 'growth', title: 'Core → Improve → Innovate' },
   ] },
 ];
 

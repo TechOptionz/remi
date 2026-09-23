@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Body, Box, Btn, H3, Hand, NextLink, Panel, Part } from '@/components/ideas/ui';
+import { Body, Box, Btn, H3, Hand, Panel, Part } from '@/components/ideas/ui';
 import { CONTINUE, RELATED } from '@/content/f90';
 
 // WHAT THE FIRST 90 DAYS SHOULD LEAVE BEHIND + CONTINUE THE WORK + INTELLECTUAL FOUNDATIONS + related ideas
@@ -43,7 +43,6 @@ export default function F90Close() {
       </div>
 
       <Btn href="/ideas-models#part-7">Back to Ideas &amp; Models</Btn>
-      <NextLink href="/ideas-models#part-8" decorated>Continue to influence &amp; building beyond you</NextLink>
     </Part>
   );
 }

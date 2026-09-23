@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { GLANCE, type GlanceCard, type GlanceIconName } from '@/content/ideas';
-import { Art, Btn, Hand, Img, NextLink, Part, PartHead } from './ui';
+import { Art, Hand, Img, Part, PartHead } from './ui';
 
 const GLANCE_ICONS: Record<GlanceIconName, React.ReactNode> = {
   triangle: <path d="M12 4l8 15H4z" />,
@@ -16,16 +16,13 @@ const GLANCE_ICONS: Record<GlanceIconName, React.ReactNode> = {
   growth: <path d="M4 20V10M10 20V6M16 20v-8M22 20V4M3 20h20M4 9l6-3 6 4 6-6" />,
 };
 
-/** One model in the index: icon, title, the question it answers and an optional tag line. */
+/** One model in the index: icon, title and a "Learn more" cue on the right. */
 function GlanceCardLink({ card }: { card: GlanceCard }) {
   const inner = (
     <>
       <span className="glance-icon" aria-hidden="true"><svg viewBox="0 0 24 24">{GLANCE_ICONS[card.icon]}</svg></span>
-      <span>
-        <span className="glance-title">{card.title}</span>
-        <span className="glance-q">{card.question}</span>
-        {card.tag && <span className="glance-tag">{card.tag}</span>}
-      </span>
+      <span className="glance-title">{card.title}</span>
+      <span className="glance-more">Learn more <span aria-hidden="true">→</span></span>
     </>
   );
   return card.href.startsWith('#')
@@ -55,8 +52,6 @@ export default function Part2Glance() {
       </ol>
       <p className="research-thread"><span className="rt-label"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6" /><path d="M15 15l6 6" /></svg> Research thread</span><span>Values, meaning, organisational wellbeing, leadership, reliability and validity.</span></p>
       <Hand v={['center']}>Different questions. Different models. One body of work.</Hand>
-      <Btn href="#part-3">Start with the human foundations</Btn>
-      <NextLink href="#part-3" decorated>Continue to human foundations</NextLink>
     </Part>
   );
 }

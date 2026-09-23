@@ -42,7 +42,6 @@ export default function Part4Change() {
         ))}
       </div>
       <Hand v={['center']}>Different questions. Different moments. One human life.</Hand>
-      <Btn href="#part-5">Continue to alignment</Btn>
     </Part>
   );
 }

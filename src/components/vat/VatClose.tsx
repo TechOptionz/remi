@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Body, Box, Btn, H3, Hand, NextLink, Panel, Part } from '@/components/ideas/ui';
+import { Body, Box, Btn, H3, Hand, Panel, Part } from '@/components/ideas/ui';
 import { RELATED, VAT_TRAINING_HREF } from '@/content/vat';
 
 // GOALS EMERGE FROM A CLEARER RELATIONSHIP WITH OURSELVES + for practitioners + related ideas
@@ -37,7 +37,6 @@ export default function VatClose() {
       </div>
 
       <Btn href="/ideas-models#part-4">Back to Ideas &amp; Models</Btn>
-      <NextLink href="/ideas-models#part-5" decorated>Continue to meaning &amp; alignment</NextLink>
     </Part>
   );
 }

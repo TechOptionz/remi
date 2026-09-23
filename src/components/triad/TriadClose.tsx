@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Box, Btn, H3, NextLink, Panel, Part } from '@/components/ideas/ui';
+import { Box, Btn, H3, Panel, Part } from '@/components/ideas/ui';
 import { RELATED, TRIAD_PRODUCT_HREF } from '@/content/triad';
 import TriadNotify from './TriadNotify';
 
@@ -32,7 +32,6 @@ export default function TriadClose() {
       </Panel>
 
       <Btn href="/ideas-models#part-3">Back to Ideas &amp; Models</Btn>
-      <NextLink href="/ideas-models#part-4" decorated>Continue to human change &amp; meaning</NextLink>
     </Part>
   );
 }

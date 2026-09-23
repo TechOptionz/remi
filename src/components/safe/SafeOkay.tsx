@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Body, Box, Btn, H3, Hand, NextLink, Part } from '@/components/ideas/ui';
+import { Body, Box, Btn, H3, Hand, Part } from '@/components/ideas/ui';
 import { RELATED } from '@/content/safe';
 
 // BEING OKAY WITH NOT FEELING OKAY — self-acceptance, the triad, "what would love do", then related ideas
@@ -32,7 +32,6 @@ export default function SafeOkay() {
       </div>
 
       <Btn href="/ideas-models#part-3">Back to Ideas &amp; Models</Btn>
-      <NextLink href="/ideas-models#part-4" decorated>Continue to human change &amp; meaning</NextLink>
     </Part>
   );
 }

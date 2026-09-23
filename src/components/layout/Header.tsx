@@ -1,12 +1,25 @@
 'use client';
 
 // Sticky site header: logo, primary nav (from content/site.ts), Variants menu, CTA and the mobile menu.
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { HEADER_CTA, NAV, SITE, type HeroId, type NavItem, type PaletteId } from '@/content/site';
 import { useSiteState } from '@/lib/site-state';
-import VariantsMenu from './VariantsMenu';
+// Variants menu (design review tool) is hidden for now; restore this import and the <VariantsMenu /> line in the nav to bring it back
+// import VariantsMenu from './VariantsMenu';
+import SiteSearch from './SiteSearch';
+
+/** Splits drop-down links into runs that share a `group` (ungrouped links form their own run). */
+function groupLinks(items: NavItem[]) {
+  const runs: { group?: string; items: NavItem[] }[] = [];
+  for (const item of items) {
+    const last = runs[runs.length - 1];
+    if (last && last.group === item.group) last.items.push(item);
+    else runs.push({ group: item.group, items: [item] });
+  }
+  return runs;
+}
 
 export default function Header() {
   const pathname = usePathname();
@@ -32,6 +45,7 @@ export default function Header() {
     window.scrollTo({ top: 0 });
   };
   const pickPalette = (id: PaletteId) => { setPalette(id); setMenuOpen(false); };
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
 
   const isCurrent = (item: NavItem) => item.href === pathname;
   const hasCurrentChild = (item: NavItem) => !!item.children?.some(isCurrent);
@@ -52,16 +66,23 @@ export default function Header() {
           {NAV.map(item => item.children ? (
             <div className="nav-item" key={item.label}>
               <Link href={item.href} className={`nav-link${isCurrent(item) || hasCurrentChild(item) ? ' is-current' : ''}`} {...current(item)}>{item.label}</Link>
-              <div className="nav-sub">
-                {item.children.map(child => <Link href={child.href} key={child.label} {...current(child)}>{child.label}</Link>)}
+              <span className="nav-caret" aria-hidden="true">▾</span>
+              <div className={`nav-sub${item.children.some(c => c.group) ? ' nav-sub--groups' : ''}`}>
+                {groupLinks(item.children).map(run => {
+                  const links = run.items.map(child => <Link href={child.href} key={child.label} {...current(child)}>{child.label}</Link>);
+                  return run.group
+                    ? <div className="nav-sub-group" key={run.group}><span className="nav-sub-label">{run.group}</span>{links}</div>
+                    : links;
+                })}
               </div>
             </div>
           ) : (
             <Link href={item.href} key={item.label} className={isCurrent(item) ? 'is-current' : undefined} {...current(item)}>{item.label}</Link>
           ))}
-          <VariantsMenu hero={hero} palette={palette} onHero={pickHero} onPalette={pickPalette} />
+          {/* <VariantsMenu hero={hero} palette={palette} onHero={pickHero} onPalette={pickPalette} /> */}
         </nav>
         <div className="header-actions">
+          <SiteSearch onOpen={closeMenu} />
           <Link href={HEADER_CTA.href} className="btn btn--ink btn--sm">{HEADER_CTA.label}</Link>
           <button type="button" className="burger" aria-label="Menu" aria-expanded={menuOpen} aria-controls="mobile-nav" onClick={() => setMenuOpen(o => !o)}>
             <span></span><span></span>

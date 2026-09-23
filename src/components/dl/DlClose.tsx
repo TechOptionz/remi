@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Box, Btn, H3, NextLink, Panel, Part } from '@/components/ideas/ui';
+import { Box, Btn, H3, Panel, Part } from '@/components/ideas/ui';
 import { RELATED, WORK_WITH } from '@/content/dl';
 
 // WORK WITH THE MODEL + related ideas
@@ -30,7 +30,6 @@ export default function DlClose() {
       </div>
 
       <Btn href="/ideas-models#part-6">Back to Ideas &amp; Models</Btn>
-      <NextLink href="/ideas-models#part-7" decorated>Continue to the practice of leadership</NextLink>
     </Part>
   );
 }

@@ -2,7 +2,7 @@ import NewsletterForm from '@/components/shared/NewsletterForm';
 import { NEXT_STEPS, PRODUCTS_HREF, RESEARCH } from '@/content/ideas';
 import { Art, Body, Box, Btn, H3, Hand, Part, PartHead } from './ui';
 
-// PART NINE · RESEARCH & NEXT STEPS — research cards, credit, where to go next, newsletter and sign-off
+// PART NINE · RESEARCH & NEXT STEPS — research cards, credit, where to go next and newsletter
 export default function Part9Research() {
   return (
     <Part n={9}>
@@ -40,10 +40,6 @@ export default function Part9Research() {
         <H3 className="keep-title">Keep me in the conversation</H3>
         <p className="panel-body">Thoughtful ideas, new Perspectives conversations and the occasional invitation. I'll write when I have something worth saying.</p>
         <NewsletterForm variant="keep" />
-      </div>
-      <div className="sign-off">
-        <Art name="p9-ltl" alt="Let Truth Lead." />
-        <Art name="p9-remi" alt="Remi" />
       </div>
     </Part>
   );

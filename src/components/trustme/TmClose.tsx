@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Body, Box, Btn, H3, NextLink, Panel, Part } from '@/components/ideas/ui';
+import { Body, Box, Btn, H3, Panel, Part } from '@/components/ideas/ui';
 import { FURTHER_READING, RELATED, WORK_WITH } from '@/content/trustme';
 
 // WORK WITH REMI + INTELLECTUAL FOUNDATIONS + related ideas
@@ -36,7 +36,6 @@ export default function TmClose() {
       </div>
 
       <Btn href="/ideas-models#part-6">Back to Ideas &amp; Models</Btn>
-      <NextLink href="/ideas-models#part-7" decorated>Continue to the practice of leadership</NextLink>
     </Part>
   );
 }

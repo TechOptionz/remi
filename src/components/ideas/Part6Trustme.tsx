@@ -43,7 +43,6 @@ export default function Part6Trustme() {
         </div>
       </div>
       <DisruptiveLeadership />
-      <Btn href="#part-7" v={['dark']}>Continue to the practice of leadership</Btn>
     </Part>
   );
 }

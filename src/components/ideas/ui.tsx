@@ -60,19 +60,10 @@ export function H3({ v = [], className, children }: { v?: H3Variant[]; className
   return <h3 className={cx('ideas-h3', ...v.map(x => `ideas-h3--${x}`), className)}>{children}</h3>;
 }
 
-type BtnVariant = 'sm' | 'outline' | 'dark' | 'right';
+type BtnVariant = 'sm' | 'outline' | 'right' | 'center';
 /** Button with trailing arrow. */
 export function Btn({ href, v = [], children }: { href: string; v?: BtnVariant[]; children: React.ReactNode }) {
   return <SmartLink href={href} className={cx('ideas-btn', ...v.map(x => `ideas-btn--${x}`))}>{children} <Arrow /></SmartLink>;
-}
-
-/** Small "Continue to …" link under a part. `decorated` adds the star and long arrow. */
-export function NextLink({ href, decorated, children }: { href: string; decorated?: boolean; children: React.ReactNode }) {
-  return (
-    <a href={href} className="ideas-next">
-      {decorated ? <><Star /> {children} <Arrow long /></> : children}
-    </a>
-  );
 }
 
 /** Handwritten note with a little arrow. `inline` puts the arrow before the text. */

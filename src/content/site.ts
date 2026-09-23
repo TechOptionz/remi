@@ -1,4 +1,5 @@
 // Site-wide content and settings. Edit copy, links and options here; components read from this file.
+import { GLANCE } from './ideas';
 
 export const SITE = {
   name: 'Remi Pearson',
@@ -9,11 +10,22 @@ export const SITE = {
 };
 
 // ---------- Navigation (header, mobile menu and footer "Explore" column) ----------
-export type NavItem = { label: string; href: string; children?: NavItem[] };
+// `children` open as a drop-down in the header and are listed under their parent in the mobile menu (the footer
+// shows the top level only). Children with a `group` are shown under that group's label in the drop-down.
+export type NavItem = { label: string; href: string; group?: string; children?: NavItem[] };
+
+// Ideas & Models drop-down: the overview, then every chapter page in the order and groups of the page's
+// "at a glance" index (GLANCE in content/ideas.ts), so a new chapter added there appears here too.
+const IDEAS_CHAPTERS: NavItem[] = GLANCE.flatMap(g => g.cards
+  .filter(c => c.href.startsWith('/ideas-models/'))
+  .map(c => ({ label: c.title, href: c.href, group: g.name })));
 
 export const NAV: NavItem[] = [
   { label: 'Perspectives', href: '/perspectives' },
-  { label: 'Ideas & Models', href: '/ideas-models' },
+  { label: 'Ideas & Models', href: '/ideas-models', children: [
+    { label: 'All ideas & models', href: '/ideas-models' },
+    ...IDEAS_CHAPTERS,
+  ] },
   { label: 'Programs', href: '/programs' },
   { label: 'Books', href: '/#work' },
   { label: 'About Remi', href: '/about-remi' },
@@ -21,6 +33,11 @@ export const NAV: NavItem[] = [
 ];
 
 export const HEADER_CTA = { label: 'Show me where to start', href: '/#rabbit-holes' };
+
+// ---------- Site search (header) ----------
+// The index is built from the pages themselves at `npm run build` (scripts/search-index.mjs); nothing to list here.
+// These are the starting points offered before anything is typed.
+export const SEARCH_SUGGESTIONS = ['Self-Esteem Triad', 'T.R.U.S.T.M.E.', 'Boundaries', 'Keynote speaking', 'Rebel Yell', 'First 90 days', 'Relationships'];
 
 // ---------- Variants menu (design review tool: home hero layout + colour palette) ----------
 export const HEROES = [

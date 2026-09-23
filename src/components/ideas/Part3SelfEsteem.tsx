@@ -1,7 +1,7 @@
 import { EMOTIONAL_NEEDS } from '@/content/ideas';
 import { TRIAD_PAGE_HREF } from '@/content/triad';
 import { SAFE_PAGE_HREF } from '@/content/safe';
-import { Art, Body, Box, Btn, H3, Hand, Img, NextLink, Part, PartHead, Star } from './ui';
+import { Art, Body, Box, Btn, H3, Hand, Img, Part, PartHead, Star } from './ui';
 import ZoomArt from './ZoomArt';
 
 const TRIAD_ALT = 'The Self-Esteem Triad. Needs: know what matters to you; recognise, express and take responsibility for what you need. Boundaries: the line at which you can love someone and still love and take care of yourself; boundaries clarify what is yours, what is not and what behaviour you will accept. Emotions: vital information about what needs attention, protection, expression or completion; speak for your emotions, not from them. At the centre: worthy, lovable, enough.';
@@ -55,13 +55,11 @@ export default function Part3SelfEsteem() {
       <H3>The Self-Esteem Triad</H3>
       <Hand v={['center', 'tight']}>Needs. Boundaries. Emotions.</Hand>
       <ZoomArt name="p3-triad" alt={TRIAD_ALT} label="the Self-Esteem Triad" className="ideas-art--center ideas-bleed triad-art" />
-      <Btn href={TRIAD_PAGE_HREF} v={['sm']}>Read the Self-Esteem Triad in full</Btn>
+      <Btn href={TRIAD_PAGE_HREF} v={['sm', 'center']}>Read the Self-Esteem Triad in full</Btn>
       <EmotionalNeeds />
       <H3 v={['stars']}><Star /> Safe versus Risky Problems <Star /></H3>
       <SafeVersusRisky />
-      <Btn href={SAFE_PAGE_HREF} v={['sm']}>Read Safe Problems, Risky Truths in full</Btn>
-      <Btn href="#part-4">Continue to human change &amp; meaning</Btn>
-      <NextLink href="#part-4" decorated>Continue to past, present &amp; future</NextLink>
+      <Btn href={SAFE_PAGE_HREF} v={['sm', 'center']}>Read Safe Problems, Risky Truths in full</Btn>
     </Part>
   );
 }

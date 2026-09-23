@@ -47,5 +47,7 @@ yarn-debug.log*
 # Next.js
 .next/
 out/
+# Written by `npm run build` (scripts/search-index.mjs) so `npm run dev` can search too
+public/search-index.json
 next-env.d.ts
 *.tsbuildinfo

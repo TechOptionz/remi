@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { MAP_HOTSPOTS } from '@/content/ideas';
-import { Body, Btn, Hand, Img, NextLink, Part } from './ui';
+import { Body, Hand, Img, Part } from './ui';
 
 const MAP_ALT = 'A hand-drawn map. Let Truth Lead sits at the centre, with paths out to Human Needs & Self, Emotional Change, Meaning & Alignment, Leadership & Human Systems, and Influence & Building Beyond You.';
 
@@ -35,8 +35,6 @@ export default function Part1Intro() {
         <p className="ideas-note">This is not one model.<br />It is a body of work.</p>
       </div>
       <Body inset>Some of it helps us understand what shaped us. Some helps us change what happens in the moment. Some helps leaders and organisations see where alignment is breaking. And some helps people sell, lead and build without manipulation, rescuing or becoming the entire asset.</Body>
-      <Btn href="#part-2">See the body of work</Btn>
-      <NextLink href="#part-2" decorated>Continue to the complete map</NextLink>
     </Part>
   );
 }

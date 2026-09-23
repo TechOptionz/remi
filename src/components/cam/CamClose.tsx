@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Body, Box, Btn, H3, Hand, NextLink, Panel, Part } from '@/components/ideas/ui';
+import { Body, Box, Btn, H3, Hand, Panel, Part } from '@/components/ideas/ui';
 import { BEGIN_STEPS, RELATED, WORK_WITH } from '@/content/cam';
 
 // WHERE TO BEGIN + WORK WITH THE MODEL + related ideas
@@ -40,7 +40,6 @@ export default function CamClose() {
       </div>
 
       <Btn href="/ideas-models#part-5">Back to Ideas &amp; Models</Btn>
-      <NextLink href="/ideas-models#part-6" decorated>Continue to leadership, evolution &amp; decision</NextLink>
     </Part>
   );
 }

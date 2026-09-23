@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Body, Box, Btn, H3, Hand, NextLink, Panel, Part } from '@/components/ideas/ui';
+import { Body, Box, Btn, H3, Hand, Panel, Part } from '@/components/ideas/ui';
 import { EIT_TRAINING_HREF, RELATED } from '@/content/eit';
 
 // A PRECISE INTERVENTION + THE ROUTE HOME IS COMPASSION + practitioner training + related ideas
@@ -39,7 +39,6 @@ export default function EitClose() {
       </div>
 
       <Btn href="/ideas-models#part-4">Back to Ideas &amp; Models</Btn>
-      <NextLink href="/ideas-models#part-5" decorated>Continue to meaning &amp; alignment</NextLink>
     </Part>
   );
 }

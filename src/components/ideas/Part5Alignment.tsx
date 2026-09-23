@@ -37,7 +37,6 @@ export default function Part5Alignment() {
         ))}
       </div>
       <Hand v={['center']}><Star /> Not a personality label. A development map. <Star /></Hand>
-      <Btn href="#part-6">Continue to leadership, evolution &amp; decision</Btn>
     </Part>
   );
 }

@@ -32,6 +32,7 @@
 .site-header[data-on-video="true"] .btn--ink { background:#f8f3ea; color:#0d0c0b; }
 .site-header[data-on-video="true"] .burger { border-color:rgba(248,243,234,.45); }
 .site-header[data-on-video="true"] .burger span { background:#f8f3ea; }
+.site-header[data-on-video="true"] .search-btn { color:#f8f3ea; border-color:rgba(248,243,234,.45); background:rgba(0,0,0,.45); }
 
 /* ============ Hero variants ============ */
 @keyframes rp-fade { from { opacity:0; } to { opacity:1; } }

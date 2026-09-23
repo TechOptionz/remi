@@ -5,7 +5,6 @@ import NewsletterForm from '@/components/shared/NewsletterForm';
 import SocialLinks from '@/components/shared/SocialLinks';
 
 export default function Footer() {
-  const explore = NAV.flatMap(item => [item, ...(item.children ?? [])]);
   return (
     <footer className="footer">
       <div className="footer-top">
@@ -24,7 +23,7 @@ export default function Footer() {
       <div className="footer-links">
         <nav className="footer-col" aria-label="Explore">
           <span className="footer-head">Explore</span>
-          {explore.map(item => <Link href={item.href} key={item.label}>{item.label}</Link>)}
+          {NAV.map(item => <Link href={item.href} key={item.label}>{item.label}</Link>)}
         </nav>
         <nav className="footer-col" aria-label="Enquire">
           <span className="footer-head">Enquire</span>

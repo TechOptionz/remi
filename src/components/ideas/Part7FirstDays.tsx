@@ -1,7 +1,7 @@
 import { LEADERSHIP_TOOLS, TOOLKIT } from '@/content/ideas';
 import { F90_PAGE_HREF, PHASES } from '@/content/f90';
 import { TIMELINE_ALT } from '@/components/f90/F90Intro';
-import { Art, Body, Box, Btn, H3, Hand, HeadNote, NextLink, Part, PartHead, Rust } from './ui';
+import { Art, Body, Box, Btn, H3, Hand, HeadNote, Part, PartHead } from './ui';
 import ZoomArt from './ZoomArt';
 
 // PART SEVEN · YOUR FIRST 90 DAYS AS A LEADER — the model (full chapter: /ideas-models/first-90-days), then the tools that make it practical (content/ideas.ts)
@@ -40,8 +40,6 @@ export default function Part7FirstDays() {
         </div>
       </Box>
       <Hand v={['center']}>Truth before certainty. Standards before slogans. Capability before rescue.</Hand>
-      <Btn href="#part-8" v={['dark']}>Continue to influence &amp; building beyond you</Btn>
-      <NextLink href="#part-8">Continue to <Rust>influence &amp; enterprise</Rust></NextLink>
     </Part>
   );
 }

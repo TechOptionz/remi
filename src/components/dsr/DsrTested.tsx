@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Body, Box, Btn, H3, Hand, NextLink, Part } from '@/components/ideas/ui';
+import { Body, Box, Btn, H3, Hand, Part } from '@/components/ideas/ui';
 import { RELATED, TEST_QUESTIONS } from '@/content/dsr';
 
 // HOW CHANGE IS TESTED + DEEP WORK SHOULD RESTORE AGENCY + related ideas
@@ -37,7 +37,6 @@ export default function DsrTested() {
       </div>
 
       <Btn href="/ideas-models#part-4">Back to Ideas &amp; Models</Btn>
-      <NextLink href="/ideas-models#part-5" decorated>Continue to meaning &amp; alignment</NextLink>
     </Part>
   );
 }
