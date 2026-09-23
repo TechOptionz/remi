@@ -1,7 +1,9 @@
 /* ============ Disruptive Leadership (/ideas-models/disruptive-leadership) ============ */
 /* Shares the chapter layout of the other Ideas & Models chapters; only its own pieces live here.
    The five movements keep the colours of the model diagram (teal, green, gold, rust, plum). */
-.dl-plate { width:min(100%,760px); margin-bottom:10px; }
+/* The model diagram is drawn on white: multiply it onto the parchment so it blends in, unframed (the other chapter plates stay framed) */
+.dl-plate { width:min(100%,760px); margin-bottom:10px; border-radius:0; box-shadow:none; overflow:visible; }
+.triad-diagram.dl-plate > img { mix-blend-mode:multiply; }
 .dl-head-art { max-width:150px; }
 .dl { --dl-1:#2f5f6b; --dl-2:#5c7a3c; --dl-3:#c8952a; --dl-4:#c0472a; --dl-5:#6f4a84; }
 
@@ -12,15 +14,25 @@
 .dl-lines span { color:var(--gold); }
 
 /* The cycle: five steps that loop back to the first */
-.dl-cycle { margin:8px 0 0; padding:0; position:sticky; top:96px; }
-.dl-moves { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; }
-.dl-move { display:grid; grid-template-columns:30px minmax(0,1fr); grid-template-areas:"n name" "n text"; column-gap:10px; align-items:center; padding:8px 12px; border:1.5px solid rgba(var(--ink-rgb),.5); border-left-width:5px; border-radius:9px 7px 10px 8px / 8px 10px 7px 9px; background:rgba(255,255,255,.3); }
-.dl-move:nth-child(1) { border-left-color:var(--dl-1); } .dl-move:nth-child(2) { border-left-color:var(--dl-2); } .dl-move:nth-child(3) { border-left-color:var(--dl-3); } .dl-move:nth-child(4) { border-left-color:var(--dl-4); } .dl-move:nth-child(5) { border-left-color:var(--dl-5); }
-.dl-move-n { grid-area:n; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:18px; color:var(--gold); }
-.dl-move-name { grid-area:name; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(15px,1.5vw,19px); line-height:1.05; text-transform:uppercase; }
-.dl-move-text { grid-area:text; font-size:12.5px; line-height:1.35; color:rgba(var(--ink-rgb),.8); }
-.dl-loop { margin:12px 0 0; font-size:12.5px; line-height:1.45; color:rgba(var(--ink-rgb),.8); }
-.dl-cycle .ladder-cap { font-size:17px; }
+.dl-cycle { margin:clamp(8px,1.4vw,16px) 0 clamp(8px,1.4vw,16px); padding:0; }
+.dl-moves { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:clamp(10px,1.2vw,16px); }
+.dl-move { display:flex; flex-direction:column; gap:6px; padding:14px 14px 16px; border:1.5px solid rgba(var(--ink-rgb),.5); border-top-width:5px; border-radius:9px 7px 10px 8px / 8px 10px 7px 9px; background:rgba(255,255,255,.3); }
+.dl-move:nth-child(1) { --c:var(--dl-1); } .dl-move:nth-child(2) { --c:var(--dl-2); } .dl-move:nth-child(3) { --c:var(--dl-3); } .dl-move:nth-child(4) { --c:var(--dl-4); } .dl-move:nth-child(5) { --c:var(--dl-5); }
+.dl-move { border-top-color:var(--c); }
+.dl-move-n { font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:22px; line-height:1; color:var(--c); }
+.dl-move-name { font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(18px,1.8vw,24px); line-height:1.05; text-transform:uppercase; }
+.dl-move-text { font-size:14px; line-height:1.45; color:rgba(var(--ink-rgb),.8); }
+.dl-loop { margin:16px 0 0; font-size:15px; line-height:1.45; text-align:center; color:rgba(var(--ink-rgb),.8); }
+.dl-cycle .ladder-cap { max-width:60ch; margin-inline:auto; font-size:clamp(17px,1.7vw,20px); text-align:center; }
+@media (max-width:1000px) { .dl-moves { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media (max-width:640px) {
+  .dl-moves { grid-template-columns:1fr; gap:8px; }
+  .dl-move { display:grid; grid-template-columns:32px minmax(0,1fr); grid-template-areas:"n name" "n text"; column-gap:10px; gap:2px 10px; align-items:center; padding:10px 12px; border-top-width:1.5px; border-left-width:5px; border-left-color:var(--c); }
+  .dl-move-n { grid-area:n; }
+  .dl-move-name { grid-area:name; }
+  .dl-move-text { grid-area:text; }
+  .dl-loop { text-align:left; }
+}
 
 /* Each movement's heading: number, name and what it asks of us */
 .dl-move-h { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; }
@@ -38,9 +50,14 @@
 .dl-practices-note { margin:12px 0 0; font-family:var(--hand); font-weight:500; font-size:20px; line-height:1.15; color:var(--rust); }
 
 /* What a great result leaves behind */
-.dl-leaves { list-style:none; margin:8px 0 22px; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)); gap:10px; }
-.dl-leaves li { padding:12px 16px; border:1.5px solid rgba(var(--ink-rgb),.55); border-radius:9px 7px 10px 8px / 8px 10px 7px 9px; }
-.dl-leaves b { display:block; margin-bottom:4px; font-size:10.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--rust); }
-.dl-leaves span { font-size:14px; line-height:1.4; }
+.dl .dsr-grid { margin-bottom:clamp(20px,2.6vw,32px); }
+/* What a great result leaves behind — four cards, each keyed to a movement colour (Deliver, Mobilise, Align, See) */
+.dl-leaves { list-style:none; margin:clamp(12px,1.6vw,20px) 0 clamp(24px,3vw,36px); padding:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(12px,1.6vw,20px); }
+.dl-leaves li { --c:var(--dl-4); display:grid; grid-template-columns:46px minmax(0,1fr); grid-template-areas:"icon title" "icon q"; align-content:start; gap:4px 14px; padding:18px 18px 20px; background:rgba(255,255,255,.35); border:1.5px solid rgba(var(--ink-rgb),.45); border-top:5px solid var(--c); border-radius:9px 7px 10px 8px / 8px 10px 7px 9px; box-shadow:0 6px 16px rgba(var(--ink-rgb),.08); }
+.dl-leaves li:nth-child(2) { --c:var(--dl-3); } .dl-leaves li:nth-child(3) { --c:var(--dl-2); } .dl-leaves li:nth-child(4) { --c:var(--dl-1); }
+.dl-leaves-icon { grid-area:icon; align-self:start; display:grid; place-items:center; width:46px; height:46px; border-radius:50%; background:color-mix(in srgb, var(--c) 14%, transparent); color:var(--c); }
+.dl-leaves b { grid-area:title; align-self:end; font-size:12px; font-weight:700; letter-spacing:.16em; line-height:1.3; text-transform:uppercase; color:var(--c); }
+.dl-leaves-q { grid-area:q; font-size:15px; line-height:1.45; }
+@media (max-width:640px) { .dl-leaves { grid-template-columns:1fr; } }
 
-@media (max-width:900px) { .dl-cycle, .dl-practices { position:static; max-width:520px; margin:8px auto 0; } }
+@media (max-width:900px) { .dl-practices { position:static; max-width:520px; margin:8px auto 0; } }

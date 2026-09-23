@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Brush, Sym } from './ui';
 
-// CURIOUS — paper on the left tearing into a charcoal panel that holds the button (home design part 1)
+// CURIOUS — paper on the left tearing into an oxblood panel that holds the button (home design part 1)
 export default function Curious() {
   return (
     <section className="curious" aria-labelledby="curious-h">

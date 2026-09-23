@@ -61,12 +61,12 @@
 @media (max-width:900px) { .holes { grid-template-columns:1fr; } .holes-loop { display:none; } }
 @media (max-width:600px) { .holes-grid { grid-template-columns:1fr; } .hole-card, .hole-card:hover { min-height:220px; } }
 
-/* Curious: paper left, charcoal panel torn in from the right */
+/* Curious: paper left, oxblood panel (the rabbit-hole card colour) torn in from the right */
 .curious { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:stretch; gap:0; margin-inline:calc(50% - 50vw); padding:0; border-top:1px solid rgba(var(--ink-rgb),.1); }
 .curious-copy { padding:clamp(40px,5.5vw,76px) clamp(20px,3vw,48px) clamp(40px,5.5vw,76px) max(var(--gutter),calc(50vw - 640px + var(--gutter))); }
 .curious-copy .hm-h2 { margin-bottom:clamp(22px,2.6vw,32px); max-width:12em; }
 .curious-copy p { margin:0; max-width:24ch; font-size:clamp(17px,1.4vw,20px); line-height:1.55; color:var(--ink); }
-.curious-panel { display:flex; align-items:center; gap:clamp(16px,2.4vw,32px); padding:clamp(36px,5vw,64px) var(--gutter) clamp(36px,5vw,64px) clamp(64px,9vw,140px); background:var(--hm-coal) var(--hm-grain); clip-path:polygon(13% 0,100% 0,100% 100%,0 100%,2.5% 95%,1% 89%,4.5% 84%,3% 77%,6% 71%,4% 64%,7.5% 58%,5.5% 50%,8.5% 43%,7% 36%,10% 29%,8% 22%,11.5% 15%,10% 8%); }
+.curious-panel { display:flex; align-items:center; gap:clamp(16px,2.4vw,32px); padding:clamp(36px,5vw,64px) var(--gutter) clamp(36px,5vw,64px) clamp(64px,9vw,140px); background:var(--hm-grain), linear-gradient(160deg,#4a1818 0%,#3a1213 60%,#5a2014 100%); clip-path:polygon(13% 0,100% 0,100% 100%,0 100%,2.5% 95%,1% 89%,4.5% 84%,3% 77%,6% 71%,4% 64%,7.5% 58%,5.5% 50%,8.5% 43%,7% 36%,10% 29%,8% 22%,11.5% 15%,10% 8%); }
 .curious-arrow { width:clamp(60px,6.5vw,88px); }
 @media (max-width:760px) {
   .curious { grid-template-columns:1fr; }

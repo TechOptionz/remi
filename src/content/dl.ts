@@ -2,6 +2,7 @@
 // Headings and body copy live in components/dl/. Source: "Disruptive Leadership" copy deck + the model diagram.
 import { DISRUPTIVE_LEADERSHIP_HREF, REBEL_YELL_HREF } from './cam';
 import { TRUSTME_INVITE_HREF } from './trustme';
+import type { IconName } from '@/components/shared/Icon';
 
 export const DL_PAGE_HREF = '/ideas-models/disruptive-leadership';
 
@@ -47,11 +48,11 @@ export const EVOLVE_QUESTIONS = [
 ];
 
 /** What a great result should leave behind, from the foot of the diagram. */
-export const LEAVES_BEHIND = [
-  { title: 'Better results', q: 'What became possible because we led?' },
-  { title: 'Stronger people', q: 'How did people grow through the experience?' },
-  { title: 'More capable systems', q: 'How did the systems improve?' },
-  { title: 'What’s next', q: 'What can we now do, think or create that we couldn’t before?' },
+export const LEAVES_BEHIND: { title: string; q: string; icon: IconName }[] = [
+  { title: 'Better results', q: 'What became possible because we led?', icon: 'target' },
+  { title: 'Stronger people', q: 'How did people grow through the experience?', icon: 'people' },
+  { title: 'More capable systems', q: 'How did the systems improve?', icon: 'gear' },
+  { title: 'What’s next', q: 'What can we now do, think or create that we couldn’t before?', icon: 'bulb' },
 ];
 
 /** Work with the model: the book, Rebel Yell and the invitation. */

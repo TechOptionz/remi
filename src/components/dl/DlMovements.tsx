@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Body, Box, Hand, Part } from '@/components/ideas/ui';
+import Icon from '@/components/shared/Icon';
 import { EVOLVE_QUESTIONS, LEAVES_BEHIND, MOVEMENTS } from '@/content/dl';
 
 /** Heading for one movement: its number, name and what it asks of us. */
@@ -96,7 +97,13 @@ export default function DlMovements() {
         <Body>A great result should leave behind greater capacity, but greater capacity doesn’t necessarily mean more. It may mean greater simplicity, better judgement, stronger or more appropriate systems, greater emotional capacity, more sophisticated thinking, increased candour, clearer accountability, stronger relationships, fewer bottlenecks or the wisdom to stop doing something altogether.</Body>
       </div>
       <ul className="dl-leaves" aria-label="What a great result leaves behind">
-        {LEAVES_BEHIND.map(l => <li key={l.title}><b>{l.title}</b><span>{l.q}</span></li>)}
+        {LEAVES_BEHIND.map(l => (
+          <li key={l.title}>
+            <span className="dl-leaves-icon" aria-hidden="true"><Icon name={l.icon} size={26} strokeWidth={1.4} /></span>
+            <b>{l.title}</b>
+            <span className="dl-leaves-q">{l.q}</span>
+          </li>
+        ))}
       </ul>
       <div className="triad-prose">
         <Body>Then we return to the beginning, because what we have learned changes what we are capable of seeing.</Body>

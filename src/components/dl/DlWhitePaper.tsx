@@ -1,7 +1,7 @@
 import { Body, H3, Hand, Part } from '@/components/ideas/ui';
 import { MOVEMENT_LINES, PURPOSE } from '@/content/dl';
 
-/** The five movements as a cycle: a ring of five steps around the purpose. */
+/** The five movements as a cycle: a full-width row of five steps (a stacked list on small screens), then the loop and the purpose. */
 function Cycle() {
   return (
     <figure className="dl-cycle" aria-label="The five movements of Disruptive Leadership form a continuous cycle">
@@ -34,16 +34,14 @@ export default function DlWhitePaper() {
       </div>
 
       <H3 v={['left', 'rule']}>The five movements of Disruptive Leadership</H3>
-      <div className="dsr-grid dsr-grid--ladder">
-        <div className="triad-prose">
-          <Body>Disruptive Leadership moves through five interconnected practices:</Body>
-          <ol className="dl-lines">
-            {MOVEMENT_LINES.map(m => <li key={m.name}><b>{m.name.toUpperCase()}</b> <span aria-hidden="true">→</span> {m.text}</li>)}
-          </ol>
-          <Body>These aren’t five boxes to tick. They form a continuous cycle, and every time we move through that cycle, we should become more capable of beginning it again.</Body>
-        </div>
-        <Cycle />
+      <div className="triad-prose">
+        <Body>Disruptive Leadership moves through five interconnected practices:</Body>
+        <ol className="dl-lines">
+          {MOVEMENT_LINES.map(m => <li key={m.name}><b>{m.name.toUpperCase()}</b> <span aria-hidden="true">→</span> {m.text}</li>)}
+        </ol>
+        <Body>These aren’t five boxes to tick. They form a continuous cycle, and every time we move through that cycle, we should become more capable of beginning it again.</Body>
       </div>
+      <Cycle />
     </Part>
   );
 }

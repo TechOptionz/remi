@@ -14,7 +14,7 @@ export default function LifesWork() {
       <p className="body-xl">They all grew from one woman trying to understand why some people experience heartbreak and still find a way to triumph.</p>
       <p className="body-xl">More than twenty-three years later, I'm still following that question.</p>
       <img className="signature" src="/assets/remi-signature.png" alt="Remi" width="200" height="98" />
-      <Link href="/ideas-models" className="btn btn--primary btn--caps">Explore the work <span aria-hidden="true">✳</span></Link>
+      <Link href="/ideas-models" className="btn btn--primary btn--caps">Explore the work</Link>
     </section>
   );
 }

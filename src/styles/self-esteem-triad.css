@@ -83,7 +83,7 @@
 .explore--rust .explore-h { color:var(--rust); } .explore--gold .explore-h { color:var(--gold); } .explore--olive .explore-h { color:#6b6a3c; }
 
 /* Related + CTA */
-.related-cards { grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); margin-bottom:8px; }
+.related-cards { grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); margin-bottom:clamp(36px,4.5vw,56px); }
 .centre-panel .panel-body { max-width:none; }
 .triad-cta { text-align:center; }
 .triad-cta .panel-title { text-align:center; }

@@ -1,6 +1,8 @@
 /* ============ The Critical Alignment Model (/ideas-models/critical-alignment-model) ============ */
 /* Shares the chapter layout of the other Ideas & Models chapters; only its own pieces live here. */
-.cam-plate { width:100%; margin-bottom:10px; }
+/* The model diagram is drawn on white: multiply it onto the parchment so it blends in, unframed, at a readable size (tap to enlarge for detail) */
+.cam-plate { width:min(100%,680px); margin-bottom:10px; border-radius:0; box-shadow:none; overflow:visible; }
+.triad-diagram.cam-plate > img { mix-blend-mode:multiply; }
 .cam-head-note { max-width:220px; }
 
 /* The alignment gap: the five dimensions in sequence, split by the line between intended and expressed */
