@@ -1,7 +1,7 @@
 /* ============ Site search (header button + dialog, components/layout/SiteSearch.tsx) ============ */
 .search-btn { display:inline-flex; align-items:center; justify-content:center; flex:none; width:40px; height:40px; padding:0; border:1px solid rgba(var(--ink-rgb),.25); border-radius:999px; background:transparent; color:var(--ink); cursor:pointer; transition:color .2s, border-color .2s, background .2s; }
 .search-btn:hover, .search-btn:focus-visible { color:var(--accent); border-color:var(--accent); }
-@media (max-width:899px) { .search-btn { width:44px; height:44px; } }
+@media (max-width:1079px) { .search-btn { width:44px; height:44px; } }
 
 /* The dialog sits in the top layer but inherits from the header, so colour and type are set explicitly */
 .search-dialog { width:min(680px, calc(100vw - 32px)); max-width:none; max-height:min(620px, calc(100dvh - 48px)); margin:clamp(16px,10vh,96px) auto auto; padding:0; border:1px solid rgba(var(--ink-rgb),.14); border-radius:18px; background:var(--card); color:var(--ink); text-shadow:none; font-family:var(--sans); font-size:15px; box-shadow:0 30px 90px rgba(var(--shadow-rgb),.35); overflow:hidden; }
