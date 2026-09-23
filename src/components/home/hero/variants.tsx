@@ -3,6 +3,7 @@
 // The home hero layouts. Hero.tsx renders the one picked in the Variants menu.
 // `onWatch` opens the video modal (C2/C3 open their own picture-in-picture player instead).
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { HERO_COPY } from '@/content/site';
 import Icon from '@/components/shared/Icon';
 import SocialLinks from '@/components/shared/SocialLinks';
@@ -131,6 +132,7 @@ export function HeroC2() {
         <div className="pip-big" hidden={!pipOpen}>
           <div className="pip-big-frame">{pipOpen && <VimeoFrame params={VIMEO.player} />}</div>
           <button type="button" className="glass-btn" aria-label="Close video" onClick={() => setPipOpen(false)}>Close ×</button>
+          <Link href="/invite-remi?invite=Speaking#invite-form" className="glass-btn pip-invite">Invite Remi to speak <span aria-hidden="true">→</span></Link>
         </div>
       </PortraitTop>
     </section>

@@ -12,6 +12,7 @@ export default function RemiAsGuest() {
         <div className="guest-actions">
           <a href="#archive" className="btn btn--primary btn--caps" data-topic="Remi as guest">Hear Remi as the guest</a>
           <Link href="/invite-remi?invite=Conversation#invite-form" className="btn btn--outline btn--caps">Invite me to your podcast</Link>
+          <Link href="/invite-remi?invite=Broadcast#invite-form" className="btn btn--outline btn--caps">Book a TV or radio interview</Link>
         </div>
       </div>
     </section>

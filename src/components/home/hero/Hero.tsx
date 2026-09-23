@@ -2,6 +2,7 @@
 
 // Home hero: renders the variant picked in the Variants menu, plus the shared video modal.
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { useSiteState } from '@/lib/site-state';
 import { HeroA, HeroB, HeroC, HeroC1, HeroC2, HeroD, HeroE } from './variants';
 import { VIMEO, VimeoFrame } from './parts';
@@ -33,6 +34,11 @@ export default function Hero() {
         <div className="video-modal-frame">
           {modalOpen && <VimeoFrame params={VIMEO.modal} title="Remi Pearson — featured talk" />}
         </div>
+        {/* Cross-link to booking: the invite form preset to Speaking, with the speaker reel on the same page */}
+        <p className="video-modal-cta">
+          Want this in your room?{' '}
+          <Link href="/invite-remi?invite=Speaking#invite-form" onClick={() => setModalOpen(false)}>Invite Remi to speak <span aria-hidden="true">→</span></Link>
+        </p>
         <button type="button" className="video-modal-close" aria-label="Close" onClick={() => setModalOpen(false)}>×</button>
       </div>
     </>

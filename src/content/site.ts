@@ -7,6 +7,8 @@ export const SITE = {
   logoAlt: 'Remi — Let truth lead',
   copyright: '© 2026 Remi Pearson. All rights reserved.',
   vimeoId: '1221386697',
+  // Speaker reel on /invite-remi#speaker-reel (linked from About Remi). Uses the featured talk until a dedicated reel exists.
+  speakerReelVimeoId: '1221386697',
 };
 
 // ---------- Navigation (header, mobile menu and footer "Explore" column) ----------
@@ -119,6 +121,7 @@ export const INTERESTS = [
 // ---------- Invite Remi form: "What are you inviting me to?" options ----------
 export const INVITATIONS = [
   { value: 'Conversation', label: 'A proper conversation — podcast, interview, fireside chat' },
+  { value: 'Broadcast', label: 'A TV or radio interview' },
   { value: 'Room', label: 'An interesting room — panel, roundtable, salon, festival' },
   { value: 'Speaking', label: 'A stage — keynote or public lecture' },
   { value: 'Facilitation', label: 'Senior team facilitation' },

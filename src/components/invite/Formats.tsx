@@ -1,7 +1,8 @@
 import Icon, { type IconName } from '@/components/shared/Icon';
 
 const FORMATS: { icon: IconName; title: string; text: string }[] = [
-  { icon: 'mic', title: 'Long-form conversations', text: 'Podcasts, video interviews, radio, fireside chats and conversations where neither person is simply waiting for the next question.' },
+  { icon: 'mic', title: 'Long-form conversations', text: 'Podcasts, video interviews, fireside chats and conversations where neither person is simply waiting for the next question.' },
+  { icon: 'tv', title: 'TV & radio interviews', text: 'Live and pre-recorded television and radio, from news and current affairs commentary to in-depth studio conversations on psychology, relationships and leadership.' },
   { icon: 'chat', title: 'Panels & public dialogue', text: 'Expert panels, debates and moderated conversations exploring more than one honest perspective.' },
   { icon: 'roundtable', title: 'Roundtables, salons & private gatherings', text: 'Small, exceptional rooms where founders, thinkers and practitioners can speak candidly and go somewhere unexpected.' },
   { icon: 'institution', title: 'Festivals, universities & ideas events', text: "Writers' festivals, book events, public lectures and intelligent gatherings across psychology, relationships, leadership and human behaviour." },
@@ -10,7 +11,7 @@ const FORMATS: { icon: IconName; title: string; text: string }[] = [
   { icon: 'star', title: 'One-off masterclasses & guest experiences', text: 'A substantial contribution inside an established program, retreat or community when the audience and question are genuinely interesting.' },
 ];
 
-// INVITATIONS THAT LIGHT ME UP — intro with photo collage, then the seven formats (4 + 3, centred)
+// INVITATIONS THAT LIGHT ME UP — intro with photo collage, then the eight formats (4 + 4)
 export default function Formats() {
   return (
     <section className="section section--tight" aria-labelledby="light-h">

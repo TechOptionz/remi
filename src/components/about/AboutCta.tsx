@@ -11,6 +11,7 @@ export default function AboutCta() {
         <div className="btn-row btn-row--start">
           <Link href="/invite-remi?invite=Conversation#invite-form" className="btn btn--outline btn--caps">Invite me to your podcast</Link>
           <Link href="/invite-remi?invite=Speaking#invite-form" className="btn btn--outline btn--caps">Invite me to speak</Link>
+          <Link href="/invite-remi#speaker-reel" className="btn btn--outline btn--caps">Watch the speaker reel</Link>
         </div>
       </div>
     </section>

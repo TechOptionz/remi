@@ -28,6 +28,6 @@ export const CHAT_TOPICS: [RegExp, string][] = [
   [/coach/, 'Coaching'],
   [/keynote|speak|stage|conference|event/, 'Speaking'],
   [/strateg|facilitat|offsite|board|workshop/, 'Facilitation'],
-  [/podcast|media|interview|press/, 'Media'],
+  [/podcast|media|interview|press|\btv\b|television|radio/, 'Media'],
   [/book|program|course|product|audit/, 'Products'],
 ];

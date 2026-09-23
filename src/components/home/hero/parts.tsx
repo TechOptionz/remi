@@ -10,10 +10,10 @@ export const VIMEO = {
   modal: 'autoplay=1&dnt=1',
 };
 
-type FrameProps = { params: string; title?: string; className?: string; allow?: string };
+type FrameProps = { params: string; title?: string; className?: string; allow?: string; videoId?: string };
 
 export const VimeoFrame = forwardRef<HTMLIFrameElement, FrameProps>(function VimeoFrame(
-  { params, title = 'Remi Pearson — introduction', className, allow = 'autoplay; fullscreen; picture-in-picture' }, ref) {
+  { params, title = 'Remi Pearson — introduction', className, allow = 'autoplay; fullscreen; picture-in-picture', videoId = SITE.vimeoId }, ref) {
   return (
     <iframe
       ref={ref}
@@ -21,7 +21,7 @@ export const VimeoFrame = forwardRef<HTMLIFrameElement, FrameProps>(function Vim
       title={title}
       // The Vimeo video is domain-restricted; sending no referrer lets it play
       referrerPolicy="no-referrer"
-      src={`https://player.vimeo.com/video/${SITE.vimeoId}?${params}`}
+      src={`https://player.vimeo.com/video/${videoId}?${params}`}
       allow={allow}
       allowFullScreen
     />

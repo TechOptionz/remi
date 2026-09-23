@@ -134,3 +134,21 @@ main > .band-dark:last-child { border-bottom:1px solid rgba(var(--footer-ink-rgb
 .founder-card .btn { display:flex; align-items:center; justify-content:center; min-height:60px; }
 .invite-form select { text-overflow:ellipsis; white-space:nowrap; overflow:hidden; }
 .hand-quote--center .underline::after, .fit-lists .underline::after { left:0; right:0; }
+
+/* Speaker reel — click-to-play video beside the booking buttons (components/invite/SpeakerReel.tsx) */
+.reel { display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:clamp(24px,4vw,64px); align-items:center; }
+.reel-video { position:relative; aspect-ratio:16/9; border-radius:14px; overflow:hidden; background:#000; box-shadow:0 24px 60px -20px rgba(var(--shadow-rgb),.45); }
+.reel-video iframe { display:block; width:100%; height:100%; border:0; }
+.reel-poster { position:absolute; inset:0; width:100%; padding:0; border:0; background:none; cursor:pointer; color:#fff; }
+.reel-poster img { width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+.reel-poster::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.6)); }
+.reel-poster:hover img { transform:scale(1.03); }
+.reel-play { position:absolute; left:50%; top:50%; z-index:1; display:grid; place-items:center; width:clamp(64px,7vw,84px); aspect-ratio:1; border-radius:50%; background:var(--accent); color:var(--on-accent); transform:translate(-50%,-50%); box-shadow:0 10px 30px rgba(0,0,0,.35); transition:transform .2s ease; }
+.reel-play svg { margin-left:4px; }
+.reel-poster:hover .reel-play { transform:translate(-50%,-50%) scale(1.06); }
+.reel-poster:focus-visible { outline:3px solid var(--accent); outline-offset:-3px; }
+.reel-label { position:absolute; left:clamp(16px,2vw,24px); bottom:clamp(14px,1.8vw,20px); z-index:1; font-size:12.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+.reel-copy .part-lede { margin-bottom:24px; }
+.reel-actions { display:flex; flex-wrap:wrap; gap:12px; }
+@media (max-width:900px) { .reel { grid-template-columns:1fr; } }
+@media (max-width:480px) { .reel-actions .btn { width:100%; } }
