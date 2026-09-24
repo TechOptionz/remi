@@ -155,10 +155,19 @@ html[data-active-hero="C3"] .portrait-inner { padding-inline:var(--gutter); }
 }
 
 @media (max-width:760px) {
-  .portrait-top { align-items:flex-end; min-height:0; }
-  .portrait-img { height:60%; object-position:50% 0; }
-  .portrait-fade { background:linear-gradient(to top, var(--bg) 0%, var(--bg) 42%, rgba(var(--bg-rgb),0) 62%); }
-  .portrait-inner { padding-top:54vw; }
+  /* Phones: photo on top (fading out), copy on the plain background below it, then the video card — nothing overlaps */
+  .portrait-top { flex-direction:column; align-items:stretch; min-height:0; background:var(--bg); }
+  .portrait-top--tall { min-height:0; }
+  .portrait-img { position:relative; inset:auto; height:auto; aspect-ratio:1/1; object-position:50% 8%; -webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent 100%); mask-image:linear-gradient(to bottom,#000 62%,transparent 100%); }
+  .portrait-fade { display:none; }
+  .portrait-inner { margin-top:-40px; padding-top:0; padding-bottom:28px; }
   .portrait-copy { max-width:100%; }
+  .portrait-copy .eyebrow { margin-bottom:14px; font-size:12px; letter-spacing:.16em; white-space:nowrap; }
+  .hero-title--c1 { font-size:min(48px,10.2vw); white-space:nowrap; margin-bottom:18px; }
+  .hero-title--c1 br { display:none; }
+  .hero-title--c1 em::before { content:" "; }
+  .portrait-copy .btn-row { flex-wrap:wrap; }
+  .pip-small { position:relative; right:auto; bottom:auto; width:auto; margin:0 clamp(16px,4vw,24px) 24px; }
+  .pip-big { position:fixed; z-index:60; }
 }
 

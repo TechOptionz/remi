@@ -45,6 +45,7 @@ main > .band-dark:last-child { border-bottom:1px solid rgba(var(--footer-ink-rgb
 @media (max-width:520px) {
   .room-card { grid-template-columns:1fr; }
   .room-icon { width:72px; height:72px; }
+  .btn--wide { padding-inline:14px; letter-spacing:.08em; font-size:13px; }
 }
 
 .band-dark--tight { padding-block:clamp(32px,4vw,52px); }
@@ -122,7 +123,22 @@ main > .band-dark:last-child { border-bottom:1px solid rgba(var(--footer-ink-rgb
 .invite-sent h3 { margin:0; font-family:var(--serif); font-weight:400; font-size:38px; color:var(--ink-strong); }
 .invite-sent p { margin:0; font-size:16px; line-height:1.55; color:rgba(var(--ink-rgb),.72); }
 .invite-sent .btn { align-self:flex-start; margin-top:8px; }
-@media (max-width:760px) { .invite-form { grid-template-columns:1fr; } }
+/* Phones: one column. The long answers no longer share a row height with the left column,
+   so they size themselves; 16px text stops iOS zooming into a field on focus. */
+@media (max-width:760px) {
+  .invite-form { grid-template-columns:1fr; gap:14px; }
+  .invite-col { gap:14px; }
+  .invite-col:not(.invite-col--inline) label { flex:none; }
+  .invite-col:not(.invite-col--inline) textarea { flex:none; min-height:112px; }
+  .invite-form input, .invite-form select, .invite-form textarea { padding:12px 14px; font-size:16px; }
+  .invite-form select { padding-right:36px; background:rgba(var(--ink-rgb),.05) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23b9ab98' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 14px center; }
+  .invite-actions { flex-direction:column; align-items:stretch; margin-top:4px; }
+  .invite-actions .btn { width:100%; justify-content:center; }
+  .invite-actions .fine { text-align:center; }
+  .invite-panel-title { font-size:clamp(24px,7vw,30px); }
+  .invite-sent h3 { font-size:32px; }
+  .invite-sent .btn { align-self:stretch; }
+}
 
 .founders-title::after { content:""; display:block; width:min(180px,40%); height:3px; margin:14px auto 0; background:var(--accent); border-radius:999px; transform:rotate(-.8deg); }
 .founder-card .btn { align-self:stretch; width:auto; }
