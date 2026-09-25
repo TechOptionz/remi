@@ -19,7 +19,7 @@ export type GlanceCard = { href: string; icon: GlanceIconName; title: string };
 export const GLANCE: { name: string; href: string; art: string; cards: GlanceCard[] }[] = [
   { name: 'Human foundations', href: '#part-3', art: 'p2-v1', cards: [
     { href: '/ideas-models/self-esteem-triad', icon: 'triangle', title: 'Self-Esteem Triad' },
-    { href: '/ideas-models/safe-problems-risky-truths', icon: 'warning', title: 'Safe versus Risky Problems' },
+    { href: '/ideas-models/safe-problems-risky-truths', icon: 'warning', title: 'Safe vs Risky Problems' },
   ] },
   { name: 'Emotional change', href: '#part-4', art: 'p2-v2', cards: [
     { href: '/ideas-models/deep-state-repatterning', icon: 'spiral', title: 'Deep State Repatterning' },

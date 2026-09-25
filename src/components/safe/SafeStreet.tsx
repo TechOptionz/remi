@@ -3,11 +3,11 @@ import { Body, H3, Hand, Part } from '@/components/ideas/ui';
 
 const STREET_ALT = 'Taking care of your side of the street: ten safe problems and the risky truths they may protect. Safe problems, what I keep trying to fix, are paired with risky truths, what I might gently explore. For example: if my partner would change I could finally feel okay, paired with what hurts here, what do I need, and what boundary or choice is mine if they do not change. Caption: my agency does not depend on their willingness to change. These are possibilities to explore, not assumptions. Taking responsibility for my response does not make me responsible for someone else’s harm.';
 
-// TAKING CARE OF YOUR SIDE OF THE STREET — the anxious/avoidant example, then the poster of ten safe problems
+// HOW DO YOU TAKE CARE OF YOUR SIDE OF A RELATIONSHIP? — the anxious/avoidant example, then the poster of ten safe problems
 export default function SafeStreet() {
   return (
     <Part n={4}>
-      <H3 v={['left', 'rule']}>Taking care of your side of the street</H3>
+      <H3 v={['left', 'rule']}>How do you take care of your side of a relationship?</H3>
       <div className="street-grid">
         <div className="triad-prose">
           <Body>The relationship between an anxiously attached person and a dismissively avoidant partner can help illustrate this distinction. These are descriptions of attachment patterns, not fixed identities, and the details differ between relationships. But a familiar dynamic is one person pursuing connection while the other withdraws from it.</Body>

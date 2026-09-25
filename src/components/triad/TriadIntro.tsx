@@ -6,7 +6,7 @@ const TRIAD_ALT = 'The Self-Esteem Triad: a triangle whose three sides are Emoti
 // SELF-ESTEEM IS SOMETHING WE LIVE — breadcrumb, title beside the triad (triangle only), the "I am" lines, why confidence is not the same thing, I-amness
 export default function TriadIntro() {
   return (
-    <Part n={1} className="triad-intro">
+    <Part n={1} className="triad-intro triad-intro--oneline">
       <nav className="crumbs" aria-label="Breadcrumb">
         <Link href="/">Home</Link><span aria-hidden="true">/</span>
         <Link href="/ideas-models">Ideas &amp; Models</Link><span aria-hidden="true">/</span>

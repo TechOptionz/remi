@@ -1,10 +1,10 @@
 import { Body, H3, Hand, Part } from '@/components/ideas/ui';
 
-// WHY I LOOK BENEATH THE BEHAVIOUR + THE RISK IS IN WHAT WE MIGHT HAVE TO ACKNOWLEDGE
+// WHY DO WE REPEAT BEHAVIOURS WE WANT TO STOP? + WHAT MAKES A TRUTH FEEL RISKY?
 export default function SafeBeneath() {
   return (
     <Part n={3}>
-      <H3 v={['left', 'rule']}>Why I look beneath the behaviour</H3>
+      <H3 v={['left', 'rule']}>Why do we repeat behaviours we want to stop?</H3>
       <div className="triad-prose">
         <Body>In my work, I am rarely satisfied with helping someone manage a protective behaviour without also exploring what it is protecting. I want to understand what happens inside them when the familiar way of coping is unavailable.</Body>
         <Body>Consider someone whose addictive behaviour is bound up with loneliness or disconnection. “I have to stop doing this” may become the entire problem as they understand it. They monitor themselves, make promises, try harder and feel ashamed when they return to the behaviour. Meanwhile, the question of how to experience genuine connection remains largely untouched.</Body>
@@ -16,7 +16,7 @@ export default function SafeBeneath() {
         <Hand v={['sm']}>As that capacity develops, the behaviour may become less necessary. There is more available to the person than the familiar struggle to overpower themselves.</Hand>
       </div>
 
-      <H3 v={['left', 'rule']}>The risk is in what we might have to acknowledge</H3>
+      <H3 v={['left', 'rule']}>What makes a truth feel risky?</H3>
       <div className="triad-prose">
         <Body>A risky truth often brings us close to something we have spent years avoiding. We may have to acknowledge how much we want to be loved, how lonely we have become, or how frightened we are that someone could know us properly and still leave.</Body>
         <Body>We may also have to recognise what we already know about a situation. That a relationship is hurting us. That we keep agreeing to things we resent. That the life we are maintaining requires us to suppress needs we can no longer pretend not to have.</Body>

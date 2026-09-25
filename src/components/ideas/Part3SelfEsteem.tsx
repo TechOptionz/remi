@@ -57,7 +57,7 @@ export default function Part3SelfEsteem() {
       <ZoomArt name="p3-triad" alt={TRIAD_ALT} label="the Self-Esteem Triad" className="ideas-art--center ideas-bleed triad-art" />
       <Btn href={TRIAD_PAGE_HREF} v={['sm', 'center']}>Read the Self-Esteem Triad in full</Btn>
       <EmotionalNeeds />
-      <H3 v={['stars']}><Star /> Safe versus Risky Problems <Star /></H3>
+      <H3 v={['stars']}><Star /> Safe vs Risky Problems <Star /></H3>
       <SafeVersusRisky />
       <Btn href={SAFE_PAGE_HREF} v={['sm', 'center']}>Read Safe Problems, Risky Truths in full</Btn>
     </Part>

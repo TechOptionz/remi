@@ -1,5 +1,5 @@
 // Content for the Safe Problems, Risky Truths page (/ideas-models/safe-problems-risky-truths): the lists it renders.
-// Headings and body copy live in components/safe/. Source: "Safe Problems" copy deck.
+// Headings and body copy live in components/safe/. Source: "Safe Versus Risky Problems" article (Sept 2026).
 
 export const SAFE_PAGE_HREF = '/ideas-models/safe-problems-risky-truths';
 

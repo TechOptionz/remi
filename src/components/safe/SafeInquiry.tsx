@@ -4,11 +4,11 @@ import { INQUIRY } from '@/content/safe';
 
 const PATH_ALT = 'From recognising protection to finding choice. Four steps on a returning loop: notice the familiar focus; become curious about what it protects; meet the underlying experience with support; discover what choice is available. The support step connects to parts work, EIT, the Self-Esteem Triad, emotional needs, emotions, boundaries and Deep State Repatterning. At the pace of the person’s capacity.';
 
-// AN IDENTIFICATION MODEL, FOLLOWED BY COMPASSIONATE INQUIRY — the five questions, the approaches, the path diagram
+// HOW CAN YOU RECOGNISE A SAFE PROBLEM AND EXPLORE WHAT LIES BENEATH IT? — the five questions, the approaches, the path diagram
 export default function SafeInquiry() {
   return (
     <Part n={6}>
-      <H3 v={['left', 'rule']}>An identification model, followed by compassionate inquiry</H3>
+      <H3 v={['left', 'rule']}>How can you recognise a safe problem and explore what lies beneath it?</H3>
       <div className="triad-prose">
         <Body>Safe Problems, Risky Truths helps us recognise where we may be directing our attention and what we may be protecting. It gives us a place to begin. The work that follows depends on the person and what emerges.</Body>
         <Body>I might invite someone to consider:</Body>

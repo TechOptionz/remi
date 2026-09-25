@@ -10,7 +10,7 @@ import SafeInquiry from '@/components/safe/SafeInquiry';
 import SafeOkay from '@/components/safe/SafeOkay';
 
 export const metadata: Metadata = {
-  title: 'Safe Problems, Risky Truths — Remi Pearson',
+  title: 'Why Do We Keep Trying to Solve the Same Problem? Safe Problems, Risky Truths — Remi Pearson',
   description: 'What the problem we keep trying to solve may be protecting us from. Remi Pearson’s distinction between safe problems and risky truths, taking care of your side of the street, and the compassionate inquiry that follows.',
 };
 

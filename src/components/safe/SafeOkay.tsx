@@ -2,11 +2,11 @@ import Link from 'next/link';
 import { Body, Box, Btn, H3, Hand, Part } from '@/components/ideas/ui';
 import { RELATED } from '@/content/safe';
 
-// BEING OKAY WITH NOT FEELING OKAY — self-acceptance, the triad, "what would love do", then related ideas
+// CAN YOU BE OKAY WITH NOT FEELING OKAY? — self-acceptance, the triad, "what would love do", then related ideas
 export default function SafeOkay() {
   return (
     <Part n={7}>
-      <H3 v={['left', 'rule']}>Being okay with not feeling okay</H3>
+      <H3 v={['left', 'rule']}>Can you be okay with not feeling okay?</H3>
       <div className="triad-prose">
         <Body>For me, the pathway to self-acceptance includes building a relationship with the emotions we would rather not have. It is difficult to accept ourselves while continually rejecting what we feel.</Body>
         <Body>That does not mean we enjoy every emotion, act on every impulse or remain indefinitely in distress. It means we begin to recognise that sadness can be here without making us inadequate. Loneliness can be acknowledged without making us unlovable. Hurt can receive our attention without becoming evidence that something is wrong with us.</Body>
