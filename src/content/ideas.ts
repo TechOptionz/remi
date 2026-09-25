@@ -2,6 +2,8 @@
 
 /** Where "Explore …" buttons go until the product pages exist: the homepage enquiry form, preset to Books & programs. */
 export const PRODUCTS_HREF = '/?interest=Products#contact';
+/** The CAM Mini Profiler landing page (its three parts lead to the online quiz). */
+export const CAM_PROFILER_HREF = '/ideas-models/critical-alignment-model/mini-profiler';
 
 // ---------- Part One: clickable regions over the hand-drawn map (percentages of the image) ----------
 export const MAP_HOTSPOTS = [
@@ -82,7 +84,7 @@ export const CAM_STATS = [
 ];
 export const CAM_PAIR = [
   { title: 'CAM is the model', text: 'It reveals where alignment is breaking and what kind of thinking or action the situation requires.', cta: 'Explore CAM', href: '/ideas-models/critical-alignment-model' },
-  { title: 'The Meta Dynamics™ Profiling Tool is the measurement', text: 'It translates CAM into a developmental assessment of thinking preferences across 16 dimensions and 41 characteristics.', cta: 'Take the mini profiler', href: PRODUCTS_HREF },
+  { title: 'The Meta Dynamics™ Profiling Tool is the measurement', text: 'It translates CAM into a developmental assessment of thinking preferences across 16 dimensions and 41 characteristics.', cta: 'Take the mini profiler', href: CAM_PROFILER_HREF },
 ];
 
 // ---------- Part Six ----------

@@ -1,13 +1,13 @@
 // Content for the Critical Alignment Model page (/ideas-models/critical-alignment-model): the lists it renders.
 // Headings and body copy live in components/cam/. Source: "The Critical Alignment Model" copy deck.
-import { PRODUCTS_HREF } from './ideas';
+import { CAM_PROFILER_HREF, PRODUCTS_HREF } from './ideas';
 
 export const CAM_PAGE_HREF = '/ideas-models/critical-alignment-model';
 
 /** Rebel Yell waitlist (the Programs page form). */
 export const REBEL_YELL_HREF = '/programs#waitlist';
-/** The CAM mini profile and Disruptive Leadership go to the enquiry form until their pages / shop links exist. */
-export const CAM_PROFILE_HREF = PRODUCTS_HREF;
+/** The CAM Mini Profiler landing page. Disruptive Leadership goes to the enquiry form until its shop link exists. */
+export const CAM_PROFILE_HREF = CAM_PROFILER_HREF;
 export const DISRUPTIVE_LEADERSHIP_HREF = PRODUCTS_HREF;
 
 /** The five dimensions in sequence, as lettered on the diagram. `line` says which side of the alignment gap each sits on. */
@@ -71,4 +71,25 @@ export const RELATED = [
   { title: 'Values Alignment Technique', text: 'Understanding what is driving your life before deciding where to take it.', href: '/ideas-models/values-alignment-technique', cta: 'Explore VAT', art: 'p4-compass' },
   { title: 'T.R.U.S.T.M.E.', text: 'What operating logic is this person, team or organisation using?', href: '/ideas-models/trustme-model', cta: 'See the levels', art: 'p6-spiral' },
   { title: 'Safe Problems, Risky Truths', text: 'What the problem we keep trying to solve may be protecting us from.', href: '/ideas-models/safe-problems-risky-truths', cta: 'Read on', art: 'p3-wrench' },
+];
+
+/* ---------- The CAM Mini Profiler (/ideas-models/critical-alignment-model/mini-profiler) ---------- */
+
+/** "Access the assessment": the online quiz. Goes to the enquiry form until the quiz link exists — paste it here. */
+export const CAM_QUIZ_HREF = PRODUCTS_HREF;
+
+/** Part Two: the four dimensions, above and below the line. `icon` is /assets/ideas/cam-mp-<icon>.webp. */
+export const PROFILER_DIMENSIONS: { line: 'above' | 'below'; title: string; role: string; icon: string; text: string; question: string }[] = [
+  { line: 'above', title: 'Environment', role: 'The Visionary', icon: 'env', text: 'The context and container: purpose, values, beliefs, attitudes, perceptions, attachment, culture and intangible limits.', question: 'What is the world this situation is operating inside?' },
+  { line: 'above', title: 'Structure', role: 'The Architect', icon: 'str', text: 'Internal thinking and resources, plus external systems, plans, procedures and manuals.', question: 'What needs to be designed or made visible?' },
+  { line: 'below', title: 'Implementation', role: 'The Dynamo', icon: 'imp', text: 'What is actually happening in practice: action, autonomy, focus, follow-through and results.', question: 'What is actually being done?' },
+  { line: 'below', title: 'People', role: 'The Collaborator', icon: 'ppl', text: 'The relationships, capability, mentoring, social skill and mindful leadership involved.', question: 'Who needs capability, clarity or support?' },
+];
+
+/** Part Three: before you begin. */
+export const PROFILER_GUIDANCE: { title: string; icon: string; text: string }[] = [
+  { title: 'Keep one real situation in mind', icon: 'clock', text: 'Choose a situation that is actually happening. Answer from what is true now, not how you imagine it, how you prefer it to be, or how you think it should be.' },
+  { title: 'Answer as honestly as possible', icon: 'head', text: 'Choose the response that comes to mind first. Do not try to balance your answers or make your profile look good.' },
+  { title: 'Answer from your current reality', icon: 'mtn', text: 'Answer based on what you currently are, not what you ideally would like to be. Only claim a behaviour you can recall demonstrating.' },
+  { title: 'No right or wrong answers', icon: 'scales', text: 'Be objective and accurate. If you need someone else to prompt you for an example, it probably does not describe you strongly.' },
 ];

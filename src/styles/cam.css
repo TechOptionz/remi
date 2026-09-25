@@ -39,3 +39,48 @@
 .cam-work-item .ideas-btn { margin-top:auto; }
 
 @media (max-width:900px) { .cam-line { position:static; max-width:520px; margin:8px auto 0; } }
+
+/* ============ The CAM Mini Profiler (/ideas-models/critical-alignment-model/mini-profiler) ============ */
+/* Three parts on the chapter parchment; the compass, wheel and card icons are cut from the design (cam-mp-*.webp, flattened to white and multiplied). */
+.cam-mp .ideas-head > .mp-compass { max-width:300px; }
+.cam-mp .ideas-head .ideas-hand--underline { background-size:100% 2px; }
+.mp-rules { font-size:clamp(28px,3.4vw,44px); }
+.mp-rules span { position:relative; background:linear-gradient(90deg, transparent, rgba(var(--ink-rgb),.45) 30%, rgba(var(--ink-rgb),.45)); }
+.mp-rules span:last-child { background:linear-gradient(90deg, rgba(var(--ink-rgb),.45), rgba(var(--ink-rgb),.45) 70%, transparent); }
+.mp-rules span::after { content:'✦'; position:absolute; top:50%; transform:translate(-50%,-52%); padding:0 6px; background:var(--paper); font-size:20px; line-height:1; color:var(--gold); }
+.mp-rules span:first-child::after { right:6%; transform:translate(0,-52%); }
+.mp-rules span:last-child::after { left:6%; }
+.mp-centre { max-width:640px; margin:0 auto; text-align:center; }
+.mp-centre .ideas-hand--center { margin:0 0 8px; }
+.mp-lede { margin:0 0 8px; font-size:16.5px; line-height:1.6; }
+.mp-wheel { display:block; width:min(100%,560px); height:auto; margin:clamp(12px,2vw,24px) auto clamp(20px,3vw,36px); }
+.mp-note { margin:-10px 0 0; font-size:15px; text-align:center; }
+.mp-tag { margin-bottom:6px; }
+.mp-motto { margin:0 auto 28px; padding-bottom:12px; width:fit-content; max-width:100%; background:radial-gradient(circle, var(--rust) 1.2px, transparent 1.6px) repeat-x 0 100% / 9px 4px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(22px,2.8vw,34px); line-height:1.05; text-transform:uppercase; text-align:center; text-wrap:balance; }
+.mp-next { display:block; width:fit-content; max-width:100%; margin:clamp(18px,2.5vw,30px) auto 0; padding-top:14px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(17px,1.9vw,22px); letter-spacing:.08em; text-transform:uppercase; text-align:center; color:var(--ink); }
+.mp-next--still { margin-top:0; padding-top:0; font-size:clamp(14px,1.6vw,18px); }
+.mp-divider { height:1px; margin:clamp(12px,2vw,24px) 0 clamp(24px,3vw,40px); background:linear-gradient(90deg, transparent, rgba(var(--ink-rgb),.4) 15%, rgba(var(--ink-rgb),.4) 85%, transparent); position:relative; }
+.mp-divider::after { content:'✦'; position:absolute; left:50%; top:50%; transform:translate(-50%,-52%); padding:0 10px; background:var(--paper); font-size:22px; line-height:1; color:var(--gold); }
+
+/* The two-by-two cards: a double hand-drawn frame, icon between two sparkles, rust title, dotted rule */
+.mp-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(16px,2.4vw,28px); margin-bottom:clamp(24px,3vw,36px); }
+.mp-card { display:flex; flex-direction:column; align-items:center; padding:clamp(18px,2.4vw,28px) clamp(18px,3vw,40px) clamp(20px,2.6vw,30px); border:1.5px solid rgba(168,134,60,.75); border-radius:12px 9px 11px 10px / 10px 12px 9px 11px; box-shadow:inset 0 0 0 5px var(--paper), inset 0 0 0 6px rgba(168,134,60,.45); background:rgba(255,255,255,.18); text-align:center; }
+.mp-icon { position:relative; width:96px; height:auto; margin-bottom:10px; }
+.mp-card { position:relative; }
+.mp-card::before, .mp-card::after { content:'✦'; position:absolute; top:calc(clamp(18px,2.4vw,28px) + 36px); font-size:18px; line-height:1; color:var(--gold); }
+.mp-card::before { left:calc(50% - 88px); }
+.mp-card::after { right:calc(50% - 88px); }
+.mp-card h4 { margin:0; padding-bottom:12px; width:100%; background:radial-gradient(circle, var(--rust) 1.1px, transparent 1.5px) repeat-x 50% 100% / 9px 4px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(22px,2.4vw,30px); line-height:1.05; text-transform:uppercase; color:var(--rust); text-wrap:balance; }
+.mp-card p { margin:12px 0 0; max-width:36ch; font-size:15.5px; line-height:1.55; }
+.mp-card .mp-q { padding-top:12px; background:radial-gradient(circle, var(--rust) 1.1px, transparent 1.5px) repeat-x 50% 0 / 9px 4px; }
+.mp-card--dim h4 { padding-bottom:0; background:none; }
+.mp-card--dim .mp-q { margin-top:14px; }
+
+@media (max-width:760px) {
+  .mp-cards { grid-template-columns:minmax(0,1fr); }
+  .mp-icon { width:84px; }
+  .mp-card::before, .mp-card::after { top:calc(clamp(18px,2.4vw,28px) + 30px); }
+  .mp-card::before { left:calc(50% - 78px); }
+  .mp-card::after { right:calc(50% - 78px); }
+  .mp-rules span::after { display:none; }
+}
