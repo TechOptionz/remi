@@ -1,5 +1,5 @@
 // Content for the Self-Esteem Triad page (/ideas-models/self-esteem-triad): the lists it renders.
-// Headings and body copy live in components/triad/. Source: "SELF ESTEEM TRIAD WEBSITE" copy deck.
+// Headings and body copy live in components/triad/. Source: "How to Build Self-Esteem" article (Sept 2026).
 
 /** Where "Explore the Self-Esteem Triad" goes once the guided introduction exists. Until then the CTA
  *  shows the "Tell me when it's ready" form instead. */
@@ -64,13 +64,13 @@ export const CENTRE_LINES = [
 
 /** The fifteen emotional needs as three developmental stages, numbered 1–15 (matches the poster). */
 export const NEED_STAGES: { stage: string; title: string; tone: 'rust' | 'gold' | 'olive'; lede: string; needs: string[] }[] = [
-  { stage: 'Stage one', title: 'Safety & connection', tone: 'rust', lede: 'Where life first becomes safe enough.', needs: [
+  { stage: 'Stage one', title: 'Safety and connection', tone: 'rust', lede: 'Where life first becomes safe enough.', needs: [
     'Safety and security', 'Stability and predictability', 'Attachment and belonging', 'Love and acceptance', 'To matter, be seen and be truly known',
   ] },
-  { stage: 'Stage two', title: 'Selfhood & agency', tone: 'gold', lede: 'The self becoming visible, truthful and able to act.', needs: [
+  { stage: 'Stage two', title: 'Selfhood and agency', tone: 'gold', lede: 'The self becoming visible, truthful and able to act.', needs: [
     'Authenticity and truth', 'Emotional expression', 'Autonomy and agency', 'Freedom and sovereignty', 'Competence and capability',
   ] },
-  { stage: 'Stage three', title: 'Wholeness & expansion', tone: 'olive', lede: 'A secure enough self reaching into a wider life.', needs: [
+  { stage: 'Stage three', title: 'Wholeness and expansion', tone: 'olive', lede: 'A secure enough self reaching into a wider life.', needs: [
     'Self-worth and identity', 'Playfulness, joy and aliveness', 'Meaning and purpose', 'Growth and expansion', 'Transcendence and existential peace',
   ] },
 ];

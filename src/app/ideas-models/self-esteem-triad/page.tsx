@@ -10,8 +10,8 @@ import TriadBegin from '@/components/triad/TriadBegin';
 import TriadClose from '@/components/triad/TriadClose';
 
 export const metadata: Metadata = {
-  title: 'The Self-Esteem Triad — Remi Pearson',
-  description: 'Self-esteem is something we live. Remi Pearson’s Self-Esteem Triad brings together needs, boundaries and emotions, with worthy, lovable and enough at the centre, and the fifteen emotional needs inside the Needs arm.',
+  title: 'How Do You Build Self-Esteem That Lasts? The Self-Esteem Triad — Remi Pearson',
+  description: 'Self-esteem is built through the relationship we have with ourselves. Remi Pearson’s Self-Esteem Triad brings together needs, boundaries and emotions, with worthy, lovable and enough at the centre, and the fifteen emotional needs inside the Needs arm.',
 };
 
 export default function SelfEsteemTriadPage() {

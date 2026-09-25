@@ -20,7 +20,7 @@ export default function TriadArms() {
       <article className="arm">
         <ArmHead id="needs" n={1} name="Needs" question="Can I recognise and respond to what I need?" tone="rust" />
         <div className="triad-prose">
-          <Body>Every human being has needs. Having them does not make us weak, demanding or “too needy”. It makes us human.</Body>
+          <Body>Every human being has needs. Having them does not make us weak, demanding or too needy. It makes us human.</Body>
           <Body>Our needs influence how we attach, protect ourselves, make decisions, form relationships and interpret what happens around us. When we do not know what our needs are, we cannot take meaningful responsibility for meeting them. We might expect other people to work them out for us, suppress them until they become impossible to ignore or try to meet a deeper need through something that can never satisfy it.</Body>
           <Body>A person who needs reassurance may criticise their partner instead of asking for closeness. Someone who needs safety may try to control everything around them. Someone longing to matter may overfunction, achieve or make themselves indispensable. Someone who needs rest may continue performing until their body forces them to stop.</Body>
           <Hand v={['sm']}>The need has not disappeared. It has simply found an indirect route.</Hand>

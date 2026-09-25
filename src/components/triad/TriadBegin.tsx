@@ -1,14 +1,14 @@
 import { Body, Box, H3, Hand, Part } from '@/components/ideas/ui';
 import { ARMS, STAND_LINES } from '@/content/triad';
 
-// HOW TO BEGIN USING THE SELF-ESTEEM TRIAD — one box of questions per arm, the pace, then the pathway out of self-abandonment
+// HOW CAN I BEGIN BUILDING SELF-ESTEEM WITH THE TRIAD? — one box of questions per arm, the pace, then the pathway out of self-abandonment
 export default function TriadBegin() {
   return (
     <Part n={6}>
-      <H3 v={['left', 'rule']}>How to begin using the Self-Esteem Triad</H3>
+      <H3 v={['left', 'rule']}>How can I begin building self-esteem with the Triad?</H3>
       <div className="triad-prose">
         <Body>The starting point is not a score, a diagnosis or another reason to judge yourself. It is gentle, honest observation.</Body>
-        <Body>Begin by learning what each arm means and noticing how it currently operates in your life.</Body>
+        <Body>Begin by learning what each arm means and noticing how it currently operates in your life. These questions are places to start, not a test you have to pass.</Body>
       </div>
       <div className="explore-grid">
         {ARMS.map(a => (

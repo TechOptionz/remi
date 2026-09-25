@@ -12,6 +12,9 @@
 
 /* Intro: the "I am" lines in a hand-drawn box; the I-amness note */
 .triad-intro .ideas-eyebrow { margin-bottom:10px; }
+/* The page title stays on one line, sized to fit the copy column beside the hero */
+.triad-intro .ideas-title { white-space:nowrap; font-size:clamp(30px,4.2vw,60px); }
+@media (max-width:760px) { .triad-intro .ideas-head .ideas-title { font-size:clamp(24px,8.2vw,38px); } }
 .triad-iam { display:flex; flex-direction:column; gap:2px; width:fit-content; max-width:100%; margin:0 0 26px; padding:16px 26px 18px; border:1.5px solid rgba(var(--ink-rgb),.6); border-radius:14px 10px 13px 11px / 11px 13px 10px 14px; box-shadow:inset 0 0 0 3px var(--paper), inset 0 0 0 4px rgba(var(--ink-rgb),.35); font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(22px,2.4vw,30px); line-height:1.15; text-transform:uppercase; color:var(--ink); }
 .triad-iam span:first-child { color:var(--rust); }
 .triad-iam--stand { margin:8px 0 10px; }
@@ -107,7 +110,8 @@
 
 /* The triad (triangle only, triad-hero.webp: the diagram cropped, its paper flattened to white) is the hero illustration,
    multiplied onto the parchment beside the title (under the intro on phones) */
-.triad-hero-fig { margin:0 0 clamp(16px,2vw,28px); align-self:start; }
+/* Centred beside the whole intro (lede, "I am" box) on desktop, so no empty column is left under it */
+.triad-hero-fig { margin:0 0 clamp(16px,2vw,28px); align-self:center; }
 .triad-hero-fig > img { display:block; width:100%; height:auto; mix-blend-mode:multiply; }
 @media (max-width:760px) {
   .ideas-head > .triad-hero-fig { grid-column:1 / -1; grid-row:auto; width:min(100%,420px); justify-self:center; margin:12px 0 22px; }

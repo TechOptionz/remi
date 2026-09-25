@@ -1,11 +1,11 @@
 import { Body, H3, Hand, Panel, Part } from '@/components/ideas/ui';
 import { CENTRE_LINES } from '@/content/triad';
 
-// THE THREE CAPACITIES BELONG TOGETHER — how the arms inform one another, then why worthy, lovable and enough sit at the centre
+// HOW DO NEEDS, BOUNDARIES AND EMOTIONS WORK TOGETHER? — how the arms inform one another, then why worthy, lovable and enough sit at the centre
 export default function TriadTogether() {
   return (
     <Part n={4}>
-      <H3 v={['left', 'rule']}>The three capacities belong together</H3>
+      <H3 v={['left', 'rule']}>How do needs, boundaries and emotions work together?</H3>
       <div className="triad-prose">
         <Body>Needs, boundaries and emotions continually inform one another.</Body>
         <Body>An emotion may alert us to an unmet need. A boundary may protect our ability to respond to that need. Recognising the need may help us understand why the emotion has become so intense. Our emotional response may then show us whether the boundary feels safe, rigid, unclear or repeatedly violated.</Body>
@@ -17,11 +17,11 @@ export default function TriadTogether() {
       </div>
 
       <Panel tone="dark" className="centre-panel">
-        <H3 className="panel-title centre-title">Why “worthy, lovable and enough” sit at the centre</H3>
-        <p className="panel-body">Worthiness is not a prize awarded once we have healed enough, achieved enough or behaved well enough. It becomes an experience we build through the way we relate to ourselves.</p>
+        <H3 className="panel-title centre-title">Why are ‘worthy, lovable and enough’ at the centre?</H3>
+        <p className="panel-body">Worthiness is not a prize awarded once we have healed enough, achieved enough or behaved well enough. It becomes an experience we build through the way we relate to ourselves. Within the Self-Esteem Triad, being worthy, lovable and enough looks like this:</p>
         <ul className="centre-lines">{CENTRE_LINES.map(l => <li key={l}>{l}</li>)}</ul>
-        <p className="panel-body">This is what worthy, lovable and enough mean within the Self-Esteem Triad. They describe the inner coherence that begins to emerge when needs, boundaries and emotions are held together.</p>
-        <p className="panel-body">The centre of the model is not a slogan. It is the felt result of repeatedly showing ourselves:</p>
+        <p className="panel-body">These are not affirmations intended to drown out doubt. They describe the inner coherence that begins to emerge when needs, boundaries and emotions are held together.</p>
+        <p className="panel-body">The centre of the model is the felt result of repeatedly showing ourselves:</p>
         <p className="centre-quote">I know you. I can hear you. I will care for you. I will not keep leaving you to preserve a relationship, avoid a feeling or earn a place in the world.</p>
       </Panel>
     </Part>

@@ -9,9 +9,9 @@ export default function FifteenNeeds() {
   return (
     <Part n={5} className="fifteen">
       <div id="fifteen-needs" className="fifteen-anchor" />
-      <H3 v={['left', 'rule']}>The fifteen emotional needs</H3>
+      <H3 v={['left', 'rule']}>What are the fifteen emotional needs?</H3>
       <div className="triad-prose">
-        <Body>Within the needs arm of the triad is a developmental hierarchy of fifteen core human needs. They move from our most foundational requirements for safety and connection towards selfhood, meaning, growth and existential peace.</Body>
+        <Body>Within the needs arm of the Self-Esteem Triad is my developmental hierarchy of fifteen core human needs. They move from our most foundational requirements for safety and connection towards selfhood, meaning, growth and existential peace.</Body>
       </div>
       <div className="fifteen-grid">
         <ZoomArt name="needs-poster" alt={POSTER_ALT} label="the Fifteen Emotional Needs" className="fifteen-poster" />
@@ -24,7 +24,7 @@ export default function FifteenNeeds() {
               <ol className="stage-list" start={i * 5 + 1}>{s.needs.map(n => <li key={n}>{n}</li>)}</ol>
             </section>
           ))}
-          <Hand v={['sm']} className="stage-note"><Star /> Interdependent, not completed like levels in a game. The sequence matters, though.</Hand>
+          <Hand v={['sm']} className="stage-note"><Star /> They are interdependent, and we do not complete them like levels in a game. The sequence matters, though.</Hand>
         </div>
       </div>
       <div className="triad-prose">

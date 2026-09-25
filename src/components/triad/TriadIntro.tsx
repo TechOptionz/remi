@@ -12,12 +12,13 @@ export default function TriadIntro() {
         <Link href="/ideas-models">Ideas &amp; Models</Link><span aria-hidden="true">/</span>
         <span aria-current="page">The Self-Esteem Triad</span>
       </nav>
-      <p className="ideas-eyebrow">Human foundations · A mental model</p>
+      <p className="ideas-eyebrow">How Do You Build Self-Esteem That Lasts?</p>
       <PartHead n={1} title="The Self-Esteem Triad" aside={
           <figure className="triad-hero-fig">
             <Art name="triad-hero" alt={TRIAD_ALT} />
           </figure>
         }>
+        <Body>Self-esteem is built through the relationship we have with ourselves. We strengthen it when we can recognise our needs and respond to them, remain ourselves while connected to other people, and stay present with our emotions without letting them decide everything we do. I call these three capacities the Self-Esteem Triad: needs, boundaries and emotions. At their centre is the lived experience of being worthy, lovable and enough.</Body>
         <Hand v={['underline']}>Self-esteem is something we live.</Hand>
         <Body>It is a grounded sense of:</Body>
         <p className="triad-iam">
