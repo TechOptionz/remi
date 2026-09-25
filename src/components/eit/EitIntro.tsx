@@ -10,9 +10,8 @@ export default function EitIntro() {
         <Link href="/ideas-models">Ideas &amp; Models</Link><span aria-hidden="true">/</span>
         <span aria-current="page">Emotion Integration Technique</span>
       </nav>
-      <p className="ideas-eyebrow">Emotional change · In the live moment</p>
+      <p className="ideas-eyebrow">Why Can’t I Feel My Emotions Even When I Understand Myself?</p>
       <PartHead n={1} title="Emotion Integration Technique" aside={<Art name="p4-woman" className="dsr-head-art" />}>
-        <Hand v={['underline']}>How moving further away can become the path back to compassion.</Hand>
         <p className="chapter-byline">By Remi Pearson</p>
       </PartHead>
       <div className="triad-prose">

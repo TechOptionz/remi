@@ -1,5 +1,5 @@
 // Content for the Emotion Integration Technique page (/ideas-models/emotion-integration-technique): the lists it renders.
-// Headings and body copy live in components/eit/. Source: "Emotion Integration Technique by Remi Pearson" copy deck.
+// Headings and body copy live in components/eit/. Source: "EIT" article (Sept 2026).
 
 export const EIT_PAGE_HREF = '/ideas-models/emotion-integration-technique';
 

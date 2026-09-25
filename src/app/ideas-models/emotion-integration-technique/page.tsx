@@ -9,7 +9,7 @@ import EitCapacity from '@/components/eit/EitCapacity';
 import EitClose from '@/components/eit/EitClose';
 
 export const metadata: Metadata = {
-  title: 'Emotion Integration Technique — Remi Pearson',
+  title: 'Why Can’t I Feel My Emotions Even When I Understand Myself? Emotion Integration Technique — Remi Pearson',
   description: 'How moving further away can become the path back to compassion. Remi Pearson’s Emotion Integration Technique for highly dissociative, intellectually defended clients: move outward until compassion is available, carry it back inward, then move underneath.',
 };
 

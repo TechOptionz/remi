@@ -2,11 +2,11 @@ import Link from 'next/link';
 import { Body, Box, Btn, H3, Hand, Panel, Part } from '@/components/ideas/ui';
 import { EIT_TRAINING_HREF, RELATED } from '@/content/eit';
 
-// A PRECISE INTERVENTION + THE ROUTE HOME IS COMPASSION + practitioner training + related ideas
+// WHO IS EIT FOR? + THE ROUTE HOME IS COMPASSION + practitioner training + related ideas
 export default function EitClose() {
   return (
     <Part n={6}>
-      <H3 v={['left', 'rule']}>A precise intervention for a particular challenge</H3>
+      <H3 v={['left', 'rule']}>Who is Emotion Integration Technique for?</H3>
       <div className="triad-prose">
         <Body>Not every client needs EIT. Many people can locate an emotion, access compassion and work directly with their parts. EIT was developed for the clients who cannot get to that first step without becoming more stressed, self-conscious or intellectualised. It is especially useful where dissociation, avoidance and conceptual thinking have become dominant protective strategies.</Body>
         <Body>The technique is simple to describe, but it requires practitioner skill. The practitioner must recognise protection, work with light Ericksonian trance, pace the movement without force, listen for when compassion is genuine, and know when to move outward, return inward or drop beneath the presenting layer. This is not an exercise I recommend as casual self-inquiry. The softness of the process depends on the quality of the facilitation.</Body>
@@ -22,7 +22,7 @@ export default function EitClose() {
       </div>
 
       <Panel tone="rust" className="triad-cta">
-        <H3 className="panel-title">Practitioner training</H3>
+        <H3 className="panel-title">Emotion Integration Technique practitioner training</H3>
         <p className="panel-body panel-body--center">If you are a practitioner, therapist or coach who would love to access this model, explore the blended practitioner training I will offer once each year, combining Internal Family Systems for practitioners with Emotion Integration Technique.</p>
         <div className="panel-actions"><Btn href={EIT_TRAINING_HREF} v={['outline']}>Explore practitioner training</Btn></div>
       </Panel>

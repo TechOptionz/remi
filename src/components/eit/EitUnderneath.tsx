@@ -4,11 +4,11 @@ import { ROOTS } from '@/content/eit';
 
 const TREE_ALT = 'You’re not overreacting. You’re protecting an old wound. A tree at sunset. What people see, in the branches: defensiveness, anger, withdrawal, people-pleasing, chasing. What the pattern is protecting, in the roots: fear, hurt, loneliness, grief, shame. The reaction is the branch. The unintegrated emotion is the root. Stop fighting the behaviour. Integrate what it has been protecting.';
 
-// THEN WE MOVE UNDERNEATH — outward, inward, then down; grief and shame at the roots; the EIT tree
+// WHAT LIES BENEATH EMOTIONAL AVOIDANCE AND PROTECTIVE BEHAVIOUR? — outward, inward, then down; grief and shame at the roots; the EIT tree
 export default function EitUnderneath() {
   return (
     <Part n={4}>
-      <H3 v={['left', 'rule']}>Then we move underneath</H3>
+      <H3 v={['left', 'rule']}>What lies beneath emotional avoidance and protective behaviour?</H3>
       <div className="dsr-grid">
         <div className="triad-prose">
           <Body>Once the client can remain compassionately connected to the original presentation, we ask what is underneath it. If the starting point was frustration, sadness may appear. If sadness cannot yet be met with compassion, we move outward again until compassion becomes available, then carry it back inward. Under sadness there may be loneliness. Under loneliness, grief. The same movement repeats: outward, inward, then down.</Body>
