@@ -35,7 +35,3 @@
   .street-poster { position:static; max-width:560px; margin:8px auto 0; }
   .stratum--2, .stratum--3 { margin-inline:0; }
 }
-
-/* The subtitle under the title stays on one line (it may run past the copy column into the space under the mountains) */
-.safe-tagline { white-space:nowrap; }
-@media (max-width:760px) { .safe-tagline { font-size:clamp(13px,3.8vw,22px); } }

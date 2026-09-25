@@ -13,7 +13,7 @@ export default function EitIntro() {
       <p className="ideas-eyebrow">Emotional change · In the live moment</p>
       <PartHead n={1} title="Emotion Integration Technique" aside={<Art name="p4-woman" className="dsr-head-art" />}>
         <Hand v={['underline']}>How moving further away can become the path back to compassion.</Hand>
-        <p className="dsr-byline">By Remi Pearson</p>
+        <p className="chapter-byline">By Remi Pearson</p>
       </PartHead>
       <div className="triad-prose">
         <Body>Some clients can understand themselves brilliantly and still be almost entirely unavailable to themselves emotionally. They can explain their attachment pattern, identify the likely childhood origin of it, recognise the protector, describe what it does in relationships and perhaps even tell you why it developed. Ask them where they feel any of this in their body and the whole process can suddenly stop.</Body>

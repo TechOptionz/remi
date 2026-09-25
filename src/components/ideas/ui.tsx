@@ -32,7 +32,7 @@ export function Part({ n, className, children }: { n: number; className?: string
 /** Part heading: title and intro copy on the left, illustration (or note) on the right. */
 export function PartHead({ n, title, rule, aside, note, children }: {
   n: number; title: string; rule?: boolean;
-  aside: React.ReactNode; note?: boolean; children: React.ReactNode;
+  aside: React.ReactNode; note?: boolean; children?: React.ReactNode;
 }) {
   return (
     <div className={cx('ideas-head', note && 'ideas-head--note')}>

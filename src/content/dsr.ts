@@ -1,15 +1,12 @@
 // Content for the Deep State Repatterning page (/ideas-models/deep-state-repatterning): the lists it renders.
-// Headings and body copy live in components/dsr/. Source: "Deep State Repatterning by Remi Pearson" copy deck.
+// Headings and body copy live in components/dsr/. Source: "Deep State Repatterning" article (Sept 2026).
 
 export const DSR_PAGE_HREF = '/ideas-models/deep-state-repatterning';
-
-/** What DSR brings together in one coherent process. */
-export const DSR_ELEMENTS = ['Symbolic time', 'Light Ericksonian trance', 'Managed association and dissociation', 'Parts work', 'Emotional release', 'Meaning change', 'Self-forgiveness', 'Future pacing'];
 
 /** The conclusions a child is likely to draw about the self. */
 export const CHILD_CONCLUSIONS = ['I do not matter.', 'I am unsafe.', 'I caused this.', 'There is something wrong with me.', 'I cannot trust my own experience.'];
 
-/** Chunking upward through the hierarchy of meaning: a learning as it rises. */
+/** Moving upward through a hierarchy of meaning: a learning as it rises. */
 export const MEANING_LADDER = ['I can protect myself', 'I can trust myself', 'I belong to myself', 'I am whole', 'I am love'];
 
 /** What the person checks once the originating event has been worked with. */

@@ -3,11 +3,11 @@ import { Body, Box, H3, Hand, Part } from '@/components/ideas/ui';
 
 const EMOTIONS_ALT = 'Negative emotions: the emotional families we release through Deep State Repatterning. Shame: embarrassed, humiliated, mortified, disgraced, exposed, shy, self-conscious, inhibited, uncomfortable. Anger: fury, rage, anger, frustrated, indignant, resentful, cross, annoyed, irritated, exasperated. Sadness: grief, desolate, misery, sorrow, loss, sadness, upset, lonely, down, blue. Fear: terror, petrified, panic, afraid, fear, anxiety, apprehensive, stressed, nervous, timid. Guilt: ashamed, remorse, guilt, sorry, blame, regret, distressed, worried, concerned, troubled. Powerless: despair, helpless, powerless, depressed, self-pity, bored, apathy, jealous, weak, incapable. Hurt: hate, hurt, abandoned, rejected, offended, disappointed, disillusioned, let down, neglected, vulnerable. Happy: Pollyanna, people pleasing, martyr, rescuer, denial, commitment-phobic, unreliable, toxic positivity. Each family describes a continuum of emotional intensity, expression and protection.';
 
-// ASSOCIATION AND DISSOCIATION ARE BOTH NECESSARY — collaborative by design, then the table of emotions
+// WHAT HAPPENS DURING DEEP STATE REPATTERNING? — collaborative by design, then the table of emotions
 export default function DsrAssociation() {
   return (
     <Part n={3}>
-      <H3 v={['left', 'rule']}>Association and dissociation are both necessary</H3>
+      <H3 v={['left', 'rule']}>What happens during Deep State Repatterning™?</H3>
       <div className="dsr-grid">
         <div className="triad-prose">
           <Body>People sometimes fear that a deep process means surrendering control. Deep State Repatterning™ is collaborative from beginning to end. I work with the client, never at them. They remain responsive, they make the discoveries, and the symbols and meanings come from their own mind. I routinely record the intervention and give the recording to the client. Listening afterwards often makes something beautifully clear:</Body>

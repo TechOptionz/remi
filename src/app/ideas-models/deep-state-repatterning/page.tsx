@@ -9,7 +9,7 @@ import DsrForgiveness from '@/components/dsr/DsrForgiveness';
 import DsrTested from '@/components/dsr/DsrTested';
 
 export const metadata: Metadata = {
-  title: 'Deep State Repatterning — Remi Pearson',
+  title: 'Why Does the Past Still Affect You When You Know It’s Over? Deep State Repatterning — Remi Pearson',
   description: 'Why an old experience can stop being over, and how the mind can finally place it in the past. Remi Pearson’s Deep State Repatterning™: the chain of pearls, association and dissociation, the release of stored emotion, self-forgiveness and future pacing.',
 };
 

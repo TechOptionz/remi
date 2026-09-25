@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Art, Body, Hand, Part, PartHead } from '@/components/ideas/ui';
+import { Art, Body, Part, PartHead } from '@/components/ideas/ui';
 
 // SAFE PROBLEMS, RISKY TRUTHS — breadcrumb, title, the client across the table, how the distinction came about
 export default function SafeIntro() {
@@ -11,9 +11,7 @@ export default function SafeIntro() {
         <span aria-current="page">Safe Problems, Risky Truths</span>
       </nav>
       <p className="ideas-eyebrow">Why Do We Keep Trying to Solve the Same Problem?</p>
-      <PartHead n={1} title="Safe Problems, Risky Truths" aside={<Art name="p3-mtn" className="ideas-art--figure" />}>
-        <Hand v={['underline']} className="safe-tagline">What the problem we keep trying to solve may be protecting us from.</Hand>
-      </PartHead>
+      <PartHead n={1} title="Safe Problems, Risky Truths" aside={<Art name="p3-mtn" className="ideas-art--figure" />} />
       <div className="triad-prose">
         <Body>Someone sits across from me and explains, often with considerable accuracy, what is wrong with their partner. They are inconsistent. They avoid difficult conversations. They make promises and fail to keep them. If they would finally take responsibility, the person telling me this could stop feeling so anxious and get on with enjoying the relationship.</Body>
         <Body>Sometimes every word of that account is true. The partner really does need to behave differently. But as we talk, another question begins to emerge … what happens to this person if their partner never changes? Where does that leave their capacity to care for themselves, recognise what they need, or decide what they are willing to live with?</Body>

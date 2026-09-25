@@ -18,6 +18,7 @@ export default function TriadIntro() {
             <Art name="triad-hero" alt={TRIAD_ALT} />
           </figure>
         }>
+        <p className="chapter-byline">By Remi Pearson</p>
         <Body>Self-esteem is built through the relationship we have with ourselves. We strengthen it when we can recognise our needs and respond to them, remain ourselves while connected to other people, and stay present with our emotions without letting them decide everything we do. I call these three capacities the Self-Esteem Triad: needs, boundaries and emotions. At their centre is the lived experience of being worthy, lovable and enough.</Body>
         <Hand v={['underline']}>Self-esteem is something we live.</Hand>
         <Body>It is a grounded sense of:</Body>

@@ -2,11 +2,11 @@ import Link from 'next/link';
 import { Body, Box, Btn, H3, Hand, Part } from '@/components/ideas/ui';
 import { RELATED, TEST_QUESTIONS } from '@/content/dsr';
 
-// HOW CHANGE IS TESTED + DEEP WORK SHOULD RESTORE AGENCY + related ideas
+// HOW DO YOU KNOW WHETHER THE CHANGE HOLDS? + DEEP WORK SHOULD RESTORE AGENCY + related ideas
 export default function DsrTested() {
   return (
     <Part n={6}>
-      <H3 v={['left', 'rule']}>How change is tested</H3>
+      <H3 v={['left', 'rule']}>How do you know whether the change holds?</H3>
       <div className="triad-prose">
         <Body>A compelling inner experience is not enough. The shift must be tested. After the originating event has been worked with, the client returns through the timeline and notices what happens to subsequent moments linked to it. We then bring to mind situations that previously triggered the emotion or belief.</Body>
       </div>
@@ -14,15 +14,15 @@ export default function DsrTested() {
         <ul className="arm-list">{TEST_QUESTIONS.map(q => <li key={q}>{q}</li>)}</ul>
       </Box>
       <div className="triad-prose">
-        <Body>The process then moves forward. Future pacing allows the person to encounter imagined situations that once activated the pattern and discover how they respond now. This is important because change is not complete merely because the past feels different. The person needs an emerging experience of choice in the future. Their nervous system, imagination and sense of identity begin rehearsing life without the old instruction.</Body>
+        <Body>The process then moves forward. Future pacing allows the person to encounter imagined situations that once activated the pattern and discover how they respond now. This matters because change is not complete merely because the past feels different during a session. The person needs an emerging experience of choice in the future. Their nervous system, imagination and sense of identity begin rehearsing life without the old instruction. What happens beyond the session matters as well.</Body>
       </div>
 
       <H3 v={['left', 'rule']}>Deep work should restore agency</H3>
       <div className="triad-prose">
-        <Body>Any method capable of reaching deeply into emotional experience must be handled with care. Depth by itself is not evidence of quality. Intensity is not healing. The practitioner’s task is to preserve agency, pace the work to the person’s capacity, recognise protection rather than battle it, and understand that the client’s unconscious mind is already attempting to help them.</Body>
-        <Body>Deep State Repatterning™ was developed through decades of coaching, teaching and intervention work at The Coaching Institute, which I founded. It reflects a conviction that has shaped my entire body of work: people are not defective collections of symptoms. Their patterns make sense in relation to what they experienced, what they concluded, and how they learned to protect themselves. The work becomes possible when we respect that intelligence while helping the system recognise that the conditions which created the pattern are no longer happening now.</Body>
+        <Body>Any method capable of reaching deeply into emotional experience must be handled with care. Depth by itself is not evidence of quality. Intensity is not healing. The practitioner’s task is to preserve agency, pace the work to the person’s capacity, recognise protection rather than battle it, and understand that the client’s mind is already attempting to help them.</Body>
+        <Body>Deep State Repatterning™ was developed through decades of coaching, teaching and intervention work at The Coaching Institute, which I founded. It reflects a conviction that has shaped my entire body of work: people are not defective collections of symptoms. Their patterns make sense in relation to what they experienced, what they concluded, and how they learned to protect themselves. The work becomes possible when we respect that intelligence while helping the person recognise that the conditions which created the pattern are no longer happening now.</Body>
         <Body>A person does not need to forget their past to become free of its automatic authority. The experience can remain part of their history without continuing to dictate identity, intimacy, possibility or choice.</Body>
-        <Hand>When the emotional charge releases and the old meaning is no longer necessary, the past can finally become what the calendar has said it was all along: over.</Hand>
+        <Hand>When the old emotional meaning is no longer needed, the past can finally become what the calendar has said it was all along: over.</Hand>
       </div>
 
       <H3 v={['rules']}><span></span>Related ideas<span></span></H3>
