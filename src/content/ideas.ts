@@ -100,7 +100,6 @@ export const TOOLKIT = [
 ];
 
 // ---------- Part Eight ----------
-export const SALES_STEPS = ['Connect', 'Build', 'Flip', 'Match', 'Recommend', 'Backtrack', 'Close', 'Future pace'];
 export const PRACTICE_VS_BUSINESS = [
   { title: 'Practice', text: 'The owner delivers the widget. The owner goes away and so does the income.' },
   { title: 'Business', text: 'Core can be delivered by others through documented systems, benchmarks and capability.' },
