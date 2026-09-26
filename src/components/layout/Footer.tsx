@@ -43,13 +43,10 @@ export default function Footer() {
 
       <div className="footer-base">
         <div className="footer-base-brand">
-          <img src="/assets/remi-logo.webp" alt={SITE.logoAlt} width="122" height="44" loading="lazy" decoding="async" />
           <span>{SITE.copyright}</span>
         </div>
         <div className="footer-legal">
-          {FOOTER.legal.map(item => <a href={item.href} key={item.label}>{item.label}</a>)}
-          <a href="#top">Back to top ↑</a>
-        </div>
+          {FOOTER.legal.map(item => <a href={item.href} key={item.label}>{item.label}</a>)}        </div>
       </div>
     </footer>
   );

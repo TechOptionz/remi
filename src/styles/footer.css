@@ -38,11 +38,19 @@
 
 .footer-base { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px 24px; padding:28px max(0px, calc(90px - (50vw - 50%))) 0 0; border-top:1px solid rgba(var(--ink-rgb),.14); font-size:13px; color:rgba(var(--ink-rgb),.5); }
 .footer-base-brand { display:flex; flex-wrap:wrap; align-items:center; gap:12px 24px; }
-.footer-base-brand img { height:44px; width:auto; }
 .footer-legal { display:flex; flex-wrap:wrap; gap:24px; }
 .footer-base a { color:inherit; }
 @media (max-width:800px) {
   .footer-top { grid-template-columns:1fr; align-items:start; }
   .footer-base { padding-right:0; padding-bottom:72px; }
+  /* Phones: Explore and Enquire side by side, everything else stacks in a single column */
+  .footer-links { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .footer-links > .footer-col:last-child { grid-column:1 / -1; }
+  /* Copyright on the left, Privacy · Terms on the right, one row (the copyright wraps first on the narrowest phones) */
+  .footer-base { flex-wrap:nowrap; gap:16px; font-size:12px; }
+  .footer-base-brand { min-width:0; }
+  .footer-legal { flex:none; flex-wrap:nowrap; gap:14px; }
+  .footer-note { display:none; }
+  .footer-news { display:none; }
 }
 
