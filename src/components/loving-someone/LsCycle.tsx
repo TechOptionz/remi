@@ -1,6 +1,5 @@
-import { Brush } from '@/components/rabbit-holes/ui';
+import { Brush, Head } from '@/components/rabbit-holes/ui';
 import { CYCLE } from '@/content/loving-someone';
-import { Head } from './ui';
 
 // The five circles sit on a pentagon, clockwise from the top; each arrow bows outwards from one circle to the next.
 const W = 520, H = 470, CX = 260, CY = 245, R = 185, RING = 60;
@@ -34,11 +33,11 @@ export default function LsCycle() {
         <figure className="ls-cycle-fig">
           <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`The attachment cycle: ${CYCLE.join(', then ')}, and round again.`}>
             <defs>
-              <marker id="ls-head" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <marker id="ls-arrowhead" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
                 <path d="M1 1 L8 5 L1 9" fill="none" stroke="#a8401a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
               </marker>
             </defs>
-            {ARROWS.map(d => <path key={d} d={d} className="ls-cycle-arrow" markerEnd="url(#ls-head)" />)}
+            {ARROWS.map(d => <path key={d} d={d} className="ls-cycle-arrow" markerEnd="url(#ls-arrowhead)" />)}
             {NODES.map(n => (
               <g key={n.label}>
                 <circle cx={n.x} cy={n.y} r={RING} className="ls-cycle-ring" />

@@ -1,6 +1,5 @@
-import { Brush, PlayRing } from '@/components/rabbit-holes/ui';
+import { Brush, Head, PlayRing } from '@/components/rabbit-holes/ui';
 import { CONVERSATIONS_WORTH } from '@/content/loving-someone';
-import { Head } from './ui';
 
 // CONVERSATIONS WORTH HAVING — two episodes, drawing on the left, title / guest / watch on the right (design part three)
 export default function LsConversations() {

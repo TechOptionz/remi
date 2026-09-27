@@ -11,7 +11,7 @@ export default function LsHero() {
         <p>Relationships have an extraordinary talent for finding the parts of us we thought we had dealt with. The closer someone becomes, the harder our attachment strategies work to protect us.</p>
         <div className="ls-hero-btns">
           <a href="#patterns" className="hm-btn">Help me recognise my pattern</a>
-          <Link href={RELATIONSHIPS_HREF} className="ls-textlink">Let’s talk relationships <span aria-hidden="true">⟶</span></Link>
+          <Link href={RELATIONSHIPS_HREF} className="kb-textlink">Let’s talk relationships <span aria-hidden="true">⟶</span></Link>
         </div>
       </div>
       <div className="ls-hero-art">

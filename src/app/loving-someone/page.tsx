@@ -29,7 +29,7 @@ export default function LovingSomeonePage() {
         <LsCapable />
         <LsFivePaths />
         <LsConversations />
-        <OtherHoles show={[0, 2]} className="ls-others" />
+        <OtherHoles show={[0, 2]} className="kb-isolation--left" />
       </div>
       <KeepBand variant="envelope" />
     </main>

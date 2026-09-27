@@ -72,29 +72,6 @@
   .kb-pattern:hover .kb-arrow { transform:rotate(90deg); }
 }
 @media (prefers-reduced-motion:reduce) { .kb-pattern-body, .kb-pattern-inner { transition:none; } }
-/* The rust pattern panel (PatternPanel): one pattern, its lines, and four tabs that reveal each answer */
-.kb-panel-section { border-top:0; padding-top:0; }
-.kb-big-panel { position:relative; max-width:880px; margin:0 auto; padding:clamp(30px,4vw,52px) clamp(22px,4vw,48px) 0; background:var(--hm-grain), linear-gradient(165deg,#b1491f,#9c3b15); color:#fbf1e3; clip-path:polygon(0 1%,4% 0,30% .6%,60% 0,96% .8%,100% 0,99.4% 30%,100% 60%,99.3% 100%,70% 99.2%,40% 100%,4% 99.3%,0 100%,.6% 60%,0 30%); }
-.kb-big-panel-top { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:24px; padding-bottom:clamp(22px,2.6vw,32px); }
-.kb-big-panel-title { width:fit-content; margin:0 0 18px; padding-bottom:12px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(26px,2.9vw,36px); line-height:1.02; text-transform:uppercase; background:linear-gradient(#f0d2a4,#f0d2a4) no-repeat 0 100% / min(250px,60%) 2px; }
-.kb-big-panel-top p { margin:0 0 6px; max-width:48ch; font-size:clamp(15.5px,1.25vw,17.5px); line-height:1.55; }
-.kb-big-panel-art { width:clamp(120px,19vw,220px); }
-.kb-big-tabs { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border-top:1px solid rgba(251,241,227,.35); }
-.kb-big-tabs button { position:relative; padding:20px 10px; border:0; background:none; font-size:13.5px; font-weight:600; letter-spacing:.1em; line-height:1.3; text-transform:uppercase; color:#fbf1e3; cursor:pointer; }
-.kb-big-tabs button + button::before { content:""; position:absolute; left:0; top:14px; bottom:14px; width:1px; background:rgba(251,241,227,.35); }
-.kb-big-tabs button::after { content:""; position:absolute; left:50%; bottom:10px; width:0; height:2px; background:#f0c98a; transform:translateX(-50%); transition:width .25s ease; }
-.kb-big-tabs button:hover::after { width:32px; }
-.kb-big-tabs button[aria-selected="true"] { color:#f0c98a; }
-.kb-big-tabs button[aria-selected="true"]::after { width:60%; }
-.kb-big-tabs button:focus-visible { outline:2px solid #fbf1e3; outline-offset:-4px; }
-.kb-big-answer { margin:0 calc(-1 * clamp(22px,4vw,48px)); padding:22px clamp(22px,4vw,48px) 30px; border-top:1px dashed rgba(251,241,227,.35); font-family:var(--serif); font-size:clamp(20px,1.9vw,25px); line-height:1.35; }
-@media (max-width:760px) {
-  .kb-big-panel-top { grid-template-columns:1fr; }
-  .kb-big-panel-art { display:none; }
-  .kb-big-tabs { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .kb-big-tabs button:nth-child(3)::before { display:none; }
-  .kb-big-tabs button:nth-child(n+3) { border-top:1px solid rgba(251,241,227,.35); }
-}
 @media (max-width:760px) {
   .kb-patterns-loop { display:none; }
   .kb-pattern-grid { grid-template-columns:1fr; gap:10px; }
@@ -243,3 +220,59 @@
   .kb-keep--envelope .kb-keep-sign { position:static; margin:8px auto 0; }
 }
 
+/* ---------- Shared pieces first used on loving-someone ---------- */
+/* Left-aligned headings with the star hanging to their left (Head); body copy lines up with them (.kb-indent) */
+.kb { --kb-indent:clamp(0px,5vw,56px); }
+.kb-head { position:relative; padding-left:var(--kb-indent); }
+.kb-head .kb-h2 { font-size:clamp(32px,4vw,52px); }
+.kb-head-star { position:absolute; left:0; top:.1em; width:clamp(26px,3vw,40px); }
+.kb-indent { padding-left:var(--kb-indent); }
+@media (max-width:600px) { .kb-head { padding-left:38px; } .kb-head-star { width:26px; } }
+
+/* Text link with an arrow and a brushed underline (hero second actions) */
+.kb-textlink { display:inline-flex; align-items:center; gap:14px; padding-bottom:8px; font-size:14px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--rust); background:url(/assets/home/hm-underline.webp) no-repeat 0 100% / 85% 4px; }
+.kb-textlink span { font-size:20px; transition:transform .25s ease; }
+.kb-textlink:hover { color:var(--rust); }
+.kb-textlink:hover span { transform:translateX(5px); }
+
+/* "Ready for …?" — torn rust strip that points on to the product (ReadyStrip) */
+.kb-ready { display:flex; align-items:center; justify-content:center; gap:clamp(16px,4vw,56px); margin:0 calc(50% - 50vw); padding:clamp(18px,2.4vw,28px) var(--gutter); background:var(--hm-grain), linear-gradient(170deg,#b1491f,#9c3b15); clip-path:polygon(0 12%,6% 4%,14% 10%,23% 2%,33% 9%,44% 3%,55% 10%,66% 2%,77% 9%,88% 3%,100% 10%,100% 88%,92% 97%,81% 90%,70% 98%,58% 91%,46% 99%,35% 92%,23% 98%,12% 91%,0 97%); }
+.kb-ready a { font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(28px,3.6vw,46px); line-height:1.05; text-align:center; text-transform:uppercase; color:#fbf1e3; }
+.kb-ready a:hover { color:#fff; }
+.kb-ready-arrow { width:clamp(44px,6vw,80px); filter:brightness(0) invert(.82) sepia(.7) saturate(2.2) hue-rotate(-6deg); }
+.kb-ready-arrow--l { transform:scaleX(-1); }
+@media (max-width:600px) { .kb-ready-arrow { display:none; } }
+.kb-ready--down a { display:flex; flex-direction:column; align-items:center; gap:2px; }
+.kb-ready-down { font-family:var(--sans); font-size:.7em; font-weight:300; line-height:1; color:#f0c98a; }
+
+/* The product block (Product): art, price, lede, numbered steps, button and note */
+.kb-product-section { border-top:0; }
+.kb-product-loop { position:absolute; right:clamp(0px,6vw,90px); top:clamp(56px,7vw,90px); width:clamp(70px,9vw,130px); transform:rotate(200deg); }
+.kb-product { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1fr); align-items:center; gap:clamp(24px,4vw,56px); margin-top:clamp(14px,2vw,24px); }
+.kb-product-art { display:block; width:min(100%,360px); margin-inline:auto; mix-blend-mode:multiply; }
+.kb-price { margin:0 0 10px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(48px,6vw,76px); line-height:1; color:var(--rust); }
+.kb-product-copy > p:not(.kb-price):not(.kb-product-note) { margin:0 0 18px; max-width:40ch; font-size:clamp(16px,1.3vw,18px); line-height:1.5; }
+.kb-product-list { margin:0 0 clamp(24px,3vw,32px); padding:0; list-style:none; counter-reset:path; }
+.kb-product-list li { counter-increment:path; display:flex; align-items:baseline; gap:14px; margin-bottom:12px; font-size:clamp(15.5px,1.25vw,17px); }
+.kb-product-list li::before { content:counter(path) "."; min-width:1.2em; font-family:var(--serif); font-size:1.35em; color:var(--rust); }
+.kb-product-btn { min-width:min(100%,360px); }
+.kb-product-note { margin:14px 0 0; font-size:13.5px; color:rgba(var(--ink-rgb),.8); }
+@media (max-width:760px) { .kb-product { grid-template-columns:1fr; } .kb-product-loop { display:none; } }
+
+/* Because none of this happens in isolation, left-aligned (className="kb-isolation--left") */
+.kb-isolation--left .kb-h2 { padding-left:var(--kb-indent); font-size:clamp(32px,4vw,52px); }
+.kb-isolation--left .kb-spark { top:4px; }
+.kb-isolation--left .kb-isolation-swirl { top:-64px; }
+.kb-isolation--left .kb-isolation-grid { max-width:880px; margin-inline:auto; }
+.kb-isolation--left .kb-hole { align-items:flex-start; text-align:left; }
+.kb-isolation--left .kb-arrow { align-self:flex-end; }
+@media (max-width:600px) { .kb-isolation--left .kb-h2 { padding-left:38px; } .kb-isolation--left .kb-spark { width:26px; } }
+
+/* ---------- Shared pieces first used on tell-me-the-truth ---------- */
+/* Thin gold rule with a star in the middle (StarRule) */
+.kb-rule { display:flex; align-items:center; gap:14px; margin:0 auto; color:#c9963f; }
+.kb-rule::before, .kb-rule::after { content:""; flex:1; height:1px; background:linear-gradient(90deg,transparent,rgba(201,150,63,.7) 20%,rgba(201,150,63,.7) 80%,transparent); }
+.kb-rule img { width:24px; }
+/* Outlined rust button */
+.kb-btn-outline { display:inline-block; padding:14px clamp(28px,4vw,52px); border:1.5px solid var(--rust); border-radius:2px; font-size:14px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--rust); transition:background .2s, color .2s; }
+.kb-btn-outline:hover { background:var(--rust); color:#fbf1e3; }

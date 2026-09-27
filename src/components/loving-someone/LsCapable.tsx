@@ -1,7 +1,6 @@
 import Icon from '@/components/shared/Icon';
-import { Brush } from '@/components/rabbit-holes/ui';
+import { Brush, Head } from '@/components/rabbit-holes/ui';
 import { CAPABLE } from '@/content/loving-someone';
-import { Head } from './ui';
 
 // NOT PERFECT. JUST MORE HONEST AND MORE CAPABLE. — six outlined cards, each with a line icon (design part two)
 export default function LsCapable() {
