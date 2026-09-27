@@ -1,0 +1,99 @@
+/* ============ How do I sell without scripts… (/ultimate-influence) — the fifth rabbit hole, after Photos-Images/13–15 ============ */
+/* Builds on the shared rabbit-hole kit in rabbit-holes.css (.kb page, headings, quote banner, ready strip, product block,
+   topic links, other holes, newsletter band). Colours are fixed like the rest of the kit. */
+
+/* Title (the designs have no hero here) */
+.ui-hero { position:relative; padding:clamp(56px,7vw,100px) 0 clamp(40px,5vw,64px) var(--kb-indent); }
+.ui-hero .kb-title { font-size:clamp(38px,4.8vw,66px); }
+.ui-hero > p { margin:0; max-width:44ch; font-size:clamp(17px,1.4vw,20px); line-height:1.55; }
+.ui-hero-star { position:absolute; left:0; top:calc(clamp(56px,7vw,100px) + 6px); width:clamp(28px,3.2vw,42px); }
+.ui-hero-btns { margin-top:clamp(26px,3vw,40px); }
+.ui-hero-flourish { position:absolute; right:clamp(0px,6vw,90px); top:clamp(60px,8vw,110px); width:clamp(110px,15vw,200px); mix-blend-mode:multiply; }
+@media (max-width:760px) { .ui-hero-flourish { display:none; } .ui-hero { padding-left:38px; } .ui-hero-star { width:26px; } }
+
+.ui-lede { max-width:52ch; }
+/* Small caps label with a rule running out to the right (or both sides, centred) */
+.ui-rule-label { display:flex; align-items:center; gap:18px; margin:0 0 clamp(16px,2vw,24px) var(--kb-indent); font-size:13.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--rust); }
+.ui-rule-label::after { content:""; flex:1; height:1px; background:var(--line); }
+.ui-rule-label--centre { margin-left:0; justify-content:center; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-size:clamp(20px,2vw,26px); letter-spacing:.04em; }
+.ui-rule-label--centre::before { content:""; flex:1; height:1px; background:var(--line); }
+
+/* Flows: the four responsibilities and the eight steps, boxes joined by arrows */
+.ui-flow { list-style:none; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(26px,3vw,40px); margin:0 auto clamp(28px,3.4vw,40px); padding:0; }
+.ui-flow li { position:relative; display:flex; flex-direction:column; align-items:center; gap:10px; padding:clamp(18px,2.2vw,26px) clamp(12px,1.6vw,20px); border:1px solid var(--line); border-radius:6px; font-size:14.5px; line-height:1.45; text-align:center; }
+.ui-flow li:not(:nth-child(4n+1))::before { content:"⟶"; position:absolute; right:calc(100% + clamp(3px,.6vw,8px)); top:50%; transform:translateY(-50%); font-size:clamp(18px,2vw,24px); line-height:1; color:var(--rust); }
+.ui-flow-name { padding-bottom:12px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(20px,2vw,26px); line-height:1.05; text-transform:uppercase; color:var(--rust); background:linear-gradient(#c9963f,#c9963f) no-repeat 50% 100% / 64px 1.5px; }
+.ui-flow--8 .ui-flow-name { color:var(--ink-strong); background:none; padding-bottom:0; font-size:clamp(22px,2.3vw,30px); }
+.ui-flow-num { display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%; background:var(--hm-grain), var(--rust); font-family:var(--serif); font-size:22px; color:#fbf1e3; }
+/* the first row of the eight steps bends round into the second: out of box 4, down, back across the gap, down into box 5.
+   Rows are equal height (grid-auto-rows:1fr), so row centres sit at (100% - gap) / 4 and 100% - that. */
+.ui-flow--8 { --g:clamp(44px,5vw,64px); position:relative; row-gap:var(--g); grid-auto-rows:1fr; }
+.ui-flow--8::before, .ui-flow--8::after { content:""; position:absolute; border:1.5px solid var(--rust); pointer-events:none; }
+.ui-flow--8::before { right:-22px; width:22px; top:calc((100% - var(--g)) / 4); bottom:calc(50% - .75px); border-left:0; border-radius:0 20px 20px 0; }
+.ui-flow--8::after { left:-22px; right:0; top:calc(50% - .75px); bottom:calc((100% - var(--g)) / 4); border-right:0; border-bottom:0; border-radius:20px 0 0 0; }
+.ui-flow--8 li:nth-child(5)::before { content:""; position:absolute; right:100%; top:50%; width:22px; height:1.5px; background:var(--rust); transform:none; }
+.ui-flow--8 li:nth-child(5)::after { content:""; position:absolute; right:calc(100% + 1px); top:50%; width:9px; height:9px; border-top:1.5px solid var(--rust); border-right:1.5px solid var(--rust); transform:translateY(-50%) rotate(45deg); }
+@media (max-width:860px) {
+  .ui-flow { grid-template-columns:repeat(2,minmax(0,1fr)); row-gap:clamp(30px,5vw,44px); }
+  .ui-flow li:not(:nth-child(4n+1))::before { content:none; }
+  .ui-flow li:nth-child(even)::before { content:"⟶"; }
+  .ui-flow--8 { grid-auto-rows:auto; }
+  .ui-flow--8::before, .ui-flow--8::after, .ui-flow--8 li:nth-child(5)::after { content:none; }
+  .ui-flow--8 li:nth-child(5)::before { content:none; }
+}
+@media (max-width:520px) {
+  .ui-flow { grid-template-columns:1fr; max-width:320px; gap:34px; }
+  .ui-flow li:nth-child(n)::before { content:"↓"; right:auto; left:50%; top:auto; bottom:calc(100% + 4px); width:auto; height:auto; background:none; transform:translateX(-50%); }
+  .ui-flow li:first-child::before { content:none; }
+}
+
+.ui-method-quote { display:flex; align-items:center; justify-content:center; gap:clamp(16px,3vw,40px); margin:0; }
+.ui-method-quote p { position:relative; margin:0; max-width:24em; padding:0 28px 14px; font-family:var(--serif); font-style:italic; font-size:clamp(21px,2.3vw,30px); line-height:1.3; text-align:center; color:var(--rust); background:linear-gradient(var(--rust),var(--rust)) no-repeat 50% 100% / 90px 1.5px; }
+.ui-method-quote p::before { content:"“"; position:absolute; left:-10px; top:-8px; font-size:1.8em; line-height:1; color:#c9963f; }
+.ui-method-quote p::after { content:"”"; position:absolute; right:-10px; bottom:-10px; font-size:1.8em; line-height:1; color:#c9963f; }
+.ui-quote-flourish { flex:none; width:clamp(70px,10vw,140px); mix-blend-mode:multiply; }
+.ui-quote-flourish--r { transform:scaleX(-1); }
+@media (max-width:760px) { .ui-quote-flourish { display:none; } }
+
+/* Card grids (Cards) */
+.ui-cards { list-style:none; display:grid; grid-template-columns:repeat(var(--cols),minmax(0,1fr)); gap:14px; max-width:960px; margin:0 auto; padding:0; }
+.ui-cards li { display:flex; gap:clamp(14px,1.8vw,20px); padding:clamp(16px,2vw,24px); border:1px solid var(--line); border-radius:4px; font-size:14.5px; line-height:1.45; }
+.ui-card-body { display:flex; flex-direction:column; gap:8px; min-width:0; }
+.ui-card-name { font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(19px,1.9vw,24px); line-height:1.08; text-transform:uppercase; color:var(--rust); }
+.ui-card-icon { flex:none; display:flex; color:var(--rust); }
+/* stack: icon above, everything centred, gold rule under the name */
+.ui-cards--stack li { flex-direction:column; align-items:center; text-align:center; }
+.ui-cards--stack .ui-card-body { align-items:center; }
+.ui-cards--stack .ui-card-name { padding-bottom:12px; font-size:clamp(21px,2.2vw,28px); color:var(--ink-strong); background:linear-gradient(#c9963f,#c9963f) no-repeat 50% 100% / 64px 1.5px; }
+/* side: icon beside a small caps name */
+.ui-cards--side { max-width:800px; }
+.ui-cards--side li { align-items:center; }
+.ui-cards--side .ui-card-name { font-family:var(--sans); font-variation-settings:normal; font-size:13.5px; letter-spacing:.1em; }
+/* disc: icon in a rust disc */
+.ui-cards--disc .ui-card-name { font-size:clamp(17px,1.6vw,21px); overflow-wrap:break-word; }
+.ui-cards--disc .ui-card-icon { align-items:center; justify-content:center; width:clamp(48px,4.6vw,62px); height:clamp(48px,4.6vw,62px); border-radius:50%; background:var(--hm-grain), var(--rust); color:#fbf1e3; }
+/* ring: icon in an outlined ring, text only (hard to hold) */
+.ui-cards--ring li { align-items:center; }
+.ui-cards--ring .ui-card-icon { width:48px; height:48px; background:none; border:1.5px solid var(--rust); color:var(--rust); }
+.ui-cards--ring .ui-card-icon svg { width:24px; height:24px; }
+.ui-cards--ring li { padding:16px; gap:14px; }
+.ui-cards--ring .ui-card-body > span { font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(15px,1.3vw,17px); line-height:1.15; text-transform:uppercase; color:var(--ink-strong); }
+@media (max-width:860px) { .ui-cards { grid-template-columns:repeat(min(var(--cols),2),minmax(0,1fr)); } }
+@media (max-width:560px) { .ui-cards { grid-template-columns:1fr; } }
+
+/* Hard to hold beside conversations */
+.ui-pair { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(24px,3vw,44px); }
+.ui-pair > section + section { position:relative; }
+.ui-pair > section + section::before { content:""; position:absolute; left:calc(-1 * clamp(12px,1.5vw,22px)); top:clamp(56px,7vw,96px); bottom:clamp(56px,7vw,96px); width:1px; background:var(--line); }
+.ui-pair .kb-h2 { font-size:clamp(26px,2.6vw,36px); }
+.ui-pair .kb-topic-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.ui-pair .kb-topic { grid-template-columns:auto minmax(0,1fr); font-size:clamp(15px,1.4vw,18px); }
+.ui-pair .kb-topic .kb-arrow { display:none; }
+.ui-pair .kb-topic svg { width:36px; height:36px; }
+@media (max-width:1000px) { .ui-pair { grid-template-columns:1fr; gap:0; } .ui-pair > section + section::before { display:none; } }
+@media (max-width:600px) { .ui-pair .kb-topic-grid { grid-template-columns:1fr; } }
+
+.ui .kb-ready { margin-top:clamp(24px,3vw,40px); }
+.ui .kb-ready a { line-height:1.1; }
+.ui-meet { border-top:0; }
+.ui .kb-topics, .ui .kb-isolation, .ui-hold { border-top:0; }
