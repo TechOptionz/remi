@@ -1,5 +1,5 @@
 import Icon from '@/components/shared/Icon';
-import { Brush, Head } from '@/components/rabbit-holes/ui';
+import { Brush, Head, QuoteBanner } from '@/components/rabbit-holes/ui';
 import { PRINCIPLES } from '@/content/leadership';
 
 // YOU CANNOT LEAD EVERYONE FROM THE SAME PLACE — three principle cards, then the rust quote (design part two)
@@ -17,7 +17,7 @@ export default function LdPrinciples() {
           </li>
         ))}
       </ul>
-      <blockquote className="ld-banner"><p>Leadership is not dragging everyone to where you are.<br /> It is seeing what thinking is present and creating the conditions for the next capability.</p></blockquote>
+      <QuoteBanner>Leadership is not dragging everyone to where you are.<br /> It is seeing what thinking is present and creating the conditions for the next capability.</QuoteBanner>
     </section>
   );
 }

@@ -29,3 +29,8 @@ export function Head({ id, children, star = true }: { id: string; children: Reac
 export function StarRule() {
   return <div className="kb-rule" aria-hidden="true"><Sym name="hm-spark" /></div>;
 }
+
+/** Rust quote banner with gold quote marks. */
+export function QuoteBanner({ children }: { children: React.ReactNode }) {
+  return <blockquote className="kb-quote-banner"><p>{children}</p></blockquote>;
+}

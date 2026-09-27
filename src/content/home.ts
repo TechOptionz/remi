@@ -1,14 +1,14 @@
 // Homepage lists that are meant to be swapped often: the six rabbit holes, the three featured Perspectives and the three entry products.
 import { CONVERSATIONS } from '@/content/perspectives';
 
-// ---------- Which rabbit hole: the six painted cards. Each gets its own page as it is built (/i-know-better, /loving-someone, /tell-me-the-truth, /leadership, …) ----------
+// ---------- Which rabbit hole: the six painted cards. Each gets its own page as it is built (/i-know-better, /loving-someone, /tell-me-the-truth, /leadership, /build-an-asset, …) ----------
 export const RABBIT_HOLES: { tone: string; href: string; title: string; text: string }[] = [
   { tone: 'rust', href: '/i-know-better', title: 'I know better. Why do I still keep doing this?', text: 'Patterns, triggers and protective responses that insight alone has not changed.' },
   { tone: 'blush', href: '/loving-someone', title: 'Why does loving someone bring all my shit to the surface?', text: 'Attachment, boundaries, conflict, intimacy and the moments you leave yourself.' },
   { tone: 'paper', href: '/tell-me-the-truth', title: 'Tell me the truth. What am I not seeing?', text: 'Decisions, contradictions and stories that keep your life out of alignment.' },
   { tone: 'coal', href: '/leadership', title: 'How do I lead without carrying everybody?', text: 'Leadership, accountability, culture, holding space and honest conversations.' },
   { tone: 'gold', href: '/ideas-models#part-8', title: 'How do I sell without scripts, pressure or bullshit?', text: 'Consultative sales, ethical influence, presenting and moving a room.' },
-  { tone: 'oxblood', href: '/ideas-models#part-8', title: 'I’ve built myself a job. How do I build an asset?', text: 'Turn expertise into intellectual property and build beyond the founder.' },
+  { tone: 'oxblood', href: '/build-an-asset', title: 'I’ve built myself a job. How do I build an asset?', text: 'Turn expertise into intellectual property and build beyond the founder.' },
 ];
 
 // ---------- Featured Perspectives: the first entry is the large card. `title` overrides the archive title on the homepage ----------
