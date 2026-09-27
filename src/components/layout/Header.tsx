@@ -9,6 +9,7 @@ import { useSiteState } from '@/lib/site-state';
 // Variants menu (design review tool) is hidden for now; restore this import and the <VariantsMenu /> line in the nav to bring it back
 // import VariantsMenu from './VariantsMenu';
 import SiteSearch from './SiteSearch';
+import { scrollToY } from '@/lib/smooth-scroll';
 
 /** Splits drop-down links into runs that share a `group` (ungrouped links form their own run). */
 function groupLinks(items: NavItem[]) {
@@ -42,7 +43,7 @@ export default function Header() {
     setHero(id);
     setMenuOpen(false);
     if (pathname !== '/') router.push('/');
-    window.scrollTo({ top: 0 });
+    scrollToY(0, { immediate: true });
   };
   const pickPalette = (id: PaletteId) => { setPalette(id); setMenuOpen(false); };
   const closeMenu = useCallback(() => setMenuOpen(false), []);

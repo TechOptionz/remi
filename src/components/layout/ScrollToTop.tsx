@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
+import { scrollToY } from '@/lib/smooth-scroll';
 
 // Next's <Link> keeps the scroll position while any of the new page is in view, so long pages opened from
 // a button lower down used to land part-way down. On every page change this jumps to the very top instead —
@@ -21,7 +22,7 @@ export default function ScrollToTop() {
     if (first.current) { first.current = false; return; }
     if (popped.current) { popped.current = false; return; }
     if (window.location.hash) return;
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    scrollToY(0, { immediate: true });
   }, [pathname]);
 
   return null;

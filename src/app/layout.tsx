@@ -1,10 +1,12 @@
 // Root layout: fonts, global styles and the chrome shared by every page (header, footer, chat).
 import type { Metadata } from 'next';
+import 'lenis/dist/lenis.css';
 import '@/styles/index.css';
 import { DEFAULT_PALETTE } from '@/content/site';
 import { PALETTE_BOOT_SCRIPT, SiteStateProvider } from '@/lib/site-state';
 import Header from '@/components/layout/Header';
 import ScrollToTop from '@/components/layout/ScrollToTop';
+import SmoothScroll from '@/components/layout/SmoothScroll';
 import Footer from '@/components/layout/Footer';
 import ChatWidget from '@/components/shared/ChatWidget';
 
@@ -28,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <SiteStateProvider>
+          <SmoothScroll />
           <ScrollToTop />
           <div className="wrap" id="top">
             <Header />

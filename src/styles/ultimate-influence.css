@@ -9,7 +9,8 @@
 .ui-hero-star { position:absolute; left:0; top:calc(clamp(56px,7vw,100px) + 6px); width:clamp(28px,3.2vw,42px); }
 .ui-hero-btns { margin-top:clamp(26px,3vw,40px); }
 .ui-hero-flourish { position:absolute; right:clamp(0px,6vw,90px); top:clamp(60px,8vw,110px); width:clamp(110px,15vw,200px); mix-blend-mode:multiply; }
-@media (max-width:760px) { .ui-hero-flourish { display:none; } .ui-hero { padding-left:38px; } .ui-hero-star { width:26px; } }
+@media (max-width:760px) { .ui-hero-flourish { display:none; } }
+@media (max-width:600px) { .ui-hero { padding-left:0; } .ui-hero-star { position:static; width:24px; margin-bottom:10px; } }
 
 .ui-lede { max-width:52ch; }
 /* Small caps label with a rule running out to the right (or both sides, centred) */
@@ -53,7 +54,7 @@
 .ui-method-quote p::after { content:"”"; position:absolute; right:-10px; bottom:-10px; font-size:1.8em; line-height:1; color:#c9963f; }
 .ui-quote-flourish { flex:none; width:clamp(70px,10vw,140px); mix-blend-mode:multiply; }
 .ui-quote-flourish--r { transform:scaleX(-1); }
-@media (max-width:760px) { .ui-quote-flourish { display:none; } }
+@media (max-width:760px) { .ui-quote-flourish { display:none; } .ui-method-quote p { padding-inline:18px; } .ui-method-quote p::before { left:-4px; } .ui-method-quote p::after { right:0; } }
 
 /* Card grids (Cards) */
 .ui-cards { list-style:none; display:grid; grid-template-columns:repeat(var(--cols),minmax(0,1fr)); gap:14px; max-width:960px; margin:0 auto; padding:0; }

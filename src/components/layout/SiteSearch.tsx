@@ -8,6 +8,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { SEARCH_SUGGESTIONS } from '@/content/site';
 import { highlighter, normalise, prepare, queryTokens, search, type SearchHit, type SearchIndex } from '@/lib/search';
 import Icon from '@/components/shared/Icon';
+import { scrollToY } from '@/lib/smooth-scroll';
 
 type Target = { a: string; h: string };
 
@@ -36,7 +37,7 @@ function findTarget({ a, h }: Target) {
 /** Scrolls the target under the sticky header and flashes it; corrects once if late-loading images moved it. */
 function reveal(el: HTMLElement) {
   const offset = () => (document.querySelector('.site-header')?.getBoundingClientRect().height ?? 72) + 16;
-  const scroll = () => window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - offset() });
+  const scroll = () => scrollToY(el.getBoundingClientRect().top + window.scrollY - offset(), { immediate: true });
   scroll();
   window.setTimeout(() => { if (Math.abs(el.getBoundingClientRect().top - offset()) > 60) scroll(); }, 900);
   el.classList.remove('search-flash');
