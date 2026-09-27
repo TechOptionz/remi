@@ -48,6 +48,13 @@ const ICONS = {
   repeat: <path d="M4 12a8 8 0 0 1 14-5.3M18 3v4h-4M20 12a8 8 0 0 1-14 5.3M6 21v-4h4" />,
   northstar: <><path d="M12 2.5l1.8 7.7 7.7 1.8-7.7 1.8L12 21.5l-1.8-7.7L2.5 12l7.7-1.8z" /><circle cx="12" cy="12" r="1.2" /></>,
   crown: <path d="M4 18h16M4.5 15.500L3 7l5 4 4-6 4 6 5-4-1.5 8.500z" />,
+  stairs: <path d="M4 19h4v-4h4v-4h4V7h4" />,
+  scales: <path d="M12 4v16M8 20h8M5 7h14M12 5.5l0 0M5 7l-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z" />,
+  clipboard: <><rect x="5" y="4" width="14" height="17" rx="1.5" /><path d="M9 4V2.5h6V4M8.5 9.5l1 1 2-2M13.5 9.500H16M8.5 14.500l1 1 2-2M13.5 14.500H16" /></>,
+  badge: <><rect x="5" y="3" width="14" height="18" rx="1.5" /><circle cx="12" cy="10" r="2.5" /><path d="M8 17c.6-2 2.1-3 4-3s3.4 1 4 3" /></>,
+  cube: <path d="M12 3l8 4.500v9L12 21l-8-4.500v-9zM4 7.500l8 4.500 8-4.500M12 12v9" />,
+  layers: <path d="M12 4l9 4.500-9 4.500-9-4.500zM3 12.500l9 4.500 9-4.500M3 16.500l9 4.500 9-4.5" />,
+  lighthouse: <path d="M10 8h4l1.5 11h-7zM9 8h6M12 3v2M10.5 5h3v3h-3zM10 12.500h4M3 21c2 0 2-1.5 4.5-1.5S10 21 12 21s2.5-1.5 4.5-1.5S19 21 21 21M17 6l3-1.5M17 9h3.5" />,
 } as const;
 
 export type IconName = keyof typeof ICONS;

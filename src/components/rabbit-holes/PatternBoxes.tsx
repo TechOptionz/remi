@@ -1,14 +1,15 @@
 'use client';
 
-// The six pattern boxes on a rabbit-hole page, as their own section (the page passes its heading in `head`). Each box
+// The six pattern boxes on a rabbit-hole page, as their own section (the page passes its heading in `head`, and anything
+// that closes the section in `after`). Each box
 // expands in place on hover to show the pattern's lines and its four answers under the page's labels. Touch and keyboard:
 // a tap / Enter pins a box open (and closes it again), since there is no hover there.
 import { useId, useState } from 'react';
 import type { Pattern } from '@/content/rabbit-holes';
 
-type Props = { patterns: Pattern[]; labels: string[]; head: React.ReactNode; className?: string; labelledBy: string };
+type Props = { patterns: Pattern[]; labels: string[]; head: React.ReactNode; after?: React.ReactNode; className?: string; labelledBy: string };
 
-export default function PatternBoxes({ patterns, labels, head, className = '', labelledBy }: Props) {
+export default function PatternBoxes({ patterns, labels, head, after, className = '', labelledBy }: Props) {
   const [open, setOpen] = useState<number | null>(null);
   const id = useId();
 
@@ -36,6 +37,7 @@ export default function PatternBoxes({ patterns, labels, head, className = '', l
           </div>
         ))}
       </div>
+      {after}
     </section>
   );
 }
