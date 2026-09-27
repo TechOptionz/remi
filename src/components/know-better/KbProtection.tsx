@@ -1,4 +1,4 @@
-import { Art, Brush, Sym } from './ui';
+import { Art, Brush, Sym } from '@/components/rabbit-holes/ui';
 
 // THE PATTERN ISN'T THE PROBLEM — the three-ring drawing with its labels, the copy, and the painted quote (design part two)
 export default function KbProtection() {

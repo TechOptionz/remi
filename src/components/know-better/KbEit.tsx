@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { EIT_HREF, EIT_VIDEO_HREF } from '@/content/know-better';
-import { Art, Brush, PlayRing, Sym } from './ui';
+import { EIT_VIDEO_HREF } from '@/content/know-better';
+import { EIT_HREF } from '@/content/rabbit-holes';
+import { Art, Brush, PlayRing, Sym } from '@/components/rabbit-holes/ui';
 
 const STEPS = [
   { name: 'Catch', text: 'Notice the Point of Departure' },

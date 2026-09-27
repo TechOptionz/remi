@@ -1,7 +1,8 @@
 'use client';
 
 // FIND THE CONVERSATION YOU NEED TODAY — searchable, filterable archive of CONVERSATIONS (content/perspectives.ts).
-// Anything on the page with data-topic="<Topic>" opens the archive filtered to that topic.
+// Anything on the page with data-topic="<Topic>" opens the archive filtered to that topic; so does a link from another
+// page to /perspectives?topic=<Topic>#archive.
 import { useEffect, useMemo, useState } from 'react';
 import Icon from '@/components/shared/Icon';
 import { CONVERSATIONS, TOPICS, type Conversation, type Topic } from '@/content/perspectives';
@@ -29,6 +30,8 @@ export default function Archive() {
   const [visible, setVisible] = useState(PAGE_SIZE);
 
   useEffect(() => {
+    const fromUrl = new URLSearchParams(window.location.search).get('topic');
+    if (fromUrl && (TOPICS as readonly string[]).includes(fromUrl)) setTopic(fromUrl as Topic);
     const onClick = (e: MouseEvent) => {
       const el = (e.target as Element).closest<HTMLElement>('[data-topic]');
       if (!el || el.closest('.archive')) return;

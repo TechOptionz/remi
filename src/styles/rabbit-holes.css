@@ -1,5 +1,6 @@
-/* ============ I know better (/i-know-better) — the first rabbit hole, after Photos-Images/1–3. I KNOW BETTER ============ */
-/* A designed page like the homepage sections: its paper, rust, gold and charcoal are fixed, not palette tokens. Drawings cut
+/* ============ Rabbit-hole pages: the shared kit (.kb page, headings, buttons, pattern boxes, other holes, newsletter band) ============ */
+/* plus the sections of the first page, I know better (/i-know-better, Photos-Images/1–3). Page-specific styles for the others
+   live in their own file (loving-someone.css). A designed page like the homepage sections: its paper, rust, gold and charcoal are fixed, not palette tokens. Drawings cut
    from the design have their paper flattened to white and are multiplied onto the page (public/assets/rabbit-holes). */
 .kb {
   --paper:#f4ede3; --ink:#1d1a17; --ink-rgb:29,26,23; --ink-strong:#16130f; --rust:#a8401a; --rust-rgb:168,64,26; --gold:#c9963f;
@@ -71,6 +72,29 @@
   .kb-pattern:hover .kb-arrow { transform:rotate(90deg); }
 }
 @media (prefers-reduced-motion:reduce) { .kb-pattern-body, .kb-pattern-inner { transition:none; } }
+/* The rust pattern panel (PatternPanel): one pattern, its lines, and four tabs that reveal each answer */
+.kb-panel-section { border-top:0; padding-top:0; }
+.kb-big-panel { position:relative; max-width:880px; margin:0 auto; padding:clamp(30px,4vw,52px) clamp(22px,4vw,48px) 0; background:var(--hm-grain), linear-gradient(165deg,#b1491f,#9c3b15); color:#fbf1e3; clip-path:polygon(0 1%,4% 0,30% .6%,60% 0,96% .8%,100% 0,99.4% 30%,100% 60%,99.3% 100%,70% 99.2%,40% 100%,4% 99.3%,0 100%,.6% 60%,0 30%); }
+.kb-big-panel-top { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:24px; padding-bottom:clamp(22px,2.6vw,32px); }
+.kb-big-panel-title { width:fit-content; margin:0 0 18px; padding-bottom:12px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(26px,2.9vw,36px); line-height:1.02; text-transform:uppercase; background:linear-gradient(#f0d2a4,#f0d2a4) no-repeat 0 100% / min(250px,60%) 2px; }
+.kb-big-panel-top p { margin:0 0 6px; max-width:48ch; font-size:clamp(15.5px,1.25vw,17.5px); line-height:1.55; }
+.kb-big-panel-art { width:clamp(120px,19vw,220px); }
+.kb-big-tabs { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border-top:1px solid rgba(251,241,227,.35); }
+.kb-big-tabs button { position:relative; padding:20px 10px; border:0; background:none; font-size:13.5px; font-weight:600; letter-spacing:.1em; line-height:1.3; text-transform:uppercase; color:#fbf1e3; cursor:pointer; }
+.kb-big-tabs button + button::before { content:""; position:absolute; left:0; top:14px; bottom:14px; width:1px; background:rgba(251,241,227,.35); }
+.kb-big-tabs button::after { content:""; position:absolute; left:50%; bottom:10px; width:0; height:2px; background:#f0c98a; transform:translateX(-50%); transition:width .25s ease; }
+.kb-big-tabs button:hover::after { width:32px; }
+.kb-big-tabs button[aria-selected="true"] { color:#f0c98a; }
+.kb-big-tabs button[aria-selected="true"]::after { width:60%; }
+.kb-big-tabs button:focus-visible { outline:2px solid #fbf1e3; outline-offset:-4px; }
+.kb-big-answer { margin:0 calc(-1 * clamp(22px,4vw,48px)); padding:22px clamp(22px,4vw,48px) 30px; border-top:1px dashed rgba(251,241,227,.35); font-family:var(--serif); font-size:clamp(20px,1.9vw,25px); line-height:1.35; }
+@media (max-width:760px) {
+  .kb-big-panel-top { grid-template-columns:1fr; }
+  .kb-big-panel-art { display:none; }
+  .kb-big-tabs { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .kb-big-tabs button:nth-child(3)::before { display:none; }
+  .kb-big-tabs button:nth-child(n+3) { border-top:1px solid rgba(251,241,227,.35); }
+}
 @media (max-width:760px) {
   .kb-patterns-loop { display:none; }
   .kb-pattern-grid { grid-template-columns:1fr; gap:10px; }
@@ -176,6 +200,7 @@
 /* Because none of this happens in isolation */
 .kb-isolation { border-top:0; padding-top:0; }
 .kb-isolation .kb-spark { top:4px; }
+.kb-isolation--centred .kb-h2 { text-align:center; }
 .kb-isolation-swirl { position:absolute; right:0; top:-30px; width:clamp(56px,6vw,84px); transform:rotate(-20deg); }
 .kb-isolation-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:clamp(20px,2.4vw,32px); }
 .kb-hole { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; min-height:clamp(120px,12vw,140px); padding:22px clamp(18px,3vw,40px); border:1px solid var(--line); background:rgba(255,255,255,.3); font-family:var(--serif); font-size:clamp(22px,2.1vw,28px); line-height:1.2; text-align:center; text-wrap:balance; color:var(--rust); transition:background .2s, color .2s; }
@@ -187,7 +212,7 @@
 .kb-keep { position:relative; isolation:isolate; overflow:hidden; margin-inline:calc(-1 * var(--gutter)); padding:clamp(52px,6vw,80px) var(--gutter) clamp(48px,5vw,64px); background:var(--hm-grain), linear-gradient(170deg,#b1491f,#9c3b15); text-align:center; color:#fbf1e3; clip-path:polygon(0 3%,5% 1%,11% 3.5%,18% .5%,26% 3%,33% 1%,41% 3.5%,49% 1%,57% 3%,64% .5%,72% 3%,80% 1%,87% 3.5%,94% 1%,100% 3%,100% 100%,0 100%); }
 .kb-keep-title { margin:0 0 12px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(30px,3.6vw,46px); line-height:1.05; text-transform:uppercase; text-wrap:balance; }
 .kb-keep .hm-brush img { filter:brightness(0) invert(.82) sepia(.7) saturate(2.2) hue-rotate(-6deg); }
-.kb-keep > p { margin:0 auto clamp(22px,2.6vw,30px); font-size:15px; }
+.kb-keep-copy > p { margin:0 auto clamp(22px,2.6vw,30px); font-size:15px; }
 .kb-keep-flourish { position:absolute; left:max(12px,calc(50vw - 640px)); bottom:18%; z-index:-1; width:clamp(110px,11vw,160px); }
 .kb-keep-star { position:absolute; right:max(24px,calc(50vw - 600px)); top:30%; width:clamp(30px,3vw,42px); filter:brightness(1.6); }
 .kb-keep-sign { position:absolute; right:max(16px,calc(50vw - 640px)); bottom:14px; width:clamp(90px,9vw,130px); aspect-ratio:680/298; background:#e2b56a; -webkit-mask:url(/assets/remi-signature.png) center / contain no-repeat; mask:url(/assets/remi-signature.png) center / contain no-repeat; }
@@ -202,5 +227,19 @@
   .kb-news-form { grid-template-columns:1fr; }
   .kb-keep-sign { position:static; display:block; margin:24px auto 0; }
   .kb-keep-flourish, .kb-keep-star { display:none; }
+}
+/* envelope variant: the drawing on the left, heading and a stacked form on the right */
+.kb-keep--envelope { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:center; gap:clamp(24px,4vw,56px); padding-inline:max(var(--gutter),calc(50vw - 560px)); text-align:left; }
+.kb-keep--envelope .kb-keep-copy > p { margin-left:0; }
+.kb-keep--envelope .kb-news-form { grid-template-columns:1fr; max-width:420px; margin:0; }
+.kb-keep--envelope .kb-news-form input { background:#fbf5ec; border-color:#fbf5ec; color:var(--ink); }
+.kb-keep--envelope .kb-news-form input::placeholder { color:rgba(29,26,23,.55); }
+.kb-keep--envelope .kb-keep-sign { left:max(var(--gutter),calc(50vw - 560px)); right:auto; }
+.kb-keep-envelope { width:min(100%,380px); justify-self:center; }
+@media (max-width:760px) {
+  .kb-keep--envelope { grid-template-columns:1fr; text-align:center; }
+  .kb-keep--envelope .kb-keep-copy > p, .kb-keep--envelope .kb-news-form { margin-inline:auto; }
+  .kb-keep-envelope { width:min(70%,260px); }
+  .kb-keep--envelope .kb-keep-sign { position:static; margin:8px auto 0; }
 }
 

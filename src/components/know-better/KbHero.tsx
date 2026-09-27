@@ -1,4 +1,4 @@
-import { Brush, PlayRing, Sym, kbArt } from './ui';
+import { Brush, PlayRing, Sym, kbArt } from '@/components/rabbit-holes/ui';
 
 // I KNOW BETTER — title, lede and buttons on the left, the photograph torn in from the right (design part one)
 export default function KbHero() {

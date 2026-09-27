@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { READ, UNTRIGGERABLE_HREF, WATCH } from '@/content/know-better';
-import { Art, Brush, PlayRing, Sym } from './ui';
+import { Art, Brush, PlayRing, Sym } from '@/components/rabbit-holes/ui';
 
 // WANT TO DO SOMETHING WITH THIS? — the Untriggerable book, then GO DEEPER: two conversations to watch, two articles to read (design part three)
 export default function KbNext() {

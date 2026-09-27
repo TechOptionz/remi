@@ -1,0 +1,124 @@
+/* ============ Why does loving someone… (/loving-someone) — the second rabbit hole, after Photos-Images/4–6 ============ */
+/* Builds on the shared rabbit-hole kit in rabbit-holes.css (.kb page, .kb-h2, .hm-btn, pattern boxes, other holes,
+   newsletter band). Colours are fixed like the rest of the kit. */
+
+/* Left-aligned headings with the star hanging to their left; body copy lines up with the heading */
+.ls { --ls-indent:clamp(0px,5vw,56px); }
+.ls-head { position:relative; padding-left:var(--ls-indent); }
+.ls-head .kb-h2 { font-size:clamp(32px,4vw,52px); }
+.ls-head-star { position:absolute; left:0; top:.1em; width:clamp(26px,3vw,40px); }
+.ls-indent { padding-left:var(--ls-indent); }
+@media (max-width:600px) { .ls-head { padding-left:38px; } .ls-head-star { width:26px; } }
+
+/* Hero: copy left, the reaching hands multiplied onto the paper on the right */
+.ls-hero { display:grid; grid-template-columns:minmax(0,1.45fr) minmax(0,1fr); align-items:center; gap:clamp(20px,3vw,48px); padding:clamp(40px,5vw,72px) 0 clamp(40px,5vw,64px); }
+.ls-hero .kb-title { font-size:clamp(34px,3.9vw,52px); }
+.ls-hero-copy > p { margin:0; max-width:40ch; font-size:clamp(16px,1.35vw,19px); line-height:1.6; }
+.ls-hero-btns { display:flex; flex-direction:column; align-items:flex-start; gap:22px; margin-top:clamp(26px,3vw,40px); }
+.ls-textlink { display:inline-flex; align-items:center; gap:14px; padding-bottom:8px; font-size:14px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--rust); background:url(/assets/home/hm-underline.webp) no-repeat 0 100% / 85% 4px; }
+.ls-textlink span { font-size:20px; transition:transform .25s ease; }
+.ls-textlink:hover { color:var(--rust); }
+.ls-textlink:hover span { transform:translateX(5px); }
+.ls-hero-art { position:relative; }
+.ls-hero-photo { display:block; width:100%; height:auto; max-width:440px; margin-left:auto; mix-blend-mode:multiply; }
+.ls-hero-loop { position:absolute; left:0; bottom:6%; width:clamp(60px,7vw,96px); transform:rotate(-20deg); }
+@media (max-width:860px) {
+  .ls-hero { grid-template-columns:1fr; }
+  .ls-hero-photo { max-width:400px; margin-inline:auto; }
+  .ls-hero-loop { display:none; }
+}
+
+/* What happens to you when it really matters? */
+.ls-starred { display:flex; justify-content:center; align-items:center; gap:clamp(20px,8vw,140px); }
+.ls-starred .kb-h2 { margin-bottom:0; }
+.ls-starred-star { flex:none; width:clamp(28px,3.4vw,44px); }
+.ls-patterns .kb-sub { margin-top:clamp(16px,2vw,24px); }
+.ls-patterns .kb-pattern-grid { max-width:880px; }
+.ls .kb-pattern-head { color:var(--rust); }
+.ls .kb-pattern.is-open .kb-pattern-head { color:inherit; }
+@media (hover:hover) { .ls .kb-pattern:hover .kb-pattern-head { color:inherit; } }
+@media (max-width:600px) { .ls-starred-star { display:none; } .ls-patterns .kb-sub br { display:none; } }
+
+/* Love doesn't create all your patterns — the cycle */
+.ls-cycle-grid { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); align-items:center; gap:clamp(24px,4vw,56px); margin-top:clamp(12px,2vw,24px); }
+.ls-cycle-fig { margin:0; }
+.ls-cycle-fig svg { display:block; width:100%; max-width:520px; height:auto; }
+.ls-cycle-ring { fill:none; stroke:#c9963f; stroke-width:2; }
+.ls-cycle-ring--in { stroke-width:1; opacity:.55; }
+.ls-cycle-arrow { fill:none; stroke:var(--rust); stroke-width:2.2; stroke-linecap:round; }
+.ls-cycle-text { font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:17px; letter-spacing:.02em; text-transform:uppercase; text-anchor:middle; fill:var(--ink); }
+.ls-cycle-copy p { margin:0 0 clamp(26px,3vw,40px); max-width:38ch; font-size:clamp(16px,1.3vw,18.5px); line-height:1.6; }
+.ls-quote { margin:0; max-width:22ch; padding:4px 0 4px clamp(18px,2vw,26px); border-left:2px solid var(--rust); font-family:var(--serif); font-size:clamp(23px,2.2vw,30px); line-height:1.3; color:var(--rust); }
+@media (max-width:860px) {
+  .ls-cycle-grid { grid-template-columns:1fr; }
+  .ls-cycle-fig svg { margin-inline:auto; }
+}
+
+/* The relationship changes when you can remain with yourself */
+.ls-remain-loop { position:absolute; right:0; top:clamp(40px,5vw,70px); width:clamp(64px,7vw,100px); transform:rotate(80deg); }
+.ls-remain-lede { margin:0 0 clamp(30px,3.6vw,44px); max-width:44ch; font-size:clamp(16px,1.3vw,18.5px); line-height:1.55; }
+.ls-steps { list-style:none; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(40px,6vw,76px); max-width:880px; margin:0 auto clamp(18px,2.2vw,26px); padding:0; }
+.ls-steps li { position:relative; display:flex; flex-direction:column; align-items:center; gap:8px; padding:clamp(16px,2vw,24px) 14px; border:2px solid var(--rust); border-radius:3px 6px 4px 5px; font-size:15px; line-height:1.4; text-align:center; box-shadow:1px 1px 0 rgba(168,64,26,.4); }
+.ls-step-name { font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(28px,3vw,38px); line-height:1; text-transform:uppercase; color:var(--ink-strong); }
+.ls-steps li + li::before { content:"⟶"; position:absolute; right:calc(100% + clamp(8px,1.4vw,18px)); top:50%; transform:translateY(-50%); font-size:clamp(24px,2.6vw,32px); line-height:1; color:var(--rust); }
+.ls-practices { list-style:none; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin:0 0 clamp(26px,3vw,36px); padding:0; }
+.ls-practices li { display:flex; flex-direction:column; align-items:center; gap:10px; padding:16px 16px 20px; border:1px solid rgba(168,64,26,.25); background:var(--peach); font-family:var(--serif); font-size:clamp(18px,1.6vw,21px); line-height:1.2; text-align:center; color:var(--rust); }
+.ls-practices img { width:22px; }
+.ls-remain-cta { margin:0; }
+@media (max-width:860px) { .ls-practices { grid-template-columns:repeat(2,minmax(0,1fr)); } .ls-remain-loop { display:none; } }
+@media (max-width:600px) {
+  .ls-steps { grid-template-columns:1fr; gap:38px; max-width:320px; }
+  .ls-steps li + li::before { content:"↓"; right:auto; left:50%; top:auto; bottom:calc(100% + 4px); transform:translateX(-50%); }
+  .ls-remain-cta .hm-btn { padding-inline:20px; }
+}
+
+/* Not perfect. Just more honest and more capable. */
+.ls-capable-grid { list-style:none; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; max-width:880px; margin:clamp(20px,2.6vw,32px) auto 0; padding:0; }
+.ls-capable-grid li { display:flex; align-items:center; gap:18px; min-height:84px; padding:14px clamp(18px,2.4vw,40px); border:1px solid var(--line); font-size:15.5px; line-height:1.35; }
+.ls-capable-grid svg { flex:none; color:#c9963f; }
+@media (max-width:760px) { .ls-capable-grid { grid-template-columns:1fr; } }
+
+/* Ready for the five paths? — torn rust strip */
+.ls-ready { display:flex; align-items:center; justify-content:center; gap:clamp(16px,4vw,56px); margin:0 calc(-1 * var(--gutter)); padding:clamp(18px,2.4vw,28px) var(--gutter); background:var(--hm-grain), linear-gradient(170deg,#b1491f,#9c3b15); clip-path:polygon(0 12%,6% 4%,14% 10%,23% 2%,33% 9%,44% 3%,55% 10%,66% 2%,77% 9%,88% 3%,100% 10%,100% 88%,92% 97%,81% 90%,70% 98%,58% 91%,46% 99%,35% 92%,23% 98%,12% 91%,0 97%); }
+.ls-ready a { font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(28px,3.6vw,46px); line-height:1.05; text-align:center; text-transform:uppercase; color:#fbf1e3; }
+.ls-ready a:hover { color:#fff; }
+.ls-ready-arrow { width:clamp(44px,6vw,80px); filter:brightness(0) invert(.82) sepia(.7) saturate(2.2) hue-rotate(-6deg); }
+.ls-ready-arrow--l { transform:scaleX(-1); }
+@media (max-width:600px) { .ls-ready-arrow { display:none; } }
+
+/* The five paths to your healthy relationship */
+.ls-paths { border-top:0; }
+.ls-paths-loop { position:absolute; right:clamp(0px,6vw,90px); top:clamp(56px,7vw,90px); width:clamp(70px,9vw,130px); transform:rotate(200deg); }
+.ls-paths-grid { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1fr); align-items:center; gap:clamp(24px,4vw,56px); margin-top:clamp(14px,2vw,24px); }
+.ls-book { display:block; width:min(100%,360px); margin-inline:auto; mix-blend-mode:multiply; }
+.ls-price { margin:0 0 10px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(48px,6vw,76px); line-height:1; color:var(--rust); }
+.ls-paths-copy > p:not(.ls-price):not(.ls-paths-note) { margin:0 0 18px; max-width:40ch; font-size:clamp(16px,1.3vw,18px); line-height:1.5; }
+.ls-paths-list { margin:0 0 clamp(24px,3vw,32px); padding:0; list-style:none; counter-reset:path; }
+.ls-paths-list li { counter-increment:path; display:flex; align-items:baseline; gap:14px; margin-bottom:12px; font-size:clamp(15.5px,1.25vw,17px); }
+.ls-paths-list li::before { content:counter(path) "."; min-width:1.2em; font-family:var(--serif); font-size:1.35em; color:var(--rust); }
+.ls-paths-btn { min-width:min(100%,360px); }
+.ls-paths-note { margin:14px 0 0; font-size:13.5px; color:rgba(var(--ink-rgb),.8); }
+@media (max-width:760px) { .ls-paths-grid { grid-template-columns:1fr; } .ls-paths-loop { display:none; } }
+
+/* Conversations worth having */
+.ls-convs-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(16px,2.4vw,28px); max-width:1000px; margin:clamp(20px,2.6vw,32px) auto 0; }
+.ls-conv { display:grid; grid-template-columns:minmax(0,.62fr) minmax(0,1fr); border:1px solid var(--line); background:rgba(255,255,255,.3); color:var(--ink); transition:transform .25s ease, box-shadow .25s ease; }
+.ls-conv:hover { color:var(--ink); transform:translateY(-3px); box-shadow:0 14px 28px rgba(60,30,10,.14); }
+.ls-conv img { width:100%; height:100%; object-fit:cover; }
+.ls-conv-body { display:flex; flex-direction:column; justify-content:center; gap:6px; padding:clamp(16px,2vw,24px); }
+.ls-conv-title { font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(20px,2vw,25px); line-height:1.05; text-transform:uppercase; }
+.ls-conv-guest { font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(15px,1.4vw,18px); text-transform:uppercase; color:var(--rust); }
+.ls-conv-watch { display:inline-flex; align-items:center; gap:12px; margin-top:clamp(12px,1.6vw,20px); font-size:12.5px; font-weight:700; letter-spacing:.08em; line-height:1.3; text-transform:uppercase; }
+.ls-conv-watch .kb-play { width:40px; height:40px; border-width:2px; color:var(--rust); }
+.ls-conv-watch .kb-play::after { border-width:7px 0 7px 11px; }
+@media (max-width:760px) { .ls-convs-grid { grid-template-columns:1fr; } }
+@media (max-width:420px) { .ls-conv { grid-template-columns:minmax(0,.6fr) minmax(0,1fr); } }
+
+/* Because none of this happens in isolation — star beside the left-aligned heading, as elsewhere on this page */
+.ls-others .kb-h2 { padding-left:var(--ls-indent); font-size:clamp(32px,4vw,52px); }
+.ls-others .kb-spark { top:4px; }
+.ls-others .kb-isolation-swirl { top:-64px; }
+.ls-others .kb-isolation-grid { max-width:880px; margin-inline:auto; }
+.ls-others .kb-hole { align-items:flex-start; text-align:left; }
+.ls-others .kb-arrow { align-self:flex-end; }
+@media (max-width:600px) { .ls-others .kb-h2 { padding-left:38px; } .ls-others .kb-spark { width:26px; } }
