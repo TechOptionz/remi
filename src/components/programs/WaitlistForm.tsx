@@ -7,6 +7,8 @@ import { submitLead } from '@/lib/forms';
 
 export default function WaitlistForm() {
   const [sent, setSent] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const form = useRef<HTMLFormElement>(null);
   const sentBox = useRef<HTMLDivElement>(null);
 
@@ -25,7 +27,14 @@ export default function WaitlistForm() {
         <div className="ry-form-panel">
           <p className="ry-hand ry-form-hand" hidden={sent}>Tell me what has stopped moving.</p>
           <form ref={form} className="ry-form" data-crm="gohighlevel" hidden={sent}
-            onSubmit={e => { e.preventDefault(); submitLead('waitlist', e.currentTarget); setSent(true); }}>
+            onSubmit={async e => {
+              e.preventDefault();
+              const f = e.currentTarget;
+              setBusy(true); setError(null);
+              const err = await submitLead('waitlist', f);
+              setBusy(false);
+              if (err) setError(err); else setSent(true);
+            }}>
             <label>Name<input name="name" required autoComplete="name" /></label>
             <label>Role<input name="role" required autoComplete="organization-title" /></label>
             <label>Organisation<input name="organisation" required autoComplete="organization" /></label>
@@ -42,7 +51,8 @@ export default function WaitlistForm() {
               ))}
             </fieldset>
             <div className="ry-form-wide ry-form-actions">
-              <button type="submit" className="btn btn--primary btn--caps">Join the private waitlist</button>
+              <button type="submit" className="btn btn--primary btn--caps" disabled={busy}>{busy ? 'Sending…' : 'Join the private waitlist'}</button>
+              {error && <p className="form-error" role="alert">{error}</p>}
               <p className="fine">Your information will be treated confidentially. Joining the waitlist does not subscribe you to unrelated marketing or commit you to working together.</p>
             </div>
           </form>

@@ -8,6 +8,8 @@ import { submitLead, usePresetSelect } from '@/lib/forms';
 
 export default function InviteForm() {
   const [sent, setSent] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const form = useRef<HTMLFormElement>(null);
   const invitation = useRef<HTMLSelectElement>(null);
   const sentBox = useRef<HTMLDivElement>(null);
@@ -26,7 +28,14 @@ export default function InviteForm() {
       <div className="band-dark invite-panel">
         <h2 id="form-h" className="invite-panel-title"><span className="underline">Tell me what you're imagining</span></h2>
         <form ref={form} className="invite-form" data-crm="gohighlevel" data-chat-form="invitation" hidden={sent}
-          onSubmit={e => { e.preventDefault(); submitLead('invitation', e.currentTarget); setSent(true); }}>
+          onSubmit={async e => {
+            e.preventDefault();
+            const f = e.currentTarget;
+            setBusy(true); setError(null);
+            const err = await submitLead('invitation', f);
+            setBusy(false);
+            if (err) setError(err); else setSent(true);
+          }}>
           <div className="invite-col invite-col--inline">
             <label>Your name<input name="name" required autoComplete="name" /></label>
             <label>Email<input name="email" type="email" required autoComplete="email" /></label>
@@ -44,8 +53,9 @@ export default function InviteForm() {
             <label>Why does this feel like the right fit?<textarea name="fit" rows={3}></textarea></label>
           </div>
           <div className="invite-actions">
-            <button type="submit" className="btn btn--primary">Send the invitation</button>
+            <button type="submit" className="btn btn--primary" disabled={busy}>{busy ? 'Sending…' : 'Send the invitation'}</button>
             <span className="fine">My team will read your invitation and come back to you with the next sensible step.</span>
+            {error && <p className="form-error" role="alert">{error}</p>}
           </div>
         </form>
         <div className="invite-sent" tabIndex={-1} hidden={!sent} ref={sentBox}>

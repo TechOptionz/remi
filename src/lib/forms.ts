@@ -1,6 +1,6 @@
 'use client';
 
-// Shared form plumbing: presetting a <select> from links/chat, and the (stubbed) lead submission.
+// Shared form plumbing: presetting a <select> from links/chat, and the lead submission.
 import { useEffect, type RefObject } from 'react';
 
 const PRESET_EVENT = 'rp:preset-select';
@@ -38,10 +38,22 @@ export function usePresetSelect(ref: RefObject<HTMLSelectElement | null>, param:
   }, [ref, param, onPick]);
 }
 
-/** Single place every form submits through. */
-export function submitLead(kind: 'enquiry' | 'invitation' | 'waitlist' | 'newsletter', form: HTMLFormElement) {
-  const data = Object.fromEntries(new FormData(form));
-  // TODO: replace with the GoHighLevel webhook / form endpoint (enquiry, invitation, waitlist) and the mailing list provider (newsletter)
-  console.log(`${kind} → CRM`, data);
-  return data;
+/**
+ * Single place every form submits through: posts to /api/lead, which emails the team through Resend.
+ * Resolves to an error message to show the visitor, or null when it went through.
+ */
+export async function submitLead(kind: 'enquiry' | 'invitation' | 'waitlist' | 'newsletter', form: HTMLFormElement): Promise<string | null> {
+  const fields = Object.fromEntries([...new FormData(form)].filter(([, v]) => typeof v === 'string'));
+  try {
+    const res = await fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ kind, fields }),
+    });
+    if (res.ok) return null;
+    const body = await res.json().catch(() => null);
+    return body?.error ?? 'Something went wrong. Please try again.';
+  } catch {
+    return 'We could not reach the server. Please check your connection and try again.';
+  }
 }

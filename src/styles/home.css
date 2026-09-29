@@ -131,3 +131,7 @@
 /* Tablet: avoid orphan tiles in the photo band and the three work cards */
 @media (min-width:481px) and (max-width:900px) { .band { grid-template-columns:repeat(2,1fr); } }
 @media (min-width:601px) and (max-width:1000px) { .work-card:last-child:nth-child(odd) { grid-column:1 / -1; min-height:0; } }
+
+/* Shown under a form when sending fails (see submitLead in lib/forms.ts) */
+.form-error { margin:8px 0 0; font-size:13px; line-height:1.4; font-weight:600; color:#b3261e; text-align:left; }
+.band-dark .form-error, .ry-band .form-error { color:#ff9c94; }

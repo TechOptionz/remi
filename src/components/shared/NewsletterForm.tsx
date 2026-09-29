@@ -8,12 +8,21 @@ import { submitLead } from '@/lib/forms';
 
 export default function NewsletterForm({ variant = 'footer', className }: { variant?: 'footer' | 'keep'; className?: string }) {
   const [sent, setSent] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const id = useId();
 
   if (sent) return <p className="news-thanks">{FOOTER.newsThanks}</p>;
 
   return (
-    <form className={className ?? (variant === 'keep' ? 'news-form keep-form' : 'news-form')} onSubmit={e => { e.preventDefault(); submitLead('newsletter', e.currentTarget); setSent(true); }}>
+    <form className={className ?? (variant === 'keep' ? 'news-form keep-form' : 'news-form')} onSubmit={async e => {
+      e.preventDefault();
+      const f = e.currentTarget;
+      setBusy(true); setError(null);
+      const err = await submitLead('newsletter', f);
+      setBusy(false);
+      if (err) setError(err); else setSent(true);
+    }}>
       {variant === 'footer' && (
         <>
           <label className="sr-only" htmlFor={`${id}-name`}>First name</label>
@@ -22,7 +31,8 @@ export default function NewsletterForm({ variant = 'footer', className }: { vari
       )}
       <label className="sr-only" htmlFor={`${id}-email`}>Email address</label>
       <input id={`${id}-email`} name="email" type="email" required placeholder="Your email address" autoComplete="email" />
-      <button type="submit">{variant === 'keep' ? <>I'm in <span aria-hidden="true">→</span></> : FOOTER.newsButton}</button>
+      <button type="submit" disabled={busy}>{busy ? 'Sending…' : variant === 'keep' ? <>I'm in <span aria-hidden="true">→</span></> : FOOTER.newsButton}</button>
+      {error && <p className="form-error" role="alert">{error}</p>}
     </form>
   );
 }

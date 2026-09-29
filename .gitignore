@@ -32,7 +32,6 @@ build/
 
 # Deploy platforms
 .vercel/
-.netlify/
 
 # Environment & secrets
 .env

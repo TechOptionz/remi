@@ -8,6 +8,8 @@ import { submitLead, usePresetSelect } from '@/lib/forms';
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const form = useRef<HTMLFormElement>(null);
   const interest = useRef<HTMLSelectElement>(null);
   // Links anywhere on the site preset the topic: <a data-interest="Speaking"> or /?interest=Speaking#contact
@@ -22,7 +24,14 @@ export default function Contact() {
       </div>
       <div>
         <form ref={form} className="enquiry-form" data-crm="gohighlevel" data-chat-form="interest" hidden={sent}
-          onSubmit={e => { e.preventDefault(); submitLead('enquiry', e.currentTarget); setSent(true); }}>
+          onSubmit={async e => {
+            e.preventDefault();
+            const f = e.currentTarget;
+            setBusy(true); setError(null);
+            const err = await submitLead('enquiry', f);
+            setBusy(false);
+            if (err) setError(err); else setSent(true);
+          }}>
           <label>Name<input name="name" required placeholder="Your name" autoComplete="name" /></label>
           <label>Email<input name="email" type="email" required placeholder="you@company.com" autoComplete="email" /></label>
           <label>I'm interested in
@@ -30,7 +39,8 @@ export default function Contact() {
               {INTERESTS.map(o => <option value={o.value} key={o.value}>{o.label}</option>)}
             </select>
           </label>
-          <button type="submit" className="btn btn--primary btn--block">Send my enquiry</button>
+          <button type="submit" className="btn btn--primary btn--block" disabled={busy}>{busy ? 'Sending…' : 'Send my enquiry'}</button>
+          {error && <p className="form-error" role="alert">{error}</p>}
           <span className="fine">Your details are never shared.</span>
         </form>
         <div className="form-sent" hidden={!sent}>

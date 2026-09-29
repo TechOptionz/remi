@@ -1,13 +1,13 @@
-// Builds the site search index from the static export (runs after `next build`, see package.json).
+// Builds the site search index from the prerendered pages in .next/server/app (runs after `next build`, see package.json).
 // Every page's <main> is split at its h1–h3 headings; each heading becomes one searchable entry that links
 // to the heading's own id, or to the nearest section around it that has one. Nothing to maintain by hand:
 // new pages and sections are picked up on the next build.
-// Output: out/search-index.json (deployed) and public/search-index.json (git-ignored, so `npm run dev` can search too).
+// Output: public/search-index.json (git-ignored; deployed with the build, and lets `npm run dev` search too).
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { join, relative, sep } from 'node:path';
 import { parse } from 'node-html-parser';
 
-const OUT = 'out';
+const OUT = join('.next', 'server', 'app');
 const SKIP_FILES = new Set(['404.html', '_not-found.html']);
 const SKIP_DIRS = new Set(['_next', 'assets', '_not-found']);
 // Controls, breadcrumbs and decoration carry no content worth finding
@@ -91,6 +91,5 @@ const index = [];
 for (const file of files.sort()) index.push(...indexPage(await readFile(file, 'utf8'), toUrl(file)));
 
 const json = JSON.stringify(index);
-await writeFile(join(OUT, 'search-index.json'), json);
 await writeFile(join('public', 'search-index.json'), json);
 console.log(`Search index: ${index.length} entries from ${files.length} pages (${(json.length / 1024).toFixed(0)} KB)`);
