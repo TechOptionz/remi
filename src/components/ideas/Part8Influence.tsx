@@ -1,4 +1,5 @@
 import { PRACTICE_VS_BUSINESS, PRODUCTS_HREF, PROOF } from '@/content/ideas';
+import { UIC_PAGE_HREF } from '@/content/uic';
 import { Arrow, Art, Body, Btn, H3, Hand, HeadNote, Panel, Part, PartHead } from './ui';
 import ZoomArt from './ZoomArt';
 
@@ -13,7 +14,7 @@ function UltimateInfluence() {
         <H3 v={['left']}>Ultimate Influence Consultative Sales</H3>
         <Hand>How do I help someone make a quality buying decision without scripts, pressure or bullshit?</Hand>
         <Body sm>Diagnose before prescribing. Understand the buyer's values, needs and decision process. Communicate intangible value clearly. Recommend only when there is a genuine match.</Body>
-        <Btn href={PRODUCTS_HREF} v={['sm']}>Explore Ultimate Influence</Btn>
+        <Btn href={UIC_PAGE_HREF} v={['sm']}>Explore Ultimate Influence</Btn>
       </div>
       <div className="ui-steps">
         <ZoomArt name="ui-path" alt={PATH_ALT} label="Ultimate Influence" className="ui-art" />

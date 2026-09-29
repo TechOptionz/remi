@@ -16,11 +16,12 @@ export const SITE = {
 // shows the top level only). Children with a `group` are shown under that group's label in the drop-down.
 export type NavItem = { label: string; href: string; group?: string; children?: NavItem[] };
 
-// Ideas & Models drop-down: the overview, then every chapter page in the order and groups of the page's
-// "at a glance" index (GLANCE in content/ideas.ts), so a new chapter added there appears here too.
+// Ideas & Models drop-down: the overview, then every card of the page's "at a glance" index (GLANCE in
+// content/ideas.ts) that has its own page or a section of the overview page, in that order and those groups,
+// so a new chapter added there appears here too.
 const IDEAS_CHAPTERS: NavItem[] = GLANCE.flatMap(g => g.cards
-  .filter(c => c.href.startsWith('/ideas-models/'))
-  .map(c => ({ label: c.title, href: c.href, group: g.name })));
+  .filter(c => c.href.startsWith('/ideas-models') || c.href.startsWith('#'))
+  .map(c => ({ label: c.title, href: c.href.startsWith('#') ? `/ideas-models${c.href}` : c.href, group: g.name })));
 
 export const NAV: NavItem[] = [
   { label: 'Perspectives', href: '/perspectives' },

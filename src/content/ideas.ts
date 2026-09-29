@@ -37,7 +37,7 @@ export const GLANCE: { name: string; href: string; art: string; cards: GlanceCar
     { href: '/ideas-models/first-90-days', icon: 'days', title: 'Your First 90 Days as a Leader' },
   ] },
   { name: 'Influence & enterprise', href: '#part-8', art: 'p2-v5', cards: [
-    { href: '#part-8', icon: 'exchange', title: 'Ultimate Influence Consultative Sales' },
+    { href: '/ideas-models/ultimate-influence', icon: 'exchange', title: 'Ultimate Influence Consultative Sales' },
     { href: '#part-8', icon: 'growth', title: 'Core → Improve → Innovate' },
   ] },
 ];

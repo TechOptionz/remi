@@ -1,0 +1,32 @@
+/* ============ Ultimate Influence Consultative Sales (/ideas-models/ultimate-influence) ============ */
+/* Shares the chapter layout of the other Ideas & Models chapters; only its own pieces live here.
+   The eight steps keep the colours of the stones in the illustration. */
+.uic { --uic-1:#a8391f; --uic-2:#c2691f; --uic-3:#6b7431; --uic-4:#1f5a5c; --uic-5:#8c3a22; --uic-6:#6a2d4c; --uic-7:#56564f; --uic-8:#bf4a1f; }
+.uic-plate { width:100%; max-width:none; margin-bottom:10px; }
+.uic-head-art { max-width:170px; }
+
+/* The eight steps at a glance: stones climbing left to right, each a link to its step */
+.uic-path { list-style:none; margin:clamp(16px,2.4vw,28px) 0 clamp(8px,1.4vw,16px); padding:0; display:grid; grid-template-columns:repeat(8,minmax(0,1fr)); gap:clamp(6px,.8vw,12px); align-items:end; }
+.uic-stone { --c:var(--uic-1); }
+.uic-stone--2 { --c:var(--uic-2); } .uic-stone--3 { --c:var(--uic-3); } .uic-stone--4 { --c:var(--uic-4); } .uic-stone--5 { --c:var(--uic-5); }
+.uic-stone--6 { --c:var(--uic-6); } .uic-stone--7 { --c:var(--uic-7); } .uic-stone--8 { --c:var(--uic-8); }
+.uic-stone a { display:flex; flex-direction:column; align-items:center; gap:6px; padding:12px 6px 14px; border-radius:48% 52% 46% 54% / 40% 42% 58% 60%; background:var(--c); color:#fff7ea; text-decoration:none; box-shadow:0 5px 0 color-mix(in srgb, var(--c) 70%, #000), 0 10px 18px rgba(var(--ink-rgb),.14); transition:transform .2s ease; }
+.uic-stone a:hover, .uic-stone a:focus-visible { transform:translateY(-3px); }
+/* Each stone a little higher than the last, like the path in the illustration */
+.uic-path { padding-top:calc(7 * clamp(4px,.7vw,9px)); }
+.uic-stone:nth-child(n) { margin-bottom:calc((var(--i,0)) * clamp(4px,.7vw,9px)); }
+.uic-stone--2 { --i:1; } .uic-stone--3 { --i:2; } .uic-stone--4 { --i:3; } .uic-stone--5 { --i:4; } .uic-stone--6 { --i:5; } .uic-stone--7 { --i:6; } .uic-stone--8 { --i:7; }
+.uic-stone-n { width:28px; height:28px; display:inline-flex; align-items:center; justify-content:center; border:1.5px solid #e2b85c; border-radius:50%; background:rgba(0,0,0,.18); font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:16px; line-height:1; }
+.uic-stone-name { font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(13px,1.25vw,17px); line-height:1.05; letter-spacing:.02em; text-align:center; text-transform:uppercase; }
+@media (max-width:760px) {
+  .uic-path { grid-template-columns:repeat(4,minmax(0,1fr)); padding-top:0; row-gap:12px; }
+  .uic-stone:nth-child(n) { margin-bottom:0; }
+}
+
+/* Each step's heading: number, name and its line */
+.uic-step-h { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; scroll-margin-top:96px; }
+.uic-step-h-n { display:inline-flex; align-items:center; justify-content:center; width:1.35em; height:1.35em; border-radius:50%; background:var(--c, var(--gold)); color:#fff7ea; font-size:.8em; align-self:center; }
+.uic-step-h-tag { font-family:var(--hand); font-weight:500; font-size:22px; letter-spacing:0; text-transform:none; color:var(--c, var(--rust)); }
+.uic-step-h--1 { --c:var(--uic-1); } .uic-step-h--2 { --c:var(--uic-2); } .uic-step-h--3 { --c:var(--uic-3); } .uic-step-h--4 { --c:var(--uic-4); }
+.uic-step-h--5 { --c:var(--uic-5); } .uic-step-h--6 { --c:var(--uic-6); } .uic-step-h--7 { --c:var(--uic-7); } .uic-step-h--8 { --c:var(--uic-8); }
+.uic .triad-prose + .uic-step-h { margin-top:clamp(24px,3vw,40px); }
