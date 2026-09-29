@@ -1,5 +1,6 @@
 // Root layout: fonts, global styles and the chrome shared by every page (header, footer, chat).
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/next';
 import 'lenis/dist/lenis.css';
 import '@/styles/index.css';
 import { DEFAULT_PALETTE } from '@/content/site';
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
           <ChatWidget />
         </SiteStateProvider>
+        <Analytics />
       </body>
     </html>
   );
