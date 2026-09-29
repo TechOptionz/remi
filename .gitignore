@@ -26,8 +26,8 @@ Desktop.ini
 
 # Dependencies & builds (if tooling is added later)
 node_modules/
-dist/
-build/
+/dist/
+/build/
 .cache/
 
 # Deploy platforms
