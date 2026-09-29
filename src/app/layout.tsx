@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/next';
 import 'lenis/dist/lenis.css';
 import '@/styles/index.css';
-import { DEFAULT_PALETTE } from '@/content/site';
+import { DEFAULT_PALETTE, SITE_URL } from '@/content/site';
 import { PALETTE_BOOT_SCRIPT, SiteStateProvider } from '@/lib/site-state';
 import Header from '@/components/layout/Header';
 import ScrollToTop from '@/components/layout/ScrollToTop';
@@ -12,6 +12,8 @@ import Footer from '@/components/layout/Footer';
 import ChatWidget from '@/components/shared/ChatWidget';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  alternates: { canonical: './' }, // each page names itself as the address to index
   title: 'Remi Pearson — Let truth lead',
   description: "I'm Remi. I'm fascinated by why intelligent, self-aware humans get stuck — and how truth can set us free.",
 };

@@ -1,6 +1,9 @@
 // Site-wide content and settings. Edit copy, links and options here; components read from this file.
 import { GLANCE } from './ideas';
 
+/** The live address, used for the sitemap and canonical links. Set NEXT_PUBLIC_SITE_URL in Vercel if it differs. */
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.remipearson.com').replace(/\/$/, '');
+
 export const SITE = {
   name: 'Remi Pearson',
   tagline: 'Let truth lead',
