@@ -94,7 +94,7 @@ export const CAPABLE = [
 export const FIVE_PATHS_PRICE = ENTRY_PRICE;
 export const FIVE_PATHS = ['Stay connected to yourself', 'Recognise the attachment cycle', 'Communicate needs and boundaries', 'Repair after rupture', 'Create emotional safety together'];
 /** "Start the five paths": the enquiry form preset to Books & programs until the product page exists. */
-export const FIVE_PATHS_HREF = '/?interest=Products#contact';
+export const FIVE_PATHS_HREF = '/products/five-paths-to-a-healthy-relationship';
 
 // ---------- Links ----------
 /** "Let's talk relationships": the Perspectives archive, filtered to Relationships. */

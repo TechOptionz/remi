@@ -22,6 +22,12 @@ function groupLinks(items: NavItem[]) {
   return runs;
 }
 
+/** A nav link: a Next <Link>, or a plain new-tab <a> for an `external` address (Ultimate Self Club). */
+function NavLink({ item, ...rest }: { item: NavItem } & Omit<React.ComponentProps<'a'>, 'href'>) {
+  if (item.external) return <a href={item.href} target="_blank" rel="noopener noreferrer" {...rest}>{item.label} <span aria-hidden="true">↗</span></a>;
+  return <Link href={item.href} {...rest}>{item.label}</Link>;
+}
+
 export default function Header() {
   const pathname = usePathname();
   const router = useRouter();
@@ -45,6 +51,17 @@ export default function Header() {
     if (pathname !== '/') router.push('/');
     scrollToY(0, { immediate: true });
   };
+  // The name always goes home and to the very top: on the homepage Next would otherwise do nothing (same URL), and a
+  // leftover #section in the address would keep the page where it is
+  const goHome = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    setMenuOpen(false);
+    if (pathname === '/') {
+      e.preventDefault();
+      if (window.location.search || window.location.hash) window.history.replaceState(null, '', '/');
+      scrollToY(0);
+    }
+  };
   const pickPalette = (id: PaletteId) => { setPalette(id); setMenuOpen(false); };
   const closeMenu = useCallback(() => setMenuOpen(false), []);
 
@@ -58,10 +75,8 @@ export default function Header() {
   return (
     <>
       <header className="site-header" data-scrolled={scrolled} data-on-video={onVideo}>
-        <Link href="/" className="logo" aria-label={`${SITE.name} — home`}>
-          <img className="logo-gold" src="/assets/remi-logo.webp" alt={SITE.logoAlt} />
-          <img className="logo-rust" src="/assets/remi-logo-rust.webp" alt={SITE.logoAlt} />
-          <img className="logo-ink" src="/assets/remi-logo-ink.webp" alt={SITE.logoAlt} />
+        <Link href="/" className="logo" aria-label={`${SITE.name} — home`} onClick={goHome}>
+          <img src="/assets/remi-logo.webp" alt={SITE.logoAlt} />
         </Link>
         <nav aria-label="Primary" className="nav">
           {NAV.map(item => item.children ? (
@@ -70,7 +85,7 @@ export default function Header() {
               <span className="nav-caret" aria-hidden="true"><svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M1 1l4 4 4-4" /></svg></span>
               <div className={`nav-sub${item.children.some(c => c.group) ? ' nav-sub--groups' : ''}`}>
                 {groupLinks(item.children).map(run => {
-                  const links = run.items.map(child => <Link href={child.href} key={child.label} {...current(child)}>{child.label}</Link>);
+                  const links = run.items.map(child => <NavLink item={child} key={child.label} {...current(child)} />);
                   return run.group
                     ? <div className="nav-sub-group" key={run.group}><span className="nav-sub-label">{run.group}</span>{links}</div>
                     : links;
@@ -78,7 +93,7 @@ export default function Header() {
               </div>
             </div>
           ) : (
-            <Link href={item.href} key={item.label} className={isCurrent(item) ? 'is-current' : undefined} {...current(item)}>{item.label}</Link>
+            <NavLink item={item} key={item.label} className={isCurrent(item) ? 'is-current' : undefined} {...current(item)} />
           ))}
           {/* <VariantsMenu hero={hero} palette={palette} onHero={pickHero} onPalette={pickPalette} /> */}
         </nav>
@@ -94,7 +109,7 @@ export default function Header() {
       <nav id="mobile-nav" className="mobile-nav" aria-label="Mobile" hidden={!menuOpen}>
         {NAV.flatMap(item => [item, ...(item.children ?? []).map(child => ({ ...child, sub: true }))]).map(item => {
           const className = ['sub' in item ? 'mobile-sub' : '', item.href === '/invite-remi' ? 'accent' : ''].join(' ').trim() || undefined;
-          return <Link href={item.href} key={item.label} className={className} onClick={() => setMenuOpen(false)} {...current(item)}>{item.label}</Link>;
+          return <NavLink item={item} key={item.label} className={className} onClick={() => setMenuOpen(false)} {...current(item)} />;
         })}
       </nav>
     </>

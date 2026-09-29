@@ -3,7 +3,7 @@
 
 /** Where "Explore the Self-Esteem Triad" goes once the guided introduction exists. Until then the CTA
  *  shows the "Tell me when it's ready" form instead. */
-export const TRIAD_PRODUCT_HREF: string | null = null;
+export const TRIAD_PRODUCT_HREF: string | null = '/products/self-esteem-from-the-inside-out';
 
 export const TRIAD_PAGE_HREF = '/ideas-models/self-esteem-triad';
 

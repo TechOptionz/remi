@@ -1,14 +1,13 @@
 // Content for the First 90 Days page (/ideas-models/first-90-days): the lists it renders.
 // Headings and body copy live in components/f90/. Source: "Your First 90 Days as a Leader" copy deck + the poster.
-import { PRODUCTS_HREF } from './ideas';
 import { REBEL_YELL_HREF } from './cam';
 
 export const F90_PAGE_HREF = '/ideas-models/first-90-days';
 
 /** Continue the work: the Developing Leaders program and the 90-days assessment go to the enquiry form until their
  *  pages exist; the organisation invitation opens the invite form preset to strategic consulting. */
-export const F90_PROGRAM_HREF = PRODUCTS_HREF;
-export const F90_ASSESSMENT_HREF = PRODUCTS_HREF;
+export const F90_PROGRAM_HREF = '/products/your-first-90-days-as-a-leader';
+export const F90_ASSESSMENT_HREF = '/products/the-90-day-review';
 export const F90_INVITE_HREF = '/invite-remi?invite=Consulting#invite-form';
 
 /** The three phases, as lettered on the poster. */

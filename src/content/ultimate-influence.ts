@@ -59,7 +59,7 @@ export const PSYCHOLOGY = [
 export const GUIDE_PRICE = ENTRY_PRICE;
 export const GUIDE_STEPS = ['The complete eight-step conversation map', 'Questions and language prompts for every stage', 'How to diagnose, match and recommend', 'How to backtrack, close and future pace naturally'];
 /** "Start with Ultimate Influence": the enquiry form preset to Books & programs until the product page exists. */
-export const GUIDE_HREF = '/?interest=Products#contact';
+export const GUIDE_HREF = '/products/ultimate-influence-consultative-sales-introduction';
 
 // ---------- Especially when what you sell is hard to hold ----------
 export const HARD_TO_HOLD = [

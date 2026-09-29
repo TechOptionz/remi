@@ -14,7 +14,7 @@ export const SITE = {
 // ---------- Navigation (header, mobile menu and footer "Explore" column) ----------
 // `children` open as a drop-down in the header and are listed under their parent in the mobile menu (the footer
 // shows the top level only). Children with a `group` are shown under that group's label in the drop-down.
-export type NavItem = { label: string; href: string; group?: string; children?: NavItem[] };
+export type NavItem = { label: string; href: string; group?: string; external?: boolean; children?: NavItem[] };
 
 // Ideas & Models drop-down: the overview, then every card of the page's "at a glance" index (GLANCE in
 // content/ideas.ts) that has its own page or a section of the overview page, in that order and those groups,
@@ -23,14 +23,22 @@ const IDEAS_CHAPTERS: NavItem[] = GLANCE.flatMap(g => g.cards
   .filter(c => c.href.startsWith('/ideas-models') || c.href.startsWith('#'))
   .map(c => ({ label: c.title, href: c.href.startsWith('#') ? `/ideas-models${c.href}` : c.href, group: g.name })));
 
+export const ULTIMATE_SELF_CLUB_URL = 'https://www.ultimateselfclub.com';
+
 export const NAV: NavItem[] = [
+  { label: 'Books', href: '/books' },
+  { label: 'Articles', href: '/articles' },
   { label: 'Perspectives', href: '/perspectives' },
   { label: 'Ideas & Models', href: '/ideas-models', children: [
     { label: 'All ideas & models', href: '/ideas-models' },
     ...IDEAS_CHAPTERS,
   ] },
-  { label: 'Programs', href: '/programs' },
-  { label: 'Books', href: '/#work' },
+  { label: 'Programs', href: '/programs', children: [
+    { label: 'All programs', href: '/programs' },
+    { label: 'Rebel Yell', href: '/programs/rebel-yell' },
+    { label: 'The Shift', href: '/programs/the-shift' },
+    { label: 'Ultimate Self Club', href: ULTIMATE_SELF_CLUB_URL, external: true },
+  ] },
   { label: 'About Remi', href: '/about-remi' },
   { label: 'Invite Remi', href: '/invite-remi' },
 ];

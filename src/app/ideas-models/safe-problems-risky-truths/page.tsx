@@ -8,6 +8,8 @@ import SafeStreet from '@/components/safe/SafeStreet';
 import SafeReal from '@/components/safe/SafeReal';
 import SafeInquiry from '@/components/safe/SafeInquiry';
 import SafeOkay from '@/components/safe/SafeOkay';
+import ChapterVideo from '@/components/ideas/ChapterVideo';
+import SegmentCta from '@/components/shared/SegmentCta';
 
 export const metadata: Metadata = {
   title: 'Why Do We Keep Trying to Solve the Same Problem? Safe Problems, Risky Truths — Remi Pearson',
@@ -19,12 +21,14 @@ export default function SafeProblemsPage() {
     <main className="ideas triad safe">
       <div className="ideas-page">
         <SafeIntro />
+        <ChapterVideo chapter="safe-problems-risky-truths" />
         <SafeWhat />
         <SafeBeneath />
         <SafeStreet />
         <SafeReal />
         <SafeInquiry />
         <SafeOkay />
+        <SegmentCta segment="personal-development" />
       </div>
     </main>
   );

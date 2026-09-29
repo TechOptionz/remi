@@ -103,7 +103,7 @@ export const BUSINESS_QUESTIONS: Record<number, string> = {
 export const AUDIT_PRICE = ENTRY_PRICE;
 export const AUDIT_STEPS = ['Map the founder-dependent points', 'Separate the expertise from the person holding it', 'Identify the IP, systems and decision principles needed', 'Choose the next transfer without building bureaucracy'];
 /** "Start the founder dependency audit": the enquiry form preset to Books & programs until the product page exists. */
-export const AUDIT_HREF = '/?interest=Products#contact';
+export const AUDIT_HREF = '/products/from-practice-to-enterprise';
 
 // ---------- I did not learn this from a diagram ----------
 export const BUILT_STATS = [

@@ -4,7 +4,7 @@
 export const VAT_PAGE_HREF = '/ideas-models/values-alignment-technique';
 
 /** Where "Find out more" about practitioner training goes until that page exists: the enquiry form, preset to Books & programs. */
-export const VAT_TRAINING_HREF = '/?interest=Products#contact';
+export const VAT_TRAINING_HREF = '/products/when-your-values-and-your-life-stop-matching';
 
 /** Questions that open the conversation between what we name and what we live. */
 export const PRESENCE_QUESTIONS = [

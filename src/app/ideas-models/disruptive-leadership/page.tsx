@@ -5,6 +5,8 @@ import DlIntro from '@/components/dl/DlIntro';
 import DlWhitePaper from '@/components/dl/DlWhitePaper';
 import DlMovements from '@/components/dl/DlMovements';
 import DlClose from '@/components/dl/DlClose';
+import ChapterVideo from '@/components/ideas/ChapterVideo';
+import SegmentCta from '@/components/shared/SegmentCta';
 
 export const metadata: Metadata = {
   title: 'Disruptive Leadership — Remi Pearson',
@@ -16,9 +18,11 @@ export default function DisruptiveLeadershipPage() {
     <main className="ideas triad safe dsr eit vat cam tm dl">
       <div className="ideas-page">
         <DlIntro />
+        <ChapterVideo chapter="disruptive-leadership" />
         <DlWhitePaper />
         <DlMovements />
         <DlClose />
+        <SegmentCta segment="leadership" />
       </div>
     </main>
   );

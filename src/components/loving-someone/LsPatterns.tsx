@@ -5,7 +5,7 @@ import { PATTERNS, PATTERN_LABELS } from '@/content/loving-someone';
 // WHAT HAPPENS TO YOU WHEN IT REALLY MATTERS? — the six hover-expanding pattern boxes (copy in PATTERNS, content/loving-someone.ts)
 export default function LsPatterns() {
   return (
-    <PatternBoxes patterns={PATTERNS} labels={PATTERN_LABELS} className="ls-patterns" labelledBy="ls-patterns-h" head={<>
+    <PatternBoxes category="relationships" patterns={PATTERNS} labels={PATTERN_LABELS} className="ls-patterns" labelledBy="ls-patterns-h" head={<>
         <div className="ls-starred">
         <Sym name="hm-spark" className="ls-starred-star" />
         <h2 id="ls-patterns-h" className="kb-h2 kb-center">What happens to you<br /> <Brush>when it really</Brush> matters?</h2>

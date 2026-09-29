@@ -72,7 +72,7 @@ export const PATTERNS: Pattern[] = [
 /** "See EIT in action": the EIT chapter until there is an EIT video. */
 export const EIT_VIDEO_HREF = EIT_HREF;
 /** Untriggerable "See what's inside": the enquiry form preset to Books & programs until the book page exists. */
-export const UNTRIGGERABLE_HREF = '/?interest=Products#contact';
+export const UNTRIGGERABLE_HREF = '/products/untriggerable';
 
 // ---------- Go deeper ----------
 export const WATCH = [

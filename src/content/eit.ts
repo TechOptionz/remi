@@ -4,7 +4,7 @@
 export const EIT_PAGE_HREF = '/ideas-models/emotion-integration-technique';
 
 /** Where "Explore practitioner training" goes until the training page exists: the enquiry form, preset to Books & programs. */
-export const EIT_TRAINING_HREF = '/?interest=Products#contact';
+export const EIT_TRAINING_HREF = '/products/why-do-i-keep-doing-this';
 
 /** The outward movement, one layer at a time, as the deck describes it. */
 export const OUTWARD_LAYERS = [

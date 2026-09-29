@@ -6,6 +6,8 @@ import VatValue from '@/components/vat/VatValue';
 import VatGoal from '@/components/vat/VatGoal';
 import VatMattering from '@/components/vat/VatMattering';
 import VatClose from '@/components/vat/VatClose';
+import ChapterVideo from '@/components/ideas/ChapterVideo';
+import SegmentCta from '@/components/shared/SegmentCta';
 
 export const metadata: Metadata = {
   title: 'Values Alignment Technique — Remi Pearson',
@@ -17,10 +19,12 @@ export default function ValuesAlignmentPage() {
     <main className="ideas triad safe dsr eit vat">
       <div className="ideas-page">
         <VatIntro />
+        <ChapterVideo chapter="values-alignment-technique" />
         <VatValue />
         <VatGoal />
         <VatMattering />
         <VatClose />
+        <SegmentCta segment="personal-development" />
       </div>
     </main>
   );

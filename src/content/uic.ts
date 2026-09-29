@@ -1,11 +1,10 @@
 // Content for the Ultimate Influence chapter (/ideas-models/ultimate-influence): the lists it renders.
 // Headings and body copy live in components/uic/. Source: "Ultimate Influence" copy deck (Sept 2026) + the eight-step illustration.
-import { PRODUCTS_HREF } from './ideas';
 
 export const UIC_PAGE_HREF = '/ideas-models/ultimate-influence';
 
 /** "Explore the Ultimate Influence online training program": the enquiry form until the program page exists. */
-export const UIC_TRAINING_HREF = PRODUCTS_HREF;
+export const UIC_TRAINING_HREF = '/products/ultimate-influence-consultative-sales-introduction';
 
 /** The eight steps, in order, with the line each one's heading carries in the deck. Colours follow the stones in the illustration. */
 export type Step = { num: number; name: string; tag: string };

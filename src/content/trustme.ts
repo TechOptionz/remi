@@ -1,15 +1,14 @@
 // Content for the T.R.U.S.T.M.E. Model page (/ideas-models/trustme-model): the lists it renders.
 // Headings and body copy live in components/trustme/. Source: "The T.R.U.S.T.M.E. Model" copy deck.
 // The seven level names and questions the rest of the site shares live in TRUSTME_LEVELS (content/site.ts).
-import { PRODUCTS_HREF } from './ideas';
 
 export const TRUSTME_PAGE_HREF = '/ideas-models/trustme-model';
 
 /** Work with Remi: the leadership-team invitation (invite form, preset to facilitation), the Rebel Yell waitlist,
  *  and the online program, which goes to the enquiry form until its page exists. */
 export const TRUSTME_INVITE_HREF = '/invite-remi?invite=Facilitation#invite-form';
-export const TRUSTME_WAITLIST_HREF = '/programs#waitlist';
-export const TRUSTME_PROGRAM_HREF = PRODUCTS_HREF;
+export const TRUSTME_WAITLIST_HREF = '/programs/rebel-yell#waitlist';
+export const TRUSTME_PROGRAM_HREF = '/products/trust-that-holds';
 
 /** The seven levels, bottom (1) to top (7), as lettered on the poster: what each is about and whether it is
  *  I-focused or we-focused. `low` / `high` are the unresourceful and resourceful expressions from the deck. */

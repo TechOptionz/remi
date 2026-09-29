@@ -15,6 +15,8 @@ import SplitHero from '@/components/rabbit-holes/SplitHero';
 import TopicLinks from '@/components/rabbit-holes/TopicLinks';
 import { Brush, StarRule } from '@/components/rabbit-holes/ui';
 import { CAM_HREF, TOPIC_LINKS, TRUTH_AUDIT_HREF, TRUTH_AUDIT_PRICE, TRUTH_AUDIT_STEPS } from '@/content/tell-me-the-truth';
+import ProductRange from '@/components/products/ProductRange';
+import SegmentCta from '@/components/shared/SegmentCta';
 
 export const metadata: Metadata = {
   title: 'Tell Me the Truth. What Am I Not Seeing? — Remi Pearson',
@@ -51,6 +53,8 @@ export default function TellMeTheTruthPage() {
         <StarRule />
         <TopicLinks id="tt-convs-h" title={<><Brush>Conversations</Brush> to disappear into</>} lede="Follow the questions wherever they lead." links={TOPIC_LINKS} />
         <StarRule />
+        <ProductRange category="truth" />
+        <SegmentCta segment="personal-development" />
         <OtherHoles show={[0, 3]} className="kb-isolation--left" title={<>Truth has a habit of <Brush>turning up</Brush> everywhere</>} />
       </div>
       <KeepBand variant="envelope" />

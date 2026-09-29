@@ -6,6 +6,8 @@ import CamIntended from '@/components/cam/CamIntended';
 import CamExpressed from '@/components/cam/CamExpressed';
 import CamResearch from '@/components/cam/CamResearch';
 import CamClose from '@/components/cam/CamClose';
+import ChapterVideo from '@/components/ideas/ChapterVideo';
+import SegmentCta from '@/components/shared/SegmentCta';
 
 export const metadata: Metadata = {
   title: 'The Critical Alignment Model — Remi Pearson',
@@ -17,10 +19,12 @@ export default function CriticalAlignmentPage() {
     <main className="ideas triad safe dsr eit vat cam">
       <div className="ideas-page">
         <CamIntro />
+        <ChapterVideo chapter="critical-alignment-model" />
         <CamIntended />
         <CamExpressed />
         <CamResearch />
         <CamClose />
+        <SegmentCta segment="leadership" />
       </div>
     </main>
   );

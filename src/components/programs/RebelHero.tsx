@@ -8,7 +8,7 @@ export default function RebelHero() {
       <img className="ry-hero-photo" src="/assets/photos/rebel-hero.webp" alt="Remi Pearson mid-thought, hands raised, in a darkened room" />
       <div className="ry-hero-copy">
         <nav className="crumbs" aria-label="Breadcrumb">
-          <Link href="/">Home</Link><span aria-hidden="true">/</span><span aria-current="page">Programs</span>
+          <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/programs">Programs</Link><span aria-hidden="true">/</span><span aria-current="page">Rebel Yell</span>
         </nav>
         <p className="ry-wordmark">Rebel Yell</p>
         <h1 id="page-h" className="ry-hero-title">Your leadership team is too intelligent to stay <em>stuck here.</em></h1>
