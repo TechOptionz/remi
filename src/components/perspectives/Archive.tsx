@@ -30,8 +30,14 @@ export default function Archive() {
   const [visible, setVisible] = useState(PAGE_SIZE);
 
   useEffect(() => {
-    const fromUrl = new URLSearchParams(window.location.search).get('topic');
-    if (fromUrl && (TOPICS as readonly string[]).includes(fromUrl)) setTopic(fromUrl as Topic);
+    const params = new URLSearchParams(window.location.search);
+    // "Ideas & meaning" or its slug "ideas-meaning": compare letters only
+    const letters = (s: string) => s.toLowerCase().replace(/[^a-z]/g, '');
+    const fromUrl = letters(params.get('topic') ?? '');
+    const urlTopic = fromUrl && TOPICS.find(t => letters(t) === fromUrl);
+    if (urlTopic) setTopic(urlTopic);
+    const q = params.get('q'); // e.g. an old show-notes address redirected to its guest (next.config.mjs)
+    if (q) setQuery(q.slice(0, 80));
     const onClick = (e: MouseEvent) => {
       const el = (e.target as Element).closest<HTMLElement>('[data-topic]');
       if (!el || el.closest('.archive')) return;
