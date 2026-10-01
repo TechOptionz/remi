@@ -6,7 +6,7 @@ import { notFound } from 'next/navigation';
 import VideoEmbed from '@/components/shared/VideoEmbed';
 import Inline from '@/components/articles/Inline';
 import { ARTICLES, LIBRARY_HREF, clusterOf } from '@/content/articles';
-import { priceLine, productBySlug, productHref } from '@/content/products';
+import { levelLine, priceLine, productBySlug, productHref } from '@/content/products';
 
 export const dynamicParams = false;
 // An empty list has no pages to prerender; Next needs at least one entry, so this placeholder 404s until articles exist
@@ -40,6 +40,24 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               ? <h2 key={i}>{b.h2}</h2>
               : <figure key={i} className={b.figure.height > b.figure.width ? "pr-figure pr-figure--tall" : "pr-figure"}><img src={b.figure.src} alt={b.figure.alt} width={b.figure.width} height={b.figure.height} loading="lazy" decoding="async" /></figure>)}
         </div>
+        {a.further && a.further.length > 0 && (
+          <section className="pr-further" aria-labelledby="further-h">
+            <h2 id="further-h">Further resources</h2>
+            <ul>
+              {a.further.map(f => {
+                if ('product' in f) {
+                  const p = productBySlug(f.product);
+                  return p && <li key={f.product}><Link href={productHref(p.slug)}>{p.title}</Link><span>{[priceLine(p), levelLine(p)].filter(Boolean).join(' · ')}</span></li>;
+                }
+                if ('article' in f) {
+                  const x = ARTICLES.find(y => y.slug === f.article);
+                  return x && <li key={f.article}><Link href={`/articles/${x.slug}`}>{x.title}</Link><span>Article</span></li>;
+                }
+                return <li key={f.label}><em>{f.label}</em><span>{f.note ?? 'Coming soon'}</span></li>;
+              })}
+            </ul>
+          </section>
+        )}
         {a.references && a.references.length > 0 && (
           <section className="pr-refs" aria-labelledby="refs-h">
             <h2 id="refs-h">References</h2>

@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import Icon, { type IconName } from '@/components/shared/Icon';
 
+// Each model opens its article in the free library (EIT: its chapter, which is its article).
 const MODELS: { icon: IconName; title: string; text: string; href: string }[] = [
-  { icon: 'headHeart', title: 'Emotion Integration Technique', text: 'The emotions beneath protective patterns.', href: '/ideas-models#part-4' },
-  { icon: 'target', title: 'Critical Alignment Model', text: 'What produces the gap between what we want and what repeatedly happens.', href: '/ideas-models#part-5' },
-  { icon: 'knot', title: 'T.R.U.S.T.M.E.', text: 'Trust. Relatability. Uniqueness. Systems. Tenacity. Meaning. Evolution.', href: '/ideas-models/trustme-model' },
-  { icon: 'burst', title: 'Ultimate Influence', text: 'Helping someone make a quality buying decision without scripts, manipulation or pressure.', href: '/ideas-models/ultimate-influence' },
+  { icon: 'headHeart', title: 'Emotion Integration Technique', text: 'The emotions beneath protective patterns.', href: '/ideas-models/emotion-integration-technique' },
+  { icon: 'target', title: 'Critical Alignment Model', text: 'What produces the gap between what we want and what repeatedly happens.', href: '/articles/find-the-root-cause-of-problems-in-your-business' },
+  { icon: 'knot', title: 'T.R.U.S.T.M.E.', text: 'Trust. Relatability. Uniqueness. Systems. Tenacity. Meaning. Evolution.', href: '/articles/why-leaders-revert-to-old-habits-under-pressure' },
+  { icon: 'burst', title: 'Ultimate Influence', text: 'Helping someone make a quality buying decision without scripts, manipulation or pressure.', href: '/articles/how-to-sell-without-being-pushy' },
 ];
 
 // I MAKE MODELS BECAUSE I CAN'T LEAVE A GOOD QUESTION ALONE — intro with portrait, then the four models

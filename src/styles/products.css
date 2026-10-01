@@ -64,13 +64,16 @@
 .pr-card--cream { background:#f7efe0; color:#221b17; border-color:var(--pr-line); }
 .pr-card--cream .pr-btn { background:#47111b; color:#f7efe0; }
 
-/* A bundle's contents on its product page */
+/* A bundle's contents on its product page, and an article's further resources */
+.pr-further { margin-top:clamp(28px,3.4vw,44px); }
+.pr-further h2 { margin:0; font-family:var(--serif); font-weight:400; font-size:clamp(25px,2.6vw,34px); }
 .pr-includes { padding-block:clamp(20px,3vw,40px) 0; }
-.pr-includes ul { margin:16px 0 0; padding:0; list-style:none; max-width:44em; border-top:1px solid var(--pr-line); }
-.pr-includes li { display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 16px; padding:14px 0; border-bottom:1px solid var(--pr-line); }
-.pr-includes a { font-family:var(--serif); font-size:clamp(19px,1.7vw,22px); text-decoration:underline; text-underline-offset:4px; text-decoration-color:var(--pr-line); }
-.pr-includes a:hover { text-decoration-color:currentColor; }
-.pr-includes span { font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#8a4a1c; }
+.pr-includes ul, .pr-further ul { margin:16px 0 0; padding:0; list-style:none; max-width:44em; border-top:1px solid var(--pr-line); }
+.pr-includes li, .pr-further li { display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 16px; padding:14px 0; border-bottom:1px solid var(--pr-line); }
+.pr-includes a, .pr-further a, .pr-further em { font-family:var(--serif); font-size:clamp(19px,1.7vw,22px); text-decoration:underline; text-underline-offset:4px; text-decoration-color:var(--pr-line); }
+.pr-includes a:hover, .pr-further a:hover { text-decoration-color:currentColor; }
+.pr-further em { text-decoration:none; }
+.pr-includes span, .pr-further span { font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#8a4a1c; }
 
 /* Coming-soon band on product pages */
 .pr-notify-band { padding:clamp(32px,4vw,56px) clamp(22px,3vw,44px); margin-block:clamp(24px,3vw,44px); background:#47111b; color:#f3e8d6; border-radius:4px; }
