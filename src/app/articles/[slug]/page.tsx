@@ -37,7 +37,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             ? <p key={i}><Inline text={b} /></p>
             : 'h2' in b
               ? <h2 key={i}>{b.h2}</h2>
-              : <figure key={i} className="pr-figure"><img src={b.figure.src} alt={b.figure.alt} width={b.figure.width} height={b.figure.height} loading="lazy" decoding="async" /></figure>)}
+              : <figure key={i} className={b.figure.height > b.figure.width ? "pr-figure pr-figure--tall" : "pr-figure"}><img src={b.figure.src} alt={b.figure.alt} width={b.figure.width} height={b.figure.height} loading="lazy" decoding="async" /></figure>)}
         </div>
         {a.references && a.references.length > 0 && (
           <section className="pr-refs" aria-labelledby="refs-h">

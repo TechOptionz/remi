@@ -1,12 +1,13 @@
 import Link from 'next/link';
 
-// Article text with its two bits of markup (content/articles.ts): *italic* and [label](href). Internal links use
-// next/link; outside links open in a new tab.
+// Article text with its three bits of markup (content/articles.ts): **bold**, *italic* and [label](href). Bold may hold a
+// link. Internal links use next/link; outside links open in a new tab.
 export default function Inline({ text }: { text: string }) {
-  const parts = text.split(/(\[[^\]]+\]\([^)]+\)|\*[^*]+\*)/g).filter(Boolean);
+  const parts = text.split(/(\*\*.+?\*\*|\[[^\]]+\]\([^)]+\)|\*[^*]+\*)/g).filter(Boolean);
   return (
     <>
       {parts.map((p, i) => {
+        if (p.length > 4 && p.startsWith('**') && p.endsWith('**')) return <strong key={i}><Inline text={p.slice(2, -2)} /></strong>;
         const link = p.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
         if (link) {
           const [, label, href] = link;
