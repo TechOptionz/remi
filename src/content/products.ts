@@ -74,7 +74,7 @@ export const PRODUCTS: Product[] = [
   P({ slug: 'trust-that-holds', title: 'Trust That Holds', text: 'The T.R.U.S.T.M.E. Model for building a business people can believe in and grow with.', category: 'business', tone: 'cream', price: 'AUD $29' }),
   P({ slug: 'build-beyond-the-founder', title: 'Build Beyond the Founder', text: 'Four programs.', category: 'business', tone: 'burgundy', bundle: true, value: '$116', price: 'AUD $79', cta: 'Explore the bundle' }),
   // Go further: the fuller recorded programs
-  P({ slug: 'untriggerable', title: 'Untriggerable', text: 'Emotional integration, Points of Departure and applying the process to real situations.', category: 'further', tone: 'burgundy', price: 'AUD $197', kicker: 'The complete recorded training', cta: 'Explore Untriggerable' }),
+  P({ slug: 'untriggerable', title: 'Untriggerable', text: 'Emotional integration, Points of Departure and applying the process to real situations.', category: 'further', tone: 'burgundy', price: 'AUD $197 or 4 payments of $59', kicker: 'The complete recorded training', cta: 'Explore Untriggerable' }),
   P({ slug: 'critical-alignment-model-for-leaders', title: 'Critical Alignment Model for Leaders', text: 'Decision-making, leadership and project management through the four CAM dimensions.', category: 'further', tone: 'navy', price: 'AUD $79', cta: 'Explore CAM for leaders', also: ['leadership'] }),
 ];
 
