@@ -225,3 +225,18 @@
   .pg-card--blush > img { order:-1; }
   .pg-card--paper .pg-card-copy { border-right:0; border-top:6px solid #9a3d1a; }
 }
+
+/* ============ The free library's topic clusters (/articles, round five) — the Perspectives rabbit holes ============ */
+.lib-jump { display:flex; flex-wrap:wrap; gap:8px 10px; margin-top:8px; }
+.lib-jump a { padding:9px 16px; border:1px solid var(--pr-line); border-radius:999px; background:#f7efe0; font-size:14px; transition:border-color .2s, color .2s; }
+.lib-jump a:hover { border-color:#9a3d1a; color:#9a3d1a; }
+.lib-cluster { padding-block:clamp(28px,4vw,56px); border-top:1px solid var(--pr-line); scroll-margin-top:96px; }
+.lib-head { display:grid; grid-template-columns:clamp(88px,10vw,140px) minmax(0,1fr); gap:clamp(16px,2.4vw,32px); align-items:center; margin-bottom:clamp(20px,2.6vw,32px); }
+.lib-head img { width:100%; height:auto; mix-blend-mode:multiply; }
+.lib-title { margin:0 0 8px; font-family:'League Gothic','Arial Narrow',sans-serif; font-stretch:75%; font-weight:400; font-size:clamp(30px,3.2vw,44px); line-height:1; letter-spacing:.02em; text-transform:uppercase; color:#9a3d1a; text-wrap:balance; }
+.lib-q { margin:0; max-width:46em; font-size:clamp(16px,1.4vw,19px); line-height:1.55; }
+.lib-soon { margin:0; padding:22px 24px; border:1px dashed var(--pr-line); border-radius:4px; font-style:italic; opacity:.85; }
+.lib-videos { margin:18px 0 0; font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+.lib-videos a { color:#9a3d1a; }
+.lib-videos a:hover { text-decoration:underline; text-underline-offset:4px; }
+@media (max-width:520px) { .lib-head { grid-template-columns:72px minmax(0,1fr); align-items:start; } }

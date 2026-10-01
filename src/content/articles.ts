@@ -4,6 +4,7 @@
 // italic and [label](href) is a link (see components/articles/Inline.tsx). A body entry is a paragraph, { h2 } a question heading,
 // or { figure } an image. A video is optional: `video: { provider: 'vimeo' | 'youtube', id: '…', title: '…' }` shows it above the text.
 import type { VideoRef } from '@/components/shared/VideoEmbed';
+import { RABBIT_HOLES, type Topic } from '@/content/perspectives';
 
 export type ArticleBlock = string | { h2: string } | { figure: { src: string; alt: string; width: number; height: number } };
 
@@ -11,6 +12,7 @@ export type Article = {
   slug: string; title: string; date: string;        // date as 'YYYY-MM-DD'
   summary: string;                                  // the standfirst under the title, and the line on the library card
   image?: string;                                   // the library card's illustration
+  topic: Topic;                                     // the cluster it sits in on /articles (one of ARTICLE_CLUSTERS)
   product?: string;                                 // slug in content/products.ts: the product the article leads on to
   body: ArticleBlock[]; references?: string[];
   video?: VideoRef;
@@ -19,9 +21,17 @@ export type Article = {
 /** Where an article sends readers back to. */
 export const LIBRARY_HREF = '/articles';
 
+/** The library's topic clusters are the Perspectives page's four rabbit holes (RABBIT_HOLES in content/perspectives.ts):
+ *  each shows its articles, then opens the matching conversations (the videos) in the Perspectives archive. */
+export const ARTICLE_CLUSTERS = RABBIT_HOLES.map(h => ({
+  ...h, id: h.topic.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, ''),
+  videosHref: `/perspectives?topic=${encodeURIComponent(h.topic)}#archive`,
+}));
+export const clusterOf = (topic: Topic) => ARTICLE_CLUSTERS.find(c => c.topic === topic);
+
 export const ARTICLES: Article[] = [
   {
-    slug: "why-insight-isnt-enough",
+    slug: "why-insight-isnt-enough", topic: 'Human change',
     title: "Why Do I Keep Repeating the Same Patterns Even When I Understand Myself?",
     summary: "Why insight isn’t enough, and what inner work makes possible.",
     date: '2026-09-30', image: "/assets/rabbit-holes/kb-read-insight.webp", product: "why-do-i-keep-doing-this",
@@ -65,7 +75,7 @@ export const ARTICLES: Article[] = [
     ],
   },
   {
-    slug: "the-moment-you-leave-yourself",
+    slug: "the-moment-you-leave-yourself", topic: 'Relationships',
     title: "Why Do I Lose Myself in Relationships?",
     summary: "The moment you leave yourself, and how compassionate inner work helps you return.",
     date: '2026-09-30', image: "/assets/rabbit-holes/kb-read-leave.webp", product: "love-without-losing-yourself",
@@ -110,7 +120,7 @@ export const ARTICLES: Article[] = [
     ],
   },
   {
-    slug: "why-relationships-trigger-me",
+    slug: "why-relationships-trigger-me", topic: 'Relationships',
     title: "Why Do Relationships Trigger Me So Much?",
     summary: "Why loving someone brings old patterns to the surface, and how we begin responding differently.",
     date: '2026-09-30', image: "/assets/rabbit-holes/ls-hero.webp", product: "five-paths-to-a-healthy-relationship",
@@ -143,7 +153,7 @@ export const ARTICLES: Article[] = [
     ],
   },
   {
-    slug: "why-do-i-keep-repeating-the-same-patterns",
+    slug: "why-do-i-keep-repeating-the-same-patterns", topic: 'Human change',
     title: "Why Do I Keep Repeating the Same Patterns?",
     summary: "Tell me the truth … what am I missing?",
     date: '2026-09-30', image: "/assets/rabbit-holes/tt-hero.webp", product: "find-the-gap-in-your-own-life",
@@ -187,6 +197,116 @@ export const ARTICLES: Article[] = [
       "Pearson, R. (2026a) ‘Critical Alignment Model’, *Remi Pearson*. Available at: [Remi Pearson](/ideas-models/critical-alignment-model)",
       "Pearson, R. (2026b) ‘Safe versus Risky Problems’, *Remi Pearson*. Available at: [Remi Pearson](/ideas-models/safe-problems-risky-truths)",
       "Pearson, R. (2026c) ‘Values Alignment Technique’, *Remi Pearson*. Available at: [Remi Pearson](/ideas-models/values-alignment-technique)",
+    ],
+  },
+  {
+    slug: "how-do-i-stop-micromanaging-my-team", topic: 'Founders & business',
+    title: "How Do I Stop Micromanaging My Team?",
+    summary: "How to lead without carrying everybody, using the Critical Alignment Model.",
+    date: '2026-09-30', image: "/assets/rabbit-holes/ld-hero.webp", product: "critical-alignment-model-for-leaders",
+    body: [
+      "You delegate something, explain what needs to happen and get back to your own work. Then come the questions. You answer them, clarify a few things, check progress and discover something has been missed. Eventually you take it back because doing it yourself feels quicker than having another conversation about it. By Friday, you’re exhausted and wondering why nobody seems capable of making a decision without you.",
+      "It’s tempting to conclude that you need better people. Sometimes there genuinely is a capability issue. But before you make that judgement, there’s a question worth sitting with … have you created the conditions in which someone can succeed without constantly returning to you?",
+      { figure: { src: "/assets/articles/how-do-i-stop-micromanaging-my-team.webp", width: 1024, height: 1536,
+        alt: "Before You Take the Work Back… Find the gap through the five dimensions of CAM. 1. Purpose: Do they understand the outcome and why it matters? Example: Help the customer find the right support. Above the line, intended & available. 2. Environment: Have we written down the values, standards and expectations? Example: Raise concerns early and speak honestly. 3. Structure: Are the resources, decision authority and benchmarks clear? Example: Agree the budget, timeline and quality standard. Below the line, expressed. 4. Implementation: What actually happens when the work is carried out? Example: Check whether the agreed process is used and delays are communicated. 5. People: What skills, role clarity or accountability need developing? Example: Coach their judgement before taking over. Address the gap you find. Critical Alignment Model, Remi Pearson." } },
+      { h2: "Why does my team rely on me for everything?" },
+      "A team can become dependent on its leader through ordinary, repeated interactions. Someone brings a problem and you solve it. They make a decision and you change it, without explaining the thinking behind the change. They wait for approval because the last time they acted independently, they discovered a standard nobody had mentioned.",
+      "You may be working incredibly hard while remaining the person who holds the context, remembers the priorities and decides whether something is good enough. Your team has tasks. You still have most of the thinking.",
+      "The Critical Alignment Model helps us examine this through five dimensions: **Purpose, Environment, Structure, Implementation and People**. We establish what matters and what supports it, then examine what happens in practice and what capacity needs developing (Pearson, 2026).",
+      "One principle I teach is, “People come last, because People come first.” If we haven’t attended to the preceding dimensions, we can end up judging people for struggling within arrangements that were never clear enough to support them.",
+      { h2: "How do I give my team clear direction?" },
+      "**Purpose comes first.** What are we trying to achieve, and why does it matter? Someone who understands the purpose can begin evaluating options. Someone who has only been given a task will often need another instruction when circumstances change.",
+      "“Respond to customer enquiries” leaves plenty unresolved. Are we trying to help people make an informed decision, resolve a concern or find the right support? What would a successful interaction look like? Those distinctions shape the response.",
+      "Purpose also helps us assess priorities. Everything can look urgent when nobody understands what matters most. A leader needs to make that thinking available, so the team can increasingly use it themselves.",
+      { h2: "How do I build a culture of ownership?" },
+      "**Environment concerns the vision, values, standards and expectations we explicitly establish.** If we want initiative, what does that mean here? Which decisions can someone make? What should they raise early? How do we expect people to handle disagreement or acknowledge a mistake?",
+      "Then we examine whether those written ground rules match the unwritten ones. You might say, “We welcome ideas,” while becoming defensive whenever someone questions your approach. You might ask for ownership while rewarding the person who checks every detail with you.",
+      "Amy Edmondson’s study of 51 work teams found that psychological safety was associated with team learning behaviours, including discussing errors, seeking feedback and asking for help (Edmondson, 1999). A team needs room to reveal what it doesn’t understand if we expect it to learn.",
+      "If this discrepancy feels familiar, **[The Ground Rules No One Wrote Down](/products/the-ground-rules-nobody-wrote-down)**, is a relevant place to explore it. Pay attention to what a new team member would learn by watching what gets accepted around here.",
+      { h2: "How do I delegate without losing control?" },
+      "**Structure gives people something reliable to work within.** It includes the resources, systems, sequence and benchmarks that support the outcome. Before handing something over, establish what success looks like, who owns it, what authority they have and where it connects with other people’s work.",
+      "Imagine asking someone to organise an event. They need access to the budget, the delivery standards, the timeline and the decisions they can make. If that information stays in your head, questions are inevitable.",
+      "Benchmarking matters here. “Do a great job” offers very little guidance. A benchmark makes the standard observable: enquiries answered within an agreed timeframe, information checked before publication, or the room ready before participants arrive. The benchmark should serve the purpose, rather than become another number we collect because we can.",
+      "**[Benchmarking… What Good Actually Looks Like](/products/benchmarking-what-good-actually-looks-like)** focuses on this part of the work. Clear standards give both of you a basis for assessing progress beyond your personal impression of how things are going.",
+      "Research also supports looking beyond individual attitude. Seibert, Wang and Courtright’s meta-analysis found that leadership, support and work characteristics were associated with psychological empowerment, while team empowerment was positively related to team performance (Seibert, Wang and Courtright, 2011).",
+      { h2: "How do I hold people accountable without micromanaging?" },
+      "**Implementation examines what actually happens.** Are the agreed systems used? Are priorities translated into scheduled work? Do people communicate delays while there is still time to respond, or wait until the deadline has passed?",
+      "In my CAM Top Five system, weekly priorities connect with longer-term goals, and progress is made visible through an agreed review rhythm. Regular responsibilities also need their own schedule. Otherwise, the leader becomes the reminder system for things everyone already knows must happen (Pearson, 2026).",
+      "That rhythm gives you somewhere to assess progress without constantly interrupting. It also helps you distinguish between someone who needs support and an agreement that isn’t being honoured. Both require attention, but they lead to different conversations.",
+      { h2: "What if my team genuinely needs more development?" },
+      "**People brings us to skills, roles and accountability.** Having clarified the preceding dimensions, we can assess capability more fairly. Can the person do what the role requires? Can they explain their decisions, recognise a problem and ask for appropriate support?",
+      "Feedback should help develop their thinking. Ask what they noticed, which options they considered and what they would do differently. If you only provide the answer, they may complete today’s task while remaining just as dependent tomorrow.",
+      "Your own capacity belongs in this examination too. Can you tolerate someone doing things differently when the agreed outcome is still achieved? Can you stay with the discomfort of a learning curve without immediately taking over? Being needed can feel reassuring, even while you’re complaining about how much everyone needs you.",
+      { h2: "Where do I begin changing this?" },
+      "Choose one responsibility that repeatedly returns to you and examine it through all five dimensions. Clarify its purpose, establish the expectations and support, observe what happens, then address the capability or accountability gap you actually find.",
+      "**[Critical Alignment Model for Leaders](/products/critical-alignment-model-for-leaders)** is the next step if you want to apply this thinking to your own team. Bring the recurring problem you’re tired of solving. Look carefully at what you have established, what remains dependent on you and what needs to develop.",
+      "The aim is a team that can increasingly understand, decide and follow through, with you available for the leadership the situation genuinely requires.",
+    ],
+    references: [
+      "Edmondson, A. (1999) ‘Psychological safety and learning behavior in work teams’, *Administrative Science Quarterly*, 44(2), pp. 350–383. doi: 10.2307/2666999. [Accessible full text](https://web.mit.edu/curhan/www/docs/Articles/15341_Readings/Organizational_Learning_and_Change/Edmondson_1999_Psychological_safety.pdf).",
+      "Pearson, R. (2026) ‘Critical Alignment Model for Leaders’, *Remi Pearson*. Drawing on the author’s training materials on Critical Alignment, written and unwritten ground rules, benchmarking and the CAM Top Five system. Available at: [Critical Alignment Model](/ideas-models/critical-alignment-model) and [Critical Alignment Model for Leaders](/products/critical-alignment-model-for-leaders).",
+      "Seibert, S.E., Wang, G. and Courtright, S.H. (2011) ‘Antecedents and consequences of psychological and team empowerment in organizations: A meta-analytic review’, *Journal of Applied Psychology*, 96(5), pp. 981–1003. doi: 10.1037/a0022676. [Accessible abstract and publication details](https://www.researchwithrutgers.org/en/publications/antecedents-and-consequences-of-psychological-and-team-empowermen/).",
+    ],
+  },
+  {
+    slug: "build-a-business-that-runs-without-you", topic: 'Founders & business',
+    title: "How Do You Build a Business That Can Run Without You?",
+    summary: "How I went from coaching clients to building The Coaching Institute, and what replacing myself actually involved.",
+    date: '2026-09-30', image: "/assets/rabbit-holes/bd-hero.webp", product: "from-practice-to-enterprise",
+    body: [
+      "I became a coach because I wanted to help myself. At the time, I was considering hiring a coach, and somewhere in that decision I became curious about learning the work myself. I wanted access to the materials behind the scenes. If something could help me change, I wanted to understand why it worked, how it worked and what else might become possible.",
+      "I had spent much of my life being pretty miserable. I didn’t really know how to be happy, and I wanted to explore what it would take to become my favourite self. How do we lead an extraordinary life? What helps someone move beyond the ways they’ve learned to survive and begin living in a way they actually enjoy? Those questions fascinated me. They still do.",
+      "That was the beginning of a business that eventually became far bigger than anything I had imagined. There was no grand plan for a coaching school when I started in 2003. There was me, learning about human behaviour, trying to change my own life and figuring out how to find clients.",
+      { figure: { src: "/assets/articles/build-a-business-that-runs-without-you.webp", width: 1024, height: 1536,
+        alt: "How Do You Build a Business That Can Run Without You? Make the work teachable. Help others carry it. When everything depends on me, and when the business can carry it: “I deliver every class and client experience” becomes “The work is recorded, documented and taught.” “I explain the same process again and again” becomes “The team can find the manual and checklist.” “I hold the standards in my head” becomes “Values and benchmarks make the standards clear.” “I take the work back when something is missed” becomes “Feedback and mentoring develop capability.” “I am needed at every level of delivery” becomes “Others lead the core work before taking on more.” The sequence I used: record the work, create facilitator notes, develop someone to deliver it, observe and give feedback, replace yourself in the core, move to the next level. Document the operations. Develop the people. Keep the values alive." } },
+      { h2: "How did I grow my coaching business?" },
+      "In the beginning, I spent a lot of time trying to get clients. I was doing the networking, having the conversations and looking for opportunities, but my attention was on whether someone would become a client. That made every interaction carry a little more weight than it needed to.",
+      "Gradually, I stumbled into a different way of approaching it. When I gave the best of what I had in a conversation, a workshop or a networking event, people responded. I could help someone think differently, understand something they’d been struggling with or see a possibility they hadn’t considered. The conversation itself could be useful, whether or not anything happened afterwards.",
+      "That became my approach to business. Give people something worthwhile. Find out about them. If there was a genuine match between what they wanted and what I could offer, we could work together.",
+      "In my first year, I did around $25,000. In my second, around a quarter of a million dollars. By my third year, I was doing over a million (the business went on to do as much as $14,000,000 a year very shortly after that). I had established The Coaching Institute by 2004, and other coaches began asking how I was doing it.",
+      "Sometimes, when I tried to explain, we seemed to be having different conversations. They wanted to know how to get the client. I was talking about how to be useful to the person in front of you, and how to recognise whether working together made sense.",
+      "Along the way, I developed coaching systems I could use repeatedly with clients. I was learning what worked, how to deliver it and how to do it again. That gave me something I could teach, and the school began to grow.",
+      { h2: "Why does a growing business become dependent on its founder?" },
+      "At first, I did everything. Every event, every webinar, every mentoring session for every student. I knew the work, cared about the student experience and could deliver it, so I kept delivering it.",
+      "That is a very understandable place to begin. You’re the person with the skill. You’ve created the opportunity. People are coming because they trust you, and you want to honour that trust. But as demand grows, the arrangement begins to show its limits. Every new opportunity requires more of your time, and the business keeps returning to you for the things it needs to function.",
+      "In my **[From Practice to Enterprise](/products/from-practice-to-enterprise)** program, I explore this shift: developing the business means learning to build the systems and leadership through which other people can contribute, rather than remaining responsible for doing everything yourself.",
+      "For me, that meant asking a question about work I already knew how to do. How could someone else learn to deliver it well?",
+      { h2: "How do you replace yourself without losing quality?" },
+      "I began documenting my work. I would record a webinar, have it transcribed and turn the transcription into facilitator notes. This was before the automated tools we now take for granted, so there was quite a bit of work involved in getting from a recording to something another person could actually use.",
+      "Then someone else would run the class using those notes. I would listen to their delivery and give feedback. We could examine what they understood, what they had missed, where the notes needed improving and what needed more practice.",
+      "A recording captured what I said. Developing a facilitator required helping them understand what they were doing and why. That distinction mattered. I wanted someone who could work with the material and the students, rather than simply read my words aloud.",
+      "We repeated the process. The notes became more useful, the facilitator developed, and the work gradually became something that could be delivered well without me being the person delivering it.",
+      { h2: "What should you delegate first?" },
+      "I started with the core programs, the smallest programs, and worked through every aspect of their delivery. A webinar was one part. Mentoring, assessments and the other elements of the student experience also needed attention.",
+      "Once I had replaced myself throughout the core program, I moved to the next level. Then the next. Eventually, that process extended through to our premium programs at $25,000.",
+      "There was a sequence to it. We developed capability around the established work before moving further into the more advanced work. Each stage gave us a stronger foundation for what followed.",
+      "Replacing yourself can sound like a single decision, as though one day you hire someone and hand over your role. My experience was much more granular. It happened through particular classes, particular responsibilities and particular systems, with feedback and development along the way.",
+      { h2: "How do you turn what you know into business systems?" },
+      "While that was happening in the student experience, I was also building the systems behind the scenes. As sales progressed and the business moved forward, I reverse engineered what had happened and backfilled the work that supported it.",
+      "My rule was simple: if something happened more than once, it needed an operations manual.",
+      "We documented the process, the checklist, the recurring activities and the things someone needed to know to carry out the work. The team could go into our shared drive, click a hyperlink and find the relevant material. They could access the operations manual, the to-do list or the daily responsibilities without needing me to reconstruct it for them.",
+      "That made knowledge accessible beyond the person who happened to hold it. It also gave us something we could examine and improve. When a process depended on memory, much of it remained invisible until someone forgot a step or wasn’t available.",
+      "This connects with Tom McKaskill’s work on preparing businesses for exit. In *Ultimate Exits*, he identifies undocumented knowledge and dependence on a small number of individuals as limitations, and examines how knowledge, people and resources need to support the transfer and expansion of a business’s capabilities (McKaskill, 2010).",
+      "Even when selling is years away, it is useful to ask whether the knowledge that makes the business work can travel beyond you.",
+      { h2: "How do you build a team you can trust?" },
+      "Documentation was only part of what I built. Very early on, I also developed a team performance system, including a **[90-day cultural review](/products/the-90-day-review)**. We had a strong vision, mission and values, and those needed to be present in the ordinary working day.",
+      "Feedback came through the filter of living the values and the vision. We had something explicit to refer to, rather than relying on whatever a leader happened to prefer that afternoon. We trained people in the vision and values, discussed them and used them to examine how we worked together.",
+      "Someone joining the team went through a 90-day onboarding process and a mentorship program. By the end of that period, we could assess whether they were a cultural match as well as whether they could do the work.",
+      "That distinction became important as the business grew. A capable person still needed to contribute to the kind of organisation we were building. Their effect on other people, their willingness to learn and how they approached responsibility mattered alongside their technical ability.",
+      "My manual, included in **[the program](/products/from-practice-to-enterprise)** here, brings these elements together because systems, culture and leadership continually affect one another. A documented process needs people who can use it, improve it and take responsibility for its purpose (Pearson, 2011).",
+      { h2: "What does it take to build beyond the founder?" },
+      "Looking back, I can see how much of the work involved making things available to others that had previously lived inside me. The coaching became teachable. The delivery became documented. The standards became explicit. People had a way to learn, receive feedback and develop.",
+      "I still had work to do as the founder. What changed was the work the business needed from me.",
+      "I hadn’t started with ambitions to build The Coaching Institute. I began with a personal question about how to live differently, and followed it into conversations, coaching and eventually a school. As it grew, I kept learning how to make the work repeatable and how to help other people carry it.",
+      "If your business currently depends on you for almost everything, start with one piece of work you do regularly. Record it. Explain your thinking. Help someone learn it, observe what happens and improve what supports them. That gives you somewhere practical to begin.",
+      { h2: "Explore the work" },
+      "**[From Practice to Enterprise](/products/from-practice-to-enterprise)** is the starting point for exploring the move beyond a business organised around your own delivery.",
+      "**[Trust That Holds](/products/trust-that-holds)** draws on the TRUSTME model for the trust dimension of that work.",
+      "For the broader collection, **[Build Beyond the Founder](/products/build-beyond-the-founder)** brings together From Practice to Enterprise, Core Improve Innovate and Trust That Holds.",
+    ],
+    references: [
+      "McKaskill, T. (2010) *Ultimate Exits: The Secret Behind Selling Entrepreneurial Ventures at Staggering Prices*. Melbourne: Breakthrough Publications. [Accessible full text](https://tommckaskill.com/books/McKaskill-Ultimate-Exits%20copy.pdf).",
+      "Pearson, R. (2011) *Month 10: From Technician to Entrepreneur*. Training manual. Small Business Academy, The Coaching Institute.",
     ],
   },
 ];
