@@ -38,6 +38,7 @@ export const NAV: NavItem[] = [
   ] },
   { label: 'Programs', href: '/programs', children: [
     { label: 'All programs', href: '/programs' },
+    { label: 'Self-paced programs', href: '/products' },
     { label: 'Rebel Yell', href: '/programs/rebel-yell' },
     { label: 'The Shift', href: '/programs/the-shift' },
     { label: 'Ultimate Self Club', href: ULTIMATE_SELF_CLUB_URL, external: true },

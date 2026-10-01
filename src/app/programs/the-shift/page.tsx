@@ -2,6 +2,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import NotifyForm from '@/components/products/NotifyForm';
+import { THE_SHIFT_PRICE } from '@/content/products';
 
 export const metadata: Metadata = {
   title: 'The Shift — Remi Pearson',
@@ -17,6 +18,7 @@ export default function TheShiftPage() {
         </nav>
         <p className="pr-eyebrow">Program</p>
         <h1 id="shift-h" className="pr-title">The Shift</h1>
+        <p className="pr-price pr-price--lg">{THE_SHIFT_PRICE}</p>
         <p className="pr-soon"><span>Coming soon</span></p>
       </section>
       <section className="pr-notify-band" aria-labelledby="shift-w">

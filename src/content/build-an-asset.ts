@@ -1,7 +1,7 @@
 // "I've built myself a job. How do I build an asset?" — the sixth rabbit hole from the homepage (/build-an-asset).
 // The six patterns are carried over word for word from the copy deck (BUILD — WHAT TO DO WITH THE BOXES, Sept 2026).
 // The deck also gives each box a "panel title" for the design's rust panel, which the client asked to leave out.
-import { ENTRY_PRICE } from '@/content/home';
+import { priceOf } from '@/content/products';
 import type { Pattern } from '@/content/rabbit-holes';
 
 // The four answers under each pattern, in the order of PATTERN_LABELS
@@ -99,8 +99,8 @@ export const BUSINESS_QUESTIONS: Record<number, string> = {
   7: 'Can the founder step back and the right person lead?',
 };
 
-// ---------- Build Beyond You: the founder dependency audit (same $29 entry price as the homepage products) ----------
-export const AUDIT_PRICE = ENTRY_PRICE;
+// ---------- Build Beyond You: the founder dependency audit (its price is its product's, in content/products.ts) ----------
+export const AUDIT_PRICE = priceOf('from-practice-to-enterprise');
 export const AUDIT_STEPS = ['Map the founder-dependent points', 'Separate the expertise from the person holding it', 'Identify the IP, systems and decision principles needed', 'Choose the next transfer without building bureaucracy'];
 /** "Start the founder dependency audit": the enquiry form preset to Books & programs until the product page exists. */
 export const AUDIT_HREF = '/products/from-practice-to-enterprise';
