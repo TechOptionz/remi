@@ -76,7 +76,9 @@ export default function Header() {
     <>
       <header className="site-header" data-scrolled={scrolled} data-on-video={onVideo}>
         <Link href="/" className="logo" aria-label={`${SITE.name} — home`} onClick={goHome}>
-          <img src="/assets/remi-logo.webp" alt={SITE.logoAlt} />
+          {/* Bright gold on the dark palettes; a deeper gold on the light one so it keeps its contrast */}
+          <img className="logo-gold" src="/assets/remi-logo.webp" alt={SITE.logoAlt} />
+          <img className="logo-rust" src="/assets/remi-logo-deepgold.webp" alt="" aria-hidden="true" />
         </Link>
         <nav aria-label="Primary" className="nav">
           {NAV.map(item => item.children ? (

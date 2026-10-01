@@ -12,7 +12,7 @@
   padding-block:10px; min-height:72px;
 }
 .logo { display:flex; flex:none; align-items:center; height:44px; }
-.logo img { height:46px; width:auto; }
+.logo img { height:50px; width:auto; }
 .nav { display:flex; align-items:center; gap:24px; font-size:16px; font-weight:500; }
 .nav a { color:rgba(var(--ink-rgb),.8); }
 .nav a:hover { color:var(--accent); }
