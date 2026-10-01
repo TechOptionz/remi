@@ -27,6 +27,35 @@ const nextConfig = {
       { source: '/blog', destination: '/articles', permanent: true },
       { source: '/book', destination: '/books', permanent: true },
       { source: '/program', destination: '/programs', permanent: true },
+      // The previous Wix site at this domain (addresses Google still crawls). Podcast show-notes posts go to the
+      // Perspectives archive: searched for the guest when their episode is in CONVERSATIONS, else filtered by topic
+      // (topics as slugs: Next decodes %26, so "Ideas & meaning" would split the query; the archive matches either form).
+      ...Object.entries({
+        'an-exploration-of-internal-family-systems-therapy-with-dr-richard-schwartz': 'q=Schwartz',
+        'how-to-be-an-adult-in-relationships-with-psychotherapist-david-richo': 'q=Richo',
+        'how-are-you-choosing-to-spend-your-4-thousand-weeks-with-oliver-burkeman': 'q=Burkeman',
+        'the-importance-of-looking-outward-my-conversation-with-the-emyth-legend-michael-e-gerber': 'q=Gerber',
+        'perspectives-when-coaching-meets-therapy': 'topic=human-change',
+        'changing-the-self-with-matt-lavars-perspectives-podcast-with-sharon-pearson': 'topic=human-change',
+        'mother-load-part-iii-live-coaching-session-perspectives-podcast-with-sharon-pearson': 'topic=live-human-change',
+        'breaking-the-parental-hierarchy-with-dr-shefali-tsabury': 'topic=relationships',
+        'why-strongertogether-is-so-much-more-than-a-hashtag': 'topic=ideas-meaning',
+        'new-frontiers-of-psychedelics': 'topic=ideas-meaning',
+        'brave-new-post-corona-world-with-bernard-salt-perspectives-podcast-with-sharon-pearson': 'topic=ideas-meaning',
+        'how-to-embrace-ambiguity-with-srini-pillay': 'topic=ideas-meaning',
+        'how-many-nights-until-an-overnight-success-with-dorie-clark': 'topic=founders-business',
+        'don-t-waste-a-good-crisis-with-kristina-karlsson': 'topic=founders-business',
+        'your-time-starts-now-with-kate-christie-perspectives-with-sharon-pearson': 'topic=founders-business',
+        'lessons-from-successful-entrepreneurs-the-one-thing-you-never-change-with-karen-beattie': 'topic=founders-business',
+      }).map(([slug, query]) => ({ source: `/post/${slug}`, destination: `/perspectives?${query}#archive`, permanent: true })),
+      { source: '/post/:slug*', destination: '/perspectives#archive', permanent: true },
+      { source: '/blog/:path*', destination: '/perspectives#archive', permanent: true },
+      { source: '/copy-of-speaking-v2', destination: '/invite-remi', permanent: true },
+      { source: '/workwithremi', destination: '/invite-remi', permanent: true },
+      { source: '/ambassador-program', destination: '/programs', permanent: true },
+      { source: '/plans-pricing', destination: '/programs', permanent: true },
+      { source: '/event-details/emotional-intimacy-breakthrough', destination: '/loving-someone', permanent: true },
+      { source: '/event-details/:slug*', destination: '/programs', permanent: true },
     ];
   },
   async headers() {
