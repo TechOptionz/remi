@@ -80,7 +80,9 @@ export const PRODUCTS: Product[] = [
 
 export const productBySlug = (slug: string) => PRODUCTS.find(p => p.slug === slug);
 export const productHref = (slug: string) => `/products/${slug}`;
-export const productsIn = (category: CategoryId) => PRODUCTS.filter(p => p.category === category || p.also?.includes(category));
+// The bundle always comes last, so it closes the grid whichever products are borrowed from another category.
+export const productsIn = (category: CategoryId) => PRODUCTS.filter(p => p.category === category || p.also?.includes(category))
+  .sort((a, b) => Number(!!a.bundle) - Number(!!b.bundle));
 export const priceLine = (p: Product) => p.bundle
   ? (p.price ? `Individual value ${p.value} · Bundle investment ${p.price}` : 'Bundle pricing to come')
   : (p.price ?? '');

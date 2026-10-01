@@ -176,12 +176,14 @@
 }
 
 /* Because none of this happens in isolation */
-.kb-isolation { border-top:0; padding-top:0; }
-.kb-isolation .kb-spark { top:4px; }
+.kb-isolation { --kb-iso-pad:0px; border-top:0; padding-top:var(--kb-iso-pad); }
+/* Straight after a topic sign-up (SegmentCta) the section needs its own room above it */
+.seg-cta + .kb-isolation { --kb-iso-pad:clamp(40px,5vw,72px); }
+.kb-isolation .kb-spark { top:calc(var(--kb-iso-pad) + 4px); }
 .kb-isolation--centred .kb-h2 { text-align:center; }
-.kb-isolation-swirl { position:absolute; right:0; top:-30px; width:clamp(56px,6vw,84px); transform:rotate(-20deg); }
+.kb-isolation-swirl { position:absolute; right:0; top:calc(var(--kb-iso-pad, 0px) - 30px); width:clamp(56px,6vw,84px); transform:rotate(-20deg); }
 .kb-isolation-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:clamp(20px,2.4vw,32px); }
-.kb-hole { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; min-height:clamp(120px,12vw,140px); padding:22px clamp(18px,3vw,40px); border:1px solid var(--line); background:rgba(255,255,255,.3); font-family:var(--serif); font-size:clamp(22px,2.1vw,28px); line-height:1.2; text-align:center; text-wrap:balance; color:var(--rust); transition:background .2s, color .2s; }
+.kb-hole { display:flex; align-items:center; justify-content:center; gap:16px; min-height:clamp(120px,12vw,140px); padding:22px clamp(18px,3vw,40px); border:1px solid var(--line); background:rgba(255,255,255,.3); font-family:var(--serif); font-size:clamp(22px,2.1vw,28px); line-height:1.2; text-align:center; text-wrap:balance; color:var(--rust); transition:background .2s, color .2s; }
 .kb-hole:hover { background:var(--hm-grain), var(--rust); color:#fbf1e3; }
 .kb-hole:hover .kb-arrow { transform:translateX(5px); }
 @media (max-width:700px) { .kb-isolation-grid { grid-template-columns:1fr; } .kb-isolation-swirl { display:none; } }
@@ -264,10 +266,9 @@
 /* Because none of this happens in isolation, left-aligned (className="kb-isolation--left") */
 .kb-isolation--left .kb-h2 { padding-left:var(--kb-indent); font-size:clamp(32px,4vw,52px); }
 .kb-isolation--left .kb-spark { top:4px; }
-.kb-isolation--left .kb-isolation-swirl { top:-64px; }
+.kb-isolation--left .kb-isolation-swirl { top:calc(var(--kb-iso-pad, 0px) - 64px); }
 .kb-isolation--left .kb-isolation-grid { max-width:880px; margin-inline:auto; }
-.kb-isolation--left .kb-hole { align-items:flex-start; text-align:left; }
-.kb-isolation--left .kb-arrow { align-self:flex-end; }
+.kb-isolation--left .kb-hole { justify-content:space-between; text-align:left; }
 @media (max-width:600px) { .kb-isolation--left .kb-h2 { padding-left:0; } }
 
 /* ---------- Shared pieces first used on tell-me-the-truth ---------- */

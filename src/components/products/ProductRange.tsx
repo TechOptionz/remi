@@ -6,12 +6,14 @@ import { CATEGORIES, priceLine, productHref, productsIn, type CategoryId } from 
 export default function ProductRange({ category, id = 'range', title }: { category: CategoryId; id?: string; title?: React.ReactNode }) {
   const c = CATEGORIES[category];
   const list = productsIn(category);
+  const n = list.filter(p => !p.bundle).length;
+  const cols = n % 3 === 0 ? 3 : n % 4 === 0 ? 4 : n % 2 === 0 ? 2 : 3; // whole rows, no orphan card
   return (
     <section id={id} className="pr-range" aria-labelledby={`${id}-h`}>
       <p className="pr-eyebrow">{c.name}</p>
       <h2 id={`${id}-h`} className="pr-h2">{title ?? 'Programs to begin with'}</h2>
       <p className="pr-lede">Each is self-paced and focused. Choose the one that matches the question that has your attention.</p>
-      <div className="pr-grid">
+      <div className="pr-grid" style={{ '--cols': cols } as React.CSSProperties}>
         {list.map(p => (
           <article key={p.slug} className={`pr-card pr-card--${p.tone}${p.bundle ? ' pr-card--bundle' : ''}`}>
             {p.kicker && <p className="pr-kicker">{p.kicker}</p>}
