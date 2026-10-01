@@ -1,12 +1,14 @@
+import Link from 'next/link';
 import Icon, { type IconName } from '@/components/shared/Icon';
 
-const NOTES: { icon: IconName; know: string; still: string }[] = [
-  { icon: 'scribble', know: 'I know why I fear abandonment.', still: 'I still chase when someone withdraws.' },
-  { icon: 'heart', know: 'I understand boundaries.', still: 'I still say yes when every part of me means no.' },
-  { icon: 'spiral', know: 'I recognise the pattern.', still: "I still cannot stop it when I'm triggered." },
+// The three statements open the work they lead to (round seven edits): personal development, business, leadership.
+const NOTES: { icon: IconName; text: string; label: string; href: string }[] = [
+  { icon: 'scribble', text: 'I know it’s my thinking that is creating problems in my life…', label: 'Personal development', href: '/i-know-better' },
+  { icon: 'growth', text: 'I know my business success is capped by my thinking…', label: 'Business tools & resources', href: '/build-an-asset' },
+  { icon: 'people', text: 'I’m committed to being the leader I know my team deserves…', label: 'Leadership resources', href: '/leadership' },
 ];
 
-// I'M INTERESTED IN WHAT MAKES CHANGE POSSIBLE — intro with teaching photo, then three "I know… I still…" notes
+// I'M INTERESTED IN WHAT MAKES CHANGE POSSIBLE — intro with teaching photo, then three clickable "I know…" notes
 export default function ChangePossible() {
   return (
     <section className="section section--tight" aria-labelledby="change-h">
@@ -19,13 +21,13 @@ export default function ChangePossible() {
       </div>
       <div className="gap-notes">
         {NOTES.map(n => (
-          <article className="gap-note" key={n.know}>
+          <Link href={n.href} className="gap-note" key={n.href}>
             <span className="gap-note-icon"><Icon name={n.icon} size={44} strokeWidth={1.2} /></span>
             <div>
-              <h3>{n.know}</h3>
-              <p><span className="underline">{n.still}</span></p>
+              <h3>{n.text}</h3>
+              <p><span className="underline">{n.label}</span> <span aria-hidden="true">⟶</span></p>
             </div>
-          </article>
+          </Link>
         ))}
       </div>
     </section>

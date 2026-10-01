@@ -8,7 +8,7 @@ export default function InsideTheGap() {
       <div>
         <h2 id="gap-h" className="part-title part-title--sm"><span className="underline">My work lives inside that gap</span></h2>
         <p className="part-lede part-lede--wide">I work with the emotional and protective architecture beneath our behaviour. This includes trauma, attachment, parts work, self-abandonment, boundaries, conflict, emotional integration and the complicated business of learning how to remain connected to ourselves while we are connected to another person.</p>
-        <Link href="/ideas-models#part-4" className="mini-card">
+        <Link href="/ideas-models/emotion-integration-technique" className="mini-card">
           <span className="mini-card-icon"><Icon name="brain" size={34} /></span>
           <span>
             <span className="mini-card-title">Emotion Integration Technique</span>

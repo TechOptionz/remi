@@ -109,7 +109,7 @@ main > .ry-band:last-child { border-bottom:1px solid rgba(var(--ink-rgb),.14); }
 .ry-pull blockquote p { margin:0; font-family:var(--serif); font-size:clamp(36px,5vw,76px); line-height:1.04; letter-spacing:-.01em; color:var(--ink-strong); text-wrap:balance; }
 .ry-pull blockquote p::before { content:"“"; margin-right:.08em; color:var(--accent); }
 .ry-pull blockquote p::after { content:"”"; margin-left:.04em; color:var(--accent); }
-.ry-signature { display:block; width:clamp(150px,16vw,220px); aspect-ratio:680/298; margin:clamp(20px,2.4vw,32px) auto 0; background:var(--accent); -webkit-mask:url(/assets/remi-signature.png) center / contain no-repeat; mask:url(/assets/remi-signature.png) center / contain no-repeat; }
+.ry-signature { display:block; width:clamp(150px,16vw,220px); aspect-ratio:540/195; margin:clamp(20px,2.4vw,32px) auto 0; background:var(--accent); -webkit-mask:url(/assets/remi-logo-ink.webp) center / contain no-repeat; mask:url(/assets/remi-logo-ink.webp) center / contain no-repeat; }
 @media (max-width:900px) {
   .ry-calibrate { grid-template-columns:minmax(0,1fr); }
   .ry-calibrate-photo { position:static; max-width:320px; }
