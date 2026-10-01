@@ -7,6 +7,8 @@ import EitOutward from '@/components/eit/EitOutward';
 import EitUnderneath from '@/components/eit/EitUnderneath';
 import EitCapacity from '@/components/eit/EitCapacity';
 import EitClose from '@/components/eit/EitClose';
+import ChapterVideo from '@/components/ideas/ChapterVideo';
+import SegmentCta from '@/components/shared/SegmentCta';
 
 export const metadata: Metadata = {
   title: 'Why Can’t I Feel My Emotions Even When I Understand Myself? Emotion Integration Technique — Remi Pearson',
@@ -18,11 +20,13 @@ export default function EmotionIntegrationPage() {
     <main className="ideas triad safe dsr eit">
       <div className="ideas-page">
         <EitIntro />
+        <ChapterVideo chapter="emotion-integration-technique" />
         <EitInsight />
         <EitOutward />
         <EitUnderneath />
         <EitCapacity />
         <EitClose />
+        <SegmentCta segment="personal-development" />
       </div>
     </main>
   );

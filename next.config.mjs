@@ -24,6 +24,8 @@ const nextConfig = {
       { source: '/ideas', destination: '/ideas-models', permanent: true },
       { source: '/models', destination: '/ideas-models', permanent: true },
       { source: '/podcast', destination: '/perspectives', permanent: true },
+      { source: '/blog', destination: '/articles', permanent: true },
+      { source: '/book', destination: '/books', permanent: true },
       { source: '/program', destination: '/programs', permanent: true },
       // The previous Wix site at this domain (addresses Google still crawls). Podcast show-notes posts go to the
       // Perspectives archive: searched for the guest when their episode is in CONVERSATIONS, else filtered by topic
@@ -47,7 +49,6 @@ const nextConfig = {
         'lessons-from-successful-entrepreneurs-the-one-thing-you-never-change-with-karen-beattie': 'topic=founders-business',
       }).map(([slug, query]) => ({ source: `/post/${slug}`, destination: `/perspectives?${query}#archive`, permanent: true })),
       { source: '/post/:slug*', destination: '/perspectives#archive', permanent: true },
-      { source: '/blog', destination: '/perspectives#archive', permanent: true },
       { source: '/blog/:path*', destination: '/perspectives#archive', permanent: true },
       { source: '/copy-of-speaking-v2', destination: '/invite-remi', permanent: true },
       { source: '/workwithremi', destination: '/invite-remi', permanent: true },

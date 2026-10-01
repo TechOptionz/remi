@@ -5,10 +5,10 @@ import { CAM_PROFILER_HREF, PRODUCTS_HREF } from './ideas';
 export const CAM_PAGE_HREF = '/ideas-models/critical-alignment-model';
 
 /** Rebel Yell waitlist (the Programs page form). */
-export const REBEL_YELL_HREF = '/programs#waitlist';
+export const REBEL_YELL_HREF = '/programs/rebel-yell#waitlist';
 /** The CAM Mini Profiler landing page. Disruptive Leadership goes to the enquiry form until its shop link exists. */
 export const CAM_PROFILE_HREF = CAM_PROFILER_HREF;
-export const DISRUPTIVE_LEADERSHIP_HREF = PRODUCTS_HREF;
+export const DISRUPTIVE_LEADERSHIP_HREF = '/books';
 
 /** The five dimensions in sequence, as lettered on the diagram. `line` says which side of the alignment gap each sits on. */
 export const DIMENSIONS: { title: string; lead: string; line: 'purpose' | 'above' | 'below' }[] = [

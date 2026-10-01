@@ -1,7 +1,11 @@
 // Content for the Ideas & Models page: the lists and cards each part renders. Headings and body copy live in the part files.
+import type { VideoRef } from '@/components/shared/VideoEmbed';
 
 /** Where "Explore …" buttons go until the product pages exist: the homepage enquiry form, preset to Books & programs. */
 export const PRODUCTS_HREF = '/?interest=Products#contact';
+/** A video for a chapter page, keyed by its route (e.g. 'trustme-model'): { provider: 'vimeo' | 'youtube', id, title }.
+ *  Chapters with no entry show no video. */
+export const CHAPTER_VIDEOS: Record<string, VideoRef | undefined> = {};
 /** The CAM Mini Profiler landing page (its three parts lead to the online quiz). */
 export const CAM_PROFILER_HREF = '/ideas-models/critical-alignment-model/mini-profiler';
 

@@ -5,6 +5,8 @@ import UicIntro from '@/components/uic/UicIntro';
 import UicConsultative from '@/components/uic/UicConsultative';
 import UicSteps from '@/components/uic/UicSteps';
 import UicClose from '@/components/uic/UicClose';
+import ChapterVideo from '@/components/ideas/ChapterVideo';
+import SegmentCta from '@/components/shared/SegmentCta';
 
 export const metadata: Metadata = {
   title: 'Consultative Sales: How to Know When You and a Buyer Are the Right Match — Remi Pearson',
@@ -16,9 +18,11 @@ export default function UltimateInfluenceChapterPage() {
     <main className="ideas triad safe dsr eit vat cam tm dl uic">
       <div className="ideas-page">
         <UicIntro />
+        <ChapterVideo chapter="ultimate-influence" />
         <UicConsultative />
         <UicSteps />
         <UicClose />
+        <SegmentCta segment="consultative-sales" />
       </div>
     </main>
   );

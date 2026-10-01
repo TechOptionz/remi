@@ -9,6 +9,8 @@ import KbEit from '@/components/know-better/KbEit';
 import KbNext from '@/components/know-better/KbNext';
 import OtherHoles from '@/components/rabbit-holes/OtherHoles';
 import KeepBand from '@/components/rabbit-holes/KeepBand';
+import ProductRange from '@/components/products/ProductRange';
+import SegmentCta from '@/components/shared/SegmentCta';
 
 export const metadata: Metadata = {
   title: 'I Know Better. Why Do I Still Keep Doing This? — Remi Pearson',
@@ -24,6 +26,8 @@ export default function KnowBetterPage() {
         <KbProtection />
         <KbEit />
         <KbNext />
+        <ProductRange category="personal" />
+        <SegmentCta segment="personal-development" />
         <OtherHoles show={[1, 2]} className="kb-isolation--centred" />
       </div>
       <KeepBand />

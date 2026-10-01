@@ -13,6 +13,8 @@ import OtherHoles from '@/components/rabbit-holes/OtherHoles';
 import KeepBand from '@/components/rabbit-holes/KeepBand';
 import { Brush } from '@/components/rabbit-holes/ui';
 import { GUIDE_HREF, GUIDE_PRICE, GUIDE_STEPS } from '@/content/ultimate-influence';
+import ProductRange from '@/components/products/ProductRange';
+import SegmentCta from '@/components/shared/SegmentCta';
 
 export const metadata: Metadata = {
   title: 'How Do I Sell Without Scripts, Pressure or Bullshit? Ultimate Influence — Remi Pearson',
@@ -39,6 +41,8 @@ export default function UltimateInfluencePage() {
           note="Learn in your own time. No classes. No calls. No weekly obligation."
         />
         <UiHardToHold />
+        <ProductRange category="influence" />
+        <SegmentCta segment="consultative-sales" />
         <OtherHoles show={[3, 5]} className="kb-isolation--left" title={<>Nothing important <Brush>stays in</Brush> one box</>} />
       </div>
       <KeepBand variant="envelope" />

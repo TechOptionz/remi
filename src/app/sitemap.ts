@@ -3,6 +3,8 @@ import type { MetadataRoute } from 'next';
 import { readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { SITE_URL } from '@/content/site';
+import { PRODUCTS } from '@/content/products';
+import { ARTICLES } from '@/content/articles';
 
 const APP = join(process.cwd(), 'src', 'app');
 /** Folders that hold a page.tsx, as routes (dynamic [slug] folders are listed from their data below). */
@@ -17,12 +19,12 @@ function routes(dir = '', out: string[] = []) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = ['/', ...routes()];
+  const paths = ['/', ...routes(), ...PRODUCTS.map(p => `/products/${p.slug}`), ...ARTICLES.map(a => `/articles/${a.slug}`)];
   const lastModified = new Date(); // the build date: every deploy re-publishes the list
   return paths.map(p => ({
     url: `${SITE_URL}${p === '/' ? '' : p}`,
     lastModified,
-    changeFrequency: 'weekly',
-    priority: p === '/' ? 1 : 0.8,
+    changeFrequency: p.startsWith('/products/') ? 'monthly' : 'weekly',
+    priority: p === '/' ? 1 : p.startsWith('/products/') ? 0.5 : 0.8,
   }));
 }

@@ -8,6 +8,8 @@ import TriadTogether from '@/components/triad/TriadTogether';
 import FifteenNeeds from '@/components/triad/FifteenNeeds';
 import TriadBegin from '@/components/triad/TriadBegin';
 import TriadClose from '@/components/triad/TriadClose';
+import ChapterVideo from '@/components/ideas/ChapterVideo';
+import SegmentCta from '@/components/shared/SegmentCta';
 
 export const metadata: Metadata = {
   title: 'How Do You Build Self-Esteem That Lasts? The Self-Esteem Triad — Remi Pearson',
@@ -19,12 +21,14 @@ export default function SelfEsteemTriadPage() {
     <main className="ideas triad">
       <div className="ideas-page">
         <TriadIntro />
+        <ChapterVideo chapter="self-esteem-triad" />
         <TriadWhy />
         <TriadArms />
         <TriadTogether />
         <FifteenNeeds />
         <TriadBegin />
         <TriadClose />
+        <SegmentCta segment="personal-development" />
       </div>
     </main>
   );

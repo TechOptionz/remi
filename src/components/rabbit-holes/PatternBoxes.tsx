@@ -5,11 +5,16 @@
 // expands in place on hover to show the pattern's lines and its four answers under the page's labels. Touch and keyboard:
 // a tap / Enter pins a box open (and closes it again), since there is no hover there.
 import { useId, useState } from 'react';
+import Link from 'next/link';
 import type { Pattern } from '@/content/rabbit-holes';
+import { priceLine, productHref, productsIn, type CategoryId } from '@/content/products';
 
-type Props = { patterns: Pattern[]; labels: string[]; head: React.ReactNode; after?: React.ReactNode; className?: string; labelledBy: string };
+type Props = { patterns: Pattern[]; labels: string[]; head: React.ReactNode; after?: React.ReactNode; className?: string; labelledBy: string;
+  /** Product category: each box also offers one of its programs and a dedicated enquiry (the boxes take them in turn). */
+  category?: CategoryId };
 
-export default function PatternBoxes({ patterns, labels, head, after, className = '', labelledBy }: Props) {
+export default function PatternBoxes({ patterns, labels, head, after, className = '', labelledBy, category }: Props) {
+  const offers = category ? productsIn(category).filter(p => !p.bundle) : [];
   const [open, setOpen] = useState<number | null>(null);
   const id = useId();
 
@@ -31,6 +36,15 @@ export default function PatternBoxes({ patterns, labels, head, after, className 
                       <div key={label}><dt>{label}</dt><dd>{x.answers[n]}</dd></div>
                     ))}
                   </dl>
+                  {category && (() => {
+                    const p = offers[i % offers.length];
+                    return (
+                      <div className="kb-pattern-offer">
+                        <Link href={`/?interest=Products&about=${encodeURIComponent(x.title)}#contact`} className="kb-pattern-ask">Ask me about this <span aria-hidden="true">⟶</span></Link>
+                        {p && <Link href={productHref(p.slug)} className="kb-pattern-product"><span>{p.title}</span><small>{priceLine(p)}</small></Link>}
+                      </div>
+                    );
+                  })()}
                 </div>
               </div>
             </div>

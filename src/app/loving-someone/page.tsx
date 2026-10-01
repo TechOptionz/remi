@@ -12,6 +12,8 @@ import LsFivePaths from '@/components/loving-someone/LsFivePaths';
 import LsConversations from '@/components/loving-someone/LsConversations';
 import OtherHoles from '@/components/rabbit-holes/OtherHoles';
 import KeepBand from '@/components/rabbit-holes/KeepBand';
+import ProductRange from '@/components/products/ProductRange';
+import SegmentCta from '@/components/shared/SegmentCta';
 
 export const metadata: Metadata = {
   title: 'Why Does Loving Someone Bring All My Shit to the Surface? — Remi Pearson',
@@ -29,6 +31,8 @@ export default function LovingSomeonePage() {
         <LsCapable />
         <LsFivePaths />
         <LsConversations />
+        <ProductRange category="relationships" />
+        <SegmentCta segment="relationships" />
         <OtherHoles show={[0, 2]} className="kb-isolation--left" />
       </div>
       <KeepBand variant="envelope" />

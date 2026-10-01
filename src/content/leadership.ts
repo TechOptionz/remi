@@ -74,7 +74,7 @@ export const PATTERNS: Pattern[] = [
 export const TRUSTME_HREF = '/ideas-models/trustme-model';
 export const DL_HREF = '/ideas-models/disruptive-leadership';
 /** "Start the leadership audit": the enquiry form preset to Books & programs until the product page exists. */
-export const LEADERSHIP_AUDIT_HREF = '/?interest=Products#contact';
+export const LEADERSHIP_AUDIT_HREF = '/products/disruptive-leadership';
 
 // ---------- You cannot lead everyone from the same place ----------
 export const PRINCIPLES = [

@@ -24,12 +24,15 @@ const AUTO_REPLY: Partial<Record<Kind, { subject: string; body: string }>> = {
 const LABELS: Record<string, string> = {
   firstName: 'First name', why_now: 'Why now', when: 'Date, location or online', audience: 'Who will be in the room',
   explore: 'What to explore', fit: 'Why the right fit', stuck: 'Where the organisation is stuck', attempted: 'Already attempted',
-  who: 'Who needs to be involved',
+  who: 'Who needs to be involved', about: 'About', segment: 'List',
 };
 const label = (key: string) => LABELS[key] ?? key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, ' ');
 
 const esc = (s: string) => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 const oneLine = (s: string) => s.replace(/[\r\n]+/g, ' ').trim();
+// The lists a topic page's sign-up can join (content/products.ts SEGMENTS). Each can have its own Resend segment:
+// RESEND_SEGMENT_ID_LEADERSHIP, _BUSINESS, _PERSONAL_DEVELOPMENT, _CONSULTATIVE_SALES, _RELATIONSHIPS.
+const SEGMENTS = ['leadership', 'business', 'personal-development', 'consultative-sales', 'relationships'];
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const json = (body: object, status = 200) => Response.json(body, { status });
@@ -46,6 +49,7 @@ export async function POST(request: Request) {
   for (const [key, value] of Object.entries(fields).slice(0, 30)) {
     if (typeof value === 'string' && value.trim()) data[key.slice(0, 40)] = value.trim().slice(0, 5000);
   }
+  if (data.segment && !SEGMENTS.includes(data.segment)) delete data.segment;
   const email = data.email ?? '';
   if (!EMAIL.test(email) || email.length > 254) return json({ error: 'Please enter a valid email address.' }, 400);
 
@@ -57,7 +61,7 @@ export async function POST(request: Request) {
   const resend = new Resend(RESEND_API_KEY);
   const type = kind as Kind;
   const who = data.name ?? data.firstName ?? email;
-  const topic = data.interest ?? data.invitation ?? data.product;
+  const topic = data.interest ?? data.invitation ?? data.product ?? data.segment;
   const subject = `${SUBJECTS[type]}${data.product ? ` — ${data.product}` : ''}${topic && !data.product ? ` — ${topic}` : ''} — ${oneLine(who).slice(0, 80)}`;
 
   const rows = Object.entries(data);
@@ -88,9 +92,11 @@ export async function POST(request: Request) {
   }
   // Newsletter and "tell me when it's ready" sign-ups join the contacts; the confidential Rebel Yell waitlist does not
   if (type === 'newsletter' || (type === 'waitlist' && data.product)) {
+    const own = data.segment ? process.env[`RESEND_SEGMENT_ID_${data.segment.toUpperCase().replace(/-/g, '_')}`] : undefined;
+    const segmentIds = [...new Set([RESEND_SEGMENT_ID, own].filter((id): id is string => !!id))];
     const added = await resend.contacts.create({
       email, firstName: data.firstName || undefined,
-      ...(RESEND_SEGMENT_ID ? { segments: [{ id: RESEND_SEGMENT_ID }] } : {}),
+      ...(segmentIds.length ? { segments: segmentIds.map(id => ({ id })) } : {}),
     });
     if (added.error) console.error('Resend contact failed', added.error);
   }

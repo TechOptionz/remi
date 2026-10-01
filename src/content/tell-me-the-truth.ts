@@ -72,7 +72,7 @@ export const PATTERNS: Pattern[] = [
 // ---------- Links ----------
 export const CAM_HREF = '/ideas-models/critical-alignment-model';
 /** "Start the truth audit": the enquiry form preset to Books & programs until the product page exists. */
-export const TRUTH_AUDIT_HREF = '/?interest=Products#contact';
+export const TRUTH_AUDIT_HREF = '/products/find-the-gap-in-your-own-life';
 
 // ---------- Four questions I keep returning to (each opens the Critical Alignment Model chapter) ----------
 export const QUESTIONS = [

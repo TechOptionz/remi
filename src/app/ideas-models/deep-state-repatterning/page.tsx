@@ -7,6 +7,8 @@ import DsrAssociation from '@/components/dsr/DsrAssociation';
 import DsrChange from '@/components/dsr/DsrChange';
 import DsrForgiveness from '@/components/dsr/DsrForgiveness';
 import DsrTested from '@/components/dsr/DsrTested';
+import ChapterVideo from '@/components/ideas/ChapterVideo';
+import SegmentCta from '@/components/shared/SegmentCta';
 
 export const metadata: Metadata = {
   title: 'Why Does the Past Still Affect You When You Know It’s Over? Deep State Repatterning — Remi Pearson',
@@ -18,11 +20,13 @@ export default function DeepStateRepatterningPage() {
     <main className="ideas triad safe dsr">
       <div className="ideas-page">
         <DsrIntro />
+        <ChapterVideo chapter="deep-state-repatterning" />
         <DsrChain />
         <DsrAssociation />
         <DsrChange />
         <DsrForgiveness />
         <DsrTested />
+        <SegmentCta segment="personal-development" />
       </div>
     </main>
   );

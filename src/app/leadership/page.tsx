@@ -16,6 +16,8 @@ import OtherHoles from '@/components/rabbit-holes/OtherHoles';
 import KeepBand from '@/components/rabbit-holes/KeepBand';
 import { Brush } from '@/components/rabbit-holes/ui';
 import { LEADERSHIP_AUDIT_HREF, LEADERSHIP_AUDIT_PRICE, LEADERSHIP_AUDIT_STEPS, TOPIC_LINKS } from '@/content/leadership';
+import ProductRange from '@/components/products/ProductRange';
+import SegmentCta from '@/components/shared/SegmentCta';
 
 export const metadata: Metadata = {
   title: 'How Do I Lead Without Carrying Everybody? — Remi Pearson',
@@ -51,6 +53,8 @@ export default function LeadershipPage() {
         />
         <LdBook />
         <TopicLinks id="ld-convs-h" title={<><Brush>Conversations</Brush> to disappear into</>} lede="Because leadership gets interesting when we stop talking in slogans." links={TOPIC_LINKS} cta="filled" />
+        <ProductRange category="leadership" />
+        <SegmentCta segment="leadership" />
         <OtherHoles show={[2, 5]} className="kb-isolation--left" title={<>Nothing important <Brush>stays in</Brush> one box</>} />
       </div>
       <KeepBand variant="envelope" />

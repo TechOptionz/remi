@@ -2,7 +2,7 @@
 
 // CONTACT — homepage enquiry section and form. Options live in INTERESTS (content/site.ts).
 // data-chat-form tells the chat widget this page can take enquiries itself (value = the select's name).
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { INTERESTS } from '@/content/site';
 import { submitLead, usePresetSelect } from '@/lib/forms';
 
@@ -14,6 +14,9 @@ export default function Contact() {
   const interest = useRef<HTMLSelectElement>(null);
   // Links anywhere on the site preset the topic: <a data-interest="Speaking"> or /?interest=Speaking#contact
   usePresetSelect(interest, 'interest');
+  // A link can also say what the enquiry is about: /?interest=Products&about=Attachment%20or%20Love%3F#contact
+  const [about, setAbout] = useState('');
+  useEffect(() => { setAbout(new URLSearchParams(window.location.search).get('about')?.slice(0, 200) ?? ''); }, []);
 
   return (
     <section id="contact" className="section split" aria-labelledby="contact-h">
@@ -34,6 +37,7 @@ export default function Contact() {
           }}>
           <label>Name<input name="name" required placeholder="Your name" autoComplete="name" /></label>
           <label>Email<input name="email" type="email" required placeholder="you@company.com" autoComplete="email" /></label>
+          {about && <p className="enquiry-about">About: <strong>{about}</strong> <button type="button" onClick={() => setAbout('')} aria-label="Remove this topic">×</button><input type="hidden" name="about" value={about} /></p>}
           <label>I'm interested in
             <select name="interest" ref={interest}>
               {INTERESTS.map(o => <option value={o.value} key={o.value}>{o.label}</option>)}

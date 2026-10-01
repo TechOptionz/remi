@@ -5,6 +5,8 @@ import F90Intro from '@/components/f90/F90Intro';
 import F90Ground from '@/components/f90/F90Ground';
 import F90Months from '@/components/f90/F90Months';
 import F90Close from '@/components/f90/F90Close';
+import ChapterVideo from '@/components/ideas/ChapterVideo';
+import SegmentCta from '@/components/shared/SegmentCta';
 
 export const metadata: Metadata = {
   title: 'Your First 90 Days as a Leader — Remi Pearson',
@@ -16,9 +18,11 @@ export default function First90DaysPage() {
     <main className="ideas triad safe dsr eit vat cam tm dl f90">
       <div className="ideas-page">
         <F90Intro />
+        <ChapterVideo chapter="first-90-days" />
         <F90Ground />
         <F90Months />
         <F90Close />
+        <SegmentCta segment="leadership" />
       </div>
     </main>
   );

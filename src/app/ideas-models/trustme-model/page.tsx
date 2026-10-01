@@ -6,6 +6,8 @@ import TmFoundations from '@/components/trustme/TmFoundations';
 import TmLevels from '@/components/trustme/TmLevels';
 import TmPressure from '@/components/trustme/TmPressure';
 import TmClose from '@/components/trustme/TmClose';
+import ChapterVideo from '@/components/ideas/ChapterVideo';
+import SegmentCta from '@/components/shared/SegmentCta';
 
 export const metadata: Metadata = {
   title: 'The T.R.U.S.T.M.E. Model — Remi Pearson',
@@ -17,10 +19,12 @@ export default function TrustmeModelPage() {
     <main className="ideas triad safe dsr eit vat cam tm">
       <div className="ideas-page">
         <TmIntro />
+        <ChapterVideo chapter="trustme-model" />
         <TmFoundations />
         <TmLevels />
         <TmPressure />
         <TmClose />
+        <SegmentCta segment="business" />
       </div>
     </main>
   );
