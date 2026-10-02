@@ -1,7 +1,7 @@
 // "I've built myself a job. How do I build an asset?" — the sixth rabbit hole from the homepage (/build-an-asset).
 // The six patterns are carried over word for word from the copy deck (BUILD — WHAT TO DO WITH THE BOXES, Sept 2026).
 // The deck also gives each box a "panel title" for the design's rust panel, which the client asked to leave out.
-import { ENTRY_PRICE } from '@/content/home';
+import { priceOf, productBySlug, productHref } from '@/content/products';
 import type { Pattern } from '@/content/rabbit-holes';
 
 // The four answers under each pattern, in the order of PATTERN_LABELS
@@ -99,11 +99,14 @@ export const BUSINESS_QUESTIONS: Record<number, string> = {
   7: 'Can the founder step back and the right person lead?',
 };
 
-// ---------- Build Beyond You: the founder dependency audit (same $29 entry price as the homepage products) ----------
-export const AUDIT_PRICE = ENTRY_PRICE;
-export const AUDIT_STEPS = ['Map the founder-dependent points', 'Separate the expertise from the person holding it', 'Identify the IP, systems and decision principles needed', 'Choose the next transfer without building bureaucracy'];
-/** "Start the founder dependency audit": the enquiry form preset to Books & programs until the product page exists. */
-export const AUDIT_HREF = '/products/from-practice-to-enterprise';
+// ---------- Build Beyond the Founder: the business bundle (round seven edits; it replaced "Build Beyond You", the founder
+// dependency audit, which is still to come). Price and contents come from the bundle in content/products.ts. ----------
+const BUNDLE = productBySlug('build-beyond-the-founder')!;
+export const BUNDLE_PRICE = priceOf(BUNDLE.slug);
+export const BUNDLE_STEPS = (BUNDLE.includes ?? []).map(s => productBySlug(s)?.title ?? s);
+export const BUNDLE_HREF = productHref(BUNDLE.slug);
+/** The founder dependency audit, mentioned under the bundle until it exists. */
+export const AUDIT_NOTE = 'The Founder Dependency Audit is coming soon.';
 
 // ---------- I did not learn this from a diagram ----------
 export const BUILT_STATS = [
@@ -113,9 +116,17 @@ export const BUILT_STATS = [
 ];
 
 // ---------- Conversations to disappear into: each opens the Perspectives archive on its closest topic ----------
+// Remi is recording a video for each box (round seven edits). Paste each video's link into `href` when it arrives and
+// the box offers it ("Watch: …") under the podcasts. Her suggested sharper titles, if preferred:
+// "How Do I Teach My Team to Deliver What Only I Know How to Do?" · "Am I Protecting Quality or Making My Team Dependent
+// on Me?" · "Why Aren't My Business Systems Working?" · "What Is My Business Worth Without Me?"
 export const TOPIC_LINKS = [
-  { icon: 'sparkle', title: 'Turning expertise into intellectual property', topic: 'Founders & business' },
-  { icon: 'mask', title: 'Founder dependence disguised as quality control', topic: 'Founders & business' },
-  { icon: 'layers', title: 'Systems without bureaucracy', topic: 'Founders & business' },
-  { icon: 'diamond', title: 'What makes a business valuable beyond revenue', topic: 'Founders & business' },
+  { icon: 'sparkle', title: 'Turning expertise into intellectual property', topic: 'Founders & business',
+    video: { title: 'How Do I Turn My Expertise Into a Business That Can Run Without Me?', href: '' } },
+  { icon: 'mask', title: 'Founder dependence disguised as quality control', topic: 'Founders & business',
+    video: { title: 'How Do I Stop Being the Bottleneck in My Business?', href: '' } },
+  { icon: 'layers', title: 'Systems without bureaucracy', topic: 'Founders & business',
+    video: { title: 'How Do I Systemise My Business Without Slowing Everyone Down?', href: '' } },
+  { icon: 'diamond', title: 'What makes a business valuable beyond revenue', topic: 'Founders & business',
+    video: { title: 'What Makes a Business Valuable Beyond Revenue?', href: '' } },
 ] as const;

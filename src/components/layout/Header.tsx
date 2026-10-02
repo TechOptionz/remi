@@ -111,7 +111,7 @@ export default function Header() {
       <nav id="mobile-nav" className="mobile-nav" aria-label="Mobile" hidden={!menuOpen}>
         {NAV.flatMap(item => [item, ...(item.children ?? []).map(child => ({ ...child, sub: true }))]).map(item => {
           const className = ['sub' in item ? 'mobile-sub' : '', item.href === '/invite-remi' ? 'accent' : ''].join(' ').trim() || undefined;
-          return <NavLink item={item} key={item.label} className={className} onClick={() => setMenuOpen(false)} {...current(item)} />;
+          return <NavLink item={item} key={`${'sub' in item ? 'sub:' : ''}${item.label}`} className={className} onClick={() => setMenuOpen(false)} {...current(item)} />;
         })}
       </nav>
     </>

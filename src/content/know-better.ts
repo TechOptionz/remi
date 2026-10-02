@@ -71,7 +71,7 @@ export const PATTERNS: Pattern[] = [
 // ---------- Links. Swap these when the real pages exist ----------
 /** "See EIT in action": the EIT chapter until there is an EIT video. */
 export const EIT_VIDEO_HREF = EIT_HREF;
-/** Untriggerable "See what's inside": the enquiry form preset to Books & programs until the book page exists. */
+/** Untriggerable "See what's inside": the Untriggerable course's product page ("Coming soon" until its copy exists). */
 export const UNTRIGGERABLE_HREF = '/products/untriggerable';
 
 // ---------- Go deeper ----------
@@ -79,8 +79,8 @@ export const WATCH = [
   { title: 'An exploration of Internal Family Systems', image: '/assets/rabbit-holes/kb-watch-ifs.webp', href: episodeHref('schwartz') },
   { title: 'Relationships: should I stay or should I go?', image: '/assets/rabbit-holes/kb-watch-stay.webp', href: episodeHref('richo') },
 ];
-// The articles are not written yet; until they are, each opens the closest part of the EIT chapter / Ideas & Models.
+// The two articles in the free library (content/articles.ts).
 export const READ = [
-  { title: 'Why insight isn’t enough', image: '/assets/rabbit-holes/kb-read-insight.webp', href: EIT_HREF },
-  { title: 'The moment you leave yourself', image: '/assets/rabbit-holes/kb-read-leave.webp', href: '/ideas-models#part-4' },
+  { title: 'Why insight isn’t enough', image: '/assets/rabbit-holes/kb-read-insight.webp', href: '/articles/why-insight-isnt-enough' },
+  { title: 'The moment you leave yourself', image: '/assets/rabbit-holes/kb-read-leave.webp', href: '/articles/the-moment-you-leave-yourself' },
 ];

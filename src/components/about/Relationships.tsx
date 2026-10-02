@@ -23,7 +23,7 @@ export default function Relationships() {
           <li key={t.label}><span className="icon-ring"><Icon name={t.icon} size={26} /></span>{t.label}</li>
         ))}
       </ul>
-      <Link href="/ideas-models#part-3" className="btn btn--primary btn--caps btn--big">Let's talk relationships</Link>
+      <Link href="/articles/why-relationships-trigger-me" className="btn btn--primary btn--caps btn--big">Let's talk relationships</Link>
     </section>
   );
 }

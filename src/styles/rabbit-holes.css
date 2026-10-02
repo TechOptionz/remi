@@ -142,6 +142,7 @@
 .kb-book-loop { position:absolute; left:0; top:22%; width:clamp(56px,6vw,84px); transform:rotate(-80deg) scaleX(-1); }
 .kb-book-title { width:fit-content; margin:0 0 clamp(22px,2.6vw,32px); font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(40px,4.8vw,64px); line-height:1; text-transform:uppercase; color:var(--rust); }
 .kb-book-copy p { margin:0 0 clamp(20px,2.4vw,28px); max-width:22ch; font-size:clamp(19px,1.8vw,25px); line-height:1.4; }
+.kb-book-copy .kb-book-price { margin-top:calc(-1 * clamp(8px,1.2vw,14px)); font-size:clamp(15px,1.3vw,18px); font-weight:700; letter-spacing:.04em; color:var(--rust); }
 @media (max-width:760px) {
   .kb-book { grid-template-columns:1fr; text-align:center; }
   .kb-book-copy .kb-book-title, .kb-book-copy p { margin-inline:auto; }
@@ -305,6 +306,10 @@
 .kb-topic svg { color:#c9963f; }
 .kb-topic:hover .kb-arrow { transform:translateX(4px); }
 .kb-topics-cta { margin:clamp(24px,3vw,36px) 0 0; }
+.kb-topic-wrap { display:flex; flex-direction:column; gap:8px; }
+.kb-topic-wrap .kb-topic { flex:1; }
+.kb-topic-video { padding-inline:4px; font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--rust); }
+.kb-topic-video:hover { text-decoration:underline; text-underline-offset:3px; }
 @media (max-width:700px) { .kb-topic-grid { grid-template-columns:1fr; } }
 
 /* Rust quote banner with gold quote marks (QuoteBanner) */

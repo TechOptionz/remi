@@ -1,6 +1,6 @@
 // "Tell me the truth. What am I not seeing?" — the third rabbit hole from the homepage (/tell-me-the-truth).
 // The six patterns are carried over word for word from the copy deck (TELL ME THE TRUTH — WHAT TO DO WITH THE BOXES, Sept 2026).
-import { ENTRY_PRICE } from '@/content/home';
+import { priceOf } from '@/content/products';
 import type { Pattern } from '@/content/rabbit-holes';
 
 // The four answers under each pattern, in the order of PATTERN_LABELS
@@ -90,8 +90,8 @@ export const TRUTH_LEADS = [
   { icon: 'growth', where: 'In business', text: 'Build from what the evidence says, not what the ego needs.' },
 ] as const;
 
-// ---------- The Truth Audit (same $29 entry price as the homepage products) ----------
-export const TRUTH_AUDIT_PRICE = ENTRY_PRICE;
+// ---------- The Truth Audit (its price is its product's, in content/products.ts) ----------
+export const TRUTH_AUDIT_PRICE = priceOf('find-the-gap-in-your-own-life');
 export const TRUTH_AUDIT_STEPS = ['Name the outcome you actually want', 'Get honest about what is happening now', 'Identify what the pattern may be protecting', 'See what truth requires next'];
 
 // ---------- Conversations to disappear into: each opens the Perspectives archive on its closest topic ----------

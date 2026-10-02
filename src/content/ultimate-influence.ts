@@ -1,7 +1,7 @@
 // "How do I sell without scripts, pressure or bullshit?" — the fifth rabbit hole from the homepage (/ultimate-influence).
 // Built from the three ULTIMATE INFLUENCE design screenshots (13–15); there was no copy deck and no pattern boxes for this
 // page, so the copy is transcribed from the designs and the hero reuses the homepage card's title and line.
-import { ENTRY_PRICE } from '@/content/home';
+import { priceOf } from '@/content/products';
 
 // ---------- Meet Ultimate Influence: the conversation has four responsibilities ----------
 export const RESPONSIBILITIES = [
@@ -55,8 +55,8 @@ export const PSYCHOLOGY = [
   { icon: 'shieldcheck', name: 'Reassurance', text: 'People need to know they have thought it through.' },
 ] as const;
 
-// ---------- The Ultimate Influence Fast Start Guide (same $29 entry price as the homepage products) ----------
-export const GUIDE_PRICE = ENTRY_PRICE;
+// ---------- The Ultimate Influence Fast Start Guide (its price is its product's, in content/products.ts) ----------
+export const GUIDE_PRICE = priceOf('ultimate-influence-consultative-sales-introduction');
 export const GUIDE_STEPS = ['The complete eight-step conversation map', 'Questions and language prompts for every stage', 'How to diagnose, match and recommend', 'How to backtrack, close and future pace naturally'];
 /** "Start with Ultimate Influence": the enquiry form preset to Books & programs until the product page exists. */
 export const GUIDE_HREF = '/products/ultimate-influence-consultative-sales-introduction';

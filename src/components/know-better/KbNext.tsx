@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import { READ, UNTRIGGERABLE_HREF, WATCH } from '@/content/know-better';
 import { Art, Brush, PlayRing, Sym } from '@/components/rabbit-holes/ui';
+import { productBySlug } from '@/content/products';
+
+const untriggerable = productBySlug('untriggerable');
 
 // WANT TO DO SOMETHING WITH THIS? — the Untriggerable book, then GO DEEPER: two conversations to watch, two articles to read (design part three)
 export default function KbNext() {
@@ -18,7 +21,8 @@ export default function KbNext() {
           <div className="kb-book-copy">
             <h3 className="kb-book-title"><Brush>Untriggerable</Brush></h3>
             <p>Remain connected to yourself when discomfort is present.</p>
-            <Link href={UNTRIGGERABLE_HREF} className="hm-btn hm-btn--sm" data-interest="Products">See what’s inside</Link>
+            {untriggerable?.price && <p className="kb-book-price">{untriggerable.price}</p>}
+            <Link href={UNTRIGGERABLE_HREF} className="hm-btn hm-btn--sm">See what’s inside</Link>
           </div>
         </div>
       </section>

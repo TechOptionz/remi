@@ -15,7 +15,7 @@ import TopicLinks from '@/components/rabbit-holes/TopicLinks';
 import OtherHoles from '@/components/rabbit-holes/OtherHoles';
 import KeepBand from '@/components/rabbit-holes/KeepBand';
 import { Brush } from '@/components/rabbit-holes/ui';
-import { AUDIT_HREF, AUDIT_PRICE, AUDIT_STEPS, TOPIC_LINKS } from '@/content/build-an-asset';
+import { AUDIT_NOTE, BUNDLE_HREF, BUNDLE_PRICE, BUNDLE_STEPS, TOPIC_LINKS } from '@/content/build-an-asset';
 import ProductRange from '@/components/products/ProductRange';
 import SegmentCta from '@/components/shared/SegmentCta';
 
@@ -40,16 +40,16 @@ export default function BuildAnAssetPage() {
         <BdStages />
         <BdTransferable />
         <BdTrustme />
-        <ReadyStrip href="#founder-audit" arrows="down">Ready to find the next thing to transfer?</ReadyStrip>
+        <ReadyStrip href="#build-beyond-the-founder" arrows="down">Ready to find the next thing to transfer?</ReadyStrip>
         <Product
-          id="founder-audit"
-          title={<>Build <Brush>beyond you</Brush></>}
+          id="build-beyond-the-founder"
+          title={<>Build beyond <Brush>the founder</Brush></>}
           art="bd-book"
-          price={AUDIT_PRICE}
-          lede="A practical, self-directed process for seeing where value, decisions, delivery, demand and relationships still depend on you, and what must become transferable next."
-          steps={AUDIT_STEPS}
-          cta={{ label: 'Start the founder dependency audit', href: AUDIT_HREF }}
-          note="Work through it in your own time. No classes. No calls. No weekly obligation."
+          price={BUNDLE_PRICE}
+          lede="A bundle of three programs. It brings together From Practice to Enterprise, Core, Improve, Innovate and Trust That Holds, helping you develop a business with the capacity to continue beyond your personal involvement."
+          steps={BUNDLE_STEPS}
+          cta={{ label: 'Explore the bundle', href: BUNDLE_HREF }}
+          note={`Work through it in your own time. No classes. No calls. No weekly obligation. ${AUDIT_NOTE}`}
         />
         <BdBuilt />
         <TopicLinks id="bd-convs-h" title={<><Brush>Conversations</Brush> to disappear into</>} lede="Because the business usually reveals what the founder has not yet transferred." links={TOPIC_LINKS} cta="filled" />

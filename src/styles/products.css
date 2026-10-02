@@ -1,9 +1,7 @@
 /* ============ Products, programs, books, articles, topic sign-ups (Sept 2026 notes) ============ */
 /* Fixed colours, like the other designed pages: the cards follow the product mock-ups (Photos-Images/PRODUCT *.png). */
-.pr-page, .pr-range, .pr-grid {
-  --pr-ink:#221b17; --pr-gold:#c9a35a; --pr-line:rgba(34,27,23,.16);
-  color:var(--pr-ink); padding-bottom:clamp(48px,7vw,96px);
-}
+.pr-page, .pr-range, .pr-grid { --pr-ink:#221b17; --pr-gold:#c9a35a; --pr-line:rgba(34,27,23,.16); color:var(--pr-ink); }
+.pr-page { padding-bottom:clamp(48px,7vw,96px); }
 .pr-page--navy .pr-hero, .pr-page--black .pr-hero, .pr-page--burgundy .pr-hero, .pr-page--green .pr-hero {
   margin-inline:calc(50% - 50vw); padding-inline:calc(50vw - 50%); color:#f0e6d4;
 }
@@ -36,6 +34,9 @@
 /* Range / grid of cards */
 .pr-range { padding-block:clamp(36px,5vw,68px); }
 .pr-range .pr-lede { margin-bottom:28px; }
+/* On a cream page the hero and the range below share one background: the hero's bottom padding is the gap */
+.pr-page--cream .pr-hero + .pr-range { padding-top:0; }
+.pr-range > .pr-soon:first-child { margin-top:0; }
 .pr-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr)); gap:16px; }
 /* Category ranges: whole rows of equal cards (--cols is set from the card count), the bundle full width underneath */
 .pr-range .pr-grid { grid-template-columns:repeat(var(--cols,3),minmax(0,1fr)); }
@@ -49,6 +50,9 @@
 .pr-card .pr-price { margin-top:auto; padding-top:8px; }
 .pr-card .pr-btn, .pr-card .pr-soon { margin-top:6px; }
 .pr-kicker { margin:0; font-size:11.5px !important; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--pr-gold); opacity:1 !important; }
+.pr-level { display:block; margin-top:4px; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; opacity:.8; }
+.pr-card--wide { grid-column:span 2; }
+@media (max-width:620px) { .pr-card--wide { grid-column:auto; } }
 .pr-card--bundle { grid-column:1 / -1; flex-direction:column; padding-block:clamp(28px,3.4vw,48px); }
 .pr-card--bundle h3 { font-size:clamp(30px,3.6vw,50px); }
 .pr-card--burgundy { background:radial-gradient(120% 90% at 85% 0%,#5c1825 0,#47111b 65%); color:#f3e8d6; }
@@ -60,6 +64,17 @@
 .pr-card--gold .pr-btn { background:#1c1408; color:#f5e7c4; }
 .pr-card--cream { background:#f7efe0; color:#221b17; border-color:var(--pr-line); }
 .pr-card--cream .pr-btn { background:#47111b; color:#f7efe0; }
+
+/* A bundle's contents on its product page, and an article's further resources */
+.pr-further { margin-top:clamp(28px,3.4vw,44px); }
+.pr-further h2 { margin:0; font-family:var(--serif); font-weight:400; font-size:clamp(25px,2.6vw,34px); }
+.pr-includes { padding-block:clamp(20px,3vw,40px) 0; }
+.pr-includes ul, .pr-further ul { margin:16px 0 0; padding:0; list-style:none; max-width:44em; border-top:1px solid var(--pr-line); }
+.pr-includes li, .pr-further li { display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 16px; padding:14px 0; border-bottom:1px solid var(--pr-line); }
+.pr-includes a, .pr-further a, .pr-further em { font-family:var(--serif); font-size:clamp(19px,1.7vw,22px); text-decoration:underline; text-underline-offset:4px; text-decoration-color:var(--pr-line); }
+.pr-includes a:hover, .pr-further a:hover { text-decoration-color:currentColor; }
+.pr-further em { text-decoration:none; }
+.pr-includes span, .pr-further span { font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#8a4a1c; }
 
 /* Coming-soon band on product pages */
 .pr-notify-band { padding:clamp(32px,4vw,56px) clamp(22px,3vw,44px); margin-block:clamp(24px,3vw,44px); background:#47111b; color:#f3e8d6; border-radius:4px; }
@@ -73,8 +88,56 @@
 .pr-body { max-width:40em; padding-block:clamp(16px,2vw,32px); font-size:18px; line-height:1.65; }
 .pr-related { padding-top:clamp(24px,3vw,44px); }
 .pr-related .pr-h2 { margin-bottom:20px; }
-.pr-article { max-width:46em; padding-block:clamp(36px,5vw,72px); }
+/* Articles: laid out like the Ideas & Models chapters — the copy runs the full width of the page (up to 1152px), left-aligned */
+.pr-article { max-width:1152px; margin-inline:auto; padding-top:clamp(28px,4vw,56px); }
+.pr-article .pr-body { max-width:none; padding-block:0; font-size:clamp(17px,1.3vw,19px); line-height:1.55; text-wrap:pretty; }
+.pr-article .pr-body > :first-child { margin-top:0; }
+.pr-article .pr-body > :last-child { margin-bottom:0; }
+.pr-article .pr-further ul { max-width:none; }
+.pr-article .pr-figure:not(.pr-figure--tall) img { max-width:min(100%,900px); margin-inline:auto; }
 .pr-article .video-embed { margin:0 0 28px; }
+.pr-title--article { max-width:none; font-size:clamp(34px,4.6vw,60px); line-height:1.06; text-wrap:balance; }
+.pr-standfirst { margin:0 0 clamp(24px,3vw,40px); font-family:var(--serif); font-style:italic; font-size:clamp(20px,2vw,26px); line-height:1.35; color:#9a3d1a; }
+.pr-body h2 { margin:clamp(36px,4vw,52px) 0 14px; font-family:var(--serif); font-weight:400; font-size:clamp(25px,2.6vw,34px); line-height:1.15; text-wrap:balance; }
+.pr-body p { margin:0 0 1.1em; }
+.pr-body a, .pr-refs a { color:#9a3d1a; text-decoration:underline; text-underline-offset:3px; }
+.pr-figure { margin:clamp(28px,3.4vw,44px) 0; }
+.pr-figure img { display:block; width:100%; height:auto; border:1px solid var(--pr-line); border-radius:4px; }
+.pr-figure--tall img { max-width:min(100%,560px); margin-inline:auto; }
+.pr-body h2 + .pr-figure { margin-top:8px; }
+.pr-refs { margin-top:clamp(36px,4vw,56px); padding-top:24px; border-top:1px solid var(--pr-line); }
+.pr-refs h2 { margin:0 0 12px; font-size:13px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+.pr-refs ul { margin:0; padding:0; list-style:none; display:grid; gap:10px; font-size:14.5px; line-height:1.55; opacity:.85; overflow-wrap:anywhere; }
+.pr-article-offer { display:flex; flex-direction:column; align-items:flex-start; gap:10px; margin-top:clamp(40px,5vw,64px); padding:clamp(24px,3vw,40px); background:radial-gradient(120% 90% at 85% 0%,#5c1825 0,#47111b 65%); color:#f3e8d6; border-radius:4px; }
+.pr-article-offer h2 { margin:0; font-family:var(--serif); font-weight:400; font-size:clamp(26px,2.8vw,36px); line-height:1.1; }
+.pr-article-offer p { margin:0; line-height:1.55; }
+.pr-article-offer .pr-btn { margin-top:8px; }
+.pr-back { margin:clamp(28px,3vw,40px) 0 0; font-size:13.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+.pr-back a { color:#9a3d1a; }
+.pr-back a:hover { text-decoration:underline; text-underline-offset:4px; }
+/* Phones: the crumb trail drops the current article (it is the heading right below), the infographics run nearly edge
+   to edge so their lettering stays legible, and the offer box tightens */
+@media (max-width:600px) {
+  .pr-article .crumbs { gap:4px 8px; }
+  .pr-article .crumbs > span:has(+ [aria-current]), .pr-article .crumbs [aria-current] { display:none; }
+  .pr-article .pr-figure { margin-inline:calc(8px - var(--gutter)); }
+  .pr-article .pr-figure img { max-width:100%; border-radius:2px; }
+  .pr-article .pr-figure--tall img { max-width:100%; }
+  .pr-article .pr-body h2 { margin-top:32px; }
+  .pr-article-offer { padding:22px 20px; }
+  .pr-article-offer .pr-btn { align-self:stretch; }
+}
+
+/* Free library: one card per article, its illustration beside the text */
+.pr-library { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,520px),1fr)); gap:16px; }
+.pr-lib-card { display:grid; grid-template-columns:minmax(0,2fr) minmax(0,3fr); background:#f7efe0; border:1px solid var(--pr-line); border-radius:4px; overflow:hidden; color:var(--pr-ink); transition:border-color .2s, transform .2s; }
+.pr-lib-card:hover { border-color:#9a3d1a; transform:translateY(-2px); }
+.pr-lib-card img { width:100%; height:100%; min-height:200px; object-fit:cover; }
+.pr-lib-text { display:flex; flex-direction:column; gap:10px; padding:clamp(20px,2.4vw,30px); }
+.pr-lib-title { font-family:var(--serif); font-size:clamp(22px,2vw,28px); line-height:1.15; }
+.pr-lib-sum { font-size:15px; line-height:1.5; opacity:.85; }
+.pr-lib-more { margin-top:auto; padding-top:6px; font-size:12.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#9a3d1a; }
+@media (max-width:520px) { .pr-lib-card { grid-template-columns:1fr; } .pr-lib-card img { min-height:0; aspect-ratio:16/10; } }
 
 /* Books */
 .pr-book { gap:14px; }
@@ -138,3 +201,65 @@
 
 /* Header drop-down: external link marker */
 .nav-sub a[target="_blank"] span { opacity:.6; }
+
+/* Reviews */
+.pr-reviews { columns:2 340px; column-gap:16px; }
+.pr-review { break-inside:avoid; margin:0 0 16px; padding:clamp(22px,2.6vw,32px); background:#f7efe0; border:1px solid var(--pr-line); border-radius:4px; }
+.pr-review blockquote { margin:0 0 16px; font-family:var(--serif); font-size:clamp(19px,1.6vw,22px); line-height:1.45; }
+.pr-review blockquote p { margin:0 0 .7em; }
+.pr-review figcaption { display:flex; flex-direction:column; gap:2px; font-size:14px; }
+.pr-review figcaption span { opacity:.7; }
+
+/* ============ Programs — "Where shall we begin?" (/programs, round four summary mock-up) ============ */
+.pg-hero { display:grid; grid-template-columns:minmax(0,5fr) minmax(0,6fr); gap:clamp(24px,4vw,64px); align-items:center; padding-block:clamp(40px,6vw,88px) clamp(32px,4vw,56px); }
+.pg-hero .pr-title { font-size:clamp(46px,6.4vw,92px); }
+.pg-hero-quote { position:relative; margin:0; padding-top:22px; max-width:22em; font-size:clamp(17px,1.5vw,20px); line-height:1.55; }
+.pg-hero-quote::before { content:''; position:absolute; top:0; left:0; width:56px; height:2px; background:#9a3d1a; }
+.pg-hero-photo { width:100%; height:auto; aspect-ratio:5/4; object-fit:cover; object-position:30% 50%; border-radius:4px; }
+.pg-card { display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); align-items:stretch; margin-bottom:clamp(18px,2.4vw,28px); border-radius:4px; overflow:hidden; border:1px solid var(--pr-line); }
+.pg-card > img { width:100%; height:100%; min-height:260px; object-fit:cover; }
+.pg-card-copy { display:flex; flex-direction:column; justify-content:center; align-items:flex-start; gap:4px; padding:clamp(26px,4vw,56px); }
+.pg-card-copy p:not(.pr-eyebrow) { margin:0 0 18px; max-width:30em; font-size:clamp(16px,1.4vw,19px); line-height:1.55; }
+.pg-card .pr-h2 { color:#9a3d1a; }
+.pg-card--paper { background:#f7efe0; }
+.pg-card--paper .pg-card-copy { border-right:6px solid #9a3d1a; }
+.pg-card--navy { grid-template-columns:minmax(0,6fr) minmax(0,5fr); background:#0f1d3a; color:#eef0f6; border-color:transparent; }
+.pg-card--navy .pr-h2 { color:#f3ead8; max-width:11em; }
+.pg-card--navy .pr-eyebrow { color:var(--pr-gold); }
+.pg-card--blush { grid-template-columns:minmax(0,6fr) minmax(0,5fr); background:#efdcd2; border-right:10px solid #9a3d1a; }
+.pg-card--blush > img { mix-blend-mode:multiply; }
+.pg-btn { display:inline-block; padding:13px 22px; border:1px solid currentColor; border-radius:2px; color:#9a3d1a; font-size:12.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; transition:background .2s, color .2s; }
+.pg-btn:hover { background:#9a3d1a; color:#f7efe0; border-color:#9a3d1a; }
+.pg-card--navy .pg-btn { color:var(--pr-gold); }
+.pg-card--navy .pg-btn:hover { background:var(--pr-gold); color:#0f1d3a; border-color:var(--pr-gold); }
+.pg-cam { width:min(100%,360px); margin:auto; padding:clamp(16px,3vw,36px); overflow:visible; }
+.pg-cam circle { fill:none; stroke:var(--pr-gold); stroke-width:1.2; opacity:.85; }
+.pg-cam .pg-cam-dot { fill:var(--pr-gold); stroke:none; opacity:1; }
+.pg-cam text { fill:#eef0f6; font:700 9.5px/1 var(--sans); letter-spacing:.12em; text-anchor:middle; }
+.pg-topics { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr)); gap:16px; margin-top:24px; }
+.pg-topic { display:flex; flex-direction:column; gap:12px; padding:clamp(22px,2.4vw,30px); background:#f7efe0; border:1px solid var(--pr-line); border-radius:4px; color:var(--pr-ink); transition:border-color .2s, transform .2s; }
+.pg-topic .pr-kicker { color:#8a4a1c; }
+.pg-topic:hover { border-color:#9a3d1a; transform:translateY(-2px); }
+.pg-topic-title { font-family:var(--serif); font-size:clamp(22px,2vw,27px); line-height:1.15; }
+.pg-topic-meta { margin-top:auto; padding-top:6px; font-size:12.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#9a3d1a; }
+@media (max-width:760px) {
+  .pg-hero, .pg-card, .pg-card--navy, .pg-card--blush { grid-template-columns:1fr; }
+  .pg-card > img { min-height:0; aspect-ratio:16/10; }
+  .pg-card--blush > img { order:-1; }
+  .pg-card--paper .pg-card-copy { border-right:0; border-top:6px solid #9a3d1a; }
+}
+
+/* ============ The free library's topic clusters (/articles, round five) — the Perspectives rabbit holes ============ */
+.lib-jump { display:flex; flex-wrap:wrap; gap:8px 10px; margin-top:8px; }
+.lib-jump a { padding:9px 16px; border:1px solid var(--pr-line); border-radius:999px; background:#f7efe0; font-size:14px; transition:border-color .2s, color .2s; }
+.lib-jump a:hover { border-color:#9a3d1a; color:#9a3d1a; }
+.lib-cluster { padding-block:clamp(28px,4vw,56px); border-top:1px solid var(--pr-line); scroll-margin-top:96px; }
+.lib-head { display:grid; grid-template-columns:clamp(88px,10vw,140px) minmax(0,1fr); gap:clamp(16px,2.4vw,32px); align-items:center; margin-bottom:clamp(20px,2.6vw,32px); }
+.lib-head img { width:100%; height:auto; mix-blend-mode:multiply; }
+.lib-title { margin:0 0 8px; font-family:'League Gothic','Arial Narrow',sans-serif; font-stretch:75%; font-weight:400; font-size:clamp(30px,3.2vw,44px); line-height:1; letter-spacing:.02em; text-transform:uppercase; color:#9a3d1a; text-wrap:balance; }
+.lib-q { margin:0; max-width:46em; font-size:clamp(16px,1.4vw,19px); line-height:1.55; }
+.lib-soon { margin:0; padding:22px 24px; border:1px dashed var(--pr-line); border-radius:4px; font-style:italic; opacity:.85; }
+.lib-videos { margin:18px 0 0; font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+.lib-videos a { color:#9a3d1a; }
+.lib-videos a:hover { text-decoration:underline; text-underline-offset:4px; }
+@media (max-width:520px) { .lib-head { grid-template-columns:72px minmax(0,1fr); align-items:start; } }

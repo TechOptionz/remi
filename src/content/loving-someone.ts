@@ -1,6 +1,6 @@
 // "Why does loving someone bring all my shit to the surface?" — the second rabbit hole from the homepage (/loving-someone).
 // The six patterns are carried over word for word from the copy deck (LOVING SOMEONE — WHAT TO DO WITH THE BOXES, Sept 2026).
-import { ENTRY_PRICE } from '@/content/home';
+import { priceOf } from '@/content/products';
 import { episodeHref, type Pattern } from '@/content/rabbit-holes';
 
 // The four answers under each pattern, in the order of PATTERN_LABELS (this page asks "What I fear", not "What I avoid")
@@ -91,7 +91,7 @@ export const CAPABLE = [
 ] as const;
 
 // ---------- The Five Paths (the homepage's second entry product; same price) ----------
-export const FIVE_PATHS_PRICE = ENTRY_PRICE;
+export const FIVE_PATHS_PRICE = priceOf('five-paths-to-a-healthy-relationship');
 export const FIVE_PATHS = ['Stay connected to yourself', 'Recognise the attachment cycle', 'Communicate needs and boundaries', 'Repair after rupture', 'Create emotional safety together'];
 /** "Start the five paths": the enquiry form preset to Books & programs until the product page exists. */
 export const FIVE_PATHS_HREF = '/products/five-paths-to-a-healthy-relationship';

@@ -1,4 +1,4 @@
-import { PRACTICE_VS_BUSINESS, PRODUCTS_HREF, PROOF } from '@/content/ideas';
+import { PRACTICE_VS_BUSINESS, PROOF } from '@/content/ideas';
 import { UIC_PAGE_HREF } from '@/content/uic';
 import { Arrow, Art, Body, Btn, H3, Hand, HeadNote, Panel, Part, PartHead } from './ui';
 import ZoomArt from './ZoomArt';
@@ -43,8 +43,8 @@ function CoreImproveInnovate() {
       </div>
       <ul className="proof-row">{PROOF.map(p => <li key={p.big}><span>{p.big}</span>{p.small}</li>)}</ul>
       <div className="panel-actions panel-actions--two">
-        <Btn href={PRODUCTS_HREF} v={['outline']}>Explore Core <Arrow /> Improve <Arrow /> Innovate</Btn>
-        <Btn href="/invite-remi?invite=Consulting#invite-form" v={['outline']}>Build something beyond me</Btn>
+        <Btn href="/products/core-improve-innovate" v={['outline']}>Explore Core <Arrow /> Improve <Arrow /> Innovate</Btn>
+        <Btn href="/articles/how-do-i-build-a-business-that-runs-without-me" v={['outline']}>Build something beyond me</Btn>
       </div>
     </Panel>
   );

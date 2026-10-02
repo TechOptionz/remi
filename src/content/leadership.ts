@@ -1,7 +1,7 @@
 // "How do I lead without carrying everybody?" — the fourth rabbit hole from the homepage (/leadership).
 // The six patterns are carried over word for word from the copy deck (LEADERSHIP — WHAT TO DO WITH THE BOXES, Sept 2026).
 // The deck also gives each box a shorter "panel title" for the design's rust panel, which the client asked to leave out.
-import { ENTRY_PRICE } from '@/content/home';
+import { priceOf } from '@/content/products';
 import type { Pattern } from '@/content/rabbit-holes';
 
 // The four answers under each pattern, in the order of PATTERN_LABELS
@@ -91,8 +91,8 @@ export const STOP_CARRYING = [
   { icon: 'star', title: 'Let the best person lead', text: 'At Evolution, function matters more than status.' },
 ] as const;
 
-// ---------- The T.R.U.S.T.M.E. Leadership Audit (same $29 entry price as the homepage products) ----------
-export const LEADERSHIP_AUDIT_PRICE = ENTRY_PRICE;
+// ---------- The T.R.U.S.T.M.E. Leadership Audit (its price is its product's, in content/products.ts) ----------
+export const LEADERSHIP_AUDIT_PRICE = priceOf('disruptive-leadership');
 export const LEADERSHIP_AUDIT_STEPS = ['Identify where you lead from under pressure', 'See where you are carrying instead of leading', 'Recognise the thinking present around you', 'Choose the next shift without rescuing'];
 
 // ---------- Conversations to disappear into: each opens the Perspectives archive on its closest topic ----------

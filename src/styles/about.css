@@ -21,6 +21,9 @@
 .gap-note { display:flex; gap:16px; align-items:flex-start; padding:22px 24px; background:var(--card); border:1px solid rgba(var(--ink-rgb),.1); border-radius:3px; box-shadow:0 10px 22px rgba(var(--shadow-rgb),.12); transform:rotate(-.6deg); }
 .gap-note:nth-child(2) { transform:rotate(.5deg); }
 .gap-note-icon { flex:none; color:var(--accent); }
+a.gap-note { color:inherit; transition:transform .2s ease, box-shadow .2s ease; }
+a.gap-note:hover { transform:rotate(0) translateY(-3px); box-shadow:0 14px 28px rgba(var(--shadow-rgb),.18); }
+a.gap-note:hover p { color:var(--accent); }
 .gap-note h3 { margin:0 0 8px; font-size:17px; font-weight:700; line-height:1.35; color:var(--ink-strong); }
 .gap-note p { margin:0; font-size:16px; line-height:1.5; color:rgba(var(--ink-rgb),.8); }
 .gap-split { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-items:start; }

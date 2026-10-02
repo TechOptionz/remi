@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { SITE } from '@/content/site';
 
 // LIFE'S WORK
 export default function LifesWork() {
@@ -13,7 +14,7 @@ export default function LifesWork() {
       <p className="body-xl">The business. The books. The models. The stages. The awards. The millions of people reached.</p>
       <p className="body-xl">They all grew from one woman trying to understand why some people experience heartbreak and still find a way to triumph.</p>
       <p className="body-xl">More than twenty-three years later, I'm still following that question.</p>
-      <img className="signature" src="/assets/remi-signature.png" alt="Remi" width="200" height="98" />
+      <img className="signature" src="/assets/remi-logo-rust.webp" alt={SITE.logoAlt} width="540" height="195" loading="lazy" decoding="async" />
       <Link href="/ideas-models" className="btn btn--primary btn--caps">Explore the work</Link>
     </section>
   );
