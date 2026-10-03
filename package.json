@@ -3,8 +3,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && npm run search-index",
+    "build": "next build && npm run search-index && npm run llms",
     "search-index": "node scripts/search-index.mjs",
+    "llms": "node scripts/llms-txt.mjs",
     "start": "next start",
     "typecheck": "tsc --noEmit"
   },
