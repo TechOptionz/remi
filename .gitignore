@@ -48,5 +48,7 @@ yarn-debug.log*
 out/
 # Written by `npm run build` (scripts/search-index.mjs) so `npm run dev` can search too
 public/search-index.json
+# Written by `npm run build` (scripts/llms-txt.mjs) from the sitemap and the built pages
+public/llms.txt
 next-env.d.ts
 *.tsbuildinfo

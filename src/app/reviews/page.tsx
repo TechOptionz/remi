@@ -6,6 +6,8 @@ import { REVIEWS } from '@/content/reviews';
 export const metadata: Metadata = {
   title: 'Reviews — Remi Pearson',
   description: 'What people say about working with Remi Pearson.',
+  // Kept out of search (and the sitemap) while it only says "Coming soon"
+  ...(REVIEWS.length ? {} : { robots: { index: false, follow: true } }),
 };
 
 export default function ReviewsPage() {
