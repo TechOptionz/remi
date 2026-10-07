@@ -57,7 +57,7 @@ const text = [
   '',
   `> ${home?.description ?? ''}`,
   '',
-  'Remi Pearson\'s website: her story, her models of human change (Ideas & Models), the Perspectives conversations, free articles, programs and speaking invitations. Every page below is plain, prerendered HTML.',
+  'Remi Pearson\'s website: her story, her models of human change (Ideas & Models), the Perspectives conversations, free articles, books, programs and speaking invitations. Every page below is plain, prerendered HTML.',
   '',
   ...groups.filter(g => g.pages.length).flatMap(g => [`## ${g.title}`, '', ...(g.note ? [g.note, ''] : []), ...g.pages.map(line), '']),
 ].join('\n');

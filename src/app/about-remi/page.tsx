@@ -17,10 +17,10 @@ import AboutCta from '@/components/about/AboutCta';
 
 export const metadata: Metadata = {
   title: 'About Remi — Remi Pearson',
-  description: "In 2003 Remi Pearson wasn't searching for a new career. One burning question — why some people experience heartbreak and still find a way to triumph — became her life's work.",
+  description: "Remi Pearson is a bestselling author, entrepreneur and creator of the Critical Alignment Model. Explore her tools and ideas for clearer thinking, better leadership and business growth.",
   openGraph: {
     title: 'About Remi — Remi Pearson',
-    description: "In 2003 Remi wasn't searching for a new career. One burning question became her life's work.",
+    description: "Remi Pearson is a bestselling author, entrepreneur and creator of the Critical Alignment Model. Explore her tools and ideas for clearer thinking, better leadership and business growth.",
     images: ['/assets/photos/about-hero.webp'],
     type: 'profile',
   },
