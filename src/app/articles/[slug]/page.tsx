@@ -43,7 +43,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                 : 'table' in b
                   ? <div key={i} className="pr-table"><table>
                       <thead><tr>{b.table[0].map(t => <th key={t} scope="col"><Inline text={t} /></th>)}</tr></thead>
-                      <tbody>{b.table.slice(1).map(r => <tr key={r[0]}>{r.map((t, j) => j === 0 ? <th key={j} scope="row"><Inline text={t} /></th> : <td key={j}><Inline text={t} /></td>)}</tr>)}</tbody>
+                      <tbody>{b.table.slice(1).map(r => <tr key={r[0]}>{r.map((t, j) => j === 0 ? <th key={j} scope="row"><Inline text={t} /></th> : <td key={j} data-label={b.table[0][j]}><Inline text={t} /></td>)}</tr>)}</tbody>
                     </table></div>
                   : <figure key={i} className={b.figure.height > b.figure.width ? "pr-figure pr-figure--tall" : "pr-figure"}>
                       <img src={b.figure.src} alt={b.figure.alt} width={b.figure.width} height={b.figure.height} loading="lazy" decoding="async" />

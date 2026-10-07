@@ -113,7 +113,16 @@
 .pr-table table { width:100%; max-width:52em; border-collapse:collapse; font-size:.95em; line-height:1.45; }
 .pr-table th, .pr-table td { padding:12px 16px 12px 0; text-align:left; vertical-align:top; border-bottom:1px solid var(--pr-line); }
 .pr-table thead th { font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#8a4a1c; border-bottom-color:currentColor; }
-.pr-table tbody th { font-family:var(--serif); font-weight:400; font-size:1.08em; width:42%; }
+.pr-table tbody th { font-family:var(--serif); font-weight:400; font-size:1.08em; width:30%; }
+@media (max-width:600px) {
+  /* Phones: each row becomes a block, its cells labelled with their column heading */
+  .pr-table thead { display:none; }
+  .pr-table tr { display:block; padding:14px 0; border-bottom:1px solid var(--pr-line); }
+  .pr-table tbody tr:first-child { border-top:1px solid currentColor; }
+  .pr-table th, .pr-table td { display:block; width:auto; padding:0; border:0; }
+  .pr-table td { margin-top:8px; }
+  .pr-table td::before { content:attr(data-label); display:block; margin-bottom:2px; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#8a4a1c; }
+}
 .pr-refs { margin-top:clamp(36px,4vw,56px); padding-top:24px; border-top:1px solid var(--pr-line); }
 .pr-refs h2 { margin:0 0 12px; font-size:13px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
 .pr-refs ul { margin:0; padding:0; list-style:none; display:grid; gap:10px; font-size:14.5px; line-height:1.55; opacity:.85; overflow-wrap:anywhere; }
