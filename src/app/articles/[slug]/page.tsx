@@ -38,7 +38,17 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             ? <p key={i}><Inline text={b} /></p>
             : 'h2' in b
               ? <h2 key={i}>{b.h2}</h2>
-              : <figure key={i} className={b.figure.height > b.figure.width ? "pr-figure pr-figure--tall" : "pr-figure"}><img src={b.figure.src} alt={b.figure.alt} width={b.figure.width} height={b.figure.height} loading="lazy" decoding="async" /></figure>)}
+              : 'list' in b
+                ? <ul key={i}>{b.list.map(t => <li key={t}><Inline text={t} /></li>)}</ul>
+                : 'table' in b
+                  ? <div key={i} className="pr-table"><table>
+                      <thead><tr>{b.table[0].map(t => <th key={t} scope="col"><Inline text={t} /></th>)}</tr></thead>
+                      <tbody>{b.table.slice(1).map(r => <tr key={r[0]}>{r.map((t, j) => j === 0 ? <th key={j} scope="row"><Inline text={t} /></th> : <td key={j}><Inline text={t} /></td>)}</tr>)}</tbody>
+                    </table></div>
+                  : <figure key={i} className={b.figure.height > b.figure.width ? "pr-figure pr-figure--tall" : "pr-figure"}>
+                      <img src={b.figure.src} alt={b.figure.alt} width={b.figure.width} height={b.figure.height} loading="lazy" decoding="async" />
+                      {b.figure.download && <figcaption><a href={b.figure.download} download>Download the infographic</a></figcaption>}
+                    </figure>)}
         </div>
         {a.further && a.further.length > 0 && (
           <section className="pr-further" aria-labelledby="further-h">
