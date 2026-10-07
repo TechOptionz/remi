@@ -1,9 +1,11 @@
+import Link from 'next/link';
 import { RABBIT_HOLES } from '@/content/perspectives';
+import { LIBRARY_HREF, clusterOf } from '@/content/articles';
 
 const art = (name: string) => `/assets/perspectives/${name}.webp`;
 
 // WHICH RABBIT HOLE SHALL WE DISAPPEAR DOWN? — after design screenshot 27: four torn-paper strips on the normal page
-// background, every symbol cut from the design (public/assets/perspectives). Each button opens the archive on its topic.
+// background, every symbol cut from the design (public/assets/perspectives). Each button opens that topic's articles in the free library (/articles#<cluster>).
 export default function RabbitHoleRows() {
   return (
     <section className="section section--tight rh" aria-labelledby="holes-h">
@@ -29,7 +31,7 @@ export default function RabbitHoleRows() {
                 </div>
                 <p className="rh-go">
                   <img src={art(`rh-arrow-${i + 1}`)} alt="" aria-hidden="true" />
-                  <a href="#archive" className="rh-btn" data-topic={h.topic}>{h.cta}</a>
+                  <Link href={`${LIBRARY_HREF}#${clusterOf(h.topic)?.id ?? ''}`} className="rh-btn">{h.cta}</Link>
                 </p>
               </article>
             ))}
