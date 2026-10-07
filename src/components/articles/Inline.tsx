@@ -11,6 +11,7 @@ export default function Inline({ text }: { text: string }) {
         const link = p.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
         if (link) {
           const [, label, href] = link;
+          if (href.startsWith('/assets/')) return <a key={i} href={href} target="_blank" rel="noopener">{label}</a>;
           return href.startsWith('/')
             ? <Link key={i} href={href}>{label}</Link>
             : <a key={i} href={href} target="_blank" rel="noopener noreferrer">{label}</a>;
