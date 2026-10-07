@@ -43,7 +43,7 @@
 @media (max-width:980px) { .pr-range .pr-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media (max-width:620px) { .pr-range .pr-grid { grid-template-columns:1fr; } }
 .pr-grid--three { grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); }
-.pr-grid--books { grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); }
+.pr-range .pr-grid--books { grid-template-columns:1fr; gap:clamp(20px,2.6vw,32px); }
 .pr-card { display:flex; flex-direction:column; align-items:flex-start; gap:12px; padding:clamp(22px,2.4vw,32px); border-radius:4px; border:1px solid rgba(255,255,255,.08); }
 .pr-card h3, .pr-book-title { margin:0; font-family:var(--serif); font-weight:400; font-size:clamp(24px,2.3vw,32px); line-height:1.12; }
 .pr-card > p { margin:0; font-size:15.5px; line-height:1.55; opacity:.92; }
@@ -119,7 +119,7 @@
   .pr-table thead { display:none; }
   .pr-table tr { display:block; padding:14px 0; border-bottom:1px solid var(--pr-line); }
   .pr-table tbody tr:first-child { border-top:1px solid currentColor; }
-  .pr-table th, .pr-table td { display:block; width:auto; padding:0; border:0; }
+  .pr-table th, .pr-table td, .pr-table tbody th { display:block; width:auto; padding:0; border:0; overflow-wrap:anywhere; }
   .pr-table td { margin-top:8px; }
   .pr-table td::before { content:attr(data-label); display:block; margin-bottom:2px; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#8a4a1c; }
 }
@@ -157,11 +157,28 @@
 .pr-lib-more { margin-top:auto; padding-top:6px; font-size:12.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#9a3d1a; }
 @media (max-width:520px) { .pr-lib-card { grid-template-columns:1fr; } .pr-lib-card img { min-height:0; aspect-ratio:16/10; } }
 
-/* Books */
-.pr-book { gap:14px; }
-.pr-book-cover { align-self:stretch; display:flex; flex-direction:column; justify-content:space-between; min-height:200px; padding:22px; border:1px solid rgba(201,163,90,.55); background:rgba(0,0,0,.18); font-family:var(--serif); font-size:clamp(26px,2.6vw,34px); line-height:1.05; color:#f0e0b8; }
+/* Books: one full-width card per book, the cover beside the sales copy */
+.pr-book { display:grid; grid-template-columns:clamp(160px,20vw,260px) minmax(0,1fr); align-items:start; gap:clamp(22px,3.4vw,52px); padding:clamp(24px,3.4vw,52px); }
+.pr-book-cover { position:sticky; top:110px; aspect-ratio:2 / 3; display:flex; flex-direction:column; justify-content:space-between; padding:22px; border:1px solid rgba(201,163,90,.55); background:rgba(0,0,0,.18); font-family:var(--serif); font-size:clamp(26px,2.6vw,34px); line-height:1.05; color:#f0e0b8; }
 .pr-book-cover small { font:600 11.5px var(--sans, inherit); letter-spacing:.18em; text-transform:uppercase; }
-.pr-book-buy { display:flex; flex-wrap:wrap; gap:10px; }
+.pr-book-body { display:flex; flex-direction:column; align-items:flex-start; gap:14px; max-width:46em; }
+.pr-book-body > p { margin:0; font-size:16.5px; line-height:1.6; opacity:.92; }
+.pr-book-title { font-size:clamp(30px,3.4vw,46px) !important; }
+.pr-book-body > .pr-book-by { margin-top:-6px; font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; opacity:.75; }
+.pr-book-body > .pr-book-tagline { font-family:var(--serif); font-size:clamp(20px,1.9vw,25px); line-height:1.3; opacity:1; }
+.pr-book-body > .pr-book-explore { margin-top:6px; font-weight:700; opacity:1; }
+.pr-book-list { margin:-4px 0 0; padding-left:1.2em; font-size:16px; line-height:1.55; }
+.pr-book-list li { margin:0 0 .4em; padding-left:.2em; }
+.pr-book-list li::marker { color:var(--pr-gold); }
+.pr-book-body > .pr-book-price { margin-top:10px; font-size:clamp(17px,1.6vw,20px); opacity:1; }
+.pr-book-body .pr-btn, .pr-book-body .pr-soon { margin-top:0; }
+.pr-book-body > .pr-book-note { font-size:14px; opacity:.75; }
+.pr-book-program a { color:var(--pr-gold); text-decoration:underline; text-underline-offset:3px; }
+@media (max-width:760px) {
+  .pr-book { grid-template-columns:1fr; }
+  .pr-book-cover { position:static; width:150px; min-height:0; padding:16px; font-size:22px; }
+  .pr-book-body .pr-btn { align-self:stretch; }
+}
 
 /* Video (articles and idea pages) */
 .video-embed { position:relative; width:100%; aspect-ratio:16 / 9; background:#000; border-radius:4px; overflow:hidden; }

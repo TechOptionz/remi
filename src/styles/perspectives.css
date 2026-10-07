@@ -132,7 +132,7 @@
   .rh-q, .rh-explore { font-size:15.5px; line-height:1.5; }
   .rh-go { margin-top:6px; }
   .rh-go img { width:46px; }
-  .rh-go .rh-btn { flex:1; min-width:0; padding-inline:12px; font-size:min(6.6cqw,27px); }
+  .rh-go .rh-btn { flex:1; min-width:0; padding-inline:12px; font-size:min(6.6cqw,27px); white-space:normal; letter-spacing:.08em; text-wrap:balance; }
   .rh-quote { gap:3cqw; }
   .rh-quote-hand { flex:0 1 auto; width:68cqw; }
   .rh-spark { flex:0 1 auto; width:12cqw; }

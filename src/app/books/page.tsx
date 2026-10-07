@@ -1,11 +1,13 @@
-// Books — the first tab in the header. Titles, copy and purchase links live in content/books.ts.
+// Books — the first tab in the header. Each book is a full-width card: cover on the left, Remi's sales copy, price and
+// purchase button on the right. Titles, copy, prices and purchase links live in content/books.ts.
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Inline from '@/components/articles/Inline';
 import { BOOKS } from '@/content/books';
 
 export const metadata: Metadata = {
   title: 'Books — Remi Pearson',
-  description: 'Ultimate You, Ultimate You Quest and Disruptive Leadership, by Remi Pearson.',
+  description: 'Disruptive Leadership, Ultimate You and Ultimate You Quest Edition, by Remi Pearson. Ebooks from AUD $14.95.',
 };
 
 export default function BooksPage() {
@@ -19,14 +21,24 @@ export default function BooksPage() {
       <section className="pr-range" aria-label="The books">
         <div className="pr-grid pr-grid--books">
           {BOOKS.map((b, i) => (
-            <article key={b.slug} id={b.slug} className={`pr-card pr-card--${(['burgundy', 'navy', 'black'] as const)[i % 3]} pr-book`}>
+            <article key={b.slug} id={b.slug} className={`pr-card pr-card--${(['black', 'burgundy', 'navy'] as const)[i % 3]} pr-book`} aria-labelledby={`${b.slug}-h`}>
               <div className="pr-book-cover" aria-hidden="true"><span>{b.title}</span><small>Remi Pearson</small></div>
-              {b.subtitle && <p className="pr-kicker">{b.subtitle}</p>}
-              <h2 className="pr-book-title">{b.title}</h2>
-              {b.text ? b.text.map(t => <p key={t}>{t}</p>) : <p>About this book: copy to come.</p>}
-              {b.retailers?.length
-                ? <div className="pr-book-buy">{b.retailers.map(r => <a key={r.href} href={r.href} className="pr-btn" target="_blank" rel="noopener noreferrer">{r.label} ↗</a>)}</div>
-                : <p className="pr-soon"><span>Buy links coming soon</span></p>}
+              <div className="pr-book-body">
+                {b.badge && <p className="pr-kicker">{b.badge}</p>}
+                <h2 id={`${b.slug}-h`} className="pr-book-title">{b.title}</h2>
+                <p className="pr-book-by">By Remi Pearson</p>
+                <p className="pr-book-tagline">{b.tagline}</p>
+                {b.text.map(t => <p key={t}><Inline text={t} /></p>)}
+                <p className="pr-book-explore">Explore how to:</p>
+                <ul className="pr-book-list">{b.explore.map(t => <li key={t}>{t}</li>)}</ul>
+                <p>{b.closing}</p>
+                <p className="pr-price pr-book-price">{b.format} · {b.price}</p>
+                {b.buyHref
+                  ? <a href={b.buyHref} className="pr-btn" target="_blank" rel="noopener noreferrer">{b.buyLabel}</a>
+                  : <p className="pr-soon"><span>Buy link coming soon</span></p>}
+                <p className="pr-book-note"><em>{b.note}</em></p>
+                {b.program && <p className="pr-book-program"><Link href={b.program.href}>{b.program.label}</Link></p>}
+              </div>
             </article>
           ))}
         </div>
