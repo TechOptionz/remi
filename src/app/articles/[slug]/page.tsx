@@ -47,7 +47,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     </table></div>
                   : <figure key={i} className={b.figure.height > b.figure.width ? "pr-figure pr-figure--tall" : "pr-figure"}>
                       <img src={b.figure.src} alt={b.figure.alt} width={b.figure.width} height={b.figure.height} loading="lazy" decoding="async" />
-                      {b.figure.download && <figcaption><a href={b.figure.download} download>Download the infographic</a></figcaption>}
+                      {b.figure.download && <figcaption><a href={b.figure.download} download>{b.figure.downloadLabel ?? 'Download the infographic'}</a></figcaption>}
                     </figure>)}
         </div>
         {a.further && a.further.length > 0 && (
