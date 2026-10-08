@@ -24,8 +24,8 @@
 .uil-videos { grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); }
 .uil-kit-photo { max-width:480px; }
 .uil-video-list { margin:clamp(22px,2.6vw,32px) 0 0; padding:0; list-style:none; }
-.uil-video-list li { display:flex; gap:20px; padding:12px 0; }
-.uil-video-num { flex:none; display:grid; place-items:center; min-width:44px; height:44px; padding:0 10px; border-radius:999px; background:var(--rust); font-family:var(--serif); font-size:17px; color:#fbf1e3; }
+.uil-video-list li { display:grid; grid-template-columns:64px minmax(0,1fr); column-gap:16px; padding:12px 0; }
+.uil-video-num { flex:none; display:grid; place-items:center; justify-self:start; min-width:44px; height:44px; padding:0 10px; border-radius:999px; background:var(--rust); font-family:var(--serif); font-size:17px; color:#fbf1e3; }
 .uil-video-list h3 { margin:8px 0 4px; font-size:14px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; }
 .uil-video-list p { margin:0 0 2px; line-height:1.5; }
 .uil-also { margin:18px 0 22px; padding-top:18px; border-top:1px dotted var(--rust); }

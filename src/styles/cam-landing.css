@@ -49,6 +49,7 @@
 .cml-judgement-photo { mix-blend-mode:normal; max-width:400px; }
 .cml-judgement .stl-h2 { color:var(--stl-cream); font-size:clamp(28px,3.2vw,42px); }
 .cml-judgement .stl-head { background-image:none; padding-bottom:0; }
+.cml-judgement .stl-head-star { filter:brightness(0) invert(1); opacity:.85; }
 .cml-judgement p { max-width:40em; margin:14px 0 0; line-height:1.55; }
 .cml-judgement .cml-audience { margin-top:20px; font-size:clamp(16px,1.4vw,18px); }
 

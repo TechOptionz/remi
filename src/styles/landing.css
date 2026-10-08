@@ -153,4 +153,4 @@
   .stl-btn { padding-inline:22px; }
   .stl-btn-arrow { display:none; }
 }
-@media (max-width:600px) { .stl-head-star { position:static; display:block; width:24px; margin-bottom:10px; } }
+@media (max-width:600px) { .stl-eyebrow span { display:block; margin:6px 0 0; } .stl-head-star { position:static; display:block; width:24px; margin-bottom:10px; } }

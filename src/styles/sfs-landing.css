@@ -58,7 +58,7 @@
 .sfs-tagline { margin:clamp(28px,3.4vw,44px) 0 0; padding-top:18px; border-top:1px solid rgba(251,241,227,.35); font-family:var(--serif); font-size:clamp(20px,2.2vw,30px); text-align:center; }
 
 @media (max-width:860px) {
-  .sfs-photo-tall { height:auto; max-height:520px; width:auto; max-width:min(360px,85%); }
+  .sfs-photo-tall { width:100%; max-width:440px; height:auto; max-height:none; aspect-ratio:4 / 5; object-fit:cover; object-position:50% 0; }
   .sfs-who, .sfs-close-grid { grid-template-columns:1fr; }
   .sfs-who > div + div { padding-left:0; border-left:0; }
 }
