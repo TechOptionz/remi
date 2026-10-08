@@ -75,7 +75,7 @@ export const PRODUCTS: Product[] = [
   P({ slug: 'lead-align-and-perform', title: 'Lead, Align and Perform', text: 'Five programs plus Critical Alignment Model for Leaders.', category: 'leadership', tone: 'gold', bundle: true, price: 'AUD $129', cta: 'Explore the bundle',
     includes: ['the-performance-management-blueprint', 'your-first-90-days-as-a-leader', 'the-ground-rules-nobody-wrote-down', 'the-90-day-review', 'benchmarking-what-good-actually-looks-like', 'critical-alignment-model-for-leaders'] }),
   // Influence & consultative sales
-  P({ slug: 'ultimate-influence-consultative-sales-introduction', title: 'Ultimate Influence Consultative Sales Introduction', text: 'A practical introduction to consultative selling without scripts, pressure or manipulation.', category: 'influence', tone: 'black', price: 'AUD $79', level: 'Intermediate', kicker: 'The complete introduction', cta: 'Explore Ultimate Influence', also: ['further'] }),
+  P({ slug: 'ultimate-influence-consultative-sales-introduction', title: 'Ultimate Influence', text: 'The complete eight-step consultative sales methodology: understand the person in front of you, connect your recommendation to their needs and ask for a decision without becoming pushy.', category: 'influence', tone: 'black', price: 'AUD $79', level: 'Intermediate', kicker: 'The complete methodology', cta: 'Explore Ultimate Influence', also: ['further'] }),
   P({ slug: 'holding-space-for-magnetic-sales', title: 'Holding Space for Magnetic Sales', text: 'Create the conditions for an honest buying conversation.', category: 'influence', tone: 'green', price: FREE, level: 'Introduction' }),
   P({ slug: 'understand-before-you-prescribe', title: 'Understand Before You Prescribe', text: 'Diagnose what the buyer genuinely needs before offering a solution.', category: 'influence', tone: 'navy', price: 'AUD $29', level: 'Intermediate' }),
   P({ slug: 'selling-something-intangible', title: 'Selling Something Intangible', text: 'Communicate the value of an outcome people cannot hold in their hands.', category: 'influence', tone: 'burgundy', price: FREE, level: 'Introduction' }),
@@ -90,7 +90,7 @@ export const PRODUCTS: Product[] = [
     includes: ['from-practice-to-enterprise', 'core-improve-innovate', 'trust-that-holds'] }),
   // Go further: the fuller recorded programs
   P({ slug: 'untriggerable', title: 'Untriggerable', text: 'Emotional integration, Points of Departure and applying the process to real situations.', category: 'further', tone: 'burgundy', price: 'AUD $197 or 4 payments of $59', kicker: 'The complete recorded training', cta: 'Explore Untriggerable' }),
-  P({ slug: 'critical-alignment-model-for-leaders', title: 'Critical Alignment Model for Leaders', text: 'Decision-making, leadership and project management through the four CAM dimensions.', category: 'further', tone: 'navy', price: 'AUD $79', level: 'Advanced', cta: 'Explore CAM for leaders', also: ['leadership'] }),
+  P({ slug: 'critical-alignment-model-for-leaders', title: 'Critical Alignment Model for Leaders', text: 'A practical framework for assessing what’s happening, comparing it with what excellence would look like, and deciding where to intervene.', category: 'further', tone: 'navy', price: 'AUD $79', level: 'Advanced', cta: 'Explore CAM for leaders', also: ['leadership'] }),
 ];
 
 export const productBySlug = (slug: string) => PRODUCTS.find(p => p.slug === slug);

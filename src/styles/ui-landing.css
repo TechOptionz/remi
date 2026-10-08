@@ -1,0 +1,61 @@
+/* ============ Ultimate Influence sales page (/products/ultimate-influence-consultative-sales-introduction) ============ */
+/* From its six-part design. Built on the sales-page kit (styles/landing.css, .stl-*) and the CAM page's price, hero and
+   ambassador pieces (styles/cam-landing.css, .cml-*: the page carries both classes); only what differs lives here. */
+.uil-rust { color:var(--rust); }
+.stl-title .uil-rust, .stl-h2 .uil-rust { display:block; }
+.uil-sub { margin:6px 0 0; font-size:clamp(13px,1.1vw,15px); font-weight:600; letter-spacing:.24em; line-height:1.5; text-transform:uppercase; }
+.uil-sub--light { margin:8px 0 0; color:#f3dcb4; }
+
+/* PART 02 — the eight steps climbing left to right, each stone a little higher than the last */
+.uil-steps { position:relative; display:grid; grid-template-columns:repeat(8,minmax(0,1fr)); align-items:end; height:clamp(300px,34vw,440px); margin:clamp(32px,4vw,56px) 0 0; padding:0; list-style:none; }
+.uil-steps li { display:flex; flex-direction:column; align-items:center; gap:10px; margin-bottom:calc(var(--i) * clamp(30px,3.6vw,46px)); text-align:center; }
+.uil-step-num { display:grid; place-items:center; width:clamp(52px,5.4vw,72px); aspect-ratio:1; border-radius:50%; background:radial-gradient(circle at 40% 35%, #c99550, #9c6a2e 70%); box-shadow:inset 0 0 0 3px #7e5222, inset 0 0 0 5px #e2c08a, 0 4px 10px rgba(0,0,0,.18); font-family:var(--serif); font-size:clamp(24px,2.6vw,34px); color:#fbf1e3; }
+.uil-step-name { font-family:var(--serif); font-size:clamp(14px,1.3vw,17px); letter-spacing:.06em; line-height:1.2; text-transform:uppercase; }
+.uil-begin { margin:clamp(24px,3vw,36px) 0 0; font-family:var(--serif); font-size:18px; letter-spacing:.06em; text-transform:uppercase; color:var(--rust); }
+.uil .stl-band-title { font-style:normal; }
+
+/* PART 03 — what you'll learn to do: icon discs in two columns */
+.uil-learn { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:repeat(4,auto); grid-auto-flow:column; gap:14px clamp(28px,4vw,56px); margin:clamp(24px,3vw,36px) 0 0; padding:0; list-style:none; }
+.uil-learn li { display:flex; align-items:center; gap:20px; font-size:clamp(16px,1.4vw,19px); line-height:1.4; }
+.uil-learn-icon { flex:none; display:grid; place-items:center; width:64px; height:64px; border-radius:50%; background:#f1dcc0; color:var(--rust); box-shadow:inset 0 0 0 1px rgba(168,64,26,.18); }
+
+/* PART 04 — eleven videos beside the book and workbook */
+.uil-videos { grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); }
+.uil-kit-photo { max-width:480px; }
+.uil-video-list { margin:clamp(22px,2.6vw,32px) 0 0; padding:0; list-style:none; }
+.uil-video-list li { display:flex; gap:20px; padding:12px 0; }
+.uil-video-num { flex:none; display:grid; place-items:center; min-width:44px; height:44px; padding:0 10px; border-radius:999px; background:var(--rust); font-family:var(--serif); font-size:17px; color:#fbf1e3; }
+.uil-video-list h3 { margin:8px 0 4px; font-size:14px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; }
+.uil-video-list p { margin:0 0 2px; line-height:1.5; }
+.uil-also { margin:18px 0 22px; padding-top:18px; border-top:1px dotted var(--rust); }
+.uil-also h3 { margin:0 0 6px; font-size:14px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--rust); }
+.uil-also p { margin:0; }
+.uil-btn-gap { margin-top:22px; }
+
+/* PART 05 — who it's for (centred), the questions as a two-column table */
+.uil-for { text-align:center; }
+.uil-for .stl-h2 { font-size:clamp(28px,3.4vw,46px); }
+.uil-audience { max-width:44em; margin:20px auto 12px; font-family:var(--serif); font-size:clamp(18px,1.7vw,22px); line-height:1.5; }
+.uil-for p:last-child { margin:0; }
+.uil-faq { margin:clamp(20px,2.6vw,32px) 0 0; }
+.uil-faq > div { display:grid; grid-template-columns:minmax(0,.55fr) minmax(0,1.45fr); gap:20px; padding:12px 0; border-bottom:1px solid var(--line); }
+.uil-faq dt { font-family:var(--serif); font-weight:700; font-size:clamp(18px,1.6vw,21px); color:var(--rust); }
+.uil-faq dd { margin:0; line-height:1.5; }
+
+/* PART 06 — the rust spaced capitals over "Bring your offer"; the closing book */
+.uil-offer-h { margin:0 0 6px; font-family:var(--serif); font-size:clamp(18px,1.7vw,22px); font-weight:400; letter-spacing:.14em; line-height:1.35; text-transform:uppercase; color:var(--rust); }
+.uil-close-photo { max-width:340px; }
+
+@media (max-width:860px) {
+  .uil-videos { grid-template-columns:1fr; }
+  .uil-kit-photo { justify-self:center; max-width:min(380px,85%); }
+}
+@media (max-width:640px) {
+  .uil-steps { grid-template-columns:1fr; height:auto; gap:12px; }
+  .uil-steps li { flex-direction:row; gap:16px; margin:0; text-align:left; }
+  .uil-step-num { width:48px; font-size:22px; }
+  .uil-learn { grid-template-columns:1fr; grid-template-rows:none; grid-auto-flow:row; }
+  .uil-learn-icon { width:52px; height:52px; }
+  .uil-faq > div { grid-template-columns:1fr; gap:4px; }
+  .uil-offer-h br { display:none; }
+}

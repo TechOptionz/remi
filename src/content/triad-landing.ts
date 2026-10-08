@@ -1,6 +1,6 @@
 // The Self-Esteem Triad product's sales page (/products/self-esteem-triad), from the six-part design "SELF ESTEEM TRIAD
 // LANDING PAGE FINAL" (Oct 2026), copy carried over word for word. Sections in components/triad-landing/, styles in
-// styles/triad-landing.css, photos cut from the design in public/assets/triad-landing/. The price comes from the product
+// styles/landing.css, photos cut from the design in public/assets/triad-landing/. The price comes from the product
 // in content/products.ts; until it has a `buyHref` every "Get the Self-Esteem Triad" button goes to the closing band (#get),
 // which takes "tell me when it's ready" sign-ups instead of a payment.
 import { productBySlug } from '@/content/products';

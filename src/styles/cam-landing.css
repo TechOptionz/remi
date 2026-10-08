@@ -1,0 +1,96 @@
+/* ============ Critical Alignment Model for Leaders sales page (/products/critical-alignment-model-for-leaders) ============ */
+/* From its seven-part design. Built on the sales-page kit in styles/landing.css (.stl-*); only what differs lives here. */
+.cml-eyebrow { margin:0; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:600; font-size:clamp(20px,2.2vw,28px); letter-spacing:.14em; line-height:1.15; text-transform:uppercase; color:var(--rust); }
+.cml-with { margin:8px 0 22px; font-family:var(--serif); font-style:italic; font-size:clamp(22px,2.2vw,30px); line-height:1.1; }
+.cml-with--light { margin:6px 0 18px; color:#f3dcb4; }
+.cml-hero-body p, .cml-lede { max-width:36em; margin:18px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.6; }
+.cml-hero-body p:first-child { margin-top:24px; }
+.cml-hero .stl-hero-book { max-width:330px; }
+
+/* Price: "$79 AUD + GST" over the GST-inclusive line; compact is the smaller one in the CTA rows */
+.cml-price .stl-price span { font-size:.34em; }
+.cml-gst { margin:6px 0 0; font-family:var(--serif); font-size:clamp(19px,1.7vw,23px); }
+.cml-price-note { margin:12px 0 22px; font-size:15.5px; }
+.cml-price--compact .stl-price { font-size:clamp(52px,5.4vw,70px); }
+.cml-price--compact .cml-gst { margin-top:4px; font-size:clamp(16px,1.4vw,19px); }
+.cml-price--compact .cml-price-note { margin:6px 0 0; }
+.cml-cta-row { display:flex; flex-wrap:wrap; align-items:center; gap:clamp(20px,3vw,40px); margin-top:clamp(28px,3.4vw,44px); }
+.cml-cta-row .cml-price { padding-left:clamp(20px,3vw,40px); border-left:1px solid var(--line); }
+
+/* PART 02 — the five dimensions, a heavier rule where the line falls */
+.cml-dims { margin-top:clamp(24px,3vw,36px); }
+.cml-dims h3 { color:var(--rust); }
+.cml-dims .cml-below { border-top:2px solid var(--rust); }
+.cml-dims li:has(+ .cml-below) { border-bottom:0; }
+.cml-note { margin:22px 0 0; line-height:1.6; }
+.cml .stl-band { padding-block:clamp(28px,3.4vw,40px); }
+.cml .stl-band-title { margin:0; font-size:clamp(30px,3.6vw,46px); }
+.cml-arch-split { grid-template-columns:minmax(0,1.35fr) minmax(0,.75fr); }
+
+/* PART 03 — the four archetypes, each beside its small sculpture; the abilities in two columns */
+.cml-archetypes { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(20px,2.6vw,32px) clamp(16px,2.4vw,28px); margin:clamp(24px,3vw,36px) 0 clamp(20px,2.4vw,28px); padding:0; list-style:none; }
+.cml-archetypes li { display:flex; align-items:flex-start; gap:14px; }
+.cml-archetype-art { flex:none; width:clamp(72px,8vw,100px); }
+.cml-archetypes h3 { margin:0 0 8px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:600; font-size:clamp(19px,1.8vw,24px); line-height:1.1; text-transform:uppercase; color:var(--rust); }
+.cml-archetypes h3 span { display:block; white-space:nowrap; }
+.cml-archetypes p { margin:0; font-size:15px; line-height:1.5; }
+.cml-abilities { columns:2; column-gap:clamp(28px,4vw,56px); column-rule:1px solid var(--line); margin:clamp(24px,3vw,36px) 0 0; padding:0; list-style:none; }
+.cml-abilities li { position:relative; break-inside:avoid; padding:7px 0 7px 26px; font-size:clamp(16px,1.3vw,18px); line-height:1.45; }
+.cml-abilities li::before { content:""; position:absolute; left:4px; top:.95em; width:9px; height:9px; border-radius:50%; background:var(--rust); }
+
+/* PART 04 — the facilitation day, the rust "sound judgement" band beside its photograph */
+.cml-day { margin:clamp(22px,2.6vw,32px) 0 clamp(18px,2vw,24px); padding:0; list-style:none; }
+.cml-day li { display:flex; align-items:center; gap:20px; padding:14px 0; border-bottom:1px solid var(--line); }
+.cml-day li:last-child { border-bottom:0; }
+.cml-day-icon { flex:none; display:grid; place-items:center; width:72px; height:72px; border-radius:50%; background:var(--rust); color:var(--stl-cream); }
+.cml-day h3 { margin:0 0 4px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:600; font-size:clamp(21px,2vw,26px); letter-spacing:.06em; line-height:1.1; text-transform:uppercase; color:var(--rust); }
+.cml-day p { margin:0; line-height:1.5; }
+.cml-judgement { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); align-items:center; gap:clamp(24px,4vw,56px); margin-inline:calc(50% - 50vw); padding:clamp(36px,4.5vw,56px) max(var(--gutter), calc(50vw - 576px)); background:radial-gradient(120% 140% at 80% 0%, #b4491f, var(--rust) 55%, #8f3412); color:var(--stl-cream); }
+.cml-judgement-photo { mix-blend-mode:normal; max-width:400px; }
+.cml-judgement .stl-h2 { color:var(--stl-cream); font-size:clamp(28px,3.2vw,42px); }
+.cml-judgement .stl-head { background-image:none; padding-bottom:0; }
+.cml-judgement p { max-width:40em; margin:14px 0 0; line-height:1.55; }
+.cml-judgement .cml-audience { margin-top:20px; font-size:clamp(16px,1.4vw,18px); }
+
+/* PART 05 — nine videos, the "Also included" panel */
+.cml-video-list { margin:clamp(22px,2.6vw,32px) 0 0; padding:0; list-style:none; }
+.cml-video-list li { display:flex; gap:18px; padding:14px 0; border-bottom:1px solid var(--line); }
+.cml-video-list .stl-num { padding-right:16px; border-right:1px solid var(--line); min-width:1.6em; }
+.cml-video-list h3 { margin:2px 0 4px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:600; font-size:clamp(19px,1.8vw,23px); line-height:1.1; text-transform:uppercase; color:var(--ink-strong); }
+.cml-video-list p { margin:0; font-size:15.5px; line-height:1.5; }
+.cml-also { margin-top:clamp(24px,3vw,32px); padding:clamp(20px,2.6vw,30px) clamp(22px,3vw,36px); border-radius:3px; background:radial-gradient(120% 140% at 20% 0%, #b4491f, var(--rust) 60%); color:var(--stl-cream); }
+.cml-also h3 { margin:0 0 10px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:600; font-size:clamp(26px,2.6vw,34px); line-height:1; text-transform:uppercase; }
+.cml-also p { margin:0; line-height:1.6; }
+.cml-also a { color:#f3dcb4; text-decoration:underline; text-underline-offset:3px; }
+.cml-videos { align-items:end; }
+
+/* PART 06 — the signature closes Remi's copy; the questions as cards */
+.cml .stl-remi .stl-split-copy > .stl-signature { margin-top:18px; }
+.cml-faq { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin:clamp(24px,3vw,36px) 0 0; }
+.cml-faq > div { padding:18px 22px 20px; border:1px solid var(--line); border-radius:3px; background:rgba(255,255,255,.22); }
+.cml-faq dt { margin:0 0 10px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:600; font-size:clamp(19px,1.7vw,23px); line-height:1.15; color:var(--rust); }
+.cml-faq dd { margin:0; font-size:15px; line-height:1.5; }
+.cml-faq dd span { display:block; }
+
+/* PART 07 — the ambassador stat; "Bring a real situation."; the closing band has no heading row of its own */
+.stl-split-copy > .cml-stat { margin:22px 0 4px; font-family:var(--serif); font-size:clamp(24px,2.4vw,32px); line-height:1.1; color:var(--rust); }
+.cml-stat strong { display:block; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:600; font-size:clamp(64px,7.4vw,100px); line-height:.9; }
+.cml-real { margin-top:clamp(32px,4vw,52px); }
+.cml-real .stl-h2 { font-size:clamp(26px,2.8vw,36px); }
+.cml .stl-close-offer { margin-top:0; }
+.cml .stl-close .stl-h2 { font-size:clamp(34px,4vw,54px); }
+
+@media (max-width:860px) {
+  .cml-arch-split { grid-template-columns:1fr; }
+  .cml-judgement { grid-template-columns:1fr; }
+  .cml-judgement-photo { justify-self:center; max-width:min(320px,80%); }
+  .cml-faq { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:640px) {
+  .cml-archetypes, .cml-faq { grid-template-columns:1fr; }
+  .cml-abilities { columns:1; }
+  .cml-cta-row { flex-direction:column; align-items:flex-start; }
+  .cml-cta-row .cml-price { padding-left:0; border-left:0; }
+  .cml-day-icon { width:56px; height:56px; }
+  .cml-day-icon svg { width:24px; height:24px; }
+}
