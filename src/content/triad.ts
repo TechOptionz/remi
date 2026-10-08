@@ -1,9 +1,9 @@
 // Content for the Self-Esteem Triad page (/ideas-models/self-esteem-triad): the lists it renders.
 // Headings and body copy live in components/triad/. Source: "How to Build Self-Esteem" article (Sept 2026).
 
-/** Where "Explore the Self-Esteem Triad" goes once the guided introduction exists. Until then the CTA
- *  shows the "Tell me when it's ready" form instead. */
-export const TRIAD_PRODUCT_HREF: string | null = '/products/self-esteem-from-the-inside-out';
+/** Where "Explore the Self-Esteem Triad" goes: the product's sales page (components/triad-landing/). Set to null and the
+ *  CTA shows the "Tell me when it's ready" form instead. */
+export const TRIAD_PRODUCT_HREF: string | null = '/products/self-esteem-triad';
 
 export const TRIAD_PAGE_HREF = '/ideas-models/self-esteem-triad';
 

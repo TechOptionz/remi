@@ -7,6 +7,8 @@ const nextConfig = {
   async redirects() {
     return [
       { source: '/index.html', destination: '/', permanent: true },
+      // The Self-Esteem Triad product was 'Self-Esteem from the Inside Out' until its sales page arrived (Oct 2026)
+      { source: '/products/self-esteem-from-the-inside-out', destination: '/products/self-esteem-triad', permanent: true },
       { source: '/about-remi.html', destination: '/about-remi', permanent: true },
       { source: '/invite-remi.html', destination: '/invite-remi', permanent: true },
       { source: '/ideas-models.html', destination: '/ideas-models', permanent: true },

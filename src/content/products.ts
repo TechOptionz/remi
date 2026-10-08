@@ -42,14 +42,14 @@ export const FREE = 'Free';
 const P = (p: Product) => p;
 export const PRODUCTS: Product[] = [
   // Personal change & emotional work
-  P({ slug: 'self-esteem-from-the-inside-out', title: 'Self-Esteem from the Inside Out', text: 'The Self-Esteem Triad: boundaries, emotions and needs, including the Fifteen Emotional Needs.', category: 'personal', tone: 'cream', price: FREE, level: 'Introduction', kicker: 'A powerful place to begin', cta: 'See what’s inside' }),
+  P({ slug: 'self-esteem-triad', title: 'The Self-Esteem Triad', text: 'Learn how to recognise what you feel, take your needs seriously and hold boundaries that let you stay connected without leaving yourself behind.', category: 'personal', tone: 'cream', price: 'AUD $29', level: 'Introduction', kicker: 'A powerful place to begin', cta: 'See what’s inside' }),
   P({ slug: 'why-do-i-keep-doing-this', title: 'Why Do I Keep Doing This?', text: 'EIT, trauma-informed emotional integration, protective patterns and IFS-informed parts work.', category: 'personal', tone: 'burgundy', price: FREE, level: 'Introduction' }),
   P({ slug: 'becoming-conscious', title: 'Becoming Conscious', text: 'See the patterns, stories and protective responses shaping your behaviour.', category: 'personal', tone: 'navy', price: 'AUD $29', level: 'Intermediate' }),
   P({ slug: 'self-regulation-when-it-matters', title: 'Self-Regulation When It Matters', text: 'Audio guidance for staying connected and capable under emotional pressure.', category: 'personal', tone: 'green', price: 'AUD $29', level: 'Intermediate' }),
   P({ slug: 'deep-state-repatterning', title: 'Deep State Repatterning', text: 'Why insight alone does not necessarily change an established pattern.', category: 'personal', tone: 'black', price: 'AUD $29', level: 'Advanced' }),
   P({ slug: 'emotion-integration-technique-foundations', title: 'Emotion Integration Technique Foundations', text: 'The foundations of Emotion Integration Technique (EIT).', category: 'personal', tone: 'gold', price: 'AUD $49', level: 'Advanced' }),
   P({ slug: 'come-back-to-yourself', title: 'Come Back to Yourself', text: 'Five interconnected programs.', category: 'personal', tone: 'burgundy', bundle: true, price: 'AUD $79', cta: 'Explore the bundle',
-    includes: ['self-esteem-from-the-inside-out', 'why-do-i-keep-doing-this', 'self-regulation-when-it-matters', 'becoming-conscious', 'emotion-integration-technique-foundations'] }),
+    includes: ['self-esteem-triad', 'why-do-i-keep-doing-this', 'self-regulation-when-it-matters', 'becoming-conscious', 'emotion-integration-technique-foundations'] }),
   // Relationships & attachment
   P({ slug: 'five-paths-to-a-healthy-relationship', title: 'The Five Paths to a Healthy Relationship', text: 'Five ways relationships become healthier, more honest and more capable of repair.', category: 'relationships', tone: 'burgundy', price: 'AUD $29', kicker: 'Begin here', cta: 'Explore the five paths' }),
   P({ slug: 'attachment-or-love', title: 'Attachment or Love?', text: 'Understand the difference between attachment activation and genuine connection.', category: 'relationships', tone: 'navy', price: FREE, level: 'Introduction' }),

@@ -1,0 +1,153 @@
+/* ============ The Self-Esteem Triad sales page (/products/self-esteem-triad), from its six-part design ============ */
+/* Sits on the rabbit-hole page kit (.kb: paper, rust, gold, the condensed display face, .hm-btn), so its colours are fixed.
+   Photographs cut from the design are multiplied onto the paper and feathered at the edges so nothing ends in a hard line. */
+.stl { --stl-gold-ink:#9a6b22; --stl-cream:#fbf1e3; }
+.stl-crumbs { margin:0; padding-top:clamp(20px,2.4vw,32px); }
+
+.stl-photo { display:block; width:100%; height:auto; mix-blend-mode:multiply; --stl-fade:linear-gradient(to right,transparent,#000 16%,#000 84%,transparent), linear-gradient(to bottom,transparent,#000 12%,#000 86%,transparent);
+  -webkit-mask-image:var(--stl-fade); -webkit-mask-composite:source-in; mask-image:var(--stl-fade); mask-composite:intersect; }
+
+/* Headings: condensed capitals with the short rust brush stroke under them; the gold star hangs to the left when there is one */
+.stl-head { position:relative; padding-bottom:18px; background:url(/assets/home/hm-underline.webp) no-repeat 0 100% / clamp(120px,24%,240px) 5px; }
+.stl-head--star { padding-left:var(--kb-indent); background-position:var(--kb-indent) 100%; }
+.stl-head-star { position:absolute; left:0; top:.1em; width:clamp(26px,3vw,40px); }
+.stl-title, .stl-h2 { margin:0; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; line-height:1; text-transform:uppercase; color:var(--ink-strong); text-wrap:balance; }
+.stl-title { font-size:clamp(40px,4.8vw,66px); line-height:.98; }
+.stl-h2 { font-size:clamp(32px,4vw,54px); }
+.stl-h2-sub { display:block; margin-top:.18em; font-size:.74em; }
+.stl-indent { padding-left:var(--kb-indent); }
+.stl-intro { max-width:56em; margin:22px 0 0; font-size:clamp(16px,1.35vw,19px); line-height:1.6; }
+.stl-intro--lg { font-size:clamp(20px,2vw,28px); line-height:1.3; }
+.stl-intro strong { font-weight:700; }
+.stl-center { text-align:center; }
+.stl-nowrap { white-space:nowrap; }
+.stl-section { position:relative; padding:clamp(56px,7vw,96px) 0; border-top:1px solid rgba(var(--ink-rgb),.08); }
+.stl-num { flex:none; min-width:1.3em; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(36px,3.6vw,48px); line-height:.9; color:var(--rust); }
+.stl-num--gold { font-weight:600; color:#b8892f; }
+
+/* Buttons and price */
+.stl-btn { display:inline-flex; align-items:center; justify-content:center; gap:16px; }
+.stl-btn-arrow { font-size:20px; line-height:1; transition:transform .25s ease; }
+.stl-btn:hover .stl-btn-arrow { transform:translateX(5px); }
+.stl-btn--light { background:var(--stl-cream); color:var(--rust); }
+.stl-btn--light:hover { color:var(--rust); }
+.stl-price { margin:0; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:600; font-size:clamp(64px,8vw,104px); line-height:.9; color:var(--rust); }
+.stl-price span { margin-left:.14em; font-size:.38em; }
+
+/* PART 01 — hero: copy beside the ring sculpture, then the book beside the price */
+.stl-hero { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); grid-template-areas:"copy photo" "book buy"; column-gap:clamp(24px,4vw,56px); align-items:center; padding:clamp(24px,3vw,40px) 0 clamp(56px,7vw,96px); }
+.stl-hero-copy { grid-area:copy; }
+.stl-eyebrow { margin:0 0 20px; font-size:13px; font-weight:700; letter-spacing:.28em; text-transform:uppercase; color:var(--rust); }
+.stl-eyebrow span { margin-left:.6em; font-weight:600; font-size:.85em; letter-spacing:.22em; color:rgba(var(--ink-rgb),.6); }
+.stl-lede { max-width:32em; margin:24px 0 0; font-size:clamp(18px,1.6vw,22px); line-height:1.5; }
+.stl-hero-note { max-width:36em; margin:18px 0 0; font-size:16px; line-height:1.6; opacity:.85; }
+.stl-hero-photo { grid-area:photo; justify-self:end; max-width:430px; }
+.stl-hero-book { grid-area:book; justify-self:center; max-width:360px; margin-top:clamp(16px,2vw,28px); }
+.stl-buy { grid-area:buy; }
+.stl-includes { margin:16px 0 24px; font-size:17px; line-height:1.5; }
+.stl-fine { margin:14px 0 0; font-size:14.5px; opacity:.8; }
+
+/* PART 02 — the problem beside the ribbon sculpture; the three parts; the rust band */
+.stl-split { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(28px,5vw,72px); align-items:center; }
+.stl-split-copy > p { max-width:40em; margin:18px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.65; }
+.stl-split-copy > .stl-head + p { margin-top:26px; }
+.stl-split-photo { justify-self:end; max-width:480px; }
+.stl-parts { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(24px,4vw,56px); margin:clamp(40px,4.6vw,64px) 0 0; padding:0; list-style:none; text-align:center; }
+.stl-parts-icon { display:inline-grid; place-items:center; width:76px; height:76px; border-radius:50%; background:var(--rust) var(--hm-grain); color:var(--stl-cream); box-shadow:0 0 0 6px var(--paper), 0 0 0 7px var(--gold); }
+.stl-parts h3 { margin:22px 0 10px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(22px,2.2vw,28px); letter-spacing:.04em; text-transform:uppercase; color:var(--rust); }
+.stl-parts p { max-width:22em; margin:0 auto; line-height:1.55; }
+.stl-band { margin-inline:calc(50% - 50vw); padding:clamp(36px,4.5vw,56px) max(var(--gutter), calc(50vw - 576px)); background:radial-gradient(120% 140% at 20% 0%, #b4491f, var(--rust) 55%, #8f3412); background-color:var(--rust); color:var(--stl-cream); }
+.stl-band-title { margin:0 0 10px; font-family:var(--serif); font-style:italic; font-size:clamp(38px,4.8vw,62px); line-height:1.05; color:#f3dcb4; }
+.stl-band p:last-child { margin:0; font-size:clamp(17px,1.5vw,21px); }
+
+/* PART 03 — the seven capabilities beside the stacked stones; the worked example beside the bowl */
+.stl-learn { display:grid; grid-template-columns:minmax(0,1fr) clamp(200px,24vw,300px); gap:clamp(24px,4vw,56px); align-items:center; border-top:0; }
+.stl-caps { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:clamp(24px,3.4vw,44px); margin:clamp(24px,3vw,36px) 0 clamp(32px,3.6vw,44px); padding:0; list-style:none; }
+.stl-caps li { display:flex; gap:18px; padding:20px 0; border-bottom:1px solid var(--line); }
+.stl-caps li:last-child { grid-column:1 / -1; }
+.stl-caps h3 { margin:2px 0 6px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:600; font-size:clamp(20px,1.9vw,25px); line-height:1.1; color:var(--rust); }
+.stl-caps p { margin:0; font-size:15.5px; line-height:1.55; }
+.stl-example { display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1.6fr); gap:clamp(20px,3vw,40px); align-items:center; padding-bottom:clamp(56px,7vw,96px); }
+.stl-example-box { padding:clamp(24px,3.4vw,48px); border:1px solid var(--line); border-radius:3px; background:rgba(255,255,255,.28); }
+.stl-example-box .stl-h2 { font-size:clamp(28px,3.2vw,42px); }
+.stl-example-box p { max-width:44em; margin:16px 0 0; line-height:1.6; }
+.stl-example-box .stl-head + p { margin-top:24px; }
+
+/* PART 04 — the six videos beside the stacked stones; the book and workbook pages with the materials */
+.stl-videos-top { display:grid; grid-template-columns:minmax(0,1fr) clamp(200px,24vw,300px); gap:clamp(24px,4vw,56px); align-items:center; }
+.stl-video-list { margin:28px 0 0; padding:0; list-style:none; }
+.stl-video-list li { display:grid; grid-template-columns:clamp(56px,6vw,80px) minmax(0,.75fr) minmax(0,1.6fr); align-items:start; padding:20px 0; border-bottom:1px solid var(--line); }
+.stl-video-list h3 { margin:0; padding:4px 18px; border-left:1px solid var(--line); font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:600; font-size:clamp(20px,2vw,26px); line-height:1.1; text-transform:uppercase; color:var(--ink-strong); }
+.stl-video-list p { margin:0; padding:2px 0 2px 20px; border-left:1px solid var(--line); font-size:15.5px; line-height:1.55; }
+.stl-video-list strong { display:block; margin-bottom:2px; font-weight:700; }
+.stl-materials { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:clamp(24px,4vw,56px); align-items:center; margin-top:clamp(36px,4vw,56px); }
+.stl-materials-photo { max-width:560px; }
+.stl-material-list { margin:0 0 28px; padding:0; list-style:none; }
+.stl-material-list li { display:flex; gap:20px; padding:18px 0; border-bottom:1px solid var(--line); }
+.stl-material-list li:last-child { border-bottom:0; }
+.stl-ring-icon { flex:none; display:grid; place-items:center; width:62px; height:62px; border:1px solid var(--gold); border-radius:50%; color:var(--stl-gold-ink); }
+.stl-material-list h3 { margin:4px 0 6px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(22px,2.2vw,28px); line-height:1; text-transform:uppercase; color:var(--ink-strong); }
+.stl-material-list p { margin:0; line-height:1.55; }
+
+/* PART 05 — Meet Remi, what people say, the questions */
+.stl-split-copy > .stl-signature { width:max-content; margin:4px 0 0; font-family:'Caveat',cursive; font-weight:500; font-size:clamp(56px,6vw,84px); line-height:1; color:#b8892f; transform:rotate(-6deg); }
+.stl-remi .stl-split-copy > .stl-signature + p { margin-top:18px; }
+.stl-quotes { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); gap:16px; margin:clamp(24px,3vw,36px) 0 0; padding:0; list-style:none; }
+.stl-quotes li { padding:24px 28px; border:1px solid var(--line); border-radius:3px; text-align:center; }
+.stl-quotes blockquote { margin:0; font-family:var(--serif); font-style:italic; font-size:clamp(20px,1.8vw,24px); line-height:1.3; color:var(--rust); }
+.stl-quotes p { margin:12px 0 0; font-size:12.5px; letter-spacing:.2em; text-transform:uppercase; }
+.stl-faq { display:grid; gap:10px; margin:clamp(24px,3vw,36px) 0 0; }
+.stl-faq > div { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); border:1px solid var(--line); border-radius:3px; background:rgba(255,255,255,.22); }
+.stl-faq dt { align-self:center; padding:16px 24px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:600; font-size:clamp(19px,1.8vw,24px); line-height:1.15; color:var(--rust); }
+.stl-faq dd { display:flex; align-items:center; margin:0; padding:16px 24px; border-left:1px solid var(--line); line-height:1.5; }
+
+/* PART 06 — the ambassador offer; the closing rust band */
+.stl-ambassador { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:clamp(28px,5vw,72px); align-items:center; }
+.stl-amb-art { display:flex; align-items:center; justify-content:center; gap:clamp(8px,1.4vw,20px); }
+.stl-amb-photo { flex:0 1 260px; min-width:0; }
+.stl-amb-stat { flex:none; margin:0; font-family:var(--serif); font-size:clamp(19px,1.7vw,23px); line-height:1.15; text-align:center; }
+.stl-amb-stat strong { display:block; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:600; font-size:clamp(56px,6.6vw,88px); line-height:.9; color:var(--rust); }
+.stl-ambassador p { max-width:40em; margin:16px 0 0; line-height:1.6; }
+.stl-ambassador .stl-head + p { margin-top:24px; }
+.stl-close { margin-inline:calc(-1 * var(--gutter)); padding:clamp(56px,7vw,96px) var(--gutter); background:radial-gradient(120% 120% at 15% 0%, #b4491f, var(--rust) 50%, #8f3412); color:var(--stl-cream); scroll-margin-top:72px; }
+.stl-close-inner { max-width:1152px; margin:0 auto; }
+.stl-close .stl-h2 { font-size:clamp(36px,4.6vw,62px); color:var(--stl-cream); }
+.stl-close-lede { max-width:52em; margin:22px 0 0; font-size:clamp(17px,1.5vw,21px); line-height:1.55; }
+.stl-close-offer { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:clamp(24px,4vw,56px); align-items:center; margin-top:clamp(32px,4vw,48px); }
+.stl-close-photo { mix-blend-mode:normal; max-width:580px; }
+.stl-close-buy { padding-left:clamp(0px,3vw,40px); border-left:1px solid rgba(251,241,227,.35); }
+.stl-close-name { margin:0 0 12px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:600; font-size:clamp(26px,2.8vw,36px); line-height:1.05; text-transform:uppercase; }
+.stl-close-includes { margin:0 0 20px; font-family:var(--serif); font-style:italic; font-size:19px; opacity:.92; }
+.stl-close .stl-price { color:var(--stl-cream); }
+.stl-close-once { margin:8px 0 24px; font-size:18px; }
+.stl-close-soon { margin:0; font-size:13px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:#f3dcb4; }
+.stl-close .pr-btn { background:var(--stl-cream); color:var(--rust); border-color:var(--stl-cream); }
+.stl-close .pr-thanks { color:#f3dcb4; }
+
+/* Tablet and phones: one column; the tall decorative stones step aside */
+@media (max-width:860px) {
+  .stl-hero { grid-template-columns:1fr; grid-template-areas:"copy" "photo" "buy" "book"; row-gap:28px; }
+  .stl-hero-photo { justify-self:center; max-width:min(320px,80%); }
+  .stl-hero-book { max-width:min(300px,70%); margin-top:0; }
+  .stl-split, .stl-ambassador, .stl-materials, .stl-close-offer { grid-template-columns:1fr; }
+  .stl-split-photo, .stl-materials-photo, .stl-close-photo { justify-self:center; max-width:min(420px,90%); }
+  .stl-learn, .stl-videos-top { grid-template-columns:1fr; }
+  .stl-learn-photo, .stl-videos-photo, .stl-example-photo { display:none; }
+  .stl-example { grid-template-columns:1fr; }
+  .stl-close-buy { padding-left:0; border-left:0; }
+}
+@media (max-width:640px) {
+  .stl-parts, .stl-caps { grid-template-columns:1fr; }
+  .stl-parts { gap:36px; }
+  .stl-video-list li { grid-template-columns:48px minmax(0,1fr); row-gap:8px; }
+  .stl-video-list h3 { padding:2px 0 0; border-left:0; }
+  .stl-video-list p { grid-column:2; padding:0; border-left:0; }
+  .stl-faq > div { grid-template-columns:1fr; }
+  .stl-faq dt { padding-bottom:6px; }
+  .stl-faq dd { padding-top:0; border-left:0; }
+  .stl-title br, .stl-h2 br { display:none; }
+  .stl-amb-photo { flex-basis:150px; }
+  .stl-btn { padding-inline:22px; }
+  .stl-btn-arrow { display:none; }
+}
+@media (max-width:600px) { .stl-head-star { position:static; display:block; width:24px; margin-bottom:10px; } }
