@@ -13,10 +13,17 @@ export type ArticleBlock = string | { h2: string } | { list: string[] } | { tabl
 /** A "Further resources" entry: a product (shown with its price and level), another article, or one still being written. */
 export type FurtherItem = { product: string } | { article: string } | { label: string; note?: string };
 
+/** Framing of a library card's image. The card's frame is portrait-ish beside the text on desktop and 16:10 above it on
+ *  phones (≤520px). `pos` / `posMobile` are CSS object-positions (posMobile falls back to pos); `fit` / `fitMobile`
+ *  'contain' shows the whole image instead of cropping it, on `bg` (the image's own paper colour) so it has no box edge;
+ *  `multiply` blends an image drawn on white into the card. */
+export type Thumb = { pos?: string; posMobile?: string; fit?: 'contain'; fitMobile?: 'contain'; bg?: string; multiply?: boolean };
+
 export type Article = {
   slug: string; title: string; date: string;        // date as 'YYYY-MM-DD'
   summary: string;                                  // the standfirst under the title, and the line on the library card
   image?: string;                                   // the library card's illustration
+  thumb?: Thumb;                                    // how that illustration sits in the card (default: cropped to fill, centred)
   topic: Topic;                                     // the cluster it sits in on /articles (one of ARTICLE_CLUSTERS)
   product?: string;                                 // slug in content/products.ts: the product the article leads on to
   body: ArticleBlock[]; references?: string[];
@@ -84,7 +91,7 @@ export const ARTICLES: Article[] = [
     slug: "the-moment-you-leave-yourself", topic: 'Relationships',
     title: "Why Do I Lose Myself in Relationships?",
     summary: "The moment you leave yourself, and how compassionate inner work helps you return.",
-    date: '2026-09-30', image: "/assets/rabbit-holes/kb-read-leave.webp", product: "love-without-losing-yourself",
+    date: '2026-09-30', image: "/assets/rabbit-holes/kb-read-leave.webp", thumb: { posMobile: '50% 25%' }, product: "love-without-losing-yourself",
     body: [
       "Someone says something that hurts you, and before you have had time to acknowledge the hurt, you are explaining why they probably didn’t mean it. You are tired, but they need something, so you agree. You want to raise a concern, then notice their mood and decide that now is probably not the time. Somehow, it rarely becomes the time.",
       "These moments can seem too ordinary to deserve attention. We call them being considerate, keeping the peace or choosing our battles. Sometimes that is exactly what they are. But when we repeatedly move away from our own feelings and needs to preserve a relationship, something happens inside us. We remain available to the other person while becoming increasingly unavailable to ourselves.",
@@ -129,7 +136,7 @@ export const ARTICLES: Article[] = [
     slug: "why-relationships-trigger-me", topic: 'Relationships',
     title: "Why Do Relationships Trigger Me So Much?",
     summary: "Why loving someone brings old patterns to the surface, and how we begin responding differently.",
-    date: '2026-09-30', image: "/assets/rabbit-holes/ls-hero.webp", product: "five-paths-to-a-healthy-relationship",
+    date: '2026-09-30', image: "/assets/rabbit-holes/ls-hero.webp", thumb: { pos: '50% 70%' }, product: "five-paths-to-a-healthy-relationship",
     body: [
       "You can be perfectly capable in the rest of your life and find yourself almost unrecognisable when someone you love pulls away. You check your phone, rehearse what to say and wonder whether you have asked for too much. Or you experience the opposite. Someone wants to talk about feelings, and suddenly you cannot find any of yours. You become practical, defensive or unavailable, even though the relationship matters to you.",
       "Relationships have an extraordinary talent for finding the places where our emotional capacity is still developing. We may have understood a pattern years ago, yet closeness brings us into contact with the feelings underneath it. Knowing we fear rejection does not necessarily make rejection easier to experience. Knowing we disappear to keep the peace does not automatically help us remain present when someone is disappointed.",
@@ -162,7 +169,7 @@ export const ARTICLES: Article[] = [
     slug: "why-do-i-keep-repeating-the-same-patterns", topic: 'Human change',
     title: "Why Do I Keep Repeating the Same Patterns?",
     summary: "Tell me the truth … what am I missing?",
-    date: '2026-09-30', image: "/assets/rabbit-holes/tt-hero.webp", product: "find-the-gap-in-your-own-life",
+    date: '2026-09-30', image: "/assets/rabbit-holes/tt-hero.webp", thumb: { posMobile: '50% 55%' }, product: "find-the-gap-in-your-own-life",
     body: [
       "You find yourself having the same conversation with a different person. Or taking responsibility for something you promised yourself you would stop carrying. Perhaps you set a goal, genuinely care about it, and then watch another month disappear into everybody else’s priorities. The circumstances change enough to feel new, but somewhere along the way you recognise the ending.",
       "It can be frustrating, particularly when you’ve already done considerable work on yourself. You can explain the pattern, identify where it began and talk thoughtfully about why it happens. Yet when the moment arrives, you still say yes, take over, go quiet or postpone the decision. Eventually, “Why do I keep doing this?” becomes a more searching question … “What am I not seeing?”",
@@ -209,7 +216,7 @@ export const ARTICLES: Article[] = [
     slug: "how-do-i-stop-micromanaging-my-team", topic: 'Founders & business',
     title: "How Do I Stop Micromanaging My Team?",
     summary: "How to lead without carrying everybody, using the Critical Alignment Model.",
-    date: '2026-09-30', image: "/assets/rabbit-holes/ld-hero.webp", product: "critical-alignment-model-for-leaders",
+    date: '2026-09-30', image: "/assets/rabbit-holes/ld-hero.webp", thumb: { pos: '50% 20%', posMobile: '50% 8%' }, product: "critical-alignment-model-for-leaders",
     body: [
       "You delegate something, explain what needs to happen and get back to your own work. Then come the questions. You answer them, clarify a few things, check progress and discover something has been missed. Eventually you take it back because doing it yourself feels quicker than having another conversation about it. By Friday, you’re exhausted and wondering why nobody seems capable of making a decision without you.",
       "It’s tempting to conclude that you need better people. Sometimes there genuinely is a capability issue. But before you make that judgement, there’s a question worth sitting with … have you created the conditions in which someone can succeed without constantly returning to you?",
@@ -258,7 +265,7 @@ export const ARTICLES: Article[] = [
     slug: "build-a-business-that-runs-without-you", topic: 'Founders & business',
     title: "How Do You Build a Business That Can Run Without You?",
     summary: "How I went from coaching clients to building The Coaching Institute, and what replacing myself actually involved.",
-    date: '2026-09-30', image: "/assets/rabbit-holes/bd-hero.webp", product: "from-practice-to-enterprise",
+    date: '2026-09-30', image: "/assets/rabbit-holes/bd-hero.webp", thumb: { posMobile: '50% 20%' }, product: "from-practice-to-enterprise",
     body: [
       "I became a coach because I wanted to help myself. At the time, I was considering hiring a coach, and somewhere in that decision I became curious about learning the work myself. I wanted access to the materials behind the scenes. If something could help me change, I wanted to understand why it worked, how it worked and what else might become possible.",
       "I had spent much of my life being pretty miserable. I didn’t really know how to be happy, and I wanted to explore what it would take to become my favourite self. How do we lead an extraordinary life? What helps someone move beyond the ways they’ve learned to survive and begin living in a way they actually enjoy? Those questions fascinated me. They still do.",
@@ -319,7 +326,7 @@ export const ARTICLES: Article[] = [
     slug: "find-the-root-cause-of-problems-in-your-business", topic: 'Founders & business',
     title: "How Do I Find the Root Cause of Problems in My Business?",
     summary: "Using the Critical Alignment Model to make better decisions, develop your team and close the gap between intention and results.",
-    date: '2026-10-01', image: "/assets/ideas/cam-model.webp", product: "critical-alignment-model-for-leaders",
+    date: '2026-10-01', image: "/assets/ideas/cam-model.webp", thumb: { fit: 'contain', fitMobile: 'contain', multiply: true }, product: "critical-alignment-model-for-leaders",
     body: [
       "You’ve discussed the problem, clarified what needs to happen and made sure everyone understands. For a while, things improve. Then the missed deadlines return, the same questions arrive at your desk and another project needs your intervention to get it over the line. You begin wondering whether you need better people, tighter accountability or another system.",
       "Perhaps you do. But before choosing a solution, how confident are you that you’ve understood the problem?",
@@ -404,7 +411,7 @@ export const ARTICLES: Article[] = [
     slug: "why-leaders-revert-to-old-habits-under-pressure", topic: 'Founders & business',
     title: "Why Do Leaders Revert to Old Habits Under Pressure?",
     summary: "The T.R.U.S.T.M.E. model by Remi Pearson: seven ways of thinking that shape leadership, team culture and change.",
-    date: '2026-10-01', image: "/assets/ideas/trustme-spiral.webp", product: "trust-that-holds",
+    date: '2026-10-01', image: "/assets/ideas/trustme-spiral.webp", thumb: { pos: '50% 0', posMobile: '50% 25%' }, product: "trust-that-holds",
     body: [
       "You learn a great deal about a leader when something goes wrong. Under ordinary conditions, most of us can sound thoughtful and collaborative. Then a client leaves, the numbers turn or somebody challenges a decision we identify with. The leader who wanted initiative begins approving every detail. The team that celebrated candour starts agreeing in the room and complaining afterwards.",
       "Those moments interest me because they reveal what we can access when our preferred way of leading becomes difficult to sustain. We may understand the value of trust and still reach for control when uncertainty rises. We may genuinely welcome different perspectives until someone questions something we feel strongly about.",
@@ -490,7 +497,7 @@ export const ARTICLES: Article[] = [
     slug: "how-to-sell-without-being-pushy", topic: 'Founders & business',
     title: "How Do I Sell Without Being Pushy?",
     summary: "Consultative sales using the eight steps of Remi Pearson’s Ultimate Influence method.",
-    date: '2026-10-01', image: "/assets/ideas/ui-path.webp", product: "ultimate-influence-consultative-sales-introduction",
+    date: '2026-10-01', image: "/assets/ideas/ui-path.webp", thumb: { pos: '0 50%' }, product: "ultimate-influence-consultative-sales-introduction",
     body: [
       "Early in my career, I studied sales methods that left me uncomfortable. They taught people to find a buyer’s pain, aggravate it and then present the offer as relief. I could see what the techniques were trying to achieve, but I didn’t want to have conversations with people that way. I wanted to become highly skilled at sales while allowing the person I was speaking with to feel understood, respected and able to make a good decision.",
       "Ultimate Influence grew from my work on that question. My approach to consultative sales begins with discovering whether we’re in alignment. What does this person want to achieve? What matters to them? Can what I offer genuinely help? If we’re a match, we should be able to do business together. If we aren’t, a good conversation helps us discover that too.",
@@ -627,7 +634,7 @@ export const ARTICLES: Article[] = [
     slug: "how-do-i-make-sense-of-suffering", topic: 'Ideas & meaning',
     title: "How Do I Make Sense of Suffering Without Forcing a Positive Spin?",
     summary: "A reflection on what has been lost, what you need now and what still matters, without turning pain into a lesson.",
-    date: '2026-10-07', image: "/assets/articles/how-do-i-make-sense-of-suffering.webp", product: "when-your-values-and-your-life-stop-matching",
+    date: '2026-10-07', image: "/assets/articles/how-do-i-make-sense-of-suffering.webp", thumb: { pos: '50% 0' }, product: "when-your-values-and-your-life-stop-matching",
     body: [
       "After her marriage ended, Helen became very good at reassuring other people. She told them she was learning a lot, enjoying her independence and looking forward to what came next. Some of that was true. But she also missed the ordinary life she had expected to keep living: someone in the kitchen while she cooked, familiar plans for the weekend, the assumption that there would be another person beside her as she grew older. When a friend said the experience would make her stronger, Helen smiled. Later, she wondered whether anyone could bear to hear that she was simply sad.",
       "This fictional example raises a difficult question: how do we make sense of suffering when the available explanations feel too small for what has happened? Exploring it can help you recognise the pressure to turn pain into a lesson, identify the support you actually need, and consider what remains meaningful without demanding that the experience itself become something you are grateful for.",
@@ -747,7 +754,7 @@ export const ARTICLES: Article[] = [
     slug: "how-to-support-someone-you-love", topic: 'Relationships',
     title: "How to Support Someone You Love Without Losing Yourself",
     summary: "Holding space: how to listen with care, keep responsibility clear and make room for both people.",
-    date: '2026-10-07', image: "/assets/articles/how-to-support-someone-you-love.webp", product: "holding-space-without-rescuing-or-disappearing",
+    date: '2026-10-07', image: "/assets/articles/how-to-support-someone-you-love.webp", thumb: { pos: '50% 0' }, product: "holding-space-without-rescuing-or-disappearing",
     body: [
       "Claire could hear it in her sister’s voice before the conversation had properly begun. Another difficult week, another problem at work, another evening that would end with Claire trying to work out what to do. She loved her sister and wanted to help, so she listened, offered suggestions and eventually volunteered to make a few calls. An hour later, her own dinner was cold and she felt strangely resentful. Her sister had not asked her to take over. Claire had stepped into the familiar role almost automatically, then wondered why caring for someone so often left her feeling depleted.",
       "This fictional example raises a question many of us recognise: how do you support someone you love when their distress matters to you, without gradually taking responsibility for their life? Understanding how to hold space can help you listen more fully, offer useful support and express your limits before exhaustion turns into resentment. It also gives you a way to examine the other end of the pattern, when someone’s feelings become uncomfortable and you find yourself disappearing.",
@@ -874,7 +881,7 @@ export const ARTICLES: Article[] = [
     slug: "how-do-i-solve-the-right-problem", topic: 'Founders & business',
     title: "How Do I Solve the Right Problem Instead of Staying Busy Fixing the Wrong One?",
     summary: "A practical way to investigate a recurring problem, make a clearer decision and turn it into work someone can own.",
-    date: '2026-10-07', image: "/assets/articles/how-do-i-solve-the-right-problem.webp", product: "critical-alignment-model-for-leaders",
+    date: '2026-10-07', image: "/assets/articles/how-do-i-solve-the-right-problem.webp", thumb: { pos: '50% 0' }, product: "critical-alignment-model-for-leaders",
     body: [
       "Consider Catherine, a capable leader whose team has missed another project deadline. She has already introduced weekly updates, a shared task board and more frequent check-ins. Now she is working late, chasing approvals and wondering whether she has hired people who simply do not care enough. During a conversation about the project, someone quietly explains that three executives keep changing its priorities. Another person reveals that work regularly waits several days for Catherine’s approval. The deadline has stayed the same, even as the scope has grown. Catherine feels uncomfortable as she listens. She has been asking for greater accountability without examining whether the arrangements she oversees make delivery possible.",
       "If you have ever worked harder on a problem that keeps returning, this article will help you pause, investigate and choose a more useful response. We will explore how to identify the problem worth solving, make decisions with clearer evidence and turn those decisions into action someone can actually deliver.",
@@ -1034,7 +1041,7 @@ export const ARTICLES: Article[] = [
     slug: "what-are-emotional-bids", topic: 'Relationships',
     title: "What Are Emotional Bids? How Small Moments Build Connection",
     summary: "How to recognise the small invitations through which we seek connection, and respond without becoming endlessly available.",
-    date: '2026-10-07', image: "/assets/articles/what-are-emotional-bids.webp", product: "five-paths-to-a-healthy-relationship",
+    date: '2026-10-07', image: "/assets/articles/what-are-emotional-bids.webp", thumb: { pos: '50% 0' }, product: "five-paths-to-a-healthy-relationship",
     body: [
       "Imagine Kate coming home after a difficult day. She puts her bag down and tells her partner, James, “You won’t believe what happened in the meeting.” He is looking at his phone. “Hang on,” he says, finishing a message. A few minutes later, he asks what they’re doing for dinner. Kate says nothing about the meeting. Later, when he notices she is quiet, she tells him she’s tired. He assumes she needs space. She wonders why he never seems interested in what happens to her.",
       "Neither has quite understood the moment they missed. Kate was reaching for him, and James didn’t return to the conversation. This article explores emotional bids, the small invitations through which we seek connection, and how to recognise and respond to them. We’ll look at what repeated missed bids can cost a relationship, how to communicate more clearly and how to remain responsive without becoming endlessly available.",
@@ -1167,7 +1174,7 @@ export const ARTICLES: Article[] = [
     slug: "how-to-set-boundaries-without-feeling-guilty", topic: 'Relationships',
     title: "How to Set Boundaries Without Feeling Guilty",
     summary: "What guilt can tell you, the six kinds of boundary, and how to hold a limit while staying connected.",
-    date: '2026-10-07', image: "/assets/articles/how-to-set-boundaries-without-feeling-guilty.webp", product: "self-esteem-from-the-inside-out",
+    date: '2026-10-07', image: "/assets/articles/how-to-set-boundaries-without-feeling-guilty.webp", thumb: { fit: 'contain', bg: '#f4e5c3', posMobile: '50% 30%' }, product: "self-esteem-from-the-inside-out",
     body: [
       "A boundary defines the limits of your participation in a relationship. It establishes a distinction between your needs, choices and responsibilities and another person’s, allowing you to remain connected without disappearing into what they want from you. You can care about someone and still have preferences, limits and a life that belongs to you.",
       "Setting boundaries without feeling guilty begins with understanding what the guilt means. You may have acted unfairly and need to make a repair. You may also have expressed a perfectly reasonable limit and feel uncomfortable because someone is disappointed. Learning to distinguish those experiences matters, because another person’s disappointment cannot be the only measure of whether you have done something wrong.",
@@ -1232,7 +1239,7 @@ export const ARTICLES: Article[] = [
     slug: "why-dont-i-feel-good-enough", topic: 'Human change',
     title: "Why Don’t I Feel Good Enough, No Matter What I Achieve?",
     summary: "Why achievement can leave the feeling of being insufficient untouched, and seven ways to come back to yourself.",
-    date: '2026-10-07', image: "/assets/articles/why-dont-i-feel-good-enough.webp", product: "self-esteem-from-the-inside-out",
+    date: '2026-10-07', image: "/assets/articles/why-dont-i-feel-good-enough.webp", thumb: { pos: '50% 0' }, product: "self-esteem-from-the-inside-out",
     body: [
       "Imagine Claire, the founder of a successful business, sitting in her car after an awards dinner. She has just been recognised for something she spent years building. Her team cheered, her friends sent messages, and for a few minutes she felt proud. Now she is checking an email about a project running behind schedule. Another finalist’s business is growing faster than hers. She wonders whether the award means very much anyway. Before she reaches home, an evening that could have become a lovely memory has turned into a private review of everything she still hasn’t done.",
       "If you recognise that experience, this article is for you. We’ll explore why achievement can leave the feeling of being insufficient untouched, what happens when your worth becomes tied to performance, and how to develop a steadier relationship with yourself while continuing to pursue work you care about. There are also questions I would want to explore with you in coaching, because understanding this pattern is only useful if something begins to change in how you live.",
@@ -1360,7 +1367,7 @@ export const ARTICLES: Article[] = [
     slug: "why-do-i-never-have-enough-time", topic: 'Founders & business',
     title: "Why Do I Never Have Enough Time, Even When I’m Productive?",
     summary: "How to tell an overloaded life from a planning problem, and make more deliberate choices about what your time is for.",
-    date: '2026-10-07', image: "/assets/articles/why-do-i-never-have-enough-time.webp", product: "find-the-gap-in-your-own-life",
+    date: '2026-10-07', image: "/assets/articles/why-do-i-never-have-enough-time.webp", thumb: { pos: '50% 0' }, product: "find-the-gap-in-your-own-life",
     body: [
       "At 9.40 on a Tuesday night, Catherine opened her laptop to finish the proposal she had intended to write that morning. She had worked all day. There had been meetings, messages, a client problem and several decisions her team wanted her to make. She had also booked her mother’s appointment, organised a birthday present and answered a friend who needed to talk. Looking back, she could account for almost every hour. What she could not explain was why the things she most wanted to give her attention to kept arriving at the end of it.",
       "This fictional example captures a familiar frustration: you can be busy, capable and remarkably efficient, yet still feel perpetually behind. Exploring why you never have enough time can help you distinguish an overloaded life from a planning problem, understand what keeps claiming your attention, and make more deliberate choices about what your time is for.",
@@ -1503,7 +1510,7 @@ export const ARTICLES: Article[] = [
     slug: "how-to-reconnect-after-conflict", topic: 'Relationships',
     title: "How to Reconnect After Conflict: Harmony, Disharmony and Repair",
     summary: "How relationships move through harmony, disharmony and repair, and how to find your way back with honesty, responsibility and care.",
-    date: '2026-10-07', image: "/assets/articles/how-to-reconnect-after-conflict.webp", product: "conflict-repair-and-harmony",
+    date: '2026-10-07', image: "/assets/articles/how-to-reconnect-after-conflict.webp", thumb: { fit: 'contain', bg: '#f3ecdf', posMobile: '50% 0' }, product: "conflict-repair-and-harmony",
     body: [
       "Emma could lead a difficult meeting, make decisions under pressure and hold her own in almost any professional conversation. Yet when her partner, Ben, went quiet after an argument, she felt herself unravel. She would follow him from room to room, explaining what she meant, asking another question, trying to get them back to somewhere that felt safe. Ben experienced her urgency as pressure and withdrew further. By morning, they were usually polite again. Someone made coffee. Someone asked about the day. But Emma often wondered whether they had repaired anything, or simply become better at carrying the hurt quietly.",
       "Perhaps you recognise something of yourself in this fictional example. You might reach for connection immediately, need space before you can speak, or find yourself pretending everything is fine because you cannot face another argument. This article explores how relationships move through harmony, disharmony and repair, and how to reconnect after conflict with greater honesty, responsibility and care.",
@@ -1649,7 +1656,7 @@ export const ARTICLES: Article[] = [
     slug: "how-to-stop-overthinking", topic: 'Human change',
     title: "How to Stop Overthinking and Trust Yourself",
     summary: "How to tell useful reflection from a loop that leaves you more distressed and no better informed, and how to step back into your life.",
-    date: '2026-10-07', image: "/assets/articles/how-to-stop-overthinking.webp",
+    date: '2026-10-07', image: "/assets/articles/how-to-stop-overthinking.webp", thumb: { fit: 'contain', fitMobile: 'contain', bg: '#f7ecdf' },
     body: [
       "Imagine Anna driving home after a meeting that went reasonably well. She answered the questions, contributed an idea and agreed on the next steps. But halfway home, she remembers a colleague pausing before replying. Was her suggestion ridiculous? Had she talked too much? By dinner, she has mentally rewritten the conversation several times. Later, she opens her laptop to check something she already knows, then drafts an email explaining what she meant. Her partner asks how her day was, and she barely hears the question. She is still in the meeting.",
       "You may recognise that experience … an ordinary moment becoming hours of private analysis. Learning how to stop overthinking can help you distinguish useful reflection from thinking that leaves you more distressed and no better informed. This article explores why those loops develop, what they cost us and practical ways to recover perspective, make decisions and participate more fully in the life happening around us.",
@@ -1749,7 +1756,7 @@ export const ARTICLES: Article[] = [
     slug: "how-do-i-find-meaning-in-life", topic: 'Ideas & meaning',
     title: "How Do I Find Meaning in Life When Everything Feels Pointless?",
     summary: "What feels absent, whose priorities you are living by, and how to give what matters a place in your actual life.",
-    date: '2026-10-07', image: "/assets/articles/how-do-i-find-meaning-in-life.webp", product: "when-your-values-and-your-life-stop-matching",
+    date: '2026-10-07', image: "/assets/articles/how-do-i-find-meaning-in-life.webp", thumb: { pos: '50% 0' }, product: "when-your-values-and-your-life-stop-matching",
     body: [
       "Louise was sitting in her car outside the office when she realised she did not particularly want to go inside. Nothing dramatic had happened. Her business was doing well, her team liked her, and the life she had worked towards was largely the life she now had. Yet lately, every achievement seemed to lead straight into another obligation. She missed having something she wanted to talk about that had nothing to do with work. When a friend asked what she was looking forward to, Louise mentioned a project deadline and then laughed … apparently, that was what she had available.",
       "This fictional example captures a question that can be surprisingly difficult to admit: what if the life you have built no longer feels meaningful? Exploring that question can help you understand what feels absent, distinguish your own priorities from inherited expectations, and begin making choices that give what matters to you a place in your actual life.",
@@ -1872,7 +1879,7 @@ export const ARTICLES: Article[] = [
     slug: "what-is-my-attachment-style", topic: 'Relationships',
     title: "What Is My Attachment Style? Understanding How You Connect in Relationships",
     summary: "What happens inside you, and between you, when connection matters, and how to begin changing a pattern that costs you the relationship you want.",
-    date: '2026-10-07', image: "/assets/articles/what-is-my-attachment-style.webp", product: "attachment-or-love",
+    date: '2026-10-07', image: "/assets/articles/what-is-my-attachment-style.webp", thumb: { pos: '50% 0' }, product: "attachment-or-love",
     body: [
       "Rachel was the person everyone relied on. She ran a successful business, remembered birthdays and could usually work out what someone needed before they asked. Yet when a man she was dating took longer than usual to reply, her attention narrowed around her phone. She could see herself doing it and felt faintly ridiculous … surely, after everything she had achieved, a delayed message should not have this much power. Her friend Anna had a different experience. She loved the beginning of a relationship, but as someone became more available and interested, she started noticing their faults and wondering whether she would be happier alone.",
       "These fictional examples show two ways closeness can become complicated. Understanding your attachment style can help you recognise what happens when someone matters to you, what you do when connection feels uncertain, and where those responses might be costing you the relationship you want. It can also help you ask a question that is easily overlooked: is this an old fear being activated, or is something happening here that deserves my attention?",
@@ -2004,7 +2011,7 @@ export const ARTICLES: Article[] = [
     slug: "how-to-overcome-fear-of-failure", topic: 'Human change',
     title: "How to Overcome Fear of Failure and Find the Courage to Live Fully",
     summary: "How courage works, how to build your capacity for uncertainty and how a meaningful purpose can carry you when confidence is nowhere to be found.",
-    date: '2026-10-07', image: "/assets/articles/how-to-overcome-fear-of-failure.webp",
+    date: '2026-10-07', image: "/assets/articles/how-to-overcome-fear-of-failure.webp", thumb: { fit: 'contain', bg: '#f8ecda', posMobile: '50% 0' },
     body: [
       "Imagine Sally sitting at her kitchen table on a Sunday evening, looking at the workshop invitation she still hasn’t sent. She has spent six months preparing. The slides are ready, the subject is something she cares deeply about, and several people have asked when they can book. She opens the invitation again and changes a sentence. Then another. What if someone asks a question she can’t answer? What if nobody comes? She closes the laptop, promising herself she’ll send it next weekend. Later, lying in bed, she realises that what hurts most is how much she wants to do it, and how tired she is of watching herself retreat.",
       "You may recognise Sally’s experience, even if yours involves a different longing. Perhaps there is work you want to share or a version of your life you keep imagining without quite moving towards it. Understanding how to overcome fear of failure can help you take those desires seriously. We’ll explore how courage works, how to build your capacity for uncertainty and how a meaningful purpose can help carry you through the moments when confidence is nowhere to be found.",

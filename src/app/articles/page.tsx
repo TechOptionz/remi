@@ -3,7 +3,8 @@
 // the Perspectives archive. A cluster without articles yet says so.
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ARTICLES, ARTICLE_CLUSTERS } from '@/content/articles';
+import type { CSSProperties } from 'react';
+import { ARTICLES, ARTICLE_CLUSTERS, type Thumb } from '@/content/articles';
 
 export const metadata: Metadata = {
   title: 'Free resources — Remi Pearson',
@@ -11,6 +12,12 @@ export const metadata: Metadata = {
 };
 
 const art = (name: string) => `/assets/perspectives/${name}.webp`;
+
+/** A card image's framing (Thumb in content/articles.ts) as the custom properties `.pr-lib-img` reads. */
+const thumbStyle = (t: Thumb = {}) => ({
+  '--lib-pos': t.pos, '--lib-pos-m': t.posMobile ?? t.pos, '--lib-fit': t.fit, '--lib-fit-m': t.fitMobile,
+  '--lib-bg': t.bg, '--lib-blend': t.multiply ? 'multiply' : undefined,
+}) as CSSProperties;
 
 export default function ArticlesPage() {
   const list = [...ARTICLES].sort((a, b) => b.date.localeCompare(a.date));
@@ -41,7 +48,7 @@ export default function ArticlesPage() {
                 <div className="pr-library">
                   {articles.map(a => (
                     <Link key={a.slug} href={`/articles/${a.slug}`} className="pr-lib-card">
-                      {a.image && <img src={a.image} alt="" loading="lazy" decoding="async" />}
+                      {a.image && <span className="pr-lib-img" style={thumbStyle(a.thumb)}><img src={a.image} alt="" loading="lazy" decoding="async" /></span>}
                       <span className="pr-lib-text">
                         <span className="pr-kicker">Article</span>
                         <span className="pr-lib-title">{a.title}</span>
