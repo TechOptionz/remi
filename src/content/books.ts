@@ -12,11 +12,13 @@ export type Book = {
   buyLabel: string; buyHref?: string;               // the purchase button
   note: string;                                     // the line under the button
   program?: { label: string; href: string };        // the online program built on the book
+  cover: { src: string; width: number; height: number; mockup?: boolean }; // public/assets/books; `mockup`: a 3D shot on transparency, shown unframed
 };
 
 export const BOOKS: Book[] = [
   {
-    slug: 'disruptive-leadership', title: 'Disruptive Leadership', badge: 'Bestseller',
+    slug: 'disruptive-leadership', cover: { src: '/assets/books/disruptive-leadership.webp', width: 900, height: 1274 },
+    title: 'Disruptive Leadership', badge: 'Bestseller',
     tagline: 'Build a team that can think, take responsibility and achieve more together.',
     text: [
       'When every decision comes back to you, every standard needs reminding and every problem becomes yours to solve, being the leader can feel suspiciously like doing everybody else’s job. You may have capable people around you, yet somehow the business still depends on how much you can personally carry.',
@@ -36,7 +38,8 @@ export const BOOKS: Book[] = [
     program: { label: 'Click here to be taken to the online program, Disruptive Leadership', href: '/ideas-models/disruptive-leadership' },
   },
   {
-    slug: 'ultimate-you', title: 'Ultimate You', badge: 'Bestseller',
+    slug: 'ultimate-you', cover: { src: '/assets/books/ultimate-you.webp', width: 900, height: 1317 },
+    title: 'Ultimate You', badge: 'Bestseller',
     tagline: 'What would become possible if you trusted that your life mattered too?',
     text: [
       'You can become very good at being who other people need you to be. You learn what earns approval, which feelings to keep quiet and how to accommodate everyone around you. Years can pass that way, until you begin to wonder where you went in the middle of it all.',
@@ -55,7 +58,8 @@ export const BOOKS: Book[] = [
     note: 'Electronic edition. No physical book will be shipped.',
   },
   {
-    slug: 'ultimate-you-quest', title: 'Ultimate You Quest Edition',
+    slug: 'ultimate-you-quest', cover: { src: '/assets/books/ultimate-you-quest.webp', width: 900, height: 889, mockup: true },
+    title: 'Ultimate You Quest Edition',
     tagline: 'Get to know yourself beyond the roles you learned to play.',
     text: [
       'Perhaps you have already done quite a lot of personal development. You understand some of your patterns and can explain why you feel the way you do. Yet in an ordinary conversation, a difficult relationship or a moment when someone wants something from you, those familiar responses still take over.',

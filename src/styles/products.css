@@ -160,8 +160,9 @@
 
 /* Books: one full-width card per book, the cover beside the sales copy */
 .pr-book { display:grid; grid-template-columns:clamp(160px,20vw,260px) minmax(0,1fr); align-items:start; gap:clamp(22px,3.4vw,52px); padding:clamp(24px,3.4vw,52px); }
-.pr-book-cover { position:sticky; top:110px; aspect-ratio:2 / 3; display:flex; flex-direction:column; justify-content:space-between; padding:22px; border:1px solid rgba(201,163,90,.55); background:rgba(0,0,0,.18); font-family:var(--serif); font-size:clamp(26px,2.6vw,34px); line-height:1.05; color:#f0e0b8; }
-.pr-book-cover small { font:600 11.5px var(--sans, inherit); letter-spacing:.18em; text-transform:uppercase; }
+.pr-book-cover { position:sticky; top:110px; }
+.pr-book-cover img { display:block; width:100%; height:auto; border-radius:2px 4px 4px 2px; box-shadow:0 2px 4px rgba(0,0,0,.25), 0 18px 40px -12px rgba(0,0,0,.55); }
+.pr-book-cover--mockup img { border-radius:0; box-shadow:none; filter:drop-shadow(0 16px 24px rgba(0,0,0,.35)); }
 .pr-book-body { display:flex; flex-direction:column; align-items:flex-start; gap:14px; max-width:46em; }
 .pr-book-body > p { margin:0; font-size:16.5px; line-height:1.6; opacity:.92; }
 .pr-book-title { font-size:clamp(30px,3.4vw,46px) !important; }
@@ -177,7 +178,8 @@
 .pr-book-program a { color:var(--pr-gold); text-decoration:underline; text-underline-offset:3px; }
 @media (max-width:760px) {
   .pr-book { grid-template-columns:1fr; }
-  .pr-book-cover { position:static; width:150px; min-height:0; padding:16px; font-size:22px; }
+  .pr-book-cover { position:static; width:min(220px,60%); }
+  .pr-book-cover--mockup { width:min(300px,85%); }
   .pr-book-body .pr-btn { align-self:stretch; }
 }
 

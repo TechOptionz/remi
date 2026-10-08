@@ -1,4 +1,4 @@
-// Books — the first tab in the header. Each book is a full-width card: cover on the left, Remi's sales copy, price and
+// Books — the first tab in the header. Each book is a full-width card: its cover (BOOKS[].cover) on the left, Remi's sales copy, price and
 // purchase button on the right. Titles, copy, prices and purchase links live in content/books.ts.
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -22,7 +22,7 @@ export default function BooksPage() {
         <div className="pr-grid pr-grid--books">
           {BOOKS.map((b, i) => (
             <article key={b.slug} id={b.slug} className={`pr-card pr-card--${(['black', 'burgundy', 'navy'] as const)[i % 3]} pr-book`} aria-labelledby={`${b.slug}-h`}>
-              <div className="pr-book-cover" aria-hidden="true"><span>{b.title}</span><small>Remi Pearson</small></div>
+              <div className={`pr-book-cover${b.cover.mockup ? ' pr-book-cover--mockup' : ''}`}><img src={b.cover.src} alt={`${b.title} by Remi Pearson, the cover`} width={b.cover.width} height={b.cover.height} loading={i === 0 ? 'eager' : 'lazy'} decoding="async" /></div>
               <div className="pr-book-body">
                 {b.badge && <p className="pr-kicker">{b.badge}</p>}
                 <h2 id={`${b.slug}-h`} className="pr-book-title">{b.title}</h2>
