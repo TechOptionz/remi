@@ -19,9 +19,8 @@ export default function UiLanding() {
         {/* PART 01 — hero */}
         <section className="stl-hero cml-hero" aria-labelledby="uil-title">
           <div className="stl-hero-copy">
-            <p className="cml-eyebrow">Ultimate Influence</p>
-            <p className="uil-sub">The complete eight-step consultative sales methodology</p>
-            <p className="cml-with">With Remi Pearson</p>
+            <p className="stl-eyebrow">Ultimate Influence <span>With Remi Pearson</span></p>
+            <p className="uil-sub uil-sub--hero">The complete eight-step consultative sales methodology</p>
             <Head id="uil-title" as="h1">You believe in your work. <span className="uil-rust">Learn how to ask someone to buy it.</span></Head>
             <div className="cml-hero-body">
               <p>You can care deeply about someone, understand what they’re struggling with and know you have something that could help … then find yourself hesitating when the conversation turns towards working together.</p>

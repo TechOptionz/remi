@@ -4,6 +4,7 @@
 .uil-rust { color:var(--rust); }
 .stl-title .uil-rust, .stl-h2 .uil-rust { display:block; }
 .uil-sub { margin:6px 0 0; font-size:clamp(13px,1.1vw,15px); font-weight:600; letter-spacing:.24em; line-height:1.5; text-transform:uppercase; }
+.uil-sub--hero { margin:-10px 0 20px; font-size:12px; letter-spacing:.22em; color:rgba(var(--ink-rgb),.6); }
 .uil-sub--light { margin:8px 0 0; color:#f3dcb4; }
 
 /* PART 02 — the eight steps climbing left to right, each stone a little higher than the last */

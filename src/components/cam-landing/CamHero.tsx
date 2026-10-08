@@ -7,8 +7,7 @@ export default function CamHero() {
   return (
     <section className="stl-hero cml-hero" aria-labelledby="cml-title">
       <div className="stl-hero-copy">
-        <p className="cml-eyebrow">Critical Alignment Model for Leaders</p>
-        <p className="cml-with">With Remi Pearson</p>
+        <p className="stl-eyebrow">Critical Alignment Model for Leaders <span>With Remi Pearson</span></p>
         <Head id="cml-title" as="h1">Before you solve the problem, make sure you’re solving the right one.</Head>
         <div className="cml-hero-body">
           <p>A project keeps slipping. Someone isn’t performing. Your team agrees in the meeting, then returns to doing things the way they’ve always done them. You can see that something needs to change … working out exactly what to change is where leadership gets interesting.</p>

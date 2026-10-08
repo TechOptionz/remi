@@ -4,7 +4,6 @@
 .sfs .stl-photo { mix-blend-mode:normal; }
 .sfs-hero { padding:clamp(24px,3vw,40px) 0 clamp(56px,7vw,96px); align-items:stretch; }
 .sfs-photo-tall { align-self:stretch; height:100%; max-height:880px; object-fit:cover; object-position:50% 0; }
-.sfs-with { margin:18px 0 0; }
 .sfs-lede { font-size:clamp(18px,1.6vw,22px) !important; line-height:1.45 !important; }
 .sfs-facts { margin:clamp(22px,2.6vw,32px) 0 clamp(16px,2vw,22px); padding:0; list-style:none; }
 .sfs-facts li { display:flex; align-items:center; gap:18px; padding:10px 0; }

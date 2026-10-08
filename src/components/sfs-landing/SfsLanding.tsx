@@ -34,8 +34,8 @@ export default function SfsLanding() {
         {/* PART 01 — hero */}
         <section className="stl-split sfs-hero" aria-labelledby="sfs-title">
           <div className="stl-split-copy">
+            <p className="stl-eyebrow">Selling from Stage <span>With Remi Pearson</span></p>
             <Head id="sfs-title" as="h1">Master the skill of turning an audience into buyers.</Head>
-            <p className="cml-with sfs-with">Selling from Stage with Remi Pearson</p>
             <p className="sfs-lede">Learn how to shape a compelling offer and communicate its value, on a live stage or a webinar.</p>
             <p>You have something worth selling. The challenge is helping an audience understand why it matters to them, what becomes possible through your offer and how to take the next step. That work begins well before you stand in front of the room.</p>
             <p>Selling from Stage takes you through the preparation, the pitch and the follow-through. You will develop a compelling offer for your market and learn how to communicate why it matters, what it includes and how to buy.</p>
