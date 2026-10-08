@@ -1,0 +1,70 @@
+/* ============ Selling from Stage sales page (/products/selling-from-stage) ============ */
+/* From its seven-page design. Built on the sales-page kit (landing.css, .stl-*) and the CAM page's pieces (cam-landing.css,
+   .cml-*: the page carries both classes); only what differs lives here. The photos are people, so they are not multiplied. */
+.sfs .stl-photo { mix-blend-mode:normal; }
+.sfs-hero { padding:clamp(24px,3vw,40px) 0 clamp(56px,7vw,96px); align-items:stretch; }
+.sfs-photo-tall { align-self:stretch; height:100%; max-height:880px; object-fit:cover; object-position:50% 0; }
+.sfs-with { margin:18px 0 0; }
+.sfs-lede { font-size:clamp(18px,1.6vw,22px) !important; line-height:1.45 !important; }
+.sfs-facts { margin:clamp(22px,2.6vw,32px) 0 clamp(16px,2vw,22px); padding:0; list-style:none; }
+.sfs-facts li { display:flex; align-items:center; gap:18px; padding:10px 0; }
+.sfs-facts h2 { margin:0 0 4px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:600; font-size:clamp(19px,1.8vw,24px); line-height:1.1; text-transform:uppercase; color:var(--rust); }
+.sfs-facts p { margin:0; line-height:1.5; }
+.sfs-btn { margin-top:18px; }
+.stl-split-copy > .sfs-plan-line { margin-top:10px; font-size:15px; opacity:.8; }
+
+/* What you will learn: the six items, numbered like the video lists */
+.sfs-learn { margin-bottom:20px; }
+.sfs-learn h3 { color:var(--rust); }
+
+/* Who this is for / what you need to bring / the format: two columns */
+.sfs-who { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(28px,4vw,56px); }
+.sfs-who > div + div { padding-left:clamp(20px,3vw,44px); border-left:1px solid var(--line); }
+.sfs-who .cml-day p { margin:0; }
+.sfs-pull { margin:0; padding:clamp(20px,2.6vw,32px) clamp(24px,3vw,40px); border-left:6px solid var(--rust); background:#f1dcc0; font-family:var(--serif); font-size:clamp(22px,2.4vw,32px); line-height:1.25; color:var(--ink-strong); }
+.sfs-center { justify-content:center; margin-bottom:clamp(24px,3vw,40px); }
+
+/* The twelve modules in three parts, under the crowd photograph */
+.sfs-path-title { font-size:clamp(34px,4.4vw,60px); text-transform:none; }
+.sfs-crowd { width:100%; margin:clamp(20px,2.6vw,32px) 0 clamp(8px,1vw,16px); border-radius:3px; -webkit-mask-image:none; mask-image:none; }
+.sfs-part-h { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 18px; margin:clamp(28px,3vw,40px) 0 0; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(26px,2.8vw,38px); line-height:1; text-transform:uppercase; color:var(--ink-strong); }
+.sfs-part-h span { font-family:var(--serif); font-weight:400; font-size:.55em; letter-spacing:.28em; color:var(--rust); }
+.sfs-part .stl-video-list { margin-top:12px; }
+.sfs-included { display:grid; grid-template-columns:auto minmax(0,1fr); align-items:center; gap:clamp(20px,3vw,44px); }
+.sfs-included .stl-band-title { margin:0; padding-right:clamp(20px,3vw,44px); border-right:1px solid rgba(251,241,227,.4); font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-style:normal; font-size:clamp(40px,5vw,64px); text-transform:uppercase; color:var(--stl-cream); }
+.sfs-included p:last-child { line-height:1.6; }
+
+/* The questions: numbered cards */
+.sfs-faq dt { display:flex; align-items:baseline; gap:12px; }
+.sfs-faq .stl-num { font-size:clamp(30px,3vw,40px); }
+
+/* Closing band: what's included beside the two payment options */
+.sfs-close-with { display:block; margin-top:.15em; font-family:var(--serif); font-style:italic; font-weight:400; font-size:.7em; text-transform:none; color:#f3dcb4; }
+.sfs-close-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:clamp(24px,4vw,56px); align-items:start; margin-top:clamp(28px,3.4vw,44px); }
+.sfs-close-sub { margin:0 0 12px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(24px,2.4vw,32px); text-transform:uppercase; }
+.sfs-includes { margin:0; padding:0; list-style:none; }
+.sfs-includes li { display:flex; align-items:center; gap:16px; padding:10px 0; border-bottom:1px solid rgba(251,241,227,.25); }
+.sfs-inc-icon { flex:none; display:grid; place-items:center; width:42px; height:42px; border-radius:50%; background:var(--stl-cream); color:var(--rust); }
+.sfs-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.sfs-option { padding:clamp(18px,2.4vw,28px); border:1px solid rgba(251,241,227,.45); border-radius:3px; text-align:center; }
+.sfs-option h3 { margin:0 0 6px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(20px,2vw,26px); line-height:1.05; text-transform:uppercase; color:#f3dcb4; }
+.sfs-option p { margin:4px 0 0; font-size:14.5px; }
+.sfs-option-kicker { font-size:12.5px !important; letter-spacing:.22em; text-transform:uppercase; }
+.sfs-option .stl-price { margin-top:10px; color:var(--stl-cream); font-size:clamp(52px,5.6vw,76px); }
+.sfs-option .stl-price span { display:block; margin:4px 0 0; font-size:.3em; }
+.sfs-option-big { margin-top:12px !important; font-family:var(--serif); font-size:clamp(18px,1.7vw,22px) !important; }
+.sfs-option-rule { padding-top:12px; border-top:1px solid rgba(251,241,227,.35); }
+.sfs-close-action { margin-top:clamp(18px,2.2vw,26px); }
+.sfs-close-action .pr-notify { max-width:none; }
+.sfs-tagline { margin:clamp(28px,3.4vw,44px) 0 0; padding-top:18px; border-top:1px solid rgba(251,241,227,.35); font-family:var(--serif); font-size:clamp(20px,2.2vw,30px); text-align:center; }
+
+@media (max-width:860px) {
+  .sfs-photo-tall { height:auto; max-height:520px; width:auto; max-width:min(360px,85%); }
+  .sfs-who, .sfs-close-grid { grid-template-columns:1fr; }
+  .sfs-who > div + div { padding-left:0; border-left:0; }
+}
+@media (max-width:640px) {
+  .sfs-options { grid-template-columns:1fr; }
+  .sfs-included { grid-template-columns:1fr; }
+  .sfs-included .stl-band-title { padding-right:0; border-right:0; }
+}

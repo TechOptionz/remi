@@ -80,6 +80,7 @@ export const PRODUCTS: Product[] = [
   P({ slug: 'understand-before-you-prescribe', title: 'Understand Before You Prescribe', text: 'Diagnose what the buyer genuinely needs before offering a solution.', category: 'influence', tone: 'navy', price: 'AUD $29', level: 'Intermediate' }),
   P({ slug: 'selling-something-intangible', title: 'Selling Something Intangible', text: 'Communicate the value of an outcome people cannot hold in their hands.', category: 'influence', tone: 'burgundy', price: FREE, level: 'Introduction' }),
   P({ slug: 'move-the-room', title: 'Move the Room', text: 'Ethical influence, stage presentation and creating an emotional buying experience.', category: 'influence', tone: 'gold', price: 'AUD $97', level: 'Advanced' }),
+  P({ slug: 'selling-from-stage', title: 'Selling from Stage', text: 'Learn how to shape a compelling offer and communicate its value, on a live stage or a webinar.', category: 'influence', tone: 'burgundy', price: 'AUD $1,997 + GST or 5 payments of $499 + GST', level: 'Introduction', kicker: 'Self-paced online program', cta: 'Explore Selling from Stage', also: ['further'] }),
   P({ slug: 'influence-without-pressure', title: 'Influence Without Pressure', text: 'Four programs.', category: 'influence', tone: 'navy', bundle: true, price: 'AUD $129', cta: 'Explore the bundle',
     includes: ['ultimate-influence-consultative-sales-introduction', 'holding-space-for-magnetic-sales', 'understand-before-you-prescribe', 'selling-something-intangible'] }),
   // Business & enterprise
@@ -111,6 +112,7 @@ export const PROGRAMS: Program[] = [
   { title: 'Ultimate Self Club', kicker: 'Membership', text: 'One place for all the questions you can’t leave alone.', price: 'AUD $149 per month', href: ULTIMATE_SELF_CLUB_URL, cta: 'Visit ultimateselfclub.com', tone: 'black', external: true },
   { title: 'Rebel Yell', kicker: 'Private waitlist', text: 'A private diagnostic and intervention for founders, owners, CEOs and senior leadership teams who have reached an impasse.', price: 'AUD $10,000 per month', href: '/programs/rebel-yell', cta: 'Explore Rebel Yell', tone: 'burgundy' },
   { title: 'The Shift', kicker: 'Waitlist', text: 'Coming soon. Join the waitlist and you’ll hear first when it opens.', price: 'AUD $1,497 per month', href: '/programs/the-shift', cta: 'Join the waitlist', tone: 'navy' },
+  { title: 'Selling from Stage', kicker: 'Self-paced online program', text: 'Learn how to shape a compelling offer and communicate its value, on a live stage or a webinar.', price: 'AUD $1,997 + GST or 5 payments of $499 + GST', href: '/products/selling-from-stage', cta: 'Explore Selling from Stage', tone: 'gold' },
 ];
 export const THE_SHIFT_PRICE = PROGRAMS[2].price;
 

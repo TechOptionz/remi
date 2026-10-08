@@ -1,5 +1,5 @@
 // Programs — "Where shall we begin?" (round four edits, the PROGRAMS summary mock-up): the free ways in (Perspectives, the
-// CAM Mini Profiler, the Attachment Style Assessment), the three programs with their prices (PROGRAMS in content/products.ts),
+// CAM Mini Profiler, the Attachment Style Assessment), the programs with their prices (PROGRAMS in content/products.ts),
 // then the self-paced programs by question, each opening its range on /products. The homepage's "Browse all programs" lands here.
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -73,7 +73,7 @@ export default function ProgramsPage() {
       <section className="pr-range" aria-labelledby="pg-prog-h">
         <p className="pr-eyebrow">Go deeper</p>
         <h2 id="pg-prog-h" className="pr-h2">Programs with Remi</h2>
-        <div className="pr-grid pr-grid--three">
+        <div className={`pr-grid pr-grid--three${PROGRAMS.length === 4 ? ' pr-grid--pairs' : ''}`}>
           {PROGRAMS.map(p => (
             <article key={p.title} className={`pr-card pr-card--${p.tone}`}>
               <p className="pr-kicker">{p.kicker}</p>

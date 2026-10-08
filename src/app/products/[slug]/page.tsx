@@ -6,6 +6,7 @@ import ProductPage from '@/components/products/ProductPage';
 import TriadLanding from '@/components/triad-landing/TriadLanding';
 import CamLanding from '@/components/cam-landing/CamLanding';
 import UiLanding from '@/components/ui-landing/UiLanding';
+import SfsLanding from '@/components/sfs-landing/SfsLanding';
 import { PRODUCTS, productBySlug } from '@/content/products';
 
 const LANDINGS: Record<string, { page: () => React.ReactNode; metadata: Metadata }> = {
@@ -28,6 +29,13 @@ const LANDINGS: Record<string, { page: () => React.ReactNode; metadata: Metadata
     metadata: {
       title: 'Ultimate Influence: Consultative Sales Training — Remi Pearson',
       description: 'The complete eight-step consultative sales methodology with Remi Pearson: eleven videos, a workbook and example conversations on understanding someone, recommending with a clear rationale and asking for a decision without becoming pushy.',
+    },
+  },
+  'selling-from-stage': {
+    page: SfsLanding,
+    metadata: {
+      title: 'Selling from Stage: Turn an Audience into Buyers — Remi Pearson',
+      description: 'A self-paced online program with Remi Pearson: shape a compelling offer, present it on a live stage or a webinar, and follow through after the pitch. Recorded teaching, workbooks and supporting resources.',
     },
   },
 };
