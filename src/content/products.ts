@@ -96,6 +96,8 @@ export const PRODUCTS: Product[] = [
 
 export const productBySlug = (slug: string) => PRODUCTS.find(p => p.slug === slug);
 export const productHref = (slug: string) => `/products/${slug}`;
+/** Products with their own designed sales page (LANDINGS in app/products/[slug]/page.tsx); the sitemap ranks them higher. */
+export const LANDING_SLUGS = ['self-esteem-triad', 'critical-alignment-model-for-leaders', 'ultimate-influence-consultative-sales-introduction', 'selling-from-stage'] as const;
 /** A product's price as shown on the page ('AUD $29', 'Free'), for the rabbit-hole and homepage blocks that feature one. */
 export const priceOf = (slug: string) => productBySlug(slug)?.price ?? '';
 // The bundle always comes last, so it closes the grid whichever products are borrowed from another category.

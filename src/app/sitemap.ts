@@ -4,8 +4,9 @@ import type { MetadataRoute } from 'next';
 import { readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { NAV, SITE_URL } from '@/content/site';
-import { PRODUCTS } from '@/content/products';
+import { PRODUCTS, LANDING_SLUGS } from '@/content/products';
 import { ARTICLES } from '@/content/articles';
+import { BOOKS } from '@/content/books';
 import { REVIEWS } from '@/content/reviews';
 
 const APP = join(process.cwd(), 'src', 'app');
@@ -24,14 +25,38 @@ function routes(dir = '', out: string[] = []) {
 const HELD_BACK = new Set(REVIEWS.length ? [] : ['/reviews']);
 const MAIN = new Set(NAV.map(n => n.href));
 
+const LANDINGS = new Set<string>(LANDING_SLUGS.map(s => `/products/${s}`));
+const abs = (p: string) => `${SITE_URL}${p === '/' ? '' : p}`;
+
+// An article's date is when it was written; the library and its cluster change whenever the newest one appears.
+// Other pages carry the build date (every deploy re-publishes them).
+const articleDate = new Map(ARTICLES.map(a => [`/articles/${a.slug}`, new Date(a.date)]));
+const newestArticle = new Date(Math.max(...ARTICLES.map(a => +new Date(a.date))));
+
+// Images Google may show for a page in image search
+const IMAGES: Record<string, string[]> = {
+  '/books': BOOKS.map(b => b.cover.src),
+  ...Object.fromEntries(ARTICLES.filter(a => a.image).map(a => [`/articles/${a.slug}`, [a.image!]])),
+};
+
+function priority(p: string) {
+  if (p === '/') return 1;
+  if (MAIN.has(p)) return 0.9;
+  if (p === '/privacy-policy') return 0.2;
+  if (LANDINGS.has(p)) return 0.7; // designed sales pages
+  if (p.startsWith('/products/')) return 0.5;
+  return 0.8;
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = ['/', ...routes(), ...PRODUCTS.map(p => `/products/${p.slug}`), ...ARTICLES.map(a => `/articles/${a.slug}`)]
     .filter(p => !HELD_BACK.has(p));
-  const lastModified = new Date(); // the build date: every deploy re-publishes the list
-  return paths.map(p => ({
-    url: `${SITE_URL}${p === '/' ? '' : p}`,
-    lastModified,
-    changeFrequency: p === '/privacy-policy' ? 'yearly' : p.startsWith('/products/') ? 'monthly' : 'weekly',
-    priority: p === '/' ? 1 : MAIN.has(p) ? 0.9 : p.startsWith('/products/') ? 0.5 : p === '/privacy-policy' ? 0.2 : 0.8,
+  const built = new Date();
+  return [...new Set(paths)].map(p => ({
+    url: abs(p),
+    lastModified: articleDate.get(p) ?? (p === '/articles' ? newestArticle : built),
+    changeFrequency: p === '/privacy-policy' ? 'yearly' : p.startsWith('/products/') || articleDate.has(p) ? 'monthly' : 'weekly',
+    priority: priority(p),
+    ...(IMAGES[p] ? { images: IMAGES[p].map(abs) } : {}),
   }));
 }

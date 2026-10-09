@@ -7,9 +7,9 @@ import TriadLanding from '@/components/triad-landing/TriadLanding';
 import CamLanding from '@/components/cam-landing/CamLanding';
 import UiLanding from '@/components/ui-landing/UiLanding';
 import SfsLanding from '@/components/sfs-landing/SfsLanding';
-import { PRODUCTS, productBySlug } from '@/content/products';
+import { PRODUCTS, productBySlug, LANDING_SLUGS } from '@/content/products';
 
-const LANDINGS: Record<string, { page: () => React.ReactNode; metadata: Metadata }> = {
+const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.ReactNode; metadata: Metadata }> = {
   'self-esteem-triad': {
     page: TriadLanding,
     metadata: {
@@ -47,13 +47,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const p = productBySlug(slug);
   if (!p) return {};
-  return LANDINGS[slug]?.metadata ?? { title: `${p.title} — Remi Pearson`, description: p.text };
+  return LANDINGS[slug as (typeof LANDING_SLUGS)[number]]?.metadata ?? { title: `${p.title} — Remi Pearson`, description: p.text };
 }
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const p = productBySlug(slug);
   if (!p) notFound();
-  const Landing = LANDINGS[slug]?.page;
+  const Landing = LANDINGS[slug as (typeof LANDING_SLUGS)[number]]?.page;
   return Landing ? <Landing /> : <ProductPage product={p} />;
 }
