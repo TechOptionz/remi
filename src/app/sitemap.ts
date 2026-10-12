@@ -36,6 +36,7 @@ const newestArticle = new Date(Math.max(...ARTICLES.map(a => +new Date(a.date)))
 // Images Google may show for a page in image search
 const IMAGES: Record<string, string[]> = {
   '/books': BOOKS.map(b => b.cover.src),
+  ...Object.fromEntries(BOOKS.map(b => [`/books/${b.slug}`, [b.cover.src]])),
   ...Object.fromEntries(ARTICLES.filter(a => a.image).map(a => [`/articles/${a.slug}`, [a.image!]])),
 };
 
@@ -49,7 +50,7 @@ function priority(p: string) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = ['/', ...routes(), ...PRODUCTS.map(p => `/products/${p.slug}`), ...ARTICLES.map(a => `/articles/${a.slug}`)]
+  const paths = ['/', ...routes(), ...PRODUCTS.map(p => `/products/${p.slug}`), ...ARTICLES.map(a => `/articles/${a.slug}`), ...BOOKS.map(b => `/books/${b.slug}`)]
     .filter(p => !HELD_BACK.has(p));
   const built = new Date();
   return [...new Set(paths)].map(p => ({

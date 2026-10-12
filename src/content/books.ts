@@ -1,8 +1,10 @@
 // The books on /books, from Remi's "All three books sales copy and pricing" (Oct 2026; pricing may change). Copy is word
 // for word. Rashid supplies the online purchase links: set `buyHref` and the "Buy …" button goes live; until then the
 // card shows the price with "Buy link coming soon". `program` links the book to its online program in content/products.ts.
+// Each book also has its own designed page at /books/<slug> (app/books/[slug]/page.tsx, components/books/), from its mock-up.
 export type Book = {
   slug: string; title: string;
+  description: string;                              // the book page's search listing (written for search)
   badge?: string;                                   // e.g. "Bestseller", shown above the title
   tagline: string;                                  // the bold line under the byline
   text: string[];                                   // paragraphs before "Explore how to:" (*italic* marks the book's title)
@@ -19,6 +21,7 @@ export const BOOKS: Book[] = [
   {
     slug: 'disruptive-leadership', cover: { src: '/assets/books/disruptive-leadership.webp', width: 900, height: 1274 },
     title: 'Disruptive Leadership', badge: 'Bestseller',
+    description: 'Disruptive Leadership by Remi Pearson: the bestselling ebook on building a team that can think, take responsibility and achieve more, through the four dimensions of the Critical Alignment Model. AUD $14.95.',
     tagline: 'Build a team that can think, take responsibility and achieve more together.',
     text: [
       'When every decision comes back to you, every standard needs reminding and every problem becomes yours to solve, being the leader can feel suspiciously like doing everybody else’s job. You may have capable people around you, yet somehow the business still depends on how much you can personally carry.',
@@ -40,6 +43,7 @@ export const BOOKS: Book[] = [
   {
     slug: 'ultimate-you', cover: { src: '/assets/books/ultimate-you.webp', width: 900, height: 1317 },
     title: 'Ultimate You', badge: 'Bestseller',
+    description: 'Ultimate You by Remi Pearson: the bestselling ebook on the fear, people-pleasing, procrastination and self-doubt that keep you at a distance from the life you want. AUD $14.95.',
     tagline: 'What would become possible if you trusted that your life mattered too?',
     text: [
       'You can become very good at being who other people need you to be. You learn what earns approval, which feelings to keep quiet and how to accommodate everyone around you. Years can pass that way, until you begin to wonder where you went in the middle of it all.',
@@ -60,6 +64,7 @@ export const BOOKS: Book[] = [
   {
     slug: 'ultimate-you-quest', cover: { src: '/assets/books/ultimate-you-quest.webp', width: 900, height: 889, mockup: true },
     title: 'Ultimate You Quest Edition',
+    description: 'Ultimate You Quest Edition by Remi Pearson: an ebook of tools for exploring your feelings, needs, boundaries and fears, to know yourself beyond the roles you learned to play. AUD $24.95.',
     tagline: 'Get to know yourself beyond the roles you learned to play.',
     text: [
       'Perhaps you have already done quite a lot of personal development. You understand some of your patterns and can explain why you feel the way you do. Yet in an ordinary conversation, a difficult relationship or a moment when someone wants something from you, those familiar responses still take over.',
@@ -79,3 +84,5 @@ export const BOOKS: Book[] = [
     note: 'Electronic edition. No physical book will be shipped.',
   },
 ];
+
+export const bookBySlug = (slug: string) => BOOKS.find(b => b.slug === slug);

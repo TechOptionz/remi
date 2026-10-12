@@ -1,4 +1,5 @@
 // Site-wide content and settings. Edit copy, links and options here; components read from this file.
+import { BOOKS } from './books';
 import { GLANCE } from './ideas';
 
 /** The live address, used for the sitemap and canonical links. Set NEXT_PUBLIC_SITE_URL in Vercel if it differs. */
@@ -29,7 +30,10 @@ const IDEAS_CHAPTERS: NavItem[] = GLANCE.flatMap(g => g.cards
 export const ULTIMATE_SELF_CLUB_URL = 'https://www.ultimateselfclub.com';
 
 export const NAV: NavItem[] = [
-  { label: 'Books', href: '/books' },
+  { label: 'Books', href: '/books', children: [
+    { label: 'All books', href: '/books' },
+    ...BOOKS.map(b => ({ label: b.title, href: `/books/${b.slug}` })),
+  ] },
   { label: 'Articles', href: '/articles' },
   { label: 'Perspectives', href: '/perspectives' },
   { label: 'Ideas & Models', href: '/ideas-models', children: [

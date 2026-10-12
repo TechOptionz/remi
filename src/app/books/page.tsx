@@ -1,5 +1,6 @@
 // Books — the first tab in the header. Each book is a full-width card: its cover (BOOKS[].cover) on the left, Remi's sales copy, price and
-// purchase button on the right. Titles, copy, prices and purchase links live in content/books.ts.
+// purchase button on the right. The cover, the title and "About the book" open the book's own page (/books/<slug>, designed
+// from its mock-up). Titles, copy, prices and purchase links live in content/books.ts.
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Inline from '@/components/articles/Inline';
@@ -22,12 +23,13 @@ export default function BooksPage() {
         <div className="pr-grid pr-grid--books">
           {BOOKS.map((b, i) => (
             <article key={b.slug} id={b.slug} className={`pr-card pr-card--${(['black', 'burgundy', 'navy'] as const)[i % 3]} pr-book`} aria-labelledby={`${b.slug}-h`}>
-              <div className={`pr-book-cover${b.cover.mockup ? ' pr-book-cover--mockup' : ''}`}><img src={b.cover.src} alt={`${b.title} by Remi Pearson, the cover`} width={b.cover.width} height={b.cover.height} loading={i === 0 ? 'eager' : 'lazy'} decoding="async" /></div>
+              <Link href={`/books/${b.slug}`} className={`pr-book-cover${b.cover.mockup ? ' pr-book-cover--mockup' : ''}`} tabIndex={-1} aria-hidden="true"><img src={b.cover.src} alt={`${b.title} by Remi Pearson, the cover`} width={b.cover.width} height={b.cover.height} loading={i === 0 ? 'eager' : 'lazy'} decoding="async" /></Link>
               <div className="pr-book-body">
                 {b.badge && <p className="pr-kicker">{b.badge}</p>}
-                <h2 id={`${b.slug}-h`} className="pr-book-title">{b.title}</h2>
+                <h2 id={`${b.slug}-h`} className="pr-book-title"><Link href={`/books/${b.slug}`}>{b.title}</Link></h2>
                 <p className="pr-book-by">By Remi Pearson</p>
                 <p className="pr-book-tagline">{b.tagline}</p>
+                <Link href={`/books/${b.slug}`} className="pr-book-more">About the book <span aria-hidden="true">→</span></Link>
                 {b.text.map(t => <p key={t}><Inline text={t} /></p>)}
                 <p className="pr-book-explore">Explore how to:</p>
                 <ul className="pr-book-list">{b.explore.map(t => <li key={t}>{t}</li>)}</ul>

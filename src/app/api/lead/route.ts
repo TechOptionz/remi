@@ -14,6 +14,8 @@ const SUBJECTS: Record<Kind, string> = {
   waitlist: 'Rebel Yell waitlist',
   newsletter: 'Newsletter sign-up',
 };
+// A waitlist sign-up that names a product is a "tell me when it's ready" form (NotifyForm, TriadNotify), not Rebel Yell
+const NOTIFY_SUBJECT = 'Tell me when it’s ready';
 
 // What the person hears back, where a reply makes sense. Waitlist and newsletter confirm on screen only.
 const AUTO_REPLY: Partial<Record<Kind, { subject: string; body: string }>> = {
@@ -62,7 +64,7 @@ export async function POST(request: Request) {
   const type = kind as Kind;
   const who = data.name ?? data.firstName ?? email;
   const topic = data.interest ?? data.invitation ?? data.product ?? data.segment;
-  const subject = `${SUBJECTS[type]}${data.product ? ` — ${data.product}` : ''}${topic && !data.product ? ` — ${topic}` : ''} — ${oneLine(who).slice(0, 80)}`;
+  const subject = `${type === 'waitlist' && data.product ? NOTIFY_SUBJECT : SUBJECTS[type]}${data.product ? ` — ${data.product}` : ''}${topic && !data.product ? ` — ${topic}` : ''} — ${oneLine(who).slice(0, 80)}`;
 
   const rows = Object.entries(data);
   const { error } = await resend.emails.send({

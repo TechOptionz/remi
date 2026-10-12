@@ -177,6 +177,13 @@
 .pr-book-body .pr-btn, .pr-book-body .pr-soon { margin-top:0; }
 .pr-book-body > .pr-book-note { font-size:14px; opacity:.75; }
 .pr-book-program a { color:var(--pr-gold); text-decoration:underline; text-underline-offset:3px; }
+/* Each card opens its book's page (/books/<slug>): the cover, the title and "About the book" */
+a.pr-book-cover { display:block; transition:transform .25s ease; }
+a.pr-book-cover:hover { transform:translateY(-3px); }
+.pr-book-title a { color:inherit; }
+.pr-book-title a:hover { color:var(--pr-gold); }
+.pr-book-more { display:inline-flex; align-items:center; gap:10px; padding:11px 22px; border:1px solid var(--pr-gold); border-radius:999px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--pr-gold); transition:background .2s, color .2s; }
+.pr-book-more:hover { background:var(--pr-gold); color:#14100e; }
 @media (max-width:760px) {
   .pr-book { grid-template-columns:1fr; }
   .pr-book-cover { position:static; width:min(220px,60%); }

@@ -9,6 +9,8 @@ const nextConfig = {
       { source: '/index.html', destination: '/', permanent: true },
       // The Self-Esteem Triad product was 'Self-Esteem from the Inside Out' until its sales page arrived (Oct 2026)
       { source: '/products/self-esteem-from-the-inside-out', destination: '/products/self-esteem-triad', permanent: true },
+      { source: '/products/move-the-room', destination: '/products/selling-from-stage', permanent: true }, // replaced by Selling from Stage
+      { source: '/products/selling-something-intangible', destination: '/products#influence', permanent: true }, // removed
       { source: '/about-remi.html', destination: '/about-remi', permanent: true },
       { source: '/invite-remi.html', destination: '/invite-remi', permanent: true },
       { source: '/ideas-models.html', destination: '/ideas-models', permanent: true },
