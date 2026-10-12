@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { CATEGORIES, levelLine, priceLine, productHref, productsIn, type CategoryId } from '@/content/products';
+import { RANGE_DESIGNS } from '@/content/product-ranges';
+import DesignedRange from './DesignedRange';
 
 /** Columns for n cards in whole rows: an even split if there is one, otherwise the first card runs two columns wide. */
 const layout = (n: number) => {
@@ -9,8 +11,11 @@ const layout = (n: number) => {
 };
 
 /** A category's products as the mock-ups draw them: coloured cards, the bundle last and full width. Each card opens
- *  its own product page. Used on the rabbit-hole pages (`category` per page); `id` lets a button scroll to it. */
+ *  its own product page. Used on the rabbit-hole pages (`category` per page); `id` lets a button scroll to it.
+ *  A range with its own design (RANGE_DESIGNS, content/product-ranges.ts) is drawn by DesignedRange instead. */
 export default function ProductRange({ category, id = 'range', title }: { category: CategoryId; id?: string; title?: React.ReactNode }) {
+  const design = RANGE_DESIGNS[category];
+  if (design) return <DesignedRange category={category} id={id} design={design} />;
   const c = CATEGORIES[category];
   const list = productsIn(category);
   const { cols, wide } = layout(list.filter(p => !p.bundle).length);
