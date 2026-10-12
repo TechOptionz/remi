@@ -1,0 +1,62 @@
+/* ============ Reader engagement, in place of public comments (articles and Perspectives) ============ */
+/* "Was this helpful?" (shared/Helpful), share links (shared/ShareLinks), the private question form (shared/AskRemi).
+   On the articles the accent is the library's fixed rust; on Perspectives it follows the site palette. */
+.rf-row, .rf-ask, .rf-top { --rf-accent:var(--accent); --rf-on:var(--on-accent, #fbf1e3); --rf-line:rgba(var(--ink-rgb, 34,27,23),.2); --rf-field:rgba(var(--ink-rgb, 34,27,23),.04); }
+.pr-article .rf-row, .pr-article .rf-ask, .pr-article .rf-top { --rf-accent:#9a3d1a; --rf-on:#fbf1e3; --rf-line:var(--pr-line); --rf-field:rgba(255,255,255,.55); }
+.rf-row { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:24px 48px; margin-top:clamp(36px,4vw,56px); padding-top:24px; border-top:1px solid var(--rf-line); }
+.rf-helpful-q, .rf-share-label { margin:0 0 12px; font-size:13px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+.rf-helpful-btns, .rf-share-btns { display:flex; flex-wrap:wrap; gap:10px; }
+.rf-helpful-btns button, .rf-share-btns button, .rf-share-btns a { display:inline-flex; align-items:center; gap:8px; padding:9px 18px; border:1px solid var(--rf-accent); border-radius:999px; background:transparent; color:var(--rf-accent); font:600 14px/1.2 var(--sans); cursor:pointer; transition:background .2s, color .2s; }
+.rf-helpful-btns button:hover, .rf-share-btns button:hover, .rf-share-btns a:hover { background:var(--rf-accent); color:var(--rf-on); }
+.rf-helpful-btns button:first-child { background:var(--rf-accent); color:var(--rf-on); }
+.rf-helpful-btns button:first-child:hover { filter:brightness(1.1); }
+.rf-helpful-thanks { margin:0; max-width:28em; font-size:15.5px; line-height:1.5; }
+.rf-helpful-count { margin:12px 0 0; font-size:14px; font-weight:600; color:var(--rf-accent); }
+.rf-share { min-width:0; }
+/* share: round icon buttons */
+.rf-share-btns button, .rf-share-btns a { justify-content:center; width:42px; height:42px; padding:0; }
+.rf-share-btns .is-done { background:var(--rf-accent); color:var(--rf-on); }
+
+.rf-ask { margin-top:clamp(32px,4vw,48px); padding:clamp(24px,3vw,40px); border:1px solid var(--rf-line); border-radius:4px; }
+.rf-wrap { max-width:calc(1152px + 2 * var(--gutter)); }
+.rf-wrap .rf-ask { margin-block:clamp(40px,5vw,72px); }
+.rf-ask-h { margin:0 0 10px; font-family:var(--serif); font-weight:400; font-size:clamp(26px,2.8vw,36px); line-height:1.1; }
+.rf-ask-lede { margin:0 0 20px; max-width:42em; font-size:16px; line-height:1.55; opacity:.88; }
+.rf-ask-form { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px 18px; }
+.rf-ask-form label { display:flex; flex-direction:column; gap:6px; font-size:14px; font-weight:600; }
+.rf-ask-form label em { font-style:normal; font-weight:400; opacity:.7; }
+.rf-ask-wide { grid-column:1 / -1; }
+.rf-ask-form input, .rf-ask-form textarea, .rf-ask-form select { width:100%; padding:11px 13px; border:1px solid var(--rf-line); border-radius:3px; background:var(--rf-field); color:inherit; font:400 15.5px/1.45 var(--sans); }
+.rf-ask-form textarea { resize:vertical; min-height:110px; }
+.rf-ask-form input:focus, .rf-ask-form textarea:focus, .rf-ask-form select:focus { outline:2px solid var(--rf-accent); outline-offset:1px; }
+.rf-ask-form button { justify-self:start; padding:13px 26px; border:0; border-radius:2px; background:var(--rf-accent); color:var(--rf-on); font:600 13.5px/1.2 var(--sans); letter-spacing:.1em; text-transform:uppercase; cursor:pointer; }
+.rf-ask-form button:disabled { opacity:.6; cursor:default; }
+.rf-ask-thanks { margin:0; font-size:16px; }
+.rf-hp { position:absolute !important; left:-9999px; width:1px; height:1px; overflow:hidden; }
+.pr-article .rf-seg { margin-block:clamp(36px,4vw,56px) 0; }
+/* Share drop-down beside the breadcrumbs */
+.rf-top { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
+.rf-top .crumbs { flex:1 1 auto; min-width:0; }
+.rf-menu { position:relative; flex:none; z-index:20; }
+.rf-top-side { flex:none; display:flex; flex-direction:column; align-items:flex-end; gap:8px; }
+.rf-helpful-count--top { margin:0; font-size:12.5px; white-space:nowrap; }
+.rf-menu-btn { display:inline-flex; align-items:center; gap:8px; padding:7px 14px; border:1px solid var(--rf-accent); border-radius:999px; background:transparent; color:var(--rf-accent); font:600 13px/1.2 var(--sans); cursor:pointer; transition:background .2s, color .2s; }
+.rf-menu-btn:hover, .rf-menu-btn[aria-expanded="true"] { background:var(--rf-accent); color:var(--rf-on); }
+.rf-menu-caret { width:6px; height:6px; margin:-3px 0 0 2px; border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor; transform:rotate(45deg); transition:transform .2s; }
+.rf-menu-btn[aria-expanded="true"] .rf-menu-caret { margin-top:3px; transform:rotate(-135deg); }
+.rf-menu-list { position:absolute; right:0; top:calc(100% + 8px); min-width:200px; margin:0; padding:6px; list-style:none; background:#fffaf2; color:#221b17; border:1px solid var(--rf-line); border-radius:8px; box-shadow:0 14px 36px -12px rgba(34,27,23,.35); }
+.rf-menu-list[hidden] { display:none; }
+.rf-menu-list button, .rf-menu-list a { display:flex; align-items:center; gap:12px; width:100%; padding:10px 12px; border:0; border-radius:5px; background:none; color:inherit; font:500 14.5px/1.2 var(--sans); text-align:left; cursor:pointer; }
+.rf-menu-list button:hover, .rf-menu-list a:hover, .rf-menu-list button:focus-visible, .rf-menu-list a:focus-visible { background:rgba(154,61,26,.08); color:var(--rf-accent); }
+.rf-menu-list svg { flex:none; color:var(--rf-accent); }
+
+@media (max-width:600px) {
+  .rf-ask-form { grid-template-columns:1fr; }
+  .rf-ask-form button { justify-self:stretch; }
+}
+
+/* /stats (private) */
+.rf-stats .pr-table { margin-top:24px; max-width:none; }
+.rf-stats table { width:100%; }
+.rf-stats td { font-variant-numeric:tabular-nums; }
+.rf-stats th a { color:inherit; text-decoration:underline; text-underline-offset:3px; }

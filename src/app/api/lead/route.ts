@@ -5,7 +5,7 @@ import { Resend } from 'resend';
 
 export const runtime = 'nodejs';
 
-const KINDS = ['enquiry', 'invitation', 'waitlist', 'newsletter'] as const;
+const KINDS = ['enquiry', 'invitation', 'waitlist', 'newsletter', 'feedback'] as const;
 type Kind = (typeof KINDS)[number];
 
 const SUBJECTS: Record<Kind, string> = {
@@ -13,6 +13,7 @@ const SUBJECTS: Record<Kind, string> = {
   invitation: 'New invitation',
   waitlist: 'Rebel Yell waitlist',
   newsletter: 'Newsletter sign-up',
+  feedback: 'Reader feedback', // "Was this helpful?" and the private question forms on articles and Perspectives
 };
 // A waitlist sign-up that names a product is a "tell me when it's ready" form (NotifyForm, TriadNotify), not Rebel Yell
 const NOTIFY_SUBJECT = 'Tell me when it’s ready';
@@ -29,6 +30,7 @@ function topicOf(type: Kind, d: Record<string, string>) {
     case 'invitation': return d.invitation || page;
     case 'waitlist': return d.product; // Rebel Yell's own form names no product: its subject already says Rebel Yell
     case 'newsletter': return (d.segment && `${SEGMENT_NAMES[d.segment]} list`) || d.topic || page;
+    case 'feedback': return [d.about || page, d.helpful && `Helpful: ${d.helpful}`].filter(Boolean).join(' — ');
   }
 }
 
@@ -41,7 +43,7 @@ const AUTO_REPLY: Partial<Record<Kind, { subject: string; body: string }>> = {
 const LABELS: Record<string, string> = {
   firstName: 'First name', why_now: 'Why now', when: 'Date, location or online', audience: 'Who will be in the room',
   explore: 'What to explore', fit: 'Why the right fit', stuck: 'Where the organisation is stuck', attempted: 'Already attempted',
-  who: 'Who needs to be involved', about: 'About', segment: 'List', page: 'Sent from', url: 'Page address',
+  who: 'Who needs to be involved', about: 'About', helpful: 'Was it helpful?', message: 'Question or feedback', segment: 'List', page: 'Sent from', url: 'Page address',
 };
 const label = (key: string) => LABELS[key] ?? key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, ' ');
 
@@ -66,9 +68,14 @@ export async function POST(request: Request) {
   for (const [key, value] of Object.entries(fields).slice(0, 30)) {
     if (typeof value === 'string' && value.trim()) data[key.slice(0, 40)] = value.trim().slice(0, 5000);
   }
+  // Hidden field only a bot fills in: pretend it went through and send nothing
+  if (data.fax) return json({ ok: true });
   if (data.segment && !SEGMENTS.includes(data.segment)) delete data.segment;
   const email = data.email ?? '';
-  if (!EMAIL.test(email) || email.length > 254) return json({ error: 'Please enter a valid email address.' }, 400);
+  // Feedback may be anonymous; everything else needs an address to reply to
+  const anonymous = kind === 'feedback' && !email;
+  if (!anonymous && (!EMAIL.test(email) || email.length > 254)) return json({ error: 'Please enter a valid email address.' }, 400);
+  if (kind === 'feedback' && !data.helpful && !data.message) return json({ error: 'Please write your question or feedback.' }, 400);
 
   const { RESEND_API_KEY, RESEND_FROM, RESEND_TO, RESEND_SEGMENT_ID } = process.env;
   if (!RESEND_API_KEY || !RESEND_FROM || !RESEND_TO) {
@@ -77,16 +84,17 @@ export async function POST(request: Request) {
   }
   const resend = new Resend(RESEND_API_KEY);
   const type = kind as Kind;
-  const who = data.name ?? data.firstName ?? email;
+  const who = data.name ?? data.firstName ?? (email || (data.helpful ? '' : 'anonymous'));
   const topic = topicOf(type, data);
-  const subject = [type === 'waitlist' && data.product ? NOTIFY_SUBJECT : SUBJECTS[type], topic && oneLine(topic).slice(0, 120), oneLine(who).slice(0, 80)]
+  const heading = type === 'waitlist' && data.product ? NOTIFY_SUBJECT : type === 'feedback' && data.message ? 'Reader question' : SUBJECTS[type];
+  const subject = [heading, topic && oneLine(topic).slice(0, 120), oneLine(who).slice(0, 80)]
     .filter(Boolean).join(' — ');
 
   const rows = Object.entries(data);
   const { error } = await resend.emails.send({
     from: RESEND_FROM,
     to: RESEND_TO.split(',').map(s => s.trim()).filter(Boolean),
-    replyTo: email,
+    ...(email ? { replyTo: email } : {}),
     subject,
     html: `<table style="font-family:sans-serif;font-size:15px;border-collapse:collapse">${rows.map(([k, v]) =>
       `<tr><td style="padding:6px 16px 6px 0;vertical-align:top;color:#666">${esc(label(k))}</td><td style="padding:6px 0;white-space:pre-wrap">${esc(v)}</td></tr>`).join('')}</table>`,
