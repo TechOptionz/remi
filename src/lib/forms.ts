@@ -43,7 +43,10 @@ export function usePresetSelect(ref: RefObject<HTMLSelectElement | null>, param:
  * Resolves to an error message to show the visitor, or null when it went through.
  */
 export async function submitLead(kind: 'enquiry' | 'invitation' | 'waitlist' | 'newsletter', form: HTMLFormElement): Promise<string | null> {
-  const fields = Object.fromEntries([...new FormData(form)].filter(([, v]) => typeof v === 'string'));
+  const fields: Record<string, string> = Object.fromEntries([...new FormData(form)].filter((e): e is [string, string] => typeof e[1] === 'string'));
+  // Every sign-up says where it came from, so a form without its own topic (the footer newsletter) is named after its page
+  fields.page ??= window.location.pathname === '/' ? 'Home' : document.title.replace(/\s+—\s+Remi Pearson$/, '').trim() || window.location.pathname;
+  fields.url ??= window.location.pathname;
   try {
     const res = await fetch('/api/lead', {
       method: 'POST',

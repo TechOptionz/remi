@@ -16,6 +16,21 @@ const SUBJECTS: Record<Kind, string> = {
 };
 // A waitlist sign-up that names a product is a "tell me when it's ready" form (NotifyForm, TriadNotify), not Rebel Yell
 const NOTIFY_SUBJECT = 'Tell me when it’s ready';
+const SEGMENT_NAMES: Record<string, string> = {
+  leadership: 'Leadership', business: 'Business', 'personal-development': 'Personal development',
+  'consultative-sales': 'Consultative sales', relationships: 'Relationships',
+};
+
+/** What this sign-up is about, from the form's own fields: its product, list, interest or invitation, else the page it was on. */
+function topicOf(type: Kind, d: Record<string, string>) {
+  const page = d.page ? `${d.page} page` : undefined;
+  switch (type) {
+    case 'enquiry': return [d.interest, d.about].filter(Boolean).join(': ') || page;
+    case 'invitation': return d.invitation || page;
+    case 'waitlist': return d.product; // Rebel Yell's own form names no product: its subject already says Rebel Yell
+    case 'newsletter': return (d.segment && `${SEGMENT_NAMES[d.segment]} list`) || d.topic || page;
+  }
+}
 
 // What the person hears back, where a reply makes sense. Waitlist and newsletter confirm on screen only.
 const AUTO_REPLY: Partial<Record<Kind, { subject: string; body: string }>> = {
@@ -26,7 +41,7 @@ const AUTO_REPLY: Partial<Record<Kind, { subject: string; body: string }>> = {
 const LABELS: Record<string, string> = {
   firstName: 'First name', why_now: 'Why now', when: 'Date, location or online', audience: 'Who will be in the room',
   explore: 'What to explore', fit: 'Why the right fit', stuck: 'Where the organisation is stuck', attempted: 'Already attempted',
-  who: 'Who needs to be involved', about: 'About', segment: 'List',
+  who: 'Who needs to be involved', about: 'About', segment: 'List', page: 'Sent from', url: 'Page address',
 };
 const label = (key: string) => LABELS[key] ?? key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, ' ');
 
@@ -63,8 +78,9 @@ export async function POST(request: Request) {
   const resend = new Resend(RESEND_API_KEY);
   const type = kind as Kind;
   const who = data.name ?? data.firstName ?? email;
-  const topic = data.interest ?? data.invitation ?? data.product ?? data.segment;
-  const subject = `${type === 'waitlist' && data.product ? NOTIFY_SUBJECT : SUBJECTS[type]}${data.product ? ` — ${data.product}` : ''}${topic && !data.product ? ` — ${topic}` : ''} — ${oneLine(who).slice(0, 80)}`;
+  const topic = topicOf(type, data);
+  const subject = [type === 'waitlist' && data.product ? NOTIFY_SUBJECT : SUBJECTS[type], topic && oneLine(topic).slice(0, 120), oneLine(who).slice(0, 80)]
+    .filter(Boolean).join(' — ');
 
   const rows = Object.entries(data);
   const { error } = await resend.emails.send({
