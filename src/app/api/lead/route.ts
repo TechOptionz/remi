@@ -1,5 +1,5 @@
 // Every form on the site posts here (via submitLead in src/lib/forms.ts). Sends the team a notification through
-// Resend, replies to enquiries / invitations, and adds newsletter and "tell me when it's ready" sign-ups as contacts.
+// Resend, replies to enquiries / invitations, and adds sign-ups and invitations as contacts, sorted into segments.
 // Env: RESEND_API_KEY, RESEND_FROM ("Remi Pearson <hello@domain>"), RESEND_TO (comma-separated), RESEND_SEGMENT_ID (optional).
 import { Resend } from 'resend';
 
@@ -49,9 +49,36 @@ const label = (key: string) => LABELS[key] ?? key.charAt(0).toUpperCase() + key.
 
 const esc = (s: string) => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 const oneLine = (s: string) => s.replace(/[\r\n]+/g, ' ').trim();
-// The lists a topic page's sign-up can join (content/products.ts SEGMENTS). Each can have its own Resend segment:
-// RESEND_SEGMENT_ID_LEADERSHIP, _BUSINESS, _PERSONAL_DEVELOPMENT, _CONSULTATIVE_SALES, _RELATIONSHIPS.
+// The lists a topic page's sign-up can join (content/products.ts SEGMENTS).
 const SEGMENTS = ['leadership', 'business', 'personal-development', 'consultative-sales', 'relationships'];
+
+// Resend segments, so the contacts list can be filtered by what each person signed up for. Each key's segment is found
+// in Resend by its name and created there the first time someone joins it, so nothing has to be set up by hand;
+// RESEND_SEGMENT_ID_<KEY> (e.g. RESEND_SEGMENT_ID_THE_SHIFT) pins a key to an existing segment instead.
+// Invitations and the Rebel Yell waitlist join their own segment only, never the general RESEND_SEGMENT_ID list.
+const LISTS: Record<string, string> = {
+  ...SEGMENT_NAMES, invitation: 'Invite Remi', 'rebel-yell': 'Waitlist — Rebel Yell',
+  'the-shift': 'Waitlist — The Shift', 'selling-from-stage': 'Waitlist — Selling from Stage',
+};
+// "Tell me when it's ready" products with a waitlist segment of their own (by the `product` their form sends)
+const PRODUCT_LISTS: Record<string, string> = { 'The Shift': 'the-shift', 'Selling from Stage': 'selling-from-stage' };
+
+const segmentIds = new Map<string, string>(); // name → id, kept while the function instance is warm
+async function segmentId(resend: Resend, key: string) {
+  const pinned = process.env[`RESEND_SEGMENT_ID_${key.toUpperCase().replace(/-/g, '_')}`];
+  if (pinned) return pinned;
+  const name = LISTS[key];
+  if (!segmentIds.has(name)) {
+    const { data } = await resend.segments.list({ limit: 100 });
+    for (const s of data?.data ?? []) segmentIds.set(s.name, s.id);
+  }
+  if (!segmentIds.has(name)) {
+    const { data, error } = await resend.segments.create({ name });
+    if (error || !data) { console.error('Resend segment could not be created', name, error); return undefined; }
+    segmentIds.set(name, data.id);
+  }
+  return segmentIds.get(name);
+}
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const json = (body: object, status = 200) => Response.json(body, { status });
@@ -116,15 +143,28 @@ export async function POST(request: Request) {
     });
     if (sent.error) console.error('Resend auto-reply failed', sent.error);
   }
-  // Newsletter and "tell me when it's ready" sign-ups join the contacts; the confidential Rebel Yell waitlist does not
-  if (type === 'newsletter' || (type === 'waitlist' && data.product)) {
-    const own = data.segment ? process.env[`RESEND_SEGMENT_ID_${data.segment.toUpperCase().replace(/-/g, '_')}`] : undefined;
-    const segmentIds = [...new Set([RESEND_SEGMENT_ID, own].filter((id): id is string => !!id))];
+  // Sign-ups and invitations join the contacts, each in the segments for what it was about (enquiries and feedback do not).
+  // Newsletter and "tell me when it's ready" sign-ups also join the general list; invitations and Rebel Yell do not.
+  const rebelYell = type === 'waitlist' && !data.product;
+  const keys = type === 'invitation' ? ['invitation']
+    : rebelYell ? ['rebel-yell']
+    : type === 'newsletter' || type === 'waitlist' ? [data.segment, data.product && PRODUCT_LISTS[data.product]] : [];
+  if (keys.length) {
+    // One call at a time: Resend allows only a few requests a second
+    const ids = type === 'invitation' || rebelYell ? [] : [RESEND_SEGMENT_ID];
+    for (const key of keys) if (key) ids.push(await segmentId(resend, key));
+    const segments = [...new Set(ids.filter((id): id is string => !!id))];
+    const [firstName, ...rest] = oneLine(data.firstName ?? data.name ?? '').split(' ');
     const added = await resend.contacts.create({
-      email, firstName: data.firstName || undefined,
-      ...(segmentIds.length ? { segments: segmentIds.map(id => ({ id })) } : {}),
+      email, firstName: firstName || undefined, lastName: (!data.firstName && rest.join(' ')) || undefined,
+      ...(segments.length ? { segments: segments.map(id => ({ id })) } : {}),
     });
-    if (added.error) console.error('Resend contact failed', added.error);
+    // Someone already in the contacts (e.g. a newsletter reader now joining a waitlist): add them to the new segments
+    if (added.error) {
+      let failed;
+      for (const segmentId of segments) failed = (await resend.contacts.segments.add({ email, segmentId })).error ?? failed;
+      if (failed || !segments.length) console.error('Resend contact failed', added.error, failed);
+    }
   }
 
   return json({ ok: true });
