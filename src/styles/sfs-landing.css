@@ -57,6 +57,10 @@
 .sfs-close-action .pr-notify { max-width:none; }
 .sfs-tagline { margin:clamp(28px,3.4vw,44px) 0 0; padding-top:18px; border-top:1px solid rgba(251,241,227,.35); font-family:var(--serif); font-size:clamp(20px,2.2vw,30px); text-align:center; }
 
+/* No gaps: the shared rules are in cam-landing.css; here the tall photos stay anchored at the top (faces) */
+.sfs-who + .sfs-pull { margin-top:0; }
+@media (min-width:861px) { .cml .stl-split > .sfs-photo-tall { object-position:50% 0; } }
+
 @media (max-width:860px) {
   .sfs-photo-tall { width:100%; max-width:440px; height:auto; max-height:none; aspect-ratio:4 / 5; object-fit:cover; object-position:50% 0; }
   .sfs-who, .sfs-close-grid { grid-template-columns:1fr; }
