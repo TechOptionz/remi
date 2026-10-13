@@ -2,6 +2,7 @@
 // Each page is drawn from its own mock-up (DlBook, UyBook, UyqBook); art cut from the mock-ups lives in public/assets/books.
 import Link from 'next/link';
 import { BOOKS, type Book } from '@/content/books';
+import { onSale } from '@/lib/book-sales';
 
 export const bookArt = (name: string) => `/assets/books/${name}.webp`;
 
@@ -18,12 +19,20 @@ export function BookCrumbs({ title }: { title: string }) {
   );
 }
 
-/** The purchase button once the book has a `buyHref`; until then the same shape says "Buy link coming soon". */
+/** The purchase button: Stripe Checkout once the book is on sale (lib/book-sales.ts), or its outside `buyHref`;
+ *  until then the same shape says "Buy link coming soon". */
 export function BuyButton({ b, className, arrow }: { b: Book; className: string; arrow?: boolean }) {
   const tail = arrow && <span className="bkp-arrow" aria-hidden="true">⟶</span>;
-  return b.buyHref
-    ? <a href={b.buyHref} className={className} target="_blank" rel="noopener noreferrer">{b.buyLabel}{tail}</a>
-    : <p className={`${className} is-soon`}>Buy link coming soon{tail}</p>;
+  if (b.buyHref) return <a href={b.buyHref} className={className} target="_blank" rel="noopener noreferrer">{b.buyLabel}{tail}</a>;
+  if (onSale(b)) {
+    return (
+      <form action="/api/books/checkout" method="post" className="bk-buy">
+        <input type="hidden" name="book" value={b.slug} />
+        <button type="submit" className={className}>{b.buyLabel}{tail}</button>
+      </form>
+    );
+  }
+  return <p className={`${className} is-soon`}>Buy link coming soon{tail}</p>;
 }
 
 /** "More books by Remi": the other two covers, each opening its own page. */

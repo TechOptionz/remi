@@ -66,7 +66,7 @@
 .dlb-band-buy { display:flex; flex-direction:column; align-items:flex-start; gap:clamp(14px,1.6vw,20px); }
 .dlb-band-price { font-family:var(--serif); font-size:clamp(30px,3.4vw,44px); line-height:1.05; -webkit-text-stroke:.012em currentColor; }
 .dlb-band-btn { display:inline-block; padding:16px clamp(24px,3vw,40px); border:1.5px solid rgba(251,241,227,.85); border-radius:999px; font-size:clamp(13px,1.2vw,15px); font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--bkp-cream); transition:background .2s, color .2s; }
-a.dlb-band-btn:hover { background:var(--bkp-cream); color:var(--rust); }
+:is(a, button).dlb-band-btn:hover { background:var(--bkp-cream); color:var(--rust); }
 .dlb-band-more { display:flex; flex-direction:column; gap:clamp(14px,1.8vw,22px); padding-left:clamp(20px,3vw,40px); border-left:1px solid rgba(240,196,120,.6); }
 .dlb-band-note { font-size:clamp(14.5px,1.25vw,16px); opacity:.92; }
 .dlb-band-program a { font-size:clamp(15.5px,1.4vw,18px); line-height:1.45; color:#f0c478; text-decoration:underline; text-underline-offset:4px; }
@@ -124,7 +124,7 @@ a.dlb-band-btn:hover { background:var(--bkp-cream); color:var(--rust); }
 .uyb-price { font-family:var(--serif); font-size:clamp(38px,4.8vw,64px); line-height:1; -webkit-text-stroke:.012em currentColor; }
 .uyb-price strong { font-weight:400; color:var(--bkp-gold-ink); }
 .uyb-btn { display:inline-block; min-width:min(400px,100%); padding:15px 32px; border-radius:2px; background:var(--hm-grain), var(--rust); background-color:var(--rust); font-family:var(--serif); font-size:clamp(16px,1.5vw,20px); letter-spacing:.18em; text-transform:uppercase; color:var(--bkp-cream); transition:filter .2s, transform .2s; }
-a.uyb-btn:hover { filter:brightness(1.1); transform:translateY(-1px); color:#fff; }
+:is(a, button).uyb-btn:hover { filter:brightness(1.1); transform:translateY(-1px); color:#fff; }
 .uyb-note { font-size:14.5px; opacity:.85; }
 
 @media (max-width:860px) {
@@ -182,7 +182,7 @@ a.uyb-btn:hover { filter:brightness(1.1); transform:translateY(-1px); color:#fff
 .uyq-band-inner { position:relative; display:flex; flex-direction:column; align-items:center; gap:clamp(16px,1.8vw,22px); }
 .uyq-price { font-family:var(--serif); font-size:clamp(40px,5vw,66px); line-height:1; color:#f9e3c4; -webkit-text-stroke:.01em currentColor; }
 .uyq-btn { display:inline-flex; align-items:center; justify-content:center; min-width:min(440px,100%); padding:16px 32px; border:1.5px solid rgba(251,241,227,.9); border-radius:4px; font-size:clamp(16px,1.6vw,22px); font-weight:500; letter-spacing:.06em; text-transform:uppercase; color:var(--bkp-cream); transition:background .2s, color .2s; }
-a.uyq-btn:hover { background:var(--bkp-cream); color:var(--uyq-rust); }
+:is(a, button).uyq-btn:hover { background:var(--bkp-cream); color:var(--uyq-rust); }
 .uyq-note { font-size:clamp(14.5px,1.3vw,17px); opacity:.92; }
 
 @media (max-width:1400px) { .uyq-trail--tl, .uyq-trail--tr, .uyq-trail--ml, .uyq-trail--mr { display:none; } }
@@ -199,3 +199,8 @@ a.uyq-btn:hover { background:var(--bkp-cream); color:var(--uyq-rust); }
   .uyq-btn { align-self:stretch; min-width:0; padding-inline:16px; }
   .uyq-band-hills { height:42%; }
 }
+
+/* Buy buttons that open Stripe Checkout are a form with a <button> (components/books/ui.tsx BuyButton); the button keeps
+   its link styling, :where() so each button class still wins */
+.bk-buy { display:contents; }
+:where(.bk-buy) button { font:inherit; border:0; background:none; cursor:pointer; text-align:inherit; }

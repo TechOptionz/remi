@@ -23,7 +23,7 @@ function routes(dir = '', out: string[] = []) {
 
 // Pages with nothing on them yet stay out until they have content (they are noindex meanwhile)
 // /stats is the team's private reader-stats page (noindex, behind STATS_KEY)
-const HELD_BACK = new Set(['/stats', ...(REVIEWS.length ? [] : ['/reviews'])]);
+const HELD_BACK = new Set(['/stats', '/books/thank-you', ...(REVIEWS.length ? [] : ['/reviews'])]);
 const MAIN = new Set(NAV.map(n => n.href));
 
 const LANDINGS = new Set<string>(LANDING_SLUGS.map(s => `/products/${s}`));

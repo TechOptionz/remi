@@ -4,7 +4,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Inline from '@/components/articles/Inline';
+import { BuyButton } from '@/components/books/ui';
 import { BOOKS } from '@/content/books';
+import { onSale } from '@/lib/book-sales';
 
 export const metadata: Metadata = {
   title: 'Books — Remi Pearson',
@@ -35,8 +37,8 @@ export default function BooksPage() {
                 <ul className="pr-book-list">{b.explore.map(t => <li key={t}>{t}</li>)}</ul>
                 <p>{b.closing}</p>
                 <p className="pr-price pr-book-price">{b.format} · {b.price}</p>
-                {b.buyHref
-                  ? <a href={b.buyHref} className="pr-btn" target="_blank" rel="noopener noreferrer">{b.buyLabel}</a>
+                {b.buyHref || onSale(b)
+                  ? <BuyButton b={b} className="pr-btn" />
                   : <p className="pr-soon"><span>Buy link coming soon</span></p>}
                 <p className="pr-book-note"><em>{b.note}</em></p>
                 {b.program && <p className="pr-book-program"><Link href={b.program.href}>{b.program.label}</Link></p>}

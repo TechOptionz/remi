@@ -1,6 +1,7 @@
 // The books on /books, from Remi's "All three books sales copy and pricing" (Oct 2026; pricing may change). Copy is word
-// for word. Rashid supplies the online purchase links: set `buyHref` and the "Buy …" button goes live; until then the
-// card shows the price with "Buy link coming soon". `program` links the book to its online program in content/products.ts.
+// for word. The ebooks are sold through Stripe Checkout (lib/book-sales.ts): a book with `files` gets a live "Buy …"
+// button once STRIPE_SECRET_KEY is set, charging its `price`; `buyHref` instead sends the button to an outside shop. Until
+// then the card shows the price with "Buy link coming soon". `program` links the book to its online program in content/products.ts.
 // Each book also has its own designed page at /books/<slug> (app/books/[slug]/page.tsx, components/books/), from its mock-up.
 export type Book = {
   slug: string; title: string;
@@ -12,6 +13,7 @@ export type Book = {
   closing: string;                                  // the paragraph after the list
   format: string; price: string;                    // "Ebook", "AUD $14.95"
   buyLabel: string; buyHref?: string;               // the purchase button
+  files?: ('pdf' | 'epub')[];                       // the ebook files sold through Stripe (lib/book-sales.ts), kept privately in Vercel Blob as books/<slug>.<format>
   note: string;                                     // the line under the button
   program?: { label: string; href: string };        // the online program built on the book
   cover: { src: string; width: number; height: number; mockup?: boolean }; // public/assets/books; `mockup`: a 3D shot on transparency, shown unframed
@@ -36,7 +38,7 @@ export const BOOKS: Book[] = [
       'Challenge familiar ways of working that are limiting what your team can achieve.',
     ],
     closing: 'Written for business owners, leaders, managers and people ready to step into leadership, this book draws on the thinking Remi used to build The Coaching Institute. It offers a way to approach leadership with greater clarity, so your team has the conditions to contribute more fully.',
-    format: 'Ebook', price: 'AUD $14.95', buyLabel: 'Buy Disruptive Leadership — $14.95 AUD',
+    format: 'Ebook', price: 'AUD $14.95', buyLabel: 'Buy Disruptive Leadership — $14.95 AUD', files: ['pdf'],
     note: 'Electronic edition. No physical book will be shipped.',
     program: { label: 'Click here to be taken to the online program, Disruptive Leadership', href: '/ideas-models/disruptive-leadership' },
   },
@@ -58,7 +60,7 @@ export const BOOKS: Book[] = [
       'Begin creating a life you can cherish, with more room for who you actually are.',
     ],
     closing: 'You do not need to have yourself figured out before opening this book. Come with the questions you have, the uncertainty you feel and the possibility that the quiet wish for something different deserves your attention.',
-    format: 'Ebook', price: 'AUD $14.95', buyLabel: 'Buy Ultimate You — $14.95 AUD',
+    format: 'Ebook', price: 'AUD $14.95', buyLabel: 'Buy Ultimate You — $14.95 AUD', files: ['pdf'],
     note: 'Electronic edition. No physical book will be shipped.',
   },
   {
@@ -80,7 +82,7 @@ export const BOOKS: Book[] = [
       'Make more room for joy, connection and your own experience of being alive.',
     ],
     closing: 'For readers ready to explore themselves more deeply, the Quest Edition offers a personal journey through the questions that shape self-trust and relationships. Take your time with it. Your experience deserves more than being hurried past.',
-    format: 'Ebook', price: 'AUD $24.95', buyLabel: 'Buy Ultimate You Quest Edition — $24.95 AUD',
+    format: 'Ebook', price: 'AUD $24.95', buyLabel: 'Buy Ultimate You Quest Edition — $24.95 AUD', files: ['pdf'],
     note: 'Electronic edition. No physical book will be shipped.',
   },
 ];
