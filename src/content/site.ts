@@ -91,7 +91,7 @@ export const HERO_COPY = {
   titleEm: 'lead.',
   lede: "I'm Remi. I'm fascinated by why intelligent, self-aware humans get stuck — and how truth can set us free.",
   primaryCta: { label: 'Show me where to start', href: '#rabbit-holes' },
-  videoCta: 'Watch perspectives',
+  videoCta: { label: 'Watch perspectives', href: '/perspectives' },
   portrait: { src: '/assets/photos/cta-remi.webp', alt: 'Remi Pearson speaking' },
   photo: { src: '/assets/photos/remi-pink-jacket.webp', alt: 'Remi Pearson smiling' },
 };

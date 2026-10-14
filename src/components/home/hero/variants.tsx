@@ -1,18 +1,15 @@
 'use client';
 
 // The home hero layouts. Hero.tsx renders the one picked in the Variants menu.
-// `onWatch` opens the video modal (C2/C3 open their own picture-in-picture player instead).
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { HERO_COPY } from '@/content/site';
 import Icon from '@/components/shared/Icon';
 import SocialLinks from '@/components/shared/SocialLinks';
-import { Buttons, Eyebrow, Lede, Title, VIMEO, VimeoFrame } from './parts';
-
-type Props = { onWatch: () => void };
+import { Buttons, Eyebrow, Lede, Title, VIMEO, VimeoFrame, WatchLink } from './parts';
 
 // E · Let truth lead — text left, photo right
-export function HeroE({ onWatch }: Props) {
+export function HeroE() {
   return (
     <section className="hero-e" aria-label="Introduction">
       <div className="hero-e-copy">
@@ -21,7 +18,7 @@ export function HeroE({ onWatch }: Props) {
         <Lede />
         <div className="btn-row btn-row--start hero-e-btns">
           <a href={HERO_COPY.primaryCta.href} className="btn btn--primary">{HERO_COPY.primaryCta.label}</a>
-          <button type="button" className="btn btn--ghost" onClick={onWatch}><span className="play" aria-hidden="true"></span> {HERO_COPY.videoCta}</button>
+          <WatchLink />
         </div>
         <img className="hero-e-arrow" src="/assets/home/hm-hero-arrow.webp" alt="" aria-hidden="true" />
       </div>
@@ -34,13 +31,13 @@ export function HeroE({ onWatch }: Props) {
 }
 
 // A · Statement
-export function HeroA({ onWatch }: Props) {
+export function HeroA() {
   return (
     <section className="hero" aria-label="Introduction">
       <Eyebrow />
       <Title stack={false} />
       <Lede />
-      <Buttons onWatch={onWatch} start={false} />
+      <Buttons start={false} />
       <div className="hero-video">
         <div className="video-frame"><VimeoFrame params={VIMEO.loop} /></div>
       </div>
@@ -49,7 +46,7 @@ export function HeroA({ onWatch }: Props) {
 }
 
 // B · Video first, text below
-export function HeroB({ onWatch }: Props) {
+export function HeroB() {
   return (
     <section className="hero hero--b" aria-label="Introduction">
       <div className="hero-video hero-video--tall">
@@ -57,21 +54,21 @@ export function HeroB({ onWatch }: Props) {
       </div>
       <div className="hero-b-copy">
         <div><Eyebrow /><Title /></div>
-        <div className="hero-b-side"><Lede /><Buttons onWatch={onWatch} /></div>
+        <div className="hero-b-side"><Lede /><Buttons /></div>
       </div>
     </section>
   );
 }
 
 // C · Split
-export function HeroC({ onWatch }: Props) {
+export function HeroC() {
   return (
     <section className="hero-c" aria-label="Introduction">
       <div>
         <Eyebrow />
         <Title modifier="hero-title--c" />
         <Lede />
-        <Buttons onWatch={onWatch} />
+        <Buttons />
       </div>
       <div className="video-frame"><VimeoFrame params={VIMEO.loop} /></div>
     </section>
@@ -79,7 +76,7 @@ export function HeroC({ onWatch }: Props) {
 }
 
 // Portrait photo with the copy over it (C1, C2, C3)
-function PortraitTop({ tall, onWatch, children }: { tall?: boolean; onWatch: () => void; children?: React.ReactNode }) {
+function PortraitTop({ tall, children }: { tall?: boolean; children?: React.ReactNode }) {
   return (
     <div className={tall ? 'portrait-top portrait-top--tall' : 'portrait-top'}>
       <img className="portrait-img" src={HERO_COPY.portrait.src} alt={HERO_COPY.portrait.alt} />
@@ -89,7 +86,7 @@ function PortraitTop({ tall, onWatch, children }: { tall?: boolean; onWatch: () 
           <Eyebrow />
           <Title modifier="hero-title--c1" />
           <Lede />
-          <Buttons onWatch={onWatch} />
+          <Buttons />
         </div>
       </div>
       {children}
@@ -98,10 +95,10 @@ function PortraitTop({ tall, onWatch, children }: { tall?: boolean; onWatch: () 
 }
 
 // C1 · Portrait, text & video
-export function HeroC1({ onWatch }: Props) {
+export function HeroC1() {
   return (
     <section className="hero-c1" aria-label="Introduction">
-      <PortraitTop onWatch={onWatch} />
+      <PortraitTop />
       <div className="hero-video">
         <div className="video-frame"><VimeoFrame params={VIMEO.loop} /></div>
       </div>
@@ -120,7 +117,7 @@ export function HeroC2() {
 
   return (
     <section className="hero-c2" aria-label="Introduction">
-      <PortraitTop tall onWatch={() => setPipOpen(true)}>
+      <PortraitTop tall>
         <div className="pip-small" hidden={pipOpen}>
           <span className="pip-tag"><span></span>Introduction</span>
           <button type="button" className="pip-thumb" aria-label="Watch the introduction video" onClick={() => setPipOpen(true)}>
@@ -140,7 +137,7 @@ export function HeroC2() {
 }
 
 // D · Full-screen video, with the intro copy in its own section below
-export function HeroD({ onWatch }: Props) {
+export function HeroD() {
   const [muted, setMuted] = useState(true);
   const frame = useRef<HTMLIFrameElement>(null);
 
@@ -169,7 +166,7 @@ export function HeroD({ onWatch }: Props) {
       </section>
       <section className="hero-d-intro" aria-label="Introduction copy">
         <div><Eyebrow /><Title /></div>
-        <div className="hero-b-side"><Lede /><Buttons onWatch={onWatch} /></div>
+        <div className="hero-b-side"><Lede /><Buttons /></div>
       </section>
     </>
   );
