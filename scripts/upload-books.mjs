@@ -17,7 +17,7 @@ for (const name of await readdir(dir)) {
   const ext = extname(name).toLowerCase(), slug = name.slice(0, -ext.length);
   if (!TYPES[ext] || !SLUGS.includes(slug)) { console.log(`skipped ${name}`); continue; }
   const blob = await put(`books/${slug}${ext}`, await readFile(join(dir, name)), {
-    access: 'private', contentType: TYPES[ext], addRandomSuffix: false, allowOverwrite: true,
+    access: 'private', contentType: TYPES[ext], addRandomSuffix: false, allowOverwrite: true, multipart: true, // the larger books are ~70 MB
   });
   console.log(`uploaded ${name} → ${blob.pathname}`);
   count++;

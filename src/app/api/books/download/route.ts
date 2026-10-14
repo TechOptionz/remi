@@ -1,6 +1,7 @@
 // The private download link from the delivery email and the thank-you page: /api/books/download?t=<signed token>&f=pdf.
-// Checks the link is genuine and unexpired, then streams the file from private Vercel Blob storage. See lib/book-sales.ts.
-import { get } from '@vercel/blob';
+// Checks the link is genuine and unexpired, then sends the browser to a 10-minute signed URL for the file in private
+// Vercel Blob storage, so the file (up to ~70 MB) downloads straight from Blob, not through this function (4.5 MB cap).
+import { issueSignedToken, presignUrl } from '@vercel/blob';
 import { blobPath, bookBySlug, readToken, type Format } from '@/lib/book-sales';
 
 export const runtime = 'nodejs';
@@ -18,15 +19,13 @@ export async function GET(request: Request) {
   const f = url.searchParams.get('f') as Format | null;
   if (!b || !f || !b.files?.includes(f)) return page(404, 'We could not find that file.');
 
-  const file = await get(blobPath(b, f), { access: 'private' }).catch(e => { console.error('Blob read failed', e); return null; });
-  if (!file || file.statusCode !== 200) return page(404, 'We could not find that file.');
-  return new Response(file.stream, {
-    headers: {
-      'Content-Type': file.blob.contentType || (f === 'pdf' ? 'application/pdf' : 'application/epub+zip'),
-      'Content-Length': String(file.blob.size),
-      'Content-Disposition': `attachment; filename="${b.title.replace(/[^\w\s-]/g, '').trim()} - Remi Pearson.${f}"`,
-      'Cache-Control': 'private, no-store',
-      'X-Robots-Tag': 'noindex',
-    },
-  });
+  try {
+    const pathname = blobPath(b, f), validUntil = Date.now() + 10 * 60 * 1000;
+    const token = await issueSignedToken({ pathname, operations: ['get'], validUntil });
+    const { presignedUrl } = await presignUrl(token, { operation: 'get', pathname, validUntil, access: 'private' });
+    return new Response(null, { status: 302, headers: { Location: presignedUrl, 'Cache-Control': 'private, no-store', 'X-Robots-Tag': 'noindex' } });
+  } catch (e) {
+    console.error('Blob signed URL failed', e);
+    return page(404, 'We could not find that file.');
+  }
 }
