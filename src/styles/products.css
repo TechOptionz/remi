@@ -320,3 +320,6 @@ a.pr-book-cover:hover { transform:translateY(-3px); }
 .pr-thankyou-btns { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 12px; }
 .pr-thankyou .pr-fine { opacity:.8; font-size:14px; }
 @media (max-width:520px) { .pr-thankyou-row { grid-template-columns:1fr; } .pr-thankyou-row img { max-width:120px; } }
+
+/* Dark heroes: the italic in the title in gold, rust is too dark on burgundy/navy/black */
+.pr-page--navy .pr-title em, .pr-page--black .pr-title em, .pr-page--burgundy .pr-title em, .pr-page--green .pr-title em { color:var(--pr-gold); }
