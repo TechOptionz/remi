@@ -42,8 +42,15 @@ export function usePresetSelect(ref: RefObject<HTMLSelectElement | null>, param:
  * Single place every form submits through: posts to /api/lead, which emails the team through Resend.
  * Resolves to an error message to show the visitor, or null when it went through.
  */
-export async function submitLead(kind: 'enquiry' | 'invitation' | 'waitlist' | 'newsletter', form: HTMLFormElement): Promise<string | null> {
-  const fields: Record<string, string> = Object.fromEntries([...new FormData(form)].filter((e): e is [string, string] => typeof e[1] === 'string'));
+export type LeadKind = 'enquiry' | 'invitation' | 'waitlist' | 'newsletter' | 'feedback';
+
+export async function submitLead(kind: LeadKind, form: HTMLFormElement): Promise<string | null> {
+  return sendLead(kind, Object.fromEntries([...new FormData(form)].filter((e): e is [string, string] => typeof e[1] === 'string')));
+}
+
+/** The same submission without a form (e.g. a "Was this helpful?" button). */
+export async function sendLead(kind: LeadKind, fields: Record<string, string>): Promise<string | null> {
+  fields = { ...fields };
   // Every sign-up says where it came from, so a form without its own topic (the footer newsletter) is named after its page
   fields.page ??= window.location.pathname === '/' ? 'Home' : document.title.replace(/\s+—\s+Remi Pearson$/, '').trim() || window.location.pathname;
   fields.url ??= window.location.pathname;

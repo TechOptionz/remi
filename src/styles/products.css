@@ -85,6 +85,10 @@
 .pr-notify input[type=email] { flex:1 1 220px; min-width:0; padding:14px 16px; border:1px solid rgba(240,230,212,.4); border-radius:2px; background:rgba(255,255,255,.08); color:inherit; font:inherit; }
 .pr-notify input::placeholder { color:rgba(240,230,212,.6); }
 .pr-notify .form-error { flex-basis:100%; }
+/* /subscribe: the footer's newsletter form (first name + email) in the notify band */
+.pr-subscribe .pr-notify input:not([type=email]) { flex:1 1 160px; min-width:0; padding:14px 16px; border:1px solid rgba(240,230,212,.4); border-radius:2px; background:rgba(255,255,255,.08); color:inherit; font:inherit; }
+.pr-subscribe .pr-notify button { padding:15px 26px; border:0; border-radius:2px; background:var(--pr-gold); color:#14100e; font:600 13.5px/1.2 var(--sans, inherit); letter-spacing:.1em; text-transform:uppercase; cursor:pointer; }
+.pr-subscribe .news-thanks { margin-top:16px; }
 .pr-thanks { font-weight:600; color:var(--pr-gold); }
 .pr-body { max-width:40em; padding-block:clamp(16px,2vw,32px); font-size:18px; line-height:1.65; }
 .pr-related { padding-top:clamp(24px,3vw,44px); }

@@ -5,6 +5,8 @@ import PlacesToBegin from '@/components/perspectives/PlacesToBegin';
 import RabbitHoleRows from '@/components/perspectives/RabbitHoleRows';
 import LiveWork from '@/components/perspectives/LiveWork';
 import Featured from '@/components/perspectives/Featured';
+import AskRemi from '@/components/shared/AskRemi';
+import { CONVERSATIONS } from '@/content/perspectives';
 import Archive from '@/components/perspectives/Archive';
 import RemiAsGuest from '@/components/perspectives/RemiAsGuest';
 import KeepInConversation from '@/components/perspectives/KeepInConversation';
@@ -23,6 +25,10 @@ export default function PerspectivesPage() {
       <LiveWork />
       <Featured />
       <Archive />
+      <div className="wrap rf-wrap">
+        <AskRemi id="ask" options={CONVERSATIONS.map(c => `${c.guest} — ${c.title}`)} title="Questions about a conversation?"
+          lede="Something an episode stirred up, a guest you’d like to hear, or a question you’d like me to take into the next conversation. It comes privately to me and my team; nothing is published." />
+      </div>
       <RemiAsGuest />
       <KeepInConversation />
     </main>

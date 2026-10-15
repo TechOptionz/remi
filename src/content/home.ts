@@ -31,3 +31,23 @@ export const ENTRY_PRODUCTS: { tone: 'rust' | 'navy' | 'green'; title: string; t
 
 // ---------- "Things I've spent years trying to figure out" — the model names in the dark band ----------
 export const MODEL_NAMES = ['EIT', 'CAM', 'The Self-Esteem Triad', 'T.R.U.S.T.M.E.', 'Ultimate Influence', 'Disruptive Leadership'];
+
+// ---------- Spotlight: the rotating carousel under the hero. Slides show in this order; `when: false` hides one ----------
+// The Selling from Stage mini course has no page yet: its slide opens the full program until SFS_MINI_HREF is changed.
+export const SFS_MINI_HREF = '/products/selling-from-stage';
+export type SpotlightSlide = {
+  tone: 'coal' | 'navy' | 'gold' | 'rust' | 'green' | 'oxblood';
+  eyebrow: string; title: string; text?: string; cta: string; href: string;
+  image: string; alt: string; fit?: 'contain'; bg?: string; multiply?: boolean; pos?: string;
+};
+export const SPOTLIGHT: (SpotlightSlide | 'article' | 'reviews')[] = [
+  { tone: 'coal', eyebrow: 'Speaking', title: 'Explore having Remi speak at your event', cta: 'Invite Remi', href: '/invite-remi', image: '/assets/photos/invite-stage.webp', alt: 'Remi Pearson speaking on stage' },
+  { tone: 'navy', eyebrow: 'Critical Alignment Model', title: 'Learn how to lead using the proven model', text: 'Critical Alignment, for leaders.', cta: 'Explore CAM for Leaders', href: '/products/critical-alignment-model-for-leaders', image: '/assets/cam-landing/cml-hero.webp', alt: '' },
+  'reviews',
+  'article',
+  { tone: 'green', eyebrow: 'Selling from Stage', title: 'Want to learn how to sell from stage?', cta: 'Click here', href: SFS_MINI_HREF, image: '/assets/sfs-landing/sfs-speaker.webp', alt: '' },
+  { tone: 'oxblood', eyebrow: 'Stay in touch', title: 'Stay in touch with Remi', text: 'Thoughtful ideas, new conversations and the occasional invitation.', cta: 'Subscribe', href: '/subscribe', image: '/assets/photos/remi-pink-jacket.webp', alt: 'Remi Pearson' },
+];
+// This week's showcased article: the slugs it rotates through, one per week (Monday, Australian eastern time).
+// Empty means every article in the library, in order.
+export const SHOWCASE_ARTICLES: string[] = [];
