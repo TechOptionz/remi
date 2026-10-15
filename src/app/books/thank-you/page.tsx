@@ -29,7 +29,10 @@ export default async function ThankYouPage({ searchParams }: { searchParams: Pro
   }
 
   const { session, book: b } = order;
-  const { expires, links } = downloadLinks('', session, b); // same-site links on the page
+  // Same-site links on the page. Should signing fail (BOOKS_DOWNLOAD_SECRET missing), the buyer is still paid up and
+  // the email carries the link once fixed: say so rather than show an error.
+  let dl: ReturnType<typeof downloadLinks> | null = null;
+  try { dl = downloadLinks('', session, b); } catch (e) { console.error('Thank-you page could not sign download links', e); }
   const email = session.customer_details?.email;
   return (
     <main className="pr-page pr-page--burgundy">
@@ -42,8 +45,12 @@ export default async function ThankYouPage({ searchParams }: { searchParams: Pro
         <div className="pr-thankyou-row">
           <img src={b.cover.src} alt="" width={b.cover.width} height={b.cover.height} />
           <div>
-            <p className="pr-thankyou-btns">{links.map(l => <a key={l.format} href={l.href} className="pr-btn">Download {l.label}</a>)}</p>
-            <p>{email ? <>We’ve also emailed the link to <strong>{email}</strong>. </> : null}It works for {LINK_DAYS} days, until {dateOf(expires)}.</p>
+            {dl
+              ? <>
+                <p className="pr-thankyou-btns">{dl.links.map(l => <a key={l.format} href={l.href} className="pr-btn">Download {l.label}</a>)}</p>
+                <p>{email ? <>We’ve also emailed the link to <strong>{email}</strong>. </> : null}It works for {LINK_DAYS} days, until {dateOf(dl.expires)}.</p>
+              </>
+              : <p>Your payment went through. Your download link is on its way{email ? <> to <strong>{email}</strong></> : null}; if it hasn’t arrived within a few minutes, <Link href="/#contact">get in touch</Link>.</p>}
             <p className="pr-fine">{b.note} Your receipt comes from Stripe.</p>
           </div>
         </div>
