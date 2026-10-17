@@ -1,6 +1,7 @@
-// Self-Regulation When It Matters' sales page (/products/self-regulation-when-it-matters), from Remi's copy deck
-// (Oct 2026), copy carried over word for word. No design mock-up: the page is composed from
-// components/program-landing/ui.tsx. Component: components/sr-landing/SrLanding.tsx.
+// Self-Regulation When It Matters' sales page (/products/self-regulation-when-it-matters), from Remi's copy deck and the
+// three-page mockup "SELF REGULATION MOCKUP PAGE 1–3" (Oct 2026). Copy carried over word for word from the deck; the
+// layout, button wording ("Get the program") and pictures follow the mockup. Component: components/sr-landing/SrLanding.tsx;
+// styles: styles/sr-landing.css (.srl-*); pictures cut from the mockup in public/assets/sr-landing/.
 import { programOf, type Faq, type LeadItem, type Lesson, type Testimonial } from '@/content/program-landing';
 
 export const SR_SLUG = 'self-regulation-when-it-matters';
@@ -39,6 +40,15 @@ export const LESSONS: Lesson[] = [
   { name: 'Bring it into the moments that matter',
     text: ['Apply what you’ve learned to difficult conversations, challenging situations and everyday pressure. You’ll practise recognising your signals, choosing a response and checking whether it helps you become more able to engage.'],
     take: 'a personal plan for before, during and after a difficult moment, including how to pause and return to what still needs attention.' },
+];
+
+/** The photo beside each video in "Your five-video program", cut from the mockup (sr-v1 … sr-v5), with its size. */
+export const LESSON_IMAGES = [
+  { alt: 'A woman holding a mug, looking out thoughtfully', width: 307, height: 162 },
+  { alt: 'A man resting his chin on his hand, thinking', width: 307, height: 126 },
+  { alt: 'A woman writing in a notebook', width: 233, height: 128 },
+  { alt: 'An older woman outdoors, looking up calmly', width: 265, height: 130 },
+  { alt: 'A man at a laptop, chin in his hand, thinking', width: 301, height: 121 },
 ];
 
 export const FAQ: Faq[] = [

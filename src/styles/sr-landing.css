@@ -1,0 +1,117 @@
+/* ============ Self-Regulation When It Matters (.srl) — from the three-page mockup ============ */
+/* Fixed colours, like the other designed sales pages: warm cream, charcoal bands, rust buttons and the closing band, gold
+   square bullets and rules. Headings are the serif at its regular width (Noto Serif Display 100/600), in sentence case. */
+.srl {
+  --srl-cream:#f8f3ec; --srl-tint:#f1e8dc; --srl-ink:#1f1b18; --srl-ink-rgb:31,27,24; --srl-dark:#262321; --srl-rust:#bd4d1e;
+  --srl-rust-dark:#a8411a; --srl-gold:#c99a45; --srl-line:rgba(201,154,69,.55);
+  --display:'Noto Serif Display',Georgia,serif;
+  margin-inline:calc(50% - 50vw); background:var(--srl-cream); color:var(--srl-ink); font-family:var(--sans);
+}
+.srl-wrap { max-width:1152px; margin:0 auto; padding-inline:var(--gutter); box-sizing:content-box; }
+.srl-crumbs { margin:0; padding-top:clamp(20px,2.4vw,32px); }
+.srl p { margin:16px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.6; }
+.srl-h2, .srl-title { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; line-height:1.08; letter-spacing:-.01em; color:inherit; text-wrap:balance; }
+.srl-title { font-size:clamp(40px,5.2vw,68px); line-height:1.02; }
+.srl-h2 { font-size:clamp(30px,3.6vw,48px); }
+.srl-h3 { margin:clamp(28px,3vw,40px) 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(21px,2vw,26px); line-height:1.2; }
+.srl .srl-lede { font-size:clamp(17px,1.5vw,20px); }
+.srl-section { padding:clamp(56px,7vw,88px) 0; }
+.srl-section--flush { padding-top:0; }
+
+/* Buttons: rust, uppercase, letter-spaced (charcoal on the rust band) */
+.srl-btn { display:inline-block; padding:16px clamp(28px,4vw,56px); background:var(--srl-rust); color:#fff8ef; border-radius:2px; font-size:clamp(14px,1.3vw,17px); font-weight:700; letter-spacing:.14em; text-transform:uppercase; text-align:center; transition:background .2s ease, transform .2s ease; }
+.srl-btn:hover { background:var(--srl-rust-dark); color:#fff; transform:translateY(-1px); }
+.srl-btn--dark { background:var(--srl-dark); }
+.srl-btn--dark:hover { background:#000; }
+.srl .srl-fine { margin-top:14px; font-size:15px; line-height:1.5; opacity:.75; }
+
+/* Hero: the question and the button beside the framed photo, captioned "With Remi Pearson" */
+.srl-hero { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(28px,5vw,64px); align-items:start; padding:clamp(20px,2.6vw,36px) 0 clamp(48px,6vw,80px); }
+.srl-eyebrow { margin:0 0 18px !important; font-size:14px !important; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--srl-rust); }
+.srl-hero .srl-title { margin-bottom:8px; }
+.srl-buy { margin-top:28px; }
+.srl-hero-fig { margin:0; }
+.srl-hero-fig img { display:block; width:100%; height:auto; aspect-ratio:2/3; object-fit:cover; object-position:50% 20%; }
+.srl-hero-fig figcaption { display:inline-block; margin-top:16px; padding-bottom:10px; border-bottom:2px solid var(--srl-gold); font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:19px; }
+
+/* Charcoal bands */
+.srl-dark { padding:clamp(48px,6vw,80px) 0; background:var(--srl-dark); color:#f6efe5; }
+.srl-dark p { color:rgba(246,239,229,.9); }
+.srl .srl-statement { margin-top:clamp(28px,3vw,40px); font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(24px,2.8vw,36px); line-height:1.2; color:#fff8ef; }
+.srl-band-photo { display:block; width:100%; height:clamp(200px,24vw,360px); object-fit:cover; object-position:50% 30%; }
+
+/* Gold square bullets in two columns */
+.srl-squares { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px clamp(28px,4vw,56px); margin:18px 0 8px; padding:0; list-style:none; }
+.srl-squares li { position:relative; padding-left:34px; font-size:clamp(16px,1.3vw,18px); line-height:1.55; }
+.srl-squares li::before { content:""; position:absolute; left:0; top:.42em; width:13px; height:13px; background:var(--srl-gold); }
+.srl-squares strong { font-weight:700; }
+.srl-dark .srl-squares strong { color:#fff8ef; }
+
+/* Your five-video program: the number, the copy and a photo on each row, gold rules between */
+.srl-lessons { margin:clamp(20px,2.4vw,32px) 0 0; padding:0; list-style:none; }
+.srl-lessons li { display:grid; grid-template-columns:clamp(64px,8vw,110px) minmax(0,1fr) clamp(200px,27vw,320px); gap:clamp(12px,2vw,28px); align-items:start; padding:clamp(18px,2vw,26px) 0; border-bottom:1px solid var(--srl-line); }
+.srl-lessons li:last-child { border-bottom:0; }
+.srl-num { font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(44px,5.4vw,72px); line-height:.9; color:var(--srl-rust); }
+.srl-lesson-copy h3 { margin:2px 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(21px,2.1vw,28px); line-height:1.15; }
+.srl-lesson-copy p { margin-top:10px; font-size:16px; }
+.srl .srl-take { padding-left:14px; border-left:3px solid var(--srl-gold); font-size:15.5px; }
+.srl-take strong { color:var(--srl-rust); }
+.srl-lesson-img { display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; border-radius:2px; }
+
+/* The "you can still feel angry" band with its button */
+.srl-cta { text-align:center; }
+.srl-cta .srl-h2 { max-width:24em; margin:0 auto; }
+.srl-cta p { max-width:40em; margin-inline:auto; }
+.srl-cta .srl-btn { margin-top:28px; }
+
+/* Something to work with between the videos: the workbook and meditation cards */
+.srl-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(20px,3vw,40px); margin-top:clamp(24px,3vw,36px); }
+.srl-cards img { display:block; width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; border-radius:2px; }
+.srl-cards article:last-child img { object-position:100% 50%; }
+.srl-cards h3 { margin:20px 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(22px,2.2vw,28px); }
+.srl-cards p { font-size:16.5px; }
+
+/* A note from Remi: the black-and-white portrait beside the note, on a tinted band */
+.srl-note { padding:clamp(48px,6vw,80px) 0; background:var(--srl-tint); }
+.srl-note-grid { display:grid; grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr); gap:clamp(28px,4vw,56px); align-items:center; }
+.srl-note-photo { display:block; width:100%; height:auto; border-radius:2px; }
+.srl .srl-signature { margin:6px 0 0; font-family:'Caveat',cursive; font-weight:500; font-size:clamp(52px,5.4vw,72px); line-height:1; color:#b8892f; transform:rotate(-6deg); transform-origin:left; width:max-content; }
+
+/* What people say (only once real testimonials exist) */
+.srl-quotes { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; margin:24px 0 0; padding:0; list-style:none; }
+.srl-quotes li { padding:24px 28px; border:1px solid var(--srl-gold); border-radius:3px; text-align:center; }
+.srl-quotes blockquote { margin:0; font-size:18px; line-height:1.5; }
+.srl-quotes p { font-size:15px !important; opacity:.75; }
+
+/* Questions in two columns: the question in rust, the answer below */
+.srl-faq { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(24px,3vw,36px) clamp(28px,4vw,56px); margin:clamp(24px,3vw,36px) 0 0; }
+.srl-faq dt { font-size:clamp(17px,1.5vw,19px); font-weight:700; line-height:1.35; color:var(--srl-rust); }
+.srl-faq dd { margin:6px 0 0; font-size:16px; line-height:1.55; }
+
+/* The rust closing band (#get) */
+.srl-close { padding:clamp(56px,7vw,88px) 0; background:var(--srl-rust); color:#fff8ef; text-align:center; scroll-margin-top:72px; }
+.srl-close .srl-h2 { max-width:22em; margin:0 auto; }
+.srl-close p { max-width:44em; margin-inline:auto; color:rgba(255,248,239,.92); }
+.srl .srl-close-name { margin-top:clamp(28px,3vw,40px); font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(22px,2.2vw,28px); color:#fff8ef; }
+.srl-close-name span { display:block; margin-top:4px; font-family:var(--sans); font-size:14px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; opacity:.85; }
+.srl .srl-close-terms { margin:10px auto 26px; font-size:16px; }
+.srl-soon { text-align:center; }
+.srl-soon > p { margin:0 0 8px !important; font-size:13px !important; font-weight:700; letter-spacing:.2em; text-transform:uppercase; }
+.srl-soon .pr-notify { margin:0 auto; justify-content:center; }
+.srl-soon .pr-notify input[type=email] { border-color:rgba(255,248,239,.55); background:rgba(255,255,255,.12); }
+.srl-soon .pr-btn { background:var(--srl-dark); color:#fff8ef; }
+.srl-soon .pr-thanks { color:#fff8ef; }
+.srl-soon .form-error { color:#fff; }
+
+@media (max-width:860px) {
+  .srl-hero, .srl-note-grid { grid-template-columns:1fr; }
+  .srl-hero-fig { max-width:420px; }
+  .srl-hero-fig img { aspect-ratio:4/5; }
+  .srl-note-photo { max-width:420px; }
+  .srl-lessons li { grid-template-columns:clamp(56px,10vw,80px) minmax(0,1fr); }
+  .srl-lesson-img { grid-column:2; max-width:420px; }
+}
+@media (max-width:640px) {
+  .srl-squares, .srl-cards, .srl-faq, .srl-quotes { grid-template-columns:1fr; }
+  .srl-btn { display:block; padding-inline:18px; letter-spacing:.1em; }
+}

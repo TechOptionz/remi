@@ -1,5 +1,6 @@
-// The paid self-paced program pages built from a copy deck alone (no design mock-up): EIT Foundations, Self-Regulation
-// When It Matters, Becoming Conscious, Deep State Repatterning. They share components/program-landing/ui.tsx and styles/program-landing.css (.pgl-*) on the
+// The paid self-paced program pages built from a copy deck alone (no design mock-up): EIT Foundations,
+// Becoming Conscious, Deep State Repatterning, Holding Space (Self-Regulation has its own mockup and styles; it
+// still uses programOf). They share components/program-landing/ui.tsx and styles/program-landing.css (.pgl-*) on the
 // sales-page kit (landing.css). Each page's copy is in its own content file (eit-landing.ts, sr-landing.ts).
 import { CATEGORIES, productBySlug } from '@/content/products';
 
