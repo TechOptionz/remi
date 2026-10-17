@@ -130,7 +130,8 @@
 /* The burgundy close (#get) */
 .hsl-close { scroll-margin-top:72px; }
 .hsl .hsl-close-terms { margin-bottom:26px; font-size:16px; color:#fbf3e8; }
-.hsl-soon > p { margin:0 0 8px !important; font-size:13px !important; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--hsl-gold-light) !important; }
+.hsl-soon { text-align:center; }
+.hsl-soon > p { max-width:none; margin:0 0 8px !important; font-size:13px !important; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--hsl-gold-light) !important; }
 .hsl-soon .pr-notify { margin:0 auto; justify-content:center; }
 .hsl-soon .pr-btn { background:var(--hsl-orange); color:#fff8ef; }
 .hsl-soon .pr-thanks { color:#fbf3e8; }

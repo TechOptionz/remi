@@ -38,8 +38,10 @@
 @import './ui-landing.css';
 @import './sfs-landing.css';
 @import './wdk-landing.css';
-@import './program-landing.css';
 @import './sr-landing.css';
 @import './hs-landing.css';
+@import './eit-landing.css';
+@import './dsr-landing.css';
+@import './bc-landing.css';
 @import './legal.css';
 @import './chat.css';

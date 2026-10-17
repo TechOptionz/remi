@@ -96,7 +96,7 @@
 .srl-close-name span { display:block; margin-top:4px; font-family:var(--sans); font-size:14px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; opacity:.85; }
 .srl .srl-close-terms { margin:10px auto 26px; font-size:16px; }
 .srl-soon { text-align:center; }
-.srl-soon > p { margin:0 0 8px !important; font-size:13px !important; font-weight:700; letter-spacing:.2em; text-transform:uppercase; }
+.srl-soon > p { max-width:none; margin:0 0 8px !important; font-size:13px !important; font-weight:700; letter-spacing:.2em; text-transform:uppercase; }
 .srl-soon .pr-notify { margin:0 auto; justify-content:center; }
 .srl-soon .pr-notify input[type=email] { border-color:rgba(255,248,239,.55); background:rgba(255,255,255,.12); }
 .srl-soon .pr-btn { background:var(--srl-dark); color:#fff8ef; }

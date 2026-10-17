@@ -1,6 +1,8 @@
-// Deep State Repatterning™'s sales page (/products/deep-state-repatterning), from Remi's copy deck (Oct 2026), copy
-// carried over word for word. No design mock-up: the page is composed from components/program-landing/ui.tsx, with the
-// chapter's chain-of-pearls diagram. Component: components/dsr-landing/DsrLanding.tsx.
+// Deep State Repatterning™'s sales page (/products/deep-state-repatterning), from Remi's copy deck and the three-page
+// mockup "DSR MOCKUP PAGE ONE–THREE" (Oct 2026). Copy carried over word for word from the deck; the layout and the
+// symbolic illustrations follow the mockup. The mockup's two portraits are not of Remi, so the hero and the note use
+// real photographs of her (public/assets/photos/). Component: components/dsr-landing/DsrLanding.tsx; styles:
+// styles/dsr-landing.css (.dsl-*); illustrations cut from the mockup in public/assets/dsr-landing/.
 import { programOf, type Faq, type LeadItem, type Lesson, type Testimonial } from '@/content/program-landing';
 
 export const DSR_SLUG = 'deep-state-repatterning';
@@ -42,6 +44,21 @@ export const LESSONS: Lesson[] = [
     text: ['Choose a manageable focus and understand how to approach the recording. We’ll also explore how to reflect afterwards and imagine meeting a relevant future situation.'],
     take: 'preparation for your guided experience, along with a way to notice changes without needing to manufacture a particular result.' },
 ];
+
+/** The icon beside each of OVER_IT, in its gold ring, as drawn. */
+export const OVER_IT_ICONS = ['bubble', 'scribble', 'person', 'heart', 'repeat', 'chat'] as const;
+
+/** The illustration on each video's row, cut from the mockup (dsr-v1 … dsr-v5). */
+export const LESSON_IMAGES = [
+  { alt: 'A woman at a window, chin in her hand, thinking', width: 222, height: 102 },
+  { alt: 'A woman with a backpack looking out over a city at sunset', width: 222, height: 106 },
+  { alt: 'A woman writing at a desk', width: 222, height: 113 },
+  { alt: 'A woman at a window beside her own reflection', width: 222, height: 112 },
+  { alt: 'A woman with headphones on, eyes closed, resting', width: 222, height: 116 },
+];
+
+/** Icons beside the first four questions, as drawn (the rest have none). */
+export const FAQ_ICONS = ['gradcap', 'bubble', 'heart', 'bubble', 'scales', 'repeat', 'people', 'document'] as const;
 
 export const WORKBOOK = [
   'Sketch or describe your representation of past, present and future.',

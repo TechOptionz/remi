@@ -1,6 +1,8 @@
-// Becoming Conscious' sales page (/products/becoming-conscious), from Remi's copy deck (Oct 2026), copy carried over
-// word for word. No design mock-up: the page is composed from components/program-landing/ui.tsx.
-// Component: components/bc-landing/BcLanding.tsx.
+// Becoming Conscious' sales page (/products/becoming-conscious), from Remi's copy deck and the three-page mockup
+// "BECOMING CONSCIOUS PAGE ONE–THREE MOCKUP" (Oct 2026). Copy carried over word for word from the deck; the layout and
+// pictures follow the mockup. Component: components/bc-landing/BcLanding.tsx; styles: styles/bc-landing.css (.bcl-*);
+// pictures in public/assets/bc-landing/ (video photos cut from the mockup; the note portrait from wdk-landing/wdk-videos)
+// and the hero portrait public/assets/wdk-landing/wdk-hero.webp.
 import { programOf, type Faq, type LeadItem, type Lesson, type Testimonial } from '@/content/program-landing';
 
 export const BC_SLUG = 'becoming-conscious';
@@ -23,6 +25,16 @@ export const LESSONS: Lesson[] = [
   { name: 'Noticing your thoughts',
     text: ['A thought appears, and before you know it, you’re several minutes into an imagined conversation. In this video, we’ll practise noticing thoughts as they arise and gently returning to a sound or bodily sensation.'],
     take: 'an introduction to observing your thinking. You can begin to recognise a thought without needing to finish the story it starts.' },
+];
+
+/** The icon beside each of BEGIN_TO, in its gold ring, as drawn. */
+export const BEGIN_TO_ICONS = ['eye', 'brain', 'heart', 'sprout'] as const;
+
+/** The photo beside each video, cut from the mockup (bc-v1 … bc-v3); rows alternate sides as drawn. */
+export const LESSON_IMAGES = [
+  { alt: 'A woman in sunlight under leaves, looking up with a soft smile', width: 532, height: 412 },
+  { alt: 'Hands resting on a knee', width: 505, height: 388 },
+  { alt: 'A woman by a window, chin in her hand, quietly thinking', width: 522, height: 375 },
 ];
 
 export const FAQ: Faq[] = [
