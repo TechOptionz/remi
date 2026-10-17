@@ -149,13 +149,13 @@
   .eil-avoid, .eil-tree-grid, .eil-note-grid, .eil-cards { grid-template-columns:1fr; }
   .eil-avoid-photo { position:static; max-width:460px; -webkit-mask-image:none; mask-image:none; border-radius:4px; }
   .eil-tree { max-width:420px; margin:0 auto; }
+  .eil-note-photo { max-width:360px; }
+}
+@media (max-width:640px) {
   .eil-rows li, .eil-rows li.is-flipped { grid-template-columns:1fr; }
   .eil-rows li.is-flipped .eil-row-photo { order:0; }
   .eil-rows li .eil-row-copy { padding:26px var(--gutter) 18px !important; }
   .eil-row-photo, .eil-rows li.is-flipped .eil-row-photo { min-height:0; height:auto; aspect-ratio:16/7; -webkit-mask-image:none; mask-image:none; }
-  .eil-note-photo { max-width:360px; }
-}
-@media (max-width:640px) {
   .eil-cols { columns:1; }
   .eil-points, .eil-quotes { grid-template-columns:1fr; }
   .eil-btn { display:flex; justify-content:center; padding-inline:16px; letter-spacing:.08em; }

@@ -104,14 +104,15 @@
 .srl-soon .form-error { color:#fff; }
 
 @media (max-width:860px) {
+  .srl-hero { grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr); }
+  .srl-lessons li { grid-template-columns:clamp(56px,10vw,80px) minmax(0,1fr); }
+  .srl-lesson-img { grid-column:2; max-width:320px; }
+}
+@media (max-width:640px) {
   .srl-hero, .srl-note-grid { grid-template-columns:1fr; }
   .srl-hero-fig { max-width:420px; }
   .srl-hero-fig img { aspect-ratio:4/5; }
   .srl-note-photo { max-width:420px; }
-  .srl-lessons li { grid-template-columns:clamp(56px,10vw,80px) minmax(0,1fr); }
-  .srl-lesson-img { grid-column:2; max-width:420px; }
-}
-@media (max-width:640px) {
   .srl-squares, .srl-cards, .srl-faq, .srl-quotes { grid-template-columns:1fr; }
   .srl-btn { display:block; padding-inline:18px; letter-spacing:.1em; }
 }

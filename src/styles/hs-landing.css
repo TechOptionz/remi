@@ -93,6 +93,7 @@
 .hsl-book img { display:block; width:100%; height:auto; }
 .hsl-book figcaption { margin-top:8px; font-size:13px; letter-spacing:.12em; opacity:.7; }
 .hsl-split--book > div > p:first-child { margin-top:0; }
+.hsl-split--book .hsl-h3 { margin-top:24px; }
 
 /* Who it's for, in two columns on desktop */
 .hsl-cols { columns:2; column-gap:clamp(28px,4vw,56px); }
@@ -146,15 +147,15 @@
   .hsl-split, .hsl-split--book, .hsl-deeper-grid, .hsl-note-grid { grid-template-columns:1fr; }
   .hsl-split-photo { position:static; }
   .hsl-deeper-grid > div { padding-bottom:0; }
-  .hsl-deeper-photo { max-height:420px; -webkit-mask-image:none; mask-image:none; border-radius:6px; margin-bottom:clamp(40px,6vw,64px); }
-  .hsl-rows li, .hsl-rows li.is-flipped { grid-template-columns:1fr; }
-  .hsl-rows li.is-flipped .hsl-row-photo { order:0; }
-  .hsl-rows li .hsl-row-copy { padding:28px var(--gutter) 20px !important; }
-  .hsl-row-photo { min-height:0; height:auto; aspect-ratio:16/7; }
+  .hsl-deeper-photo { justify-self:center; max-width:460px; max-height:420px; -webkit-mask-image:none; mask-image:none; border-radius:6px; margin-bottom:clamp(40px,6vw,64px); }
   .hsl-note-copy { padding-left:0; border-left:0; }
   .hsl-note-photo { max-width:420px; }
 }
 @media (max-width:640px) {
+  .hsl-rows li, .hsl-rows li.is-flipped { grid-template-columns:1fr; }
+  .hsl-rows li.is-flipped .hsl-row-photo { order:0; }
+  .hsl-rows li .hsl-row-copy { padding:28px var(--gutter) 20px !important; }
+  .hsl-row-photo { min-height:0; height:auto; aspect-ratio:16/7; }
   .hsl-practise, .hsl-quotes { grid-template-columns:1fr; }
   .hsl-cols { columns:1; }
   .hsl-pillars { grid-template-columns:1fr; gap:20px; }

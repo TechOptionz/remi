@@ -117,15 +117,18 @@
 
 @media (prefers-reduced-motion:reduce) { .dsl-btn span { transition:none; } }
 @media (max-width:860px) {
-  .dsl-hero-grid, .dsl-cards, .dsl-note { grid-template-columns:1fr; }
-  .dsl-hero-photo { max-width:460px; }
-  .dsl-note-photo { max-width:360px; }
+  .dsl-cards { grid-template-columns:1fr; }
+  .dsl-hero-grid { grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr); align-items:start; }
+  .dsl-note { grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); align-items:start; }
   .dsl-timeline::before { display:none; }
   .dsl-timeline li { grid-template-columns:clamp(52px,12vw,72px) minmax(0,1fr); }
-  .dsl-tl-photo { grid-column:1 / -1; max-width:420px; }
+  .dsl-tl-photo { grid-column:1 / -1; max-width:320px; }
   .dsl-tl-dot { display:none; }
 }
 @media (max-width:640px) {
+  .dsl-hero-grid, .dsl-note { grid-template-columns:1fr; }
+  .dsl-hero-photo { max-width:460px; }
+  .dsl-note-photo { max-width:360px; }
   .dsl-icons, .dsl-opps, .dsl-faq, .dsl-quotes { grid-template-columns:1fr; }
   .dsl-btn { display:flex; justify-content:center; padding-inline:14px; letter-spacing:.06em; font-size:13.5px; }
   .dsl-strip img { min-height:150px; }
