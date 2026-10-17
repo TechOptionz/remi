@@ -34,7 +34,7 @@ export default function WdkLanding() {
         {/* Hero: the headline and the first form in the empty burgundy space of Remi's portrait (on phones the form
             comes before the photo) */}
         <section className="wdk-hero wdk-dark" aria-labelledby="wdk-title">
-          <img className="wdk-hero-photo" src="/assets/wdk-landing/wdk-hero.webp" alt="Remi Pearson smiling, in a burgundy top" width={1536} height={1024} fetchPriority="high" decoding="async" />
+          <img className="wdk-hero-photo" src="/assets/wdk-landing/wdk-portrait.webp" alt="Remi Pearson smiling, in a burgundy top" width={1086} height={1448} fetchPriority="high" decoding="async" />
           <div className="wdk-hero-inner">
             <div className="wdk-hero-copy">
               <p className="stl-eyebrow">Free five-part video series <span>With Remi Pearson</span></p>
@@ -69,10 +69,21 @@ export default function WdkLanding() {
         <section className="stl-section" aria-labelledby="wdk-videos-h">
           <Head id="wdk-videos-h" star>Five videos to help you make sense of the conflict</Head>
           <p className="stl-intro stl-indent">A short introduction you can work through at your own pace. Each video explores a different piece of the question.</p>
-          <figure className="wdk-preview">
-            <img src="/assets/wdk-landing/wdk-videos.webp" width={1536} height={1024} loading="lazy" decoding="async"
-              alt="Why Do I Keep Doing This? Five free videos with Remi Pearson: a video still of Remi seated, smiling, with a play button, beside the five lessons: 01 Why knowing better doesn’t settle it, 02 Meet the parts that disagree, 03 What the pattern might be protecting, 04 When you turn against yourself, 05 A different question to begin with." />
-          </figure>
+          {/* The series preview, as the supplied graphic drew it, rebuilt with the HD photo: the still and the five lessons */}
+          <div className="wdk-preview">
+            <div className="wdk-preview-still">
+              <img src="/assets/wdk-landing/wdk-still.webp" alt="Remi Pearson seated in an armchair, smiling, in a patterned pink jacket" width={1536} height={1024} loading="lazy" decoding="async" />
+              <span className="wdk-play" aria-hidden="true"></span>
+            </div>
+            <div className="wdk-preview-side">
+              <p className="wdk-preview-title">Why Do I Keep Doing This?</p>
+              <p className="wdk-preview-sub">Five free videos with Remi Pearson</p>
+              <ol className="wdk-preview-list" aria-hidden="true">
+                {LESSONS.map((l, i) => <li key={l.name}><span>{num(i)}</span>{l.name}</li>)}
+              </ol>
+              <p className="wdk-preview-sig" aria-hidden="true">Remi</p>
+            </div>
+          </div>
           <ol className="stl-video-list wdk-lessons">
             {LESSONS.map((l, i) => (
               <li key={l.name}><span className="stl-num stl-num--gold" aria-hidden="true">{num(i)}</span><h3>{l.name}</h3><p>{l.text}</p></li>

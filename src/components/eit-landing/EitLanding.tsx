@@ -172,7 +172,11 @@ export default function EitLanding() {
           <h2 id="eil-more-h" className="sr-only">The guided demonstration and your workbook</h2>
           <div className="eil-cards">
             <article>
-              <Img name="eit-demo" alt="Demonstration preview: Remi Pearson smiling, with a play button" width={456} height={277} />
+              <div className="eil-demo">
+                <Img name="eit-demo" alt="Remi Pearson smiling, in a burgundy top" width={1086} height={678} />
+                <span className="eil-demo-play" aria-hidden="true"></span>
+                <span className="eil-demo-label" aria-hidden="true">Demonstration preview</span>
+              </div>
               <h3>See the principles come together in a guided demonstration</h3>
               <p>The separate guided demonstration with me shows how the principles of EIT come together in practice.</p>
               <p>You’ll see the importance of beginning with what is actually present, recognising when compassion is unavailable and allowing enough room around the experience. The demonstration will help you understand the movement outward and inward, and why pace matters.</p>

@@ -40,7 +40,7 @@ export default function DsrLanding() {
               <div className="dsl-buy"><Btn /></div>
               <p className="dsl-small">{INCLUDES}<br />One payment. Explore the program at your own pace.</p>
             </div>
-            <img className="dsl-hero-photo" src="/assets/photos/remi-pink-jacket.webp" alt="Remi Pearson smiling, in a patterned pink jacket" width={1600} height={1067} fetchPriority="high" decoding="async" />
+            <img className="dsl-hero-photo" src="/assets/dsr-landing/dsr-hero.webp" alt="Remi Pearson in a podcast studio, a microphone in front of her" width={1536} height={1024} fetchPriority="high" decoding="async" />
           </div>
         </div>
       </section>

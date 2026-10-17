@@ -1,8 +1,8 @@
 // Becoming Conscious' sales page (/products/becoming-conscious), from Remi's copy deck and the three-page mockup
 // "BECOMING CONSCIOUS PAGE ONE–THREE MOCKUP" (Oct 2026). Copy carried over word for word from the deck; the layout and
 // pictures follow the mockup. Component: components/bc-landing/BcLanding.tsx; styles: styles/bc-landing.css (.bcl-*);
-// pictures in public/assets/bc-landing/ (video photos cut from the mockup; the note portrait from wdk-landing/wdk-videos)
-// and the hero portrait public/assets/wdk-landing/wdk-hero.webp.
+// pictures in public/assets/bc-landing/ (video photos cut from the mockup; the note portrait from the HD studio photo)
+// and the hero portrait public/assets/wdk-landing/wdk-portrait.webp.
 import { programOf, type Faq, type LeadItem, type Lesson, type Testimonial } from '@/content/program-landing';
 
 export const BC_SLUG = 'becoming-conscious';

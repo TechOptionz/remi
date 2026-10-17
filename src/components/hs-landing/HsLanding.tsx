@@ -38,7 +38,7 @@ export default function HsLanding() {
     <main className="hsl">
       {/* PAGE ONE — the question over Remi's portrait */}
       <section className="hsl-hero" aria-labelledby="hsl-title">
-        <img className="hsl-hero-photo" src="/assets/wdk-landing/wdk-hero.webp" alt="Remi Pearson smiling, in a burgundy top" width={1536} height={1024} fetchPriority="high" decoding="async" />
+        <img className="hsl-hero-photo" src="/assets/wdk-landing/wdk-portrait.webp" alt="Remi Pearson smiling, in a burgundy top" width={1086} height={1448} fetchPriority="high" decoding="async" />
         <div className="hsl-wrap hsl-hero-inner">
           <nav className="crumbs hsl-crumbs" aria-label="Breadcrumb">
             <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/products">Programs &amp; products</Link><span aria-hidden="true">/</span><span aria-current="page">{HS.title}</span>

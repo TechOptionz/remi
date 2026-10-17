@@ -30,8 +30,7 @@
 
 /* Hero: Remi's portrait on the right, the copy over its burgundy side (#380714) */
 .bcl-hero { position:relative; overflow:hidden; background:#380714; color:#fbf2e6; }
-.bcl-hero-photo { position:absolute; z-index:0; top:0; right:0; width:min(70%,1180px); height:100%; object-fit:cover; object-position:80% 22%; }
-.bcl-hero::after { content:""; position:absolute; z-index:1; inset:0; pointer-events:none; background:linear-gradient(to right, #380714 32%, rgba(56,7,20,.8) 42%, rgba(56,7,20,0) 58%); }
+.bcl-hero-photo { position:absolute; z-index:0; top:0; right:max(0px, calc(50% - 760px)); width:min(48%,720px); height:100%; object-fit:cover; object-position:50% 22%; -webkit-mask-image:linear-gradient(to right,transparent,#000 28%); mask-image:linear-gradient(to right,transparent,#000 28%); }
 .bcl-hero-inner { position:relative; z-index:2; padding-block:clamp(20px,2.4vw,32px) clamp(56px,7vw,88px); }
 .bcl-crumbs { margin:0; color:rgba(251,242,230,.72); }
 .bcl-crumbs a, .bcl-crumbs [aria-current] { color:inherit; }
@@ -100,10 +99,9 @@
 @media (prefers-reduced-motion:reduce) { .bcl-btn span { transition:none; } }
 @media (max-width:860px) {
   .bcl-hero { display:flex; flex-direction:column; }
-  .bcl-hero::after { display:none; }
   .bcl-hero-copy { max-width:none; }
   .bcl-hero-inner { padding-bottom:32px; }
-  .bcl-hero-photo { position:relative; order:2; width:100%; height:auto; aspect-ratio:4/3; object-position:84% 25%; }
+  .bcl-hero-photo { position:relative; order:2; width:100%; height:auto; aspect-ratio:4/3; object-position:50% 25%; right:auto; -webkit-mask-image:none; mask-image:none; }
   .bcl-rows li { grid-template-columns:1fr; }
   .bcl-note { grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); align-items:start; }
   .bcl-rows li.is-flipped .bcl-row-photo { order:0; }

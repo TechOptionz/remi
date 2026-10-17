@@ -68,6 +68,16 @@
 .srl-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(20px,3vw,40px); margin-top:clamp(24px,3vw,36px); }
 .srl-cards img { display:block; width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; border-radius:2px; }
 .srl-cards article:last-child img { object-position:100% 50%; }
+/* The meditation card: the HD black-and-white stage photo on charcoal, with the title, a play button and a sound wave */
+.srl-med { position:relative; aspect-ratio:4/3; border-radius:2px; overflow:hidden; background:#151413; }
+.srl-cards .srl-med img { position:absolute; top:0; right:0; width:62%; height:100%; aspect-ratio:auto; object-position:50% 20%; -webkit-mask-image:linear-gradient(to right,transparent,#000 35%); mask-image:linear-gradient(to right,transparent,#000 35%); }
+.srl-med-copy { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; padding-left:clamp(16px,2.4vw,28px); color:#f6efe5; }
+.srl .srl-med-title { margin:0; max-width:7em; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(20px,2.2vw,30px); line-height:1.1; letter-spacing:.06em; text-transform:uppercase; color:#f6efe5; }
+.srl .srl-med-sub { margin:12px 0 0; padding-top:10px; border-top:1px solid var(--srl-gold); width:max-content; font-size:14px; color:rgba(246,239,229,.85); }
+.srl .srl-med-player { display:flex; align-items:center; gap:12px; margin:18px 0 0; }
+.srl-med-play { position:relative; flex:none; width:44px; height:44px; border-radius:50%; background:var(--srl-rust); }
+.srl-med-play::after { content:""; position:absolute; left:55%; top:50%; transform:translate(-50%,-50%); border-style:solid; border-width:8px 0 8px 13px; border-color:transparent transparent transparent #fff; }
+.srl-med-wave { width:clamp(70px,9vw,120px); height:28px; background:repeating-linear-gradient(90deg, rgba(246,239,229,.75) 0 2px, transparent 2px 5px); -webkit-mask-image:radial-gradient(ellipse 60% 100% at center, #000 35%, transparent 80%); mask-image:radial-gradient(ellipse 60% 100% at center, #000 35%, transparent 80%); }
 .srl-cards h3 { margin:20px 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(22px,2.2vw,28px); }
 .srl-cards p { font-size:16.5px; }
 

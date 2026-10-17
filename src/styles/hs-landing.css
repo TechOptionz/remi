@@ -27,8 +27,7 @@
 
 /* Hero: Remi's portrait on the right, the copy over its empty burgundy side (same colour, #380714) */
 .hsl-hero { position:relative; overflow:hidden; background:#380714; color:#fbf3e8; }
-.hsl-hero-photo { position:absolute; z-index:0; top:0; right:0; width:min(70%,1180px); height:100%; object-fit:cover; object-position:80% 22%; }
-.hsl-hero::after { content:""; position:absolute; z-index:1; inset:0; pointer-events:none; background:linear-gradient(to right, #380714 32%, rgba(56,7,20,.8) 42%, rgba(56,7,20,0) 58%); }
+.hsl-hero-photo { position:absolute; z-index:0; top:0; right:max(0px, calc(50% - 760px)); width:min(48%,720px); height:100%; object-fit:cover; object-position:50% 22%; -webkit-mask-image:linear-gradient(to right,transparent,#000 28%); mask-image:linear-gradient(to right,transparent,#000 28%); }
 .hsl-hero-inner { position:relative; z-index:2; padding-block:clamp(20px,2.4vw,32px) clamp(56px,7vw,96px); }
 .hsl-crumbs { margin:0; color:rgba(251,243,232,.75); }
 .hsl-crumbs a, .hsl-crumbs [aria-current] { color:inherit; }
@@ -140,10 +139,9 @@
 @media (prefers-reduced-motion:reduce) { .hsl-chev { transition:none; } }
 @media (max-width:860px) {
   .hsl-hero { display:flex; flex-direction:column; }
-  .hsl-hero::after { display:none; }
   .hsl-hero-copy { max-width:none; }
   .hsl-hero-inner { padding-bottom:36px; }
-  .hsl-hero-photo { position:relative; order:2; width:100%; height:auto; aspect-ratio:4/3; object-position:84% 25%; }
+  .hsl-hero-photo { position:relative; order:2; width:100%; height:auto; aspect-ratio:4/3; object-position:50% 25%; right:auto; -webkit-mask-image:none; mask-image:none; }
   .hsl-split, .hsl-split--book, .hsl-deeper-grid, .hsl-note-grid { grid-template-columns:1fr; }
   .hsl-split-photo { position:static; }
   .hsl-deeper-grid > div { padding-bottom:0; }

@@ -1,7 +1,7 @@
 // Deep State Repatterning™'s sales page (/products/deep-state-repatterning), from Remi's copy deck and the three-page
 // mockup "DSR MOCKUP PAGE ONE–THREE" (Oct 2026). Copy carried over word for word from the deck; the layout and the
-// symbolic illustrations follow the mockup. The mockup's two portraits are not of Remi, so the hero and the note use
-// real photographs of her (public/assets/photos/). Component: components/dsr-landing/DsrLanding.tsx; styles:
+// symbolic illustrations follow the mockup. The hero is Remi's podcast-studio portrait (dsr-landing/dsr-hero, the
+// photo the mockup draws); the note uses photos/about-remi. Component: components/dsr-landing/DsrLanding.tsx; styles:
 // styles/dsr-landing.css (.dsl-*); illustrations cut from the mockup in public/assets/dsr-landing/.
 import { programOf, type Faq, type LeadItem, type Lesson, type Testimonial } from '@/content/program-landing';
 

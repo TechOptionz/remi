@@ -20,7 +20,7 @@ export default function BcLanding() {
     <main className="bcl">
       {/* PAGE ONE — the question over the burgundy side of Remi's portrait */}
       <section className="bcl-hero" aria-labelledby="bcl-title">
-        <img className="bcl-hero-photo" src="/assets/wdk-landing/wdk-hero.webp" alt="Remi Pearson smiling, in a burgundy top" width={1536} height={1024} fetchPriority="high" decoding="async" />
+        <img className="bcl-hero-photo" src="/assets/wdk-landing/wdk-portrait.webp" alt="Remi Pearson smiling, in a burgundy top" width={1086} height={1448} fetchPriority="high" decoding="async" />
         <div className="bcl-wrap bcl-hero-inner">
           <nav className="crumbs bcl-crumbs" aria-label="Breadcrumb">
             <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/products">Programs &amp; products</Link><span aria-hidden="true">/</span><span aria-current="page">{BC.title}</span>

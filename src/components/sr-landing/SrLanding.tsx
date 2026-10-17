@@ -118,7 +118,14 @@ export default function SrLanding() {
               <p>Over time, those observations can help you become more specific about what supports you. A practice that helps in one situation may not be the right choice in another.</p>
             </article>
             <article>
-              <Img name="sr-meditation" alt="Returning to Steadiness, guided meditation: Remi Pearson holding a microphone, with a play button and a sound wave" width={471} height={331} />
+              <div className="srl-med">
+                <Img name="sr-meditation" alt="Remi Pearson on stage holding a microphone, in black and white" width={1024} height={768} />
+                <div className="srl-med-copy" aria-hidden="true">
+                  <p className="srl-med-title">Returning to Steadiness</p>
+                  <p className="srl-med-sub">Guided meditation</p>
+                  <p className="srl-med-player"><span className="srl-med-play"></span><span className="srl-med-wave"></span></p>
+                </div>
+              </div>
               <h3>Your guided meditation</h3>
               <p>Returning to Steadiness brings the body-based practices into one guided experience you can revisit. It includes choices for keeping your eyes open, moving gently or pausing, so you can respond to how you’re actually feeling.</p>
               <p>There’s no requirement to become completely relaxed. You’re exploring what helps you feel more present and able to choose.</p>

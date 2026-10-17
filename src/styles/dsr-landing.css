@@ -38,7 +38,7 @@
 .dsl-hero-grid { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(28px,5vw,64px); align-items:center; margin-top:clamp(28px,3.6vw,48px); }
 .dsl-eyebrow { margin:0 0 20px !important; font-size:13px !important; font-weight:700; letter-spacing:.28em; text-transform:uppercase; color:var(--dsl-gold-light) !important; }
 .dsl-eyebrow span { display:block; margin-top:6px; letter-spacing:.2em; color:rgba(246,234,216,.7); }
-.dsl-hero-photo { display:block; width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; object-position:22% 30%; border-radius:4px; box-shadow:0 0 0 1px var(--dsl-line), 0 20px 50px rgba(0,0,0,.35); }
+.dsl-hero-photo { display:block; width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; object-position:52% 30%; border-radius:4px; box-shadow:0 0 0 1px var(--dsl-line), 0 20px 50px rgba(0,0,0,.35); }
 
 /* How many times: the six ringed icons */
 .dsl-ring { flex:none; display:grid; place-items:center; width:58px; height:58px; border:1.5px solid var(--dsl-gold); border-radius:50%; color:var(--dsl-gold); }

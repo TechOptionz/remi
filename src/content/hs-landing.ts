@@ -2,7 +2,7 @@
 // from Remi's copy deck and the three-page mockup "HOLDING SPACE MOCK UP ONE–THREE" (Oct 2026). Copy carried over word
 // for word from the deck (its typo "If you wat" corrected); the layout and pictures follow the mockup.
 // Component: components/hs-landing/HsLanding.tsx; styles: styles/hs-landing.css (.hsl-*); pictures in
-// public/assets/hs-landing/ (cut from the mockup) and the hero portrait public/assets/wdk-landing/wdk-hero.webp.
+// public/assets/hs-landing/ (cut from the mockup) and the hero portrait public/assets/wdk-landing/wdk-portrait.webp.
 import { programOf, type Faq, type LeadItem, type Lesson, type Testimonial } from '@/content/program-landing';
 
 export const HS_SLUG = 'holding-space-without-rescuing-or-disappearing';

@@ -7,9 +7,7 @@
 /* Hero: Remi's portrait (supplied with the deck) runs the full width; the headline and the first form sit in its empty
    burgundy space on the left, over the same colour (#380714). On phones: copy, form, then the photo below them. */
 .wdk-hero { position:relative; margin:clamp(10px,1.4vw,18px) calc(50% - 50vw) 0; padding:clamp(48px,6vw,88px) var(--gutter); overflow:hidden; background:#380714; color:var(--stl-cream); }
-.wdk-hero-photo { position:absolute; z-index:0; top:0; right:0; width:min(70%,1180px); height:100%; object-fit:cover; object-position:80% 22%; }
-.wdk-hero::after { content:""; position:absolute; z-index:1; inset:0; pointer-events:none;
-  background:linear-gradient(to right, #380714 30%, rgba(56,7,20,.8) 40%, rgba(56,7,20,0) 56%); }
+.wdk-hero-photo { position:absolute; z-index:0; top:0; right:max(0px, calc(50% - 760px)); width:min(48%,720px); height:100%; object-fit:cover; object-position:50% 22%; -webkit-mask-image:linear-gradient(to right,transparent,#000 28%); mask-image:linear-gradient(to right,transparent,#000 28%); }
 .wdk-hero-inner { position:relative; z-index:2; max-width:1152px; margin:0 auto; }
 .wdk-hero-copy, .wdk-hero-form { max-width:min(560px,50%); }
 .wdk-hero .stl-eyebrow { color:#e3c28a; }
@@ -44,7 +42,7 @@
 .wdk-convos p { margin:0; line-height:1.55; }
 .wdk-convos .wdk-said { margin-bottom:8px; font-family:var(--serif); font-style:italic; font-size:clamp(21px,1.9vw,25px); line-height:1.25; color:var(--rust); }
 .wdk-concerns { max-width:980px; margin:clamp(40px,4.6vw,64px) auto 0; }
-.wdk-concerns img, .wdk-preview img { display:block; width:100%; height:auto; border-radius:3px; box-shadow:0 0 0 6px var(--paper), 0 0 0 7px var(--gold); }
+.wdk-concerns img { display:block; width:100%; height:auto; border-radius:3px; box-shadow:0 0 0 6px var(--paper), 0 0 0 7px var(--gold); }
 
 .wdk-prose { margin-top:8px; }
 /* Copy runs the full width of the page (as on the chapters and articles); only the hero's text, beside the form and photo, keeps a column */
@@ -53,7 +51,19 @@
 
 /* The five videos: the supplied preview (a still with the play symbol and the five lesson labels), then each lesson
    and its description in the kit's three-column list */
-.wdk-preview { max-width:980px; margin:clamp(28px,3vw,40px) auto clamp(16px,2vw,28px); }
+/* The series preview (rebuilt from the supplied graphic with the HD studio photo): the still beside the five lessons */
+.wdk-preview { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(0,1fr); max-width:980px; margin:clamp(28px,3vw,40px) auto clamp(16px,2vw,28px); border-radius:3px; overflow:hidden; background:radial-gradient(120% 120% at 80% 0%, #6b1d2a, #3f0a16 70%); color:#fbf1e3; box-shadow:0 0 0 6px var(--paper), 0 0 0 7px var(--gold); }
+.wdk-preview-still { position:relative; }
+.wdk-preview-still img { display:block; width:100%; height:100%; aspect-ratio:3/2; object-fit:cover; object-position:50% 40%; }
+.wdk-play { position:absolute; right:7%; bottom:8%; width:clamp(48px,6vw,68px); height:clamp(48px,6vw,68px); border:2px solid #e3c28a; border-radius:50%; background:rgba(40,8,16,.55); }
+.wdk-play::after { content:""; position:absolute; left:55%; top:50%; transform:translate(-50%,-50%); border-style:solid; border-width:10px 0 10px 16px; border-color:transparent transparent transparent #e3c28a; }
+.wdk-preview-side { display:flex; flex-direction:column; justify-content:center; padding:clamp(20px,3vw,36px); }
+.wdk .wdk-preview-title { margin:0; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(24px,2.6vw,34px); line-height:1; text-transform:uppercase; color:#fbf1e3; }
+.wdk .wdk-preview-sub { margin:8px 0 0; font-size:12px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:#e3c28a; }
+.wdk-preview-list { margin:18px 0 0; padding:0; list-style:none; }
+.wdk-preview-list li { display:flex; align-items:baseline; gap:12px; padding:7px 0; border-top:1px solid rgba(227,194,138,.3); font-size:14px; line-height:1.3; }
+.wdk-preview-list span { flex:none; min-width:1.6em; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:22px; line-height:1; color:#e3c28a; }
+.wdk .wdk-preview-sig { margin:10px 0 0; align-self:flex-end; font-family:'Caveat',cursive; font-size:34px; line-height:1; color:#e3c28a; transform:rotate(-6deg); }
 .wdk-purpose { max-width:46em; margin:clamp(28px,3vw,40px) auto 28px; font-family:var(--serif); font-style:italic; font-size:clamp(19px,1.7vw,23px); line-height:1.4; text-align:center; }
 
 /* A note from Remi: a smaller portrait */
@@ -78,9 +88,8 @@
 
 @media (max-width:860px) {
   .wdk-hero { display:flex; flex-direction:column; padding-bottom:0; }
-  .wdk-hero::after { display:none; }
   .wdk-hero-copy, .wdk-hero-form { max-width:none; }
-  .wdk-hero-photo { position:relative; order:2; width:calc(100% + 2 * var(--gutter)); max-width:none; height:auto; aspect-ratio:4/3; margin:36px calc(-1 * var(--gutter)) 0; object-position:84% 25%; }
+  .wdk-hero-photo { position:relative; order:2; width:calc(100% + 2 * var(--gutter)); max-width:none; height:auto; aspect-ratio:4/3; margin:36px calc(-1 * var(--gutter)) 0; object-position:50% 25%; right:auto; -webkit-mask-image:none; mask-image:none; }
   .wdk-close-grid { grid-template-columns:1fr; }
   .wdk .wdk-note { grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr); align-items:start; }
 }
@@ -91,6 +100,7 @@
   .wdk-bar .hm-btn { display:flex; width:100%; min-height:48px; padding-block:12px; }
 }
 @media (max-width:640px) {
+  .wdk-preview { grid-template-columns:1fr; }
   .wdk .wdk-note { grid-template-columns:1fr; }
   .wdk .wdk-note-photo { justify-self:start; max-width:340px; }
   .wdk-convos { grid-template-columns:1fr; }
