@@ -1,6 +1,8 @@
 // Holding Space Without Rescuing or Disappearing's sales page (/products/holding-space-without-rescuing-or-disappearing),
-// from Remi's copy deck (Oct 2026), copy carried over word for word (the deck's typo "If you wat" corrected). No design
-// mock-up: the page is composed from components/program-landing/ui.tsx. Component: components/hs-landing/HsLanding.tsx.
+// from Remi's copy deck and the three-page mockup "HOLDING SPACE MOCK UP ONE–THREE" (Oct 2026). Copy carried over word
+// for word from the deck (its typo "If you wat" corrected); the layout and pictures follow the mockup.
+// Component: components/hs-landing/HsLanding.tsx; styles: styles/hs-landing.css (.hsl-*); pictures in
+// public/assets/hs-landing/ (cut from the mockup) and the hero portrait public/assets/wdk-landing/wdk-hero.webp.
 import { programOf, type Faq, type LeadItem, type Lesson, type Testimonial } from '@/content/program-landing';
 
 export const HS_SLUG = 'holding-space-without-rescuing-or-disappearing';
@@ -47,6 +49,22 @@ export const LESSONS: Lesson[] = [
     text: ['Explore how to communicate your limits, ask for a pause and make a clear agreement about returning. Learn how to recognise when a conversation needs support beyond what you can provide, and how to repair after you have become defensive, started rescuing or withdrawn.'],
     take: 'A more sustainable way to stay involved in difficult conversations, including the ones you don’t handle well at first.' },
 ];
+
+/** The photo on each video's row, cut from the mockup (hs-v1 … hs-v5); rows alternate sides as drawn. */
+export const LESSON_IMAGES = [
+  { alt: 'A woman listening, chin in her hand, to someone across from her', width: 390, height: 134 },
+  { alt: 'An older man with glasses listening closely', width: 360, height: 131 },
+  { alt: 'A woman listening, chin in her hand, as someone talks', width: 347, height: 131 },
+  { alt: 'A man explaining something, hands open', width: 360, height: 136 },
+  { alt: 'An older woman listening with a gentle smile', width: 372, height: 135 },
+];
+
+/** The three practices the mockup draws as icons beside the couple (from PRACTISE). */
+export const PILLARS = [
+  { icon: 'chat', text: 'Listen beyond your first interpretation' },
+  { icon: 'heart', text: 'Care without carrying every outcome' },
+  { icon: 'handshake', text: 'Repair when you miss the moment' },
+] as const;
 
 export const WORKBOOK = [
   'Identify your usual response when someone becomes upset.',
