@@ -43,7 +43,7 @@ const P = (p: Product) => p;
 export const PRODUCTS: Product[] = [
   // Personal change & emotional work
   P({ slug: 'self-esteem-triad', title: 'The Self-Esteem Triad', text: 'Learn how to recognise what you feel, take your needs seriously and hold boundaries that let you stay connected without leaving yourself behind.', category: 'personal', tone: 'cream', price: 'AUD $29', level: 'Introduction', kicker: 'A powerful place to begin', cta: 'See what’s inside' }),
-  P({ slug: 'why-do-i-keep-doing-this', title: 'Why Do I Keep Doing This?', text: 'EIT, trauma-informed emotional integration, protective patterns and IFS-informed parts work.', category: 'personal', tone: 'burgundy', price: FREE, level: 'Introduction' }),
+  P({ slug: 'why-do-i-keep-doing-this', title: 'Why Do I Keep Doing This?', text: 'EIT, trauma-informed emotional integration, protective patterns and IFS-informed parts work.', category: 'personal', tone: 'burgundy', price: FREE, level: 'Introduction', kicker: 'Free five-part video series', cta: 'Get the free video series' }),
   P({ slug: 'becoming-conscious', title: 'Becoming Conscious', text: 'See the patterns, stories and protective responses shaping your behaviour.', category: 'personal', tone: 'navy', price: 'AUD $29', level: 'Intermediate' }),
   P({ slug: 'self-regulation-when-it-matters', title: 'Self-Regulation When It Matters', text: 'Audio guidance for staying connected and capable under emotional pressure.', category: 'personal', tone: 'green', price: 'AUD $29', level: 'Intermediate' }),
   P({ slug: 'deep-state-repatterning', title: 'Deep State Repatterning', text: 'Why insight alone does not necessarily change an established pattern.', category: 'personal', tone: 'black', price: 'AUD $29', level: 'Advanced' }),
@@ -97,7 +97,8 @@ export const PRODUCTS: Product[] = [
 export const productBySlug = (slug: string) => PRODUCTS.find(p => p.slug === slug);
 export const productHref = (slug: string) => `/products/${slug}`;
 /** Products with their own designed sales page (LANDINGS in app/products/[slug]/page.tsx); the sitemap ranks them higher. */
-export const LANDING_SLUGS = ['self-esteem-triad', 'critical-alignment-model-for-leaders', 'ultimate-influence-consultative-sales-introduction', 'selling-from-stage'] as const;
+export const LANDING_SLUGS = ['self-esteem-triad', 'critical-alignment-model-for-leaders', 'ultimate-influence-consultative-sales-introduction', 'selling-from-stage', 'why-do-i-keep-doing-this',
+  'emotion-integration-technique-foundations', 'self-regulation-when-it-matters', 'becoming-conscious'] as const;
 /** A product's price as shown on the page ('AUD $29', 'Free'), for the rabbit-hole and homepage blocks that feature one. */
 export const priceOf = (slug: string) => productBySlug(slug)?.price ?? '';
 // The bundle always comes last, so it closes the grid whichever products are borrowed from another category.

@@ -7,6 +7,10 @@ import TriadLanding from '@/components/triad-landing/TriadLanding';
 import CamLanding from '@/components/cam-landing/CamLanding';
 import UiLanding from '@/components/ui-landing/UiLanding';
 import SfsLanding from '@/components/sfs-landing/SfsLanding';
+import WdkLanding from '@/components/wdk-landing/WdkLanding';
+import EitLanding from '@/components/eit-landing/EitLanding';
+import SrLanding from '@/components/sr-landing/SrLanding';
+import BcLanding from '@/components/bc-landing/BcLanding';
 import { PRODUCTS, productBySlug, LANDING_SLUGS } from '@/content/products';
 
 const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.ReactNode; metadata: Metadata }> = {
@@ -36,6 +40,34 @@ const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.React
     metadata: {
       title: 'Selling from Stage: Turn an Audience into Buyers — Remi Pearson',
       description: 'A self-paced online program with Remi Pearson: shape a compelling offer, present it on a live stage or a webinar, and follow through after the pitch. Recorded teaching, workbooks and supporting resources.',
+    },
+  },
+  'why-do-i-keep-doing-this': {
+    page: WdkLanding,
+    metadata: {
+      title: 'Why Do I Keep Doing This? Free Video Series — Remi Pearson',
+      description: 'Five free videos with Remi Pearson on self-sabotage and the inner conflicts that keep you repeating familiar patterns: what a part of you may be protecting, and a more useful question to begin with.',
+    },
+  },
+  'emotion-integration-technique-foundations': {
+    page: EitLanding,
+    metadata: {
+      title: 'Emotion Integration Technique (EIT) Foundations — Remi Pearson',
+      description: 'Learn the principles of Emotion Integration Technique with its creator, Remi Pearson: five videos, a guided demonstration and a workbook on staying with the feelings you avoid and finding compassion when it feels out of reach. AUD $49.',
+    },
+  },
+  'self-regulation-when-it-matters': {
+    page: SrLanding,
+    metadata: {
+      title: 'Self-Regulation When It Matters — Remi Pearson',
+      description: 'A self-paced program with Remi Pearson: recognise your early warning signs, work with urgency and shutdown through body-based practices, and stay present in difficult conversations. Five videos, a workbook and a guided meditation. AUD $29.',
+    },
+  },
+  'becoming-conscious': {
+    page: BcLanding,
+    metadata: {
+      title: 'Becoming Conscious: A Gentle Introduction to Presence — Remi Pearson',
+      description: 'Three short videos with guided practices from Remi Pearson: notice your surroundings, feel the sensations in your body and become aware of your thoughts without following every one. No meditation experience needed. AUD $29.',
     },
   },
 };

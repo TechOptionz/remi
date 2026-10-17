@@ -1,0 +1,109 @@
+/* ============ Why Do I Keep Doing This? — the free video series registration page (.wdk) ============ */
+/* On the sales-page kit (landing.css, .stl-*) in the deck's deep burgundy, warm ivory and muted gold: the kit's rust is
+   re-mapped to burgundy here. The photos are of Remi, so they are not multiplied. */
+.wdk { --paper:#f8f2e8; --rust:#6b1d2a; --rust-rgb:107,29,42; --hm-rust:#6b1d2a; --gold:#b8955a; --line:rgba(107,29,42,.28); --stl-gold-ink:#8a6a34; }
+.wdk .stl-photo { mix-blend-mode:normal; }
+
+/* Hero: copy and the form on the left, the portrait on the right; on phones copy, form, then the photo */
+.wdk-hero { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr); grid-template-areas:"copy photo" "form photo"; column-gap:clamp(28px,5vw,72px); align-items:start; padding:clamp(24px,3vw,40px) 0 clamp(56px,7vw,96px); }
+.wdk-hero-copy { grid-area:copy; }
+.wdk-hero-copy > p:not(.stl-eyebrow) { max-width:38em; margin:16px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.65; }
+.wdk-hero-copy > .wdk-sub { margin-top:24px; font-family:var(--serif); font-style:italic; font-size:clamp(21px,2vw,27px); line-height:1.35; color:var(--rust); }
+.wdk-hero-form { grid-area:form; margin-top:clamp(24px,3vw,36px); max-width:540px; }
+.wdk-hero-photo { grid-area:photo; justify-self:end; align-self:center; max-width:380px; }
+
+/* The form (hero on ivory, closing band on burgundy) */
+.wdk-form { display:grid; gap:16px; padding:clamp(22px,2.6vw,32px); border:1px solid var(--line); border-radius:3px; background:rgba(255,255,255,.5); }
+.wdk-field { display:grid; gap:6px; }
+.wdk-field label { font-size:14px; font-weight:700; letter-spacing:.04em; }
+.wdk-field input { width:100%; min-height:50px; padding:12px 14px; border:1px solid rgba(var(--ink-rgb),.35); border-radius:2px; background:#fff; color:var(--ink); font:inherit; font-size:16px; }
+.wdk-field input:focus-visible { outline:2px solid var(--rust); outline-offset:1px; border-color:var(--rust); }
+.wdk-optin { display:flex; gap:12px; align-items:flex-start; font-size:14.5px; line-height:1.45; }
+.wdk-optin input { flex:none; width:22px; height:22px; margin:0; accent-color:var(--rust); }
+.wdk-submit { width:100%; min-height:54px; }
+.wdk-submit:disabled { opacity:.65; cursor:default; transform:none; }
+.wdk-fine { margin:0; font-size:14px; line-height:1.5; opacity:.85; }
+.wdk-fine + .wdk-fine { margin-top:-10px; }
+.wdk-fine a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
+.wdk-form .form-error { margin:0; font-size:14px; }
+.wdk-done { padding:clamp(22px,2.6vw,32px); border:1px solid var(--line); border-radius:3px; background:rgba(255,255,255,.5); }
+.wdk-done p { margin:0 0 14px; line-height:1.55; }
+.wdk-done-title { font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(28px,3vw,38px); line-height:1; text-transform:uppercase; color:var(--rust); }
+
+/* Which of these conversations: four cards, then the one-person-two-concerns drawing */
+.wdk-convos { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin:clamp(28px,3vw,40px) 0 0; padding:0; list-style:none; }
+.wdk-convos li { padding:22px 26px; border:1px solid var(--line); border-left:4px solid var(--rust); border-radius:3px; background:rgba(255,255,255,.35); }
+.wdk-convos p { margin:0; line-height:1.55; }
+.wdk-convos .wdk-said { margin-bottom:8px; font-family:var(--serif); font-style:italic; font-size:clamp(21px,1.9vw,25px); line-height:1.25; color:var(--rust); }
+.wdk-concerns { margin:clamp(40px,4.6vw,64px) 0 0; text-align:center; }
+.wdk-concerns-art { display:grid; grid-template-columns:minmax(0,1fr) clamp(96px,11vw,140px) minmax(0,1fr); align-items:start; gap:clamp(12px,2vw,28px); max-width:760px; margin:0 auto; }
+.wdk-person { grid-column:2; grid-row:1; width:100%; margin-top:clamp(36px,4vw,56px); fill:none; stroke:var(--rust); stroke-width:3; stroke-linecap:round; }
+.wdk-bubble { position:relative; margin:0; padding:18px 22px; border:1.5px solid var(--gold); border-radius:999px; background:#fffaf2; font-family:var(--serif); font-style:italic; font-size:clamp(17px,1.6vw,21px); line-height:1.3; }
+.wdk-bubble--l { grid-column:1; grid-row:1; }
+.wdk-bubble--r { grid-column:3; grid-row:1; }
+/* The two little circles that make it a thought, trailing towards the head */
+.wdk-bubble::before, .wdk-bubble::after { content:""; position:absolute; border:1.5px solid var(--gold); border-radius:50%; background:#fffaf2; }
+.wdk-bubble::before { width:14px; height:14px; bottom:-18px; }
+.wdk-bubble::after { width:8px; height:8px; bottom:-32px; }
+.wdk-bubble--l::before { right:18%; } .wdk-bubble--l::after { right:calc(18% - 14px); }
+.wdk-bubble--r::before { left:18%; } .wdk-bubble--r::after { left:calc(18% - 14px); }
+.wdk-concerns figcaption { margin-top:22px; font-size:15px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--stl-gold-ink); }
+
+.wdk-prose { max-width:44em; margin-top:8px; }
+.wdk-prose p { margin:18px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.65; }
+
+/* The five videos: a still with the play symbol beside the numbered lessons */
+.wdk-preview { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:clamp(24px,4vw,56px); align-items:start; margin-top:clamp(28px,3vw,40px); }
+.wdk-still { position:relative; margin:0; border-radius:3px; overflow:hidden; box-shadow:0 0 0 6px var(--paper), 0 0 0 7px var(--gold); }
+.wdk-still img { display:block; width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; object-position:40% 30%; }
+.wdk-still::after { content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(40,10,16,.55), transparent 55%); }
+.wdk-still-play { position:absolute; z-index:1; left:50%; top:50%; width:clamp(64px,7vw,88px); height:clamp(64px,7vw,88px); border:2px solid #fbf1e3; border-radius:50%; background:rgba(107,29,42,.75); transform:translate(-50%,-50%); }
+.wdk-still-play::after { content:""; position:absolute; left:55%; top:50%; transform:translate(-50%,-50%); border-style:solid; border-width:12px 0 12px 19px; border-color:transparent transparent transparent #fbf1e3; }
+.wdk-still-label { position:absolute; z-index:1; left:20px; bottom:16px; margin:0; font-size:13px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:#fbf1e3; }
+/* Beside the still the lesson list is narrow: title over its description instead of three columns */
+.wdk-lessons { margin-top:0; }
+.wdk-lessons li { grid-template-columns:clamp(52px,5vw,68px) minmax(0,1fr); row-gap:6px; }
+.wdk-lessons li:first-child { padding-top:4px; }
+.wdk-lessons h3 { padding:4px 0 0; border-left:0; }
+.wdk-lessons p { grid-column:2; padding:0; border-left:0; }
+.wdk-purpose { max-width:46em; margin:clamp(28px,3vw,40px) auto 28px; font-family:var(--serif); font-style:italic; font-size:clamp(19px,1.7vw,23px); line-height:1.4; text-align:center; }
+
+/* A note from Remi: a smaller portrait */
+.wdk-note-photo { max-width:420px; border-radius:3px; }
+
+/* The closing band: the invitation beside the second form */
+.wdk-close { background:radial-gradient(120% 120% at 15% 0%, #7e2433, #6b1d2a 50%, #4f121d); scroll-margin-top:72px; }
+.wdk-close-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(28px,5vw,72px); align-items:center; }
+.wdk-close-sub { margin:0 0 18px; font-family:var(--serif); font-style:italic; font-size:19px; color:#f3dcb4; }
+.wdk-close .wdk-form, .wdk-close .wdk-done { border-color:rgba(251,241,227,.35); background:rgba(255,255,255,.06); color:var(--stl-cream); }
+.wdk-close .wdk-field input { border-color:transparent; }
+.wdk-close .wdk-field input:focus-visible { outline-color:#f3dcb4; }
+.wdk-close .wdk-optin input { accent-color:#f3dcb4; }
+.wdk-close .wdk-submit { background:var(--stl-cream); color:var(--rust); }
+.wdk-close .wdk-fine { opacity:.92; }
+.wdk-close .form-error { color:#ffb4ac; }
+.wdk-close .wdk-done-title { color:#f3dcb4; }
+
+/* Phones: the access bar (hidden on larger screens) */
+.wdk-bar { display:none; }
+
+@media (max-width:860px) {
+  .wdk-hero { grid-template-columns:1fr; grid-template-areas:"copy" "form" "photo"; }
+  .wdk-hero-form { max-width:none; }
+  .wdk-hero-photo { justify-self:center; max-width:min(320px,80%); margin-top:36px; }
+  .wdk-preview, .wdk-close-grid { grid-template-columns:1fr; }
+}
+@media (max-width:760px) {
+  .wdk { padding-bottom:84px; }
+  .wdk-bar { display:block; position:fixed; z-index:40; left:0; right:0; bottom:0; padding:10px 16px calc(10px + env(safe-area-inset-bottom)); background:rgba(248,242,232,.96); box-shadow:0 -1px 0 var(--line); transform:translateY(110%); transition:transform .3s ease; }
+  .wdk-bar.is-shown { transform:none; }
+  .wdk-bar .hm-btn { display:flex; width:100%; min-height:48px; padding-block:12px; }
+}
+@media (max-width:640px) {
+  .wdk-convos { grid-template-columns:1fr; }
+  .wdk-concerns-art { grid-template-columns:minmax(0,1fr) minmax(0,1fr); row-gap:0; }
+  .wdk-bubble--r { grid-column:2; }
+  .wdk-bubble { border-radius:22px; padding:14px 16px; }
+  .wdk-person { grid-column:1 / -1; grid-row:2; width:110px; margin:36px auto 0; }
+}
+@media (prefers-reduced-motion:reduce) { .wdk-bar { transition:none; } }

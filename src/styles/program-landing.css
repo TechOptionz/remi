@@ -1,0 +1,92 @@
+/* ============ Program pages built from a copy deck (.pgl): EIT Foundations, Self-Regulation When It Matters ============ */
+/* On the sales-page kit (landing.css, .stl-*) with its paper, rust and gold. No design mock-up: the photos are existing
+   photographs of Remi (public/assets/photos/), framed with a gold rule instead of multiplied. */
+.pgl-photo { display:block; width:100%; height:100%; object-fit:cover; border-radius:3px; }
+.pgl-prose { max-width:44em; }
+.pgl-prose p { margin:18px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.65; }
+.stl-head + .pgl-prose { margin-top:8px; }
+.pgl-indent { padding-left:var(--kb-indent); }
+.pgl-lede { font-family:var(--serif); font-style:italic; font-size:clamp(20px,1.9vw,25px) !important; line-height:1.35 !important; color:var(--rust); }
+.pgl-pull { padding-left:20px; border-left:3px solid var(--gold); font-weight:600; }
+.pgl-subhead { margin:clamp(32px,3.6vw,48px) 0 0; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(24px,2.4vw,32px); line-height:1.1; text-transform:uppercase; color:var(--rust); }
+.pgl-fine { font-size:15px !important; opacity:.82; }
+
+/* Hero: question, opening paragraphs, what's included and the button, beside a tall framed photo */
+.pgl-hero { display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr); gap:clamp(28px,5vw,72px); align-items:stretch; padding:clamp(24px,3vw,40px) 0 clamp(56px,7vw,96px); }
+.pgl-hero .stl-title { font-size:clamp(38px,4.4vw,60px); }
+.pgl-hero .pgl-prose { margin-top:10px; }
+.pgl-hero-photo { position:relative; min-height:420px; box-shadow:0 0 0 6px var(--paper), 0 0 0 7px var(--gold); border-radius:3px; }
+.pgl-hero-photo .pgl-photo { position:absolute; inset:0; }
+.pgl-includes { margin:28px 0 22px; font-family:var(--serif); font-style:italic; font-size:clamp(18px,1.6vw,21px); color:var(--rust); }
+
+/* Buy button with its line */
+.pgl-buy { margin-top:clamp(28px,3vw,40px); }
+.pgl-hero .pgl-buy { margin-top:0; }
+.pgl-buy--center { text-align:center; }
+.pgl-buy-note { margin:14px 0 0; font-size:14.5px; opacity:.8; }
+/* A buy row straight after a section (Becoming Conscious, under its videos) keeps the section spacing below it */
+.kb-page > .pgl-buy { margin:0 0 clamp(56px,7vw,96px); }
+
+/* Cards that open with a bold sentence */
+.pgl-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:clamp(28px,3vw,40px) 0 0; padding:0; list-style:none; }
+.pgl-cards li { padding:20px 24px; border:1px solid var(--line); border-left:4px solid var(--rust); border-radius:3px; background:rgba(255,255,255,.3); }
+.pgl-cards p { margin:0; line-height:1.55; }
+.pgl-cards strong { display:block; margin-bottom:6px; font-family:var(--serif); font-style:italic; font-weight:400; font-size:clamp(19px,1.7vw,22px); line-height:1.25; color:var(--rust); }
+.pgl-points { margin-bottom:clamp(8px,1vw,16px); }
+.pgl-points li:last-child { grid-column:auto; }
+.pgl-points li:nth-child(odd):last-child { grid-column:1 / -1; }
+.pgl-point-inline { margin:4px 0 0 !important; font-size:16.5px !important; line-height:1.55; }
+.pgl-point-inline strong { font-weight:700; color:var(--rust); }
+
+/* The one-line rust band between sections */
+.pgl-band p { max-width:30em; margin:0 !important; font-family:var(--serif); font-style:italic; font-size:clamp(24px,2.8vw,36px) !important; line-height:1.25; color:#f3dcb4; }
+.stl-section.pgl-first { border-top:0; }
+
+/* Your five-video program: the still beside the lessons (it stays in view while they scroll on desktop) */
+.pgl-videos { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:clamp(24px,4vw,56px); align-items:start; margin-top:clamp(28px,3vw,40px); }
+.pgl-still { position:sticky; top:96px; aspect-ratio:4/3; border-radius:3px; overflow:hidden; box-shadow:0 0 0 6px var(--paper), 0 0 0 7px var(--gold); }
+.pgl-still .pgl-photo { border-radius:0; }
+.pgl-still::after { content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(30,14,8,.55), transparent 55%); }
+.pgl-still-play { position:absolute; z-index:1; left:50%; top:50%; width:clamp(64px,7vw,84px); height:clamp(64px,7vw,84px); border:2px solid #fbf1e3; border-radius:50%; background:rgba(var(--rust-rgb),.78); transform:translate(-50%,-50%); }
+.pgl-still-play::after { content:""; position:absolute; left:55%; top:50%; transform:translate(-50%,-50%); border-style:solid; border-width:12px 0 12px 19px; border-color:transparent transparent transparent #fbf1e3; }
+.pgl-still-label { position:absolute; z-index:1; left:20px; bottom:16px; margin:0; font-size:13px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:#fbf1e3; }
+.pgl-lessons { margin:0; padding:0; list-style:none; }
+.pgl-lessons li { display:grid; grid-template-columns:clamp(52px,5vw,68px) minmax(0,1fr); padding:0 0 24px; margin-bottom:24px; border-bottom:1px solid var(--line); }
+.pgl-lessons li:last-child { margin-bottom:0; border-bottom:0; }
+.pgl-lessons h3 { margin:4px 0 10px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(22px,2.2vw,28px); line-height:1.1; text-transform:uppercase; color:var(--ink-strong); }
+.pgl-lessons p { margin:0 0 10px; line-height:1.6; }
+.pgl-take { padding:12px 16px; border-radius:3px; background:rgba(var(--rust-rgb),.07); }
+.pgl-take strong { color:var(--rust); }
+
+/* Panels: the demonstration, the workbook, the meditation */
+.pgl-panels { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(16px,2vw,24px); margin-top:clamp(28px,3vw,40px); }
+.stl-section > .sr-only + .pgl-panels { margin-top:0; }
+.pgl-panel { padding:clamp(24px,3vw,40px); border:1px solid var(--line); border-radius:3px; background:rgba(255,255,255,.3); }
+.pgl-panel-h { margin:0 0 6px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(24px,2.4vw,32px); line-height:1.08; text-transform:uppercase; color:var(--rust); }
+.pgl-panel p { margin:14px 0 0; line-height:1.6; }
+.pgl-dots { margin:12px 0 0; padding:0; list-style:none; }
+.pgl-dots li { position:relative; padding:6px 0 6px 22px; line-height:1.5; }
+.pgl-dots li::before { content:""; position:absolute; left:2px; top:.95em; width:8px; height:8px; border-radius:50%; background:var(--gold); }
+
+/* A note from Remi: a framed photo the height of the note */
+.pgl-note-photo { position:relative; align-self:stretch; min-height:360px; box-shadow:0 0 0 6px var(--paper), 0 0 0 7px var(--gold); border-radius:3px; }
+.pgl-note-photo .pgl-photo { position:absolute; inset:0; }
+
+/* The closing band: the invitation beside the program and its button */
+.pgl-close { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(28px,5vw,72px); align-items:center; }
+.pgl-close-prose p { max-width:40em; margin:18px 0 0; font-size:clamp(16px,1.35vw,19px); line-height:1.6; }
+.pgl-close-buy { padding-left:clamp(0px,3vw,40px); border-left:1px solid rgba(251,241,227,.35); }
+.pgl-close-with { margin:-6px 0 14px; font-size:13px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:#f3dcb4; }
+.pgl-close-price { margin:0 0 22px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:600; font-size:clamp(30px,3.2vw,42px); line-height:1; }
+
+@media (max-width:860px) {
+  .pgl-hero, .pgl-videos, .pgl-close { grid-template-columns:1fr; }
+  .pgl-hero-photo { order:-1; min-height:0; aspect-ratio:4/3; max-height:420px; }
+  .pgl-still { position:relative; top:auto; }
+  .pgl-note-photo { min-height:0; aspect-ratio:4/3; justify-self:stretch; }
+  .pgl-close-buy { padding-left:0; border-left:0; }
+}
+@media (max-width:640px) {
+  .pgl-cards, .pgl-panels { grid-template-columns:1fr; }
+  .pgl-points li:nth-child(odd):last-child { grid-column:auto; }
+}
