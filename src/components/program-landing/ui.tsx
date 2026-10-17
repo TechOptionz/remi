@@ -136,10 +136,10 @@ export function Testimonials({ items }: { items: Testimonial[] }) {
   );
 }
 
-export function Questions({ items }: { items: FaqItem[] }) {
+export function Questions({ items, title = 'A few things you might be wondering' }: { items: FaqItem[]; title?: string }) {
   return (
     <section className="stl-section" aria-labelledby="pgl-faq-h">
-      <Head id="pgl-faq-h" star>A few things you might be wondering</Head>
+      <Head id="pgl-faq-h" star>{title}</Head>
       <dl className="stl-faq">
         {items.map(f => <div key={f.q}><dt>{f.q}</dt><dd>{f.a}</dd></div>)}
       </dl>
@@ -149,8 +149,8 @@ export function Questions({ items }: { items: FaqItem[] }) {
 
 /** The closing rust band (#get): the last invitation, the program's name, what's included, the price and the button,
  *  or "Coming soon" and a tell-me-when-it's-ready form until the product has a checkout link. */
-export function Close({ program, title, children, includes, label, sub = 'With Remi Pearson' }: {
-  program: ProgramInfo; title: string; children: React.ReactNode; includes?: string; label: string; sub?: string;
+export function Close({ program, title, children, includes, label, sub = 'With Remi Pearson', name = program.title, terms = 'One payment' }: {
+  program: ProgramInfo; title: string; children: React.ReactNode; includes?: string; label: string; sub?: string; name?: string; terms?: string;
 }) {
   return (
     <section id="get" className="stl-close" aria-labelledby="pgl-close-h">
@@ -160,10 +160,10 @@ export function Close({ program, title, children, includes, label, sub = 'With R
           <div className="pgl-close-prose">{children}</div>
         </div>
         <div className="pgl-close-buy">
-          <p className="stl-close-name">{program.title}</p>
+          <p className="stl-close-name">{name}</p>
           <p className="pgl-close-with">{sub}</p>
           {includes && <p className="stl-close-includes">{includes}</p>}
-          <p className="pgl-close-price">{program.price} <span aria-hidden="true">•</span> One payment</p>
+          <p className="pgl-close-price">{program.price} <span aria-hidden="true">•</span> {terms}</p>
           {program.buyHref
             ? <BuyBtn href={program.buyHref} light>{label}</BuyBtn>
             : <><p className="stl-close-soon">Coming soon</p><NotifyForm product={program.title} segment={program.segment} /></>}

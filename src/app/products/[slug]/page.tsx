@@ -11,6 +11,8 @@ import WdkLanding from '@/components/wdk-landing/WdkLanding';
 import EitLanding from '@/components/eit-landing/EitLanding';
 import SrLanding from '@/components/sr-landing/SrLanding';
 import BcLanding from '@/components/bc-landing/BcLanding';
+import DsrLanding from '@/components/dsr-landing/DsrLanding';
+import HsLanding from '@/components/hs-landing/HsLanding';
 import { PRODUCTS, productBySlug, LANDING_SLUGS } from '@/content/products';
 
 const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.ReactNode; metadata: Metadata }> = {
@@ -68,6 +70,20 @@ const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.React
     metadata: {
       title: 'Becoming Conscious: A Gentle Introduction to Presence — Remi Pearson',
       description: 'Three short videos with guided practices from Remi Pearson: notice your surroundings, feel the sensations in your body and become aware of your thoughts without following every one. No meditation experience needed. AUD $29.',
+    },
+  },
+  'deep-state-repatterning': {
+    page: DsrLanding,
+    metadata: {
+      title: 'Deep State Repatterning™ — Remi Pearson',
+      description: 'Why does the past still have so much power over you? Five videos, a workbook and a guided Deep State Repatterning experience with its creator, Remi Pearson, on the emotional meaning attached to past experiences. AUD $29.',
+    },
+  },
+  'holding-space-without-rescuing-or-disappearing': {
+    page: HsLanding,
+    metadata: {
+      title: 'Holding Space Without Rescuing or Disappearing — Remi Pearson',
+      description: 'Learn to stay with a difficult conversation when someone you love is upset: listen so they feel heard, understand what support they want, and care without taking over or withdrawing. Five videos and a workbook with Remi Pearson. AUD $29.',
     },
   },
 };
