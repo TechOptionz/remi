@@ -3,6 +3,9 @@
 
 export const DSR_PAGE_HREF = '/ideas-models/deep-state-repatterning';
 
+/** The chain of pearls diagram (public/assets/ideas/dsr-pearls.webp), on the chapter and the DSR program's sales page. */
+export const PEARLS_ALT = 'The chain of pearls: one emotion, many connected events. A timeline from past to future. The DSR release point sits just before the first significant emotional event. Later events carrying the same emotion or belief follow as pearls on the chain. A present trigger activates the entire gestalt, and the present becomes flooded by the whole chain. Release the originating emotional charge and the connected gestalt no longer has to light up as one. One chain may carry fear. Another may carry shame, anger, hurt or a limiting belief.';
+
 /** The conclusions a child is likely to draw about the self. */
 export const CHILD_CONCLUSIONS = ['I do not matter.', 'I am unsafe.', 'I caused this.', 'There is something wrong with me.', 'I cannot trust my own experience.'];
 

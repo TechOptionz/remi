@@ -17,6 +17,9 @@ const SUBJECTS: Record<Kind, string> = {
 };
 // A waitlist sign-up that names a product is a "tell me when it's ready" form (NotifyForm, TriadNotify), not Rebel Yell
 const NOTIFY_SUBJECT = 'Tell me when it’s ready';
+// …except a free series' registration form (components/wdk-landing/RegisterForm.tsx)
+const FREE_SERIES = ['Why Do I Keep Doing This?'];
+const REGISTER_SUBJECT = 'Free series registration';
 const SEGMENT_NAMES: Record<string, string> = {
   leadership: 'Leadership', business: 'Business', 'personal-development': 'Personal development',
   'consultative-sales': 'Consultative sales', relationships: 'Relationships',
@@ -41,7 +44,7 @@ const AUTO_REPLY: Partial<Record<Kind, { subject: string; body: string }>> = {
 };
 
 const LABELS: Record<string, string> = {
-  firstName: 'First name', why_now: 'Why now', when: 'Date, location or online', audience: 'Who will be in the room',
+  firstName: 'First name', marketing: 'Ideas and program invitations', why_now: 'Why now', when: 'Date, location or online', audience: 'Who will be in the room',
   explore: 'What to explore', fit: 'Why the right fit', stuck: 'Where the organisation is stuck', attempted: 'Already attempted',
   who: 'Who needs to be involved', about: 'About', helpful: 'Was it helpful?', message: 'Question or feedback', segment: 'List', page: 'Sent from', url: 'Page address',
 };
@@ -59,9 +62,12 @@ const SEGMENTS = ['leadership', 'business', 'personal-development', 'consultativ
 const LISTS: Record<string, string> = {
   ...SEGMENT_NAMES, invitation: 'Invite Remi', 'rebel-yell': 'Waitlist — Rebel Yell',
   'the-shift': 'Waitlist — The Shift', 'selling-from-stage': 'Waitlist — Selling from Stage',
+  'why-do-i-keep-doing-this': 'Free series — Why Do I Keep Doing This?',
 };
 // "Tell me when it's ready" products with a waitlist segment of their own (by the `product` their form sends)
-const PRODUCT_LISTS: Record<string, string> = { 'The Shift': 'the-shift', 'Selling from Stage': 'selling-from-stage' };
+const PRODUCT_LISTS: Record<string, string> = {
+  'The Shift': 'the-shift', 'Selling from Stage': 'selling-from-stage', 'Why Do I Keep Doing This?': 'why-do-i-keep-doing-this',
+};
 
 const segmentIds = new Map<string, string>(); // name → id, kept while the function instance is warm
 async function segmentId(resend: Resend, key: string) {
@@ -113,7 +119,7 @@ export async function POST(request: Request) {
   const type = kind as Kind;
   const who = data.name ?? data.firstName ?? (email || (data.helpful ? '' : 'anonymous'));
   const topic = topicOf(type, data);
-  const heading = type === 'waitlist' && data.product ? NOTIFY_SUBJECT : type === 'feedback' && data.message ? 'Reader question' : SUBJECTS[type];
+  const heading = type === 'waitlist' && data.product ? (FREE_SERIES.includes(data.product) ? REGISTER_SUBJECT : NOTIFY_SUBJECT) : type === 'feedback' && data.message ? 'Reader question' : SUBJECTS[type];
   const subject = [heading, topic && oneLine(topic).slice(0, 120), oneLine(who).slice(0, 80)]
     .filter(Boolean).join(' — ');
 
@@ -146,12 +152,15 @@ export async function POST(request: Request) {
   // Sign-ups and invitations join the contacts, each in the segments for what it was about (enquiries and feedback do not).
   // Newsletter and "tell me when it's ready" sign-ups also join the general list; invitations and Rebel Yell do not.
   const rebelYell = type === 'waitlist' && !data.product;
+  // A form with a marketing choice (marketing = "Yes" / "No") left unticked joins only its product's own segment
+  const ownListOnly = type === 'waitlist' && data.marketing === 'No' && !!data.product && !!PRODUCT_LISTS[data.product];
   const keys = type === 'invitation' ? ['invitation']
     : rebelYell ? ['rebel-yell']
+    : ownListOnly ? [PRODUCT_LISTS[data.product]]
     : type === 'newsletter' || type === 'waitlist' ? [data.segment, data.product && PRODUCT_LISTS[data.product]] : [];
   if (keys.length) {
     // One call at a time: Resend allows only a few requests a second
-    const ids = type === 'invitation' || rebelYell ? [] : [RESEND_SEGMENT_ID];
+    const ids = type === 'invitation' || rebelYell || ownListOnly ? [] : [RESEND_SEGMENT_ID];
     for (const key of keys) if (key) ids.push(await segmentId(resend, key));
     const segments = [...new Set(ids.filter((id): id is string => !!id))];
     const [firstName, ...rest] = oneLine(data.firstName ?? data.name ?? '').split(' ');

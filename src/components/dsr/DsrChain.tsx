@@ -1,8 +1,6 @@
 import ZoomArt from '@/components/ideas/ZoomArt';
 import { Body, H3, Hand, Part } from '@/components/ideas/ui';
-import { CHILD_CONCLUSIONS } from '@/content/dsr';
-
-const PEARLS_ALT = 'The chain of pearls: one emotion, many connected events. A timeline from past to future. The DSR release point sits just before the first significant emotional event. Later events carrying the same emotion or belief follow as pearls on the chain. A present trigger activates the entire gestalt, and the present becomes flooded by the whole chain. Release the originating emotional charge and the connected gestalt no longer has to light up as one. One chain may carry fear. Another may carry shame, anger, hurt or a limiting belief.';
+import { CHILD_CONCLUSIONS, PEARLS_ALT } from '@/content/dsr';
 
 // WHY CAN A PAST EXPERIENCE STILL FEEL PRESENT? — the child's conclusions, the chain of pearls, the first SEE
 export default function DsrChain() {
