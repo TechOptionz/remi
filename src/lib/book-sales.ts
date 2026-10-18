@@ -61,7 +61,11 @@ export function readToken(token: string): { sessionId: string; slug: string; exp
 export function downloadLinks(origin: string, session: Stripe.Checkout.Session, b: Book, from = session.created * 1000) {
   const expires = from + LINK_DAYS * 864e5;
   const t = downloadToken(session.id, b.slug, expires);
-  return { expires, links: (b.files ?? []).map(f => ({ format: f, label: FORMAT_LABEL[f], href: `${origin}/api/books/download?t=${t}&f=${f}` })) };
+  // href shows the file in the browser (where it can); download saves it (dl=1 asks Blob for an attachment)
+  return { expires, links: (b.files ?? []).map(f => {
+    const href = `${origin}/api/books/download?t=${t}&f=${f}`;
+    return { format: f, label: FORMAT_LABEL[f], href, download: `${href}&dl=1` };
+  }) };
 }
 
 /** A completed Checkout session, with the book it bought, when it has been paid for. */
@@ -112,10 +116,10 @@ export async function deliver(origin: string, session: Stripe.Checkout.Session, 
     subject: `Your copy of ${b.title}`,
     html: `<p ${p}>${name ? `Hi ${esc(name)},` : 'Hello,'}</p>
 <p ${p}>Thank you for buying <strong>${esc(b.title)}</strong>. Your ebook is ready to download:</p>
-<p>${links.map(l => `<a href="${l.href}" ${btn}>Download ${esc(b.title)} (${l.label})</a>`).join('')}</p>
+<p>${links.map(l => `<a href="${l.download}" ${btn}>Download ${esc(b.title)} (${l.label})</a>`).join('')}</p>
 <p ${p}>The link works until ${until}. Save the file somewhere you can find it again; if the link runs out, reply to this email and we will send a new one.</p>
 <p ${p}>Remi Pearson</p>`,
-    text: `${name ? `Hi ${name},` : 'Hello,'}\n\nThank you for buying ${b.title}. Your ebook is ready to download:\n\n${links.map(l => `${l.label}: ${l.href}`).join('\n')}\n\nThe link works until ${until}. Save the file somewhere you can find it again; if the link runs out, reply to this email and we will send a new one.\n\nRemi Pearson`,
+    text: `${name ? `Hi ${name},` : 'Hello,'}\n\nThank you for buying ${b.title}. Your ebook is ready to download:\n\n${links.map(l => `${l.label}: ${l.download}`).join('\n')}\n\nThe link works until ${until}. Save the file somewhere you can find it again; if the link runs out, reply to this email and we will send a new one.\n\nRemi Pearson`,
   });
   if (sent.error) throw new Error(`Delivery email failed: ${sent.error.message}`);
 

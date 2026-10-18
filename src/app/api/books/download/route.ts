@@ -1,4 +1,5 @@
-// The private download link from the delivery email and the thank-you page: /api/books/download?t=<signed token>&f=pdf.
+// The private download link from the delivery email and the thank-you page: /api/books/download?t=<signed token>&f=pdf
+// (&dl=1 saves the file instead of showing it in the browser).
 // Checks the link is genuine and unexpired, then sends the browser to a 10-minute signed URL for the file in private
 // Vercel Blob storage, so the file (up to ~70 MB) downloads straight from Blob, not through this function (4.5 MB cap).
 import { issueSignedToken, presignUrl } from '@vercel/blob';
@@ -23,7 +24,9 @@ export async function GET(request: Request) {
     const pathname = blobPath(b, f), validUntil = Date.now() + 10 * 60 * 1000;
     const token = await issueSignedToken({ pathname, operations: ['get'], validUntil });
     const { presignedUrl } = await presignUrl(token, { operation: 'get', pathname, validUntil, access: 'private' });
-    return new Response(null, { status: 302, headers: { Location: presignedUrl, 'Cache-Control': 'private, no-store', 'X-Robots-Tag': 'noindex' } });
+    const location = new URL(presignedUrl);
+    if (url.searchParams.get('dl') === '1') location.searchParams.set('download', '1');
+    return new Response(null, { status: 302, headers: { Location: location.toString(), 'Cache-Control': 'private, no-store', 'X-Robots-Tag': 'noindex' } });
   } catch (e) {
     console.error('Blob signed URL failed', e);
     return page(404, 'We could not find that file.');

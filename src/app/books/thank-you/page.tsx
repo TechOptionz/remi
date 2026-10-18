@@ -2,6 +2,7 @@
 // buttons straight away; the same link arrives by email from the webhook. Private: noindex, out of the sitemap.
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import DownloadButton from '@/components/books/DownloadButton';
 import { bookBySlug, downloadLinks, LINK_DAYS, paidOrder } from '@/lib/book-sales';
 
 export const metadata: Metadata = { title: 'Thank you — Remi Pearson', robots: { index: false, follow: false } };
@@ -16,7 +17,7 @@ export default async function ThankYouPage({ searchParams }: { searchParams: Pro
 
   if (!order) {
     return (
-      <main className="pr-page pr-page--burgundy">
+      <main className="pr-page pr-page--burgundy pr-page--thankyou">
         <section className="pr-hero" aria-labelledby="ty-h">
           <p className="pr-eyebrow">Books</p>
           <h1 id="ty-h" className="pr-title">{failed ? 'Checkout didn’t open' : 'We couldn’t find that order'}</h1>
@@ -35,7 +36,7 @@ export default async function ThankYouPage({ searchParams }: { searchParams: Pro
   try { dl = downloadLinks('', session, b); } catch (e) { console.error('Thank-you page could not sign download links', e); }
   const email = session.customer_details?.email;
   return (
-    <main className="pr-page pr-page--burgundy">
+    <main className="pr-page pr-page--burgundy pr-page--thankyou">
       <section className="pr-hero" aria-labelledby="ty-h">
         <p className="pr-eyebrow">Thank you</p>
         <h1 id="ty-h" className="pr-title">Your copy of <em>{b.title}</em> is ready.</h1>
@@ -47,7 +48,7 @@ export default async function ThankYouPage({ searchParams }: { searchParams: Pro
           <div>
             {dl
               ? <>
-                <p className="pr-thankyou-btns">{dl.links.map(l => <a key={l.format} href={l.href} className="pr-btn">Download {l.label}</a>)}</p>
+                <p className="pr-thankyou-btns">{dl.links.map(l => <DownloadButton key={l.format} {...l} />)}</p>
                 <p>{email ? <>We’ve also emailed the link to <strong>{email}</strong>. </> : null}It works for {LINK_DAYS} days, until {dateOf(dl.expires)}.</p>
               </>
               : <p>Your payment went through. Your download link is on its way{email ? <> to <strong>{email}</strong></> : null}; if it hasn’t arrived within a few minutes, <Link href="/#contact">get in touch</Link>.</p>}
