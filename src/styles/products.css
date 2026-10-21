@@ -313,3 +313,15 @@ a.pr-book-cover:hover { transform:translateY(-3px); }
 .lib-videos a { color:#9a3d1a; }
 .lib-videos a:hover { text-decoration:underline; text-underline-offset:4px; }
 @media (max-width:520px) { .lib-head { grid-template-columns:72px minmax(0,1fr); align-items:start; } }
+
+/* /books/thank-you: the cover beside the download buttons */
+.pr-thankyou-row { display:grid; grid-template-columns:120px minmax(0,1fr); gap:clamp(18px,3vw,36px); align-items:center; }
+.pr-thankyou-row img { width:100%; height:auto; border-radius:2px; box-shadow:0 8px 24px rgba(0,0,0,.35); }
+.pr-thankyou-btns { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 12px; }
+.pr-thankyou .pr-fine { opacity:.8; font-size:14px; }
+/* Copy runs the full width here, not the product pages' measure */
+.pr-page--thankyou .pr-title, .pr-page--thankyou .pr-lede, .pr-thankyou p { max-width:none; }
+@media (max-width:520px) { .pr-thankyou-row { grid-template-columns:1fr; } .pr-thankyou-row img { max-width:120px; } }
+
+/* Dark heroes: the italic in the title in gold, rust is too dark on burgundy/navy/black */
+.pr-page--navy .pr-title em, .pr-page--black .pr-title em, .pr-page--burgundy .pr-title em, .pr-page--green .pr-title em { color:var(--pr-gold); }
