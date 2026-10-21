@@ -11,6 +11,7 @@ import { createHmac, timingSafeEqual } from 'node:crypto';
 import Stripe from 'stripe';
 import { Redis } from '@upstash/redis';
 import { Resend } from 'resend';
+import { addToGhl } from '@/lib/ghl';
 import { BOOKS, type Book } from '@/content/books';
 
 export type Format = NonNullable<Book['files']>[number];
@@ -133,5 +134,14 @@ export async function deliver(origin: string, session: Stripe.Checkout.Session, 
       text: rows.filter(r => r[1]).map(([k, v]) => `${k}: ${v}`).join('\n'),
     });
     if (note.error) console.error('Book sale notification failed', note.error);
+  }
+  if (!resendLink) {
+    const [firstName, ...rest] = (session.customer_details?.name ?? '').trim().split(/\s+/);
+    await addToGhl({
+      email, firstName: firstName || undefined, lastName: rest.join(' ') || undefined,
+      tags: ['Book buyer', `Bought — ${b.title}`],
+      note: `Book sale — ${b.title}\nPaid: ${money(session.amount_total, session.currency)}\nStripe order: ${session.id}`,
+      source: 'Website — book sale',
+    });
   }
 }

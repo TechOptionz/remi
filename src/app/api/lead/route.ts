@@ -1,7 +1,9 @@
 // Every form on the site posts here (via submitLead in src/lib/forms.ts). Sends the team a notification through
 // Resend, replies to enquiries / invitations, and adds sign-ups and invitations as contacts, sorted into segments.
 // Env: RESEND_API_KEY, RESEND_FROM ("Remi Pearson <hello@domain>"), RESEND_TO (comma-separated), RESEND_SEGMENT_ID (optional).
+// Each lead (but feedback) also goes to GoHighLevel as a tagged contact, with the same lists as tags (lib/ghl.ts).
 import { Resend } from 'resend';
+import { addToGhl } from '@/lib/ghl';
 
 export const runtime = 'nodejs';
 
@@ -139,6 +141,34 @@ export async function POST(request: Request) {
   }
 
   // Best effort from here: the lead has already reached the team
+  // Sign-ups and invitations join the contacts, each in the segments for what it was about (enquiries and feedback do not).
+  // Newsletter and "tell me when it's ready" sign-ups also join the general list; invitations and Rebel Yell do not.
+  const rebelYell = type === 'waitlist' && !data.product;
+  // A form with a marketing choice (marketing = "Yes" / "No") left unticked joins only its product's own segment
+  const ownListOnly = type === 'waitlist' && data.marketing === 'No' && !!data.product && !!PRODUCT_LISTS[data.product];
+  const keys = type === 'invitation' ? ['invitation']
+    : rebelYell ? ['rebel-yell']
+    : ownListOnly ? [PRODUCT_LISTS[data.product]]
+    : type === 'newsletter' || type === 'waitlist' ? [data.segment, data.product && PRODUCT_LISTS[data.product]] : [];
+  const generalList = !(type === 'invitation' || rebelYell || ownListOnly);
+  const [firstName, ...rest] = oneLine(data.firstName ?? data.name ?? '').split(' ');
+  const lastName = (!data.firstName && rest.join(' ')) || undefined;
+
+  // GoHighLevel: the same lists as tags (plus what an enquiry or invitation is about); runs beside the Resend steps
+  const ghl = type === 'feedback' ? undefined : addToGhl({
+    email, firstName: firstName || undefined, lastName,
+    tags: [
+      ...keys.map(key => key && LISTS[key]),
+      type === 'enquiry' && 'Enquiry', type === 'enquiry' && data.interest && `Interest — ${data.interest}`,
+      type === 'invitation' && data.invitation && `Invitation — ${data.invitation}`,
+      type === 'waitlist' && data.product && !PRODUCT_LISTS[data.product] && `Waitlist — ${data.product}`,
+      (type === 'newsletter' || type === 'waitlist') && generalList && 'Newsletter',
+    ].filter((t): t is string => !!t).map(t => oneLine(t).slice(0, 100)),
+    note: `${subject}\n\n${rows.map(([k, v]) => `${label(k)}: ${v}`).join('\n')}`,
+    source: `Website — ${data.page ?? 'form'}`,
+    opportunity: type === 'enquiry' || type === 'invitation' ? [topic && oneLine(topic), oneLine(who)].filter(Boolean).join(' — ') : undefined,
+  });
+
   const reply = AUTO_REPLY[type];
   if (reply) {
     const name = data.name ? `Hi ${esc(oneLine(data.name).split(' ')[0])},` : 'Hello,';
@@ -149,23 +179,13 @@ export async function POST(request: Request) {
     });
     if (sent.error) console.error('Resend auto-reply failed', sent.error);
   }
-  // Sign-ups and invitations join the contacts, each in the segments for what it was about (enquiries and feedback do not).
-  // Newsletter and "tell me when it's ready" sign-ups also join the general list; invitations and Rebel Yell do not.
-  const rebelYell = type === 'waitlist' && !data.product;
-  // A form with a marketing choice (marketing = "Yes" / "No") left unticked joins only its product's own segment
-  const ownListOnly = type === 'waitlist' && data.marketing === 'No' && !!data.product && !!PRODUCT_LISTS[data.product];
-  const keys = type === 'invitation' ? ['invitation']
-    : rebelYell ? ['rebel-yell']
-    : ownListOnly ? [PRODUCT_LISTS[data.product]]
-    : type === 'newsletter' || type === 'waitlist' ? [data.segment, data.product && PRODUCT_LISTS[data.product]] : [];
   if (keys.length) {
     // One call at a time: Resend allows only a few requests a second
-    const ids = type === 'invitation' || rebelYell || ownListOnly ? [] : [RESEND_SEGMENT_ID];
+    const ids = generalList ? [RESEND_SEGMENT_ID] : [];
     for (const key of keys) if (key) ids.push(await segmentId(resend, key));
     const segments = [...new Set(ids.filter((id): id is string => !!id))];
-    const [firstName, ...rest] = oneLine(data.firstName ?? data.name ?? '').split(' ');
     const added = await resend.contacts.create({
-      email, firstName: firstName || undefined, lastName: (!data.firstName && rest.join(' ')) || undefined,
+      email, firstName: firstName || undefined, lastName,
       ...(segments.length ? { segments: segments.map(id => ({ id })) } : {}),
     });
     // Someone already in the contacts (e.g. a newsletter reader now joining a waitlist): add them to the new segments
@@ -175,6 +195,7 @@ export async function POST(request: Request) {
       if (failed || !segments.length) console.error('Resend contact failed', added.error, failed);
     }
   }
+  await ghl;
 
   return json({ ok: true });
 }
