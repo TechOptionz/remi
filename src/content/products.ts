@@ -53,11 +53,12 @@ export const PRODUCTS: Product[] = [
   // Relationships & attachment
   P({ slug: 'five-paths-to-a-healthy-relationship', title: 'The Five Paths to a Healthy Relationship', text: 'Five ways relationships become healthier, more honest and more capable of repair.', category: 'relationships', tone: 'burgundy', price: 'AUD $29', kicker: 'Begin here', cta: 'Explore the five paths' }),
   P({ slug: 'attachment-or-love', title: 'Attachment or Love?', text: 'Understand the difference between attachment activation and genuine connection.', category: 'relationships', tone: 'navy', price: FREE, level: 'Introduction' }),
-  P({ slug: 'conflict-repair-and-harmony', title: 'Conflict, Repair and Harmony', text: 'What happens after the rupture matters.', category: 'relationships', tone: 'green', price: 'AUD $29', level: 'Advanced' }),
+  // Retitled from Conflict, Repair and Harmony (Oct 2026); the old address redirects
+  P({ slug: 'finding-our-way-back', title: 'Finding Our Way Back', text: 'How to repair after conflict and reconnect with care.', category: 'relationships', tone: 'green', price: 'AUD $29', level: 'Advanced' }),
   P({ slug: 'holding-space-without-rescuing-or-disappearing', title: 'Holding Space Without Rescuing or Disappearing', text: 'Remain present without taking over, collapsing or abandoning yourself.', category: 'relationships', tone: 'black', price: 'AUD $29', level: 'Intermediate', also: ['personal'] }),
   P({ slug: 'obstacles-to-love', title: 'Obstacles to Love', text: 'What gets in the way of the love you want.', category: 'relationships', tone: 'gold', price: 'AUD $49', level: 'Intermediate' }),
   P({ slug: 'love-without-losing-yourself', title: 'Love Without Losing Yourself', text: 'The complete relationship pathway. Five programs.', category: 'relationships', tone: 'cream', bundle: true, price: 'AUD $97', cta: 'Explore the bundle',
-    includes: ['five-paths-to-a-healthy-relationship', 'attachment-or-love', 'conflict-repair-and-harmony', 'holding-space-without-rescuing-or-disappearing', 'obstacles-to-love'] }),
+    includes: ['five-paths-to-a-healthy-relationship', 'attachment-or-love', 'finding-our-way-back', 'holding-space-without-rescuing-or-disappearing', 'obstacles-to-love'] }),
   // Truth & alignment
   P({ slug: 'find-the-gap-in-your-own-life', title: 'Find the Gap in Your Own Life', text: 'Use Critical Alignment to identify what is actually preventing movement.', category: 'truth', tone: 'navy', price: 'AUD $29', level: 'Foundation', kicker: 'Start with the gap', cta: 'Find your gap' }),
   P({ slug: 'when-your-values-and-your-life-stop-matching', title: 'When Your Values and Your Life Stop Matching', text: 'Values alignment for individuals.', category: 'truth', tone: 'burgundy', price: 'AUD $29', level: 'Intermediate' }),
@@ -99,7 +100,8 @@ export const productHref = (slug: string) => `/products/${slug}`;
 /** Products with their own designed sales page (LANDINGS in app/products/[slug]/page.tsx); the sitemap ranks them higher. */
 export const LANDING_SLUGS = ['self-esteem-triad', 'critical-alignment-model-for-leaders', 'ultimate-influence-consultative-sales-introduction', 'selling-from-stage', 'why-do-i-keep-doing-this',
   'emotion-integration-technique-foundations', 'self-regulation-when-it-matters', 'becoming-conscious',
-  'deep-state-repatterning', 'holding-space-without-rescuing-or-disappearing'] as const;
+  'deep-state-repatterning', 'holding-space-without-rescuing-or-disappearing', 'obstacles-to-love',
+  'five-paths-to-a-healthy-relationship', 'attachment-or-love', 'finding-our-way-back'] as const;
 /** A product's price as shown on the page ('AUD $29', 'Free'), for the rabbit-hole and homepage blocks that feature one. */
 export const priceOf = (slug: string) => productBySlug(slug)?.price ?? '';
 // The bundle always comes last, so it closes the grid whichever products are borrowed from another category.

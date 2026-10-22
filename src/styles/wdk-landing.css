@@ -7,7 +7,7 @@
 /* Hero: Remi's portrait (supplied with the deck) runs the full width; the headline and the first form sit in its empty
    burgundy space on the left, over the same colour (#380714). On phones: copy, form, then the photo below them. */
 .wdk-hero { position:relative; margin:clamp(10px,1.4vw,18px) calc(50% - 50vw) 0; padding:clamp(48px,6vw,88px) var(--gutter); overflow:hidden; background:#380714; color:var(--stl-cream); }
-.wdk-hero-photo { position:absolute; z-index:0; top:0; right:max(0px, calc(50% - 760px)); width:min(48%,720px); height:100%; object-fit:cover; object-position:50% 22%; -webkit-mask-image:linear-gradient(to right,transparent,#000 28%); mask-image:linear-gradient(to right,transparent,#000 28%); }
+.wdk-hero-photo { position:absolute; z-index:0; top:0; right:max(0px, calc(50% - 760px)); width:min(42%,620px); height:100%; object-fit:cover; object-position:50% 22%; -webkit-mask-image:linear-gradient(to right,transparent,#000 28%); mask-image:linear-gradient(to right,transparent,#000 28%); }
 .wdk-hero-inner { position:relative; z-index:2; max-width:1152px; margin:0 auto; }
 .wdk-hero-copy, .wdk-hero-form { max-width:min(560px,50%); }
 .wdk-hero .stl-eyebrow { color:#e3c28a; }
@@ -106,3 +106,17 @@
   .wdk-convos { grid-template-columns:1fr; }
 }
 @media (prefers-reduced-motion:reduce) { .wdk-bar { transition:none; } }
+
+/* Sizing pass (Oct 2026): a shorter hero (wider copy, name and email side by side) and a smaller graphic */
+.wdk-hero { padding-block:clamp(32px,4vw,56px); }
+.wdk-hero-copy, .wdk-hero-form { max-width:min(700px,56%); }
+.wdk-hero-copy > p:not(.stl-eyebrow) { margin-top:10px; }
+.wdk-hero-copy > .wdk-sub { margin-top:16px; }
+.wdk-hero-form { margin-top:20px; }
+.wdk-hero-form .wdk-form { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px 16px; }
+.wdk-hero-form .wdk-form > :not(.wdk-field) { grid-column:1 / -1; }
+.wdk-concerns { max-width:680px; margin-inline:auto; }
+@media (max-width:860px) {
+  .wdk-hero-copy, .wdk-hero-form { max-width:none; }
+  .wdk-hero-form .wdk-form { grid-template-columns:1fr; }
+}

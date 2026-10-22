@@ -13,6 +13,10 @@ import SrLanding from '@/components/sr-landing/SrLanding';
 import BcLanding from '@/components/bc-landing/BcLanding';
 import DsrLanding from '@/components/dsr-landing/DsrLanding';
 import HsLanding from '@/components/hs-landing/HsLanding';
+import OtlLanding from '@/components/otl-landing/OtlLanding';
+import FpLanding from '@/components/fp-landing/FpLanding';
+import AolLanding from '@/components/aol-landing/AolLanding';
+import FwbLanding from '@/components/fwb-landing/FwbLanding';
 import { PRODUCTS, productBySlug, LANDING_SLUGS } from '@/content/products';
 
 const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.ReactNode; metadata: Metadata }> = {
@@ -84,6 +88,34 @@ const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.React
     metadata: {
       title: 'Holding Space Without Rescuing or Disappearing — Remi Pearson',
       description: 'Learn to stay with a difficult conversation when someone you love is upset: listen so they feel heard, understand what support they want, and care without taking over or withdrawing. Five videos and a workbook with Remi Pearson. AUD $29.',
+    },
+  },
+  'obstacles-to-love': {
+    page: OtlLanding,
+    metadata: {
+      title: 'Obstacles to Love: Why You Keep Ending Up Hurt, Guarded or Alone — Remi Pearson',
+      description: 'Recognise seven patterns that make connection difficult, from fear-driven reassurance to losing yourself and hurt that never gets repaired. Seven videos and a practical workbook with Remi Pearson, with a first practice for each. AUD $49.',
+    },
+  },
+  'five-paths-to-a-healthy-relationship': {
+    page: FpLanding,
+    metadata: {
+      title: 'The Five Paths to a Healthy Relationship — Remi Pearson',
+      description: 'A self-paced relationship program with Remi Pearson: five videos and a companion worksheet to help you recognise the patterns that pull you apart, turn towards each other, make room for both people, repair after conflict and build a relationship you both want.',
+    },
+  },
+  'attachment-or-love': {
+    page: AolLanding,
+    metadata: {
+      title: 'Attachment or Love? Free Three-Video Series — Remi Pearson',
+      description: 'Why does love so often leave you on edge? A free three-video series with Remi Pearson on attachment patterns, emotional safety, co-regulation and caring for each other when something hurts. Self-paced, no purchase required.',
+    },
+  },
+  'finding-our-way-back': {
+    page: FwbLanding,
+    metadata: {
+      title: 'Finding Our Way Back: Repair After Conflict — Remi Pearson',
+      description: 'Learn how to repair after conflict and reconnect with care: return to a difficult conversation, understand each other’s hurt and make agreements you can follow through on. Three practical videos and a workbook with Remi Pearson. AUD $29.',
     },
   },
 };

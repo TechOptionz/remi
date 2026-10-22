@@ -11,11 +11,11 @@
 .bcl p { margin:16px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.6; }
 .bcl-center { text-align:center; }
 .bcl-h2, .bcl-title { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; line-height:1.06; letter-spacing:-.02em; color:var(--bcl-wine-ink); text-wrap:balance; }
-.bcl-title { font-size:clamp(38px,4.8vw,62px); line-height:1.04; color:#fbf2e6; }
+.bcl-title { font-size:clamp(32px,3.4vw,48px); line-height:1.04; color:#fbf2e6; }
 .bcl-h2 { font-size:clamp(32px,4.2vw,56px); }
 .bcl-h3 { margin:clamp(32px,3.4vw,44px) 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(20px,1.9vw,25px); line-height:1.25; color:var(--bcl-wine-ink); }
 .bcl .bcl-lede { font-size:clamp(17px,1.5vw,20px); }
-.bcl-section { padding:clamp(56px,7vw,88px) 0; }
+.bcl-section { padding:clamp(40px,5vw,72px) 0; }
 .bcl-section--top0 { padding-top:0; }
 .bcl .bcl-small { margin-top:14px; font-size:15px; line-height:1.6; opacity:.85; }
 .bcl-rule { display:block; width:96px; height:1px; margin-bottom:28px; background:var(--bcl-gold); }
@@ -30,11 +30,11 @@
 
 /* Hero: Remi's portrait on the right, the copy over its burgundy side (#380714) */
 .bcl-hero { position:relative; overflow:hidden; background:#380714; color:#fbf2e6; }
-.bcl-hero-photo { position:absolute; z-index:0; top:0; right:max(0px, calc(50% - 760px)); width:min(48%,720px); height:100%; object-fit:cover; object-position:50% 22%; -webkit-mask-image:linear-gradient(to right,transparent,#000 28%); mask-image:linear-gradient(to right,transparent,#000 28%); }
-.bcl-hero-inner { position:relative; z-index:2; padding-block:clamp(20px,2.4vw,32px) clamp(56px,7vw,88px); }
+.bcl-hero-photo { position:absolute; z-index:0; top:0; right:max(0px, calc(50% - 760px)); width:min(42%,620px); height:100%; object-fit:cover; object-position:50% 22%; -webkit-mask-image:linear-gradient(to right,transparent,#000 28%); mask-image:linear-gradient(to right,transparent,#000 28%); }
+.bcl-hero-inner { position:relative; z-index:2; padding-block:clamp(16px,2vw,24px) clamp(36px,4vw,56px); }
 .bcl-crumbs { margin:0; color:rgba(251,242,230,.72); }
 .bcl-crumbs a, .bcl-crumbs [aria-current] { color:inherit; }
-.bcl-hero-copy { max-width:min(580px,52%); margin-top:clamp(28px,3.6vw,48px); }
+.bcl-hero-copy { max-width:min(720px,58%); margin-top:clamp(20px,2.4vw,32px); }
 .bcl-eyebrow { margin:0 0 20px !important; font-size:13px !important; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--bcl-gold-light); }
 .bcl-hero-copy > p:not(.bcl-eyebrow) { color:rgba(251,242,230,.92); }
 
@@ -54,7 +54,7 @@
 .bcl-rows li { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:stretch; }
 .bcl-rows li + li { margin-top:clamp(12px,1.6vw,20px); }
 .bcl-rows li.is-flipped .bcl-row-photo { order:2; }
-.bcl-row-photo { display:block; width:100%; height:100%; min-height:320px; object-fit:cover; }
+.bcl-row-photo { display:block; width:100%; max-width:560px; height:auto; aspect-ratio:4/3; max-height:400px; object-fit:cover; align-self:center; justify-self:center; }
 .bcl-row-copy { align-self:center; padding:clamp(28px,4vw,56px); }
 .bcl-rows li:not(.is-flipped) .bcl-row-copy { padding-right:max(var(--gutter), calc(50vw - 576px)); }
 .bcl-rows li.is-flipped .bcl-row-copy { padding-left:max(var(--gutter), calc(50vw - 576px)); }
@@ -71,7 +71,7 @@
 
 /* A note from Remi */
 .bcl-note { display:grid; grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr); gap:clamp(28px,4vw,56px); align-items:center; }
-.bcl-note-photo { display:block; width:100%; height:auto; border-radius:3px; }
+.bcl-note-photo { display:block; width:100%; max-width:400px; height:auto; border-radius:3px; }
 .bcl .bcl-signature { margin:8px 0 0; font-family:'Caveat',cursive; font-weight:500; font-size:clamp(52px,5.4vw,72px); line-height:1; color:#b8892f; transform:rotate(-6deg); transform-origin:left; width:max-content; }
 
 /* What people say (only once real testimonials exist) */

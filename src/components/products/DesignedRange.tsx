@@ -43,6 +43,9 @@ function Price({ p, invest }: { p: Product; invest?: boolean }) {
   );
 }
 
+/** Light tones (cream, gold) can't carry the hero's cream copy or the bundle's gold title: those bands stay dark. */
+const dark = (t: Product['tone']) => (t === 'cream' || t === 'gold' ? 'black' : t);
+
 const count = (p: Product) => p.includes?.length ? `${['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven'][p.includes.length] ?? p.includes.length} programs` : p.text;
 
 /* ---------- Influence: bands ---------- */
@@ -51,7 +54,7 @@ function Bands({ list, d, category, id }: { list: Product[]; d: RangeDesign; cat
   const [lead, ...rest] = list;
   return (
     <>
-      <article className={`pb-hero pb-tone--${lead.tone}`}>
+      <article className={`pb-hero pb-tone--${dark(lead.tone)}`}>
         <Photo a={d.art[lead.slug]} className="pb-hero-photo" />
         <div className="pb-hero-copy">
           <h2 id={`${id}-h`} className="pb-range-name">{c.name}</h2>
@@ -68,7 +71,7 @@ function Bands({ list, d, category, id }: { list: Product[]; d: RangeDesign; cat
         const a = d.art[p.slug];
         const side = p.bundle ? 'right' : a?.side ?? (i % 2 ? 'right' : 'left');
         return (
-          <article key={p.slug} className={`pb-band pb-band--photo-${side} pb-tone--${p.tone}${p.bundle ? ' pb-band--bundle' : ''}`}>
+          <article key={p.slug} className={`pb-band pb-band--photo-${side} pb-tone--${p.bundle ? 'navy' : p.tone}${p.bundle ? ' pb-band--bundle' : ''}`}>
             <Photo a={a} className="pb-band-photo" />
             <div className="pb-band-panel">
               <Seam />
@@ -78,7 +81,7 @@ function Bands({ list, d, category, id }: { list: Product[]; d: RangeDesign; cat
                 {!p.bundle && <span className="pb-rule" aria-hidden="true"></span>}
                 <p className="pb-text">{p.bundle ? count(p) : p.text}</p>
                 <Price p={p} />
-                <span className={p.bundle ? 'pb-btn' : 'pb-more'} aria-hidden="true">{p.cta ?? 'See what’s inside'}{!p.bundle && ' →'}</span>
+                <span className="pb-btn" aria-hidden="true">{p.cta ?? 'See what’s inside'}</span>
               </div>
             </div>
           </article>

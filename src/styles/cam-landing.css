@@ -82,14 +82,13 @@
 .cml .stl-close .stl-h2 { font-size:clamp(34px,4vw,54px); }
 
 /* No gaps (client, Oct 2026), for every page on this kit (CAM, Ultimate Influence, Selling from Stage): tighter sections,
-   and on desktop each photo takes the height of the copy beside it (cropped to fit, never under min-height) instead of
-   leaving empty space above, below or beside it. contain:size + aspect-ratio:auto stop the photo setting the row height. */
+   and on desktop the copy gets the wider column so it is about as tall as its photo. Photos are capped in height (the
+   sizing pass, Oct 2026: stretching them to the copy made 1,000–1,500px towers) and centred beside the copy. */
 .cml .stl-section, .cml .sfs-hero { padding-bottom:clamp(40px,4.4vw,64px); }
 .cml .stl-section { padding-top:clamp(40px,4.4vw,64px); }
 @media (min-width:861px) {
-  .cml .stl-split { align-items:stretch; }
-  .cml .stl-split > .stl-split-copy { align-self:center; }
-  .cml .stl-split > .stl-split-photo { contain:size; aspect-ratio:auto; align-self:stretch; height:auto; min-height:clamp(380px,34vw,480px); max-height:none; object-fit:cover; object-position:50% 20%; }
+  .cml .stl-split { grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr); align-items:center; }
+  .cml .stl-split > .stl-split-photo { align-self:center; height:auto; max-height:520px; object-fit:cover; object-position:50% 20%; }
 }
 
 @media (max-width:860px) {
