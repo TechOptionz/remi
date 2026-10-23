@@ -101,7 +101,7 @@ export const productHref = (slug: string) => `/products/${slug}`;
 export const LANDING_SLUGS = ['self-esteem-triad', 'critical-alignment-model-for-leaders', 'ultimate-influence-consultative-sales-introduction', 'selling-from-stage', 'why-do-i-keep-doing-this',
   'emotion-integration-technique-foundations', 'self-regulation-when-it-matters', 'becoming-conscious',
   'deep-state-repatterning', 'holding-space-without-rescuing-or-disappearing', 'obstacles-to-love',
-  'five-paths-to-a-healthy-relationship', 'attachment-or-love', 'finding-our-way-back'] as const;
+  'five-paths-to-a-healthy-relationship', 'attachment-or-love', 'finding-our-way-back', 'the-90-day-review'] as const;
 /** A product's price as shown on the page ('AUD $29', 'Free'), for the rabbit-hole and homepage blocks that feature one. */
 export const priceOf = (slug: string) => productBySlug(slug)?.price ?? '';
 // The bundle always comes last, so it closes the grid whichever products are borrowed from another category.

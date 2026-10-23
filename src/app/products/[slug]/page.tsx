@@ -17,6 +17,7 @@ import OtlLanding from '@/components/otl-landing/OtlLanding';
 import FpLanding from '@/components/fp-landing/FpLanding';
 import AolLanding from '@/components/aol-landing/AolLanding';
 import FwbLanding from '@/components/fwb-landing/FwbLanding';
+import N90Landing from '@/components/n90-landing/N90Landing';
 import { PRODUCTS, productBySlug, LANDING_SLUGS } from '@/content/products';
 
 const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.ReactNode; metadata: Metadata }> = {
@@ -116,6 +117,13 @@ const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.React
     metadata: {
       title: 'Finding Our Way Back: Repair After Conflict — Remi Pearson',
       description: 'Learn how to repair after conflict and reconnect with care: return to a difficult conversation, understand each other’s hurt and make agreements you can follow through on. Three practical videos and a workbook with Remi Pearson. AUD $29.',
+    },
+  },
+  'the-90-day-review': {
+    page: N90Landing,
+    metadata: {
+      title: 'The 90-Day Review & Personal Success Plan — Remi Pearson',
+      description: 'Run quarterly performance reviews that connect your team’s work to your vision and values, make expectations clear and end in a 90-day Personal Success Plan. Three videos and editable review templates from Remi Pearson. Join the waitlist.',
     },
   },
 };
