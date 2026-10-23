@@ -81,8 +81,7 @@ export const RANGE_DESIGNS: Partial<Record<CategoryId, RangeDesign>> = {
     art: {
       'ultimate-influence-consultative-sales-introduction': pic('ui-landing/uil-hero', 495, 880),
       'holding-space-for-magnetic-sales': { ...art('pb-inf-holding', 824, 574), side: 'left' },
-      'understand-before-you-prescribe': { ...art('pb-inf-listen', 964, 558), side: 'right' },
-      'selling-from-stage': { ...art('pb-inf-room', 1004, 542), side: 'left' },
+      'selling-from-stage': { ...art('pb-inf-room', 1004, 542), side: 'right' },
       'influence-without-pressure': art('pb-inf-steps', 504, 332),
     },
   },

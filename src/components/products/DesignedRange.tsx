@@ -5,7 +5,7 @@
 // Every product opens its own page: its title is the link, stretched over the whole band or card. Styles: styles/product-ranges.css (.pb-*); colours are fixed, like the mock-ups.
 import Link from 'next/link';
 import { Sym } from '@/components/home/ui';
-import { CATEGORIES, levelLine, priceLine, productHref, productsIn, type CategoryId, type Product } from '@/content/products';
+import { CATEGORIES, levelLine, priceLine, productHref, productsIn, type CategoryId, type Product, type Program } from '@/content/products';
 import type { RangeArt, RangeDesign } from '@/content/product-ranges';
 
 /** The mock-ups' gold sound-wave line: a hairline that swells into bars around `at`. */
@@ -141,6 +141,51 @@ function Cards({ list, d, category, id }: { list: Product[]; d: RangeDesign; cat
         {bundle && <Wide p={bundle} />}
       </div>
     </>
+  );
+}
+
+/* ---------- Programs (/programs): the same bands, for PROGRAMS (content/products.ts) ---------- */
+function ProgramLink({ p }: { p: Program }) {
+  return p.external
+    ? <a href={p.href} target="_blank" rel="noopener noreferrer">{p.title}<span className="pb-sr"> (opens in a new tab)</span></a>
+    : <Link href={p.href}>{p.title}</Link>;
+}
+
+export function ProgramBands({ list, id, name, question }: { list: Program[]; id: string; name: string; question: string }) {
+  const [lead, ...rest] = list;
+  return (
+    <section id={id} className="pb pb--bands" aria-labelledby={`${id}-h`}>
+      <article className={`pb-hero pb-tone--${dark(lead.tone)}`}>
+        <Photo a={lead.photo} className="pb-hero-photo" />
+        <div className="pb-hero-copy">
+          <h2 id={`${id}-h`} className="pb-range-name">{name}</h2>
+          <p className="pb-range-q">{question}</p>
+          <Wave className="pb-wave--hero" at={0.78} />
+          <p className="pb-tag">{lead.kicker}</p>
+          <h3 className="pb-title pb-title--lead"><ProgramLink p={lead} /></h3>
+          <p className="pb-text">{lead.text}</p>
+          <p className="pb-price">{lead.price}</p>
+          <span className="pb-btn" aria-hidden="true">{lead.cta}{lead.external && ' ↗'}</span>
+        </div>
+      </article>
+      {rest.map((p, i) => (
+        <article key={p.title} className={`pb-band pb-band--photo-${i % 2 ? 'right' : 'left'} pb-tone--${p.tone}`}>
+          <Photo a={p.photo} className="pb-band-photo" />
+          <div className="pb-band-panel">
+            <Seam />
+            <div className="pb-band-copy">
+              <Wave />
+              <p className="pb-kicker">{p.kicker}</p>
+              <h3 className="pb-title"><ProgramLink p={p} /></h3>
+              <span className="pb-rule" aria-hidden="true"></span>
+              <p className="pb-text">{p.text}</p>
+              <p className="pb-price">{p.price}</p>
+              <span className="pb-btn" aria-hidden="true">{p.cta}{p.external && ' ↗'}</span>
+            </div>
+          </div>
+        </article>
+      ))}
+    </section>
   );
 }
 

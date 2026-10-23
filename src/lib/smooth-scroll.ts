@@ -7,6 +7,10 @@ let lenis: Lenis | null = null;
 
 export const setLenis = (l: Lenis | null) => { lenis = l; };
 
+/** Re-measures the page. Lenis only notices a new page's height a moment later, and until then it caps scrolling at
+ *  the old page's length (a link to a section low on a longer page landed hundreds of pixels off). */
+export function remeasure() { lenis?.resize(); }
+
 /** Scrolls to a y position. `immediate` jumps without the glide (page changes, corrections). */
 export function scrollToY(y: number, { immediate = false } = {}) {
   if (lenis) lenis.scrollTo(y, { immediate, force: true });

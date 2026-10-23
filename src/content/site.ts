@@ -125,7 +125,7 @@ export const FOOTER = {
   note: 'Let truth lead.',
   legal: [
     { label: 'Privacy', href: '/privacy-policy' },
-    { label: 'Terms', href: '#' },
+    // { label: 'Terms', href: '/terms' }, // no terms page yet: add it back once one exists
   ],
 };
 

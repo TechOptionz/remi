@@ -69,7 +69,7 @@
 .pb-tone--gold .pb-wave { fill:#2a1d0c; opacity:.7; }
 .pb-tone--gold .pb-rule, .pb-tone--gold .pb-btn { background:#2a1d0c; }
 .pb-tone--gold .pb-btn { color:#f4e6c6; }
-.pb-tone--gold .pb-price, .pb-tone--gold .pb-more { color:#2a1d0c; }
+.pb-tone--gold .pb-price, .pb-tone--gold .pb-more, .pb-tone--gold .pb-kicker { color:#2a1d0c; }
 .pb-tone--gold .pb-band-copy .pb-text { border-color:rgba(42,29,12,.35); }
 /* the gold panel's sheen starts from the seam's colour so the curve and the panel meet without a step */
 .pb-band.pb-tone--gold { background:#d2a75d; }
