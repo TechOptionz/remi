@@ -23,6 +23,9 @@ import BbfLanding from '@/components/bbf-landing/BbfLanding';
 import CbyLanding from '@/components/cby-landing/CbyLanding';
 import CiiLanding from '@/components/cii-landing/CiiLanding';
 import DlpLanding from '@/components/dlp-landing/DlpLanding';
+import HmsLanding from '@/components/hms-landing/HmsLanding';
+import PmbLanding from '@/components/pmb-landing/PmbLanding';
+import TteLanding from '@/components/tte-landing/TteLanding';
 import { PRODUCTS, productBySlug, LANDING_SLUGS } from '@/content/products';
 
 const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.ReactNode; metadata: Metadata }> = {
@@ -164,6 +167,27 @@ const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.React
     metadata: {
       title: 'Disruptive Leadership: Free Introductory Program — Remi Pearson',
       description: 'A free introductory leadership program from Remi Pearson for business owners and team leaders: set expectations people can act on, address behaviour that undermines your team and stop carrying everyone else’s responsibilities. Join the waitlist.',
+    },
+  },
+  'holding-space-for-magnetic-sales': {
+    page: HmsLanding,
+    metadata: {
+      title: 'Holding Space for Magnetic Sales: Free Sales Introduction — Remi Pearson',
+      description: 'A free introduction from Remi Pearson for coaches, consultants and service business owners: stop crowding the sales conversation, listen with intention and give potential clients room to move towards you. Three videos and a workbook. Join the waitlist.',
+    },
+  },
+  'the-performance-management-blueprint': {
+    page: PmbLanding,
+    metadata: {
+      title: 'The Performance Management Blueprint — Remi Pearson',
+      description: 'Lead a team that takes responsibility without chasing every result: make expectations clear, find the real performance gap, give feedback people can act on and agree on shared accountability. Four videos and a workbook from Remi Pearson. AUD $29. Join the waitlist.',
+    },
+  },
+  'from-practice-to-enterprise': {
+    page: TteLanding,
+    metadata: {
+      title: 'Technician to Entrepreneur: Build a Business Beyond You — Remi Pearson',
+      description: 'Make your expertise teachable, hand over responsibility with confidence and build value that continues beyond your personal involvement. Six video modules, a workbook and a 90-day action plan from Remi Pearson. AUD $79. Join the waitlist.',
     },
   },
 };

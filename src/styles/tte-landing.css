@@ -1,0 +1,158 @@
+/* ============ Technician to Entrepreneur (.tte) — from the four-part mockup ============ */
+/* Fixed colours: warm cream paper, charcoal bands, rust buttons, numerals and close, antique gold rings, rules and
+   frames. Headings are the serif at its regular width (Noto Serif Display 100, loaded in app/layout.tsx), set tight
+   as drawn. The one photo is cut from a low-resolution mockup: capped near 1.25x its source and kept inside a
+   1440px frame (sales-page sizing, CLAUDE.md). */
+.tte {
+  --tte-paper:#f5f0e8; --tte-white:#faf7f1; --tte-tint:#ece4d8; --tte-ink:#1c1a17; --tte-char:#262624;
+  --tte-rust:#a8481f; --tte-rust-dark:#7e3314; --tte-gold:#b38a4a; --tte-gold-ink:#8a6630; --tte-gold-light:#dcb978; --tte-line:rgba(179,138,74,.5);
+  --display:'Noto Serif Display',Georgia,serif;
+  --frame:max(0px, calc((100vw - 1440px) / 2)); --edge:max(var(--gutter), calc((100vw - 1152px) / 2));
+  margin-inline:calc(50% - 50vw); background:var(--tte-paper); color:var(--tte-ink); font-family:var(--sans);
+}
+.tte-wrap { max-width:1152px; margin:0 auto; padding-inline:var(--gutter); box-sizing:content-box; }
+.tte p { margin:16px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.6; }
+.tte a:not([class]) { color:var(--tte-rust); text-decoration:underline; text-underline-offset:3px; }
+.tte-center { text-align:center; }
+.tte-h2, .tte-title { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; line-height:1.05; letter-spacing:-.025em; color:var(--tte-ink); text-wrap:balance; }
+.tte-title { margin-top:16px; font-size:clamp(36px,4vw,52px); line-height:1.02; }
+.tte-h2 { font-size:clamp(24px,2.5vw,32px); }
+.tte-h2--big { font-size:clamp(30px,3.4vw,44px); }
+.tte-h3 { margin:clamp(24px,3vw,32px) 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(22px,2.2vw,28px); line-height:1.15; letter-spacing:-.015em; }
+.tte-section { padding:clamp(40px,5vw,72px) 0; }
+.tte-rule { border-top:1px solid var(--tte-line); }
+.tte .tte-eyebrow, .tte .tte-label { margin:0; font-size:12.5px; font-weight:600; letter-spacing:.24em; line-height:1.7; text-transform:uppercase; color:var(--tte-gold-ink); }
+.tte .tte-label { display:flex; align-items:center; gap:18px; margin-bottom:18px; }
+.tte-label::before, .tte-label::after { content:""; flex:1; height:1px; background:var(--tte-gold); }
+.tte .tte-lede { margin-top:18px; font-size:clamp(18px,1.6vw,21px); line-height:1.5; }
+.tte .tte-subhead { margin-top:20px; font-weight:700; }
+.tte .tte-strong { font-weight:700; }
+.tte .tte-small { font-size:14.5px; opacity:.8; }
+.tte .tte-aside { font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(18px,1.6vw,22px); line-height:1.4; }
+.tte .tte-statement { max-width:40em; margin:clamp(28px,3.4vw,40px) auto 0; text-align:center; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(19px,1.8vw,24px); line-height:1.4; }
+.tte-cols { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 clamp(28px,4vw,56px); margin-top:8px; }
+.tte-short-rule { display:block; width:84px; height:2px; margin-top:24px; background:var(--tte-gold-light); }
+
+/* Buttons: rust, letter-spaced; outlined on the paper */
+.tte-btn { display:inline-flex; align-items:center; justify-content:center; gap:16px; padding:17px clamp(32px,4vw,60px); background:var(--tte-rust); color:#fff; border:1px solid var(--tte-rust); border-radius:2px; font:600 clamp(13.5px,1.1vw,15px)/1 var(--sans); letter-spacing:.24em; text-transform:uppercase; cursor:pointer; transition:filter .2s ease, transform .2s ease; }
+.tte-btn:hover { filter:brightness(1.08); color:#fff; transform:translateY(-1px); }
+.tte-btn--outline { background:transparent; color:var(--tte-rust); }
+.tte-btn--outline:hover { color:var(--tte-rust); }
+.tte-btn--dark { background:var(--tte-rust-dark); border-color:var(--tte-gold-light); }
+.tte-buy { margin-top:clamp(24px,3vw,36px); }
+
+/* Ringed ticks */
+.tte-ticks { margin:16px 0 0; padding:0; list-style:none; display:grid; gap:12px; }
+.tte-ticks li { display:flex; gap:16px; align-items:flex-start; font-size:clamp(16px,1.3vw,18px); line-height:1.5; }
+.tte-ticks svg { flex:none; width:30px; height:30px; margin-top:-2px; fill:none; stroke:var(--tte-gold); stroke-width:1.4; }
+.tte-ticks svg path { stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.tte-ticks strong { font-weight:500; }
+.tte-ticks--grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px clamp(28px,4vw,56px); }
+.tte-ticks--grid strong { font-weight:700; }
+.tte-ticks--filled svg circle { fill:var(--tte-rust); stroke:var(--tte-rust); }
+.tte-ticks--filled svg path { stroke:#fff; }
+.tte-ticks--light svg { stroke:var(--tte-gold-light); }
+.tte-dots { margin:10px 0 0; padding:0; list-style:none; display:grid; gap:8px; }
+.tte-dots li { position:relative; padding-left:22px; font-size:clamp(15.5px,1.25vw,17px); line-height:1.5; }
+.tte-dots li::before { content:""; position:absolute; left:3px; top:.6em; width:7px; height:7px; border-radius:50%; background:var(--tte-gold); }
+
+/* Hero: copy beside the photo, which stops inside the frame */
+.tte-hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,440px); padding-inline-end:var(--frame); }
+.tte-hero-copy { padding:clamp(28px,3.4vw,48px) clamp(24px,4vw,56px) clamp(32px,4vw,48px) var(--edge); }
+.tte-crumbs { margin-bottom:clamp(20px,2.4vw,32px); }
+.tte-hero-photo { width:100%; height:100%; max-height:860px; object-fit:cover; object-position:40% 30%; -webkit-mask-image:linear-gradient(to right,transparent,#000 14%); mask-image:linear-gradient(to right,transparent,#000 14%); }
+
+/* The price strip */
+.tte-price-strip { padding:clamp(24px,3vw,36px) 0 clamp(28px,3.4vw,44px); border-top:1px solid var(--tte-gold); }
+.tte .tte-includes { margin:0; font-size:clamp(17px,1.5vw,20px); }
+.tte-price-row { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px 32px; margin-top:16px; }
+.tte .tte-price { margin:0; display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(40px,4.6vw,60px); line-height:1; letter-spacing:-.02em; }
+.tte-price span { font-family:var(--sans); font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:var(--tte-gold-ink); }
+.tte .tte-price--sm { justify-content:center; margin-bottom:18px; font-size:clamp(32px,3.4vw,44px); }
+.tte .tte-price--light, .tte-price--light span { color:#fff; }
+.tte .tte-price--light { margin-top:22px; font-size:clamp(34px,3.6vw,48px); }
+
+/* Charcoal bands */
+.tte-dark { padding:clamp(44px,5.4vw,80px) 0; background:var(--tte-char); color:#efe9df; }
+.tte-dark .tte-h2 { color:#fbf8f2; }
+.tte-dark p, .tte-dark .tte-ticks li { color:#efe9df; }
+.tte-dark .tte-ticks svg { stroke:var(--tte-gold-light); }
+.tte-dark .tte-aside { color:#fbf8f2; }
+.tte-needs { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); gap:clamp(28px,5vw,72px); align-items:start; }
+.tte-dark--story { border-top:1px solid rgba(220,185,120,.25); }
+/* Remi's story reads as one text in two balanced columns, not as paired paragraphs with gaps between them. */
+.tte-dark--story .tte-cols { display:block; columns:2; column-gap:clamp(28px,4vw,56px); }
+.tte-dark--story .tte-cols p { break-inside:avoid; }
+.tte-dark--story .tte-cols p:first-child { margin-top:16px; }
+.tte-figures { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); margin:clamp(28px,3.4vw,40px) 0 0; }
+.tte-figures > div { padding:0 clamp(18px,3vw,40px); }
+.tte-figures > div:first-child { padding-left:0; }
+.tte-figures > div + div { border-left:1px solid var(--tte-gold); }
+.tte-figures dt { font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(26px,2.8vw,38px); line-height:1.05; color:#fbf8f2; }
+.tte-figures dd { margin:8px 0 0; font-size:15px; line-height:1.5; color:#d9d2c6; }
+/* The gold-on-white signature, inverted to a light mark and screened onto the charcoal. */
+.tte-signature { display:block; width:200px; height:auto; margin:24px 0 0 auto; filter:invert(1) hue-rotate(180deg) brightness(1.1); mix-blend-mode:screen; }
+
+/* Five reasons: rust numerals beside a gold rule */
+.tte-reasons { margin:clamp(20px,2.4vw,28px) 0 0; padding:0; list-style:none; }
+.tte-reasons > li { display:grid; grid-template-columns:clamp(70px,9vw,120px) minmax(0,1fr); gap:clamp(18px,3vw,40px); align-items:center; padding:clamp(18px,2.2vw,26px) 0; border-top:1px solid var(--tte-line); }
+.tte-reasons > li:last-child { border-bottom:1px solid var(--tte-line); }
+.tte-num { padding-right:clamp(18px,3vw,40px); border-right:1px solid var(--tte-line); font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(48px,5.4vw,72px); line-height:1; letter-spacing:-.03em; color:var(--tte-rust); }
+.tte-reasons h3 { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(22px,2.2vw,28px); line-height:1.15; letter-spacing:-.015em; }
+.tte-reasons p { margin-top:8px; }
+
+/* The six modules: framed cards, two across */
+.tte-modules { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(16px,1.8vw,22px); margin:clamp(24px,3vw,36px) 0 0; padding:0; list-style:none; }
+.tte-modules > li { display:flex; flex-direction:column; padding:clamp(22px,2.6vw,32px) clamp(20px,2.6vw,32px) 0; border:1px solid var(--tte-gold); background:var(--tte-white); }
+.tte .tte-module-label { margin:0; font-size:12px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; }
+.tte-module-head { display:flex; gap:clamp(14px,2vw,22px); align-items:flex-start; margin-top:6px; }
+.tte-module-n { font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(44px,4.8vw,60px); line-height:.95; letter-spacing:-.03em; color:var(--tte-rust); }
+.tte-module-head h3 { margin:4px 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(20px,1.9vw,25px); line-height:1.18; letter-spacing:-.015em; }
+.tte .tte-takeaway { margin:auto calc(-1 * clamp(20px,2.6vw,32px)) 0; padding:16px clamp(20px,2.6vw,32px); background:var(--tte-tint); font-family:var(--display); font-variation-settings:'wdth' 100; font-style:italic; font-size:clamp(16px,1.4vw,18px); }
+.tte-modules > li > .tte-dots { margin-bottom:20px; }
+.tte-takeaway strong { font-style:normal; font-weight:600; }
+
+/* Who it is for: the framed box beside the copy */
+.tte-fit { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(28px,5vw,72px); margin-top:clamp(20px,2.4vw,28px); align-items:start; }
+.tte-fit-box { padding:clamp(22px,2.6vw,32px); border:1px solid var(--tte-gold); background:var(--tte-white); }
+.tte .tte-fit-label { margin:0; font-size:15px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--tte-gold-ink); }
+.tte-fit-copy > p:first-child { margin-top:0; }
+
+/* The questions: two columns, each question beside its answer */
+.tte-faq { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 clamp(28px,4vw,56px); margin:clamp(20px,2.4vw,32px) 0 0; }
+.tte-faq > div { padding:18px 0; border-top:1px solid var(--tte-line); }
+.tte-faq dt { font-weight:700; font-size:clamp(16.5px,1.4vw,19px); line-height:1.4; }
+.tte-faq dd { margin:8px 0 0; font-size:clamp(15.5px,1.25vw,17px); line-height:1.6; }
+
+/* The rust close with the waitlist form */
+.tte-close { padding:clamp(44px,5.4vw,80px) 0; background:var(--tte-rust); background-image:linear-gradient(120deg,rgba(255,255,255,.05),rgba(0,0,0,.12)); color:#fff; scroll-margin-top:80px; }
+.tte-close-inner { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(28px,5vw,72px); align-items:start; }
+.tte-close .tte-h2 { color:#fff; }
+.tte-close p, .tte-close .tte-ticks li { color:#fff; }
+.tte .tte-close-name { margin-top:22px; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(22px,2.2vw,28px); letter-spacing:.06em; }
+.tte-close-name span { font-family:var(--sans); font-size:14px; letter-spacing:.18em; text-transform:uppercase; opacity:.85; }
+.tte .tte-close-cta { margin-top:20px; font-size:14px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; }
+.tte-form { display:grid; gap:12px; margin-top:10px; }
+.tte-form input[type=text], .tte-form input[type=email] { min-width:0; padding:16px 18px; border:0; border-radius:2px; background:var(--tte-white); color:var(--tte-ink); font:16px/1.2 var(--sans); }
+.tte-form .form-error { color:#fff; }
+.tte .tte-thanks { margin-top:14px; padding:16px 20px; background:rgba(0,0,0,.16); }
+
+/* Tablets and phones */
+@media (max-width:900px) {
+  .tte-modules { grid-template-columns:1fr; }
+}
+@media (max-width:760px) {
+  .tte-hero { grid-template-columns:1fr; padding-inline:0; }
+  .tte-hero-copy { padding-inline:var(--gutter); padding-top:16px; }
+  .tte-hero-photo { order:-1; display:block; width:100%; max-width:480px; margin-inline:auto; height:auto; aspect-ratio:4/3; max-height:none; object-position:40% 30%; -webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent); mask-image:linear-gradient(to bottom,#000 80%,transparent); }
+  .tte-dark--story .tte-cols { columns:1; }
+  .tte .tte-close-name { letter-spacing:.02em; }
+  .tte-needs, .tte-cols, .tte-fit, .tte-faq, .tte-close-inner, .tte-ticks--grid, .tte-figures { grid-template-columns:1fr; }
+  .tte-figures > div, .tte-figures > div:first-child { padding:14px 0; }
+  .tte-figures > div + div { border-left:0; border-top:1px solid var(--tte-gold); }
+  .tte-reasons > li { grid-template-columns:1fr; gap:6px; }
+  .tte-num { padding-right:0; border-right:0; font-size:46px; }
+  .tte-price-row .tte-btn { width:100%; }
+  .tte-btn { letter-spacing:.16em; padding-inline:20px; }
+  .tte-signature { margin-left:0; }
+}

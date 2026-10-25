@@ -58,7 +58,7 @@ export const RANGE_DESIGNS: Partial<Record<CategoryId, RangeDesign>> = {
     layout: 'bands',
     art: {
       'disruptive-leadership': pic('dlp-landing/dlp-team', 1536, 580, 'Four colleagues in conversation around a low table'),
-      'the-performance-management-blueprint': pic('photos/band-3', 900, 507),
+      'the-performance-management-blueprint': pic('pmb-landing/pmb-hero', 748, 891),
       'your-first-90-days-as-a-leader': pic('photos/invite-teaching', 900, 1200),
       'the-ground-rules-nobody-wrote-down': pic('photos/about-audience', 1400, 1050),
       'the-90-day-review': pic('n90-landing/n90-hero', 530, 790),

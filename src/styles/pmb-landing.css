@@ -1,0 +1,138 @@
+/* ============ The Performance Management Blueprint (.pmb) — from the four-part mockup ============ */
+/* Fixed colours: warm cream paper, near-black ink, rust buttons, numerals and bands, charcoal band, antique gold
+   eyebrows, rules and frames. Headings are the serif at its regular width (Noto Serif Display 100, and its italic,
+   loaded in app/layout.tsx), set tight as drawn. Photos are cut from low-resolution mockups: each is capped near
+   1.25x its source pixels and split photos stop inside a 1440px frame, not the window edge (sales-page sizing). */
+.pmb {
+  --pmb-paper:#f4efe6; --pmb-white:#faf7f1; --pmb-tint:#ece4d7; --pmb-ink:#1a1714; --pmb-char:#262523;
+  --pmb-rust:#a8481f; --pmb-gold:#b38a4a; --pmb-gold-ink:#8d6a32; --pmb-gold-light:#dfbd83; --pmb-line:rgba(179,138,74,.5);
+  --display:'Noto Serif Display',Georgia,serif;
+  --frame:max(0px, calc((100vw - 1440px) / 2)); --edge:max(var(--gutter), calc((100vw - 1152px) / 2));
+  margin-inline:calc(50% - 50vw); background:var(--pmb-paper); color:var(--pmb-ink); font-family:var(--sans);
+}
+.pmb-wrap { max-width:1152px; margin:0 auto; padding-inline:var(--gutter); box-sizing:content-box; }
+.pmb p { margin:16px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.6; }
+.pmb a:not([class]) { color:var(--pmb-rust); text-decoration:underline; text-underline-offset:3px; }
+.pmb-center { text-align:center; }
+.pmb-h2, .pmb-title { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:400; line-height:1.06; letter-spacing:-.025em; color:var(--pmb-ink); text-wrap:balance; }
+.pmb-title { margin-top:16px; font-size:clamp(36px,4vw,52px); line-height:1.02; }
+.pmb-title em { display:block; margin-top:8px; font-style:italic; font-size:.62em; letter-spacing:-.01em; }
+.pmb-h2 { font-size:clamp(24px,2.5vw,32px); }
+.pmb-h2--big { font-size:clamp(30px,3.4vw,44px); }
+.pmb-h3 { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:400; font-size:clamp(22px,2.2vw,28px); line-height:1.2; }
+.pmb-section { padding:clamp(40px,5vw,72px) 0; }
+.pmb .pmb-eyebrow, .pmb .pmb-label { margin:0; font-size:12.5px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--pmb-gold-ink); }
+.pmb .pmb-label { display:flex; align-items:center; gap:16px; margin-bottom:18px; }
+.pmb-label::after { content:""; flex:1; max-width:600px; height:1px; background:var(--pmb-gold); }
+.pmb .pmb-lede { margin-top:18px; font-size:clamp(17px,1.5vw,20px); line-height:1.5; }
+.pmb .pmb-meta { margin-top:20px; font-size:clamp(15px,1.2vw,17px); }
+.pmb .pmb-small { font-size:14.5px; opacity:.8; }
+.pmb .pmb-statement { max-width:40em; margin:clamp(24px,3vw,32px) auto 0; padding-top:18px; border-top:1px solid var(--pmb-line); font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(19px,1.8vw,24px); line-height:1.4; }
+.pmb-intro { max-width:48em; margin:8px auto 0; }
+.pmb-cols { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 clamp(28px,4vw,56px); margin-top:8px; }
+.pmb-short-rule { display:block; width:150px; height:1px; margin-top:24px; background:var(--pmb-gold); }
+.pmb-short-rule--wide { width:320px; margin-top:16px; }
+
+/* Buttons: rust; cream inside the rust band */
+.pmb-btn { display:inline-flex; align-items:center; justify-content:center; padding:16px clamp(36px,5vw,84px); background:var(--pmb-rust); color:#fff; border:0; border-radius:2px; font:400 clamp(17px,1.4vw,20px)/1 var(--display); font-variation-settings:'wdth' 100; cursor:pointer; transition:filter .2s ease, transform .2s ease; }
+.pmb-btn:hover { filter:brightness(1.08); color:#fff; transform:translateY(-1px); }
+.pmb-btn--light { background:var(--pmb-white); color:var(--pmb-rust); font-family:var(--sans); font-weight:600; border-radius:4px; }
+.pmb-btn--light:hover { color:var(--pmb-rust); }
+.pmb-btn--dark { background:var(--pmb-char); }
+.pmb-buy { margin-top:26px; }
+
+/* Hero: copy beside the photo, which stops inside the frame and fades into the paper */
+.pmb-hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,500px); align-items:center; padding-inline-end:var(--frame); border-bottom:1px solid var(--pmb-gold); }
+.pmb-hero-copy { padding:clamp(28px,3.4vw,48px) clamp(24px,3vw,48px) clamp(36px,4vw,56px) var(--edge); }
+.pmb-crumbs { margin-bottom:clamp(20px,2.4vw,32px); }
+.pmb-hero-photo { width:100%; height:auto; aspect-ratio:499/594; max-height:620px; object-fit:cover; object-position:30% 30%; -webkit-mask-image:linear-gradient(to right,transparent,#000 18%); mask-image:linear-gradient(to right,transparent,#000 18%); }
+
+/* Clarity: the team across the window (stops at 1280px), then the numbered cards two across */
+.pmb-clarity { padding-top:clamp(40px,5vw,64px); border-top:1px solid var(--pmb-line); }
+.pmb-team { display:block; width:100%; max-width:1280px; margin:clamp(24px,3vw,36px) auto 0; height:clamp(200px,26vw,400px); object-fit:cover; object-position:50% 40%; }
+.pmb-learn { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(22px,2.6vw,32px) clamp(28px,4vw,56px); margin:clamp(28px,3.4vw,44px) 0 0; padding:0; list-style:none; }
+.pmb .pmb-learn-n { display:flex; align-items:center; gap:16px; margin:0; font-size:14px; color:var(--pmb-gold-ink); }
+.pmb-learn-n::after { content:""; flex:1; height:1px; background:var(--pmb-gold); }
+.pmb-learn h3 { margin:12px 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:400; font-size:clamp(22px,2.2vw,28px); line-height:1.15; letter-spacing:-.02em; }
+.pmb-learn p:not(.pmb-learn-n) { margin-top:8px; }
+.pmb-clarity .pmb-buy { margin-top:clamp(28px,3.4vw,40px); }
+
+/* The four lessons: framed boxes, rust numerals beside a gold rule */
+.pmb-lessons { display:grid; gap:clamp(14px,1.6vw,20px); margin:clamp(24px,3vw,36px) 0 0; padding:0; list-style:none; }
+.pmb-lessons > li { display:grid; grid-template-columns:clamp(90px,12vw,170px) minmax(0,1fr); gap:clamp(18px,3vw,40px); align-items:start; padding:clamp(22px,2.6vw,32px) clamp(20px,3vw,40px); border:1px solid var(--pmb-gold); background:var(--pmb-white); }
+.pmb-lessons > li:nth-child(odd) { background:var(--pmb-tint); }
+.pmb-num { padding-right:clamp(18px,3vw,40px); border-right:1px solid var(--pmb-line); font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(56px,6.4vw,92px); line-height:1; letter-spacing:-.03em; color:var(--pmb-rust); text-align:center; }
+.pmb-lesson-title { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:400; font-size:clamp(23px,2.3vw,30px); line-height:1.12; letter-spacing:-.02em; }
+.pmb .pmb-lesson-so { margin-top:8px; font-size:clamp(16.5px,1.4vw,19px); }
+.pmb .pmb-work { margin-top:16px; padding-top:12px; border-top:1px solid var(--pmb-line); }
+.pmb-work em { font-style:normal; font-size:13px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--pmb-gold-ink); margin-right:6px; }
+
+/* The workbook beside the conversation */
+.pmb-workbook { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,520px); align-items:center; padding-inline-end:var(--frame); border-top:1px solid var(--pmb-line); }
+.pmb-workbook-copy { padding:clamp(40px,5vw,72px) clamp(24px,4vw,56px) clamp(40px,5vw,72px) var(--edge); }
+.pmb-workbook-photo { width:100%; height:auto; aspect-ratio:494/506; max-height:540px; object-fit:cover; -webkit-mask-image:linear-gradient(to right,transparent,#000 18%); mask-image:linear-gradient(to right,transparent,#000 18%); }
+
+/* The rust band */
+.pmb-band { padding:clamp(32px,4vw,52px) 0; background:var(--pmb-rust); color:#fff; }
+.pmb-band-inner { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:20px clamp(28px,4vw,56px); text-align:center; }
+.pmb .pmb-band-line { margin:0; max-width:26em; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(24px,2.6vw,34px); line-height:1.15; color:#fff; }
+
+/* Who it is for: two columns with a gold rule */
+.pmb-fit { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr); gap:clamp(28px,5vw,72px); }
+.pmb-fit-not { padding-left:clamp(28px,5vw,72px); border-left:1px solid var(--pmb-line); }
+.pmb-thought { font-family:var(--display); font-variation-settings:'wdth' 100; font-size:1.08em; }
+
+/* Remi on the charcoal band, beside her signature */
+.pmb-dark { padding:clamp(40px,5vw,64px) 0; background:var(--pmb-char); color:#efe9df; }
+.pmb-remi { display:grid; grid-template-columns:minmax(0,.4fr) minmax(0,1fr); gap:clamp(28px,5vw,72px); align-items:center; }
+.pmb-remi-copy { padding-left:clamp(28px,5vw,72px); border-left:1px solid var(--pmb-gold); }
+.pmb-dark .pmb-h2 { color:#fbf8f2; }
+.pmb-dark p { color:#efe9df; }
+.pmb-dark a:not([class]) { color:var(--pmb-gold-light); }
+/* The signature is gold on white: inverted to a light mark and screened onto the charcoal. */
+.pmb-signature { display:block; width:100%; max-width:240px; height:auto; justify-self:center; filter:invert(1) hue-rotate(180deg) brightness(1.1); mix-blend-mode:screen; }
+
+/* The questions: three columns with gold rules */
+.pmb-faq { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(22px,2.6vw,32px) 0; margin:clamp(20px,2.4vw,32px) 0 0; }
+.pmb-faq > div { padding:0 clamp(18px,2.4vw,32px); border-left:1px solid var(--pmb-line); }
+.pmb-faq > div:nth-child(3n+1) { padding-left:0; border-left:0; }
+.pmb-faq dt { font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(19px,1.7vw,22px); line-height:1.3; }
+.pmb-faq dd { margin:8px 0 0; font-size:clamp(15.5px,1.25vw,17px); line-height:1.6; }
+
+/* The rust close: copy and form beside the desk */
+.pmb-close { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,290px); align-items:end; padding-inline-end:var(--frame); background:var(--pmb-rust); color:#fff; scroll-margin-top:80px; }
+.pmb-close-copy { padding:clamp(44px,5.4vw,80px) clamp(24px,4vw,56px) clamp(44px,5.4vw,80px) var(--edge); }
+.pmb-close .pmb-h2 { color:#fff; }
+.pmb-close p { color:#fff; }
+.pmb .pmb-close-name { margin-top:20px; font-size:clamp(16px,1.4vw,19px); }
+.pmb-close-photo { width:100%; height:auto; aspect-ratio:234/284; max-height:360px; object-fit:cover; -webkit-mask-image:linear-gradient(to right,transparent,#000 35%); mask-image:linear-gradient(to right,transparent,#000 35%); }
+.pmb-form { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto; gap:12px; max-width:720px; margin-top:18px; }
+.pmb-form input[type=text], .pmb-form input[type=email] { min-width:0; padding:15px 18px; border:0; border-radius:4px; background:var(--pmb-white); color:var(--pmb-ink); font:16px/1.2 var(--sans); }
+.pmb-form .pmb-btn { padding-inline:28px; border-radius:4px; }
+.pmb-form .form-error { grid-column:1 / -1; color:#fff; }
+.pmb .pmb-thanks { max-width:640px; margin-top:18px; padding:16px 20px; background:rgba(0,0,0,.16); }
+
+/* Tablets and phones */
+@media (max-width:900px) {
+  .pmb-faq { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .pmb-faq > div:nth-child(3n+1) { padding-left:clamp(18px,2.4vw,32px); border-left:1px solid var(--pmb-line); }
+  .pmb-faq > div:nth-child(2n+1) { padding-left:0; border-left:0; }
+  .pmb-form { grid-template-columns:1fr 1fr; }
+  .pmb-form .pmb-btn { grid-column:1 / -1; }
+}
+@media (max-width:760px) {
+  .pmb-hero, .pmb-workbook, .pmb-close { grid-template-columns:1fr; padding-inline:0; }
+  .pmb-hero-copy, .pmb-workbook-copy, .pmb-close-copy { padding-inline:var(--gutter); }
+  .pmb-hero-photo, .pmb-workbook-photo { order:-1; display:block; width:100%; max-width:540px; margin-inline:auto; aspect-ratio:4/3; max-height:none; object-position:35% 25%; -webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent); mask-image:linear-gradient(to bottom,#000 80%,transparent); }
+  .pmb-hero-copy { padding-top:16px; }
+  .pmb-close-photo { display:none; }
+  .pmb-cols, .pmb-learn, .pmb-fit, .pmb-remi, .pmb-faq, .pmb-form { grid-template-columns:1fr; }
+  .pmb-fit-not { padding-left:0; padding-top:24px; border-left:0; border-top:1px solid var(--pmb-line); }
+  .pmb-remi-copy { padding-left:0; padding-top:20px; border-left:0; border-top:1px solid var(--pmb-gold); }
+  .pmb-signature { max-width:180px; justify-self:start; }
+  .pmb-faq > div, .pmb-faq > div:nth-child(3n+1) { padding-left:0; border-left:0; }
+  .pmb-lessons > li { grid-template-columns:1fr; gap:10px; }
+  .pmb-num { padding-right:0; border-right:0; text-align:left; font-size:52px; }
+  .pmb .pmb-label { flex-wrap:wrap; }
+  .pmb-label::after { display:none; }
+}

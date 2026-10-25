@@ -103,7 +103,9 @@ export const LANDING_SLUGS = ['self-esteem-triad', 'critical-alignment-model-for
   'deep-state-repatterning', 'holding-space-without-rescuing-or-disappearing', 'obstacles-to-love',
   'five-paths-to-a-healthy-relationship', 'attachment-or-love', 'finding-our-way-back', 'the-90-day-review',
   'benchmarking-what-good-actually-looks-like', 'build-beyond-the-founder',
-  'come-back-to-yourself', 'core-improve-innovate', 'disruptive-leadership'] as const;
+  'come-back-to-yourself', 'core-improve-innovate', 'disruptive-leadership',
+  'holding-space-for-magnetic-sales', 'the-performance-management-blueprint',
+  'from-practice-to-enterprise'] as const;
 /** A product's price as shown on the page ('AUD $29', 'Free'), for the rabbit-hole and homepage blocks that feature one. */
 export const priceOf = (slug: string) => productBySlug(slug)?.price ?? '';
 // The bundle always comes last, so it closes the grid whichever products are borrowed from another category.
