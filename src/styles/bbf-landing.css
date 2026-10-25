@@ -1,0 +1,197 @@
+/* ============ Build Beyond the Founder (.bbf) — from the four-panel mockup ============ */
+/* Fixed colours: warm cream paper, near-black ink, rust buttons, italics and bands, antique gold numerals, rules,
+   icons and frames. Headings are the serif at its regular width (Noto Serif Display 100, and its italic, loaded in
+   app/layout.tsx), light as drawn. */
+.bbf {
+  --bbf-paper:#f6f1ea; --bbf-white:#fbf8f3; --bbf-tint:#efe7dc; --bbf-ink:#1d1a17; --bbf-rust:#a8461f; --bbf-rust-dark:#7c3115;
+  --bbf-gold:#b08a4a; --bbf-gold-ink:#8d6a33; --bbf-gold-light:#e0bf86; --bbf-line:rgba(176,138,74,.5);
+  --display:'Noto Serif Display',Georgia,serif;
+  margin-inline:calc(50% - 50vw); background:var(--bbf-paper); color:var(--bbf-ink); font-family:var(--sans);
+}
+.bbf-wrap { max-width:1152px; margin:0 auto; padding-inline:var(--gutter); box-sizing:content-box; }
+.bbf p { margin:16px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.6; }
+.bbf a:not([class]) { color:var(--bbf-rust); text-decoration:underline; text-underline-offset:3px; }
+.bbf-center { text-align:center; }
+.bbf-h2, .bbf-title { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:400; line-height:1.1; letter-spacing:-.015em; color:var(--bbf-ink); text-wrap:balance; }
+.bbf-title { margin-top:14px; font-size:clamp(34px,3.8vw,50px); line-height:1.04; }
+.bbf-h2 { font-size:clamp(24px,2.5vw,32px); }
+.bbf-h2--big { font-size:clamp(30px,3.4vw,44px); }
+.bbf-h2 em { font-style:italic; color:var(--bbf-rust); }
+.bbf-h3 { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:400; font-size:clamp(24px,2.4vw,32px); line-height:1.15; }
+.bbf-section { padding:clamp(40px,5vw,72px) 0; }
+.bbf-rule { border-top:1px solid var(--bbf-line); }
+.bbf .bbf-small { font-size:14.5px; opacity:.85; }
+.bbf .bbf-eyebrow { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:13.5px; letter-spacing:.26em; text-transform:uppercase; color:var(--bbf-gold-ink); }
+.bbf .bbf-with { margin-top:6px; font-size:14.5px; letter-spacing:.04em; opacity:.75; }
+.bbf .bbf-crumb-label { display:flex; align-items:center; gap:10px; margin:0; padding-top:clamp(40px,5vw,64px); font-size:12.5px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; }
+.bbf-crumb-label em { font-style:normal; color:var(--bbf-rust); }
+.bbf-crumb-label::after { content:""; flex:1; max-width:480px; height:1px; background:var(--bbf-gold); }
+.bbf-price-note::before { content:"· "; }
+.bbf-section > .bbf-crumb-label { padding-top:0; margin-bottom:clamp(20px,2.4vw,28px); }
+
+/* Buttons: rust with an arrow; cream inside the rust band */
+.bbf-btn { display:inline-flex; align-items:center; justify-content:center; gap:14px; padding:16px clamp(32px,4vw,60px); background:var(--bbf-rust); color:#fff; border:0; border-radius:4px; font:400 clamp(17px,1.4vw,20px)/1 var(--display); font-variation-settings:'wdth' 100; cursor:pointer; transition:filter .2s ease, transform .2s ease; }
+.bbf-btn:hover { filter:brightness(1.08); color:#fff; transform:translateY(-1px); }
+.bbf-btn--light { background:var(--bbf-white); color:var(--bbf-rust); }
+.bbf-btn--light:hover { color:var(--bbf-rust); }
+.bbf-btn--dark { background:var(--bbf-rust-dark); }
+.bbf-buy { margin-top:24px; }
+
+/* The price: the struck catalogue price, the offer in rust */
+.bbf .bbf-price { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px; margin-top:22px; font-family:var(--display); font-variation-settings:'wdth' 100; }
+.bbf-price s { font-size:clamp(20px,1.9vw,26px); opacity:.6; }
+.bbf-price strong { font-weight:400; font-size:clamp(40px,4.4vw,58px); line-height:1; color:var(--bbf-rust); }
+.bbf-aud { font-family:var(--sans); font-size:13px; letter-spacing:.14em; }
+.bbf-price-note { font-family:var(--sans); font-size:clamp(15px,1.2vw,17px); }
+
+/* Hero: copy on the paper, the photo running to the window edge */
+/* Photos are cut from low-resolution mockups: each is capped near 1.25x its source pixels and stops inside a 1440px
+   frame instead of the window edge, so it never shows its pixels on a wide screen (client, Oct 2026). */
+.bbf-hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,480px); align-items:center; padding-inline-end:max(0px, calc((100vw - 1440px) / 2)); }
+.bbf-hero-copy { padding:clamp(28px,3.4vw,48px) clamp(24px,3vw,48px) clamp(36px,4vw,56px) max(var(--gutter), calc((100vw - 1152px) / 2)); }
+.bbf-crumbs { margin-bottom:clamp(20px,2.4vw,32px); }
+.bbf .bbf-lede { margin-top:18px; font-size:clamp(18px,1.6vw,21px); line-height:1.5; }
+.bbf-hero-photo { width:100%; height:auto; aspect-ratio:3/4; max-height:640px; object-fit:cover; object-position:40% 40%; }
+
+/* The business is growing: copy beside the desk */
+.bbf-growing { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr); align-items:center; border-top:1px solid var(--bbf-line); }
+.bbf-growing-copy { padding:clamp(40px,5vw,72px) clamp(24px,4vw,56px) clamp(40px,5vw,72px) max(var(--gutter), calc((100vw - 1152px) / 2)); }
+.bbf-growing-photo { width:100%; max-width:420px; height:auto; max-height:560px; object-fit:cover; }
+.bbf-sprig-rule { display:flex; align-items:flex-end; gap:12px; margin-top:28px; }
+.bbf-sprig-rule::after { content:""; flex:1; height:1px; margin-bottom:8px; background:var(--bbf-gold); }
+.bbf-sprig { width:70px; height:auto; fill:none; stroke:var(--bbf-gold); stroke-width:1.4; }
+
+/* Keep what makes your business good, then the five numbered rows beside their photos */
+.bbf-keep { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(24px,4vw,56px); align-items:center; margin-top:clamp(20px,2.4vw,28px); }
+.bbf-short-rule { display:block; width:64px; height:2px; margin-top:22px; background:var(--bbf-gold); }
+.bbf-keep-photo { width:100%; max-width:520px; height:auto; justify-self:end; }
+.bbf .bbf-towards-intro { margin-top:clamp(32px,4vw,48px); font-family:var(--display); font-variation-settings:'wdth' 100; font-style:italic; font-size:clamp(18px,1.6vw,22px); }
+.bbf-rows { margin:8px 0 0; padding:0 0 clamp(40px,5vw,64px); list-style:none; }
+.bbf-rows > li { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:clamp(24px,4vw,56px); align-items:center; padding:clamp(14px,1.8vw,22px) 0; }
+.bbf-rows > li:nth-child(even) .bbf-row-photo { order:-1; }
+.bbf-rows > li:nth-child(even) { grid-template-columns:minmax(0,1fr) minmax(0,1.3fr); }
+.bbf-row-copy { display:grid; grid-template-columns:auto minmax(0,1fr); gap:clamp(18px,3vw,40px); align-items:start; }
+.bbf-num { padding-bottom:12px; border-bottom:1px solid var(--bbf-gold); font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(38px,4vw,54px); line-height:1; color:var(--bbf-gold); }
+.bbf-row-copy h3 { margin:4px 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:400; font-size:clamp(22px,2.2vw,30px); line-height:1.15; }
+.bbf-row-copy p { margin-top:8px; }
+.bbf-row-photo { width:100%; height:auto; max-height:220px; object-fit:cover; }
+
+/* The rust waitlist band with its sprig */
+.bbf-band { position:relative; overflow:hidden; padding:clamp(32px,4vw,52px) 0; background:var(--bbf-rust); color:#fff; }
+.bbf-band-inner { position:relative; z-index:1; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:24px 48px; }
+.bbf-band .bbf-h2 { max-width:18em; color:#fff; font-size:clamp(26px,2.8vw,38px); }
+.bbf-band .bbf-price { margin-top:0; }
+.bbf-band .bbf-price strong, .bbf-band .bbf-price { color:#fff; }
+.bbf-band .bbf-price-note { display:none; }
+.bbf-band-buy { display:grid; justify-items:end; gap:14px; }
+.bbf-sprig--band { position:absolute; left:46%; bottom:-10px; width:clamp(120px,16vw,220px); stroke:var(--bbf-gold-light); opacity:.4; }
+
+/* The three programs: framed cards with the photo inside the frame */
+.bbf-programs { display:grid; gap:clamp(18px,2vw,26px); }
+.bbf-program { display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); gap:clamp(20px,3vw,40px); padding:clamp(14px,1.4vw,18px); border:1px solid var(--bbf-line); background:var(--bbf-white); }
+.bbf-program:nth-child(2) { background:var(--bbf-tint); }
+.bbf-program-copy { padding:clamp(10px,1.6vw,22px) 0 clamp(10px,1.6vw,22px) clamp(10px,1.6vw,22px); }
+.bbf .bbf-program-name { margin:0 0 14px; font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:var(--bbf-gold-ink); }
+.bbf-program-name span { font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:20px; letter-spacing:0; color:var(--bbf-rust); }
+.bbf-program-link { color:inherit; text-decoration:none; }
+.bbf-program-link:hover { color:var(--bbf-rust); }
+.bbf .bbf-program-lede { font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(18px,1.6vw,21px); line-height:1.4; }
+.bbf-outcome { display:grid; grid-template-columns:auto minmax(0,1fr); gap:18px; align-items:center; margin-top:22px; padding-top:18px; border-top:1px solid var(--bbf-line); }
+.bbf-outcome p { margin:0; padding-left:18px; border-left:1px solid var(--bbf-line); }
+.bbf-outcome strong { font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; }
+.bbf-icon { width:40px; height:40px; fill:none; stroke:var(--bbf-gold); stroke-width:1.3; stroke-linejoin:round; stroke-linecap:round; }
+.bbf .bbf-contents { display:flex; align-items:center; gap:14px; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(15px,1.2vw,17px); letter-spacing:.04em; }
+.bbf-play { flex:none; width:30px; height:30px; fill:none; stroke:var(--bbf-gold-ink); stroke-width:1.3; }
+.bbf-play path { fill:var(--bbf-gold-ink); stroke:none; }
+/* The copy runs taller than the photo, so the photo stays in view beside it instead of leaving an empty strip below. */
+.bbf-program-photo { position:sticky; top:96px; align-self:start; width:100%; height:auto; aspect-ratio:642/540; max-height:560px; object-fit:cover; }
+
+/* Prose in columns */
+.bbf-cols { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0 clamp(28px,4vw,56px); margin-top:8px; }
+
+/* Remi's note: two figures, the signature, the photo to the window edge */
+.bbf-remi { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,460px); align-items:center; background:var(--bbf-tint); padding-inline-end:max(0px, calc((100vw - 1440px) / 2)); }
+.bbf-remi-copy { padding:0 clamp(24px,4vw,56px) clamp(40px,5vw,64px) max(var(--gutter), calc((100vw - 1152px) / 2)); }
+.bbf-remi .bbf-h2 { margin-top:clamp(20px,2.4vw,28px); }
+.bbf-figures { display:grid; grid-template-columns:repeat(2,auto); justify-content:start; gap:clamp(20px,3vw,40px); margin:clamp(20px,2.4vw,28px) 0 0; }
+.bbf-figures > div + div { padding-left:clamp(20px,3vw,40px); border-left:1px solid var(--bbf-line); }
+.bbf-figures dt { font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(34px,3.6vw,48px); line-height:1; }
+.bbf-figures dt span { color:var(--bbf-gold); }
+.bbf-figures dd { margin:10px 0 0; max-width:16em; font-size:12.5px; letter-spacing:.18em; line-height:1.6; text-transform:uppercase; }
+.bbf-signature { display:block; width:180px; height:auto; margin-top:22px; mix-blend-mode:multiply; }
+.bbf .bbf-sign { margin-top:4px; font-size:15px; }
+.bbf-remi-photo { width:100%; height:auto; aspect-ratio:423/600; max-height:620px; object-fit:cover; object-position:40% 50%; }
+
+/* Is this where you are? Two columns with a gold rule between */
+.bbf-fit { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(28px,5vw,72px); margin-top:clamp(20px,2.4vw,28px); }
+.bbf-fit-not { padding-left:clamp(28px,5vw,72px); border-left:1px solid var(--bbf-line); }
+.bbf-ticks { margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px; }
+.bbf-ticks li { position:relative; padding-left:30px; font-size:clamp(16px,1.3vw,18px); line-height:1.5; }
+.bbf-ticks li::before { content:""; position:absolute; left:2px; top:.45em; width:12px; height:7px; border-left:1.6px solid var(--bbf-rust); border-bottom:1.6px solid var(--bbf-rust); transform:rotate(-45deg); }
+
+/* The questions: three columns divided by gold rules */
+.bbf-faq { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(24px,3vw,36px) 0; margin:clamp(20px,2.4vw,32px) 0 0; }
+.bbf-faq > div { padding:0 clamp(18px,2.4vw,32px); border-left:1px solid var(--bbf-line); }
+.bbf-faq > div:nth-child(3n+1) { padding-left:0; border-left:0; }
+.bbf-faq dt { font-weight:700; font-size:clamp(16px,1.3vw,18px); line-height:1.4; }
+.bbf-faq dd { margin:8px 0 0; font-size:clamp(15.5px,1.25vw,17px); line-height:1.6; }
+
+/* The rust close: copy and form beside the photo, which fades into the rust */
+.bbf-close { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,400px); align-items:center; padding-inline-end:max(0px, calc((100vw - 1440px) / 2)); background:var(--bbf-rust); background-image:linear-gradient(120deg,rgba(255,255,255,.05),rgba(0,0,0,.12)); color:#fff; scroll-margin-top:80px; }
+.bbf-close-copy { padding:clamp(40px,5vw,72px) clamp(24px,4vw,56px) clamp(40px,5vw,72px) max(var(--gutter), calc((100vw - 1152px) / 2)); }
+.bbf-close .bbf-h2 { color:#fff; }
+.bbf-close .bbf-h2 span { display:block; margin-top:10px; font-family:var(--sans); font-size:clamp(18px,1.6vw,22px); letter-spacing:0; }
+.bbf-close p, .bbf-close .bbf-price strong { color:#fff; }
+.bbf .bbf-close-name { margin-top:20px; font-size:15px; letter-spacing:.04em; }
+.bbf-close-photo { width:100%; height:auto; aspect-ratio:334/386; max-height:470px; object-fit:cover; -webkit-mask-image:linear-gradient(to right,transparent,#000 30%); mask-image:linear-gradient(to right,transparent,#000 30%); }
+.bbf-form { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:12px; margin-top:18px; max-width:620px; }
+.bbf-form input[type=text], .bbf-form input[type=email] { min-width:0; padding:15px 18px; border:0; border-radius:4px; background:var(--bbf-white); color:var(--bbf-ink); font:16px/1.2 var(--sans); }
+.bbf-form .bbf-btn { grid-column:1 / -1; }
+.bbf-form .form-error { grid-column:1 / -1; color:#fff; }
+.bbf .bbf-thanks { max-width:620px; margin-top:18px; padding:16px 20px; background:rgba(0,0,0,.16); }
+
+/* Tablets and phones */
+@media (max-width:900px) {
+  .bbf-cols { grid-template-columns:1fr; }
+  .bbf-faq { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .bbf-faq > div:nth-child(3n+1) { padding-left:clamp(18px,2.4vw,32px); border-left:1px solid var(--bbf-line); }
+  .bbf-faq > div:nth-child(2n+1) { padding-left:0; border-left:0; }
+}
+@media (max-width:760px) {
+  .bbf-hero, .bbf-growing, .bbf-keep, .bbf-remi, .bbf-fit, .bbf-close, .bbf-rows > li, .bbf-rows > li:nth-child(even) { grid-template-columns:1fr; }
+  .bbf-hero-copy, .bbf-growing-copy, .bbf-remi-copy, .bbf-close-copy { padding-inline:var(--gutter); }
+  .bbf-hero-photo { order:-1; max-height:none; height:auto; aspect-ratio:4/3; object-position:50% 35%; }
+  .bbf-hero-copy { padding-top:20px; }
+  .bbf-growing-photo { display:none; }
+  .bbf-keep-photo { justify-self:stretch; max-width:none; }
+  .bbf-rows > li:nth-child(even) .bbf-row-photo { order:0; }
+  .bbf-row-photo { max-height:180px; }
+  .bbf-remi-photo { order:-1; aspect-ratio:4/3; max-height:none; }
+  .bbf-hero-photo { max-height:none; }
+  .bbf .bbf-crumb-label { flex-wrap:wrap; gap:4px 8px; }
+  .bbf-crumb-label::after { display:none; }
+  .bbf-price-note { flex-basis:100%; }
+  .bbf-price-note::before { content:none; }
+  .bbf-remi-copy .bbf-crumb-label { padding-top:28px; }
+  .bbf-fit-not { padding-left:0; padding-top:24px; border-left:0; border-top:1px solid var(--bbf-line); }
+  .bbf-faq { grid-template-columns:1fr; }
+  .bbf-faq > div, .bbf-faq > div:nth-child(3n+1) { padding-left:0; border-left:0; }
+  .bbf-band-buy { justify-items:start; }
+  .bbf-sprig--band { left:auto; right:-20px; }
+  .bbf-close-photo { display:none; }
+  .bbf-form { grid-template-columns:1fr; }
+  .bbf-figures { grid-template-columns:1fr 1fr; }
+}
+/* The program cards stay two-up on tablets: a full-width photo there would enlarge the mockup cut past its pixels. */
+@media (max-width:680px) {
+  .bbf-program { grid-template-columns:1fr; }
+  .bbf-program-photo { position:static; order:-1; height:auto; aspect-ratio:3/2; }
+  .bbf-program-copy { padding:4px 6px 10px; }
+}
+
+/* Stacked photos on large phones and small tablets stop near their source width, centred, instead of filling a
+   700px screen. On ordinary phones they still run edge to edge. */
+@media (max-width:760px) {
+  .bbf-hero-photo, .bbf-remi-photo, .bbf-keep-photo, .bbf-program-photo { display:block; max-width:540px; margin-inline:auto; }
+  .bbf-row-photo { max-width:480px; }
+}

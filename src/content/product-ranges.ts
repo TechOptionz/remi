@@ -30,7 +30,7 @@ export const RANGE_DESIGNS: Partial<Record<CategoryId, RangeDesign>> = {
       'deep-state-repatterning': pic('dsr-landing/dsr-hero', 1536, 1024, 'Remi Pearson in her podcast studio'),
       'emotion-integration-technique-foundations': pic('eit-landing/eit-hero', 1001, 1448),
       'holding-space-without-rescuing-or-disappearing': pic('wdk-landing/wdk-portrait', 1086, 1448, 'Remi Pearson in a burgundy portrait'),
-      'come-back-to-yourself': pic('eit-landing/eit-tree', 479, 452),
+      'come-back-to-yourself': pic('cby-landing/cby-hero', 648, 1068),
     },
   },
   relationships: {
@@ -57,12 +57,12 @@ export const RANGE_DESIGNS: Partial<Record<CategoryId, RangeDesign>> = {
   leadership: {
     layout: 'bands',
     art: {
-      'disruptive-leadership': pic('rabbit-holes/ld-hero', 812, 1354, 'Balanced bronze and stone shapes stacked on a plinth'),
+      'disruptive-leadership': pic('dlp-landing/dlp-team', 1536, 580, 'Four colleagues in conversation around a low table'),
       'the-performance-management-blueprint': pic('photos/band-3', 900, 507),
       'your-first-90-days-as-a-leader': pic('photos/invite-teaching', 900, 1200),
       'the-ground-rules-nobody-wrote-down': pic('photos/about-audience', 1400, 1050),
       'the-90-day-review': pic('n90-landing/n90-hero', 530, 790),
-      'benchmarking-what-good-actually-looks-like': pic('cam-landing/cml-columns', 423, 965),
+      'benchmarking-what-good-actually-looks-like': pic('bm-landing/bm-hero', 728, 716),
       'critical-alignment-model-for-leaders': pic('cam-landing/cml-hero', 470, 900),
       'lead-align-and-perform': pic('cam-landing/cml-arch', 515, 710),
     },

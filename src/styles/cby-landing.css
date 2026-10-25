@@ -1,0 +1,205 @@
+/* ============ Come Back to Yourself (.cby) — from the four-panel mockup ============ */
+/* Fixed colours: warm cream paper, espresso bands and panel, rust buttons and dots, antique gold rings, rules and
+   numerals, deep brown ink. Headings are the serif at its regular width (Noto Serif Display 100, loaded in
+   app/layout.tsx), light as drawn. */
+.cby {
+  --cby-paper:#f7f2ea; --cby-white:#fcf9f4; --cby-tint:#efe6da; --cby-ink:#2a1a14; --cby-espresso:#2e1d16;
+  --cby-rust:#b2502a; --cby-gold:#b48a4e; --cby-gold-ink:#8f6a35; --cby-gold-light:#e6c58c; --cby-line:rgba(180,138,78,.5);
+  --display:'Noto Serif Display',Georgia,serif;
+  margin-inline:calc(50% - 50vw); background:var(--cby-paper); color:var(--cby-ink); font-family:var(--sans);
+}
+.cby-wrap { max-width:1152px; margin:0 auto; padding-inline:var(--gutter); box-sizing:content-box; }
+.cby p { margin:16px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.6; }
+.cby a:not([class]) { color:var(--cby-rust); text-decoration:underline; text-underline-offset:3px; }
+.cby-center { text-align:center; }
+.cby-h2, .cby-title { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:400; line-height:1.1; letter-spacing:-.015em; color:var(--cby-ink); text-wrap:balance; }
+.cby-title { margin-top:16px; font-size:clamp(34px,3.8vw,50px); line-height:1.05; }
+.cby-h2 { font-size:clamp(24px,2.5vw,32px); }
+.cby-h2--big { font-size:clamp(30px,3.4vw,44px); }
+.cby-h3 { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:400; font-size:clamp(22px,2.2vw,28px); line-height:1.2; }
+.cby-section { padding:clamp(40px,5vw,72px) 0; }
+.cby-section--top0 { padding-top:0; }
+.cby-rule { border-top:1px solid var(--cby-line); }
+.cby .cby-small { font-size:14.5px; opacity:.8; }
+.cby .cby-eyebrow { display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; margin:0; font-size:13px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; color:var(--cby-rust); }
+.cby-eyebrow::after { content:""; width:76px; height:1px; background:var(--cby-gold); order:1; }
+.cby-with { order:2; color:var(--cby-ink); letter-spacing:.14em; opacity:.7; }
+.cby-short-rule { display:block; width:110px; height:1px; margin-top:24px; background:var(--cby-gold); }
+.cby-short-rule--c { margin-inline:auto; }
+.cby-cols { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0 clamp(24px,3.4vw,48px); margin-top:8px; }
+.cby-cols--2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+
+/* Buttons: rust with an arrow */
+.cby-btn { display:inline-flex; align-items:center; justify-content:center; gap:14px; padding:16px clamp(32px,4vw,60px); background:var(--cby-rust); color:#fff; border:0; border-radius:6px; font:400 clamp(17px,1.4vw,20px)/1 var(--display); font-variation-settings:'wdth' 100; cursor:pointer; transition:filter .2s ease, transform .2s ease; }
+.cby-btn:hover { filter:brightness(1.08); color:#fff; transform:translateY(-1px); }
+.cby-btn--dark { background:var(--cby-espresso); }
+.cby-buy { margin-top:24px; }
+
+/* Hero: copy on the paper, the photo to the window edge, faded into the paper on its left */
+/* Photos are cut from low-resolution mockups: each is capped near 1.25x its source pixels and stops inside a 1440px
+   frame instead of the window edge, so it never shows its pixels on a wide screen (client, Oct 2026). */
+.cby-hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,460px); align-items:center; border-bottom:1px solid var(--cby-line); padding-inline-end:max(0px, calc((100vw - 1440px) / 2)); }
+.cby-hero-copy { padding:clamp(28px,3.4vw,48px) clamp(24px,3vw,48px) clamp(36px,4vw,56px) max(var(--gutter), calc((100vw - 1152px) / 2)); }
+.cby-crumbs { margin-bottom:clamp(20px,2.4vw,32px); }
+.cby .cby-lede { margin-top:18px; font-size:clamp(18px,1.6vw,21px); line-height:1.5; }
+.cby .cby-price { margin-top:20px; font-size:clamp(16px,1.4vw,19px); }
+.cby .cby-save { margin-top:6px; font-size:15.5px; }
+.cby-hero-photo { width:100%; height:auto; aspect-ratio:432/680; max-height:600px; object-fit:cover; object-position:40% 30%; -webkit-mask-image:linear-gradient(to right,transparent,#000 16%); mask-image:linear-gradient(to right,transparent,#000 16%); }
+
+/* Managing everybody's experience: the vase at the left edge, the moments with ringed icons */
+.cby-managing { display:grid; grid-template-columns:minmax(0,260px) minmax(0,1fr); align-items:center; padding-inline-start:max(0px, calc((100vw - 1440px) / 2)); }
+.cby-managing-photo { width:100%; height:auto; aspect-ratio:235/700; max-height:800px; object-fit:cover; object-position:30% 50%; -webkit-mask-image:linear-gradient(to left,transparent,#000 40%); mask-image:linear-gradient(to left,transparent,#000 40%); }
+.cby-managing-copy { padding:clamp(40px,5vw,72px) max(var(--gutter), calc((100vw - 1152px) / 2)) clamp(40px,5vw,72px) clamp(16px,3vw,40px); }
+.cby .cby-subhead { margin-top:clamp(24px,3vw,32px); font-weight:700; }
+.cby-ring { flex:none; display:grid; place-items:center; width:52px; height:52px; border:1.3px solid var(--cby-gold); border-radius:50%; color:var(--cby-gold-ink); }
+.cby-moments { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px clamp(24px,3vw,40px); margin:14px 0 0; padding:0; list-style:none; }
+.cby-moments li { display:flex; align-items:center; gap:18px; font-size:clamp(16px,1.3vw,18px); line-height:1.45; }
+.cby .cby-statement { max-width:34em; margin:16px auto 0; text-align:center; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(20px,1.9vw,26px); line-height:1.35; }
+
+/* What could change: copy and ringed icons beside the two friends */
+.cby-change { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,520px); padding-inline-end:max(0px, calc((100vw - 1440px) / 2)); align-items:center; background:var(--cby-white); border-block:1px solid var(--cby-line); }
+.cby-change-copy { padding:clamp(40px,5vw,72px) clamp(24px,3vw,48px) clamp(40px,5vw,72px) max(var(--gutter), calc((100vw - 1152px) / 2)); }
+.cby-ways { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(20px,2.4vw,28px) clamp(24px,3vw,40px); margin:clamp(20px,2.4vw,28px) 0 0; padding:0; list-style:none; }
+.cby-ways h3 { margin:12px 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(18px,1.6vw,21px); line-height:1.25; }
+.cby-ways p { margin-top:6px; font-size:clamp(15.5px,1.2vw,17px); }
+.cby-change-photo { width:100%; height:auto; aspect-ratio:458/530; max-height:620px; object-fit:cover; object-position:40% 40%; -webkit-mask-image:linear-gradient(to right,transparent,#000 18%); mask-image:linear-gradient(to right,transparent,#000 18%); }
+
+/* The sprig between gold rules */
+.cby-sprig-rule { display:flex; align-items:center; gap:16px; padding:clamp(36px,4.4vw,56px) 0 clamp(24px,3vw,36px); }
+.cby-sprig-rule::before, .cby-sprig-rule::after { content:""; flex:1; height:1px; background:var(--cby-gold); }
+.cby-sprig-rule svg { width:36px; height:22px; fill:none; stroke:var(--cby-gold); stroke-width:1.2; }
+.cby-intro { max-width:48em; margin:0 auto; text-align:center; }
+
+/* The programs: shared parts */
+.cby .cby-prog-num { margin:0; display:flex; align-items:center; gap:14px; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(22px,2vw,26px); color:var(--cby-gold); }
+.cby-prog-num::after { content:""; width:150px; height:1px; background:var(--cby-gold); }
+.cby-prog-name { margin:12px 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:400; font-size:clamp(26px,2.6vw,36px); line-height:1.1; }
+.cby-prog-link { color:inherit; text-decoration:none; }
+.cby-prog-link:hover { color:var(--cby-rust); }
+.cby .cby-prog-lede { margin-top:8px; font-size:clamp(18px,1.5vw,20px); line-height:1.45; }
+.cby .cby-prog-includes { margin-top:16px; padding-top:14px; border-top:1px solid var(--cby-line); font-size:13.5px; font-weight:600; letter-spacing:.14em; line-height:1.6; text-transform:uppercase; }
+.cby .cby-prog-explore { font-weight:700; }
+.cby-dots { margin:10px 0 0; padding:0; list-style:none; display:grid; gap:10px; }
+.cby-dots li { position:relative; padding-left:28px; font-size:clamp(15.5px,1.25vw,17px); line-height:1.55; }
+.cby-dots li::before { content:""; position:absolute; left:4px; top:.55em; width:10px; height:10px; border-radius:50%; background:var(--cby-rust); }
+.cby-dots strong { font-weight:700; }
+.cby-dots--lg li { font-size:clamp(16px,1.3vw,18px); }
+.cby .cby-prog-price { margin-top:18px; padding-top:14px; border-top:1px solid var(--cby-line); font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(19px,1.7vw,23px); }
+
+/* 01 and 02: cards side by side */
+.cby-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(18px,2vw,28px); margin-top:clamp(28px,3.4vw,44px); }
+.cby-card { padding:clamp(16px,1.6vw,20px) clamp(16px,1.6vw,20px) clamp(24px,2.6vw,32px); border:1px solid var(--cby-line); border-radius:6px; background:var(--cby-white); }
+.cby-card-photo { display:block; width:100%; height:auto; aspect-ratio:650/334; object-fit:cover; margin-bottom:20px; }
+.cby-card > :not(img) { margin-inline:clamp(4px,.8vw,10px); }
+
+/* 03–05: full-width rows, the photo alternating sides and fading into the paper */
+.cby-rows { margin:clamp(40px,5vw,64px) 0 0; padding:0; list-style:none; }
+.cby-row { display:grid; grid-template-columns:minmax(0,520px) minmax(0,1fr); align-items:center; background:var(--cby-white); padding-inline-start:max(0px, calc((100vw - 1440px) / 2)); }
+.cby-row:nth-child(even) { grid-template-columns:minmax(0,1fr) minmax(0,520px); background:var(--cby-tint); padding-inline-start:0; padding-inline-end:max(0px, calc((100vw - 1440px) / 2)); }
+.cby-row:nth-child(even) .cby-row-photo { order:1; -webkit-mask-image:linear-gradient(to right,transparent,#000 22%); mask-image:linear-gradient(to right,transparent,#000 22%); }
+.cby-row-photo { width:100%; height:auto; aspect-ratio:440/350; max-height:430px; object-fit:cover; object-position:40% 30%; -webkit-mask-image:linear-gradient(to left,transparent,#000 22%); mask-image:linear-gradient(to left,transparent,#000 22%); }
+.cby-row-copy { padding:clamp(36px,4.4vw,60px) max(var(--gutter), calc((100vw - 1152px) / 2)) clamp(36px,4.4vw,60px) clamp(24px,3vw,40px); }
+.cby-row:nth-child(even) .cby-row-copy { padding:clamp(36px,4.4vw,60px) clamp(24px,3vw,40px) clamp(36px,4.4vw,60px) max(var(--gutter), calc((100vw - 1152px) / 2)); }
+
+/* The espresso waitlist band */
+.cby-band { padding:clamp(32px,4vw,52px) 0; background:var(--cby-espresso); background-image:radial-gradient(ellipse at 20% 120%,rgba(178,80,42,.35),transparent 60%); color:#fff; }
+.cby-band-inner { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:20px clamp(24px,4vw,56px); text-align:center; }
+.cby .cby-band-line { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(24px,2.6vw,34px); color:#fff; }
+
+/* Learn at a pace: copy beside the dotted list */
+.cby-pace { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(28px,5vw,72px); align-items:start; }
+.cby-pace .cby-dots { margin-top:clamp(8px,1vw,14px); }
+
+/* Is it right for you? Ticks and crosses in two columns */
+.cby-fit { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(28px,5vw,72px); margin-top:clamp(20px,2.4vw,28px); padding-top:clamp(20px,2.4vw,28px); border-top:1px solid var(--cby-line); }
+.cby-fit-not { padding-left:clamp(28px,5vw,72px); border-left:1px solid var(--cby-line); }
+.cby-marks { margin:16px 0 0; padding:0; list-style:none; display:grid; gap:14px; }
+.cby-marks li { display:flex; gap:16px; align-items:flex-start; font-size:clamp(16px,1.3vw,18px); line-height:1.5; }
+.cby-mark { flex:none; display:grid; place-items:center; width:30px; height:30px; margin-top:-2px; border-radius:50%; background:var(--cby-espresso); color:#fff; font-size:16px; line-height:1; }
+
+/* A note from Remi */
+.cby-signature { display:block; width:170px; height:auto; margin-top:18px; mix-blend-mode:multiply; }
+
+/* The bundle table on the espresso panel beside the woman with her mug */
+.cby-bundle { padding:clamp(40px,5vw,64px) 0; background:var(--cby-espresso); color:#f6efe5; }
+.cby-bundle-inner { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr); gap:clamp(24px,4vw,56px); align-items:center; }
+.cby-bundle-panel { padding:clamp(22px,3vw,40px); border:1px solid rgba(230,197,140,.6); }
+.cby-bundle .cby-h2 { color:#fff; }
+.cby-bundle p { color:#f6efe5; }
+.cby-table { width:100%; margin-top:clamp(18px,2vw,26px); border-collapse:collapse; font-size:clamp(16px,1.3vw,18px); }
+.cby-table thead th { padding:0 0 10px; text-align:left; font:700 12.5px/1.3 var(--sans); letter-spacing:.18em; text-transform:uppercase; color:var(--cby-gold-light); }
+.cby-table thead th:last-child, .cby-table td { text-align:right; }
+.cby-table tbody tr { border-top:1px solid rgba(246,239,229,.22); }
+.cby-table tbody th, .cby-table td { padding:11px 0; font-weight:400; text-align:left; }
+.cby-table td { text-align:right; padding-left:16px; }
+.cby-table-link { color:#fff; text-decoration:none; }
+.cby-table-link:hover { color:var(--cby-gold-light); }
+.cby-table tfoot tr { border-top:1px solid var(--cby-gold-light); }
+.cby-table tfoot th, .cby-table tfoot td { padding:14px 0 0; font-weight:700; text-align:left; }
+.cby-table tfoot td { text-align:right; }
+.cby .cby-invest { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 16px; margin-top:22px; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(18px,1.6vw,22px); }
+.cby-invest strong { font-weight:400; font-size:clamp(38px,4.4vw,58px); line-height:1; color:var(--cby-gold-light); }
+.cby-bundle .cby-small { color:#f6efe5; }
+.cby-bundle-photo { width:100%; max-width:480px; height:auto; justify-self:end; border-radius:4px; }
+
+/* The questions: two columns */
+.cby-faq-h { display:flex; align-items:center; gap:24px; }
+.cby-faq-h::after { content:""; flex:1; height:1px; background:var(--cby-gold); }
+.cby-faq { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(22px,2.6vw,32px) 0; margin:clamp(20px,2.4vw,32px) 0 0; }
+.cby-faq > div { padding:0 clamp(20px,3vw,40px); border-left:1px solid var(--cby-line); }
+.cby-faq > div:nth-child(odd) { padding-left:0; border-left:0; }
+.cby-faq dt { font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(19px,1.7vw,23px); line-height:1.3; }
+.cby-faq dd { margin:8px 0 0; font-size:clamp(15.5px,1.25vw,17px); line-height:1.6; }
+
+/* The close between the olive branch and the hills, with the waitlist form */
+.cby-close { position:relative; overflow:hidden; padding:clamp(44px,5.4vw,80px) 0; background:linear-gradient(to bottom,#f4ead9,#efdcc0); scroll-margin-top:80px; }
+.cby-close-olive, .cby-close-hills { position:absolute; bottom:0; height:min(100%,300px); width:auto; max-width:24%; object-fit:cover; pointer-events:none; }
+.cby-close-olive { left:0; object-position:0 100%; -webkit-mask-image:linear-gradient(to right,#000 55%,transparent); mask-image:linear-gradient(to right,#000 55%,transparent); }
+.cby-close-hills { right:0; height:min(100%,240px); object-position:100% 100%; -webkit-mask-image:linear-gradient(to left,#000 50%,transparent); mask-image:linear-gradient(to left,#000 50%,transparent); }
+/* No z-index here: a stacking context would cut the multiplied signature off from the band behind it. The olive
+   branch and hills come first in the markup, so the copy still paints over them. */
+.cby-close-inner { position:relative; max-width:720px; text-align:center; }
+.cby-close .cby-h2 { margin-inline:auto; }
+.cby .cby-close-name { margin-top:22px; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(18px,1.6vw,22px); }
+.cby-close-name strong { font-weight:500; }
+.cby-form { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:12px; margin:20px auto 0; max-width:600px; text-align:left; }
+.cby-form input[type=text], .cby-form input[type=email] { min-width:0; padding:15px 18px; border:1px solid var(--cby-line); border-radius:6px; background:var(--cby-white); color:var(--cby-ink); font:16px/1.2 var(--sans); }
+.cby-form .cby-btn { grid-column:1 / -1; background:var(--cby-rust); }
+.cby-form .form-error { grid-column:1 / -1; }
+.cby .cby-thanks { max-width:600px; margin:20px auto 0; padding:16px 20px; background:rgba(255,255,255,.6); }
+.cby-close .cby-signature { margin:18px auto 0; }
+
+/* Tablets and phones */
+@media (max-width:900px) {
+  .cby-cols { grid-template-columns:1fr; }
+  .cby-close-olive, .cby-close-hills { opacity:.35; }
+}
+@media (max-width:760px) {
+  .cby-hero, .cby-managing, .cby-change, .cby-row, .cby-row:nth-child(even), .cby-pace, .cby-fit, .cby-bundle-inner, .cby-faq, .cby-moments, .cby-cols--2 { grid-template-columns:1fr; }
+  .cby-hero-copy, .cby-change-copy, .cby-managing-copy, .cby-row-copy, .cby-row:nth-child(even) .cby-row-copy { padding-inline:var(--gutter); }
+  .cby-hero, .cby-change, .cby-row, .cby-row:nth-child(even) { padding-inline:0; }
+  .cby-hero-photo, .cby-change-photo, .cby-row-photo, .cby-row:nth-child(even) .cby-row-photo { order:-1; height:auto; max-height:none; aspect-ratio:4/3; -webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent); mask-image:linear-gradient(to bottom,#000 80%,transparent); }
+  .cby-hero-copy, .cby-row-copy { padding-top:16px; }
+  .cby-managing-photo { display:none; }
+  .cby-ways { grid-template-columns:1fr; gap:16px; }
+  .cby-ways li { display:grid; grid-template-columns:auto minmax(0,1fr); column-gap:14px; align-items:start; }
+  .cby-ways .cby-ring { grid-row:span 2; width:44px; height:44px; }
+  .cby-ways h3 { margin-top:2px; }
+  .cby-fit-not { padding-left:0; padding-top:24px; border-left:0; border-top:1px solid var(--cby-line); }
+  .cby-faq > div { padding-left:0; border-left:0; }
+  .cby-bundle-photo { justify-self:center; max-width:360px; order:-1; }
+  .cby-form { grid-template-columns:1fr; }
+  .cby-close-olive, .cby-close-hills { display:none; }
+  .cby-faq-h::after { display:none; }
+}
+/* Programs 01–02 stay side by side on tablets, so their photos are never shown wider than the mockup cut. */
+@media (max-width:680px) {
+  .cby-cards { grid-template-columns:1fr; }
+}
+
+/* Stacked photos on large phones and small tablets stop near their source width, centred, instead of filling a
+   700px screen. On ordinary phones they still run edge to edge. */
+@media (max-width:760px) {
+  .cby-hero-photo, .cby-change-photo, .cby-row-photo, .cby-row:nth-child(even) .cby-row-photo { display:block; max-width:540px; margin-inline:auto; }
+  .cby-card-photo { max-width:540px; }
+}

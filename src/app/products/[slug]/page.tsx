@@ -18,6 +18,11 @@ import FpLanding from '@/components/fp-landing/FpLanding';
 import AolLanding from '@/components/aol-landing/AolLanding';
 import FwbLanding from '@/components/fwb-landing/FwbLanding';
 import N90Landing from '@/components/n90-landing/N90Landing';
+import BmLanding from '@/components/bm-landing/BmLanding';
+import BbfLanding from '@/components/bbf-landing/BbfLanding';
+import CbyLanding from '@/components/cby-landing/CbyLanding';
+import CiiLanding from '@/components/cii-landing/CiiLanding';
+import DlpLanding from '@/components/dlp-landing/DlpLanding';
 import { PRODUCTS, productBySlug, LANDING_SLUGS } from '@/content/products';
 
 const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.ReactNode; metadata: Metadata }> = {
@@ -124,6 +129,41 @@ const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.React
     metadata: {
       title: 'The 90-Day Review & Personal Success Plan — Remi Pearson',
       description: 'Run quarterly performance reviews that connect your team’s work to your vision and values, make expectations clear and end in a 90-day Personal Success Plan. Three videos and editable review templates from Remi Pearson. Join the waitlist.',
+    },
+  },
+  'benchmarking-what-good-actually-looks-like': {
+    page: BmLanding,
+    metadata: {
+      title: 'Benchmarking: What Good Actually Looks Like — Remi Pearson',
+      description: 'Make the standard in your head clear to your team: define what good looks like, learn from people who already do it well and track lead and lag measures. Four videos and an implementation workbook from Remi Pearson. AUD $29. Join the waitlist.',
+    },
+  },
+  'build-beyond-the-founder': {
+    page: BbfLanding,
+    metadata: {
+      title: 'Build Beyond the Founder: Three Programs for Business Owners — Remi Pearson',
+      description: 'Make your expertise teachable, hand over responsibility with confidence and decide what your business needs next. Technician to Entrepreneur, Core, Improve, Innovate and Trust That Holds in one self-paced collection from Remi Pearson. Join the waitlist.',
+    },
+  },
+  'come-back-to-yourself': {
+    page: CbyLanding,
+    metadata: {
+      title: 'Come Back to Yourself: Five Self-Paced Programs — Remi Pearson',
+      description: 'Care about other people without leaving yourself behind: five self-paced programs from Remi Pearson on emotions, needs and boundaries, protective patterns, self-regulation and presence. AUD $79, saving $57. Join the waitlist.',
+    },
+  },
+  'core-improve-innovate': {
+    page: CiiLanding,
+    metadata: {
+      title: 'Core, Improve, Innovate: Free Program for Business Owners — Remi Pearson',
+      description: 'A free program from Remi Pearson: three videos and a workbook to decide what to protect, what to strengthen and when a new direction deserves your investment, so your effort goes where your business needs it. Join the waitlist.',
+    },
+  },
+  'disruptive-leadership': {
+    page: DlpLanding,
+    metadata: {
+      title: 'Disruptive Leadership: Free Introductory Program — Remi Pearson',
+      description: 'A free introductory leadership program from Remi Pearson for business owners and team leaders: set expectations people can act on, address behaviour that undermines your team and stop carrying everyone else’s responsibilities. Join the waitlist.',
     },
   },
 };

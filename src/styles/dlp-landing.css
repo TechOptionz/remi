@@ -1,0 +1,157 @@
+/* ============ Disruptive Leadership, the free program (.dlp) — from the four-part mockup ============ */
+/* Fixed colours: warm paper, near-black ink, rust kicker, buttons and bands, espresso band, antique gold numerals,
+   rules, dots and rings. Headings are the serif at its regular width (Noto Serif Display 100, loaded in
+   app/layout.tsx), set tight as drawn. */
+.dlp {
+  --dlp-paper:#f4efe7; --dlp-white:#faf6f0; --dlp-tint:#ece3d6; --dlp-ink:#1c1916; --dlp-espresso:#221d1a;
+  --dlp-rust:#a9441f; --dlp-gold:#b38a4c; --dlp-gold-ink:#8f6a33; --dlp-gold-light:#dfbd83; --dlp-line:rgba(179,138,76,.5);
+  --display:'Noto Serif Display',Georgia,serif;
+  margin-inline:calc(50% - 50vw); background:var(--dlp-paper); color:var(--dlp-ink); font-family:var(--sans);
+}
+.dlp-wrap { max-width:1152px; margin:0 auto; padding-inline:var(--gutter); box-sizing:content-box; }
+.dlp p { margin:16px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.6; }
+.dlp a:not([class]) { color:var(--dlp-rust); text-decoration:underline; text-underline-offset:3px; }
+.dlp-h2, .dlp-title { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; line-height:1.06; letter-spacing:-.025em; color:var(--dlp-ink); text-wrap:balance; }
+.dlp-title { margin-top:6px; font-size:clamp(34px,3.8vw,50px); }
+.dlp-h2 { font-size:clamp(24px,2.4vw,32px); }
+.dlp-h2--big { font-size:clamp(30px,3.6vw,46px); }
+.dlp-h3 { margin:clamp(24px,3vw,32px) 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(21px,2vw,26px); line-height:1.2; letter-spacing:-.015em; }
+.dlp-section { padding:clamp(40px,5vw,72px) 0; }
+.dlp-rule { border-top:1px solid var(--dlp-line); }
+.dlp .dlp-small { font-size:14.5px; opacity:.8; }
+.dlp .dlp-eyebrow, .dlp .dlp-crumb-label, .dlp .dlp-caps { margin:0; font-size:12.5px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; color:var(--dlp-gold-ink); }
+.dlp .dlp-crumb-label { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+.dlp-crumb-label::after { content:""; flex:1; max-width:440px; height:1px; background:var(--dlp-gold); }
+.dlp .dlp-kicker { margin-top:16px; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(24px,2.6vw,34px); line-height:1.1; color:var(--dlp-rust); }
+.dlp .dlp-lede { font-size:clamp(18px,1.6vw,21px); line-height:1.5; }
+.dlp .dlp-statement { max-width:44em; margin-top:clamp(24px,3vw,32px); padding-top:18px; border-top:1px solid var(--dlp-line); font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(19px,1.8vw,24px); line-height:1.4; }
+.dlp .dlp-aside { font-family:var(--display); font-variation-settings:'wdth' 100; font-style:italic; font-size:clamp(19px,1.7vw,23px); line-height:1.4; }
+.dlp .dlp-list-label { margin-top:16px; font-weight:700; }
+
+/* Buttons: rust with an arrow; cream inside the rust band */
+.dlp-btn { display:inline-flex; align-items:center; justify-content:center; gap:16px; padding:16px clamp(32px,4vw,60px); background:var(--dlp-rust); color:#fff; border:0; border-radius:4px; font:600 clamp(16px,1.3vw,18px)/1 var(--sans); cursor:pointer; transition:filter .2s ease, transform .2s ease; }
+.dlp-btn:hover { filter:brightness(1.08); color:#fff; transform:translateY(-1px); }
+.dlp-btn--light { background:var(--dlp-white); color:var(--dlp-ink); font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; border-radius:2px; }
+.dlp-btn--light:hover { color:var(--dlp-ink); }
+.dlp-btn--dark { background:var(--dlp-espresso); }
+.dlp-buy { margin-top:26px; }
+
+/* Gold dots */
+.dlp-dots { margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px; }
+.dlp-dots li { position:relative; padding-left:28px; font-size:clamp(16px,1.3vw,18px); line-height:1.5; }
+.dlp-dots li::before { content:""; position:absolute; left:4px; top:.5em; width:10px; height:10px; border-radius:50%; background:var(--dlp-gold); }
+.dlp-dots--lg li { font-size:clamp(16.5px,1.4vw,19px); }
+
+/* Hero: title on the left, copy on the right; the team across the window under it */
+.dlp-hero { padding:clamp(24px,3vw,40px) 0 clamp(32px,4vw,52px); }
+.dlp-crumbs { margin-bottom:clamp(20px,2.4vw,32px); }
+.dlp-hero-grid { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:clamp(24px,4vw,56px); align-items:end; }
+.dlp-hero-grid .dlp-lede { margin-top:0; }
+/* The team photo is cut from a 1024px-wide mockup: the band stops at 1280px (1.25x its pixels) instead of running
+   the full width of a wide screen. */
+.dlp-team { display:block; width:100%; max-width:1280px; margin-inline:auto; height:clamp(220px,28vw,420px); object-fit:cover; object-position:50% 35%; }
+
+/* "Does any of this sound familiar?" — the quoted thoughts in two columns */
+.dlp-familiar { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px clamp(28px,4vw,56px); margin:16px 0 0; padding:0; list-style:none; }
+.dlp-familiar li { position:relative; padding-left:28px; font-size:clamp(16px,1.3vw,18px); line-height:1.5; }
+.dlp-familiar li::before { content:""; position:absolute; left:4px; top:.5em; width:10px; height:10px; border-radius:50%; background:var(--dlp-gold); }
+.dlp-familiar strong { display:block; font-weight:700; }
+.dlp-familiar span { opacity:.85; }
+
+/* Five reasons: numbered rows beside their still lifes, alternating tints */
+.dlp-reasons { padding-top:clamp(40px,5vw,64px); border-top:1px solid var(--dlp-line); }
+.dlp-rows { margin:clamp(20px,2.4vw,32px) 0 0; padding:0; list-style:none; }
+.dlp-rows > li { border-top:1px solid var(--dlp-line); }
+.dlp-rows > li:nth-child(even) { background:var(--dlp-tint); }
+.dlp-row { display:grid; grid-template-columns:clamp(56px,7vw,90px) minmax(0,.75fr) minmax(0,1.25fr); gap:clamp(18px,3vw,40px); align-items:center; padding-block:clamp(20px,2.4vw,28px); }
+.dlp-num { align-self:start; display:block; width:fit-content; padding-bottom:12px; border-bottom:1px solid var(--dlp-gold); font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(32px,3.2vw,42px); line-height:1; color:var(--dlp-gold); }
+.dlp-row-photo { width:100%; max-width:300px; height:auto; aspect-ratio:496/360; object-fit:cover; }
+.dlp-row-title { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(22px,2.2vw,30px); line-height:1.12; letter-spacing:-.02em; }
+.dlp-row p:first-of-type { margin-top:10px; }
+
+/* The rust waitlist band */
+.dlp-band { padding:clamp(28px,3.6vw,44px) 0; background:var(--dlp-rust); color:#fff; }
+.dlp-band-inner { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px 48px; }
+.dlp .dlp-band-line { margin:0; max-width:18em; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(26px,2.8vw,38px); line-height:1.12; color:#fff; }
+
+/* Your team learns: copy beside the tinted panel */
+.dlp-noticing { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(24px,4vw,56px); align-items:center; }
+.dlp-panel { padding:clamp(20px,2.6vw,32px); border-left:2px solid var(--dlp-gold); background:var(--dlp-white); }
+.dlp-panel .dlp-list-label { margin-top:0; }
+
+/* What you'll explore: numbered rows with the Four Pillars table */
+.dlp-explore { margin:clamp(20px,2.4vw,28px) 0 0; padding:0; list-style:none; }
+.dlp-explore > li { display:grid; grid-template-columns:clamp(56px,7vw,90px) minmax(0,1fr); gap:clamp(18px,3vw,40px); padding:clamp(20px,2.4vw,28px) 0; border-top:1px solid var(--dlp-line); }
+.dlp-explore > li > div { padding-left:clamp(18px,3vw,40px); border-left:1px solid var(--dlp-line); }
+.dlp .dlp-question { font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(17px,1.5vw,20px); }
+.dlp-question strong { font-family:var(--sans); font-size:.85em; font-weight:700; }
+.dlp-pillars { width:100%; margin-top:16px; border-collapse:collapse; font-size:clamp(16px,1.3vw,18px); }
+.dlp-pillars thead th { padding:0 0 10px; text-align:left; font:700 12.5px/1.3 var(--sans); letter-spacing:.18em; text-transform:uppercase; color:var(--dlp-gold-ink); }
+.dlp-pillars tbody tr { border-top:1px solid var(--dlp-line); }
+.dlp-pillars tbody th, .dlp-pillars td { padding:12px 0; text-align:left; vertical-align:top; line-height:1.5; }
+.dlp-pillars tbody th { width:30%; padding-right:20px; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(18px,1.6vw,21px); }
+
+/* The espresso band: what it costs */
+.dlp-dark { padding:clamp(40px,5vw,72px) 0; background:var(--dlp-espresso); color:#f1e9dd; }
+.dlp-dark .dlp-h2 { color:#fbf5ec; }
+.dlp-dark p, .dlp-dark .dlp-dots li { color:#f1e9dd; }
+.dlp-dark .dlp-dots strong { color:var(--dlp-gold-light); }
+.dlp-cost { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(28px,5vw,72px); align-items:center; }
+
+/* Remi: the note beside the two figures and the signature */
+.dlp-remi { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr); gap:clamp(28px,5vw,72px); }
+.dlp-figures dl { display:grid; gap:24px; margin:clamp(24px,3vw,32px) 0 0; }
+.dlp-figures dl > div + div { padding-top:24px; border-top:1px solid var(--dlp-line); }
+.dlp-figures dt { font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(44px,5vw,64px); line-height:1; letter-spacing:-.02em; color:var(--dlp-gold-ink); }
+.dlp-figures dd { margin:10px 0 0; font-size:12.5px; letter-spacing:.22em; line-height:1.6; text-transform:uppercase; }
+.dlp-signature { display:block; width:200px; height:auto; margin-top:28px; mix-blend-mode:multiply; }
+
+/* Who will get the most: ringed ticks in two columns */
+.dlp-who { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(28px,5vw,72px); }
+.dlp-who-right { padding-left:clamp(28px,5vw,72px); border-left:1px solid var(--dlp-line); }
+.dlp-ticks { margin:16px 0 0; padding:0; list-style:none; display:grid; gap:14px; }
+.dlp-ticks li { position:relative; padding-left:46px; min-height:32px; font-size:clamp(16px,1.3vw,18px); line-height:1.5; }
+.dlp-ticks li::before { content:""; position:absolute; left:0; top:-3px; width:30px; height:30px; border:1.4px solid var(--dlp-gold); border-radius:50%; }
+.dlp-ticks li::after { content:""; position:absolute; left:10px; top:5px; width:10px; height:6px; border-left:1.6px solid var(--dlp-gold-ink); border-bottom:1.6px solid var(--dlp-gold-ink); transform:rotate(-45deg); }
+
+/* The questions: two columns with a gold rule */
+.dlp-faq { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(22px,2.6vw,32px) 0; margin:clamp(20px,2.4vw,32px) 0 0; }
+.dlp-faq > div { padding:0 clamp(20px,3vw,40px); border-left:1px solid var(--dlp-line); }
+.dlp-faq > div:nth-child(odd) { padding-left:0; border-left:0; }
+.dlp-faq dt { font-weight:700; font-size:clamp(16.5px,1.4vw,19px); line-height:1.4; }
+.dlp-faq dd { margin:6px 0 0; font-size:clamp(15.5px,1.25vw,17px); line-height:1.6; }
+
+/* The rust close with the waitlist form */
+.dlp-close { padding:clamp(44px,5.4vw,80px) 0; background:var(--dlp-rust); background-image:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.08),transparent 60%); color:#fff; text-align:center; scroll-margin-top:80px; }
+.dlp-close .dlp-h2 { color:#fff; }
+.dlp-close .dlp-h2 span { display:block; margin-top:6px; font-size:.7em; }
+.dlp-close p, .dlp-close .dlp-caps { color:#fff; }
+.dlp .dlp-close-text { max-width:44em; margin-inline:auto; }
+.dlp-short-rule { display:block; width:80px; height:1px; margin:24px auto 0; background:var(--dlp-gold-light); }
+.dlp .dlp-close-name { margin-top:16px; font-size:15px; letter-spacing:.12em; }
+.dlp-close .dlp-caps { margin-top:16px; letter-spacing:.16em; }
+.dlp-form { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:12px; max-width:760px; margin:18px auto 0; text-align:left; }
+.dlp-form input[type=text], .dlp-form input[type=email] { min-width:0; padding:16px 20px; border:0; border-radius:4px; background:var(--dlp-white); color:var(--dlp-ink); font:16px/1.2 var(--sans); }
+.dlp-form .dlp-btn { grid-column:1 / -1; }
+.dlp-form .form-error { grid-column:1 / -1; color:#fff; }
+.dlp .dlp-thanks { max-width:640px; margin:20px auto 0; padding:16px 20px; background:rgba(0,0,0,.16); }
+
+/* Tablets and phones */
+@media (max-width:900px) {
+  .dlp-row { grid-template-columns:clamp(56px,7vw,90px) minmax(0,1fr); }
+  .dlp-row-photo { grid-column:2; max-width:320px; }
+  .dlp-row > div { grid-column:2; }
+}
+@media (max-width:760px) {
+  .dlp-hero-grid, .dlp-familiar, .dlp-noticing, .dlp-cost, .dlp-remi, .dlp-who, .dlp-faq, .dlp-form { grid-template-columns:1fr; }
+  .dlp-row { grid-template-columns:1fr; }
+  .dlp-row-photo, .dlp-row > div { grid-column:auto; }
+  .dlp-row-photo { max-width:300px; }
+  .dlp-explore > li { grid-template-columns:1fr; gap:12px; }
+  .dlp-explore > li > div { padding-left:0; border-left:0; }
+  .dlp-who-right { padding-left:0; padding-top:24px; border-left:0; border-top:1px solid var(--dlp-line); }
+  .dlp-faq > div { padding-left:0; border-left:0; }
+  .dlp-pillars tbody th { width:38%; }
+  .dlp-figures dl { grid-template-columns:1fr 1fr; }
+  .dlp-figures dl > div + div { padding-top:0; padding-left:20px; border-top:0; border-left:1px solid var(--dlp-line); }
+}
