@@ -156,3 +156,6 @@
   .tth-band-quote::before, .tth-band-quote::after { display:none; }
   .tth-label--center::before, .tth-label--center::after { display:none; }
 }
+
+/* Phones: keep Remi's whole head in the 4:3 crop. */
+@media (max-width:760px) { .tth-hero-photo { object-position:50% 6%; } }

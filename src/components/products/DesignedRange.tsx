@@ -31,8 +31,17 @@ function Seam() {
 
 function Photo({ a, className, eager }: { a?: RangeArt; className: string; eager?: boolean }) {
   if (!a) return null;
-  return <div className={className}><img src={a.src} alt={a.alt ?? ''} aria-hidden={a.alt ? undefined : true} width={a.width} height={a.height} loading={eager ? 'eager' : 'lazy'} decoding="async" /></div>;
+  return <div className={className}><img src={a.src} alt={a.alt ?? ''} aria-hidden={a.alt ? undefined : true} width={a.width} height={a.height} loading={eager ? 'eager' : 'lazy'} decoding="async" style={a.pos ? { objectPosition: a.pos } : undefined} /></div>;
 }
+
+/** How wide (and tall) a band's photo may be shown: 0.9x the file's width. Most band photos are mockup cuts saved at 1.5x the
+ *  mockup's pixels, so this keeps them within ~1.35x of what was drawn and never stretched across half a wide screen (the
+ *  band's panel takes the rest). Read by the band's grid in styles/product-ranges.css. */
+const photoWidth = (a?: RangeArt) => {
+  if (!a) return undefined;
+  const k = 0.9 * (a.scale ?? 1);
+  return { '--pb-pw': `${Math.round(a.width * k)}px`, '--pb-ph': `${Math.round(a.height * k)}px`, '--pb-ar': (a.width / a.height).toFixed(3) } as React.CSSProperties;
+};
 
 function Price({ p, invest }: { p: Product; invest?: boolean }) {
   return (
@@ -54,7 +63,7 @@ function Bands({ list, d, category, id }: { list: Product[]; d: RangeDesign; cat
   const [lead, ...rest] = list;
   return (
     <>
-      <article className={`pb-hero pb-tone--${dark(lead.tone)}`}>
+      <article className={`pb-hero pb-tone--${dark(lead.tone)}`} style={photoWidth(d.art[lead.slug])}>
         <Photo a={d.art[lead.slug]} className="pb-hero-photo" />
         <div className="pb-hero-copy">
           <h2 id={`${id}-h`} className="pb-range-name">{c.name}</h2>
@@ -71,7 +80,7 @@ function Bands({ list, d, category, id }: { list: Product[]; d: RangeDesign; cat
         const a = d.art[p.slug];
         const side = p.bundle ? 'right' : a?.side ?? (i % 2 ? 'right' : 'left');
         return (
-          <article key={p.slug} className={`pb-band pb-band--photo-${side} pb-tone--${p.bundle ? 'navy' : p.tone}${p.bundle ? ' pb-band--bundle' : ''}`}>
+          <article key={p.slug} className={`pb-band pb-band--photo-${side} pb-tone--${p.bundle ? 'navy' : p.tone}${p.bundle ? ' pb-band--bundle' : ''}`} style={photoWidth(a)}>
             <Photo a={a} className="pb-band-photo" />
             <div className="pb-band-panel">
               <Seam />
@@ -155,7 +164,7 @@ export function ProgramBands({ list, id, name, question }: { list: Program[]; id
   const [lead, ...rest] = list;
   return (
     <section id={id} className="pb pb--bands" aria-labelledby={`${id}-h`}>
-      <article className={`pb-hero pb-tone--${dark(lead.tone)}`}>
+      <article className={`pb-hero pb-tone--${dark(lead.tone)}`} style={photoWidth(lead.photo)}>
         <Photo a={lead.photo} className="pb-hero-photo" />
         <div className="pb-hero-copy">
           <h2 id={`${id}-h`} className="pb-range-name">{name}</h2>
@@ -169,7 +178,7 @@ export function ProgramBands({ list, id, name, question }: { list: Program[]; id
         </div>
       </article>
       {rest.map((p, i) => (
-        <article key={p.title} className={`pb-band pb-band--photo-${i % 2 ? 'right' : 'left'} pb-tone--${p.tone}`}>
+        <article key={p.title} className={`pb-band pb-band--photo-${i % 2 ? 'right' : 'left'} pb-tone--${p.tone}`} style={photoWidth(p.photo)}>
           <Photo a={p.photo} className="pb-band-photo" />
           <div className="pb-band-panel">
             <Seam />

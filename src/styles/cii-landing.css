@@ -151,3 +151,6 @@
 @media (max-width:760px) {
   .cii-hero-photo, .cii-remi-photo { display:block; max-width:540px; margin-inline:auto; }
 }
+
+/* Phones: keep Remi's whole face in the 4:3 crop. */
+@media (max-width:760px) { .cii-hero-photo { object-position:50% 4%; } }

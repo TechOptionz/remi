@@ -136,3 +136,6 @@
   .pmb .pmb-label { flex-wrap:wrap; }
   .pmb-label::after { display:none; }
 }
+
+/* Phones: keep her whole head in the 4:3 crop. */
+@media (max-width:760px) { .pmb-hero-photo { object-position:35% 6%; } }

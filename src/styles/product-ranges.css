@@ -41,28 +41,41 @@
 /* ---------- Influence: bands ---------- */
 /* each band stands on its own, with the page showing between them */
 .pb--bands { display:flex; flex-direction:column; gap:clamp(12px,1.4vw,18px); }
-.pb-hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); min-height:clamp(360px,32vw,460px); background:var(--pb-bg); }
+.pb-hero { display:grid; grid-template-columns:minmax(0,1fr) min(51%, var(--pb-pw, 51%), max(30%, calc(var(--pb-ar, 2) * 600px))); min-height:clamp(360px,32vw,460px); background:var(--pb-bg); }
 .pb-hero-copy { grid-column:1; grid-row:1; position:relative; z-index:1; display:flex; flex-direction:column; justify-content:center; gap:clamp(12px,1.4vw,18px); padding:clamp(36px,4vw,56px) clamp(20px,3vw,40px) clamp(36px,4vw,56px) var(--pb-side); }
 .pb-hero .pb-range-name { color:var(--pb-gold-hi); }
 .pb-hero .pb-range-q { max-width:15em; }
 .pb-wave--hero { width:calc(100% + clamp(40px,8vw,140px)); margin:-4px 0 clamp(8px,1vw,14px); }
-.pb-hero-photo { grid-column:2; grid-row:1; position:relative; }
-.pb-hero-photo img { object-position:50% 30%; -webkit-mask-image:linear-gradient(to right,transparent,#000 22%); mask-image:linear-gradient(to right,transparent,#000 22%); }
+.pb-hero-photo { grid-column:2; grid-row:1; position:relative; display:flex; align-items:center; }
+.pb-hero-photo img { height:min(100%, var(--pb-ph, 100%)); object-position:50% 30%; -webkit-mask-image:linear-gradient(to right,transparent,#000 22%); mask-image:linear-gradient(to right,transparent,#000 22%); }
 .pb-hero .pb-price { font-family:var(--sans); font-size:clamp(14px,1.2vw,16px); font-weight:500; letter-spacing:.06em; text-transform:uppercase; color:var(--pb-cream); }
 .pb-hero .pb-btn { margin-top:6px; }
 
-.pb-band { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); min-height:clamp(240px,21vw,310px); background:var(--pb-bg); color:var(--pb-ink, var(--pb-cream)); }
-.pb-band--photo-right { grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); }
+/* The photo's column is capped at ~1.35x the photo's own width (--pb-pw, set per band in DesignedRange) so small mockup
+   cuts are never stretched, and a portrait photo gets a column shaped to it (--pb-ar, width / height) instead of being
+   sliced into a short wide strip; each photo's focal point (`pos`) keeps faces in view. The panel takes the rest. */
+.pb-band { display:grid; grid-template-columns:min(51%, var(--pb-pw, 51%), max(30%, calc(var(--pb-ar, 2) * 520px))) minmax(0,1fr); min-height:clamp(240px,21vw,310px); background:var(--pb-bg); color:var(--pb-ink, var(--pb-cream)); }
+.pb-band--photo-right { grid-template-columns:minmax(0,1fr) min(51%, var(--pb-pw, 51%), max(30%, calc(var(--pb-ar, 2) * 520px))); }
 .pb-band-photo { position:relative; grid-row:1; }
 /* the photo fills its side of the band but never sets its height: the panel and min-height do (portrait photos made bands 1,000–2,000px tall) */
 @media (min-width:861px) { .pb-hero-photo, .pb-band-photo { contain:size; } }
 .pb-band-photo img { object-position:50% 28%; }
+/* A short photo stops at ~1.35x its own height (--pb-pph) and sits centred on the band's colour, fading into it, rather
+   than being stretched to fill a band the copy has made taller. */
+.pb-band-photo { display:flex; align-items:center; }
+.pb-band-photo img { height:min(100%, var(--pb-ph, 100%)); -webkit-mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 88%,transparent); mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 88%,transparent); }
 .pb-band--photo-left .pb-band-photo { grid-column:1; }
 .pb-band--photo-right .pb-band-photo { grid-column:2; }
 .pb-band-panel { position:relative; grid-row:1; display:flex; align-items:center; }
 .pb-band--photo-left .pb-band-panel { grid-column:2; padding:clamp(28px,3vw,44px) var(--pb-side) clamp(28px,3vw,44px) clamp(28px,4vw,64px); }
 .pb-band--photo-right .pb-band-panel { grid-column:1; padding:clamp(28px,3vw,44px) clamp(28px,4vw,64px) clamp(28px,3vw,44px) var(--pb-side); }
-.pb-band-copy { position:relative; z-index:1; display:flex; flex-direction:column; gap:clamp(10px,1.1vw,14px); width:100%; max-width:520px; }
+/* The copy column is as wide as the panel allows, so a program's title stays on one line when there is room for it
+   (client, Oct 2026); the description, price and wave keep the 520px measure. */
+.pb-band-copy { position:relative; z-index:1; display:flex; flex-direction:column; align-items:flex-start; gap:clamp(10px,1.1vw,14px); width:100%; max-width:min(100%, 860px); }
+.pb-band-copy > :not(.pb-title) { width:100%; max-width:520px; }
+.pb-band-copy > .pb-btn { width:auto; }
+.pb-band-copy > .pb-rule { width:46px; }
+.pb-band-copy .pb-title { text-wrap:balance; }
 .pb-band-copy .pb-wave { margin-bottom:clamp(2px,.6vw,8px); }
 .pb-band-copy .pb-btn { margin-top:6px; }
 .pb-band-copy .pb-text { padding-bottom:clamp(12px,1.4vw,16px); border-bottom:1px solid rgba(201,163,90,.4); }
@@ -82,7 +95,7 @@
 .pb-seam-fill { fill:var(--pb-bg); }
 .pb-tone--gold .pb-seam-fill { fill:#d2a75d; }
 .pb-seam-line { fill:none; stroke:var(--pb-gold); stroke-width:1.5; vector-effect:non-scaling-stroke; }
-.pb-band--bundle { min-height:clamp(200px,18vw,260px); grid-template-columns:minmax(0,1.6fr) minmax(0,1fr); background:#021029; }
+.pb-band--bundle { min-height:clamp(200px,18vw,260px); grid-template-columns:minmax(0,1fr) min(38%, var(--pb-pw, 38%)); background:#021029; }
 .pb-band--bundle .pb-seam-fill { fill:#021029; }
 .pb-band--bundle .pb-band-copy { max-width:none; }
 .pb-band--bundle .pb-title { display:flex; align-items:center; gap:18px; color:var(--pb-gold-hi); }
@@ -133,6 +146,8 @@
 @media (max-width:860px) {
   .pb-hero, .pb-band, .pb-band--photo-right, .pb-band--bundle { grid-template-columns:1fr; min-height:0; }
   .pb-hero-photo, .pb-band-photo { grid-column:1 !important; grid-row:1; height:clamp(200px,52vw,320px); }
+  /* stacked, the photo still stops near its own width, centred on the band's colour */
+  .pb-hero-photo, .pb-band-photo { width:100%; max-width:var(--pb-pw, none); justify-self:center; }
   .pb-hero-copy, .pb-band-panel { grid-column:1 !important; grid-row:2; }
   .pb-hero-photo img { -webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent); mask-image:linear-gradient(to bottom,#000 70%,transparent); }
   .pb-hero-copy { padding:8px var(--gutter) clamp(36px,8vw,56px); }

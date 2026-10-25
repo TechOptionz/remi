@@ -203,3 +203,6 @@
   .cby-hero-photo, .cby-change-photo, .cby-row-photo, .cby-row:nth-child(even) .cby-row-photo { display:block; max-width:540px; margin-inline:auto; }
   .cby-card-photo { max-width:540px; }
 }
+
+/* Phones: keep her whole face in the 4:3 crop. */
+@media (max-width:760px) { .cby-hero-photo { object-position:50% 12%; } }
