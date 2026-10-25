@@ -33,8 +33,8 @@ export const ENTRY_PRODUCTS: { tone: 'rust' | 'navy' | 'green'; title: string; t
 export const MODEL_NAMES = ['EIT', 'CAM', 'The Self-Esteem Triad', 'T.R.U.S.T.M.E.', 'Ultimate Influence', 'Disruptive Leadership'];
 
 // ---------- Spotlight: the rotating carousel under the hero. Slides show in this order; `when: false` hides one ----------
-// The Selling from Stage mini course has no page yet: its slide opens the full program until SFS_MINI_HREF is changed.
-export const SFS_MINI_HREF = '/products/selling-from-stage';
+// The Selling from Stage mini course: the Spotlight slide opens Selling from Stage Fundamentals ($79, three videos).
+export const SFS_MINI_HREF = '/products/selling-from-stage-fundamentals';
 export type SpotlightSlide = {
   tone: 'coal' | 'navy' | 'gold' | 'rust' | 'green' | 'oxblood';
   eyebrow: string; title: string; text?: string; cta: string; href: string;

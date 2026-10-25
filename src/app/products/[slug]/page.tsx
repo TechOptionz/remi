@@ -26,6 +26,9 @@ import DlpLanding from '@/components/dlp-landing/DlpLanding';
 import HmsLanding from '@/components/hms-landing/HmsLanding';
 import PmbLanding from '@/components/pmb-landing/PmbLanding';
 import TteLanding from '@/components/tte-landing/TteLanding';
+import TthLanding from '@/components/tth-landing/TthLanding';
+import UifLanding from '@/components/uif-landing/UifLanding';
+import SffLanding from '@/components/sff-landing/SffLanding';
 import { PRODUCTS, productBySlug, LANDING_SLUGS } from '@/content/products';
 
 const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.ReactNode; metadata: Metadata }> = {
@@ -53,8 +56,8 @@ const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.React
   'selling-from-stage': {
     page: SfsLanding,
     metadata: {
-      title: 'Selling from Stage: Turn an Audience into Buyers — Remi Pearson',
-      description: 'A self-paced online program with Remi Pearson: shape a compelling offer, present it on a live stage or a webinar, and follow through after the pitch. Recorded teaching, workbooks and supporting resources.',
+      title: 'Selling from Stage: The Eight-Step Pitch Method — Remi Pearson',
+      description: 'Learn the eight-step pitch method behind Remi Pearson’s $50 million in personal sales across live events, webinars and small teleconferences: 13 online lessons, pitch-building resources and two bonuses valued at $3,600. $1,997 AUD including GST. Join the waitlist.',
     },
   },
   'why-do-i-keep-doing-this': {
@@ -188,6 +191,27 @@ const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.React
     metadata: {
       title: 'Technician to Entrepreneur: Build a Business Beyond You — Remi Pearson',
       description: 'Make your expertise teachable, hand over responsibility with confidence and build value that continues beyond your personal involvement. Six video modules, a workbook and a 90-day action plan from Remi Pearson. AUD $79. Join the waitlist.',
+    },
+  },
+  'trust-that-holds': {
+    page: TthLanding,
+    metadata: {
+      title: 'Trust That Holds: The T.R.U.S.T.M.E. Program — Remi Pearson',
+      description: 'Understand why pressure pulls you back into old patterns and develop more useful ways to respond, with the T.R.U.S.T.M.E. model: 11 videos, a reflective self-assessment and an application workbook from Remi Pearson. AUD $49. Join the waitlist.',
+    },
+  },
+  'ultimate-influence-foundations': {
+    page: UifLanding,
+    metadata: {
+      title: 'Ultimate Influence Foundations: Consultative Sales Introduction — Remi Pearson',
+      description: 'An accessible introduction to the psychology, eight-step conversation and persuasive language of Ultimate Influence: understand what your buyer wants and ask them to begin. Six self-paced lessons and a workbook from Remi Pearson. AUD $79 + GST. Join the waitlist.',
+    },
+  },
+  'selling-from-stage-fundamentals': {
+    page: SffLanding,
+    metadata: {
+      title: 'Selling from Stage Fundamentals: The Eight-Step Pitch — Remi Pearson',
+      description: 'Know how to make the offer when it’s your turn to speak: the eight-step pitch structure for workshops, webinars and live events, from Remi Pearson, who has sold more than $50 million from stage. Three focused videos. $79 AUD. Join the waitlist.',
     },
   },
 };

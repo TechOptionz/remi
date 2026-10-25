@@ -80,8 +80,10 @@ export const RANGE_DESIGNS: Partial<Record<CategoryId, RangeDesign>> = {
     layout: 'bands',
     art: {
       'ultimate-influence-consultative-sales-introduction': pic('ui-landing/uil-hero', 495, 880),
+      'ultimate-influence-foundations': pic('uif-landing/uif-hero', 758, 1226, 'Two women in conversation in armchairs'),
       'holding-space-for-magnetic-sales': { ...art('pb-inf-holding', 824, 574), side: 'left' },
       'selling-from-stage': { ...art('pb-inf-room', 1004, 542), side: 'right' },
+      'selling-from-stage-fundamentals': pic('sff-landing/sff-hero', 603, 1260, 'A woman in an audience smiling as she listens'),
       'influence-without-pressure': art('pb-inf-steps', 504, 332),
     },
   },

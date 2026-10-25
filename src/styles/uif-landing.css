@@ -1,0 +1,124 @@
+/* ============ Ultimate Influence Foundations (.uif) — from the four-part mockup ============ */
+/* Fixed colours: warm ivory paper, deep burgundy headings and bands, copper buttons and numerals, antique gold rules
+   and rings. Headings are the serif at its regular width (Noto Serif Display 100, loaded in app/layout.tsx), tight as
+   drawn. Photos stop inside a 1440px frame and within ~1.3x their source (sales-page sizing, CLAUDE.md). */
+.uif {
+  --uif-paper:#faf6ef; --uif-white:#fdfbf7; --uif-tint:#f2e8dc; --uif-ink:#26201c; --uif-burgundy:#4e1219; --uif-burgundy-2:#6b1a24;
+  --uif-copper:#bd4f1f; --uif-gold:#b48a4c; --uif-gold-ink:#8d6a35; --uif-gold-light:#ddbb80; --uif-line:rgba(180,138,76,.5);
+  --display:'Noto Serif Display',Georgia,serif;
+  --frame:max(0px, calc((100vw - 1440px) / 2)); --edge:max(var(--gutter), calc((100vw - 1152px) / 2));
+  margin-inline:calc(50% - 50vw); background:var(--uif-paper); color:var(--uif-ink); font-family:var(--sans);
+}
+.uif-wrap { max-width:1152px; margin:0 auto; padding-inline:var(--gutter); box-sizing:content-box; }
+.uif p { margin:16px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.6; }
+.uif a:not([class]) { color:var(--uif-burgundy-2); text-decoration:underline; text-underline-offset:3px; }
+.uif-h2, .uif-title { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; line-height:1.06; letter-spacing:-.025em; color:var(--uif-burgundy); text-wrap:balance; }
+.uif-title { margin-top:16px; font-size:clamp(32px,3.6vw,48px); line-height:1.04; }
+.uif-h2 { font-size:clamp(24px,2.5vw,32px); }
+.uif-h2--big { font-size:clamp(30px,3.4vw,44px); }
+.uif-section { padding:clamp(40px,5vw,72px) 0; }
+.uif-rule { border-top:1px solid var(--uif-line); }
+.uif .uif-eyebrow, .uif .uif-label { margin:0; font-size:12.5px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; color:var(--uif-gold-ink); }
+.uif-with { display:block; margin-top:6px; letter-spacing:.16em; color:var(--uif-ink); opacity:.7; }
+.uif .uif-label { display:flex; align-items:center; gap:16px; margin-bottom:16px; }
+.uif-label::after { content:""; flex:1; max-width:560px; height:1px; background:var(--uif-gold); }
+.uif .uif-lede { margin-top:18px; font-size:clamp(17px,1.5vw,20px); line-height:1.5; }
+.uif .uif-strong { font-weight:700; }
+.uif .uif-meta { margin-top:6px; }
+.uif .uif-small { font-size:14.5px; opacity:.8; }
+.uif .uif-subhead { margin-top:0; font-weight:700; }
+.uif .uif-statement { max-width:44em; margin-top:clamp(24px,3vw,32px); padding-left:20px; border-left:3px solid var(--uif-gold); font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(19px,1.8vw,24px); line-height:1.4; }
+.uif-cols { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 clamp(28px,4vw,56px); margin-top:8px; }
+/* Running prose that flows from one column into the next, with no gaps between paired paragraphs. */
+.uif-cols--flow { display:block; columns:2; column-gap:clamp(28px,4vw,56px); }
+.uif-cols--flow p { break-inside:avoid; }
+.uif-cols--flow p:first-child { margin-top:16px; }
+.uif-short-rule { display:block; width:160px; height:1px; margin-top:24px; background:var(--uif-gold); }
+
+/* Buttons: copper with an arrow */
+.uif-btn { display:inline-flex; align-items:center; justify-content:center; gap:16px; padding:16px clamp(36px,5vw,64px); background:var(--uif-copper); color:#fff; border:0; border-radius:3px; font:500 clamp(18px,1.5vw,22px)/1 var(--display); font-variation-settings:'wdth' 100; cursor:pointer; transition:filter .2s ease, transform .2s ease; }
+.uif-btn:hover { filter:brightness(1.08); color:#fff; transform:translateY(-1px); }
+.uif-btn--dark { background:var(--uif-copper); }
+.uif-buy { margin-top:24px; }
+
+/* The price: + GST, then the GST-inclusive figure */
+.uif .uif-price { margin-top:20px; }
+.uif-price strong { font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(30px,3.2vw,42px); line-height:1; color:var(--uif-burgundy); }
+.uif-price span { display:block; margin-top:6px; font-size:15.5px; }
+.uif-price--light strong { color:#fbf5ee; }
+
+/* Hero: copy beside the photo, which stops inside the frame */
+.uif-hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,520px); padding-inline-end:var(--frame); border-bottom:1px solid var(--uif-line); }
+.uif-hero-copy { padding:clamp(28px,3.4vw,48px) clamp(24px,4vw,56px) clamp(32px,4vw,48px) var(--edge); }
+.uif-crumbs { margin-bottom:clamp(20px,2.4vw,32px); }
+.uif-hero-photo { width:100%; height:100%; max-height:860px; object-fit:cover; object-position:55% 30%; }
+
+/* Split: copy beside the still life */
+.uif-split { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,460px); align-items:center; padding-inline-end:var(--frame); }
+.uif-split-copy { padding:clamp(40px,5vw,72px) clamp(24px,4vw,56px) clamp(40px,5vw,72px) var(--edge); }
+.uif-split-photo { width:100%; height:auto; aspect-ratio:389/359; max-height:480px; object-fit:cover; }
+
+/* Hear what matters: the listening photo beside the ringed icons */
+.uif-learn-grid { display:grid; grid-template-columns:minmax(0,520px) minmax(0,1fr); gap:clamp(24px,4vw,56px); align-items:center; margin-top:clamp(24px,3vw,36px); }
+.uif-learn-photo { width:100%; height:auto; }
+.uif-learn { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(18px,2.2vw,26px) clamp(20px,3vw,36px); margin:16px 0 0; padding:0; list-style:none; }
+.uif-learn li { display:flex; flex-direction:column; gap:10px; }
+.uif-learn p { margin:0; font-size:clamp(15.5px,1.2vw,17px); }
+.uif-ring { display:grid; place-items:center; width:54px; height:54px; border:1.3px solid var(--uif-gold); border-radius:50%; color:var(--uif-gold-ink); }
+
+/* The six lessons: copper numerals beside a gold rule, two columns */
+.uif-lessons { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 clamp(28px,4vw,56px); margin:clamp(20px,2.4vw,28px) 0 0; padding:0; list-style:none; }
+.uif-lessons > li { display:grid; grid-template-columns:clamp(64px,8vw,104px) minmax(0,1fr); gap:clamp(14px,2vw,24px); align-items:start; padding:clamp(20px,2.4vw,28px) 0; border-bottom:1px solid var(--uif-line); }
+.uif-num { padding-right:clamp(14px,2vw,24px); border-right:1px solid var(--uif-gold); font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(48px,5.4vw,72px); line-height:1; letter-spacing:-.03em; color:var(--uif-copper); }
+.uif-lessons h3 { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(21px,2vw,26px); line-height:1.15; letter-spacing:-.015em; color:var(--uif-burgundy); }
+.uif-lessons p { margin-top:10px; font-size:clamp(15.5px,1.25vw,17px); }
+.uif .uif-result { font-weight:700; }
+
+/* Burgundy band: the offer, and the close over the desk */
+.uif-band { padding:clamp(44px,5.4vw,72px) 0; background:var(--uif-burgundy); background-image:linear-gradient(135deg,rgba(255,255,255,.04),rgba(0,0,0,.2)); color:#f4ebe1; }
+.uif-band .uif-h2, .uif-close .uif-h2 { color:#fbf5ee; }
+.uif-band p, .uif-close p { color:#f4ebe1; }
+.uif-band-inner { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr); gap:clamp(28px,5vw,72px); align-items:center; }
+.uif-band-offer { padding-left:clamp(28px,5vw,72px); border-left:1px solid var(--uif-gold-light); }
+.uif .uif-band-name { margin:0; font-size:12.5px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; color:var(--uif-gold-light); }
+.uif .uif-band-line { margin:16px 0 20px; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(20px,2vw,26px); line-height:1.3; color:#fbf5ee; }
+.uif-signature { display:block; width:200px; height:auto; margin-top:20px; mix-blend-mode:multiply; }
+
+/* The questions: each question beside its answer */
+.uif-faq { margin:clamp(20px,2.4vw,28px) 0 0; }
+.uif-faq > div { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:clamp(18px,3vw,40px); padding:18px 0; border-top:1px solid var(--uif-line); }
+.uif-faq > div:last-child { border-bottom:1px solid var(--uif-line); }
+.uif-faq dt { font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(19px,1.8vw,24px); line-height:1.25; color:var(--uif-burgundy); }
+.uif-faq dd { margin:0; font-size:clamp(15.5px,1.25vw,17px); line-height:1.6; }
+
+/* The close: burgundy, the desk photo along the bottom left, form on the right */
+.uif-close { position:relative; overflow:hidden; padding:clamp(44px,5.4vw,80px) 0; background:var(--uif-burgundy); background-image:linear-gradient(135deg,rgba(255,255,255,.04),rgba(0,0,0,.24)); scroll-margin-top:80px; }
+.uif-close-photo { position:absolute; left:var(--frame); bottom:0; width:min(46%,640px); height:auto; opacity:.55; -webkit-mask-image:linear-gradient(to top,#000 45%,transparent); mask-image:linear-gradient(to top,#000 45%,transparent); pointer-events:none; }
+.uif-close-inner { position:relative; display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:clamp(28px,5vw,72px); align-items:start; }
+.uif-close-inner > div:first-child { padding-bottom:clamp(80px,12vw,160px); }
+.uif-close-offer { padding:clamp(22px,2.6vw,32px); border:1px solid rgba(221,187,128,.5); background:rgba(0,0,0,.18); }
+.uif .uif-close-line { margin-top:8px; }
+.uif-form { display:grid; gap:12px; margin-top:16px; }
+.uif-form input[type=text], .uif-form input[type=email] { min-width:0; padding:15px 18px; border:0; border-radius:3px; background:var(--uif-white); color:var(--uif-ink); font:16px/1.2 var(--sans); }
+.uif-form .form-error { color:#fff; }
+.uif .uif-thanks { margin-top:16px; padding:16px 20px; background:rgba(0,0,0,.2); }
+
+/* Tablets and phones */
+@media (max-width:900px) {
+  .uif-learn-grid { grid-template-columns:1fr; }
+  .uif-learn-photo { max-width:520px; }
+  .uif-lessons { grid-template-columns:1fr; }
+}
+@media (max-width:760px) {
+  .uif-hero, .uif-split { grid-template-columns:1fr; padding-inline:0; }
+  .uif-hero-copy, .uif-split-copy { padding-inline:var(--gutter); }
+  .uif-hero-copy { padding-top:16px; }
+  .uif-hero-photo { order:-1; display:block; width:100%; max-width:540px; margin-inline:auto; height:auto; aspect-ratio:4/3; max-height:none; object-position:55% 30%; }
+  .uif-split-photo { display:none; }
+  .uif-cols--flow { columns:1; }
+  .uif-cols, .uif-learn, .uif-band-inner, .uif-close-inner, .uif-faq > div { grid-template-columns:1fr; }
+  .uif-band-offer { padding-left:0; padding-top:24px; border-left:0; border-top:1px solid var(--uif-gold-light); }
+  .uif-faq > div { gap:8px; }
+  .uif-close-photo { display:none; }
+  .uif-close-inner > div:first-child { padding-bottom:0; }
+}

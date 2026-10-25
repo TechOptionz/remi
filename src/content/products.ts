@@ -78,9 +78,11 @@ export const PRODUCTS: Product[] = [
     includes: ['the-performance-management-blueprint', 'your-first-90-days-as-a-leader', 'the-ground-rules-nobody-wrote-down', 'the-90-day-review', 'benchmarking-what-good-actually-looks-like', 'critical-alignment-model-for-leaders'] }),
   // Influence & consultative sales
   P({ slug: 'ultimate-influence-consultative-sales-introduction', title: 'Ultimate Influence', text: 'The complete eight-step consultative sales methodology: understand the person in front of you, connect your recommendation to their needs and ask for a decision without becoming pushy.', category: 'influence', tone: 'black', price: 'AUD $79', level: 'Intermediate', kicker: 'The complete methodology', cta: 'Explore Ultimate Influence', also: ['further'] }),
+  P({ slug: 'ultimate-influence-foundations', title: 'Ultimate Influence Foundations', text: 'An accessible introduction to the psychology, eight-step process and persuasive language behind Ultimate Influence: understand what your buyer wants and ask them to begin with confidence.', category: 'influence', tone: 'burgundy', price: 'AUD $79', level: 'Introduction', kicker: 'Six self-paced lessons', cta: 'Explore Foundations' }),
   P({ slug: 'holding-space-for-magnetic-sales', title: 'Holding Space for Magnetic Sales', text: 'Create the conditions for an honest buying conversation.', category: 'influence', tone: 'green', price: FREE, level: 'Introduction' }),
   // Selling from Stage replaced Move the Room; Selling Something Intangible and Understand Before You Prescribe were removed (Remi, Oct 2026)
-  P({ slug: 'selling-from-stage', title: 'Selling from Stage', text: 'Learn how to shape a compelling offer and communicate its value, on a live stage or a webinar.', category: 'influence', tone: 'gold', price: 'AUD $1,997 + GST or 5 payments of $499 + GST', level: 'Introduction', kicker: 'Self-paced online program', cta: 'Explore Selling from Stage' }),
+  P({ slug: 'selling-from-stage', title: 'Selling from Stage', text: 'Learn how to shape a compelling offer and communicate its value, on a live stage or a webinar.', category: 'influence', tone: 'gold', price: 'AUD $1,997 including GST', level: 'Introduction', kicker: 'Self-paced online program', cta: 'Explore Selling from Stage' }),
+  P({ slug: 'selling-from-stage-fundamentals', title: 'Selling from Stage Fundamentals', text: 'The eight-step pitch structure that connects your teaching to an offer, explains its value and invites your audience to buy. Three focused videos.', category: 'influence', tone: 'green', price: 'AUD $79', level: 'Introduction', kicker: 'Three focused videos', cta: 'Explore Fundamentals' }),
   // Bundle still to be reworked now Selling Something Intangible and Understand Before You Prescribe are gone (Remi will advise); it lists the two that remain
   P({ slug: 'influence-without-pressure', title: 'Influence Without Pressure', text: 'Two programs.', category: 'influence', tone: 'navy', bundle: true, price: 'AUD $129', cta: 'Explore the bundle',
     includes: ['ultimate-influence-consultative-sales-introduction', 'holding-space-for-magnetic-sales'] }),
@@ -105,7 +107,8 @@ export const LANDING_SLUGS = ['self-esteem-triad', 'critical-alignment-model-for
   'benchmarking-what-good-actually-looks-like', 'build-beyond-the-founder',
   'come-back-to-yourself', 'core-improve-innovate', 'disruptive-leadership',
   'holding-space-for-magnetic-sales', 'the-performance-management-blueprint',
-  'from-practice-to-enterprise'] as const;
+  'from-practice-to-enterprise', 'trust-that-holds',
+  'ultimate-influence-foundations', 'selling-from-stage-fundamentals'] as const;
 /** A product's price as shown on the page ('AUD $29', 'Free'), for the rabbit-hole and homepage blocks that feature one. */
 export const priceOf = (slug: string) => productBySlug(slug)?.price ?? '';
 // The bundle always comes last, so it closes the grid whichever products are borrowed from another category.
@@ -127,7 +130,7 @@ export const PROGRAMS: Program[] = [
     photo: photo('photos/rebel-hero', 1800, 1090, 'Remi Pearson speaking, hands raised mid-thought') },
   { title: 'The Shift', kicker: 'Waitlist', text: 'Coming soon. Join the waitlist and you’ll hear first when it opens.', price: 'AUD $1,497 per month', href: '/programs/the-shift', cta: 'Join the waitlist', tone: 'navy',
     photo: photo('photos/remi-pink-jacket', 1600, 1067, 'Remi Pearson smiling, in a pink brocade jacket') },
-  { title: 'Selling from Stage', kicker: 'Self-paced online program', text: 'Learn how to shape a compelling offer and communicate its value, on a live stage or a webinar.', price: 'AUD $1,997 + GST or 5 payments of $499 + GST', href: '/products/selling-from-stage', cta: 'Explore Selling from Stage', tone: 'gold',
+  { title: 'Selling from Stage', kicker: 'Self-paced online program', text: 'Learn how to shape a compelling offer and communicate its value, on a live stage or a webinar.', price: 'AUD $1,997 including GST', href: '/products/selling-from-stage', cta: 'Explore Selling from Stage', tone: 'gold',
     photo: photo('product-ranges/pb-inf-room', 1004, 542) },
 ];
 export const THE_SHIFT_PRICE = PROGRAMS[2].price;
