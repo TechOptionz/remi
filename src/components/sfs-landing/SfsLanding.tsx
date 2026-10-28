@@ -1,209 +1,284 @@
-// Selling from Stage's sales page, shown at /products/selling-from-stage in place of the generic product page (see
-// app/products/[slug]/page.tsx). Seven parts from the design; copy and lists in content/sfs-landing.ts.
+// Selling from Stage's sales page (the full online program), shown at /products/selling-from-stage in place of the
+// generic product page (see app/products/[slug]/page.tsx). Follows the five-part mockup: the hero beside the audience
+// with the guarantee line and the burgundy strip of figures, the five reasons as icon rows (part one), Remi's story,
+// the 13 lessons as rows beside their drawings (parts two and three), the burgundy band of resources, the two bonuses
+// and the burgundy guarantee band with its shield (part four), who it is for, the enrolment table, the questions and
+// the close (part five). The deck's testimonial placements render nothing until TESTIMONIALS has verified quotes.
+// Copy and lists in content/sfs-landing.ts; styles styles/sfs-landing.css (.sfs-*).
 import Link from 'next/link';
 import Icon from '@/components/shared/Icon';
-import NotifyForm from '@/components/products/NotifyForm';
-import { BuyBtn as LandingBuyBtn, Head, Photo as LandingPhoto } from '@/components/landing/ui';
-import { CATEGORIES } from '@/content/products';
-import {
-  FAQ, FORMAT_SHORT, FOR_WHOM_SHORT, INCLUDED, LEARN, MODULES, PATH, PROGRAM_INCLUDES, SFS_BUY_HREF, SFS_CTA_HREF,
-  SFS_INSTALMENT, SFS_INSTALMENT_INC_GST, SFS_PLAN_TOTAL, SFS_PLAN_TOTAL_INC_GST, SFS_PRICE, SFS_PRICE_INC_GST, WHO,
-} from '@/content/sfs-landing';
+import WaitlistForm from '@/components/landing/WaitlistForm';
+import { productHref } from '@/content/products';
+import { DEVELOP, ENROLMENT, FAQ, FUNDAMENTALS_SLUG, GOOD_FIT, LESSONS, NOT_FOR, REASONS, SFS, SFS_AMOUNT, SFS_PRICE, TESTIMONIALS } from '@/content/sfs-landing';
 
-const Photo = (props: Omit<Parameters<typeof LandingPhoto>[0], 'dir'>) => <LandingPhoto dir="sfs-landing" {...props} />;
-const BuyBtn = ({ children = 'Enrol in Selling from Stage' }: { children?: React.ReactNode }) => <LandingBuyBtn href={SFS_CTA_HREF} arrow>{children}</LandingBuyBtn>;
-const num = (i: number) => String(i + 1).padStart(2, '0');
+function Img({ name, alt, width, height, className = '', eager }: { name: string; alt: string; width: number; height: number; className?: string; eager?: boolean }) {
+  return <img className={className} src={`/assets/sfs-landing/${name}.webp`} alt={alt} width={width} height={height} loading={eager ? 'eager' : 'lazy'} fetchPriority={eager ? 'high' : undefined} decoding="async" />;
+}
 
-function Price() {
+/** Every button goes to the waitlist form in the closing band. */
+function Btn() {
+  return <a href="#get" className="sfs-btn">Join the waitlist <span aria-hidden="true">→</span></a>;
+}
+const Notify = () => <p className="sfs-small">Be notified when we’re taking applications again.</p>;
+
+/** The verified quotes, where the deck places them; nothing until TESTIMONIALS has entries. */
+function Quotes({ from, count }: { from: number; count: number }) {
+  const items = TESTIMONIALS.slice(from, from + count);
+  if (!items.length) return null;
   return (
-    <div className="cml-price">
-      <p className="stl-price">{SFS_PRICE}<span>AUD + GST</span></p>
-      <p className="cml-gst">{SFS_PRICE_INC_GST} including GST</p>
-    </div>
+    <ul className="sfs-quotes">
+      {items.map(t => <li key={t.name}><blockquote><p>“{t.quote}”</p></blockquote><p className="sfs-quote-by">{t.name} · {t.program}</p></li>)}
+    </ul>
   );
 }
 
+const pad = (n: number) => String(n).padStart(2, '0');
+const LESSON_SIZE: Record<number, [number, number]> = {
+  1: [600, 290], 2: [560, 292], 3: [712, 264], 4: [640, 264], 5: [648, 288], 6: [584, 268], 7: [768, 188],
+  8: [680, 300], 9: [332, 248], 10: [604, 276], 11: [400, 264], 12: [644, 280], 13: [480, 288],
+};
+
 export default function SfsLanding() {
   return (
-    <main className="kb stl cml sfs">
-      <div className="kb-page">
-        <nav className="crumbs stl-crumbs" aria-label="Breadcrumb">
-          <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/programs">Programs</Link><span aria-hidden="true">/</span><span aria-current="page">Selling from Stage</span>
-        </nav>
+    <main className="sfs">
+      {/* PART ONE — the hero, the figures, the five reasons */}
+      <section className="sfs-hero" aria-labelledby="sfs-title">
+        <div className="sfs-hero-copy">
+          <nav className="crumbs sfs-crumbs" aria-label="Breadcrumb">
+            <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/products">Programs &amp; products</Link><span aria-hidden="true">/</span><span aria-current="page">{SFS.title}</span>
+          </nav>
+          <p className="sfs-eyebrow">Selling from Stage with Remi Pearson</p>
+          <h1 id="sfs-title" className="sfs-title">Turn the room you’re speaking to into clients you’re excited to work with.</h1>
+          <p className="sfs-lede">Learn the eight-step pitch method behind <strong>$50 million in personal sales</strong> by Remi Pearson across <strong>live events, webinars and small teleconferences</strong>.</p>
+          <p>Build your own complete sales presentation, understand what helps people decide to buy, and learn how to make an offer with the warmth and conviction your work deserves.</p>
+          <p className="sfs-strong">13 in-depth online lessons. Practical pitch-building resources. Two included bonuses valued at $3,600.</p>
+          <p className="sfs-price"><strong>{SFS_AMOUNT} AUD</strong> <span>including GST</span></p>
+          <div className="sfs-buy"><Btn /></div>
+          <Notify />
+          <p className="sfs-guarantee-line"><Icon name="shieldcheck" size={22} strokeWidth={1.4} /><em>Includes one place at Remi’s annual two-day training and three recorded expert pitch analyses. Backed by a 12-month investment-back guarantee.</em></p>
+        </div>
+        <Img name="sfs-room" alt="An audience in a darkened room listening to a speaker, a woman in the front row smiling with her chin on her hand" width={742} height={988} className="sfs-hero-photo" eager />
+      </section>
+      <section className="sfs-figures" aria-label="Remi Pearson’s results">
+        <div className="sfs-wrap sfs-figures-inner">
+          <div><p className="sfs-figure-n">$50 million</p><p className="sfs-figure-label">Personally sold through presentations</p><p className="sfs-figure-sub">Live events · Webinars · Small teleconferences</p></div>
+          <div><p className="sfs-figure-n">$200 million</p><p className="sfs-figure-label">Founder of a business that generated approximately $200 million over 23 years</p></div>
+        </div>
+      </section>
 
-        {/* PART 01 — hero */}
-        <section className="stl-split sfs-hero" aria-labelledby="sfs-title">
-          <div className="stl-split-copy">
-            <p className="stl-eyebrow">Selling from Stage <span>With Remi Pearson</span></p>
-            <Head id="sfs-title" as="h1">Master the skill of turning an audience into buyers.</Head>
-            <p className="sfs-lede">Learn how to shape a compelling offer and communicate its value, on a live stage or a webinar.</p>
-            <p>You have something worth selling. The challenge is helping an audience understand why it matters to them, what becomes possible through your offer and how to take the next step. That work begins well before you stand in front of the room.</p>
-            <p>Selling from Stage takes you through the preparation, the pitch and the follow-through. You will develop a compelling offer for your market and learn how to communicate why it matters, what it includes and how to buy.</p>
-            <ul className="sfs-facts">
-              <li><span className="cml-day-icon"><Icon name="people" size={28} /></span><div><h2>For people with an existing offer</h2><p>{FOR_WHOM_SHORT.join(' • ')}</p></div></li>
-              <li><span className="cml-day-icon"><Icon name="tv" size={28} /></span><div><h2>Self-paced online learning</h2><p>{FORMAT_SHORT.join(' • ')}</p></div></li>
-            </ul>
-            <Price />
-            <div className="sfs-btn"><BuyBtn /></div>
-            <p className="sfs-plan-line">Or five payments of {SFS_INSTALMENT} + GST</p>
+      <div className="sfs-wrap">
+        <Quotes from={0} count={1} />
+        <section className="sfs-section" aria-labelledby="sfs-love-h">
+          <h2 id="sfs-love-h" className="sfs-h2 sfs-h2--big">An audience can love your presentation and still leave without buying.</h2>
+          <div className="sfs-cols">
+            <p>They tell you it was wonderful. They take notes, thank you afterwards and say they’ll be in touch. You’ve given generously, shared useful ideas and put real effort into the experience. Yet the offer doesn’t land the way you hoped.</p>
+            <p>Sometimes you’ve taught so much that people feel overwhelmed. Sometimes the value of the offer is clear in your head but hasn’t become clear in theirs. And sometimes, after speaking confidently for most of the session, you reach the price and suddenly sound as though you’re asking for a favour.</p>
+            <p>These are moments you can learn to handle differently. You can prepare the connection between your teaching and your offer, understand the questions people bring to a buying decision, and practise an invitation that feels natural to deliver.</p>
+            <p><strong>Selling from Stage helps you build that whole experience.</strong></p>
+            <p>You’ll develop your own pitch as you work through the program, with a clear purpose for each section and a practical way to bring it together.</p>
           </div>
-          <Photo name="sfs-hero" alt="A speaker addressing an audience, hands open, in warm light" width={320} height={1185} className="stl-split-photo sfs-photo-tall" />
         </section>
 
-        {/* PART 02 — why they didn't buy, and the path through the sale */}
-        <section className="stl-section stl-split" aria-labelledby="sfs-loved-h">
-          <div className="stl-split-copy">
-            <Head id="sfs-loved-h">They loved your presentation. Why didn’t they buy?</Head>
-            <p>You finish speaking. People thank you, tell you how much they enjoyed it and say they have plenty to think about. You gave them good material. You answered their questions. Yet the offer lands quietly and you leave wondering what was missing.</p>
-            <p>An audience can appreciate your expertise without understanding the reason to buy. They may recognise their problem but struggle to see how your offer addresses it. They may understand the offer and still have unanswered questions about the investment, the fit or the next step.</p>
-            <p>These are communication problems you can examine. You need to understand what the audience wants before choosing your content, and connect the teaching to the decision you are inviting them to make.</p>
+        <section className="sfs-section sfs-rule" aria-labelledby="sfs-stage-h">
+          <h2 id="sfs-stage-h" className="sfs-h2 sfs-h2--big">You don’t need a huge stage to use this skill.</h2>
+          <div className="sfs-cols">
+            <p>Some of my selling has happened at live events. Some has happened through webinars. Some has happened in small teleconferences, where the connection was intimate and the audience was small.</p>
+            <p>Across those settings, I’ve personally generated <strong>$50 million in sales</strong>.</p>
+            <p>The setting changes how you engage people and how they respond to the offer. The work of understanding your audience, communicating value and helping people make a decision remains.</p>
+            <p>Whether you’re presenting to a workshop, delivering a webinar or bringing a small group together to explore your work, you need to know how to make the opportunity clear.</p>
           </div>
-          <Photo name="sfs-audience" width={422} height={780} className="stl-split-photo" />
         </section>
 
-        <section className="stl-section" aria-labelledby="sfs-path-h">
-          <Head id="sfs-path-h" star>A clear path through the whole sale</Head>
-          <ol className="stl-video-list cml-dims">
-            {PATH.map((p, i) => (
-              <li key={p.name}><span className="stl-num" aria-hidden="true">{num(i)}</span><h3>{p.name}</h3><p>{p.text}</p></li>
+        <section className="sfs-section sfs-rule" aria-labelledby="sfs-reasons-h">
+          <h2 id="sfs-reasons-h" className="sfs-h2 sfs-h2--big">Five reasons to learn how to sell from stage</h2>
+          <ol className="sfs-reasons">
+            {REASONS.map((r, i) => (
+              <li key={r.name}>
+                <span className="sfs-reason-icon" aria-hidden="true"><Icon name={r.icon} size={34} strokeWidth={1.2} /></span>
+                <div><h3><span className="sfs-reason-n">{i + 1}.</span> {r.name}</h3><p>{r.text}</p></div>
+              </li>
             ))}
           </ol>
-          <p className="cml-note">The program gives you a sequence to work with, so you can locate what needs attention instead of changing everything after an unsuccessful presentation.</p>
-          <div className="cml-cta-row"><BuyBtn>Build your presentation with Remi</BuyBtn></div>
+          <div className="sfs-buy"><Btn /></div>
         </section>
 
-        {/* PART 03 — what belongs in the presentation */}
-        <section className="stl-section stl-split" aria-labelledby="sfs-belongs-h">
-          <div className="stl-split-copy">
-            <Head id="sfs-belongs-h">Know what belongs in the presentation. Know why it is there.</Head>
-            <p className="sfs-lede">The aim is to develop a presentation around your own offer. Work through the teaching, apply it to your market and use the supporting resources to prepare the communication you will deliver.</p>
-            <div className="cml-real"><Head id="sfs-learn-h" star>What you will learn to do</Head></div>
-            <ol className="cml-video-list sfs-learn">
-              {LEARN.map((l, i) => (
-                <li key={l.name}><span className="stl-num" aria-hidden="true">{num(i)}</span><div><h3>{l.name}</h3><p>{l.text}</p></div></li>
-              ))}
-            </ol>
-            <p>Use the same preparation to adapt your communication for a webinar or a live room. The setting changes how you engage and how people respond, so the delivery needs attention too.</p>
-            <div className="cml-cta-row"><BuyBtn /><Price /></div>
+        {/* PART TWO — Remi's story, the 13 lessons */}
+        <section className="sfs-section sfs-rule" aria-labelledby="sfs-remi-h">
+          <h2 id="sfs-remi-h" className="sfs-h2 sfs-h2--big">Learn the thinking behind $50 million in personal sales</h2>
+          <div className="sfs-cols sfs-cols--flow">
+            <p>I’m Remi Pearson. I founded The Coaching Institute and built a business that generated approximately $200 million over 23 years. Within that work, I personally sold $50 million through live events, webinars and small teleconferences.</p>
+            <p>That experience taught me to pay attention to much more than the words of a pitch. I learned to notice whether people felt understood, whether they could see themselves benefiting from the offer, and whether I had made the next step clear enough for them to consider it.</p>
+            <p>I also learned how easily we can get in our own way. We overteach. We explain an inclusion without explaining why it matters. We become uncomfortable with the price and communicate that discomfort to the room.</p>
+            <p>In Selling from Stage, I’ll teach you the method and take you through the decisions behind it. You’ll see what I look for, what I prepare and how I connect the parts of a presentation so the offer belongs in the experience.</p>
+            <p>You’ll apply that thinking to your own work, in your own voice.</p>
           </div>
-          <Photo name="sfs-speaker" width={383} height={1220} className="stl-split-photo sfs-photo-tall" />
+          <img className="sfs-signature" src="/assets/bm-landing/bm-signature.webp" alt="Remi Pearson" width={585} height={375} loading="lazy" decoding="async" />
+          <Quotes from={1} count={2} />
         </section>
 
-        {/* PART 04 — bring a real offer; who it's for; what you need; the format */}
-        <section className="stl-section stl-split" aria-labelledby="sfs-real-h">
-          <div className="stl-split-copy">
-            <Head id="sfs-real-h">Bring a real offer. Work on a real presentation.</Head>
-            <p>Imagine preparing your next webinar with a clear understanding of who is attending and why. You know the problem you are addressing. You have chosen the examples that help people recognise it, and you understand how your offer continues the work you begin in the presentation.</p>
-            <p>When it is time to explain the offer, you have already considered what it includes, who it suits and how to communicate the price. Your invitation has a clear next step. You have also planned what happens with the people who are interested and the people who purchase.</p>
-            <p>That is the work this program is designed to help you prepare.</p>
-          </div>
-          <Photo name="sfs-webinar" width={462} height={700} className="stl-split-photo" />
+        <section className="sfs-section sfs-rule" aria-labelledby="sfs-lessons-h">
+          <h2 id="sfs-lessons-h" className="sfs-h2 sfs-h2--big">Build your complete pitch through 13 in-depth lessons</h2>
+          <p className="sfs-lede">The program begins with buying psychology and the preparation that supports a strong offer. You then work through the eight pitch steps in detail, before bringing everything together through rehearsal and follow-through.</p>
+          <ol className="sfs-lessons">
+            {LESSONS.map((l, i) => {
+              const [w, h] = LESSON_SIZE[i + 1];
+              return (
+                <li key={l.name}>
+                  <Img name={`sfs-l${pad(i + 1)}`} alt="" width={w} height={h} className="sfs-lesson-art" />
+                  <div className="sfs-lesson-copy">
+                    <p className="sfs-lesson-n">{pad(i + 1)}</p>
+                    <h3>{l.name}</h3>
+                    <p>{l.text}</p>
+                    <p className="sfs-result">{l.result}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
         </section>
+      </div>
 
-        <section className="stl-section sfs-who" aria-labelledby="sfs-who-h">
+      {/* PART THREE — the work you'll finish with */}
+      <section className="sfs-band" aria-labelledby="sfs-finish-h">
+        <div className="sfs-wrap sfs-finish">
           <div>
-            <Head id="sfs-who-h" star>Who this is for</Head>
-            <ul className="cml-day">
-              {WHO.map(w => <li key={w.text}><span className="cml-day-icon"><Icon name={w.icon} size={28} /></span><p>{w.text}</p></li>)}
+            <h2 id="sfs-finish-h" className="sfs-h2 sfs-h2--big">Finish with work you can actually use</h2>
+            <p>As you apply the lessons, you’ll develop:</p>
+            <ul className="sfs-ticks sfs-ticks--light">{DEVELOP.map(t => <li key={t}>{t}</li>)}</ul>
+          </div>
+          <div>
+            <p>Your resources include the <strong>Pitch Builder</strong>, worked examples, an annotated pitch, an editable slide structure, a question-and-answer planner, a rehearsal scorecard and follow-up templates.</p>
+            <p className="sfs-band-strong">The aim is to help you complete your own presentation as you learn.</p>
+            <div className="sfs-buy"><Btn /></div>
+          </div>
+        </div>
+      </section>
+
+      {/* PART FOUR — the two bonuses, the guarantee */}
+      <div className="sfs-wrap">
+        <section className="sfs-section" aria-labelledby="sfs-bonus-h">
+          <h2 id="sfs-bonus-h" className="sr-only">Two included bonuses</h2>
+          <article className="sfs-bonus">
+            <div className="sfs-bonus-copy">
+              <p className="sfs-label">Bonus one</p>
+              <h3 className="sfs-h2">Two days of training with Remi</h3>
+              <p className="sfs-bonus-value">Valued at $3,000. Included at no additional charge.</p>
+              <p>Your enrolment includes one place at my annual two-day Selling from Stage training.</p>
+              <p>Spend focused time with me on the work and deepen what you’ve learned through the online program. Come back to the method with greater familiarity, your own developing pitch and a clearer understanding of the questions that matter to you.</p>
+              <p>Dedicated time makes room to think more carefully about your offer and how you communicate it. This bonus gives you the opportunity to immerse yourself in the subject alongside the recorded program.</p>
+              <p className="sfs-small"><strong>One place at one annual two-day training event is included. Dates and delivery details will be announced.</strong></p>
+            </div>
+            <Img name="sfs-bonus" alt="Participants at a training day, a woman smiling as she listens with a pen in hand" width={804} height={625} className="sfs-bonus-photo" />
+          </article>
+          <article className="sfs-bonus sfs-bonus--two">
+            <div className="sfs-bonus-copy">
+              <p className="sfs-label">Bonus two</p>
+              <h3 className="sfs-h2">Inside the Pitch: Three Expert Breakdowns</h3>
+              <p className="sfs-bonus-value">Valued at $600. Included at no additional charge.</p>
+              <p>Watch three people pitch and follow my analysis of the choices they make.</p>
+              <p>I’ll examine how they establish connection, whether the teaching supports the offer, how clearly the value comes across and what happens when they ask people to act. You’ll hear what I would keep, where I would make a change and why.</p>
+              <p>Seeing a pitch through an experienced practitioner’s eyes gives you another way to understand the method. You can begin recognising patterns that are harder to notice when you’re absorbed in delivering your own presentation.</p>
+              <p><strong>Learn how to assess a pitch, so you can become more discerning about your own.</strong></p>
+              <p className="sfs-small">These three recorded analyses are included alongside your 13 core lessons.</p>
+            </div>
+            <ul className="sfs-pitches" aria-label="The three recorded pitch analyses">
+              {[1, 2, 3].map(n => <li key={n}><Img name={`sfs-pitch${n}`} alt={`Recorded pitch analysis ${n}: a speaker presenting to an audience`} width={250} height={237} /></li>)}
             </ul>
-          </div>
+          </article>
+          <Quotes from={3} count={1} />
+        </section>
+      </div>
+
+      <section className="sfs-band sfs-band--guarantee" aria-labelledby="sfs-guarantee-h">
+        <div className="sfs-wrap sfs-guarantee">
+          <Img name="sfs-shield" alt="A gold shield reading 12 months" width={453} height={423} className="sfs-shield" />
           <div>
-            <Head id="sfs-bring-h" star>What you need to bring</Head>
-            <ul className="cml-day"><li><span className="cml-day-icon"><Icon name="document" size={28} /></span><p>An existing offer, even if it needs refining. You also need the willingness to work through the material, make decisions about your market and rehearse your delivery.</p></li></ul>
-            <div className="cml-real"><Head id="sfs-format-h" star>The format</Head></div>
-            <ul className="cml-day"><li><span className="cml-day-icon"><Icon name="tv" size={28} /></span><p>This is an introductory self-paced online program. You learn from recorded teaching and supporting resources, then apply the work independently. Individual feedback is not included.</p></li></ul>
+            <h2 id="sfs-guarantee-h" className="sfs-h2 sfs-h2--big">Earn back your investment within 12 months … or receive a full refund.</h2>
+            <p>I want you to feel confident investing in this skill and putting the teaching into practice.</p>
+            <p><strong>If you don’t earn back your entire {SFS_AMOUNT} investment from applying what you learn in Selling from Stage within 12 months of enrolment, you can request a complete refund.</strong></p>
+            <p><strong>You also get to keep all the program materials.</strong></p>
+            <p>Learn the method, apply it to your offer and give yourself the opportunity to develop your ability. If it hasn’t earned back your investment within those 12 months, the guarantee is there for you.</p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <blockquote className="sfs-pull">A clear approach to selling gives you something practical to prepare before your next opportunity to speak.</blockquote>
-        <div className="cml-cta-row sfs-center"><BuyBtn>Start building your presentation</BuyBtn></div>
-
-        {/* PART 05 — the twelve modules in three parts */}
-        <section className="stl-section" aria-labelledby="sfs-path2-h">
-          <h2 id="sfs-path2-h" className="stl-h2 sfs-path-title">Your path from preparation to follow-through.</h2>
-          <Photo name="sfs-crowd" width={1055} height={190} className="sfs-crowd" />
-          {(() => { let n = 0; return MODULES.map(m => (
-            <div key={m.part} className="sfs-part">
-              <h3 className="sfs-part-h"><span>{m.part}</span> {m.title}</h3>
-              <ol className="stl-video-list cml-dims">
-                {m.steps.map(s => <li key={s.name}><span className="stl-num" aria-hidden="true">{num(n++)}</span><h3>{s.name}</h3><p>{s.text}</p></li>)}
-              </ol>
-            </div>
-          )); })()}
-        </section>
-      </div>
-
-      <div className="stl-band sfs-included">
-        <p className="stl-band-title">Included</p>
-        <p>{INCLUDED.join(' • ')}<br />Self-paced learning. Apply each part to your own offer and presentation.</p>
-      </div>
-
-      <div className="kb-page">
-        {/* PART 06 — Remi, questions */}
-        <section className="stl-section stl-split stl-remi" aria-labelledby="sfs-remi-h">
-          <div className="stl-split-copy">
-            <Head id="sfs-remi-h">Learn with the woman who built the business.</Head>
-            <p>I’m Remi Pearson. I started The Coaching Institute cold-calling from my bedroom and built a business that turned over more than $200 million across twenty-three years, before exiting in 2024.</p>
-            <p>Presenting, making offers and developing other people to do the same were part of building that business. I had to learn how to hold an audience’s attention, explain an offer and move from teaching into a buying conversation.</p>
-            <p>In this program, I teach the preparation and communication behind selling from stage. You will work with your own market and offer, so the material becomes something you can use in your business.</p>
-            <p className="stl-signature" aria-hidden="true">Remi</p>
-          </div>
-          <Photo name="sfs-remi" alt="A speaker on stage, seen from behind, addressing a full room" width={372} height={750} className="stl-split-photo" />
-        </section>
-
-        <section className="stl-section" aria-labelledby="sfs-faq-h">
-          <Head id="sfs-faq-h" star>Questions before you begin</Head>
-          <dl className="cml-faq sfs-faq">
-            {FAQ.map((f, i) => <div key={f.q}><dt><span className="stl-num" aria-hidden="true">{num(i)}</span>{f.q}</dt><dd>{f.a}</dd></div>)}
-          </dl>
-          <div className="cml-cta-row"><BuyBtn /></div>
-        </section>
-
-        {/* PART 07 — make your offer worth saying yes to */}
-        <section className="stl-section stl-split" aria-labelledby="sfs-yes-h">
-          <div className="stl-split-copy">
-            <Head id="sfs-yes-h">Make your offer worth saying yes to.</Head>
-            <p>You have something worth selling. Develop an offer that speaks to what your audience wants, then learn how to explain its value and invite people to buy.</p>
-            <p>Selling from Stage takes you from understanding your market and shaping a compelling offer to communicating it on stage or online and following through after the pitch.</p>
-          </div>
-          <Photo name="sfs-yes" width={454} height={780} className="stl-split-photo" />
-        </section>
-      </div>
-
-      <section id="get" className="stl-close" aria-labelledby="sfs-close-h">
-        <div className="stl-close-inner">
-          <h2 id="sfs-close-h" className="stl-h2">Selling from Stage <span className="sfs-close-with">with Remi Pearson</span></h2>
-          <div className="sfs-close-grid">
+      {/* PART FIVE — who it is for, the enrolment, the questions */}
+      <div className="sfs-wrap">
+        <section className="sfs-section" aria-labelledby="sfs-fit-h">
+          <h2 id="sfs-fit-h" className="sfs-h2 sfs-h2--big">Is Selling from Stage right for you?</h2>
+          <p>This program is designed for business owners, coaches, consultants, educators and service providers who want to sell their work through presentations.</p>
+          <div className="sfs-fit">
             <div>
-              <h3 className="sfs-close-sub">Your program includes</h3>
-              <ul className="sfs-includes">
-                {PROGRAM_INCLUDES.map(p => <li key={p.text}><span className="sfs-inc-icon"><Icon name={p.icon} size={20} /></span>{p.text}</li>)}
-              </ul>
+              <h3 className="sfs-h3">It’s a strong fit if you:</h3>
+              <ul className="sfs-ticks">{GOOD_FIT.map(t => <li key={t}>{t}</li>)}</ul>
             </div>
-            <div className="sfs-buy">
-              <div className="sfs-options">
-                <div className="sfs-option">
-                  <h3>Self-paced online program</h3>
-                  <p className="sfs-option-kicker">One payment</p>
-                  <p className="stl-price">{SFS_PRICE}<span>AUD + GST</span></p>
-                  <p>{SFS_PRICE_INC_GST} including GST</p>
-                </div>
-                <div className="sfs-option">
-                  <h3>Payment plan</h3>
-                  <p className="sfs-option-big">5 payments of {SFS_INSTALMENT} + GST</p>
-                  <p>{SFS_INSTALMENT_INC_GST} including GST per payment</p>
-                  <p className="sfs-option-big sfs-option-rule">Total {SFS_PLAN_TOTAL} + GST</p>
-                  <p>{SFS_PLAN_TOTAL_INC_GST} including GST</p>
-                </div>
-              </div>
-              <div className="sfs-close-action">
-                {SFS_BUY_HREF
-                  ? <LandingBuyBtn href={SFS_BUY_HREF} light arrow>Choose your payment option and enrol</LandingBuyBtn>
-                  : <><p className="stl-close-soon">Coming soon</p><NotifyForm product="Selling from Stage" segment={CATEGORIES.influence.segment} /></>}
-              </div>
+            <div className="sfs-fit-not">
+              <h3 className="sfs-h3">It won’t suit you if you:</h3>
+              <ul className="sfs-crosses">{NOT_FOR.map(t => <li key={t}>{t}</li>)}</ul>
+              <p className="sfs-small">The three expert pitch breakdowns are recorded teaching examples. Personal reviews of your own pitch are not included.</p>
             </div>
           </div>
-          <p className="sfs-tagline">Bring your offer. Strengthen the value. Learn how to sell it.</p>
+        </section>
+      </div>
+
+      <section className="sfs-enrol" aria-labelledby="sfs-enrol-h">
+        <div className="sfs-wrap">
+          <div className="sfs-enrol-panel">
+            <div>
+              <h2 id="sfs-enrol-h" className="sfs-h2 sfs-h2--big">Your complete enrolment</h2>
+              <table className="sfs-table">
+                <thead><tr><th scope="col">Included</th><th scope="col">What it helps you do</th></tr></thead>
+                <tbody>
+                  {ENROLMENT.map(e => <tr key={e.item}><th scope="row"><span className="sfs-table-item"><Icon name={e.icon} size={22} strokeWidth={1.3} /><span>{e.item}</span></span></th><td>{e.does}</td></tr>)}
+                </tbody>
+              </table>
+            </div>
+            <div className="sfs-enrol-offer">
+              <p className="sfs-enrol-price">{SFS_AMOUNT}</p>
+              <p className="sfs-enrol-gst">AUD including GST</p>
+              <p className="sfs-enrol-bonus">Both bonuses, valued at $3,600 combined, are included at no additional charge.</p>
+              <Btn />
+              <Notify />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="sfs-wrap">
+        <section className="sfs-section" aria-labelledby="sfs-faq-h">
+          <h2 id="sfs-faq-h" className="sfs-h2 sfs-h2--big">Your questions, answered</h2>
+          <dl className="sfs-faq">
+            {FAQ.map((f, i) => (
+              <div key={f.q}>
+                <dt>{f.q}</dt>
+                <dd>{i === 0 ? <>{f.a} Looking for the introduction? <Link href={productHref(FUNDAMENTALS_SLUG)}>Selling from Stage Fundamentals</Link>.</> : f.a}</dd>
+              </div>
+            ))}
+          </dl>
+          <Quotes from={4} count={1} />
+        </section>
+      </div>
+
+      <section id="get" className="sfs-close" aria-labelledby="sfs-close-h">
+        <div className="sfs-wrap sfs-close-inner">
+          <div>
+            <h2 id="sfs-close-h" className="sfs-h2 sfs-h2--big">Your next audience deserves to understand what’s possible with you.</h2>
+            <p>You may already have an offer that could make a meaningful difference to the people listening. Learning how to communicate its value gives them a better opportunity to recognise that and decide whether to work with you.</p>
+            <p>You don’t have to leave the invitation to whatever words occur to you at the end. You can prepare it, practise it and develop the skill to deliver it with conviction.</p>
+            <p>Learn from the method behind <strong>$50 million in Remi’s personal sales across live events, webinars and small teleconferences</strong>. Bring it to your own offer and begin building a pitch you’re proud to deliver.</p>
+          </div>
+          <div className="sfs-close-offer">
+            <p className="sfs-label sfs-label--light">Selling from Stage with Remi Pearson</p>
+            <p className="sfs-close-price">{SFS_PRICE}</p>
+            <p className="sfs-close-line">Includes two bonuses valued at $3,600, at no additional charge.</p>
+            <p className="sfs-close-line">Backed by the 12-month investment-back guarantee.</p>
+            <WaitlistForm product={SFS.title} segment={SFS.segment} prefix="sfs" namePlaceholder="First name" thanks="Thank you. You’ll be notified when we’re taking applications again." />
+            <Notify />
+          </div>
+        </div>
+        <div className="sfs-wrap sfs-fine">
+          <p><em>Training scheduling: The dates and scheduling of the annual two-day bonus training are at Remi Pearson’s discretion and will be communicated to enrolled participants. Your enrolment includes one place at one annual two-day training event. Scheduling may be subject to change.</em></p>
+          <p><em>Results: Remi’s $50 million in personal sales represents her own results across live events, webinars and small teleconferences. The approximately $200 million figure refers to the business’s revenue over 23 years. These figures describe past results and are not a promise of your earnings. Your results will depend on your offer, audience and application of the teaching. This does not limit the investment-back guarantee stated above.</em></p>
         </div>
       </section>
     </main>

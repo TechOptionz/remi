@@ -1,0 +1,156 @@
+/* ============ Core, Improve, Innovate (.cii) — from the three-part mockup ============ */
+/* Fixed colours: espresso bands and hero, warm parchment paper, antique gold figures, rules, rings and the gold words
+   in each heading, copper buttons. Headings are the serif at its regular width (Noto Serif Display 100, loaded in
+   app/layout.tsx), heavy and tightly set as drawn. */
+.cii {
+  --cii-paper:#f7f1e6; --cii-white:#fcf8f1; --cii-ink:#1f140e; --cii-espresso:#24160f; --cii-espresso-2:#33221a;
+  --cii-gold:#b9863d; --cii-gold-ink:#94672a; --cii-gold-light:#e8c27a; --cii-copper:#b5531f; --cii-line:rgba(185,134,61,.5);
+  --display:'Noto Serif Display',Georgia,serif;
+  margin-inline:calc(50% - 50vw); background:var(--cii-paper); color:var(--cii-ink); font-family:var(--sans);
+}
+.cii-wrap { max-width:1152px; margin:0 auto; padding-inline:var(--gutter); box-sizing:content-box; }
+.cii p { margin:16px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.6; }
+.cii a:not([class]) { color:var(--cii-copper); text-decoration:underline; text-underline-offset:3px; }
+.cii-center { text-align:center; }
+.cii-h2, .cii-title { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:700; line-height:1.04; letter-spacing:-.03em; color:var(--cii-ink); text-wrap:balance; }
+.cii-h2 em, .cii-title em { font-style:normal; color:var(--cii-gold-ink); }
+.cii-title { margin-top:14px; font-size:clamp(34px,3.8vw,50px); color:#fbf3e4; }
+.cii-title em { color:var(--cii-gold-light); }
+.cii-h2 { font-size:clamp(24px,2.4vw,32px); }
+.cii-h2--big { font-size:clamp(30px,3.6vw,46px); }
+.cii-section { padding:clamp(40px,5vw,72px) 0; }
+.cii-rule { border-top:1px solid var(--cii-line); }
+.cii .cii-eyebrow, .cii .cii-label, .cii .cii-caps { margin:0; font-size:12.5px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; }
+.cii .cii-eyebrow { color:var(--cii-gold-light); }
+.cii .cii-label { color:var(--cii-gold-ink); }
+.cii .cii-caps { margin-top:16px; }
+.cii .cii-lede { max-width:46em; font-size:clamp(18px,1.6vw,21px); }
+.cii-prose { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 clamp(28px,4vw,56px); margin-top:8px; }
+.cii .cii-aside { font-family:var(--display); font-variation-settings:'wdth' 100; font-style:italic; font-size:clamp(19px,1.7vw,23px); line-height:1.4; color:var(--cii-gold-ink); }
+.cii .cii-statement { max-width:44em; margin:clamp(24px,3vw,36px) auto 0; padding:18px 0; border-block:1px solid var(--cii-line); text-align:center; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(19px,1.8vw,24px); line-height:1.4; letter-spacing:-.01em; }
+.cii .cii-subhead { margin-top:22px; font-weight:700; }
+
+/* Buttons: copper with a gold edge */
+.cii-btn { display:inline-flex; align-items:center; justify-content:center; gap:16px; padding:17px clamp(32px,4vw,60px); background:linear-gradient(180deg,#c96a2e,var(--cii-copper) 55%,#9c4419); color:#fff; border:1px solid var(--cii-gold-light); border-radius:4px; font:600 clamp(18px,1.5vw,21px)/1 var(--display); font-variation-settings:'wdth' 100; cursor:pointer; transition:filter .2s ease, transform .2s ease; }
+.cii-btn:hover { filter:brightness(1.08); color:#fff; transform:translateY(-1px); }
+.cii-buy { margin-top:26px; }
+
+/* Rings around the line icons */
+.cii-ring { flex:none; display:grid; place-items:center; width:64px; height:64px; border:1.3px solid var(--cii-gold); border-radius:50%; color:var(--cii-gold-ink); }
+.cii-ring--sm { width:48px; height:48px; }
+
+/* Hero: espresso, copy beside the photo running to the window edge */
+/* Photos are cut from low-resolution mockups: each is capped near 1.25x its source pixels and stops inside a 1440px
+   frame instead of the window edge, so it never shows its pixels on a wide screen (client, Oct 2026). */
+.cii-hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,480px); align-items:center; padding-inline-end:max(0px, calc((100vw - 1440px) / 2)); background:var(--cii-espresso); background-image:radial-gradient(ellipse at 10% 0%,rgba(232,194,122,.12),transparent 55%); color:#efe4d2; border-bottom:1px solid var(--cii-gold); }
+.cii-hero-copy { padding:clamp(28px,3.4vw,48px) clamp(24px,3vw,48px) clamp(36px,4vw,56px) max(var(--gutter), calc((100vw - 1152px) / 2)); }
+.cii-hero p { color:#efe4d2; }
+.cii-hero .cii-caps { color:#efe4d2; }
+.cii-crumbs { margin-bottom:clamp(20px,2.4vw,32px); }
+.cii-hero .crumbs, .cii-hero .crumbs a { color:#efe4d2; }
+.cii-hero-photo { width:100%; height:auto; aspect-ratio:446/668; max-height:640px; object-fit:cover; object-position:40% 30%; -webkit-mask-image:linear-gradient(to right,transparent,#000 22%); mask-image:linear-gradient(to right,transparent,#000 22%); }
+
+/* The strip of figures */
+.cii-stats { display:flex; flex-wrap:wrap; justify-content:center; gap:16px clamp(32px,6vw,96px); margin:0; padding:20px var(--gutter); list-style:none; background:var(--cii-espresso); border-bottom:1px solid var(--cii-gold); color:#efe4d2; }
+.cii-stats li { display:flex; align-items:center; gap:16px; }
+.cii-stats li + li { padding-left:clamp(32px,6vw,96px); border-left:1px solid var(--cii-line); }
+.cii-stats .cii-ring { color:var(--cii-gold-light); border-color:var(--cii-gold-light); }
+.cii-stats strong { font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(30px,3.4vw,44px); line-height:1; color:var(--cii-gold-light); }
+.cii-stats span:last-child { max-width:12em; font-size:12px; letter-spacing:.24em; line-height:1.6; text-transform:uppercase; }
+
+/* The three numbered columns */
+.cii-parts { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); margin:clamp(24px,3vw,36px) 0 0; padding:0; list-style:none; }
+.cii-parts > li { padding:0 clamp(18px,2.6vw,34px); }
+.cii-parts > li:first-child { padding-left:0; }
+.cii-parts > li + li { border-left:1px solid var(--cii-line); }
+.cii-parts > li:last-child { padding-right:0; }
+.cii-num { display:block; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(48px,5.4vw,72px); line-height:1; letter-spacing:-.03em; color:var(--cii-gold); }
+.cii .cii-part-name { margin-top:10px; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(16px,1.4vw,19px); letter-spacing:.32em; text-transform:uppercase; }
+.cii-parts h3 { margin:12px 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(21px,2vw,26px); line-height:1.12; letter-spacing:-.02em; }
+.cii-parts p { font-size:clamp(15.5px,1.25vw,17px); }
+
+/* Dark bands: the videos, Remi's note, the close */
+.cii-dark { background:var(--cii-espresso); background-image:linear-gradient(180deg,var(--cii-espresso-2),var(--cii-espresso)); color:#efe4d2; }
+.cii-dark .cii-h2 { color:#fbf3e4; }
+.cii-dark .cii-h2 em { color:var(--cii-gold-light); }
+.cii-dark p { color:#efe4d2; }
+.cii-dark .cii-label { color:var(--cii-gold-light); }
+.cii-videos { padding:clamp(40px,5vw,72px) 0; border-block:1px solid var(--cii-gold); }
+.cii-video-list { margin:clamp(20px,2.4vw,32px) 0 0; padding:0; list-style:none; }
+.cii-video-list > li { display:grid; grid-template-columns:auto auto minmax(0,1fr); gap:clamp(16px,2.4vw,32px); align-items:start; padding:clamp(18px,2vw,26px) 0; border-bottom:1px solid var(--cii-line); }
+.cii-play { display:grid; place-items:center; width:58px; height:58px; border:1.5px solid var(--cii-gold-light); border-radius:50%; }
+.cii-play svg { width:22px; height:22px; margin-left:3px; fill:var(--cii-gold-light); }
+.cii-video-n { padding-right:clamp(16px,2.4vw,32px); border-right:1px solid var(--cii-line); font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(36px,3.6vw,48px); line-height:1.05; color:var(--cii-gold-light); }
+.cii-video-list h3 { margin:6px 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(21px,2vw,26px); line-height:1.2; color:#fbf3e4; }
+.cii-video-list p { margin-top:10px; }
+.cii-video-list strong { color:var(--cii-gold-light); }
+
+/* The workbook beside its questions */
+.cii-workbook { display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); gap:clamp(24px,4vw,56px); align-items:center; }
+.cii-workbook-photo { width:100%; max-width:380px; height:auto; justify-self:center; mix-blend-mode:multiply; }
+.cii-questions { display:grid; gap:12px; margin:12px 0 0; padding:0; list-style:none; }
+.cii-questions li { display:flex; align-items:center; gap:16px; font-size:clamp(16px,1.3vw,18px); line-height:1.45; }
+
+/* Leaving this unclear / Is this for you? */
+.cii-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(28px,5vw,72px); }
+.cii-pair-right { padding-left:clamp(28px,5vw,72px); border-left:1px solid var(--cii-line); }
+.cii-pair-head { display:flex; align-items:center; gap:18px; }
+.cii-ticks { margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px; }
+.cii-ticks li { position:relative; padding-left:38px; font-size:clamp(16px,1.3vw,18px); line-height:1.5; }
+.cii-ticks li::before { content:""; position:absolute; left:0; top:0; width:26px; height:26px; border-radius:50%; background:var(--cii-gold-ink); }
+.cii-ticks li::after { content:""; position:absolute; left:8px; top:7px; width:10px; height:6px; border-left:2px solid #fff; border-bottom:2px solid #fff; transform:rotate(-45deg); }
+
+/* Remi's note: the photo to the window edge on the dark band */
+.cii-remi { display:grid; grid-template-columns:minmax(0,580px) minmax(0,1fr); align-items:center; padding-inline-start:max(0px, calc((100vw - 1440px) / 2)); border-block:1px solid var(--cii-gold); }
+.cii-remi-photo { width:100%; height:auto; aspect-ratio:505/412; max-height:500px; object-fit:cover; object-position:40% 30%; -webkit-mask-image:linear-gradient(to left,transparent,#000 22%); mask-image:linear-gradient(to left,transparent,#000 22%); }
+.cii-remi-copy { padding:clamp(40px,5vw,64px) max(var(--gutter), calc((100vw - 1152px) / 2)) clamp(40px,5vw,64px) clamp(24px,3vw,40px); }
+.cii-remi .cii-label { margin-top:18px; }
+
+/* The questions: two columns with question rings */
+.cii-faq { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(22px,2.6vw,32px) 0; margin:clamp(20px,2.4vw,32px) 0 0; }
+.cii-faq > div { display:flex; gap:18px; padding:0 clamp(20px,3vw,40px); border-left:1px solid var(--cii-line); }
+.cii-faq > div:nth-child(odd) { padding-left:0; border-left:0; }
+.cii-q { flex:none; display:grid; place-items:center; width:46px; height:46px; border:1.3px solid var(--cii-copper); border-radius:50%; font-family:var(--display); font-size:24px; color:var(--cii-copper); }
+.cii-faq dt { font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:700; font-size:clamp(19px,1.7vw,23px); line-height:1.25; letter-spacing:-.015em; }
+.cii-faq dd { margin:8px 0 0; font-size:clamp(15.5px,1.25vw,17px); line-height:1.6; }
+
+/* The dark close with the waitlist form */
+.cii-close { padding:clamp(44px,5.4vw,80px) 0; text-align:center; scroll-margin-top:80px; }
+.cii-close .cii-h2 { max-width:24em; margin-inline:auto; }
+.cii .cii-close-text { max-width:44em; margin-inline:auto; }
+.cii .cii-caps--gold { color:var(--cii-gold-light); }
+.cii-form { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto; gap:14px; max-width:960px; margin:24px auto 0; text-align:left; }
+.cii-form input[type=text], .cii-form input[type=email] { min-width:0; padding:16px 18px; border:1px solid var(--cii-gold-light); border-radius:4px; background:transparent; color:#fbf3e4; font:16px/1.2 var(--sans); }
+.cii-form input::placeholder { color:rgba(251,243,228,.75); }
+.cii-form .form-error { grid-column:1 / -1; color:#fbf3e4; }
+.cii .cii-thanks { max-width:640px; margin:24px auto 0; padding:16px 20px; border:1px solid var(--cii-line); }
+
+/* Tablets and phones */
+@media (max-width:900px) {
+  .cii-parts { grid-template-columns:1fr; gap:28px; }
+  .cii-parts > li, .cii-parts > li:first-child, .cii-parts > li:last-child { padding:0; }
+  .cii-parts > li + li { padding-top:28px; border-left:0; border-top:1px solid var(--cii-line); }
+}
+@media (max-width:760px) {
+  .cii-hero, .cii-remi, .cii-prose, .cii-workbook, .cii-pair, .cii-faq, .cii-form { grid-template-columns:1fr; }
+  .cii-hero-copy, .cii-remi-copy { padding-inline:var(--gutter); }
+  .cii-hero, .cii-remi { padding-inline:0; }
+  .cii-hero-photo, .cii-remi-photo { order:-1; height:auto; max-height:none; aspect-ratio:4/3; -webkit-mask-image:linear-gradient(to bottom,#000 75%,transparent); mask-image:linear-gradient(to bottom,#000 75%,transparent); }
+  .cii-hero-copy { padding-top:12px; }
+  .cii-stats { flex-direction:column; align-items:flex-start; }
+  .cii-stats li + li { padding-left:0; border-left:0; }
+  .cii-video-list > li { grid-template-columns:auto minmax(0,1fr); }
+  .cii-video-n { display:none; }
+  .cii-play { width:46px; height:46px; }
+  .cii-workbook-photo { max-width:240px; }
+  .cii-pair-right { padding-left:0; padding-top:28px; border-left:0; border-top:1px solid var(--cii-line); }
+  .cii-faq > div { padding-left:0; border-left:0; }
+}
+
+/* Stacked photos stop near their source width on large phones and small tablets, centred. */
+@media (max-width:760px) {
+  .cii-hero-photo, .cii-remi-photo { display:block; max-width:540px; margin-inline:auto; }
+}
+
+/* Phones: keep Remi's whole face in the 4:3 crop. */
+@media (max-width:760px) { .cii-hero-photo { object-position:50% 4%; } }

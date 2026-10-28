@@ -15,10 +15,10 @@ const SUFFIX = /\s+—\s+Remi Pearson$/;
 const START = ['/', '/about-remi', '/ideas-models', '/perspectives', '/articles', '/programs', '/products', '/books', '/invite-remi', '/reviews'];
 const SECTIONS = [
   { title: 'Start here', test: p => START.includes(p) },
-  { title: 'The questions people bring', note: 'One page for each "rabbit hole" on the homepage.', hub: '/', test: p => p.split('/').length === 2 && p !== '/privacy-policy' && p !== '/attachment-style-quiz' },
+  { title: 'The questions people bring', note: 'One page for each "rabbit hole" on the homepage.', hub: '/', test: p => p.split('/').length === 2 && p !== '/privacy-policy' },
   { title: 'Ideas & Models', note: 'Remi\'s models, one chapter each.', hub: '/ideas-models', test: p => p.startsWith('/ideas-models/') },
   { title: 'Free articles', hub: '/articles', test: p => p.startsWith('/articles/') },
-  { title: 'Programs and assessments', hub: '/programs', test: p => p.startsWith('/programs/') || p === '/attachment-style-quiz' },
+  { title: 'Programs and assessments', hub: '/programs', test: p => p.startsWith('/programs/') },
   { title: 'Self-paced programs', test: p => p.startsWith('/products/') },
   { title: 'Optional', test: () => true },
 ];

@@ -5,7 +5,7 @@
 // Every product opens its own page: its title is the link, stretched over the whole band or card. Styles: styles/product-ranges.css (.pb-*); colours are fixed, like the mock-ups.
 import Link from 'next/link';
 import { Sym } from '@/components/home/ui';
-import { CATEGORIES, levelLine, priceLine, productHref, productsIn, type CategoryId, type Product } from '@/content/products';
+import { CATEGORIES, levelLine, priceLine, productHref, productsIn, type CategoryId, type Product, type Program } from '@/content/products';
 import type { RangeArt, RangeDesign } from '@/content/product-ranges';
 
 /** The mock-ups' gold sound-wave line: a hairline that swells into bars around `at`. */
@@ -31,8 +31,17 @@ function Seam() {
 
 function Photo({ a, className, eager }: { a?: RangeArt; className: string; eager?: boolean }) {
   if (!a) return null;
-  return <div className={className}><img src={a.src} alt={a.alt ?? ''} aria-hidden={a.alt ? undefined : true} width={a.width} height={a.height} loading={eager ? 'eager' : 'lazy'} decoding="async" /></div>;
+  return <div className={className}><img src={a.src} alt={a.alt ?? ''} aria-hidden={a.alt ? undefined : true} width={a.width} height={a.height} loading={eager ? 'eager' : 'lazy'} decoding="async" style={a.pos ? { objectPosition: a.pos } : undefined} /></div>;
 }
+
+/** How wide (and tall) a band's photo may be shown: 0.9x the file's width. Most band photos are mockup cuts saved at 1.5x the
+ *  mockup's pixels, so this keeps them within ~1.35x of what was drawn and never stretched across half a wide screen (the
+ *  band's panel takes the rest). Read by the band's grid in styles/product-ranges.css. */
+const photoWidth = (a?: RangeArt) => {
+  if (!a) return undefined;
+  const k = 0.9 * (a.scale ?? 1);
+  return { '--pb-pw': `${Math.round(a.width * k)}px`, '--pb-ph': `${Math.round(a.height * k)}px`, '--pb-ar': (a.width / a.height).toFixed(3) } as React.CSSProperties;
+};
 
 function Price({ p, invest }: { p: Product; invest?: boolean }) {
   return (
@@ -43,6 +52,9 @@ function Price({ p, invest }: { p: Product; invest?: boolean }) {
   );
 }
 
+/** Light tones (cream, gold) can't carry the hero's cream copy or the bundle's gold title: those bands stay dark. */
+const dark = (t: Product['tone']) => (t === 'cream' || t === 'gold' ? 'black' : t);
+
 const count = (p: Product) => p.includes?.length ? `${['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven'][p.includes.length] ?? p.includes.length} programs` : p.text;
 
 /* ---------- Influence: bands ---------- */
@@ -51,7 +63,7 @@ function Bands({ list, d, category, id }: { list: Product[]; d: RangeDesign; cat
   const [lead, ...rest] = list;
   return (
     <>
-      <article className={`pb-hero pb-tone--${lead.tone}`}>
+      <article className={`pb-hero pb-tone--${dark(lead.tone)}`} style={photoWidth(d.art[lead.slug])}>
         <Photo a={d.art[lead.slug]} className="pb-hero-photo" />
         <div className="pb-hero-copy">
           <h2 id={`${id}-h`} className="pb-range-name">{c.name}</h2>
@@ -68,7 +80,7 @@ function Bands({ list, d, category, id }: { list: Product[]; d: RangeDesign; cat
         const a = d.art[p.slug];
         const side = p.bundle ? 'right' : a?.side ?? (i % 2 ? 'right' : 'left');
         return (
-          <article key={p.slug} className={`pb-band pb-band--photo-${side} pb-tone--${p.tone}${p.bundle ? ' pb-band--bundle' : ''}`}>
+          <article key={p.slug} className={`pb-band pb-band--photo-${side} pb-tone--${p.bundle ? 'navy' : p.tone}${p.bundle ? ' pb-band--bundle' : ''}`} style={photoWidth(a)}>
             <Photo a={a} className="pb-band-photo" />
             <div className="pb-band-panel">
               <Seam />
@@ -78,7 +90,7 @@ function Bands({ list, d, category, id }: { list: Product[]; d: RangeDesign; cat
                 {!p.bundle && <span className="pb-rule" aria-hidden="true"></span>}
                 <p className="pb-text">{p.bundle ? count(p) : p.text}</p>
                 <Price p={p} />
-                <span className={p.bundle ? 'pb-btn' : 'pb-more'} aria-hidden="true">{p.cta ?? 'See what’s inside'}{!p.bundle && ' →'}</span>
+                <span className="pb-btn" aria-hidden="true">{p.cta ?? 'See what’s inside'}</span>
               </div>
             </div>
           </article>
@@ -138,6 +150,51 @@ function Cards({ list, d, category, id }: { list: Product[]; d: RangeDesign; cat
         {bundle && <Wide p={bundle} />}
       </div>
     </>
+  );
+}
+
+/* ---------- Programs (/programs): the same bands, for PROGRAMS (content/products.ts) ---------- */
+function ProgramLink({ p }: { p: Program }) {
+  return p.external
+    ? <a href={p.href} target="_blank" rel="noopener noreferrer">{p.title}<span className="pb-sr"> (opens in a new tab)</span></a>
+    : <Link href={p.href}>{p.title}</Link>;
+}
+
+export function ProgramBands({ list, id, name, question }: { list: Program[]; id: string; name: string; question: string }) {
+  const [lead, ...rest] = list;
+  return (
+    <section id={id} className="pb pb--bands" aria-labelledby={`${id}-h`}>
+      <article className={`pb-hero pb-tone--${dark(lead.tone)}`} style={photoWidth(lead.photo)}>
+        <Photo a={lead.photo} className="pb-hero-photo" />
+        <div className="pb-hero-copy">
+          <h2 id={`${id}-h`} className="pb-range-name">{name}</h2>
+          <p className="pb-range-q">{question}</p>
+          <Wave className="pb-wave--hero" at={0.78} />
+          <p className="pb-tag">{lead.kicker}</p>
+          <h3 className="pb-title pb-title--lead"><ProgramLink p={lead} /></h3>
+          <p className="pb-text">{lead.text}</p>
+          <p className="pb-price">{lead.price}</p>
+          <span className="pb-btn" aria-hidden="true">{lead.cta}{lead.external && ' ↗'}</span>
+        </div>
+      </article>
+      {rest.map((p, i) => (
+        <article key={p.title} className={`pb-band pb-band--photo-${i % 2 ? 'right' : 'left'} pb-tone--${p.tone}`} style={photoWidth(p.photo)}>
+          <Photo a={p.photo} className="pb-band-photo" />
+          <div className="pb-band-panel">
+            <Seam />
+            <div className="pb-band-copy">
+              <Wave />
+              <p className="pb-kicker">{p.kicker}</p>
+              <h3 className="pb-title"><ProgramLink p={p} /></h3>
+              <span className="pb-rule" aria-hidden="true"></span>
+              <p className="pb-text">{p.text}</p>
+              <p className="pb-price">{p.price}</p>
+              <span className="pb-btn" aria-hidden="true">{p.cta}{p.external && ' ↗'}</span>
+            </div>
+          </div>
+        </article>
+      ))}
+    </section>
   );
 }
 

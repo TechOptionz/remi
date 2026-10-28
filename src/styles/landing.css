@@ -6,7 +6,7 @@
 .stl { --stl-gold-ink:#9a6b22; --stl-cream:#fbf1e3; }
 .stl-crumbs { margin:0; padding-top:clamp(20px,2.4vw,32px); }
 
-.stl-photo { display:block; width:100%; height:auto; mix-blend-mode:multiply; --stl-fade:linear-gradient(to right,transparent,#000 16%,#000 84%,transparent), linear-gradient(to bottom,transparent,#000 12%,#000 86%,transparent);
+.stl-photo { display:block; width:100%; height:auto; max-height:540px; object-fit:contain; mix-blend-mode:multiply; --stl-fade:linear-gradient(to right,transparent,#000 16%,#000 84%,transparent), linear-gradient(to bottom,transparent,#000 12%,#000 86%,transparent);
   -webkit-mask-image:var(--stl-fade); -webkit-mask-composite:source-in; mask-image:var(--stl-fade); mask-composite:intersect; }
 
 /* Headings: condensed capitals with the short rust brush stroke under them; the gold star hangs to the left when there is one */
@@ -14,7 +14,7 @@
 .stl-head--star { padding-left:var(--kb-indent); background-position:var(--kb-indent) 100%; }
 .stl-head-star { position:absolute; left:0; top:.1em; width:clamp(26px,3vw,40px); }
 .stl-title, .stl-h2 { margin:0; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; line-height:1; text-transform:uppercase; color:var(--ink-strong); text-wrap:balance; }
-.stl-title { font-size:clamp(40px,4.8vw,66px); line-height:.98; }
+.stl-title { font-size:clamp(34px,3.6vw,52px); line-height:1; }
 .stl-h2 { font-size:clamp(32px,4vw,54px); }
 .stl-h2-sub { display:block; margin-top:.18em; font-size:.74em; }
 .stl-indent { padding-left:var(--kb-indent); }
@@ -23,7 +23,7 @@
 .stl-intro strong { font-weight:700; }
 .stl-center { text-align:center; }
 .stl-nowrap { white-space:nowrap; }
-.stl-section { position:relative; padding:clamp(56px,7vw,96px) 0; border-top:1px solid rgba(var(--ink-rgb),.08); }
+.stl-section { position:relative; padding:clamp(40px,5vw,72px) 0; border-top:1px solid rgba(var(--ink-rgb),.08); }
 .stl-num { flex:none; min-width:1.3em; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(36px,3.6vw,48px); line-height:.9; color:var(--rust); }
 .stl-num--gold { font-weight:600; color:#b8892f; }
 
@@ -37,15 +37,15 @@
 .stl-price span { margin-left:.14em; font-size:.38em; }
 
 /* PART 01 — hero: copy beside the ring sculpture, then the book beside the price */
-.stl-hero { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); grid-template-areas:"copy photo" "book buy"; column-gap:clamp(24px,4vw,56px); align-items:center; padding:clamp(24px,3vw,40px) 0 clamp(56px,7vw,96px); }
+.stl-hero { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr); grid-template-areas:"copy photo" "book buy"; column-gap:clamp(24px,4vw,56px); align-items:center; padding:clamp(16px,2vw,28px) 0 clamp(36px,4vw,56px); }
 .stl-hero-copy { grid-area:copy; }
 .stl-eyebrow { margin:0 0 20px; font-size:13px; font-weight:700; letter-spacing:.28em; text-transform:uppercase; color:var(--rust); }
 .stl-split-copy > .stl-eyebrow { margin:0 0 20px; font-size:13px; line-height:1.5; }
 .stl-eyebrow span { margin-left:.6em; font-weight:600; font-size:.85em; letter-spacing:.22em; color:rgba(var(--ink-rgb),.6); }
-.stl-lede { max-width:32em; margin:24px 0 0; font-size:clamp(18px,1.6vw,22px); line-height:1.5; }
+.stl-lede { max-width:36em; margin:16px 0 0; font-size:clamp(18px,1.6vw,22px); line-height:1.5; }
 .stl-hero-note { max-width:36em; margin:18px 0 0; font-size:16px; line-height:1.6; opacity:.85; }
 .stl-hero-photo { grid-area:photo; justify-self:end; max-width:430px; }
-.stl-hero-book { grid-area:book; justify-self:center; max-width:360px; margin-top:clamp(16px,2vw,28px); }
+.stl-hero-book { grid-area:book; justify-self:center; max-width:260px; margin-top:clamp(12px,1.4vw,20px); }
 .stl-buy { grid-area:buy; }
 .stl-includes { margin:16px 0 24px; font-size:17px; line-height:1.5; }
 .stl-fine { margin:14px 0 0; font-size:14.5px; opacity:.8; }
@@ -154,3 +154,6 @@
   .stl-btn-arrow { display:none; }
 }
 @media (max-width:600px) { .stl-eyebrow span { display:block; margin:6px 0 0; } .stl-head-star { position:static; display:block; width:24px; margin-bottom:10px; } }
+
+/* Sizing pass (Oct 2026): photos stay well inside a phone screen */
+@media (max-width:860px) { .stl-photo { max-height:420px; } }

@@ -1,0 +1,98 @@
+/* ============ Let Truth Lead newsletter (/subscribe, .ltl) — from the three-part mockup ============ */
+/* Fixed colours: warm cream paper, deep brown ink, rust italics and buttons, espresso Ask Remi band, antique gold
+   swashes, rules and the quote mark. Headings are the serif at its regular width (Noto Serif Display 100, and its
+   italic, loaded in app/layout.tsx), light as drawn. */
+.ltl {
+  --ltl-paper:#f6f1e8; --ltl-white:#fbf8f2; --ltl-tint:#f1e7d6; --ltl-ink:#22140d; --ltl-espresso:#241712;
+  --ltl-rust:#a8411d; --ltl-gold:#b8893f; --ltl-gold-light:#e0b866; --ltl-line:rgba(184,137,63,.55);
+  --display:'Noto Serif Display',Georgia,serif;
+  --frame:max(0px, calc((100vw - 1440px) / 2)); --edge:max(var(--gutter), calc((100vw - 1152px) / 2));
+  margin-inline:calc(50% - 50vw); background:var(--ltl-paper); color:var(--ltl-ink); font-family:var(--sans);
+}
+.ltl-wrap { max-width:1152px; margin:0 auto; padding-inline:var(--gutter); box-sizing:content-box; }
+.ltl p { margin:16px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.6; }
+.ltl a:not([class]) { color:inherit; text-decoration:underline; text-underline-offset:3px; }
+.ltl-center { text-align:center; }
+.ltl-h2, .ltl-title { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:400; line-height:1.04; letter-spacing:-.025em; color:var(--ltl-ink); text-wrap:balance; }
+.ltl-title { margin-top:16px; font-size:clamp(40px,4.8vw,64px); line-height:1; }
+.ltl-h2 { font-size:clamp(26px,2.6vw,34px); }
+.ltl-h2--big { font-size:clamp(34px,4.2vw,58px); }
+.ltl-h2 em, .ltl-title em { font-style:italic; }
+.ltl-title em, .ltl-rust { color:var(--ltl-rust); }
+.ltl-gold { color:var(--ltl-gold-light); }
+.ltl-section { padding:clamp(40px,5vw,72px) 0; }
+.ltl-rule { border-top:1px solid var(--ltl-line); }
+.ltl .ltl-eyebrow { margin:0; font-size:13px; font-weight:600; letter-spacing:.26em; text-transform:uppercase; color:#7a5a2a; }
+.ltl .ltl-eyebrow--light { color:var(--ltl-gold-light); }
+.ltl .ltl-lede { margin-top:20px; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(21px,2vw,28px); line-height:1.25; }
+.ltl .ltl-small { font-size:14px; opacity:.75; }
+.ltl-indent { max-width:46em; margin-left:clamp(0px,6vw,72px); }
+.ltl-swash { display:block; width:clamp(180px,24vw,300px); height:auto; margin:4px 0 0 -10px; fill:none; stroke:var(--ltl-gold); stroke-width:2; stroke-linecap:round; }
+
+/* Button: rust with an arrow */
+.ltl-btn { display:inline-flex; align-items:center; justify-content:center; gap:14px; width:100%; padding:16px 28px; background:linear-gradient(180deg,#b44a22,var(--ltl-rust)); color:#fff; border:0; border-radius:4px; font:400 clamp(18px,1.6vw,23px)/1 var(--display); font-variation-settings:'wdth' 100; cursor:pointer; transition:filter .2s ease, transform .2s ease; }
+.ltl-btn:hover { filter:brightness(1.08); color:#fff; transform:translateY(-1px); }
+.ltl-btn--link { width:auto; padding-inline:clamp(40px,6vw,76px); }
+.ltl-buy { margin-top:28px; }
+
+/* Forms: stacked in the hero, two fields across in the close */
+.ltl-form { display:grid; gap:12px; margin-top:24px; }
+.ltl-form--inline { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+.ltl-form--inline .ltl-btn { grid-column:1 / -1; }
+.ltl-form input[type=text], .ltl-form input[type=email] { min-width:0; padding:15px 20px; border:1px solid rgba(184,137,63,.7); border-radius:4px; background:rgba(255,255,255,.45); color:var(--ltl-ink); font:16px/1.2 var(--sans); }
+.ltl-form .form-error { grid-column:1 / -1; }
+.ltl .ltl-thanks { margin-top:24px; padding:16px 20px; border:1px solid var(--ltl-line); background:var(--ltl-white); }
+
+/* Hero: copy and form beside Remi (the HD photo, stopping inside the frame) */
+.ltl-hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,560px); padding-inline-end:var(--frame); border-bottom:1px solid var(--ltl-gold); }
+.ltl-hero-copy { max-width:560px; padding:clamp(28px,3.4vw,48px) clamp(24px,4vw,56px) clamp(36px,4vw,56px) var(--edge); box-sizing:content-box; }
+.ltl-crumbs { margin-bottom:clamp(20px,2.4vw,32px); }
+.ltl-hero-photo { width:100%; height:100%; max-height:820px; object-fit:cover; object-position:50% 20%; }
+
+/* Each edition: three columns with icons and gold rules */
+.ltl-edition { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); margin:clamp(20px,2.4vw,28px) 0 0; padding:0; list-style:none; }
+.ltl-edition > li { padding:0 clamp(18px,3vw,40px); }
+.ltl-edition > li:first-child { padding-left:0; }
+.ltl-edition > li + li { border-left:1px solid var(--ltl-line); }
+.ltl-edition-icon { width:72px; height:54px; fill:none; stroke:var(--ltl-gold); stroke-width:1.4; stroke-linejoin:round; }
+.ltl .ltl-edition-n { margin-top:10px; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:22px; color:var(--ltl-rust); }
+.ltl-edition h3 { margin:4px 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:400; font-size:clamp(28px,3vw,42px); line-height:1.05; letter-spacing:-.02em; }
+.ltl-edition p:last-child { opacity:.85; }
+.ltl .ltl-topics { max-width:52em; margin-top:clamp(28px,3.4vw,40px); }
+
+/* Ask Remi: the espresso band with the gold outline quote mark */
+.ltl-dark { padding:clamp(44px,5.4vw,80px) 0; background:var(--ltl-espresso); color:#f3ece2; overflow:hidden; }
+.ltl-ask { position:relative; }
+.ltl-dark .ltl-h2 { max-width:15em; color:#fbf7f0; }
+.ltl-dark p { color:#f3ece2; }
+.ltl-dark .ltl-eyebrow { margin-bottom:16px; }
+.ltl-quote { position:absolute; right:var(--gutter); top:0; width:clamp(120px,18vw,230px); height:auto; pointer-events:none; }
+.ltl-quote path { fill:none; stroke:var(--ltl-gold-light); stroke-width:2.5; stroke-linejoin:round; }
+
+/* The community photo (stops at 1440px) and who's writing */
+.ltl-community { display:block; width:100%; max-width:1440px; margin-inline:auto; height:clamp(220px,30vw,420px); object-fit:cover; object-position:50% 40%; border-bottom:3px solid var(--ltl-gold); }
+.ltl-about { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:clamp(28px,5vw,72px); align-items:start; }
+.ltl-about div > p:first-child { margin-top:0; }
+.ltl-signature { display:block; width:200px; height:auto; margin-top:16px; mix-blend-mode:multiply; }
+
+/* The close */
+.ltl-close { padding:clamp(44px,5.4vw,80px) 0; background:var(--ltl-tint); border-top:1px solid var(--ltl-gold); scroll-margin-top:80px; }
+.ltl .ltl-close-line { margin-top:20px; font-weight:700; font-size:clamp(18px,1.6vw,22px); }
+.ltl-close .ltl-small { max-width:44em; margin-inline:auto; }
+
+/* Tablets and phones */
+@media (max-width:900px) {
+  .ltl-hero { grid-template-columns:minmax(0,1fr) minmax(0,42%); }
+  .ltl-quote { opacity:.4; }
+}
+@media (max-width:760px) {
+  .ltl-hero { grid-template-columns:1fr; padding-inline:0; }
+  .ltl-hero-copy { max-width:none; padding-inline:var(--gutter); padding-top:16px; }
+  .ltl-hero-photo { order:-1; display:block; width:100%; max-width:540px; margin-inline:auto; height:auto; aspect-ratio:4/3; max-height:none; object-position:50% 25%; }
+  .ltl-edition, .ltl-about, .ltl-form--inline { grid-template-columns:1fr; }
+  .ltl-edition > li, .ltl-edition > li:first-child { padding:0; }
+  .ltl-edition > li + li { padding-top:24px; margin-top:24px; border-left:0; border-top:1px solid var(--ltl-line); }
+  .ltl-indent { margin-left:0; }
+  .ltl-quote { width:110px; top:-10px; }
+  .ltl-btn { font-size:18px; padding-inline:16px; }
+}

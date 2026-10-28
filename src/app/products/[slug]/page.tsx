@@ -13,6 +13,22 @@ import SrLanding from '@/components/sr-landing/SrLanding';
 import BcLanding from '@/components/bc-landing/BcLanding';
 import DsrLanding from '@/components/dsr-landing/DsrLanding';
 import HsLanding from '@/components/hs-landing/HsLanding';
+import OtlLanding from '@/components/otl-landing/OtlLanding';
+import FpLanding from '@/components/fp-landing/FpLanding';
+import AolLanding from '@/components/aol-landing/AolLanding';
+import FwbLanding from '@/components/fwb-landing/FwbLanding';
+import N90Landing from '@/components/n90-landing/N90Landing';
+import BmLanding from '@/components/bm-landing/BmLanding';
+import BbfLanding from '@/components/bbf-landing/BbfLanding';
+import CbyLanding from '@/components/cby-landing/CbyLanding';
+import CiiLanding from '@/components/cii-landing/CiiLanding';
+import DlpLanding from '@/components/dlp-landing/DlpLanding';
+import HmsLanding from '@/components/hms-landing/HmsLanding';
+import PmbLanding from '@/components/pmb-landing/PmbLanding';
+import TteLanding from '@/components/tte-landing/TteLanding';
+import TthLanding from '@/components/tth-landing/TthLanding';
+import UifLanding from '@/components/uif-landing/UifLanding';
+import SffLanding from '@/components/sff-landing/SffLanding';
 import { PRODUCTS, productBySlug, LANDING_SLUGS } from '@/content/products';
 
 const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.ReactNode; metadata: Metadata }> = {
@@ -40,8 +56,8 @@ const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.React
   'selling-from-stage': {
     page: SfsLanding,
     metadata: {
-      title: 'Selling from Stage: Turn an Audience into Buyers — Remi Pearson',
-      description: 'A self-paced online program with Remi Pearson: shape a compelling offer, present it on a live stage or a webinar, and follow through after the pitch. Recorded teaching, workbooks and supporting resources.',
+      title: 'Selling from Stage: The Eight-Step Pitch Method — Remi Pearson',
+      description: 'Learn the eight-step pitch method behind Remi Pearson’s $50 million in personal sales across live events, webinars and small teleconferences: 13 online lessons, pitch-building resources and two bonuses valued at $3,600. $1,997 AUD including GST. Join the waitlist.',
     },
   },
   'why-do-i-keep-doing-this': {
@@ -84,6 +100,118 @@ const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.React
     metadata: {
       title: 'Holding Space Without Rescuing or Disappearing — Remi Pearson',
       description: 'Learn to stay with a difficult conversation when someone you love is upset: listen so they feel heard, understand what support they want, and care without taking over or withdrawing. Five videos and a workbook with Remi Pearson. AUD $29.',
+    },
+  },
+  'obstacles-to-love': {
+    page: OtlLanding,
+    metadata: {
+      title: 'Obstacles to Love: Why You Keep Ending Up Hurt, Guarded or Alone — Remi Pearson',
+      description: 'Recognise seven patterns that make connection difficult, from fear-driven reassurance to losing yourself and hurt that never gets repaired. Seven videos and a practical workbook with Remi Pearson, with a first practice for each. AUD $49.',
+    },
+  },
+  'five-paths-to-a-healthy-relationship': {
+    page: FpLanding,
+    metadata: {
+      title: 'The Five Paths to a Healthy Relationship — Remi Pearson',
+      description: 'A self-paced relationship program with Remi Pearson: five videos and a companion worksheet to help you recognise the patterns that pull you apart, turn towards each other, make room for both people, repair after conflict and build a relationship you both want.',
+    },
+  },
+  'attachment-or-love': {
+    page: AolLanding,
+    metadata: {
+      title: 'Attachment or Love? Free Three-Video Series — Remi Pearson',
+      description: 'Why does love so often leave you on edge? A free three-video series with Remi Pearson on attachment patterns, emotional safety, co-regulation and caring for each other when something hurts. Self-paced, no purchase required.',
+    },
+  },
+  'finding-our-way-back': {
+    page: FwbLanding,
+    metadata: {
+      title: 'Finding Our Way Back: Repair After Conflict — Remi Pearson',
+      description: 'Learn how to repair after conflict and reconnect with care: return to a difficult conversation, understand each other’s hurt and make agreements you can follow through on. Three practical videos and a workbook with Remi Pearson. AUD $29.',
+    },
+  },
+  'the-90-day-review': {
+    page: N90Landing,
+    metadata: {
+      title: 'The 90-Day Review & Personal Success Plan — Remi Pearson',
+      description: 'Run quarterly performance reviews that connect your team’s work to your vision and values, make expectations clear and end in a 90-day Personal Success Plan. Three videos and editable review templates from Remi Pearson. Join the waitlist.',
+    },
+  },
+  'benchmarking-what-good-actually-looks-like': {
+    page: BmLanding,
+    metadata: {
+      title: 'Benchmarking: What Good Actually Looks Like — Remi Pearson',
+      description: 'Make the standard in your head clear to your team: define what good looks like, learn from people who already do it well and track lead and lag measures. Four videos and an implementation workbook from Remi Pearson. AUD $29. Join the waitlist.',
+    },
+  },
+  'build-beyond-the-founder': {
+    page: BbfLanding,
+    metadata: {
+      title: 'Build Beyond the Founder: Three Programs for Business Owners — Remi Pearson',
+      description: 'Make your expertise teachable, hand over responsibility with confidence and decide what your business needs next. Technician to Entrepreneur, Core, Improve, Innovate and Trust That Holds in one self-paced collection from Remi Pearson. Join the waitlist.',
+    },
+  },
+  'come-back-to-yourself': {
+    page: CbyLanding,
+    metadata: {
+      title: 'Come Back to Yourself: Five Self-Paced Programs — Remi Pearson',
+      description: 'Care about other people without leaving yourself behind: five self-paced programs from Remi Pearson on emotions, needs and boundaries, protective patterns, self-regulation and presence. AUD $79, saving $57. Join the waitlist.',
+    },
+  },
+  'core-improve-innovate': {
+    page: CiiLanding,
+    metadata: {
+      title: 'Core, Improve, Innovate: Free Program for Business Owners — Remi Pearson',
+      description: 'A free program from Remi Pearson: three videos and a workbook to decide what to protect, what to strengthen and when a new direction deserves your investment, so your effort goes where your business needs it. Join the waitlist.',
+    },
+  },
+  'disruptive-leadership': {
+    page: DlpLanding,
+    metadata: {
+      title: 'Disruptive Leadership: Free Introductory Program — Remi Pearson',
+      description: 'A free introductory leadership program from Remi Pearson for business owners and team leaders: set expectations people can act on, address behaviour that undermines your team and stop carrying everyone else’s responsibilities. Join the waitlist.',
+    },
+  },
+  'holding-space-for-magnetic-sales': {
+    page: HmsLanding,
+    metadata: {
+      title: 'Holding Space for Magnetic Sales: Free Sales Introduction — Remi Pearson',
+      description: 'A free introduction from Remi Pearson for coaches, consultants and service business owners: stop crowding the sales conversation, listen with intention and give potential clients room to move towards you. Three videos and a workbook. Join the waitlist.',
+    },
+  },
+  'the-performance-management-blueprint': {
+    page: PmbLanding,
+    metadata: {
+      title: 'The Performance Management Blueprint — Remi Pearson',
+      description: 'Lead a team that takes responsibility without chasing every result: make expectations clear, find the real performance gap, give feedback people can act on and agree on shared accountability. Four videos and a workbook from Remi Pearson. AUD $29. Join the waitlist.',
+    },
+  },
+  'from-practice-to-enterprise': {
+    page: TteLanding,
+    metadata: {
+      title: 'Technician to Entrepreneur: Build a Business Beyond You — Remi Pearson',
+      description: 'Make your expertise teachable, hand over responsibility with confidence and build value that continues beyond your personal involvement. Six video modules, a workbook and a 90-day action plan from Remi Pearson. AUD $79. Join the waitlist.',
+    },
+  },
+  'trust-that-holds': {
+    page: TthLanding,
+    metadata: {
+      title: 'Trust That Holds: The T.R.U.S.T.M.E. Program — Remi Pearson',
+      description: 'Understand why pressure pulls you back into old patterns and develop more useful ways to respond, with the T.R.U.S.T.M.E. model: 11 videos, a reflective self-assessment and an application workbook from Remi Pearson. AUD $49. Join the waitlist.',
+    },
+  },
+  'ultimate-influence-foundations': {
+    page: UifLanding,
+    metadata: {
+      title: 'Ultimate Influence Foundations: Consultative Sales Introduction — Remi Pearson',
+      description: 'An accessible introduction to the psychology, eight-step conversation and persuasive language of Ultimate Influence: understand what your buyer wants and ask them to begin. Six self-paced lessons and a workbook from Remi Pearson. AUD $79 + GST. Join the waitlist.',
+    },
+  },
+  'selling-from-stage-fundamentals': {
+    page: SffLanding,
+    metadata: {
+      title: 'Selling from Stage Fundamentals: The Eight-Step Pitch — Remi Pearson',
+      description: 'Know how to make the offer when it’s your turn to speak: the eight-step pitch structure for workshops, webinars and live events, from Remi Pearson, who has sold more than $50 million from stage. Three focused videos. $79 AUD. Join the waitlist.',
     },
   },
 };

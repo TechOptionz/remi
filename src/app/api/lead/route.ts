@@ -19,8 +19,8 @@ const SUBJECTS: Record<Kind, string> = {
 };
 // A waitlist sign-up that names a product is a "tell me when it's ready" form (NotifyForm, TriadNotify), not Rebel Yell
 const NOTIFY_SUBJECT = 'Tell me when it’s ready';
-// …except a free series' registration form (components/wdk-landing/RegisterForm.tsx)
-const FREE_SERIES = ['Why Do I Keep Doing This?'];
+// …except a free series' registration form (components/wdk-landing/RegisterForm.tsx, aol-landing/RegisterForm.tsx)
+const FREE_SERIES = ['Why Do I Keep Doing This?', 'Attachment or Love?'];
 const REGISTER_SUBJECT = 'Free series registration';
 const SEGMENT_NAMES: Record<string, string> = {
   leadership: 'Leadership', business: 'Business', 'personal-development': 'Personal development',
@@ -64,11 +64,12 @@ const SEGMENTS = ['leadership', 'business', 'personal-development', 'consultativ
 const LISTS: Record<string, string> = {
   ...SEGMENT_NAMES, invitation: 'Invite Remi', 'rebel-yell': 'Waitlist — Rebel Yell',
   'the-shift': 'Waitlist — The Shift', 'selling-from-stage': 'Waitlist — Selling from Stage',
-  'why-do-i-keep-doing-this': 'Free series — Why Do I Keep Doing This?',
+  'why-do-i-keep-doing-this': 'Free series — Why Do I Keep Doing This?', 'attachment-or-love': 'Free series — Attachment or Love?',
 };
 // "Tell me when it's ready" products with a waitlist segment of their own (by the `product` their form sends)
 const PRODUCT_LISTS: Record<string, string> = {
   'The Shift': 'the-shift', 'Selling from Stage': 'selling-from-stage', 'Why Do I Keep Doing This?': 'why-do-i-keep-doing-this',
+  'Attachment or Love?': 'attachment-or-love',
 };
 
 const segmentIds = new Map<string, string>(); // name → id, kept while the function instance is warm

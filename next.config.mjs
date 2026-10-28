@@ -11,6 +11,9 @@ const nextConfig = {
       { source: '/products/self-esteem-from-the-inside-out', destination: '/products/self-esteem-triad', permanent: true },
       { source: '/products/move-the-room', destination: '/products/selling-from-stage', permanent: true }, // replaced by Selling from Stage
       { source: '/products/selling-something-intangible', destination: '/products#influence', permanent: true }, // removed
+      { source: '/products/understand-before-you-prescribe', destination: '/products#influence', permanent: true }, // removed
+      { source: '/attachment-style-quiz', destination: '/products/attachment-or-love', permanent: true }, // assessment page removed (Oct 2026); two articles still link here
+      { source: '/products/conflict-repair-and-harmony', destination: '/products/finding-our-way-back', permanent: true }, // retitled Finding Our Way Back
       { source: '/about-remi.html', destination: '/about-remi', permanent: true },
       { source: '/invite-remi.html', destination: '/invite-remi', permanent: true },
       { source: '/ideas-models.html', destination: '/ideas-models', permanent: true },

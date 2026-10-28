@@ -11,11 +11,11 @@
 .srl-crumbs { margin:0; padding-top:clamp(20px,2.4vw,32px); }
 .srl p { margin:16px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.6; }
 .srl-h2, .srl-title { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; line-height:1.08; letter-spacing:-.01em; color:inherit; text-wrap:balance; }
-.srl-title { font-size:clamp(40px,5.2vw,68px); line-height:1.02; }
+.srl-title { font-size:clamp(32px,3.4vw,48px); line-height:1.02; }
 .srl-h2 { font-size:clamp(30px,3.6vw,48px); }
 .srl-h3 { margin:clamp(28px,3vw,40px) 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(21px,2vw,26px); line-height:1.2; }
 .srl .srl-lede { font-size:clamp(17px,1.5vw,20px); }
-.srl-section { padding:clamp(56px,7vw,88px) 0; }
+.srl-section { padding:clamp(40px,5vw,72px) 0; }
 .srl-section--flush { padding-top:0; }
 
 /* Buttons: rust, uppercase, letter-spaced (charcoal on the rust band) */
@@ -26,12 +26,12 @@
 .srl .srl-fine { margin-top:14px; font-size:15px; line-height:1.5; opacity:.75; }
 
 /* Hero: the question and the button beside the framed photo, captioned "With Remi Pearson" */
-.srl-hero { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(28px,5vw,64px); align-items:start; padding:clamp(20px,2.6vw,36px) 0 clamp(48px,6vw,80px); }
+.srl-hero { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr); gap:clamp(28px,5vw,64px); align-items:center; padding:clamp(16px,2vw,24px) 0 clamp(36px,4vw,56px); }
 .srl-eyebrow { margin:0 0 18px !important; font-size:14px !important; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--srl-rust); }
 .srl-hero .srl-title { margin-bottom:8px; }
 .srl-buy { margin-top:28px; }
 .srl-hero-fig { margin:0; }
-.srl-hero-fig img { display:block; width:100%; height:auto; aspect-ratio:2/3; object-fit:cover; object-position:50% 20%; }
+.srl-hero-fig img { display:block; width:100%; max-height:560px; height:auto; aspect-ratio:3/4; object-fit:cover; object-position:50% 20%; }
 .srl-hero-fig figcaption { display:inline-block; margin-top:16px; padding-bottom:10px; border-bottom:2px solid var(--srl-gold); font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:19px; }
 
 /* Charcoal bands */
@@ -66,10 +66,10 @@
 
 /* Something to work with between the videos: the workbook and meditation cards */
 .srl-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(20px,3vw,40px); margin-top:clamp(24px,3vw,36px); }
-.srl-cards img { display:block; width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; border-radius:2px; }
+.srl-cards img { display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; border-radius:2px; }
 .srl-cards article:last-child img { object-position:100% 50%; }
 /* The meditation card: the HD black-and-white stage photo on charcoal, with the title, a play button and a sound wave */
-.srl-med { position:relative; aspect-ratio:4/3; border-radius:2px; overflow:hidden; background:#151413; }
+.srl-med { position:relative; aspect-ratio:16/9; border-radius:2px; overflow:hidden; background:#151413; }
 .srl-cards .srl-med img { position:absolute; top:0; right:0; width:62%; height:100%; aspect-ratio:auto; object-position:50% 20%; -webkit-mask-image:linear-gradient(to right,transparent,#000 35%); mask-image:linear-gradient(to right,transparent,#000 35%); }
 .srl-med-copy { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; padding-left:clamp(16px,2.4vw,28px); color:#f6efe5; }
 .srl .srl-med-title { margin:0; max-width:7em; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(20px,2.2vw,30px); line-height:1.1; letter-spacing:.06em; text-transform:uppercase; color:#f6efe5; }
@@ -84,7 +84,7 @@
 /* A note from Remi: the black-and-white portrait beside the note, on a tinted band */
 .srl-note { padding:clamp(48px,6vw,80px) 0; background:var(--srl-tint); }
 .srl-note-grid { display:grid; grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr); gap:clamp(28px,4vw,56px); align-items:center; }
-.srl-note-photo { display:block; width:100%; height:auto; border-radius:2px; }
+.srl-note-photo { display:block; width:100%; max-width:400px; height:auto; border-radius:2px; }
 .srl .srl-signature { margin:6px 0 0; font-family:'Caveat',cursive; font-weight:500; font-size:clamp(52px,5.4vw,72px); line-height:1; color:#b8892f; transform:rotate(-6deg); transform-origin:left; width:max-content; }
 
 /* What people say (only once real testimonials exist) */

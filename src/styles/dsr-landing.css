@@ -11,11 +11,11 @@
 .dsl p { margin:16px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.6; }
 .dsl-center { text-align:center; }
 .dsl-h2, .dsl-title { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; line-height:1.08; letter-spacing:-.02em; color:inherit; text-wrap:balance; }
-.dsl-title { font-size:clamp(38px,4.8vw,62px); line-height:1.04; }
+.dsl-title { font-size:clamp(32px,3.4vw,48px); line-height:1.04; }
 .dsl-h2 { font-size:clamp(30px,3.8vw,50px); }
 .dsl-h3 { margin:clamp(28px,3vw,40px) 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(21px,2vw,26px); }
 .dsl .dsl-lede { max-width:52em; margin-inline:auto; font-size:clamp(17px,1.5vw,20px); }
-.dsl-section { padding:clamp(56px,7vw,88px) 0; }
+.dsl-section { padding:clamp(40px,5vw,72px) 0; }
 .dsl-section--top0 { padding-top:0; }
 .dsl-tint { background:var(--dsl-tint); }
 .dsl .dsl-small { margin-top:14px; font-size:14px; letter-spacing:.1em; line-height:1.7; opacity:.8; }
@@ -32,13 +32,13 @@
 .dsl-dark p { color:rgba(246,234,216,.9); }
 
 /* Hero */
-.dsl-hero { padding:clamp(20px,2.4vw,32px) 0 clamp(56px,7vw,88px); }
+.dsl-hero { padding:clamp(16px,2vw,24px) 0 clamp(36px,4vw,56px); }
 .dsl-crumbs { margin:0; color:rgba(246,234,216,.7); }
 .dsl-crumbs a, .dsl-crumbs [aria-current] { color:inherit; }
-.dsl-hero-grid { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(28px,5vw,64px); align-items:center; margin-top:clamp(28px,3.6vw,48px); }
+.dsl-hero-grid { display:grid; grid-template-columns:minmax(0,1.45fr) minmax(0,.55fr); gap:clamp(28px,5vw,64px); align-items:center; margin-top:clamp(16px,2vw,28px); }
 .dsl-eyebrow { margin:0 0 20px !important; font-size:13px !important; font-weight:700; letter-spacing:.28em; text-transform:uppercase; color:var(--dsl-gold-light) !important; }
 .dsl-eyebrow span { display:block; margin-top:6px; letter-spacing:.2em; color:rgba(246,234,216,.7); }
-.dsl-hero-photo { display:block; width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; object-position:52% 30%; border-radius:4px; box-shadow:0 0 0 1px var(--dsl-line), 0 20px 50px rgba(0,0,0,.35); }
+.dsl-hero-photo { display:block; width:100%; max-width:440px; height:auto; aspect-ratio:4/5; object-fit:cover; object-position:52% 30%; border-radius:4px; box-shadow:0 0 0 1px var(--dsl-line), 0 20px 50px rgba(0,0,0,.35); }
 
 /* How many times: the six ringed icons */
 .dsl-ring { flex:none; display:grid; place-items:center; width:58px; height:58px; border:1.5px solid var(--dsl-gold); border-radius:50%; color:var(--dsl-gold); }
@@ -55,7 +55,7 @@
 .dsl-strip--flush + .dsl-section { padding-top:clamp(36px,4vw,56px); }
 
 /* The pearls diagram and the pull line */
-.dsl-pearls { max-width:900px; margin:0 auto; padding:8px; border:1px solid var(--dsl-gold); border-radius:3px; background:#fbf6ee; }
+.dsl-pearls { max-width:680px; margin:0 auto; padding:8px; border:1px solid var(--dsl-gold); border-radius:3px; background:#fbf6ee; }
 .dsl-pearls img { display:block; width:100%; height:auto; }
 .dsl .dsl-pull { max-width:46em; margin:clamp(28px,3vw,40px) auto 0; padding-left:18px; border-left:3px solid var(--dsl-gold); font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(19px,1.8vw,24px); line-height:1.35; }
 
@@ -90,7 +90,7 @@
 
 /* A note from Remi */
 .dsl-note { display:grid; grid-template-columns:minmax(0,.6fr) minmax(0,1.4fr); gap:clamp(28px,4vw,56px); align-items:center; }
-.dsl-note-photo { display:block; width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; object-position:50% 20%; border-radius:4px; }
+.dsl-note-photo { display:block; width:100%; max-width:380px; height:auto; aspect-ratio:4/5; object-fit:cover; object-position:50% 20%; border-radius:4px; }
 .dsl .dsl-signature { margin:8px 0 0; font-family:'Caveat',cursive; font-weight:500; font-size:clamp(52px,5.4vw,72px); line-height:1; color:#b8892f; transform:rotate(-6deg); transform-origin:left; width:max-content; }
 
 /* What people say (only once real testimonials exist) */

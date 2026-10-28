@@ -1,10 +1,11 @@
 // Programs — "Where shall we begin?" (round four edits, the PROGRAMS summary mock-up): the free ways in (Perspectives, the
-// CAM Mini Profiler, the Attachment Style Assessment), the programs with their prices (PROGRAMS in content/products.ts),
+// CAM Mini Profiler), the programs with their prices (PROGRAMS in content/products.ts, drawn as the /products photo bands),
 // then the self-paced programs by question, each opening its range on /products. The homepage's "Browse all programs" lands here.
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ProgramBands } from '@/components/products/DesignedRange';
 import { CAM_PROFILER_HREF } from '@/content/ideas';
-import { ATTACHMENT_QUIZ_HREF, CATEGORIES, FREE, PROGRAMS, productsIn, type CategoryId } from '@/content/products';
+import { CATEGORIES, FREE, PROGRAMS, productsIn, type CategoryId } from '@/content/products';
 
 export const metadata: Metadata = {
   title: 'Programs — Remi Pearson',
@@ -60,33 +61,8 @@ export default function ProgramsPage() {
         </svg>
       </section>
 
-      <section className="pg-card pg-card--blush" aria-labelledby="pg-attach-h">
-        <div className="pg-card-copy">
-          <p className="pr-eyebrow">Free</p>
-          <h2 id="pg-attach-h" className="pr-h2">How Do You Attach?</h2>
-          <p>A free Attachment Style Assessment for relationships, self-esteem and emotional change.</p>
-          <Link href={ATTACHMENT_QUIZ_HREF} className="pg-btn">Take the assessment</Link>
-        </div>
-        <img className="pg-multiply" src="/assets/rabbit-holes/ls-hero.webp" alt="Two hands reaching towards each other, almost touching, in soft window light" width={944} height={1086} loading="lazy" decoding="async" />
-      </section>
 
-      <section className="pr-range" aria-labelledby="pg-prog-h">
-        <p className="pr-eyebrow">Go deeper</p>
-        <h2 id="pg-prog-h" className="pr-h2">Programs with Remi</h2>
-        <div className={`pr-grid pr-grid--three${PROGRAMS.length === 4 ? ' pr-grid--pairs' : ''}`}>
-          {PROGRAMS.map(p => (
-            <article key={p.title} className={`pr-card pr-card--${p.tone}`}>
-              <p className="pr-kicker">{p.kicker}</p>
-              <h3>{p.title}</h3>
-              <p>{p.text}</p>
-              <p className="pr-price">{p.price}</p>
-              {p.external
-                ? <a href={p.href} className="pr-btn" target="_blank" rel="noopener noreferrer">{p.cta} <span aria-hidden="true">↗</span></a>
-                : <Link href={p.href} className="pr-btn">{p.cta}</Link>}
-            </article>
-          ))}
-        </div>
-      </section>
+      <ProgramBands list={PROGRAMS} id="pg-prog" name="Programs with Remi" question="Go deeper" />
 
       <section className="pr-range" aria-labelledby="pg-self-h">
         <p className="pr-eyebrow">Self-paced programs</p>

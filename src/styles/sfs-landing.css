@@ -1,73 +1,192 @@
-/* ============ Selling from Stage sales page (/products/selling-from-stage) ============ */
-/* From its seven-page design. Built on the sales-page kit (landing.css, .stl-*) and the CAM page's pieces (cam-landing.css,
-   .cml-*: the page carries both classes); only what differs lives here. The photos are people, so they are not multiplied. */
-.sfs .stl-photo { mix-blend-mode:normal; }
-.sfs-hero { padding:clamp(24px,3vw,40px) 0 clamp(56px,7vw,96px); align-items:stretch; }
-.sfs-photo-tall { align-self:stretch; height:100%; max-height:880px; object-fit:cover; object-position:50% 0; }
-.sfs-lede { font-size:clamp(18px,1.6vw,22px) !important; line-height:1.45 !important; }
-.sfs-facts { margin:clamp(22px,2.6vw,32px) 0 clamp(16px,2vw,22px); padding:0; list-style:none; }
-.sfs-facts li { display:flex; align-items:center; gap:18px; padding:10px 0; }
-.sfs-facts h2 { margin:0 0 4px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:600; font-size:clamp(19px,1.8vw,24px); line-height:1.1; text-transform:uppercase; color:var(--rust); }
-.sfs-facts p { margin:0; line-height:1.5; }
-.sfs-btn { margin-top:18px; }
-.stl-split-copy > .sfs-plan-line { margin-top:10px; font-size:15px; opacity:.8; }
-
-/* What you will learn: the six items, numbered like the video lists */
-.sfs-learn { margin-bottom:20px; }
-.sfs-learn h3 { color:var(--rust); }
-
-/* Who this is for / what you need to bring / the format: two columns */
-.sfs-who { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(28px,4vw,56px); }
-.sfs-who > div + div { padding-left:clamp(20px,3vw,44px); border-left:1px solid var(--line); }
-.sfs-who .cml-day p { margin:0; }
-.sfs-pull { margin:0; padding:clamp(20px,2.6vw,32px) clamp(24px,3vw,40px); border-left:6px solid var(--rust); background:#f1dcc0; font-family:var(--serif); font-size:clamp(22px,2.4vw,32px); line-height:1.25; color:var(--ink-strong); }
-.sfs-center { justify-content:center; margin-bottom:clamp(24px,3vw,40px); }
-
-/* The twelve modules in three parts, under the crowd photograph */
-.sfs-path-title { font-size:clamp(34px,4.4vw,60px); text-transform:none; }
-.sfs-crowd { width:100%; margin:clamp(20px,2.6vw,32px) 0 clamp(8px,1vw,16px); border-radius:3px; -webkit-mask-image:none; mask-image:none; }
-.sfs-part-h { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 18px; margin:clamp(28px,3vw,40px) 0 0; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(26px,2.8vw,38px); line-height:1; text-transform:uppercase; color:var(--ink-strong); }
-.sfs-part-h span { font-family:var(--serif); font-weight:400; font-size:.55em; letter-spacing:.28em; color:var(--rust); }
-.sfs-part .stl-video-list { margin-top:12px; }
-.sfs-included { display:grid; grid-template-columns:auto minmax(0,1fr); align-items:center; gap:clamp(20px,3vw,44px); }
-.sfs-included .stl-band-title { margin:0; padding-right:clamp(20px,3vw,44px); border-right:1px solid rgba(251,241,227,.4); font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-style:normal; font-size:clamp(40px,5vw,64px); text-transform:uppercase; color:var(--stl-cream); }
-.sfs-included p:last-child { line-height:1.6; }
-
-/* The questions: numbered cards */
-.sfs-faq dt { display:flex; align-items:baseline; gap:12px; }
-.sfs-faq .stl-num { font-size:clamp(30px,3vw,40px); }
-
-/* Closing band: what's included beside the two payment options */
-.sfs-close-with { display:block; margin-top:.15em; font-family:var(--serif); font-style:italic; font-weight:400; font-size:.7em; text-transform:none; color:#f3dcb4; }
-.sfs-close-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:clamp(24px,4vw,56px); align-items:start; margin-top:clamp(28px,3.4vw,44px); }
-.sfs-close-sub { margin:0 0 12px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(24px,2.4vw,32px); text-transform:uppercase; }
-.sfs-includes { margin:0; padding:0; list-style:none; }
-.sfs-includes li { display:flex; align-items:center; gap:16px; padding:10px 0; border-bottom:1px solid rgba(251,241,227,.25); }
-.sfs-inc-icon { flex:none; display:grid; place-items:center; width:42px; height:42px; border-radius:50%; background:var(--stl-cream); color:var(--rust); }
-.sfs-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
-.sfs-option { padding:clamp(18px,2.4vw,28px); border:1px solid rgba(251,241,227,.45); border-radius:3px; text-align:center; }
-.sfs-option h3 { margin:0 0 6px; font-family:var(--display); font-variation-settings:'wdth' 62.5; font-weight:700; font-size:clamp(20px,2vw,26px); line-height:1.05; text-transform:uppercase; color:#f3dcb4; }
-.sfs-option p { margin:4px 0 0; font-size:14.5px; }
-.sfs-option-kicker { font-size:12.5px !important; letter-spacing:.22em; text-transform:uppercase; }
-.sfs-option .stl-price { margin-top:10px; color:var(--stl-cream); font-size:clamp(52px,5.6vw,76px); }
-.sfs-option .stl-price span { display:block; margin:4px 0 0; font-size:.3em; }
-.sfs-option-big { margin-top:12px !important; font-family:var(--serif); font-size:clamp(18px,1.7vw,22px) !important; }
-.sfs-option-rule { padding-top:12px; border-top:1px solid rgba(251,241,227,.35); }
-.sfs-close-action { margin-top:clamp(18px,2.2vw,26px); }
-.sfs-close-action .pr-notify { max-width:none; }
-.sfs-tagline { margin:clamp(28px,3.4vw,44px) 0 0; padding-top:18px; border-top:1px solid rgba(251,241,227,.35); font-family:var(--serif); font-size:clamp(20px,2.2vw,30px); text-align:center; }
-
-/* No gaps: the shared rules are in cam-landing.css; here the tall photos stay anchored at the top (faces) */
-.sfs-who + .sfs-pull { margin-top:0; }
-@media (min-width:861px) { .cml .stl-split > .sfs-photo-tall { object-position:50% 0; } }
-
-@media (max-width:860px) {
-  .sfs-photo-tall { width:100%; max-width:440px; height:auto; max-height:none; aspect-ratio:4 / 5; object-fit:cover; object-position:50% 0; }
-  .sfs-who, .sfs-close-grid { grid-template-columns:1fr; }
-  .sfs-who > div + div { padding-left:0; border-left:0; }
+/* ============ Selling from Stage, the full program (.sfs) — from the five-part mockup ============ */
+/* Fixed colours: warm ivory paper, deep burgundy headings and bands, copper buttons, antique gold numerals, rules,
+   icons and frames. Headings are the serif at its regular width (Noto Serif Display 100, loaded in app/layout.tsx),
+   set tight as drawn. Photos stop inside a 1440px frame and within ~1.3x their source; the 13 lesson drawings are
+   flattened to white and multiplied onto the paper (sales-page sizing, CLAUDE.md). */
+.sfs {
+  --sfs-paper:#f8f3eb; --sfs-white:#fcf9f4; --sfs-tint:#f1e7da; --sfs-ink:#241c18; --sfs-burgundy:#4c1018; --sfs-burgundy-2:#6a1822;
+  --sfs-copper:#bb4e1f; --sfs-gold:#b88f4c; --sfs-gold-ink:#8d6a32; --sfs-gold-light:#e0bd7c; --sfs-line:rgba(184,143,76,.5);
+  --display:'Noto Serif Display',Georgia,serif;
+  --frame:max(0px, calc((100vw - 1440px) / 2)); --edge:max(var(--gutter), calc((100vw - 1152px) / 2));
+  margin-inline:calc(50% - 50vw); background:var(--sfs-paper); color:var(--sfs-ink); font-family:var(--sans);
 }
-@media (max-width:640px) {
-  .sfs-options { grid-template-columns:1fr; }
-  .sfs-included { grid-template-columns:1fr; }
-  .sfs-included .stl-band-title { padding-right:0; border-right:0; }
+.sfs-wrap { max-width:1152px; margin:0 auto; padding-inline:var(--gutter); box-sizing:content-box; }
+.sfs p { margin:16px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.6; }
+.sfs a:not([class]) { color:var(--sfs-copper); text-decoration:underline; text-underline-offset:3px; }
+.sfs-h2, .sfs-title { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; line-height:1.05; letter-spacing:-.025em; color:var(--sfs-burgundy); text-wrap:balance; }
+.sfs-title { margin-top:16px; font-size:clamp(34px,3.8vw,50px); line-height:1.03; }
+.sfs-h2 { font-size:clamp(24px,2.5vw,32px); }
+.sfs-h2--big { font-size:clamp(30px,3.4vw,44px); }
+.sfs-h3 { margin:clamp(20px,2.4vw,28px) 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(21px,2vw,26px); line-height:1.2; color:var(--sfs-burgundy); }
+.sfs-section { padding:clamp(40px,5vw,72px) 0; }
+.sfs-rule { border-top:1px solid var(--sfs-line); }
+.sfs .sfs-eyebrow, .sfs .sfs-label { margin:0; font-size:12.5px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; color:var(--sfs-gold-ink); }
+.sfs .sfs-eyebrow { display:flex; flex-direction:column; gap:12px; }
+.sfs-eyebrow::after { content:""; width:40px; height:1px; background:var(--sfs-gold); }
+.sfs .sfs-label { display:flex; align-items:center; gap:14px; }
+.sfs-label::after { content:""; width:52px; height:1px; background:var(--sfs-gold); }
+.sfs .sfs-label--light { color:var(--sfs-gold-light); }
+.sfs .sfs-lede { margin-top:18px; font-size:clamp(17px,1.5vw,20px); line-height:1.5; }
+.sfs .sfs-strong { font-weight:700; }
+.sfs .sfs-small { margin-top:10px; font-size:14.5px; opacity:.8; }
+.sfs-cols { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 clamp(28px,4vw,56px); margin-top:8px; }
+.sfs-cols--flow { display:block; columns:2; column-gap:clamp(28px,4vw,56px); }
+.sfs-cols--flow p { break-inside:avoid; }
+.sfs-cols--flow p:first-child { margin-top:16px; }
+
+/* Buttons: copper, letter-spaced */
+.sfs-btn { display:inline-flex; align-items:center; justify-content:center; gap:14px; padding:17px clamp(32px,4.4vw,60px); background:var(--sfs-copper); color:#fff; border:0; border-radius:3px; font:600 clamp(13.5px,1.1vw,15px)/1 var(--sans); letter-spacing:.2em; text-transform:uppercase; cursor:pointer; transition:filter .2s ease, transform .2s ease; }
+.sfs-btn:hover { filter:brightness(1.08); color:#fff; transform:translateY(-1px); }
+.sfs-btn--dark { background:var(--sfs-copper); }
+.sfs-buy { margin-top:clamp(22px,2.8vw,30px); }
+
+/* Ticks and crosses */
+.sfs-ticks, .sfs-crosses { margin:14px 0 0; padding:0; list-style:none; display:grid; gap:12px; }
+.sfs-ticks li, .sfs-crosses li { position:relative; padding-left:40px; min-height:28px; font-size:clamp(16px,1.3vw,18px); line-height:1.5; }
+.sfs-ticks li::before, .sfs-crosses li::before { content:""; position:absolute; left:0; top:-1px; width:26px; height:26px; border-radius:50%; background:var(--sfs-gold); }
+.sfs-ticks li::after { content:""; position:absolute; left:8px; top:6px; width:10px; height:6px; border-left:2px solid #fff; border-bottom:2px solid #fff; transform:rotate(-45deg); }
+.sfs-crosses li::before { background:var(--sfs-burgundy); }
+.sfs-crosses li::after { content:"×"; position:absolute; left:0; top:-1px; width:26px; line-height:26px; text-align:center; color:#fff; font-size:18px; }
+.sfs-ticks--light li { color:#f5ece2; }
+
+/* Hero: copy beside the audience, which stops inside the frame and fades into the paper */
+.sfs-hero { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,520px); padding-inline-end:var(--frame); }
+.sfs-hero-copy { padding:clamp(28px,3.4vw,48px) clamp(24px,4vw,56px) clamp(32px,4vw,48px) var(--edge); }
+.sfs-crumbs { margin-bottom:clamp(20px,2.4vw,32px); }
+.sfs .sfs-price { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 12px; margin-top:22px; }
+.sfs-price strong { font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(34px,3.6vw,46px); line-height:1; color:var(--sfs-burgundy); }
+.sfs .sfs-guarantee-line { display:flex; gap:12px; align-items:flex-start; margin-top:20px; padding-top:16px; border-top:1px solid var(--sfs-line); font-size:14.5px; }
+.sfs-guarantee-line svg { flex:none; margin-top:2px; color:var(--sfs-gold-ink); }
+.sfs-hero-photo { width:100%; height:100%; max-height:820px; object-fit:cover; object-position:40% 40%; -webkit-mask-image:linear-gradient(to right,transparent,#000 22%); mask-image:linear-gradient(to right,transparent,#000 22%); }
+
+/* The burgundy strip of figures */
+.sfs-figures { padding:clamp(24px,3vw,36px) 0; background:var(--sfs-burgundy); color:#f5ece2; }
+.sfs-figures-inner { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); text-align:center; }
+.sfs-figures-inner > div { padding:0 clamp(16px,3vw,40px); }
+.sfs-figures-inner > div + div { border-left:1px solid var(--sfs-gold); }
+.sfs .sfs-figure-n { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(28px,3.2vw,40px); letter-spacing:.06em; text-transform:uppercase; color:#fbf5ee; }
+.sfs .sfs-figure-label { margin-top:8px; font-size:12.5px; letter-spacing:.2em; text-transform:uppercase; color:#f5ece2; }
+.sfs .sfs-figure-sub { margin-top:6px; font-size:14px; color:var(--sfs-gold-light); }
+
+/* Verified quotes (render only once TESTIMONIALS has entries) */
+.sfs-quotes { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); gap:clamp(14px,2vw,24px); margin:clamp(28px,3.4vw,40px) 0 0; padding:0; list-style:none; }
+.sfs-quotes li { padding:clamp(22px,3vw,32px); border:1px solid var(--sfs-gold); background:var(--sfs-white); }
+.sfs-quotes blockquote { margin:0; }
+.sfs-quotes blockquote p { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(18px,1.6vw,21px); line-height:1.45; }
+.sfs .sfs-quote-by { margin-top:12px; font-size:14.5px; }
+
+/* The five reasons: line icons beside a gold rule */
+.sfs-reasons { margin:clamp(20px,2.4vw,28px) 0 0; padding:0; list-style:none; display:grid; gap:clamp(14px,1.8vw,20px); }
+.sfs-reasons li { display:grid; grid-template-columns:auto minmax(0,1fr); gap:clamp(18px,2.4vw,28px); align-items:start; }
+.sfs-reason-icon { padding:4px clamp(18px,2.4vw,28px) 4px 0; border-right:1px solid var(--sfs-gold); color:var(--sfs-gold-ink); }
+.sfs-reasons h3 { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(20px,1.9vw,24px); line-height:1.2; color:var(--sfs-burgundy); }
+.sfs-reason-n { color:var(--sfs-gold-ink); }
+.sfs-reasons p { margin-top:6px; }
+.sfs-signature { display:block; width:200px; height:auto; margin-top:16px; mix-blend-mode:multiply; }
+
+/* The 13 lessons: alternating rows beside their drawings, on a soft tint every other row */
+.sfs-lessons { margin:clamp(24px,3vw,36px) 0 0; padding:0; list-style:none; }
+.sfs-lessons > li { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:clamp(24px,4vw,56px); align-items:center; padding:clamp(18px,2.2vw,26px) clamp(14px,2vw,24px); border-top:1px solid var(--sfs-line); }
+.sfs-lessons > li:nth-child(even) { grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr); background:var(--sfs-tint); }
+.sfs-lessons > li:nth-child(even) .sfs-lesson-art { order:1; }
+.sfs-lessons > li:last-child { border-bottom:1px solid var(--sfs-line); }
+.sfs-lesson-art { width:100%; max-width:300px; height:auto; max-height:150px; object-fit:contain; justify-self:center; mix-blend-mode:multiply; }
+/* Lesson 9's diamond is the smallest cut: kept near its own size. */
+.sfs-lessons > li:nth-child(9) .sfs-lesson-art { max-width:210px; }
+.sfs .sfs-lesson-n { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:18px; letter-spacing:.08em; color:var(--sfs-gold-ink); }
+.sfs-lesson-copy h3 { margin:4px 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(22px,2.2vw,28px); line-height:1.15; letter-spacing:-.015em; color:var(--sfs-burgundy); }
+.sfs-lesson-copy p:not(.sfs-lesson-n) { margin-top:8px; font-size:clamp(15.5px,1.25vw,17px); }
+.sfs .sfs-result { font-weight:700; }
+
+/* Burgundy bands: the resources, the guarantee */
+.sfs-band { padding:clamp(44px,5.4vw,72px) 0; background:var(--sfs-burgundy); background-image:linear-gradient(135deg,rgba(255,255,255,.04),rgba(0,0,0,.2)); color:#f5ece2; }
+.sfs-band .sfs-h2 { color:#fbf5ee; }
+.sfs-band p { color:#f5ece2; }
+.sfs-finish { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(28px,5vw,72px); align-items:center; }
+.sfs .sfs-band-strong { font-family:var(--display); font-variation-settings:'wdth' 100; font-style:italic; font-size:clamp(20px,2vw,26px); line-height:1.35; color:var(--sfs-gold-light); }
+.sfs-guarantee { display:grid; grid-template-columns:minmax(0,340px) minmax(0,1fr); gap:clamp(24px,4vw,56px); align-items:center; }
+.sfs-shield { width:100%; max-width:340px; height:auto; justify-self:center; mix-blend-mode:lighten; }
+
+/* The two bonuses: framed panels */
+.sfs-bonus { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,520px); gap:0; border:1px solid var(--sfs-line); background:var(--sfs-white); }
+.sfs-bonus + .sfs-bonus { margin-top:clamp(16px,2vw,24px); }
+.sfs-bonus-copy { padding:clamp(24px,3vw,40px); }
+.sfs-bonus-copy .sfs-h2 { margin-top:16px; }
+.sfs .sfs-bonus-value { margin-top:10px; font-size:13.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sfs-gold-ink); }
+.sfs-bonus-photo { width:100%; height:100%; max-height:520px; object-fit:cover; }
+.sfs-bonus--two { grid-template-columns:minmax(0,1fr) minmax(0,560px); align-items:start; }
+.sfs-bonus--two .sfs-pitches { padding-top:clamp(40px,5vw,64px); }
+.sfs-pitches { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:0; padding:clamp(20px,2.4vw,28px); list-style:none; }
+.sfs-pitches img { display:block; width:100%; max-width:200px; height:auto; aspect-ratio:250/237; object-fit:cover; }
+
+/* The enrolment panel on the burgundy band */
+.sfs-enrol { padding:clamp(20px,3vw,40px) 0; background:linear-gradient(to bottom,var(--sfs-paper) 30%,var(--sfs-tint)); }
+.sfs-enrol-panel { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr); gap:clamp(24px,4vw,56px); align-items:center; padding:clamp(24px,3.4vw,44px); border:1px solid var(--sfs-gold); background:var(--sfs-burgundy); color:#f5ece2; }
+.sfs-enrol .sfs-h2 { color:#fbf5ee; }
+.sfs-table { width:100%; margin-top:clamp(18px,2vw,24px); border-collapse:collapse; font-size:clamp(15.5px,1.25vw,17px); }
+.sfs-table thead th { padding:0 0 10px; text-align:left; font:700 12px/1.3 var(--sans); letter-spacing:.18em; text-transform:uppercase; color:var(--sfs-gold-light); }
+.sfs-table tbody tr { border-top:1px solid rgba(224,189,124,.35); }
+.sfs-table tbody th, .sfs-table td { padding:12px 0; text-align:left; vertical-align:top; line-height:1.5; }
+.sfs-table tbody th { width:42%; padding-right:20px; font-weight:600; color:#fbf5ee; }
+.sfs-table-item { display:flex; gap:12px; align-items:flex-start; }
+.sfs-table-item svg { flex:none; margin-top:1px; color:var(--sfs-gold-light); }
+.sfs-enrol-offer { padding-left:clamp(24px,4vw,56px); border-left:1px solid rgba(224,189,124,.5); text-align:center; }
+.sfs .sfs-enrol-price { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(56px,6.4vw,88px); line-height:1; color:#fbf5ee; }
+.sfs .sfs-enrol-gst { margin-top:6px; font-size:16px; color:#f5ece2; }
+.sfs .sfs-enrol-bonus { margin:16px 0 22px; color:var(--sfs-gold-light); font-weight:600; }
+.sfs-enrol .sfs-small { color:#f5ece2; }
+
+/* Who it is for: two columns */
+.sfs-fit { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(28px,5vw,72px); }
+.sfs-fit-not { padding-left:clamp(28px,5vw,72px); border-left:1px solid var(--sfs-line); }
+
+/* The questions: each question beside its answer */
+.sfs-faq { margin:clamp(20px,2.4vw,28px) 0 0; }
+.sfs-faq > div { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:clamp(18px,3vw,40px); padding:16px 0; border-top:1px solid var(--sfs-line); }
+.sfs-faq > div:last-child { border-bottom:1px solid var(--sfs-line); }
+.sfs-faq dt { font-weight:700; font-size:clamp(16px,1.35vw,18.5px); line-height:1.4; }
+.sfs-faq dd { margin:0; font-size:clamp(15.5px,1.25vw,17px); line-height:1.6; }
+
+/* The burgundy close */
+.sfs-close { padding:clamp(44px,5.4vw,80px) 0 clamp(28px,3.4vw,40px); background:var(--sfs-burgundy); background-image:linear-gradient(135deg,rgba(255,255,255,.04),rgba(0,0,0,.22)); color:#f5ece2; scroll-margin-top:80px; }
+.sfs-close .sfs-h2 { color:#fbf5ee; }
+.sfs-close p { color:#f5ece2; }
+.sfs-close-inner { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:clamp(28px,5vw,72px); align-items:start; }
+.sfs-close-offer { padding:clamp(22px,2.6vw,32px); border:1px solid rgba(224,189,124,.5); background:rgba(0,0,0,.16); }
+.sfs .sfs-close-price { margin-top:14px; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(28px,3vw,38px); line-height:1.1; color:#fbf5ee; }
+.sfs .sfs-close-line { margin-top:8px; font-size:15.5px; }
+.sfs-form { display:grid; gap:12px; margin-top:18px; }
+.sfs-form input[type=text], .sfs-form input[type=email] { min-width:0; padding:15px 18px; border:0; border-radius:3px; background:var(--sfs-white); color:var(--sfs-ink); font:16px/1.2 var(--sans); }
+.sfs-form .form-error { color:#fff; }
+.sfs .sfs-thanks { margin-top:18px; padding:16px 20px; background:rgba(0,0,0,.2); }
+.sfs-fine { margin-top:clamp(28px,3.4vw,40px); padding-top:18px; border-top:1px solid rgba(224,189,124,.3); }
+.sfs .sfs-fine p { font-size:13px; line-height:1.6; opacity:.75; }
+
+/* Tablets and phones */
+@media (max-width:900px) {
+  .sfs-bonus, .sfs-bonus--two { grid-template-columns:1fr; }
+  .sfs-bonus-photo { order:-1; height:auto; max-height:none; aspect-ratio:16/10; max-width:540px; justify-self:center; }
+  .sfs-enrol-panel { grid-template-columns:1fr; }
+  .sfs-enrol-offer { padding-left:0; padding-top:24px; border-left:0; border-top:1px solid rgba(224,189,124,.5); }
+}
+@media (max-width:760px) {
+  .sfs-hero { grid-template-columns:1fr; padding-inline:0; }
+  .sfs-hero-copy { padding-inline:var(--gutter); padding-top:16px; }
+  .sfs-hero-photo { order:-1; display:block; width:100%; max-width:540px; margin-inline:auto; height:auto; aspect-ratio:4/3; max-height:none; object-position:55% 35%; -webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent); mask-image:linear-gradient(to bottom,#000 80%,transparent); }
+  .sfs-figures-inner { grid-template-columns:1fr; gap:20px; }
+  .sfs-figures-inner > div + div { padding-top:20px; border-left:0; border-top:1px solid var(--sfs-gold); }
+  .sfs-cols, .sfs-finish, .sfs-guarantee, .sfs-fit, .sfs-close-inner, .sfs-faq > div { grid-template-columns:1fr; }
+  .sfs-cols--flow { columns:1; }
+  .sfs-lessons > li, .sfs-lessons > li:nth-child(even) { grid-template-columns:1fr; gap:10px; }
+  .sfs-lessons > li:nth-child(even) .sfs-lesson-art { order:0; }
+  .sfs-lesson-art { max-width:220px; max-height:110px; justify-self:start; }
+  .sfs-fit-not { padding-left:0; padding-top:24px; border-left:0; border-top:1px solid var(--sfs-line); }
+  .sfs-faq > div { gap:6px; }
+  .sfs-shield { max-width:220px; }
+  .sfs-pitches { padding-top:0; }
+  .sfs-table thead { display:none; }
+  .sfs-table tbody tr { display:block; padding:12px 0; }
+  .sfs-table tbody th, .sfs-table td { display:block; width:auto; padding:0; }
+  .sfs-table td { margin:4px 0 0 34px; }
+  .sfs-btn { width:100%; padding-inline:16px; letter-spacing:.14em; }
 }

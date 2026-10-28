@@ -1,0 +1,217 @@
+/* ============ Attachment or Love? (.aol) — from the three-panel mockup ============ */
+/* A free three-video series' registration page. Fixed colours: warm cream, deep burgundy bands and headings, orange
+   buttons, gold ticks, rings and labels. Headings are the serif at its regular width (Noto Serif Display 100/600,
+   loaded in app/layout.tsx), in sentence case. */
+.aol {
+  --aol-cream:#fcf7f0; --aol-paper:#fffbf5; --aol-tint:#f6ecdf; --aol-ink:#2a1d1b; --aol-wine:#560a18; --aol-wine-ink:#4a0b16;
+  --aol-gold:#a97c3c; --aol-gold-light:#e7ba71; --aol-ring:#f3e6d1; --aol-orange:#c0592a; --aol-btn:linear-gradient(180deg,#cb6731,#b54f1f);
+  --aol-line:#e6d1b2;
+  --display:'Noto Serif Display',Georgia,serif;
+  margin-inline:calc(50% - 50vw); background:var(--aol-cream); color:var(--aol-ink); font-family:var(--sans);
+}
+.aol-wrap { max-width:1152px; margin:0 auto; padding-inline:var(--gutter); box-sizing:content-box; }
+.aol p { margin:16px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.6; }
+.aol-center { text-align:center; }
+.aol-h2, .aol-title { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; line-height:1.1; letter-spacing:-.01em; color:var(--aol-wine-ink); text-wrap:balance; }
+.aol-title { font-size:clamp(32px,3.2vw,46px); line-height:1.05; }
+.aol-h2 { font-size:clamp(30px,3.5vw,46px); }
+.aol-section { padding:clamp(40px,5vw,72px) 0; }
+.aol-section--bottom0 { padding-bottom:0; }
+.aol-section--line { border-top:1px solid var(--aol-line); background:var(--aol-paper); }
+.aol-section--tint { background:var(--aol-tint); }
+.aol-prose { max-width:46em; margin:8px auto 0; }
+.aol .aol-lede { max-width:46em; margin-inline:auto; }
+.aol .aol-sub { font-size:clamp(19px,1.7vw,22px); line-height:1.45; }
+
+/* Button: orange, squared, uppercase, letter-spaced */
+.aol-btn { display:inline-flex; align-items:center; justify-content:center; padding:16px clamp(22px,3vw,40px); background:var(--aol-btn); color:#fff; border:0; border-radius:3px; font:inherit; font-size:clamp(14px,1.2vw,16px); font-weight:700; letter-spacing:.14em; text-transform:uppercase; text-align:center; cursor:pointer; box-shadow:0 2px 0 rgba(0,0,0,.12); transition:filter .2s ease, transform .2s ease; }
+.aol-btn:hover { filter:brightness(1.07); color:#fff; transform:translateY(-1px); }
+.aol-buy { margin-top:28px; }
+
+/* Eyebrow: small gold capitals */
+.aol .aol-eyebrow { margin:0 0 18px; font-size:13px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--aol-wine-ink); }
+.aol-eyebrow span { margin-inline:.6em; color:var(--aol-gold); }
+
+/* Hero: the stage photo framed on the left, the copy and the form on the right */
+.aol-hero { padding-block:clamp(16px,2vw,24px) clamp(36px,4vw,56px); }
+.aol-hero-grid { display:grid; grid-template-columns:minmax(0,.6fr) minmax(0,1.4fr); gap:clamp(28px,4vw,56px); align-items:center; }
+.aol-hero-copy p { margin-top:10px; }
+.aol-hero-copy .aol-fields { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.aol-hero-photo { display:block; width:100%; height:auto; aspect-ratio:3/4; max-height:600px; object-fit:cover; object-position:47% 30%; }
+.aol-crumbs { margin:0 0 clamp(20px,2.4vw,32px); }
+.aol-hero-copy .aol-form { margin-top:20px; }
+
+/* The form: labelled fields, the opt-in, the orange button, the fine print */
+.aol-form { display:grid; gap:14px; }
+.aol-fields { display:grid; gap:14px; }
+.aol-form--wide .aol-fields { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.aol-field { display:grid; gap:6px; text-align:left; }
+.aol-field label { font-size:14px; font-weight:700; letter-spacing:.04em; }
+.aol-field input { width:100%; min-height:52px; padding:12px 16px; border:1px solid #c9a46a; border-radius:3px; background:#fff; color:var(--aol-ink); font:inherit; font-size:16px; }
+.aol-field input::placeholder { color:#8d7b70; }
+.aol-field input:focus-visible { outline:2px solid var(--aol-orange); outline-offset:1px; border-color:var(--aol-orange); }
+.aol-optin { display:flex; gap:12px; align-items:flex-start; font-size:14.5px; line-height:1.45; text-align:left; }
+.aol-optin input { flex:none; width:24px; height:24px; margin:0; accent-color:var(--aol-orange); }
+.aol-optin label { padding-block:2px; cursor:pointer; }
+.aol-submit { width:100%; min-height:56px; }
+.aol-submit:disabled { opacity:.65; cursor:default; transform:none; }
+.aol .aol-fine { margin:0; font-size:14px; line-height:1.5; text-align:center; opacity:.85; }
+.aol .aol-fine + .aol-fine { margin-top:-8px; }
+.aol-fine a { display:inline-block; padding-block:10px; margin-block:-10px; color:inherit; text-decoration:underline; text-underline-offset:2px; }
+.aol-form .form-error { margin:0; font-size:14px; }
+.aol-done { margin-top:28px; padding:clamp(22px,2.6vw,32px); border:1px solid var(--aol-line); border-radius:4px; background:var(--aol-paper); text-align:left; }
+.aol .aol-done p { margin:0 0 12px; }
+.aol .aol-done-title { font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(26px,2.6vw,34px); line-height:1.1; color:var(--aol-wine-ink); }
+
+/* Gold ticks */
+.aol-ticks { margin:20px 0 0; padding:0; list-style:none; }
+.aol-ticks li { display:flex; gap:16px; align-items:flex-start; padding:8px 0; font-size:clamp(16px,1.3vw,18px); line-height:1.5; }
+.aol-ticks svg { flex:none; width:28px; height:28px; }
+.aol-ticks svg circle { fill:var(--aol-gold); }
+.aol-ticks svg path { fill:none; stroke:#fffbf5; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.aol-ticks strong { color:var(--aol-wine-ink); }
+.aol-ticks--grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px clamp(24px,3.4vw,48px); margin-top:clamp(24px,3vw,36px); }
+.aol .aol-note-line { max-width:46em; margin:clamp(24px,3vw,36px) auto 0; font-style:italic; }
+
+/* Recognise: the couple to the window's left edge, the copy on paper */
+.aol-recognise { display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); align-items:center; gap:clamp(28px,4vw,56px); padding:clamp(40px,5vw,72px) max(var(--gutter), calc(50vw - 576px)); background:var(--aol-paper); border-top:1px solid var(--aol-line); }
+.aol-recognise .aol-ticks, .aol-recognise ul { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 clamp(20px,2.4vw,32px); }
+.aol-recognise-photo { display:block; width:100%; height:auto; aspect-ratio:4/5; max-height:560px; object-fit:cover; object-position:45% 40%; border-radius:4px; }
+.aol-recognise-copy { padding:0; }
+
+/* Burgundy bands */
+.aol-band { padding:clamp(40px,5vw,72px) 0; background:var(--aol-wine); color:#fbf3e8; }
+.aol-band .aol-h2 { color:#fbf3e8; }
+.aol-band p { color:rgba(251,243,232,.9); }
+.aol .aol-gold-line { margin:clamp(22px,2.6vw,32px) 0 clamp(6px,1vw,12px); font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(23px,2.5vw,32px); line-height:1.25; color:var(--aol-gold-light); text-wrap:balance; }
+
+/* Fear: six cards with a gold rule on top */
+.aol-cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin:clamp(28px,3.4vw,44px) 0 0; padding:0; list-style:none; }
+.aol-cards li { padding:22px 24px 24px; border:1px solid var(--aol-line); border-top:3px solid var(--aol-gold); border-radius:4px; background:var(--aol-paper); }
+.aol-cards h3 { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(19px,1.7vw,22px); line-height:1.25; color:var(--aol-wine-ink); }
+.aol .aol-cards p { margin-top:10px; font-size:16px; }
+.aol .aol-statement { max-width:40em; margin:clamp(28px,3vw,40px) auto 0; text-align:center; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(20px,2vw,25px); line-height:1.35; color:var(--aol-wine-ink); text-wrap:balance; }
+
+/* Three videos: the ruled eyebrow, then full-width rows, the photo alternating sides */
+.aol-videos { padding-top:clamp(40px,5vw,64px); }
+.aol .aol-ruled { display:flex; align-items:center; gap:24px; margin:0 0 14px; font-size:13px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--aol-gold); }
+.aol-ruled::before, .aol-ruled::after { content:''; flex:1; height:1px; background:var(--aol-gold); opacity:.6; }
+.aol-ruled i { margin-inline:.6em; font-style:normal; }
+.aol-rows { margin:clamp(28px,3.4vw,44px) 0 0; padding:0; list-style:none; }
+.aol-rows > li:not(.aol-rows-buy) { display:grid; grid-template-columns:minmax(0,.55fr) minmax(0,1.45fr); align-items:center; border-top:1px solid var(--aol-line); background:var(--aol-paper); }
+.aol-rows > li.is-flipped { grid-template-columns:minmax(0,1.45fr) minmax(0,.55fr); background:var(--aol-cream); }
+.aol-rows > li.is-flipped .aol-row-photo { order:2; }
+/* the photo keeps its own shape (it is small: stretching it to the row would blur it) and stays in view beside the copy;
+   the play ring sits exactly where the mockup drew it (the drawn one is painted out of the photo) */
+.aol-row-photo { position:relative; align-self:center; max-width:600px; width:calc(100% - clamp(20px,3vw,40px)); justify-self:end; }
+.aol-rows > li.is-flipped .aol-row-photo { justify-self:start; }
+.aol-row-photo img { display:block; width:100%; height:auto; }
+.aol-play { position:absolute; width:clamp(44px,17%,96px); aspect-ratio:1; border:3px solid #f3dcb0; border-radius:50%; background:rgba(169,124,60,.92); box-shadow:0 4px 14px rgba(0,0,0,.25); transform:translate(-50%,-50%); }
+.aol-play::after { content:''; position:absolute; top:50%; left:54%; border-style:solid; border-width:11px 0 11px 18px; border-color:transparent transparent transparent #fff; transform:translate(-50%,-50%); }
+.aol-row-photo--1 .aol-play { left:15.6%; top:84.3%; }
+.aol-row-photo--2 .aol-play { left:86.1%; top:86.2%; }
+.aol-row-photo--3 .aol-play { left:14.3%; top:77.8%; }
+.aol-row-copy { padding:clamp(28px,3vw,40px) clamp(24px,3.4vw,48px); }
+.aol-rows > li:not(.is-flipped) .aol-row-copy { padding-right:max(var(--gutter), calc(50vw - 576px)); }
+.aol-rows > li.is-flipped .aol-row-copy { padding-left:max(var(--gutter), calc(50vw - 576px)); }
+.aol-row-head { display:flex; align-items:center; gap:18px; }
+.aol-num { flex:none; display:grid; place-items:center; width:56px; height:56px; border-radius:50%; background:var(--aol-gold); color:#fffbf5; font-size:20px; font-weight:700; letter-spacing:.04em; }
+.aol-row-head h3 { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(24px,2.5vw,34px); line-height:1.12; color:var(--aol-wine-ink); text-wrap:balance; }
+.aol-row-head h3 span { display:block; margin-bottom:4px; font-family:var(--sans); font-size:13px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--aol-gold); }
+.aol .aol-question { margin-top:20px; padding-left:16px; border-left:3px solid var(--aol-gold-light); }
+.aol-question strong { display:block; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--aol-gold); }
+.aol-question em { font-family:var(--display); font-variation-settings:'wdth' 100; font-size:clamp(18px,1.6vw,21px); line-height:1.4; color:var(--aol-wine-ink); }
+.aol-row-copy > p:not(.aol-question) { font-size:16.5px; }
+.aol-lines { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px clamp(18px,2vw,28px); margin-top:18px; padding-top:18px; border-top:1px solid var(--aol-line); }
+.aol-line { display:grid; grid-template-columns:44px minmax(0,1fr); gap:16px; align-items:start; }
+.aol-line-icon { display:grid; place-items:center; width:44px; height:44px; border-radius:50%; background:var(--aol-ring); color:var(--aol-gold); }
+.aol-line h4 { margin:10px 0 0; font-size:13.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--aol-gold); }
+.aol .aol-line p { margin-top:4px; font-size:16px; }
+.aol-lines > .aol-line:first-child { grid-column:1 / -1; }
+.aol-lines > .aol-line:first-child ul { columns:2; column-gap:32px; }
+.aol-line ul li { break-inside:avoid; }
+.aol-line ul { margin:6px 0 0; padding-left:1.1em; font-size:16px; line-height:1.55; }
+.aol-line li + li { margin-top:3px; }
+.aol-rows-buy { padding:clamp(28px,3.4vw,44px) var(--gutter); border-top:1px solid var(--aol-line); background:var(--aol-tint); text-align:center; }
+
+/* Begin with your own experience: the copy beside the second form */
+.aol-begin-grid { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:clamp(28px,4vw,64px); align-items:center; }
+.aol-form-box { padding:clamp(24px,3vw,36px); border:1px solid rgba(231,186,113,.5); border-radius:4px; background:rgba(255,255,255,.05); }
+.aol .aol-form-name { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(24px,2.4vw,30px); line-height:1.15; color:var(--aol-gold-light); }
+.aol .aol-form-line { margin:4px 0 20px; font-size:13px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+.aol-band .aol-field input { border-color:transparent; }
+.aol-band .aol-field input:focus-visible { outline-color:var(--aol-gold-light); }
+.aol-band .aol-optin input { accent-color:var(--aol-gold-light); }
+.aol-band .aol-fine { opacity:.92; }
+.aol-band .aol-done { border-color:rgba(231,186,113,.5); background:rgba(255,255,255,.06); }
+.aol-band .aol-done-title { color:var(--aol-gold-light); }
+
+/* The note: on burgundy, the photo, a gold rule, the gold heading, the copy in the serif */
+.aol-note { border-top:1px solid rgba(231,186,113,.35); }
+.aol-note-grid { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:clamp(28px,4vw,56px); align-items:start; }
+.aol-note-photo { display:block; width:100%; max-width:420px; height:auto; aspect-ratio:1; object-fit:cover; object-position:40% 40%; }
+.aol-note-copy { padding-left:clamp(0px,3vw,40px); border-left:1px solid rgba(231,186,113,.6); }
+.aol-note .aol-h2 { color:var(--aol-gold-light); }
+/* the paragraph the mockup sets large in the serif; the rest in the body face */
+.aol .aol-note-pull { font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(21px,2vw,27px); line-height:1.35; color:#fbf3e8; }
+.aol .aol-signature { margin:14px 0 0; font-family:'Caveat',cursive; font-weight:500; font-size:clamp(52px,5.4vw,72px); line-height:1; color:var(--aol-gold-light); transform:rotate(-6deg); transform-origin:left; width:max-content; }
+
+/* What people say (only once real testimonials exist) */
+.aol-quotes { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; margin:24px 0 0; padding:0; list-style:none; }
+.aol-quotes li { padding:24px 28px; border:1px solid var(--aol-line); border-radius:4px; background:var(--aol-paper); }
+.aol-quotes blockquote { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-size:20px; line-height:1.45; }
+.aol-quotes p { font-size:15px; opacity:.75; }
+
+/* Keep exploring: two by two framed cards, the price on the right */
+.aol-next { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin:clamp(24px,3vw,36px) 0 0; padding:0; list-style:none; }
+.aol-next li { display:flex; flex-direction:column; padding:22px 24px 24px; border:1px solid var(--aol-line); border-radius:4px; background:var(--aol-paper); }
+.aol .aol-next-quote { margin:0 0 12px; font-family:var(--display); font-variation-settings:'wdth' 100; font-style:italic; font-size:17px; line-height:1.4; color:var(--aol-gold); }
+.aol-next h3 { display:flex; justify-content:space-between; align-items:baseline; gap:16px; margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(21px,2vw,25px); line-height:1.2; color:var(--aol-wine-ink); }
+.aol-price { flex:none; font-size:.8em; font-weight:500; color:var(--aol-gold); white-space:nowrap; }
+.aol .aol-next li > p:not(.aol-next-quote) { margin-top:10px; font-size:16px; }
+.aol-next-link { display:block; align-self:flex-start; margin-top:auto; padding-top:14px; font-size:15.5px; font-weight:700; color:var(--aol-orange); }
+.aol-next-link:hover { color:var(--aol-wine-ink); }
+
+/* Questions beside their answers: framed rows */
+.aol-faq { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:clamp(24px,3vw,36px) 0 0; }
+.aol-faq > div { display:grid; grid-template-rows:auto 1fr; border:1px solid var(--aol-line); border-radius:4px; background:var(--aol-paper); }
+.aol-faq dt { padding:16px 22px 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(18px,1.6vw,20px); line-height:1.3; color:var(--aol-wine-ink); }
+.aol-faq dd { margin:0; padding:8px 22px 16px; font-size:16px; line-height:1.6; }
+
+/* The burgundy close (#get) */
+.aol-close { scroll-margin-top:72px; }
+.aol-close .aol-prose { max-width:44em; }
+.aol .aol-close-eyebrow { margin:clamp(28px,3vw,40px) 0 18px; color:#fbf3e8; }
+.aol-close-eyebrow span { color:var(--aol-gold-light); }
+.aol-close-form { max-width:800px; margin-inline:auto; }
+
+@media (max-width:1000px) {
+  .aol-cards { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:860px) {
+  .aol-hero-grid { grid-template-columns:1fr; }
+  .aol-hero-photo { order:2; max-height:55vh; aspect-ratio:4/3; object-position:47% 25%; }
+  .aol-recognise, .aol-begin-grid, .aol-note-grid { grid-template-columns:1fr; }
+  .aol-recognise-photo { aspect-ratio:3/2; max-height:55vh; }
+  .aol-note-photo { max-width:420px; }
+  .aol-note-copy { padding-left:0; border-left:0; }
+  .aol-next, .aol-quotes { grid-template-columns:1fr; }
+  .aol-faq { grid-template-columns:1fr; }
+  .aol-lines { grid-template-columns:1fr; }
+  .aol-lines > .aol-line:first-child ul { columns:1; }
+  .aol-faq dt { padding-bottom:0; }
+  .aol-faq dd { padding-top:8px; border-left:0; }
+}
+@media (max-width:640px) {
+  .aol-recognise ul, .aol-hero-copy .aol-fields { grid-template-columns:1fr; }
+  .aol-rows > li:not(.aol-rows-buy), .aol-rows > li.is-flipped { grid-template-columns:1fr; }
+  .aol-rows > li.is-flipped .aol-row-photo { order:0; }
+  .aol-rows > li .aol-row-copy { padding:28px var(--gutter) 32px !important; }
+  .aol-row-photo { width:100%; max-width:none; }
+  .aol-row-photo { position:relative; top:auto; }
+  .aol-cards, .aol-ticks--grid, .aol-form--wide .aol-fields { grid-template-columns:1fr; }
+  .aol-btn { display:flex; padding-inline:16px; letter-spacing:.08em; }
+  .aol-num { width:46px; height:46px; font-size:17px; }
+  .aol-next h3 { flex-direction:column; gap:4px; }
+  .aol-ruled { gap:12px; font-size:12px; }
+}

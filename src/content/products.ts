@@ -3,6 +3,7 @@
 // and its page shows them instead. Prices and levels follow Remi's "Summary of sales pages" (round four edits,
 // 30 Sept 2026), which overrides the prices drawn in the mock-ups.
 import { ULTIMATE_SELF_CLUB_URL } from '@/content/site';
+import type { RangeArt } from '@/content/product-ranges';
 
 export type Tone = 'burgundy' | 'navy' | 'green' | 'black' | 'gold' | 'cream';
 export type Level = 'Introduction' | 'Foundation' | 'Intermediate' | 'Advanced';
@@ -53,11 +54,12 @@ export const PRODUCTS: Product[] = [
   // Relationships & attachment
   P({ slug: 'five-paths-to-a-healthy-relationship', title: 'The Five Paths to a Healthy Relationship', text: 'Five ways relationships become healthier, more honest and more capable of repair.', category: 'relationships', tone: 'burgundy', price: 'AUD $29', kicker: 'Begin here', cta: 'Explore the five paths' }),
   P({ slug: 'attachment-or-love', title: 'Attachment or Love?', text: 'Understand the difference between attachment activation and genuine connection.', category: 'relationships', tone: 'navy', price: FREE, level: 'Introduction' }),
-  P({ slug: 'conflict-repair-and-harmony', title: 'Conflict, Repair and Harmony', text: 'What happens after the rupture matters.', category: 'relationships', tone: 'green', price: 'AUD $29', level: 'Advanced' }),
+  // Retitled from Conflict, Repair and Harmony (Oct 2026); the old address redirects
+  P({ slug: 'finding-our-way-back', title: 'Finding Our Way Back', text: 'How to repair after conflict and reconnect with care.', category: 'relationships', tone: 'green', price: 'AUD $29', level: 'Advanced' }),
   P({ slug: 'holding-space-without-rescuing-or-disappearing', title: 'Holding Space Without Rescuing or Disappearing', text: 'Remain present without taking over, collapsing or abandoning yourself.', category: 'relationships', tone: 'black', price: 'AUD $29', level: 'Intermediate', also: ['personal'] }),
   P({ slug: 'obstacles-to-love', title: 'Obstacles to Love', text: 'What gets in the way of the love you want.', category: 'relationships', tone: 'gold', price: 'AUD $49', level: 'Intermediate' }),
   P({ slug: 'love-without-losing-yourself', title: 'Love Without Losing Yourself', text: 'The complete relationship pathway. Five programs.', category: 'relationships', tone: 'cream', bundle: true, price: 'AUD $97', cta: 'Explore the bundle',
-    includes: ['five-paths-to-a-healthy-relationship', 'attachment-or-love', 'conflict-repair-and-harmony', 'holding-space-without-rescuing-or-disappearing', 'obstacles-to-love'] }),
+    includes: ['five-paths-to-a-healthy-relationship', 'attachment-or-love', 'finding-our-way-back', 'holding-space-without-rescuing-or-disappearing', 'obstacles-to-love'] }),
   // Truth & alignment
   P({ slug: 'find-the-gap-in-your-own-life', title: 'Find the Gap in Your Own Life', text: 'Use Critical Alignment to identify what is actually preventing movement.', category: 'truth', tone: 'navy', price: 'AUD $29', level: 'Foundation', kicker: 'Start with the gap', cta: 'Find your gap' }),
   P({ slug: 'when-your-values-and-your-life-stop-matching', title: 'When Your Values and Your Life Stop Matching', text: 'Values alignment for individuals.', category: 'truth', tone: 'burgundy', price: 'AUD $29', level: 'Intermediate' }),
@@ -76,13 +78,14 @@ export const PRODUCTS: Product[] = [
     includes: ['the-performance-management-blueprint', 'your-first-90-days-as-a-leader', 'the-ground-rules-nobody-wrote-down', 'the-90-day-review', 'benchmarking-what-good-actually-looks-like', 'critical-alignment-model-for-leaders'] }),
   // Influence & consultative sales
   P({ slug: 'ultimate-influence-consultative-sales-introduction', title: 'Ultimate Influence', text: 'The complete eight-step consultative sales methodology: understand the person in front of you, connect your recommendation to their needs and ask for a decision without becoming pushy.', category: 'influence', tone: 'black', price: 'AUD $79', level: 'Intermediate', kicker: 'The complete methodology', cta: 'Explore Ultimate Influence', also: ['further'] }),
+  P({ slug: 'ultimate-influence-foundations', title: 'Ultimate Influence Foundations', text: 'An accessible introduction to the psychology, eight-step process and persuasive language behind Ultimate Influence: understand what your buyer wants and ask them to begin with confidence.', category: 'influence', tone: 'burgundy', price: 'AUD $79', level: 'Introduction', kicker: 'Six self-paced lessons', cta: 'Explore Foundations' }),
   P({ slug: 'holding-space-for-magnetic-sales', title: 'Holding Space for Magnetic Sales', text: 'Create the conditions for an honest buying conversation.', category: 'influence', tone: 'green', price: FREE, level: 'Introduction' }),
-  P({ slug: 'understand-before-you-prescribe', title: 'Understand Before You Prescribe', text: 'Diagnose what the buyer genuinely needs before offering a solution.', category: 'influence', tone: 'navy', price: 'AUD $29', level: 'Intermediate' }),
-  // Selling from Stage replaced Move the Room, and Selling Something Intangible was removed (Remi, Oct 2026)
-  P({ slug: 'selling-from-stage', title: 'Selling from Stage', text: 'Learn how to shape a compelling offer and communicate its value, on a live stage or a webinar.', category: 'influence', tone: 'gold', price: 'AUD $1,997 + GST or 5 payments of $499 + GST', level: 'Introduction', kicker: 'Self-paced online program', cta: 'Explore Selling from Stage', also: ['further'] }),
-  // Bundle still to be reworked now Selling Something Intangible is gone (Remi will advise); it lists the three that remain
-  P({ slug: 'influence-without-pressure', title: 'Influence Without Pressure', text: 'Three programs.', category: 'influence', tone: 'navy', bundle: true, price: 'AUD $129', cta: 'Explore the bundle',
-    includes: ['ultimate-influence-consultative-sales-introduction', 'holding-space-for-magnetic-sales', 'understand-before-you-prescribe'] }),
+  // Selling from Stage replaced Move the Room; Selling Something Intangible and Understand Before You Prescribe were removed (Remi, Oct 2026)
+  P({ slug: 'selling-from-stage', title: 'Selling from Stage', text: 'Learn how to shape a compelling offer and communicate its value, on a live stage or a webinar.', category: 'influence', tone: 'gold', price: 'AUD $1,997 including GST', level: 'Introduction', kicker: 'Self-paced online program', cta: 'Explore Selling from Stage' }),
+  P({ slug: 'selling-from-stage-fundamentals', title: 'Selling from Stage Fundamentals', text: 'The eight-step pitch structure that connects your teaching to an offer, explains its value and invites your audience to buy. Three focused videos.', category: 'influence', tone: 'green', price: 'AUD $79', level: 'Introduction', kicker: 'Three focused videos', cta: 'Explore Fundamentals' }),
+  // Bundle still to be reworked now Selling Something Intangible and Understand Before You Prescribe are gone (Remi will advise); it lists the two that remain
+  P({ slug: 'influence-without-pressure', title: 'Influence Without Pressure', text: 'Two programs.', category: 'influence', tone: 'navy', bundle: true, price: 'AUD $129', cta: 'Explore the bundle',
+    includes: ['ultimate-influence-consultative-sales-introduction', 'holding-space-for-magnetic-sales'] }),
   // Business & enterprise
   P({ slug: 'from-practice-to-enterprise', title: 'From Practice to Enterprise', text: 'Turn expertise into intellectual property, systems and an asset that can operate beyond you.', category: 'business', tone: 'black', price: 'AUD $79', level: 'Intermediate', kicker: 'The Founder Pathway', cta: 'Build beyond yourself' }),
   P({ slug: 'core-improve-innovate', title: 'Core, Improve, Innovate', text: 'Know what to protect, what to strengthen and where genuine innovation belongs.', category: 'business', tone: 'navy', price: FREE, level: 'Introduction' }),
@@ -99,7 +102,13 @@ export const productHref = (slug: string) => `/products/${slug}`;
 /** Products with their own designed sales page (LANDINGS in app/products/[slug]/page.tsx); the sitemap ranks them higher. */
 export const LANDING_SLUGS = ['self-esteem-triad', 'critical-alignment-model-for-leaders', 'ultimate-influence-consultative-sales-introduction', 'selling-from-stage', 'why-do-i-keep-doing-this',
   'emotion-integration-technique-foundations', 'self-regulation-when-it-matters', 'becoming-conscious',
-  'deep-state-repatterning', 'holding-space-without-rescuing-or-disappearing'] as const;
+  'deep-state-repatterning', 'holding-space-without-rescuing-or-disappearing', 'obstacles-to-love',
+  'five-paths-to-a-healthy-relationship', 'attachment-or-love', 'finding-our-way-back', 'the-90-day-review',
+  'benchmarking-what-good-actually-looks-like', 'build-beyond-the-founder',
+  'come-back-to-yourself', 'core-improve-innovate', 'disruptive-leadership',
+  'holding-space-for-magnetic-sales', 'the-performance-management-blueprint',
+  'from-practice-to-enterprise', 'trust-that-holds',
+  'ultimate-influence-foundations', 'selling-from-stage-fundamentals'] as const;
 /** A product's price as shown on the page ('AUD $29', 'Free'), for the rabbit-hole and homepage blocks that feature one. */
 export const priceOf = (slug: string) => productBySlug(slug)?.price ?? '';
 // The bundle always comes last, so it closes the grid whichever products are borrowed from another category.
@@ -111,14 +120,17 @@ export const priceLine = (p: Product) => p.bundle
 export const levelLine = (p: Product) => p.level ? `${p.level} level` : '';
 
 // ---------- The programs (the "Where shall we begin?" page, /programs) ----------
-export type Program = { title: string; kicker: string; text: string; price: string; href: string; cta: string; tone: Tone; external?: boolean };
+// Drawn as the /products photo bands (ProgramBands in components/products/DesignedRange); `photo` is each band's picture.
+export type Program = { title: string; kicker: string; text: string; price: string; href: string; cta: string; tone: Tone; external?: boolean; photo: RangeArt };
+const photo = (path: string, width: number, height: number, alt = '') => ({ src: `/assets/${path}.webp`, width, height, alt });
 export const PROGRAMS: Program[] = [
-  { title: 'Ultimate Self Club', kicker: 'Membership', text: 'One place for all the questions you can’t leave alone.', price: 'AUD $149 per month', href: ULTIMATE_SELF_CLUB_URL, cta: 'Visit ultimateselfclub.com', tone: 'black', external: true },
-  { title: 'Rebel Yell', kicker: 'Private waitlist', text: 'A private diagnostic and intervention for founders, owners, CEOs and senior leadership teams who have reached an impasse.', price: 'AUD $10,000 per month', href: '/programs/rebel-yell', cta: 'Explore Rebel Yell', tone: 'burgundy' },
-  { title: 'The Shift', kicker: 'Waitlist', text: 'Coming soon. Join the waitlist and you’ll hear first when it opens.', price: 'AUD $1,497 per month', href: '/programs/the-shift', cta: 'Join the waitlist', tone: 'navy' },
-  { title: 'Selling from Stage', kicker: 'Self-paced online program', text: 'Learn how to shape a compelling offer and communicate its value, on a live stage or a webinar.', price: 'AUD $1,997 + GST or 5 payments of $499 + GST', href: '/products/selling-from-stage', cta: 'Explore Selling from Stage', tone: 'gold' },
+  { title: 'Ultimate Self Club', kicker: 'Membership', text: 'One place for all the questions you can’t leave alone.', price: 'AUD $149 per month', href: ULTIMATE_SELF_CLUB_URL, cta: 'Visit ultimateselfclub.com', tone: 'black', external: true,
+    photo: photo('photos/about-community', 1400, 1050, 'Remi Pearson taking a selfie with a cheering room of workshop participants') },
+  { title: 'Rebel Yell', kicker: 'Private waitlist', text: 'A private diagnostic and intervention for founders, owners, CEOs and senior leadership teams who have reached an impasse.', price: 'AUD $10,000 per month', href: '/programs/rebel-yell', cta: 'Explore Rebel Yell', tone: 'burgundy',
+    photo: photo('photos/rebel-hero', 1800, 1090, 'Remi Pearson speaking, hands raised mid-thought') },
+  { title: 'The Shift', kicker: 'Waitlist', text: 'Coming soon. Join the waitlist and you’ll hear first when it opens.', price: 'AUD $1,497 per month', href: '/programs/the-shift', cta: 'Join the waitlist', tone: 'navy',
+    photo: photo('photos/remi-pink-jacket', 1600, 1067, 'Remi Pearson smiling, in a pink brocade jacket') },
+  { title: 'Selling from Stage', kicker: 'Self-paced online program', text: 'Learn how to shape a compelling offer and communicate its value, on a live stage or a webinar.', price: 'AUD $1,997 including GST', href: '/products/selling-from-stage', cta: 'Explore Selling from Stage', tone: 'gold',
+    photo: photo('product-ranges/pb-inf-room', 1004, 542) },
 ];
 export const THE_SHIFT_PRICE = PROGRAMS[2].price;
-
-/** The free Attachment Style Assessment ("How do you attach?"): a coming-soon page with an email sign-up until the quiz exists. */
-export const ATTACHMENT_QUIZ_HREF = '/attachment-style-quiz';

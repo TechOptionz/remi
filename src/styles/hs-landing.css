@@ -11,10 +11,10 @@
 .hsl p { margin:16px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.6; }
 .hsl-center { text-align:center; }
 .hsl-h2, .hsl-title { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; line-height:1.1; letter-spacing:-.01em; color:var(--hsl-wine-ink); text-wrap:balance; }
-.hsl-title { font-size:clamp(38px,4.8vw,62px); line-height:1.05; color:#fbf3e8; }
+.hsl-title { font-size:clamp(32px,3.4vw,48px); line-height:1.05; color:#fbf3e8; }
 .hsl-h2 { font-size:clamp(30px,3.6vw,48px); }
 .hsl-h3 { margin:clamp(24px,2.6vw,32px) 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(20px,1.9vw,25px); line-height:1.2; color:var(--hsl-wine-ink); }
-.hsl-section { padding:clamp(56px,7vw,88px) 0; }
+.hsl-section { padding:clamp(40px,5vw,72px) 0; }
 .hsl-section--top0 { padding-top:0; }
 .hsl-gap { margin-top:clamp(48px,6vw,72px); }
 .hsl-prose { margin-top:8px; }
@@ -27,11 +27,11 @@
 
 /* Hero: Remi's portrait on the right, the copy over its empty burgundy side (same colour, #380714) */
 .hsl-hero { position:relative; overflow:hidden; background:#380714; color:#fbf3e8; }
-.hsl-hero-photo { position:absolute; z-index:0; top:0; right:max(0px, calc(50% - 760px)); width:min(48%,720px); height:100%; object-fit:cover; object-position:50% 22%; -webkit-mask-image:linear-gradient(to right,transparent,#000 28%); mask-image:linear-gradient(to right,transparent,#000 28%); }
-.hsl-hero-inner { position:relative; z-index:2; padding-block:clamp(20px,2.4vw,32px) clamp(56px,7vw,96px); }
+.hsl-hero-photo { position:absolute; z-index:0; top:0; right:max(0px, calc(50% - 760px)); width:min(42%,620px); height:100%; object-fit:cover; object-position:50% 22%; -webkit-mask-image:linear-gradient(to right,transparent,#000 28%); mask-image:linear-gradient(to right,transparent,#000 28%); }
+.hsl-hero-inner { position:relative; z-index:2; padding-block:clamp(16px,2vw,24px) clamp(36px,4vw,56px); }
 .hsl-crumbs { margin:0; color:rgba(251,243,232,.75); }
 .hsl-crumbs a, .hsl-crumbs [aria-current] { color:inherit; }
-.hsl-hero-copy { max-width:min(580px,52%); margin-top:clamp(32px,4vw,56px); }
+.hsl-hero-copy { max-width:min(720px,58%); margin-top:clamp(20px,2.4vw,32px); }
 .hsl-eyebrow { margin:0 0 20px !important; font-size:13px !important; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--hsl-gold-light); }
 .hsl-eyebrow span { display:block; margin-top:6px; font-weight:600; letter-spacing:.2em; color:rgba(251,243,232,.7); }
 .hsl-hero-copy > p:not(.hsl-eyebrow) { color:rgba(251,243,232,.92); }
@@ -47,7 +47,7 @@
 .hsl-ticks svg, .hsl-practise svg { flex:none; width:30px; height:30px; margin-top:-2px; fill:none; stroke:var(--hsl-gold); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
 
 /* Burgundy bands */
-.hsl-band { padding:clamp(56px,7vw,88px) 0; background:var(--hsl-wine); color:#fbf3e8; }
+.hsl-band { padding:clamp(40px,5vw,72px) 0; background:var(--hsl-wine); color:#fbf3e8; }
 .hsl-band .hsl-h2 { color:#fbf3e8; }
 .hsl-band p { color:rgba(251,243,232,.9); }
 .hsl-band.hsl-center p { max-width:46em; margin-inline:auto; }
@@ -60,7 +60,7 @@
 .hsl-deeper { overflow:hidden; }
 .hsl-deeper-grid { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(24px,4vw,48px); align-items:center; }
 .hsl-deeper-grid > div { padding-block:clamp(48px,6vw,80px); }
-.hsl-deeper-photo { display:block; width:100%; height:100%; max-height:560px; object-fit:cover; object-position:30% 30%; -webkit-mask-image:linear-gradient(to right,transparent,#000 22%); mask-image:linear-gradient(to right,transparent,#000 22%); }
+.hsl-deeper-photo { display:block; width:100%; height:100%; max-height:460px; object-fit:cover; object-position:30% 30%; -webkit-mask-image:linear-gradient(to right,transparent,#000 22%); mask-image:linear-gradient(to right,transparent,#000 22%); }
 .hsl-pillars { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); margin:clamp(28px,3vw,40px) 0 0; padding:0; list-style:none; }
 .hsl-pillars li { display:flex; flex-direction:column; align-items:center; gap:14px; padding:4px clamp(10px,1.6vw,20px); text-align:center; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(17px,1.6vw,21px); line-height:1.2; color:var(--hsl-wine-ink); }
 .hsl-pillars li + li { border-left:1px solid var(--hsl-line); }
@@ -84,7 +84,7 @@
 .hsl-row-copy p { margin-top:10px; font-size:16px; }
 .hsl .hsl-take { padding-left:14px; border-left:3px solid var(--hsl-gold); font-size:15.5px; }
 .hsl-take strong { color:var(--hsl-wine-ink); }
-.hsl-row-photo { display:block; width:100%; height:100%; min-height:220px; object-fit:cover; }
+.hsl-row-photo { display:block; width:100%; height:100%; min-height:220px; max-height:320px; object-fit:cover; align-self:center; }
 
 /* The workbook */
 .hsl-split--book { grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); align-items:center; }
@@ -102,7 +102,7 @@
 
 /* The note band: photo, a gold rule, the note */
 .hsl-note-grid { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:clamp(28px,4vw,56px); align-items:center; }
-.hsl-note-photo { display:block; width:100%; height:auto; border-radius:6px; }
+.hsl-note-photo { display:block; width:100%; max-width:420px; height:auto; border-radius:6px; }
 .hsl-note-copy { padding-left:clamp(0px,3vw,40px); border-left:1px solid var(--hsl-gold); }
 .hsl .hsl-note-pull { font-size:clamp(19px,1.8vw,23px); color:#fbf3e8; }
 .hsl .hsl-signature { margin:8px 0 0; font-family:'Caveat',cursive; font-weight:500; font-size:clamp(52px,5.4vw,72px); line-height:1; color:var(--hsl-gold-light); transform:rotate(-6deg); transform-origin:left; width:max-content; }
@@ -160,4 +160,14 @@
   .hsl-pillars li + li { border-left:0; }
   .hsl-btn { display:block; padding-inline:16px; letter-spacing:.08em; }
   .hsl-num { font-size:40px; }
+}
+
+/* Sizing pass (Oct 2026): long prose and lists in two columns on desktop so sections stay compact */
+@media (min-width:861px) {
+  .hsl-prose { columns:2; column-gap:clamp(28px,4vw,56px); }
+  .hsl-prose p { break-inside:avoid; }
+  .hsl-prose p:first-child { margin-top:0; }
+  .hsl-split { grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr); }
+  .hsl-split .hsl-ticks { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 24px; }
+  .hsl-split-photo { max-height:440px; object-fit:cover; }
 }
