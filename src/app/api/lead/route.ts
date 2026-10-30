@@ -1,6 +1,7 @@
 // Every form on the site posts here (via submitLead in src/lib/forms.ts). Sends the team a notification through
 // Resend, replies to enquiries / invitations, and adds sign-ups and invitations as contacts, sorted into segments.
 // Env: RESEND_API_KEY, RESEND_FROM ("Remi Pearson <hello@domain>"), RESEND_TO (comma-separated), RESEND_SEGMENT_ID (optional).
+// Optional TURNSTILE_SECRET_KEY: every submission must then carry a Cloudflare Turnstile token (see lib/forms.ts).
 import { Resend } from 'resend';
 
 export const runtime = 'nodejs';
@@ -90,12 +91,32 @@ const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const json = (body: object, status = 200) => Response.json(body, { status });
 
+// Cloudflare Turnstile: the token submitLead gets from the widget, checked with Cloudflare. Off until TURNSTILE_SECRET_KEY is set.
+async function humanCheck(token: unknown, request: Request) {
+  const secret = process.env.TURNSTILE_SECRET_KEY;
+  if (!secret) return true;
+  if (typeof token !== 'string' || !token || token.length > 2048) return false;
+  try {
+    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      body: new URLSearchParams({ secret, response: token, remoteip: request.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? '' }),
+    });
+    const result = (await res.json()) as { success?: boolean; 'error-codes'?: string[] };
+    if (!result.success) console.error('Turnstile rejected a form', result['error-codes']);
+    return !!result.success;
+  } catch (e) {
+    console.error('Turnstile could not be reached', e);
+    return true; // Cloudflare down: let the lead through rather than lose it
+  }
+}
+
 export async function POST(request: Request) {
   let payload: unknown;
   try { payload = await request.json(); } catch { return json({ error: 'Invalid request.' }, 400); }
 
-  const { kind, fields } = (payload ?? {}) as { kind?: string; fields?: Record<string, unknown> };
+  const { kind, fields, token } = (payload ?? {}) as { kind?: string; fields?: Record<string, unknown>; token?: unknown };
   if (!KINDS.includes(kind as Kind) || !fields || typeof fields !== 'object') return json({ error: 'Invalid request.' }, 400);
+  if (!(await humanCheck(token, request))) return json({ error: 'We could not confirm you are not a robot. Please refresh the page and try again.' }, 403);
 
   // Plain text values only, trimmed and capped
   const data: Record<string, string> = {};
