@@ -5,12 +5,14 @@
 // GST-inclusive figure worked out here); until it has a `buyHref` every buy button goes to the closing band (#get), which
 // takes "tell me when it's ready" sign-ups instead of a payment.
 import { productBySlug } from '@/content/products';
+import { buyHrefOf } from '@/content/checkout';
 import { CAM_PROFILER_HREF } from '@/content/ideas';
 
 export const CAML_SLUG = 'critical-alignment-model-for-leaders';
 const product = productBySlug(CAML_SLUG);
 
-export const CAML_BUY_HREF = product?.buyHref ?? null;
+/** Stripe Checkout once the program is on sale (content/checkout.ts), or its outside `buyHref`. */
+export const CAML_BUY_HREF = buyHrefOf(CAML_SLUG);
 export const CAML_CTA_HREF = CAML_BUY_HREF ?? '#get';
 export { CAM_PROFILER_HREF };
 

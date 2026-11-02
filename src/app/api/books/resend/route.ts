@@ -1,6 +1,8 @@
-// For the team: sends a buyer a fresh download link (valid another 7 days) when theirs has run out.
+// For the team: sends a buyer a fresh download link (valid another 7 days) when theirs has run out, or a program buyer
+// their welcome / access email again.
 // Open /api/books/resend?key=<STATS_KEY>&order=<Stripe Checkout session id, cs_…> (shown in the sale notification).
 import { deliver, paidOrder } from '@/lib/book-sales';
+import { deliverProduct, paidProductOrder } from '@/lib/product-sales';
 
 export const runtime = 'nodejs';
 
@@ -9,6 +11,16 @@ export async function GET(request: Request) {
   const key = process.env.STATS_KEY;
   if (!key || url.searchParams.get('key') !== key) return new Response('Not found', { status: 404 });
   const id = url.searchParams.get('order') ?? '';
+  const sale = id.startsWith('cs_') ? await paidProductOrder(id).catch(() => null) : null;
+  if (sale) {
+    try {
+      await deliverProduct(sale.session, sale.product, true);
+    } catch (e) {
+      console.error('Program resend failed', e);
+      return new Response('The email could not be sent. Please try again.', { status: 502 });
+    }
+    return new Response(`The access email for ${sale.product.title} has been sent again to ${sale.session.customer_details?.email}.`);
+  }
   const order = id.startsWith('cs_') ? await paidOrder(id).catch(() => null) : null;
   if (!order) return new Response('No paid order with that id.', { status: 404 });
   try {

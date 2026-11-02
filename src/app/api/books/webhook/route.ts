@@ -1,8 +1,10 @@
-// Stripe's payment listener (Stripe → Developers → Webhooks, event checkout.session.completed and
-// checkout.session.async_payment_succeeded). Emails the buyer their download link and the team a sale notification,
-// once per order. Answers 500 when delivery fails so Stripe tries again. See lib/book-sales.ts.
+// Stripe's payment listener for every sale (Stripe → Developers → Webhooks, event checkout.session.completed and
+// checkout.session.async_payment_succeeded): ebooks (metadata `book`, lib/book-sales.ts) and programs (metadata
+// `product`, lib/product-sales.ts). Emails the buyer their download / access link and the team a sale notification,
+// once per order. Answers 500 when delivery fails so Stripe tries again.
 import type Stripe from 'stripe';
 import { deliver, firstDelivery, forgetDelivery, paidOrder, stripe } from '@/lib/book-sales';
+import { deliverProduct, paidProductOrder } from '@/lib/product-sales';
 
 export const runtime = 'nodejs';
 
@@ -20,6 +22,21 @@ export async function POST(request: Request) {
   }
   if (event.type !== 'checkout.session.completed' && event.type !== 'checkout.session.async_payment_succeeded') {
     return Response.json({ received: true });
+  }
+
+  // A program sale (metadata `product`)
+  if (event.data.object.metadata?.product) {
+    const sale = await paidProductOrder(event.data.object.id);
+    if (!sale) return Response.json({ received: true, delivered: false });
+    if (!(await firstDelivery(sale.session.id))) return Response.json({ received: true, delivered: 'already' });
+    try {
+      await deliverProduct(sale.session, sale.product);
+    } catch (e) {
+      console.error('Program delivery failed', sale.session.id, e);
+      await forgetDelivery(sale.session.id);
+      return new Response('Delivery failed', { status: 500 });
+    }
+    return Response.json({ received: true, delivered: true });
   }
 
   // Read the order back from Stripe rather than trusting the event body, and only deliver once it is paid
