@@ -6,7 +6,7 @@
 //     in the program's Thinkific course(s) (lib/thinkific.ts: a new student also gets Thinkific's own email to set a
 //     password), then emailed how to start, and the team gets a sale notification; once per order.
 //  3. Stripe returns the buyer to /products/thank-you, which shows the same sign-in link straight away.
-// Without THINKIFIC_API_KEY / THINKIFIC_SUBDOMAIN the buyer is told their access details will follow and the team's
+// Without THINKIFIC_ACCESS_TOKEN (or THINKIFIC_API_KEY) / THINKIFIC_SUBDOMAIN the buyer is told their access details will follow and the team's
 // notification says to enrol them by hand.
 import type Stripe from 'stripe';
 import { Resend } from 'resend';

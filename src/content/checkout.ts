@@ -17,7 +17,7 @@ export const SOLD_HERE = new Set(['critical-alignment-model-for-leaders']);
 /** Thinkific course id for each program, by product slug: the number in the course's admin address,
  *  https://remi-s-site-9bea.thinkific.com/manage/courses/<id>. Add a line as each course is built. */
 export const THINKIFIC_COURSES: Record<string, number> = {
-  // 'critical-alignment-model-for-leaders': 1234567,
+  'critical-alignment-model-for-leaders': 3562638,
 };
 
 /** Programs whose price is shown before GST ("$79 AUD + GST"): Checkout adds 10% GST on top. Every other price
