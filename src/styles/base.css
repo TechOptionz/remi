@@ -53,3 +53,6 @@ section[id] { scroll-margin-top:80px; }
 .btn--bg:hover { background:var(--card); color:var(--ink); }
 .btn-row { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; }
 
+
+/* Cloudflare Turnstile (lib/forms.ts): hidden unless Cloudflare asks the visitor to click, then shown above the page */
+.turnstile-box { position:fixed; left:50%; bottom:24px; transform:translateX(-50%); z-index:1000; }

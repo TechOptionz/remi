@@ -48,17 +48,62 @@ export async function submitLead(kind: LeadKind, form: HTMLFormElement): Promise
   return sendLead(kind, Object.fromEntries([...new FormData(form)].filter((e): e is [string, string] => typeof e[1] === 'string')));
 }
 
+// Cloudflare Turnstile bot check, on every form at once (off until NEXT_PUBLIC_TURNSTILE_SITE_KEY is set).
+// Each submission renders a fresh widget that stays hidden unless Cloudflare needs the visitor to click it.
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+type Turnstile = {
+  render: (el: HTMLElement, opts: Record<string, unknown>) => string;
+  remove: (id: string) => void;
+};
+let turnstileScript: Promise<Turnstile> | undefined;
+function loadTurnstile() {
+  const w = window as unknown as { turnstile?: Turnstile };
+  turnstileScript ??= new Promise((resolve, reject) => {
+    if (w.turnstile) return resolve(w.turnstile);
+    const s = document.createElement('script');
+    s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+    s.async = true;
+    s.onload = () => (w.turnstile ? resolve(w.turnstile) : reject());
+    s.onerror = () => { turnstileScript = undefined; reject(); };
+    document.head.appendChild(s);
+  });
+  return turnstileScript;
+}
+async function turnstileToken(): Promise<string | undefined> {
+  if (!TURNSTILE_SITE_KEY) return undefined;
+  const turnstile = await loadTurnstile();
+  const box = document.createElement('div');
+  box.className = 'turnstile-box';
+  document.body.appendChild(box);
+  let id: string | undefined;
+  try {
+    return await new Promise<string>((resolve, reject) => {
+      id = turnstile.render(box, {
+        sitekey: TURNSTILE_SITE_KEY, appearance: 'interaction-only',
+        callback: resolve, 'error-callback': reject, 'expired-callback': reject, 'timeout-callback': reject,
+      });
+    });
+  } finally {
+    if (id) turnstile.remove(id);
+    box.remove();
+  }
+}
+
 /** The same submission without a form (e.g. a "Was this helpful?" button). */
 export async function sendLead(kind: LeadKind, fields: Record<string, string>): Promise<string | null> {
   fields = { ...fields };
   // Every sign-up says where it came from, so a form without its own topic (the footer newsletter) is named after its page
   fields.page ??= window.location.pathname === '/' ? 'Home' : document.title.replace(/\s+—\s+Remi Pearson$/, '').trim() || window.location.pathname;
   fields.url ??= window.location.pathname;
+  let token: string | undefined;
+  try { token = await turnstileToken(); } catch {
+    return 'We could not confirm you are not a robot. Please try again.';
+  }
   try {
     const res = await fetch('/api/lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ kind, fields }),
+      body: JSON.stringify({ kind, fields, token }),
     });
     if (res.ok) return null;
     const body = await res.json().catch(() => null);
