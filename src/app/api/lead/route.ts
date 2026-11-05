@@ -1,7 +1,7 @@
 // Every form on the site posts here (via submitLead in src/lib/forms.ts). Sends the team a notification through
 // Resend, replies to enquiries / invitations, and adds sign-ups and invitations as contacts, sorted into segments.
 // Env: RESEND_API_KEY, RESEND_FROM ("Remi Pearson <hello@domain>"), RESEND_TO (comma-separated), RESEND_SEGMENT_ID (optional).
-// Each lead (but feedback) also goes to GoHighLevel as a tagged contact, with the same lists as tags (lib/ghl.ts).
+// Each lead with an email also goes to GoHighLevel as a tagged contact with an opportunity, the same lists as tags (lib/ghl.ts).
 // Optional TURNSTILE_SECRET_KEY: every submission must then carry a Cloudflare Turnstile token (see lib/forms.ts).
 import { Resend } from 'resend';
 import { addToGhl } from '@/lib/ghl';
@@ -176,8 +176,9 @@ export async function POST(request: Request) {
   const [firstName, ...rest] = oneLine(data.firstName ?? data.name ?? '').split(' ');
   const lastName = (!data.firstName && rest.join(' ')) || undefined;
 
-  // GoHighLevel: the same lists as tags (plus what an enquiry or invitation is about); runs beside the Resend steps
-  const ghl = type === 'feedback' ? undefined : addToGhl({
+  // GoHighLevel: the same lists as tags (plus what an enquiry or invitation is about), and an opportunity for every form;
+  // feedback (Ask Remi) only when the reader left an email. Runs beside the Resend steps
+  const ghl = !email ? undefined : addToGhl({
     email, firstName: firstName || undefined, lastName,
     tags: [
       ...keys.map(key => key && LISTS[key]),
@@ -185,10 +186,11 @@ export async function POST(request: Request) {
       type === 'invitation' && data.invitation && `Invitation — ${data.invitation}`,
       type === 'waitlist' && data.product && !PRODUCT_LISTS[data.product] && `Waitlist — ${data.product}`,
       (type === 'newsletter' || type === 'waitlist') && generalList && 'Newsletter',
+      type === 'feedback' && 'Reader question',
     ].filter((t): t is string => !!t).map(t => oneLine(t).slice(0, 100)),
     note: `${subject}\n\n${rows.map(([k, v]) => `${label(k)}: ${v}`).join('\n')}`,
     source: `Website — ${data.page ?? 'form'}`,
-    opportunity: type === 'enquiry' || type === 'invitation' ? [topic && oneLine(topic), oneLine(who)].filter(Boolean).join(' — ') : undefined,
+    opportunity: subject, // every form opens an opportunity, named like the team's notification
   });
 
   const reply = AUTO_REPLY[type];
