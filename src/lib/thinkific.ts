@@ -1,13 +1,20 @@
 // Enrols a buyer in their course on Thinkific (the course platform) once Stripe says they have paid. Server only.
-// Uses Thinkific's Admin API (https://api.thinkific.com/api/public/v1) with an API key: Thinkific → Settings → Code &
-// analytics → API (available on Thinkific's paid plans that include API access).
-// Env: THINKIFIC_API_KEY, THINKIFIC_SUBDOMAIN (remi-s-site-9bea), optional THINKIFIC_SCHOOL_URL. Each program's course
-// id is in THINKIFIC_COURSES (content/checkout.ts).
+// Uses Thinkific's Admin API (https://api.thinkific.com/api/public/v1) with either an API access token (sent as
+// `Authorization: Bearer`; THINKIFIC_ACCESS_TOKEN) or the older API key (THINKIFIC_API_KEY, sent with the subdomain).
+// The token wins when both are set. Both come from Thinkific → Settings → Code & analytics → API.
+// Env: THINKIFIC_ACCESS_TOKEN or THINKIFIC_API_KEY, THINKIFIC_SUBDOMAIN (remi-s-site-9bea), optional
+// THINKIFIC_SCHOOL_URL. Each program's course id is in THINKIFIC_COURSES (content/checkout.ts).
 // Everything here is safe to repeat: an existing student is reused and an existing enrolment is left as it is, so a
 // Stripe retry never enrols anyone twice.
 const BASE = 'https://api.thinkific.com/api/public/v1';
 
-export const thinkificReady = () => !!process.env.THINKIFIC_API_KEY && !!process.env.THINKIFIC_SUBDOMAIN;
+export const thinkificReady = () =>
+  !!process.env.THINKIFIC_SUBDOMAIN && (!!process.env.THINKIFIC_ACCESS_TOKEN || !!process.env.THINKIFIC_API_KEY);
+
+/** Auth headers: the access token as a Bearer token, else the API key with the school's subdomain. */
+const authHeaders = (): Record<string, string> => process.env.THINKIFIC_ACCESS_TOKEN
+  ? { Authorization: `Bearer ${process.env.THINKIFIC_ACCESS_TOKEN}` }
+  : { 'X-Auth-API-Key': process.env.THINKIFIC_API_KEY!, 'X-Auth-Subdomain': process.env.THINKIFIC_SUBDOMAIN! };
 /** The school's sign-in page, where a student opens their courses. */
 export const schoolSignIn = () => process.env.THINKIFIC_SCHOOL_URL
   ? `${process.env.THINKIFIC_SCHOOL_URL.replace(/\/$/, '')}/users/sign_in`
@@ -17,8 +24,7 @@ async function api<T>(path: string, init?: { method?: string; body?: unknown }):
   const res = await fetch(BASE + path, {
     method: init?.method ?? 'GET',
     headers: {
-      'X-Auth-API-Key': process.env.THINKIFIC_API_KEY!,
-      'X-Auth-Subdomain': process.env.THINKIFIC_SUBDOMAIN!,
+      ...authHeaders(),
       'Content-Type': 'application/json',
       Accept: 'application/json',
     },
