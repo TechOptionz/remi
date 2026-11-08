@@ -56,3 +56,16 @@ section[id] { scroll-margin-top:80px; }
 
 /* Cloudflare Turnstile (lib/forms.ts): hidden unless Cloudflare asks the visitor to click, then shown above the page */
 .turnstile-box { position:fixed; left:50%; bottom:24px; transform:translateX(-50%); z-index:1000; }
+
+/* The optional weekly teaching choice on every program waitlist form (components/shared/WeeklyOptIn.tsx). It takes a full
+   row in each form's grid / flex layout and inherits the form's text colour, so it reads on light and dark bands alike. */
+.weekly-optin { grid-column:1 / -1; flex:1 1 100%; display:flex; gap:10px; align-items:flex-start; margin:2px 0 0; text-align:left; font-size:13.5px; line-height:1.45; font-weight:400; letter-spacing:normal; text-transform:none; }
+.weekly-optin.weekly-optin input[type=checkbox] { flex:none; width:20px; height:20px; margin:0; padding:0; border:0; background:none; accent-color:currentColor; cursor:pointer; }
+.weekly-optin.weekly-optin label { display:block; padding-top:1px; font-size:inherit; font-weight:400; letter-spacing:normal; text-transform:none; color:inherit; cursor:pointer; opacity:.92; }
+
+/* Weekly teaching unsubscribe page and the team's consent records */
+.weekly-unsub-form { display:grid; gap:10px; max-width:420px; margin-top:20px; }
+.weekly-unsub-form input[type=email] { padding:14px 16px; border:1px solid rgba(0,0,0,.25); border-radius:2px; background:#fff; color:#1c1408; font:inherit; }
+.weekly-unsub-done { max-width:560px; margin-top:20px; font-size:17px; line-height:1.55; }
+.weekly-consent h2 { margin:40px 0 12px; font-size:22px; }
+.weekly-consent code { overflow-wrap:anywhere; font-size:.9em; }

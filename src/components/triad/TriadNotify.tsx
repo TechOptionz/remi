@@ -3,6 +3,7 @@
 // "Tell me when it's ready" — email capture for the Self-Esteem Triad guided introduction, until the product exists.
 import { useId, useState } from 'react';
 import { submitLead } from '@/lib/forms';
+import WeeklyOptIn from '@/components/shared/WeeklyOptIn';
 
 export default function TriadNotify() {
   const [sent, setSent] = useState(false);
@@ -25,6 +26,7 @@ export default function TriadNotify() {
       <label className="sr-only" htmlFor={`${id}-email`}>Email address</label>
       <input id={`${id}-email`} name="email" type="email" required placeholder="Your email address" autoComplete="email" />
       <button type="submit" disabled={busy}>Tell me when it’s ready <span aria-hidden="true">→</span></button>
+      <WeeklyOptIn />
       {error && <p className="form-error" role="alert">{error}</p>}
     </form>
   );

@@ -5,6 +5,7 @@
 // own class prefix: `<prefix>-form`, `<prefix>-btn <prefix>-btn--dark` and `<prefix>-thanks`.
 import { useId, useState } from 'react';
 import { submitLead } from '@/lib/forms';
+import WeeklyOptIn from '@/components/shared/WeeklyOptIn';
 
 export default function WaitlistForm({ product, segment, prefix, namePlaceholder = 'Name', thanks }: {
   product: string; segment?: string; prefix: string; namePlaceholder?: string; thanks: string;
@@ -34,6 +35,7 @@ export default function WaitlistForm({ product, segment, prefix, namePlaceholder
       <label className="sr-only" htmlFor={`${id}-e`}>Email address</label>
       <input id={`${id}-e`} name="email" type="email" required placeholder="Email address" autoComplete="email" />
       <button type="submit" className={`${prefix}-btn ${prefix}-btn--dark`} disabled={busy}>{busy ? 'Sending…' : 'Join the waitlist'}</button>
+      <WeeklyOptIn />
       {error && <p className="form-error" role="alert">{error}</p>}
     </form>
   );

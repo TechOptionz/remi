@@ -4,6 +4,7 @@
 // submitLead('waitlist') with the product's name and its list, like NotifyForm, which asks for an email only.
 import { useId, useState } from 'react';
 import { submitLead } from '@/lib/forms';
+import WeeklyOptIn from '@/components/shared/WeeklyOptIn';
 
 export default function WaitlistForm({ product, segment }: { product: string; segment?: string }) {
   const [sent, setSent] = useState(false);
@@ -31,6 +32,7 @@ export default function WaitlistForm({ product, segment }: { product: string; se
       <label className="sr-only" htmlFor={`${id}-e`}>Email address</label>
       <input id={`${id}-e`} name="email" type="email" required placeholder="Email address" autoComplete="email" />
       <button type="submit" className="n90-btn n90-btn--dark" disabled={busy}>{busy ? 'Sending…' : 'Join the waitlist'}</button>
+      <WeeklyOptIn />
       {error && <p className="form-error" role="alert">{error}</p>}
     </form>
   );

@@ -4,6 +4,7 @@
 // product name, so the team is told which product and the person joins the contacts list (see app/api/lead/route.ts).
 import { useId, useState } from 'react';
 import { submitLead } from '@/lib/forms';
+import WeeklyOptIn from '@/components/shared/WeeklyOptIn';
 
 export default function NotifyForm({ product, segment }: { product: string; segment?: string }) {
   const [sent, setSent] = useState(false);
@@ -25,6 +26,7 @@ export default function NotifyForm({ product, segment }: { product: string; segm
       <label className="sr-only" htmlFor={`${id}-e`}>Email address</label>
       <input id={`${id}-e`} name="email" type="email" required placeholder="Your email address" autoComplete="email" />
       <button type="submit" className="pr-btn" disabled={busy}>{busy ? 'Sending…' : 'Tell me when it’s ready'}</button>
+      <WeeklyOptIn />
       {error && <p className="form-error" role="alert">{error}</p>}
     </form>
   );

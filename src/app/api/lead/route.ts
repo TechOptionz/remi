@@ -5,6 +5,7 @@
 // Optional TURNSTILE_SECRET_KEY: every submission must then carry a Cloudflare Turnstile token (see lib/forms.ts).
 import { Resend } from 'resend';
 import { addToGhl } from '@/lib/ghl';
+import { recordOptIn, wordingOf, WEEKLY_TAG } from '@/lib/consent';
 
 export const runtime = 'nodejs';
 
@@ -47,7 +48,7 @@ const AUTO_REPLY: Partial<Record<Kind, { subject: string; body: string }>> = {
 };
 
 const LABELS: Record<string, string> = {
-  firstName: 'First name', marketing: 'Ideas and program invitations', why_now: 'Why now', when: 'Date, location or online', audience: 'Who will be in the room',
+  firstName: 'First name', marketing: 'Ideas and program invitations', weekly: 'Weekly teaching emails', weeklyVersion: 'Weekly consent version', weeklyWording: 'Weekly consent wording', why_now: 'Why now', when: 'Date, location or online', audience: 'Who will be in the room',
   explore: 'What to explore', fit: 'Why the right fit', stuck: 'Where the organisation is stuck', attempted: 'Already attempted',
   who: 'Who needs to be involved', about: 'About', helpful: 'Was it helpful?', message: 'Question or feedback', segment: 'List', page: 'Sent from', url: 'Page address',
 };
@@ -128,6 +129,16 @@ export async function POST(request: Request) {
   // Hidden field only a bot fills in: pretend it went through and send nothing
   if (data.fax) return json({ ok: true });
   if (data.segment && !SEGMENTS.includes(data.segment)) delete data.segment;
+  // The optional weekly teaching choice (components/shared/WeeklyOptIn.tsx): only waitlist forms carry it, and only an
+  // explicit Yes counts. The wording recorded is the server's copy of the version the form showed, never the client's text.
+  const weekly = kind === 'waitlist' && data.weekly === 'Yes';
+  if (kind !== 'waitlist') { delete data.weekly; delete data.weeklyVersion; }
+  delete data.weeklyWording;
+  if (weekly) {
+    const { version, wording } = wordingOf(data.weeklyVersion);
+    data.weeklyVersion = version;
+    data.weeklyWording = wording;
+  } else delete data.weeklyVersion;
   const email = data.email ?? '';
   // Feedback may be anonymous; everything else needs an address to reply to
   const anonymous = kind === 'feedback' && !email;
@@ -187,6 +198,7 @@ export async function POST(request: Request) {
       type === 'waitlist' && data.product && !PRODUCT_LISTS[data.product] && `Waitlist — ${data.product}`,
       (type === 'newsletter' || type === 'waitlist') && generalList && 'Newsletter',
       type === 'feedback' && 'Reader question',
+      weekly && WEEKLY_TAG,
     ].filter((t): t is string => !!t).map(t => oneLine(t).slice(0, 100)),
     note: `${subject}\n\n${rows.map(([k, v]) => `${label(k)}: ${v}`).join('\n')}`,
     source: `Website — ${data.page ?? 'form'}`,
@@ -220,6 +232,13 @@ export async function POST(request: Request) {
     }
   }
   await ghl;
+  // Weekly teaching: log the yes (date, form, wording) and add them to its own segment and topic, never the newsletter
+  if (weekly) {
+    await recordOptIn({
+      email, name: data.firstName ?? data.name, page: data.page, url: data.url, version: data.weeklyVersion,
+      form: `${data.product ?? 'Rebel Yell'} — waitlist`,
+    });
+  }
 
   return json({ ok: true });
 }

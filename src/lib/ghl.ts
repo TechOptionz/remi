@@ -19,9 +19,9 @@ export type GhlLead = {
 
 export const ghlEnabled = () => !!process.env.GHL_TOKEN && !!process.env.GHL_LOCATION_ID;
 
-async function call(path: string, body: object) {
+async function call(path: string, body: object, method = 'POST') {
   const res = await fetch(`${API}${path}`, {
-    method: 'POST',
+    method,
     headers: { Authorization: `Bearer ${process.env.GHL_TOKEN}`, Version: VERSION, 'Content-Type': 'application/json', Accept: 'application/json' },
     body: JSON.stringify(body),
   });
@@ -50,5 +50,17 @@ export async function addToGhl(lead: GhlLead) {
     }
   } catch (e) {
     console.error('GoHighLevel sync failed', lead.email, e);
+  }
+}
+
+/** Adds and removes tags on the contact with this email (created if missing). Used for the weekly teaching choice. */
+export async function tagGhl(email: string, add: string[], remove: string[]) {
+  if (!ghlEnabled() || (!add.length && !remove.length)) return;
+  try {
+    const { contact } = await call('/contacts/upsert', { locationId: process.env.GHL_LOCATION_ID!, email });
+    if (remove.length) await call(`/contacts/${contact.id}/tags`, { tags: remove }, 'DELETE');
+    if (add.length) await call(`/contacts/${contact.id}/tags`, { tags: add });
+  } catch (e) {
+    console.error('GoHighLevel tag update failed', email, e);
   }
 }

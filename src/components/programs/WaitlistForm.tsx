@@ -4,6 +4,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { DELIVERY } from '@/content/programs';
 import { submitLead } from '@/lib/forms';
+import WeeklyOptIn from '@/components/shared/WeeklyOptIn';
 
 export default function WaitlistForm() {
   const [sent, setSent] = useState(false);
@@ -50,6 +51,7 @@ export default function WaitlistForm() {
                 <label key={o}><input type="radio" name="delivery" value={o} /><span>{o}</span></label>
               ))}
             </fieldset>
+            <WeeklyOptIn className="ry-form-wide" />
             <div className="ry-form-wide ry-form-actions">
               <button type="submit" className="btn btn--primary btn--caps" disabled={busy}>{busy ? 'Sending…' : 'Join the private waitlist'}</button>
               {error && <p className="form-error" role="alert">{error}</p>}
