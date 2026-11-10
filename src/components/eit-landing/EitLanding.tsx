@@ -7,6 +7,7 @@
 import Link from 'next/link';
 import Icon from '@/components/shared/Icon';
 import NotifyForm from '@/components/products/NotifyForm';
+import { LiveHref, SoonLabel } from '@/components/landing/BuyMode';
 import { AVOIDING, AVOIDING_ICONS, EIT, FAQ, LESSON_IMAGES, LESSONS, TESTIMONIALS, UNDERSTAND, WORKBOOK } from '@/content/eit-landing';
 
 const num = (i: number) => String(i + 1).padStart(2, '0');
@@ -17,7 +18,7 @@ function Img({ name, alt, width, height, className = '' }: { name: string; alt: 
 
 /** The copper button with its arrow: the checkout once the product has a `buyHref`, until then the closing band (#get). */
 function Btn({ children }: { children: React.ReactNode }) {
-  return <a href={EIT.ctaHref} className="eil-btn">{children}<span aria-hidden="true">→</span></a>;
+  return <LiveHref href={EIT.ctaHref} className="eil-btn">{children}<span aria-hidden="true">→</span></LiveHref>;
 }
 
 /** The gold sprig in the bands' corners: a curved stem with solid leaves either side. */
@@ -249,7 +250,7 @@ export default function EitLanding() {
           <p className="eil-close-terms">Five videos • Guided demonstration • Workbook<br />{EIT.price} • One payment</p>
           {EIT.buyHref
             ? <a href={EIT.buyHref} className="eil-btn">Get EIT Foundations • {EIT.price}<span aria-hidden="true">→</span></a>
-            : <div className="eil-soon"><p>Coming soon</p><NotifyForm product={EIT.title} segment={EIT.segment} /></div>}
+            : <div className="eil-soon"><SoonLabel /><NotifyForm product={EIT.title} segment={EIT.segment} /></div>}
         </div>
       </section>
     </main>

@@ -1,4 +1,4 @@
-// Selling programs through Stripe (for now only CAM for Leaders, SOLD_HERE in content/checkout.ts), on the same account and webhook as the ebooks (lib/book-sales.ts).
+// Selling programs through Stripe (which ones: the admin screen, lib/program-links.ts), on the same account and webhook as the ebooks (lib/book-sales.ts).
 // Which programs are on sale, their prices and their Thinkific courses: content/checkout.ts.
 //  1. A program's buy buttons link to /api/products/checkout?product=<slug>, which opens Stripe Checkout at the price
 //     its page shows: plus 10% GST as its own receipt line for a "+ GST" price, otherwise with the GST included shown.
@@ -11,7 +11,7 @@
 import type Stripe from 'stripe';
 import { Resend } from 'resend';
 import { productBySlug, type Product } from '@/content/products';
-import { coursesOf } from '@/content/checkout';
+import { liveCoursesOf } from '@/lib/program-links';
 import { stripe } from '@/lib/book-sales';
 import { enrol, schoolSignIn, thinkificReady } from '@/lib/thinkific';
 
@@ -52,7 +52,7 @@ export async function deliverProduct(session: Stripe.Checkout.Session, product: 
   const resend = new Resend(RESEND_API_KEY);
   const name = session.customer_details?.name?.split(' ')[0];
   // Enrol first: if Thinkific refuses, this throws and Stripe retries the whole delivery later.
-  const courses = thinkificReady() ? coursesOf(product.slug) : null;
+  const courses = thinkificReady() ? await liveCoursesOf(product.slug) : null;
   const student = courses ? await enrol(courses, email, session.customer_details?.name) : null;
   const access = student ? accessUrl() : null;
   const p = 'style="font-family:sans-serif;font-size:15px;line-height:1.6;color:#221b17"';

@@ -7,6 +7,7 @@
 import Link from 'next/link';
 import Icon from '@/components/shared/Icon';
 import NotifyForm from '@/components/products/NotifyForm';
+import { LiveHref, SoonLabel } from '@/components/landing/BuyMode';
 import { FAQ, FWB, FWB_PRICE, INCLUDES, INTRO, LEARN, NEXT, OVER_TIME, RECOGNISE, TESTIMONIALS, VIDEO_IMAGES, VIDEOS, WORKBOOK, type Part } from '@/content/fwb-landing';
 
 function Img({ name, alt, width, height, className = '' }: { name: string; alt: string; width: number; height: number; className?: string }) {
@@ -15,7 +16,7 @@ function Img({ name, alt, width, height, className = '' }: { name: string; alt: 
 
 /** The gold button: the checkout once the product has a `buyHref`, until then the closing band (#get). */
 function Btn({ children }: { children: React.ReactNode }) {
-  return <a href={FWB.ctaHref} className="fwb-btn">{children}</a>;
+  return <LiveHref href={FWB.ctaHref} className="fwb-btn">{children}</LiveHref>;
 }
 
 /** Gold-ticked list. */
@@ -251,7 +252,7 @@ export default function FwbLanding() {
           <p className="fwb-close-terms">Introduction + three videos + workbook … {FWB_PRICE}.</p>
           {FWB.buyHref
             ? <Btn>Get Finding Our Way Back • {FWB_PRICE}</Btn>
-            : <div className="fwb-soon"><p>Coming soon</p><NotifyForm product={FWB.title} segment={FWB.segment} /></div>}
+            : <div className="fwb-soon"><SoonLabel /><NotifyForm product={FWB.title} segment={FWB.segment} /></div>}
         </div>
       </section>
     </main>

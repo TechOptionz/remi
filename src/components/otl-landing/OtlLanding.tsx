@@ -7,6 +7,7 @@
 import Link from 'next/link';
 import Icon from '@/components/shared/Icon';
 import NotifyForm from '@/components/products/NotifyForm';
+import { LiveHref, SoonLabel } from '@/components/landing/BuyMode';
 import { FAQ, INCLUDES, LEARN, NEXT, OTL, OTL_PRICE, PLANNED, RECOGNISE, TESTIMONIALS, UNEXAMINED, VIDEO_IMAGES, VIDEOS, WORKBOOK } from '@/content/otl-landing';
 
 function Img({ name, alt, width, height, className = '' }: { name: string; alt: string; width: number; height: number; className?: string }) {
@@ -15,7 +16,7 @@ function Img({ name, alt, width, height, className = '' }: { name: string; alt: 
 
 /** The gold button with its chevron: the checkout once the product has a `buyHref`, until then the closing band (#get). */
 function Btn({ children }: { children: React.ReactNode }) {
-  return <a href={OTL.ctaHref} className="otl-btn">{children}<span aria-hidden="true">›</span></a>;
+  return <LiveHref href={OTL.ctaHref} className="otl-btn">{children}<span aria-hidden="true">›</span></LiveHref>;
 }
 
 /** Gold-ticked list. */
@@ -249,7 +250,7 @@ export default function OtlLanding() {
             <p className="otl-close-terms">Seven videos + workbook • {OTL_PRICE}</p>
             {OTL.buyHref
               ? <Btn>Get Obstacles to Love • {OTL_PRICE}</Btn>
-              : <div className="otl-soon"><p>Coming soon</p><NotifyForm product={OTL.title} segment={OTL.segment} /></div>}
+              : <div className="otl-soon"><SoonLabel /><NotifyForm product={OTL.title} segment={OTL.segment} /></div>}
           </div>
         </div>
       </section>

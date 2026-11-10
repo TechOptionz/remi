@@ -5,6 +5,7 @@
 // styles/sr-landing.css (.srl-*); pictures in public/assets/sr-landing/.
 import Link from 'next/link';
 import NotifyForm from '@/components/products/NotifyForm';
+import { LiveHref, SoonLabel } from '@/components/landing/BuyMode';
 import { FAMILIAR, FAQ, LEARNING, LESSON_IMAGES, LESSONS, SR, TESTIMONIALS } from '@/content/sr-landing';
 
 const INCLUDES = 'Five videos • Workbook • Guided meditation';
@@ -16,7 +17,7 @@ function Img({ name, alt, width, height, className = '' }: { name: string; alt: 
 
 /** "Get the program • AUD $29": the checkout once the product has a `buyHref`, until then the closing band (#get). */
 function GetBtn({ dark }: { dark?: boolean }) {
-  return <a href={SR.ctaHref} className={`srl-btn${dark ? ' srl-btn--dark' : ''}`}>Get the program • {SR.price}</a>;
+  return <LiveHref href={SR.ctaHref} className={`srl-btn${dark ? ' srl-btn--dark' : ''}`}>Get the program • {SR.price}</LiveHref>;
 }
 
 /** Gold square bullets in two columns: a bold opening sentence (or clause) and what follows it. */
@@ -174,7 +175,7 @@ export default function SrLanding() {
           <p className="srl-close-terms">{INCLUDES}<br />{SR.price} • One payment</p>
           {SR.buyHref
             ? <GetBtn dark />
-            : <div className="srl-soon"><p>Coming soon</p><NotifyForm product={SR.title} segment={SR.segment} /></div>}
+            : <div className="srl-soon"><SoonLabel /><NotifyForm product={SR.title} segment={SR.segment} /></div>}
         </div>
       </section>
     </main>

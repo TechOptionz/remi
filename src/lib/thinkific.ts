@@ -63,3 +63,33 @@ export async function enrol(courseIds: number[], email: string, fullName?: strin
   }
   return { isNew };
 }
+
+export type SchoolCourse = {
+  id: number; name: string; slug: string;
+  /** Thinkific's product status: published, presell (pre-order), draft… */
+  status: string;
+  /** Hidden from the school's catalog / only by invitation. */
+  hidden: boolean; private: boolean;
+  /** The price set in Thinkific (0 = free there). The website charges its own price. */
+  price: number;
+  image: string | null;
+};
+
+/** Every course in the school with its product settings (the admin screen's list). */
+export async function listCourses(): Promise<SchoolCourse[]> {
+  type Course = { id: number; name: string; slug: string; product_id: number; course_card_image_url: string | null };
+  type Product = { id: number; status: string; hidden: boolean; private: boolean; price: string; card_image_url: string | null };
+  const [courses, products] = await Promise.all([
+    api<{ items: Course[] }>('/courses?limit=250'),
+    api<{ items: Product[] }>('/products?limit=250'),
+  ]);
+  const byId = new Map(products.items.map(p => [p.id, p]));
+  return courses.items.map(c => {
+    const p = byId.get(c.product_id);
+    return {
+      id: c.id, name: c.name, slug: c.slug,
+      status: p?.status ?? 'unknown', hidden: !!p?.hidden, private: !!p?.private,
+      price: Number(p?.price ?? 0), image: c.course_card_image_url ?? p?.card_image_url ?? null,
+    };
+  });
+}

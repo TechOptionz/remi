@@ -2,6 +2,7 @@
 // then the closing rust band (#get) with the book, the price and the button, or the "tell me when it's ready" sign-up
 // until the product has a checkout link.
 import NotifyForm from '@/components/products/NotifyForm';
+import { SoonLabel } from '@/components/landing/BuyMode';
 import { CATEGORIES } from '@/content/products';
 import { BuyBtn, Head, Photo, Price } from './ui';
 import { CAML_BUY_HREF, INCLUDES } from '@/content/cam-landing';
@@ -37,7 +38,7 @@ export default function CamClose() {
           <Price note="One payment. Self-paced. Immediate access." />
           {CAML_BUY_HREF
             ? <BuyBtn light />
-            : <><p className="stl-close-soon">Coming soon</p><NotifyForm product="Critical Alignment Model for Leaders" segment={CATEGORIES.leadership.segment} /></>}
+            : <><SoonLabel className="stl-close-soon" /><NotifyForm product="Critical Alignment Model for Leaders" segment={CATEGORIES.leadership.segment} /></>}
         </div>
       </div>
     </section>

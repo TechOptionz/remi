@@ -3,7 +3,8 @@
 // Stripe returns the buyer to /products/thank-you. Which programs are on sale: content/checkout.ts.
 // See lib/product-sales.ts.
 import { productBySlug, productHref } from '@/content/products';
-import { amountOf, imageOf, onSale, PLUS_GST } from '@/content/checkout';
+import { amountOf, imageOf, PLUS_GST } from '@/content/checkout';
+import { liveOnSale } from '@/lib/program-links';
 import { stripe } from '@/lib/book-sales';
 import { gstRateId } from '@/lib/product-sales';
 
@@ -12,7 +13,7 @@ export const runtime = 'nodejs';
 async function checkout(request: Request, slug: string) {
   const origin = new URL(request.url).origin;
   const product = productBySlug(slug);
-  if (!product || !onSale(slug)) return Response.redirect(`${origin}${product ? productHref(slug) : '/products'}`, 303);
+  if (!product || !(await liveOnSale(slug))) return Response.redirect(`${origin}${product ? productHref(slug) : '/products'}`, 303);
 
   try {
     const taxRate = await gstRateId(PLUS_GST.has(slug) ? 'exclusive' : 'inclusive');

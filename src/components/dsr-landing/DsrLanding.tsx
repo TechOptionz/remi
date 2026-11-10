@@ -6,6 +6,7 @@
 import Link from 'next/link';
 import Icon from '@/components/shared/Icon';
 import NotifyForm from '@/components/products/NotifyForm';
+import { LiveHref, SoonLabel } from '@/components/landing/BuyMode';
 import { PEARLS_ALT } from '@/content/dsr';
 import { DSR, DSR_NAME, FAQ, FAQ_ICONS, LESSON_IMAGES, LESSONS, OPPORTUNITY, OVER_IT, OVER_IT_ICONS, TESTIMONIALS, WORKBOOK } from '@/content/dsr-landing';
 
@@ -18,7 +19,7 @@ function Img({ name, alt, width, height, className = '' }: { name: string; alt: 
 
 /** The gold button: the checkout once the product has a `buyHref`, until then the closing band (#get). */
 function Btn({ children = <>Get {DSR_NAME} • {DSR.price}</> }: { children?: React.ReactNode }) {
-  return <a href={DSR.ctaHref} className="dsl-btn">{children}<span aria-hidden="true">›</span></a>;
+  return <LiveHref href={DSR.ctaHref} className="dsl-btn">{children}<span aria-hidden="true">›</span></LiveHref>;
 }
 
 export default function DsrLanding() {
@@ -186,7 +187,7 @@ export default function DsrLanding() {
           <p className="dsl-small">{INCLUDES}<br />{DSR.price} • One payment</p>
           {DSR.buyHref
             ? <a href={DSR.buyHref} className="dsl-btn">Get {DSR_NAME} • {DSR.price}<span aria-hidden="true">›</span></a>
-            : <div className="dsl-soon"><p>Coming soon</p><NotifyForm product={DSR.title} segment={DSR.segment} /></div>}
+            : <div className="dsl-soon"><SoonLabel /><NotifyForm product={DSR.title} segment={DSR.segment} /></div>}
         </div>
       </section>
     </main>
