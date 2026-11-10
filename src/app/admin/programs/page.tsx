@@ -1,5 +1,5 @@
 // Private: link each course in Remi's Thinkific school to its program page on the site, and put it on sale.
-// Open /admin/programs?key=<ADMIN_KEY> (or STATS_KEY when ADMIN_KEY is not set); without the right key the page 404s.
+// Open /admin/programs and enter the 4-digit code (ADMIN_PIN; lib/admin-auth.ts); signed in for 7 days on that browser.
 // Not in the sitemap, not indexed, rendered on request. Saving writes to Redis (lib/program-links.ts) and refreshes the
 // program's page, so its sign-up turns into a Buy button (Stripe Checkout → enrolment in the linked course) or back.
 import type { Metadata } from 'next';
@@ -9,20 +9,20 @@ import { revalidatePath, updateTag } from 'next/cache';
 import { PRODUCTS, FREE, productBySlug, productHref } from '@/content/products';
 import { amountOf } from '@/content/checkout';
 import { LINKS_TAG, linkOf, linksReady, liveOnSale, recentChanges, saveLink } from '@/lib/program-links';
+import { adminReady, isAdmin, signIn } from '@/lib/admin-auth';
+import PinBoxes from '@/components/admin/PinBoxes';
 import { listCourses, thinkificReady, type SchoolCourse } from '@/lib/thinkific';
 
 export const dynamic = 'force-dynamic';
 export const metadata: Metadata = { title: 'Program links — Remi Pearson', robots: { index: false, follow: false } };
 
-const adminKey = () => process.env.ADMIN_KEY || process.env.STATS_KEY;
 const STATUS: Record<string, string> = { published: 'Published', presell: 'Pre-order', draft: 'Draft' };
 const squash = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
 const when = (iso: string) => new Date(iso).toLocaleString('en-AU', { timeZone: 'Australia/Sydney', dateStyle: 'medium', timeStyle: 'short' });
 
 async function save(form: FormData) {
   'use server';
-  const key = String(form.get('key') ?? '');
-  if (!adminKey() || key !== adminKey()) notFound();
+  if (!(await isAdmin())) redirect('/admin/programs');
   const courseId = Number(form.get('courseId'));
   const course = String(form.get('course') ?? '');
   const slug = String(form.get('slug') ?? '');
@@ -43,12 +43,12 @@ async function save(form: FormData) {
   }
   updateTag(LINKS_TAG);
   for (const s of touched) revalidatePath(productHref(s));
-  redirect(`/admin/programs?key=${encodeURIComponent(key)}&saved=${courseId}`);
+  redirect(`/admin/programs?saved=${courseId}`);
 }
 
-export default async function ProgramLinksPage({ searchParams }: { searchParams: Promise<{ key?: string; saved?: string }> }) {
-  const { key, saved } = await searchParams;
-  if (!adminKey() || key !== adminKey()) notFound();
+export default async function ProgramLinksPage({ searchParams }: { searchParams: Promise<{ saved?: string; error?: string }> }) {
+  const { saved, error } = await searchParams;
+  if (!(await isAdmin())) return <SignIn error={error} ready={adminReady()} />;
 
   let courses: SchoolCourse[] = [];
   let thinkificError: string | null = null;
@@ -82,7 +82,6 @@ export default async function ProgramLinksPage({ searchParams }: { searchParams:
             const open = !c.hidden && !c.private && c.status !== 'draft';
             return (
               <form key={c.id} action={save} className={`adm-row${String(c.id) === saved ? ' adm-row--saved' : ''}`}>
-                <input type="hidden" name="key" value={key} />
                 <input type="hidden" name="courseId" value={c.id} />
                 <input type="hidden" name="course" value={c.name} />
                 <div className="adm-course">
@@ -140,6 +139,31 @@ export default async function ProgramLinksPage({ searchParams }: { searchParams:
             </ul>
           </>
         )}
+      </section>
+    </main>
+  );
+}
+
+async function enter(form: FormData) {
+  'use server';
+  const err = await signIn(String(form.get('pin') ?? ''));
+  redirect(err ? `/admin/programs?error=${encodeURIComponent(err)}` : '/admin/programs');
+}
+
+/** The sign-in screen: one 4-digit code. */
+function SignIn({ error, ready }: { error?: string; ready: boolean }) {
+  return (
+    <main className="pr-page pr-page--cream">
+      <section className="pr-hero adm adm-signin">
+        <p className="pr-eyebrow">Private · for the team</p>
+        <h1 className="pr-title">Program links</h1>
+        {ready ? (
+          <form action={enter} className="adm-pin">
+            <p>Enter your 4-digit code</p>
+            <PinBoxes />
+            {error && <p className="form-error" role="alert">{error}</p>}
+          </form>
+        ) : <p className="form-error">Sign-in is not set up: add a 4-digit ADMIN_PIN to this server’s settings.</p>}
       </section>
     </main>
   );

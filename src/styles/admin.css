@@ -29,3 +29,15 @@
   .adm-row { grid-template-columns: 1fr; }
   .adm-check, .adm-actions { padding-top: 0; }
 }
+.adm-signin { max-width: 420px; }
+.adm-pin { display: grid; gap: 12px; margin-top: 24px; text-align: left; }
+.adm-pin label { font-size: 15px; }
+.adm-pin input { width: 160px; padding: 12px 14px; font: inherit; font-size: 28px; letter-spacing: .5em; text-align: center; background: #fff; border: 1px solid rgba(34, 27, 23, .3); border-radius: 4px; }
+.adm-pin .pr-btn { justify-self: start; margin: 0; }
+/* Sign-in: the code as four boxes, centred on the screen. */
+.adm-signin { max-width: none; min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.adm-pin { justify-items: center; gap: 14px; margin-top: 20px; text-align: center; }
+.adm-pin p { margin: 0; font-size: 16px; }
+.adm-otp { display: flex; gap: 12px; }
+.adm-otp input { width: 56px; height: 64px; padding: 0; font: inherit; font-size: 28px; font-weight: 600; letter-spacing: 0; text-align: center; color: #221b17; background: #fff; border: 1px solid rgba(34, 27, 23, .3); border-radius: 8px; -webkit-text-security: disc; }
+.adm-otp input:focus { outline: none; border-color: #b8892f; box-shadow: 0 0 0 3px rgba(184, 137, 47, .25); }
