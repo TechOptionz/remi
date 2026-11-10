@@ -137,7 +137,7 @@ export default function UifLanding() {
         <section className="uif-section" aria-labelledby="uif-remi-h">
           <h2 id="uif-remi-h" className="uif-h2 uif-h2--big">Learn with someone who has spent decades having these conversations.</h2>
           <div className="uif-cols uif-cols--flow">
-            <p>I’m Remi Pearson, founder and former owner of The Coaching Institute, a business that generated approximately $200 million in revenue over 23 years.</p>
+            <p>I’m Remi Pearson. I founded The Coaching Institute in 2004 and built an eight-figure business that generated nearly A$200 million in cumulative revenue before my exit in 2024.</p>
             <p>My early experience of selling was walking into businesses with a bag of products and hoping someone would buy. I had enthusiasm and persistence. The understanding came later, through building my own practice, growing a business and teaching others how to have conversations that led somewhere.</p>
             <p>What began to change things was learning to understand people well enough to reflect their situation clearly. I became more interested in what they wanted, what mattered to them and the experience they were hoping to have. I also learned how much warmth and genuine attention could change the quality of a conversation.</p>
             <p>Ultimate Influence developed from that work. Foundations is where I introduce you to the approach and help you begin applying it to your own.</p>

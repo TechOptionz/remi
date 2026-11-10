@@ -170,7 +170,7 @@ export default function TthLanding() {
           <h2 id="tth-remi-h" className="tth-h2 tth-h2--big">Learn with Remi Pearson.</h2>
           <p className="tth-lede">Experience of building a business, and a willingness to question how we lead.</p>
           <div className="tth-cols">
-            <p>Over 23 years, I built a business that generated approximately $200 million in revenue and trained more than 13,000 coaches. That involved decisions with consequences, people who saw things differently from me, and plenty of opportunities to examine my own thinking.</p>
+            <p>I founded The Coaching Institute in 2004 and built an eight-figure business that generated nearly A$200 million in cumulative revenue and trained more than 13,000 coaches before my exit in 2024. That involved decisions with consequences, people who saw things differently from me, and plenty of opportunities to examine my own thinking.</p>
             <p>I developed T.R.U.S.T.M.E. as a practical way to work with questions that kept appearing in leadership and human development. Why can someone explain a better approach and still struggle to use it? Why does a team repeat a pattern that everyone says they want to change? What needs to develop before a different response becomes available?</p>
           </div>
           <p>In this program, I’ll help you examine those questions in your own context. We’ll keep bringing the ideas back to what you do, what happens as a result, and what you could approach differently.</p>

@@ -8,7 +8,7 @@ export default function WhyMe() {
       <div className="ry-split ry-split--even">
         <div className="ry-prose">
           <h2 id="why-h" className="ry-title">Why <em>me?</em></h2>
-          <p className="ry-callout">I founded, built and eventually sold The Coaching Institute, a business that generated more than $200 million over 23 years.</p>
+          <p className="ry-callout">I founded The Coaching Institute in 2004 and built an eight-figure business that generated nearly A$200 million in cumulative revenue before my exit in 2024.</p>
           <p>During that time, I developed intellectual property across human behaviour, emotional change, leadership, decision-making, organisational alignment, consultative sales and the movement from founder-led practice to enterprise.</p>
           <p>I know the emotional and structural reality of building a company because I have lived it. I know what it is to hold the vision, become central to too many decisions, develop leaders, protect culture, create systems, grow intellectual property, make difficult commercial calls and discover that the thing which created success at one stage can become the constraint at the next.</p>
           <p>My work has always crossed boundaries that organisations usually keep separate.</p>

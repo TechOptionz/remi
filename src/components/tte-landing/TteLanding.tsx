@@ -52,7 +52,7 @@ export default function TteLanding() {
             <p className="tte-price"><span>Investment …</span> {TTE.price}</p>
             <Btn />
           </div>
-          <p className="tte-small"><em>Learn from Remi Pearson, founder of The Coaching Institute, which generated approximately $200 million in cumulative revenue during her ownership. Successfully exited in 2024.</em></p>
+          <p className="tte-small"><em>Learn from Remi Pearson, who founded The Coaching Institute in 2004 and built an eight-figure business that generated nearly A$200 million in cumulative revenue before her exit in 2024.</em></p>
         </div>
       </section>
 

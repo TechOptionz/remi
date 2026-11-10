@@ -159,7 +159,7 @@ export default function CiiLanding() {
         <div className="cii-remi-copy">
           <h2 id="cii-remi-h" className="cii-h2 cii-h2--big">Learn from someone who has had to make <em>these decisions.</em></h2>
           <p className="cii-label">Remi Pearson</p>
-          <p>I founded The Coaching Institute and built a business that generated approximately $200 million in revenue over 23 years, before selling it in 2024. Over that time, we trained more than 13,000 coaches.</p>
+          <p>I founded The Coaching Institute in 2004 and built an eight-figure business that generated nearly A$200 million in cumulative revenue before my exit in 2024. Over that time, we trained more than 13,000 coaches.</p>
           <p>Building that business meant developing people who could deliver well, making our standards teachable and deciding where our attention belonged as the organisation grew. There were always more possibilities than there was time to pursue them.</p>
           <p>Core, Improve, Innovate is one of the models I use to think through those choices. I teach it because a business owner needs a way to question a compelling idea, recognise a neglected responsibility and respond when something genuinely needs to change.</p>
         </div>

@@ -102,7 +102,7 @@ export default function SffLanding() {
             <p className="sff-figure-label">I personally generated more than $50 million in sales from stage.</p>
           </div>
           <div className="sff-intro">
-            <p>I’m Remi Pearson, founder and former owner of The Coaching Institute. Over twenty-three years, the business generated approximately $200 million in revenue and trained more than 13,000 coaches.</p>
+            <p>I’m Remi Pearson. I founded The Coaching Institute in 2004 and built an eight-figure business that generated nearly A$200 million in cumulative revenue and trained more than 13,000 coaches before my exit in 2024.</p>
             <p>Selling from Stage Fundamentals introduces the pitch structure I teach from that experience. I’ll help you understand how the pieces fit together, so you can begin applying them to your own offer.</p>
           </div>
           <img className="sff-signature" src="/assets/bm-landing/bm-signature.webp" alt="Remi Pearson" width={585} height={375} loading="lazy" decoding="async" />

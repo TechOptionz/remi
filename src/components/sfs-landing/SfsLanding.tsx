@@ -62,7 +62,7 @@ export default function SfsLanding() {
       <section className="sfs-figures" aria-label="Remi Pearson’s results">
         <div className="sfs-wrap sfs-figures-inner">
           <div><p className="sfs-figure-n">$50 million</p><p className="sfs-figure-label">Personally sold through presentations</p><p className="sfs-figure-sub">Live events · Webinars · Small teleconferences</p></div>
-          <div><p className="sfs-figure-n">$200 million</p><p className="sfs-figure-label">Founder of a business that generated approximately $200 million over 23 years</p></div>
+          <div><p className="sfs-figure-n">A$200 million</p><p className="sfs-figure-label">Nearly, in cumulative revenue from the business she founded in 2004</p></div>
         </div>
       </section>
 
@@ -106,7 +106,7 @@ export default function SfsLanding() {
         <section className="sfs-section sfs-rule" aria-labelledby="sfs-remi-h">
           <h2 id="sfs-remi-h" className="sfs-h2 sfs-h2--big">Learn the thinking behind $50 million in personal sales</h2>
           <div className="sfs-cols sfs-cols--flow">
-            <p>I’m Remi Pearson. I founded The Coaching Institute and built a business that generated approximately $200 million over 23 years. Within that work, I personally sold $50 million through live events, webinars and small teleconferences.</p>
+            <p>I’m Remi Pearson. I founded The Coaching Institute in 2004 and built an eight-figure business that generated nearly A$200 million in cumulative revenue before my exit in 2024. Within that work, I personally sold $50 million through live events, webinars and small teleconferences.</p>
             <p>That experience taught me to pay attention to much more than the words of a pitch. I learned to notice whether people felt understood, whether they could see themselves benefiting from the offer, and whether I had made the next step clear enough for them to consider it.</p>
             <p>I also learned how easily we can get in our own way. We overteach. We explain an inclusion without explaining why it matters. We become uncomfortable with the price and communicate that discomfort to the room.</p>
             <p>In Selling from Stage, I’ll teach you the method and take you through the decisions behind it. You’ll see what I look for, what I prepare and how I connect the parts of a presentation so the offer belongs in the experience.</p>
@@ -278,7 +278,7 @@ export default function SfsLanding() {
         </div>
         <div className="sfs-wrap sfs-fine">
           <p><em>Training scheduling: The dates and scheduling of the annual two-day bonus training are at Remi Pearson’s discretion and will be communicated to enrolled participants. Your enrolment includes one place at one annual two-day training event. Scheduling may be subject to change.</em></p>
-          <p><em>Results: Remi’s $50 million in personal sales represents her own results across live events, webinars and small teleconferences. The approximately $200 million figure refers to the business’s revenue over 23 years. These figures describe past results and are not a promise of your earnings. Your results will depend on your offer, audience and application of the teaching. This does not limit the investment-back guarantee stated above.</em></p>
+          <p><em>Results: Remi’s $50 million in personal sales represents her own results across live events, webinars and small teleconferences. The nearly A$200 million figure refers to the business’s cumulative revenue from 2004 until Remi’s exit in 2024; it is not a sale valuation. These figures describe past results and are not a promise of your earnings. Your results will depend on your offer, audience and application of the teaching. This does not limit the investment-back guarantee stated above.</em></p>
         </div>
       </section>
     </main>

@@ -124,7 +124,7 @@ export default function UiLanding() {
         <section className="stl-section stl-split stl-remi" aria-labelledby="uil-remi-h">
           <div className="stl-split-copy">
             <Head id="uil-remi-h">Learn with <span className="uil-rust">Remi Pearson.</span></Head>
-            <p>I started my business cold-calling from my bedroom and built The Coaching Institute into a company that turned over more than $200 million across twenty-three years, before I exited in 2024.</p>
+            <p>I started my business cold-calling from my bedroom. I founded The Coaching Institute in 2004 and built an eight-figure business that generated nearly A$200 million in cumulative revenue before my exit in 2024.</p>
             <p>I had to learn how to invite people into work I believed in, and teach others to have those conversations as the business grew.</p>
             <p>I also worked with online marketers in America, consulting with their sales teams and teaching them to use Ultimate Influence.</p>
             <p>I’m sharing the complete methodology so you have a structure you can understand, practise and bring into your own work.</p>

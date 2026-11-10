@@ -150,7 +150,7 @@ export default function N90Landing() {
       <section className="n90-created" aria-labelledby="n90-created-h">
         <div className="n90-created-copy">
           <h2 id="n90-created-h" className="n90-h2">Created from the work of building and leading a business.</h2>
-          <p>Remi Pearson founded The Coaching Institute and built a business that generated approximately $200 million in revenue over 23 years.</p>
+          <p>Remi Pearson founded The Coaching Institute in 2004 and built an eight-figure business that generated nearly A$200 million in cumulative revenue before her exit in 2024.</p>
           <p>This program draws on her Critical Alignment Model, her <Link href="/ideas-models/disruptive-leadership">Disruptive Leadership</Link> work and the quarterly review templates she used with her own team. Those templates brought values, cultural contribution and measurable performance into the same conversation, with responsibilities for the leader as well as the team member.</p>
           <p>You’re learning an approach developed through the practical demands of leading people, maintaining standards and helping others grow into greater responsibility.</p>
         </div>

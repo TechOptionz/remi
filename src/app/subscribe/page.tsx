@@ -106,7 +106,7 @@ export default function SubscribePage() {
         <section className="ltl-section ltl-about" aria-labelledby="ltl-about-h">
           <h2 id="ltl-about-h" className="ltl-h2 ltl-h2--big">A little about <em className="ltl-rust">who’s writing</em> to you.</h2>
           <div>
-            <p>I’m Remi Pearson, founder of The Coaching Institute, which I built into a business that generated approximately $200 million over 23 years. My work explores human behaviour, relationships and leadership, and I’m particularly interested in the gap between what we understand intellectually and how we actually live.</p>
+            <p>I’m Remi Pearson. I founded The Coaching Institute in 2004 and built an eight-figure business that generated nearly A$200 million in cumulative revenue before my exit in 2024. My work explores human behaviour, relationships and leadership, and I’m particularly interested in the gap between what we understand intellectually and how we actually live.</p>
             <p>Let Truth Lead is a place to keep exploring those questions together. I’ll bring my experience, the research I’m reading and a willingness to question my own thinking too.</p>
             <img className="ltl-signature" src="/assets/bm-landing/bm-signature.webp" alt="Remi" width={585} height={375} loading="lazy" decoding="async" />
           </div>

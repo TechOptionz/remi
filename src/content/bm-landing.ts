@@ -16,7 +16,7 @@ export const BM_PRICE = audOf(BM.price);
 export const BM_NAME = 'Benchmarking: What Good Actually Looks Like';
 
 /** The strip under the hero (the mockup's line, from the deck's facts about Remi). */
-export const STRIP = ['Built The Coaching Institute', 'Approximately $200M in revenue over 23 years'];
+export const STRIP = ['Built The Coaching Institute', 'Nearly A$200M in cumulative revenue'];
 
 /** "Through this program, you’ll learn how to:" — the mockup's gold numerals in a row. */
 export const LEARN: LeadItem[] = [

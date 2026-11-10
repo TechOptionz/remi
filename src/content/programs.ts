@@ -53,8 +53,8 @@ export const POOR_FIT = [
 
 // ---------- Why me? — the small line of credentials under the photos ----------
 export const CREDENTIALS = [
-  'Founded, built and sold The Coaching Institute',
-  'More than $200 million generated over 23 years',
+  'Founded The Coaching Institute in 2004; exited in 2024',
+  'Nearly A$200 million in cumulative revenue',
   'Three decades of watching what people actually do',
 ];
 
