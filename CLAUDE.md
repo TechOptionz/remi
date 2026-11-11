@@ -1,7 +1,3 @@
-# Versioning
-- Design-tool files live in `design/` (not part of the website). Frozen snapshots live in `design/versions/` and are never edited: `v1.0` (light editorial, video-first), `v2.0` (dark, Rashid-style structure).
-- Working file: `design/Remi Pearson Homepage v2.dc.html` is the live one being iterated.
-- When the user says "lock this in" / "save as version", copy the working file to `design/versions/… vX.Y.dc.html` (bump minor for tweaks, major for redesigns) and note it here.
 
 # Website (Next.js) — repo root
 The live website is the Next.js app at the repo root (App Router, TypeScript, prerendered pages plus one API route, deployed on Vercel). The old hand-written HTML site was removed once the migration was complete (it remains in git history).
