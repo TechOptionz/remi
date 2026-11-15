@@ -1,10 +1,12 @@
 'use client';
 
-// Sticky site header: logo, primary nav (from content/site.ts), Variants menu, CTA and the mobile menu.
+// Sticky site header: logo, primary nav (from content/site.ts), newsletter + search buttons and the mobile menu.
+// The dark "Show me where to start" button was taken out (Nov 2026) to make room for Newsletter in the nav; the
+// homepage hero keeps it.
 import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { HEADER_CTA, NAV, SITE, type HeroId, type NavItem, type PaletteId } from '@/content/site';
+import { NAV, SITE, type HeroId, type NavItem, type PaletteId } from '@/content/site';
 import { useSiteState } from '@/lib/site-state';
 // Variants menu (design review tool) is hidden for now; restore this import and the <VariantsMenu /> line in the nav to bring it back
 // import VariantsMenu from './VariantsMenu';
@@ -21,6 +23,13 @@ function groupLinks(items: NavItem[]) {
   }
   return runs;
 }
+
+const MailIcon = () => (
+  <svg className="nav-mail" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3.5 7l8.500 6.500L20.500 7" /></svg>
+);
+
+// The highlighted link (Newsletter) also gets its own button in the header bar where the nav is folded away
+const HIGHLIGHT = NAV.find(item => item.highlight);
 
 /** A nav link: a Next <Link>, or a plain new-tab <a> for an `external` address (Ultimate Self Club). */
 function NavLink({ item, ...rest }: { item: NavItem } & Omit<React.ComponentProps<'a'>, 'href'>) {
@@ -100,8 +109,8 @@ export default function Header() {
           {/* <VariantsMenu hero={hero} palette={palette} onHero={pickHero} onPalette={pickPalette} /> */}
         </nav>
         <div className="header-actions">
+          {HIGHLIGHT && <Link href={HIGHLIGHT.href} className="header-mail" aria-label={HIGHLIGHT.label} title={HIGHLIGHT.label} onClick={closeMenu} {...current(HIGHLIGHT)}><MailIcon /></Link>}
           <SiteSearch onOpen={closeMenu} />
-          <Link href={HEADER_CTA.href} className="btn btn--ink btn--sm">{HEADER_CTA.label}</Link>
           <button type="button" className="burger" aria-label="Menu" aria-expanded={menuOpen} aria-controls="mobile-nav" onClick={() => setMenuOpen(o => !o)}>
             <span></span><span></span>
           </button>

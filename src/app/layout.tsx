@@ -10,6 +10,7 @@ import ScrollToTop from '@/components/layout/ScrollToTop';
 import SmoothScroll from '@/components/layout/SmoothScroll';
 import Footer from '@/components/layout/Footer';
 import ChatWidget from '@/components/shared/ChatWidget';
+import NewsletterPrompt from '@/components/shared/NewsletterPrompt';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Footer />
           </div>
           <ChatWidget />
+          <NewsletterPrompt />
         </SiteStateProvider>
         <Analytics />
       </body>
