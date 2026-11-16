@@ -11,7 +11,7 @@ export default function TriadRemi() {
           <Head id="stl-remi-h" star>Meet Remi</Head>
           <p className="stl-signature" aria-hidden="true">Remi</p>
           <p>I’m Remi Pearson, author, founder of The Coaching Institute and creator of the Self-Esteem Triad. Over more than two decades, my work has explored how we think, relate and change, including the gap between understanding ourselves and being able to live what we understand.</p>
-          <p>I built a business that turned over $200 million across its history and trained more than 14,000 coaches. I also know that being capable and achieving things doesn’t settle every question we have about ourselves. This program brings one of my models into a format you can work through in your own life, for $29.</p>
+          <p>I founded The Coaching Institute in 2004 and built an eight-figure business that generated nearly A$200 million in cumulative revenue and trained more than 14,000 coaches before my exit in 2024. I also know that being capable and achieving things doesn’t settle every question we have about ourselves. This program brings one of my models into a format you can work through in your own life, for $29.</p>
         </div>
         <Photo name="stl-desk" width={554} height={670} className="stl-split-photo" />
       </section>

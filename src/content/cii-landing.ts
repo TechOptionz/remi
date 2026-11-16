@@ -12,7 +12,7 @@ export const CII = programOf(CII_SLUG);
 
 /** The dark strip under the hero (mockup one), from the deck's facts about Remi. */
 export const STATS: { icon: IconName; figure: string; label: string }[] = [
-  { icon: 'bars', figure: '$200M', label: 'Business revenue over 23 years' },
+  { icon: 'bars', figure: 'A$200M', label: 'Nearly, in cumulative business revenue' },
   { icon: 'people', figure: '13,000+', label: 'Coaches trained' },
 ];
 

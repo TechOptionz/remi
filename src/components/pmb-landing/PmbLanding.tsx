@@ -135,7 +135,7 @@ export default function PmbLanding() {
           <img className="pmb-signature" src="/assets/bm-landing/bm-signature.webp" alt="" width={585} height={375} loading="lazy" decoding="async" />
           <div className="pmb-remi-copy">
             <h2 id="pmb-remi-h" className="pmb-h2 pmb-h2--big">Learn from someone who has carried the responsibility herself.</h2>
-            <p>Remi Pearson founded The Coaching Institute and built a business that generated approximately <strong>$200 million in revenue over 23 years</strong>.</p>
+            <p>Remi Pearson founded The Coaching Institute in 2004 and built an eight-figure business that generated <strong>nearly A$200 million in cumulative revenue</strong> before her exit in 2024.</p>
             <p>Her experience includes developing teams, establishing standards and navigating the reality of growing a business where people’s decisions affect one another every day. Her teaching draws on that experience alongside her <Link href="/ideas-models/critical-alignment-model">Critical Alignment Model</Link> and <Link href="/ideas-models/disruptive-leadership">Disruptive Leadership</Link> work.</p>
             <p>The Performance Management Blueprint brings a focused part of that work into an accessible program you can use with your own team.</p>
           </div>

@@ -168,12 +168,12 @@ export default function BbfLanding() {
           <p className="bbf-crumb-label">Build Beyond the Founder <span aria-hidden="true">/</span> <em>Your next step</em></p>
           <h2 id="bbf-remi-h" className="bbf-h2 bbf-h2--big">Built from the experience of making the business bigger than my own role.</h2>
           <dl className="bbf-figures">
-            <div><dt><span>$</span>200 million</dt><dd>Approximate revenue over 23 years</dd></div>
-            <div><dt>2024</dt><dd>The year Remi sold the business</dd></div>
+            <div><dt><span>A$</span>200 million</dt><dd>Nearly, in cumulative revenue from 2004</dd></div>
+            <div><dt>2024</dt><dd>The year Remi exited the business</dd></div>
           </dl>
-          <p>I founded The Coaching Institute and built a business that generated approximately $200 million in revenue over 23 years. Along the way, I had to learn how to make the work deliverable by people other than me.</p>
+          <p>I founded The Coaching Institute in 2004 and built an eight-figure business that generated nearly A$200 million in cumulative revenue before my exit in 2024. Along the way, I had to learn how to make the work deliverable by people other than me.</p>
           <p>One of the important shifts was replacing myself as the talent. Other people took over trainings, classes and content delivery before I put management in place. That meant finding ways for what I knew to become something others could learn and deliver.</p>
-          <p>I went on to sell the business in 2024. You may have no interest in selling yours, but creating value that can exist beyond your personal involvement gives you options. That is the experience behind this collection.</p>
+          <p>I exited the business in 2024. You may have no interest in selling yours, but creating value that can exist beyond your personal involvement gives you options. That is the experience behind this collection.</p>
           <img className="bbf-signature" src="/assets/bm-landing/bm-signature.webp" alt="" width={585} height={375} loading="lazy" decoding="async" />
           <p className="bbf-sign"><strong>Remi Pearson</strong><br />Founder, author and creator of the <Link href="/ideas-models/trustme-model">T.R.U.S.T.M.E. Model</Link></p>
         </div>

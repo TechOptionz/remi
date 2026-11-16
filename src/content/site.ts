@@ -18,7 +18,9 @@ export const SITE = {
 // ---------- Navigation (header, mobile menu and footer "Explore" column) ----------
 // `children` open as a drop-down in the header and are listed under their parent in the mobile menu (the footer
 // shows the top level only). Children with a `group` are shown under that group's label in the drop-down.
-export type NavItem = { label: string; href: string; group?: string; external?: boolean; children?: NavItem[] };
+// `highlight` marks the one link (Newsletter) that also gets an envelope button beside the search button on phones and
+// tablets; in the nav and the mobile menu it looks like every other link.
+export type NavItem = { label: string; href: string; group?: string; external?: boolean; highlight?: boolean; children?: NavItem[] };
 
 // Ideas & Models drop-down: the overview, then every card of the page's "at a glance" index (GLANCE in
 // content/ideas.ts) that has its own page or a section of the overview page, in that order and those groups,
@@ -34,6 +36,7 @@ export const NAV: NavItem[] = [
     { label: 'All books', href: '/books' },
     ...BOOKS.map(b => ({ label: b.title, href: `/books/${b.slug}` })),
   ] },
+  { label: 'Newsletter', href: '/subscribe', highlight: true },
   { label: 'Articles', href: '/articles' },
   { label: 'Perspectives', href: '/perspectives' },
   { label: 'Ideas & Models', href: '/ideas-models', children: [
@@ -53,8 +56,6 @@ export const NAV: NavItem[] = [
   ] },
   { label: 'Invite Remi', href: '/invite-remi' },
 ];
-
-export const HEADER_CTA = { label: 'Show me where to start', href: '/#rabbit-holes' };
 
 // ---------- Site search (header) ----------
 // The index is built from the pages themselves at `npm run build` (scripts/search-index.mjs); nothing to list here.

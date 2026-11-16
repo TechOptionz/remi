@@ -163,7 +163,7 @@ export default function HmsLanding() {
         <Img name="hms-still" alt="" width={519} height={348} className="hms-remi-photo" />
         <div className="hms-remi-copy">
           <h2 id="hms-remi-h" className="hms-h2 hms-h2--big">Learn with someone who has sold, built and taught.</h2>
-          <p>I began selling door-to-door before building The Coaching Institute into a business that turned over more than $200 million across twenty-three years. I exited in 2024.</p>
+          <p>I began selling door-to-door before founding The Coaching Institute in 2004 and building an eight-figure business that generated nearly A$200 million in cumulative revenue before my exit in 2024.</p>
           <p>Along the way, I had to understand how to invite people into work I believed in, and how to teach others to have those conversations as the business grew. Ultimate Influence developed through that work.</p>
           <p>One of the most useful things I can share with you is how to recognise the space between you and a potential client, and notice what happens when you stop filling all of it yourself.</p>
           <p>In this free introduction, I’ll show you what that looks like and give you practical ways to begin using it.</p>

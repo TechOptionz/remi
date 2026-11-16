@@ -111,7 +111,7 @@ export const AUDIT_NOTE = 'The Founder Dependency Audit is coming soon.';
 // ---------- I did not learn this from a diagram ----------
 export const BUILT_STATS = [
   { num: '11,000+', label: 'Coaches trained' },
-  { top: 'Nearly', num: '$200M', label: 'In revenue' },
+  { top: 'Nearly', num: 'A$200M', label: 'In cumulative revenue' },
   { num: 'Sold', label: 'In 2024' },
 ];
 

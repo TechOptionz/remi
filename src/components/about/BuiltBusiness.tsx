@@ -3,8 +3,8 @@ import Icon, { type IconName } from '@/components/shared/Icon';
 const FACTS: { icon: IconName; top?: string; num: string; label?: string }[] = [
   { icon: 'flag', top: 'Founded', num: '2004' },
   { icon: 'people', num: '11,000+', label: 'Coaches trained' },
-  { icon: 'bars', top: 'Nearly', num: '$200M', label: 'Revenue' },
-  { icon: 'handshake', top: 'Sold', num: '2024' },
+  { icon: 'bars', top: 'Nearly', num: 'A$200M', label: 'Cumulative revenue' },
+  { icon: 'handshake', top: 'Exited', num: '2024' },
   { icon: 'stage', num: '$50M', label: 'Sold from stage' },
   { icon: 'globe', num: '100+', label: 'Countries reached' },
 ];
@@ -16,7 +16,7 @@ export default function BuiltBusiness() {
       <div className="part-head part-head--center">
         <div>
           <h2 id="business-h" className="part-title"><span className="underline">And yes, I built a rather large business too</span></h2>
-          <p className="part-lede">I built The Coaching Institute from a spare room into one of Australasia's most successful coaching schools, then built it beyond my own delivery and sold it.</p>
+          <p className="part-lede">I built The Coaching Institute from a spare room into one of Australasia's most successful coaching schools, then built it beyond my own delivery before my exit in 2024.</p>
         </div>
         <div className="photo-stack">
           <img loading="lazy" decoding="async" src="/assets/photos/about-built-a.webp" alt="Remi with a room of people in fancy dress at a Coaching Institute celebration" />

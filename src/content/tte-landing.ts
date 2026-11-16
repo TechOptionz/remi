@@ -39,7 +39,7 @@ export const REASONS = [
 /** The two dates and the figure in Remi's story (mockup two's strip). */
 export const STORY_FIGURES = [
   { figure: '2014', label: 'Stepped out of day-to-day management' },
-  { figure: 'Approximately $200M', label: 'Cumulative business revenue during ownership' },
+  { figure: 'Nearly A$200M', label: 'Cumulative business revenue during ownership' },
   { figure: '2024', label: 'Successfully exited' },
 ];
 

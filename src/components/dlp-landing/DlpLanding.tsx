@@ -153,11 +153,11 @@ export default function DlpLanding() {
       <div className="dlp-wrap">
         <section className="dlp-section" aria-labelledby="dlp-remi-h">
           <p className="dlp-crumb-label">Disruptive Leadership <span aria-hidden="true">/</span> Your next step</p>
-          <h2 id="dlp-remi-h" className="dlp-h2 dlp-h2--big">Learn from the experience behind a $200 million business</h2>
+          <h2 id="dlp-remi-h" className="dlp-h2 dlp-h2--big">Learn from the experience behind an eight-figure business</h2>
           <div className="dlp-remi">
             <div>
               <h3 className="dlp-h3">Meet Remi Pearson</h3>
-              <p>I founded The Coaching Institute and built a business that generated approximately <strong>$200 million in revenue over 23 years</strong>. Developing people and building teams were daily responsibilities, with consequences when I got them wrong.</p>
+              <p>I founded The Coaching Institute in 2004 and built an eight-figure business that generated <strong>nearly A$200 million in cumulative revenue</strong> before my exit in 2024. Developing people and building teams were daily responsibilities, with consequences when I got them wrong.</p>
               <p>I’ve worked with talented people whose behaviour cost the team too much. I’ve watched new team members become confident contributors once they understood what was expected. I’ve also hired good people into roles that didn’t suit them and had to acknowledge my part in that decision.</p>
               <p>Disruptive Leadership draws on that experience and the thinking I developed while building the business.</p>
               <Dots items={[
@@ -171,7 +171,7 @@ export default function DlpLanding() {
             </div>
             <div className="dlp-figures">
               <dl>
-                <div><dt>$200M</dt><dd>Business revenue over 23 years</dd></div>
+                <div><dt>A$200M</dt><dd>Nearly, in cumulative business revenue</dd></div>
                 <div><dt>13,000+</dt><dd>Coaches trained by the business</dd></div>
               </dl>
               <img className="dlp-signature" src="/assets/bm-landing/bm-signature.webp" alt="" width={585} height={375} loading="lazy" decoding="async" />

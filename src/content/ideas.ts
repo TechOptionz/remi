@@ -111,7 +111,7 @@ export const PRACTICE_VS_BUSINESS = [
   { title: 'Business', text: 'Core can be delivered by others through documented systems, benchmarks and capability.' },
 ];
 export const PROOF = [
-  { big: 'Nearly $200M', small: 'in revenue' },
+  { big: 'Nearly A$200M', small: 'in cumulative revenue' },
   { big: '11,000+', small: 'coaches trained' },
   { big: 'The Coaching Institute', small: 'built & sold' },
 ];

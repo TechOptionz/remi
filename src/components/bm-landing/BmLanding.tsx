@@ -141,7 +141,7 @@ export default function BmLanding() {
         <section className="bml-section bml-remi" aria-labelledby="bml-remi-h">
           <div>
             <h2 id="bml-remi-h" className="bml-h2 bml-h2--big">Learn from someone who used this thinking to build her business.</h2>
-            <p>Remi Pearson founded The Coaching Institute and built a business that generated approximately $200 million in revenue over 23 years.</p>
+            <p>Remi Pearson founded The Coaching Institute in 2004 and built an eight-figure business that generated nearly A$200 million in cumulative revenue before her exit in 2024.</p>
             <p>Benchmarking informed the everyday work behind that growth, from customer support and sales processes to website testing. Her approach also recognises that a successful method elsewhere may clash with your values. When the sales approaches she studied didn’t fit the way she wanted to serve people, she developed <Link href={productHref('ultimate-influence-consultative-sales-introduction')}>Ultimate Influence</Link>.</p>
             <p>This program brings that practical judgement to your business: learn from excellence, test what fits, and make the standards that matter clear enough to use.</p>
           </div>

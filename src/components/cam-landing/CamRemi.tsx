@@ -10,7 +10,7 @@ export default function CamRemi() {
         <div className="stl-split-copy">
           <Head id="cml-remi-h">Learn it with the woman who created it.</Head>
           <p>I’m Remi Pearson, founder of The Coaching Institute and creator of the Critical Alignment Model.</p>
-          <p>I started my business cold-calling from my bedroom and built a company that turned over more than $200 million across twenty-three years, before exiting in 2024.</p>
+          <p>I started my business cold-calling from my bedroom. I founded The Coaching Institute in 2004 and built an eight-figure business that generated nearly A$200 million in cumulative revenue before my exit in 2024.</p>
           <p>CAM was a framework I used in that work. It gave me a way to examine a situation, establish what excellence required and identify where our current approach fell short.</p>
           <p>In this program, I’ll teach you the model and show you how to apply it. You’ll have a framework you can return to when the situation changes or your first answer needs a closer look.</p>
           <p className="stl-signature" aria-hidden="true">Remi</p>

@@ -89,6 +89,9 @@ async function turnstileToken(): Promise<string | undefined> {
   }
 }
 
+// Set in this browser once someone joins the newsletter, so the sign-up pop-up (shared/NewsletterPrompt) never asks them again
+export const NEWSLETTER_JOINED_KEY = 'rp:newsletter-joined';
+
 /** The same submission without a form (e.g. a "Was this helpful?" button). */
 export async function sendLead(kind: LeadKind, fields: Record<string, string>): Promise<string | null> {
   fields = { ...fields };
@@ -105,7 +108,10 @@ export async function sendLead(kind: LeadKind, fields: Record<string, string>): 
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ kind, fields, token }),
     });
-    if (res.ok) return null;
+    if (res.ok) {
+      if (kind === 'newsletter') try { localStorage.setItem(NEWSLETTER_JOINED_KEY, '1'); } catch {}
+      return null;
+    }
     const body = await res.json().catch(() => null);
     return body?.error ?? 'Something went wrong. Please try again.';
   } catch {

@@ -13,8 +13,8 @@ export const TTH = programOf(TTH_SLUG);
 
 /** The strip under the hero (mockup one), from the deck's facts about Remi. */
 export const STRIP = [
-  { figure: '23 years', label: 'building a business' },
-  { figure: '$200 million', label: 'in revenue', pre: 'Approximately' },
+  { figure: '2004', label: 'founded The Coaching Institute' },
+  { figure: 'A$200 million', label: 'in cumulative revenue', pre: 'Nearly' },
   { figure: '13,000', label: 'coaches trained', pre: 'More than' },
 ];
 
