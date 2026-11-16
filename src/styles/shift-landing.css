@@ -1,0 +1,155 @@
+/* ============ The Shift — women in business mentoring (.shf) — from the three-part mockup ============ */
+/* Fixed colours: cream paper, near-black headings with their closing words in rust italic, rust pill buttons, panel
+   and band, antique gold rules, icons, numerals and frames, and an espresso close. Headings are the serif at its
+   regular width and medium weight (Noto Serif Display 100 / 500, and its italic, loaded in app/layout.tsx), lighter
+   than the other sales pages, as drawn. Both photos are cut from the HD original, so they may run to the window
+   edge; the hero still stops inside a 1920px frame. */
+.shf {
+  --shf-paper:#fbf5ea; --shf-white:#fefaf2; --shf-tint:#f8ecd9; --shf-ink:#1d1714; --shf-rust:#bd521f; --shf-rust-2:#a94517;
+  --shf-rust-light:#dc6a34; --shf-gold:#c39a4a; --shf-gold-ink:#96712c; --shf-gold-light:#e4c88d; --shf-espresso:#241917;
+  --shf-line:rgba(195,154,74,.6);
+  --display:'Noto Serif Display',Georgia,serif;
+  --frame:max(0px, calc((100vw - 1920px) / 2)); --edge:max(var(--gutter), calc((100vw - 1152px) / 2));
+  margin-inline:calc(50% - 50vw); background:var(--shf-paper); color:var(--shf-ink); font-family:var(--sans);
+}
+.shf-wrap { max-width:1152px; margin:0 auto; padding-inline:var(--gutter); box-sizing:content-box; }
+.shf p { margin:16px 0 0; font-size:clamp(16px,1.3vw,18px); line-height:1.6; }
+.shf-h2, .shf-title { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; line-height:1.08; letter-spacing:-.02em; color:var(--shf-ink); text-wrap:balance; }
+.shf-h2 em, .shf-title em { font-style:italic; color:var(--shf-rust); }
+.shf-title { margin-top:14px; font-size:clamp(34px,3.7vw,48px); line-height:1.06; }
+.shf-title em, .shf-h2--stack em { display:block; }
+.shf-h2 { font-size:clamp(24px,2.5vw,32px); }
+.shf-h2--big { font-size:clamp(30px,3.6vw,46px); }
+.shf-section { padding:clamp(40px,5vw,72px) 0; }
+.shf-rule { border-top:1px solid var(--shf-line); }
+.shf .shf-eyebrow { margin:0; font-size:12.5px; font-weight:700; letter-spacing:.22em; line-height:1.6; text-transform:uppercase; color:var(--shf-rust); }
+.shf .shf-lede { margin-top:18px; font-size:clamp(17.5px,1.55vw,20.5px); line-height:1.5; }
+.shf .shf-meta { margin-top:14px; font-size:14.5px; opacity:.85; }
+.shf .shf-small { font-size:14.5px; opacity:.85; }
+.shf-short-rule { display:block; width:84px; height:2px; margin-top:22px; background:var(--shf-gold); }
+.shf-cols { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:clamp(12px,1.6vw,20px); }
+.shf-cols > div { padding-right:clamp(24px,4vw,56px); }
+.shf-cols > div + div { padding:0 0 0 clamp(24px,4vw,56px); border-left:1px solid var(--shf-gold); }
+.shf-cols > div > p:first-child { margin-top:0; }
+
+/* Buttons: rust pills */
+.shf-btn { display:inline-flex; align-items:center; justify-content:center; padding:16px clamp(34px,4vw,48px); background:var(--shf-rust); background-image:linear-gradient(180deg,rgba(255,255,255,.08),rgba(0,0,0,.06)); color:#fff; border:0; border-radius:999px; font:700 clamp(16.5px,1.4vw,19px)/1 var(--sans); cursor:pointer; transition:filter .2s ease, transform .2s ease; }
+.shf-btn:hover { filter:brightness(1.08); color:#fff; transform:translateY(-1px); }
+.shf-btn[disabled] { opacity:.7; cursor:default; transform:none; }
+.shf-buy { margin-top:clamp(24px,3vw,32px); }
+
+/* Rust dots */
+.shf-dots { margin:16px 0 0; padding:0; list-style:none; display:grid; gap:12px; }
+.shf-dots li { position:relative; padding-left:30px; font-size:clamp(16px,1.3vw,18px); line-height:1.5; }
+.shf-dots li::before { content:""; position:absolute; left:3px; top:.52em; width:9px; height:9px; border-radius:50%; background:var(--shf-rust); }
+
+/* Hero: copy beside the HD photo, which fades into the paper on the copy's side */
+.shf-hero { display:grid; grid-template-columns:minmax(0,58fr) minmax(0,42fr); padding-inline-end:var(--frame); }
+.shf-hero-copy { padding:clamp(28px,3.2vw,44px) clamp(20px,3vw,44px) clamp(32px,3.6vw,48px) var(--edge); }
+.shf-crumbs { margin-bottom:clamp(18px,2.2vw,28px); }
+.shf-hero-photo { --bleed:clamp(40px,7vw,110px); width:calc(100% + var(--bleed)); max-width:none; margin-left:calc(-1 * var(--bleed)); height:100%; min-height:420px; max-height:760px; object-fit:cover; object-position:60% 6%; -webkit-mask-image:linear-gradient(to right,transparent,rgba(0,0,0,.35) 16%,#000 40%); mask-image:linear-gradient(to right,transparent,rgba(0,0,0,.35) 16%,#000 40%); pointer-events:none; }
+
+/* The strip of four facts between gold rules */
+.shf-strip { display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px 0; margin:clamp(28px,3.4vw,44px) 0 0; padding:clamp(18px,2.2vw,26px) 0; list-style:none; border-block:1px solid var(--shf-gold); font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(17px,1.7vw,22px); line-height:1.3; }
+.shf-strip li { flex:1 1 auto; padding:4px clamp(14px,2.4vw,36px); text-align:center; }
+.shf-strip li + li { border-left:1px solid var(--shf-gold); }
+
+/* The rust panel that closes "You've built something that works" */
+.shf .shf-panel { margin-top:clamp(28px,3.4vw,44px); padding:clamp(22px,2.8vw,34px) clamp(24px,4vw,48px); border-radius:12px; background:var(--shf-rust); background-image:linear-gradient(120deg,rgba(255,255,255,.06),rgba(0,0,0,.1)); font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(20px,2.3vw,30px); line-height:1.25; color:#fdf3e3; text-wrap:balance; }
+
+/* What you'll learn: four framed cards with gold icons */
+.shf-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(14px,2vw,24px); margin:clamp(20px,2.4vw,28px) 0 clamp(24px,3vw,32px); padding:0; list-style:none; }
+.shf-cards li { padding:clamp(22px,2.6vw,30px) clamp(22px,3vw,38px); border:1px solid var(--shf-gold); border-radius:4px; background:var(--shf-white); }
+.shf-cards svg { display:block; color:var(--shf-gold); }
+.shf-cards h3 { margin:14px 0 0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(20px,2vw,26px); line-height:1.15; letter-spacing:-.01em; text-wrap:balance; }
+.shf-cards p { margin-top:10px; font-size:clamp(15.5px,1.25vw,17px); }
+
+/* The rust band */
+.shf-band { padding:clamp(40px,5vw,64px) 0; background:var(--shf-rust); background-image:linear-gradient(120deg,rgba(255,255,255,.05),rgba(0,0,0,.1)); color:#fdf3e3; }
+.shf-band .shf-h2 { color:#fdf3e3; }
+.shf-band .shf-short-rule { background:#fdf3e3; }
+.shf-band p { color:#fdf3e3; }
+.shf-band-cols { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0 clamp(24px,3.4vw,48px); margin-top:clamp(10px,1.4vw,16px); }
+
+/* What's included: gold numerals beside a rule, the title, then its description */
+.shf-included { margin:clamp(14px,1.8vw,22px) 0 0; padding:0; list-style:none; }
+.shf-included > li { display:grid; grid-template-columns:clamp(58px,6vw,78px) minmax(0,.8fr) minmax(0,1.2fr); gap:clamp(18px,2.6vw,36px); align-items:start; padding:clamp(18px,2.2vw,26px) 0; border-bottom:1px solid var(--shf-line); }
+.shf-included > li:last-child { border-bottom:0; }
+.shf-num { align-self:stretch; display:flex; align-items:center; border-right:1px solid var(--shf-gold); font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(24px,2.4vw,30px); line-height:1; letter-spacing:.04em; color:var(--shf-gold-ink); }
+.shf-included h3 { margin:0; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:600; font-size:clamp(20px,2vw,26px); line-height:1.2; letter-spacing:-.01em; text-wrap:balance; }
+.shf-included p { font-size:clamp(15.5px,1.25vw,17px); }
+.shf-included p:first-child { margin-top:2px; }
+
+/* Who it is for beside who it won't suit, a gold rule between */
+.shf-fit { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+.shf-fit > div { padding-right:clamp(24px,4vw,56px); }
+.shf-fit > .shf-fit-not { padding:0 0 0 clamp(24px,4vw,56px); border-left:1px solid var(--shf-gold); }
+
+/* Remi's note beside her photo, and the 2014–2024 line */
+.shf-remi { display:grid; grid-template-columns:minmax(0,400px) minmax(0,1fr); gap:clamp(28px,4.4vw,60px); align-items:center; }
+.shf-remi-photo { display:block; width:100%; height:auto; aspect-ratio:373/420; object-fit:cover; object-position:50% 0; }
+.shf-line { position:relative; display:flex; justify-content:space-between; gap:20px; margin:clamp(24px,3vw,36px) 0 0; padding:26px 0 0; list-style:none; font-size:clamp(14.5px,1.2vw,16px); }
+.shf-line::before { content:""; position:absolute; top:6px; left:40px; right:40px; height:1px; background:var(--shf-gold); }
+.shf-line li::before { content:""; position:absolute; top:0; width:13px; height:13px; border-radius:50%; background:var(--shf-gold); }
+.shf-line li:first-child::before { left:34px; }
+.shf-line li:last-child::before { right:34px; }
+
+/* The espresso close with the waitlist form */
+.shf-close { padding:clamp(44px,5.4vw,80px) 0; background:var(--shf-espresso); background-image:radial-gradient(120% 90% at 50% 0,rgba(255,255,255,.05),transparent 60%); color:#f5ebdb; text-align:center; border-bottom:1px solid rgba(195,154,74,.55); scroll-margin-top:80px; }
+.shf .shf-close-inner > * { max-width:760px; margin-inline:auto; }
+.shf .shf-close .shf-h2 { max-width:880px; color:#efe2cc; }
+.shf-close .shf-h2 em { color:var(--shf-rust-light); }
+.shf-close p { color:#f5ebdb; }
+.shf-form { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) auto; gap:12px; margin-top:clamp(24px,3vw,32px); }
+.shf-form input[type=text], .shf-form input[type=email] { min-width:0; padding:15px 20px; border:1px solid rgba(228,200,141,.5); border-radius:999px; background:var(--shf-white); color:var(--shf-ink); font:16px/1.2 var(--sans); }
+.shf-form input::placeholder { color:rgba(29,23,20,.6); }
+.shf-form .weekly-optin { justify-content:center; margin-top:6px; color:#f5ebdb; }
+.shf-form .weekly-optin label { flex:0 1 auto; }
+.shf-form .form-error { grid-column:1 / -1; margin:0; color:#fff; }
+.shf .shf-thanks { margin-top:clamp(24px,3vw,32px); padding:18px 24px; border:1px solid rgba(228,200,141,.5); border-radius:12px; font-family:var(--display); font-variation-settings:'wdth' 100; font-weight:500; font-size:clamp(19px,1.8vw,24px); line-height:1.3; }
+
+/* ---------- The waitlist confirmation (/programs/the-shift/thank-you) ---------- */
+.shf-ty-inner { max-width:880px; margin:0 auto; padding:clamp(36px,4.6vw,64px) var(--gutter) clamp(48px,6vw,88px); box-sizing:content-box; }
+.shf-ty-inner > .shf-eyebrow { padding-bottom:16px; border-bottom:1px solid var(--shf-gold); color:var(--shf-ink); letter-spacing:.34em; }
+.shf-ty-tick { display:grid; place-items:center; width:68px; height:68px; margin-top:clamp(24px,3vw,36px); border:1.5px solid var(--shf-gold); border-radius:50%; color:var(--shf-gold-ink); }
+.shf-ty .shf-title { margin-top:18px; font-size:clamp(36px,4.6vw,56px); }
+.shf-ty .shf-title + p { margin-top:clamp(20px,2.4vw,28px); }
+.shf-ty-inner > p { font-size:clamp(17px,1.5vw,19.5px); }
+.shf-ty-next { margin:clamp(28px,3.4vw,40px) 0 clamp(24px,3vw,32px); padding:clamp(22px,2.8vw,32px) clamp(22px,3.2vw,40px); border:1px solid var(--shf-gold); border-radius:4px; background:var(--shf-tint); }
+.shf-ty-next .shf-h2 { font-size:clamp(26px,3vw,38px); }
+.shf-ty-next p { margin-top:12px; font-size:clamp(17px,1.5vw,19.5px); }
+.shf .shf-ty-love { margin-top:clamp(20px,2.4vw,28px); font-weight:700; }
+.shf-ty-signature { display:block; width:100%; max-width:190px; height:auto; margin:4px 0 0 -10px; mix-blend-mode:multiply; }
+
+/* Tablets */
+@media (max-width:900px) {
+  .shf-band-cols { grid-template-columns:1fr; }
+  .shf-included > li { grid-template-columns:clamp(58px,6vw,78px) minmax(0,1fr); }
+  .shf-included > li > div { grid-column:2; }
+  .shf-form { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .shf-form .shf-btn { grid-column:1 / -1; justify-self:center; }
+  .shf-strip { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px 0; }
+  .shf-strip li:nth-child(odd) { border-left:0; }
+}
+/* Phones */
+@media (max-width:760px) {
+  .shf-hero { grid-template-columns:1fr; padding-inline:0; }
+  .shf-hero-copy { padding:16px var(--gutter) clamp(28px,6vw,40px); }
+  .shf-hero-photo { order:-1; display:block; width:100%; margin-left:0; height:auto; min-height:0; max-height:none; aspect-ratio:4/3; object-position:50% 4%; -webkit-mask-image:linear-gradient(to bottom,#000 78%,transparent); mask-image:linear-gradient(to bottom,#000 78%,transparent); }
+  .shf-cols, .shf-cards, .shf-fit, .shf-remi { grid-template-columns:1fr; }
+  .shf-cols > div, .shf-fit > div { padding-right:0; }
+  .shf-cols > div + div { margin-top:16px; padding:0; border-left:0; }
+  .shf-fit > .shf-fit-not { margin-top:28px; padding:28px 0 0; border-left:0; border-top:1px solid var(--shf-gold); }
+  .shf-remi-photo { max-width:420px; margin-inline:auto; }
+  .shf-form { grid-template-columns:1fr; }
+  .shf-form .shf-btn { justify-self:stretch; }
+  .shf-form .weekly-optin { justify-content:flex-start; }
+}
+@media (max-width:420px) {
+  .shf-strip { grid-template-columns:1fr; }
+  .shf-strip li + li { border-left:0; }
+  .shf-line { flex-direction:column; gap:8px; padding:0 0 0 26px; }
+  .shf-line::before { top:8px; bottom:8px; left:6px; right:auto; width:1px; height:auto; }
+  .shf-line li { position:relative; }
+  .shf-line li::before { top:.25em; left:-26px !important; right:auto !important; }
+}
