@@ -88,8 +88,17 @@ function indexPage(html, url) {
 
 const files = await htmlFiles(OUT);
 const index = [];
-for (const file of files.sort()) index.push(...indexPage(await readFile(file, 'utf8'), toUrl(file)));
+// Pages that ask search engines to stay away (confirmation pages such as /programs/the-shift/thank-you) stay out of
+// the site's own search too.
+const NOINDEX = /<meta[^>]+name="robots"[^>]+content="[^"]*noindex/i;
+let pages = 0;
+for (const file of files.sort()) {
+  const html = await readFile(file, 'utf8');
+  if (NOINDEX.test(html)) continue;
+  pages++;
+  index.push(...indexPage(html, toUrl(file)));
+}
 
 const json = JSON.stringify(index);
 await writeFile(join('public', 'search-index.json'), json);
-console.log(`Search index: ${index.length} entries from ${files.length} pages (${(json.length / 1024).toFixed(0)} KB)`);
+console.log(`Search index: ${index.length} entries from ${pages} pages (${(json.length / 1024).toFixed(0)} KB)`);

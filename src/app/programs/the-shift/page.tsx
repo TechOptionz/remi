@@ -1,31 +1,13 @@
-// The Shift — coming soon (copy to come). Waitlist sign-ups go through submitLead('waitlist') with the product name.
+// The Shift — women in business mentoring (/programs/the-shift). A waitlist page from Remi's copy deck and mockups;
+// the whole page is components/shift-landing/ShiftLanding.tsx (copy in content/shift-landing.ts).
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import NotifyForm from '@/components/products/NotifyForm';
-import { THE_SHIFT_PRICE } from '@/content/products';
+import ShiftLanding from '@/components/shift-landing/ShiftLanding';
 
 export const metadata: Metadata = {
-  title: 'The Shift — Remi Pearson',
-  description: 'The Shift, a program by Remi Pearson. Coming soon: join the waitlist.',
+  title: 'The Shift: Women in Business Mentoring — Remi Pearson',
+  description: 'The Shift is Remi Pearson’s mentoring group for 20 women with businesses generating $500,000+ in annual revenue who want to grow, develop confident leaders and depend less on themselves. Beginning early 2027, by application: join the waitlist.',
 };
 
 export default function TheShiftPage() {
-  return (
-    <main className="pr-page pr-page--navy">
-      <section className="pr-hero" aria-labelledby="shift-h">
-        <nav className="crumbs" aria-label="Breadcrumb">
-          <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/programs">Programs</Link><span aria-hidden="true">/</span><span aria-current="page">The Shift</span>
-        </nav>
-        <p className="pr-eyebrow">Program</p>
-        <h1 id="shift-h" className="pr-title">The Shift</h1>
-        <p className="pr-price pr-price--lg">{THE_SHIFT_PRICE}</p>
-        <p className="pr-soon"><span>Coming soon</span></p>
-      </section>
-      <section className="pr-notify-band" aria-labelledby="shift-w">
-        <h2 id="shift-w" className="pr-h2">Join the waitlist</h2>
-        <p>Leave your email and I’ll tell you when The Shift opens.</p>
-        <NotifyForm product="The Shift" />
-      </section>
-    </main>
-  );
+  return <ShiftLanding />;
 }

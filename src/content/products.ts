@@ -128,9 +128,8 @@ export const PROGRAMS: Program[] = [
     photo: photo('photos/about-community', 1400, 1050, 'Remi Pearson taking a selfie with a cheering room of workshop participants') },
   { title: 'Rebel Yell', kicker: 'Private waitlist', text: 'A private diagnostic and intervention for founders, owners, CEOs and senior leadership teams who have reached an impasse.', price: 'AUD $10,000 per month', href: '/programs/rebel-yell', cta: 'Explore Rebel Yell', tone: 'burgundy',
     photo: photo('photos/rebel-hero', 1800, 1090, 'Remi Pearson speaking, hands raised mid-thought') },
-  { title: 'The Shift', kicker: 'Waitlist', text: 'Coming soon. Join the waitlist and you’ll hear first when it opens.', price: 'AUD $1,497 per month', href: '/programs/the-shift', cta: 'Join the waitlist', tone: 'navy',
+  { title: 'The Shift', kicker: 'Waitlist', text: 'A mentoring group for 20 women with businesses generating $500,000+ in annual revenue who want to grow, develop confident leaders around them, and have room for themselves in the life they’re building.', price: 'AUD $1,497 per month', href: '/programs/the-shift', cta: 'Join the waitlist', tone: 'navy',
     photo: photo('photos/remi-pink-jacket', 1600, 1067, 'Remi Pearson smiling, in a pink brocade jacket') },
   { title: 'Selling from Stage', kicker: 'Self-paced online program', text: 'Learn how to shape a compelling offer and communicate its value, on a live stage or a webinar.', price: 'AUD $1,997 including GST', href: '/products/selling-from-stage', cta: 'Explore Selling from Stage', tone: 'gold',
     photo: photo('product-ranges/pb-inf-room', 1004, 542) },
 ];
-export const THE_SHIFT_PRICE = PROGRAMS[2].price;

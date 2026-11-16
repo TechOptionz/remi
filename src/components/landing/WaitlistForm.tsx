@@ -2,14 +2,17 @@
 
 // The name + email waitlist form for the sales pages whose program is not on sale yet (Benchmarking, Build Beyond the
 // Founder). Goes through submitLead('waitlist') with the product's name and its list. Each page styles it through its
-// own class prefix: `<prefix>-form`, `<prefix>-btn <prefix>-btn--dark` and `<prefix>-thanks`.
+// own class prefix: `<prefix>-form`, `<prefix>-btn <prefix>-btn--dark` and `<prefix>-thanks`. A page with a designed
+// confirmation of its own (The Shift) passes `thanksHref`, and a new sign-up is taken there instead.
 import { useId, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { submitLead } from '@/lib/forms';
 import WeeklyOptIn from '@/components/shared/WeeklyOptIn';
 
-export default function WaitlistForm({ product, segment, prefix, namePlaceholder = 'Name', thanks }: {
-  product: string; segment?: string; prefix: string; namePlaceholder?: string; thanks: string;
+export default function WaitlistForm({ product, segment, prefix, namePlaceholder = 'Name', thanks, thanksHref }: {
+  product: string; segment?: string; prefix: string; namePlaceholder?: string; thanks: string; thanksHref?: string;
 }) {
+  const router = useRouter();
   const [sent, setSent] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -22,7 +25,9 @@ export default function WaitlistForm({ product, segment, prefix, namePlaceholder
       setBusy(true); setError(null);
       const err = await submitLead('waitlist', e.currentTarget);
       setBusy(false);
-      if (err) setError(err); else setSent(true);
+      if (err) { setError(err); return; }
+      setSent(true);
+      if (thanksHref) router.push(thanksHref);
     }}>
       <input type="hidden" name="product" value={product} />
       {segment && <input type="hidden" name="segment" value={segment} />}
