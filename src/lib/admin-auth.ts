@@ -1,6 +1,6 @@
-// Sign-in for the private admin screens (/admin/…): a 4-digit code (ADMIN_PIN) entered on a sign-in screen, remembered
-// for 7 days in an http-only cookie that holds a signature of the code (so changing ADMIN_PIN signs everyone out).
-// Four digits are easy to guess by trying them all, so a connection gets 5 wrong tries per 15 minutes (Redis), then waits.
+// Sign-in for the private admin screens (/admin/…): a password (ADMIN_PASSWORD, or the older ADMIN_PIN) entered on a
+// sign-in screen, remembered for 7 days in an http-only cookie that holds a signature of the password (so changing it
+// signs everyone out). A connection gets 5 wrong tries per 15 minutes (Redis), then waits.
 // Server only.
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { cookies, headers } from 'next/headers';
@@ -10,8 +10,8 @@ const COOKIE = 'remi_admin';
 const MAX_TRIES = 5;
 const WINDOW = 15 * 60;
 
-const pin = () => process.env.ADMIN_PIN?.trim() || '';
-export const adminReady = () => /^\d{4}$/.test(pin());
+const pin = () => (process.env.ADMIN_PASSWORD ?? process.env.ADMIN_PIN ?? '').trim();
+export const adminReady = () => pin().length >= 4;
 
 const sign = () => createHmac('sha256', `${process.env.STATS_KEY ?? ''}:admin`).update(pin()).digest('hex');
 const same = (a: string, b: string) => a.length === b.length && timingSafeEqual(Buffer.from(a), Buffer.from(b));
@@ -37,13 +37,13 @@ async function ip() {
 
 /** Checks the code; on success sets the cookie. Returns null or an error message. */
 export async function signIn(code: string): Promise<string | null> {
-  if (!adminReady()) return 'Sign-in is not set up on this server (ADMIN_PIN).';
+  if (!adminReady()) return 'Sign-in is not set up on this server (ADMIN_PASSWORD).';
   const r = redis();
   const key = `admin:fails:${await ip()}`;
   if (r && Number(await r.get(key)) >= MAX_TRIES) return 'Too many wrong tries. Please wait 15 minutes.';
-  if (!same(code.trim(), pin())) {
+  if (!same(code, pin())) {
     if (r) { await r.incr(key); await r.expire(key, WINDOW); }
-    return 'That code is not right.';
+    return 'That password is not right.';
   }
   if (r) await r.del(key);
   (await cookies()).set(COOKIE, sign(), { httpOnly: true, secure: process.env.NODE_ENV === 'production', sameSite: 'lax', path: '/admin', maxAge: 7 * 24 * 3600 });

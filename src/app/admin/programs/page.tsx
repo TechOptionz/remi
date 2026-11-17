@@ -1,5 +1,5 @@
 // Private: link each course in Remi's Thinkific school to its program page on the site, and put it on sale.
-// Open /admin/programs and enter the 4-digit code (ADMIN_PIN; lib/admin-auth.ts); signed in for 7 days on that browser.
+// Open /admin/programs and enter the password (ADMIN_PASSWORD; lib/admin-auth.ts); signed in for 7 days on that browser.
 // Not in the sitemap, not indexed, rendered on request. Saving writes to Redis (lib/program-links.ts) and refreshes the
 // program's page, so its sign-up turns into a Buy button (Stripe Checkout → enrolment in the linked course) or back.
 import type { Metadata } from 'next';
@@ -10,7 +10,6 @@ import { PRODUCTS, FREE, productBySlug, productHref } from '@/content/products';
 import { amountOf } from '@/content/checkout';
 import { LINKS_TAG, linkOf, linksReady, liveOnSale, recentChanges, saveLink } from '@/lib/program-links';
 import { adminReady, isAdmin, signIn } from '@/lib/admin-auth';
-import PinBoxes from '@/components/admin/PinBoxes';
 import { listCourses, thinkificReady, type SchoolCourse } from '@/lib/thinkific';
 
 export const dynamic = 'force-dynamic';
@@ -150,7 +149,7 @@ async function enter(form: FormData) {
   redirect(err ? `/admin/programs?error=${encodeURIComponent(err)}` : '/admin/programs');
 }
 
-/** The sign-in screen: one 4-digit code. */
+/** The sign-in screen: one password. */
 function SignIn({ error, ready }: { error?: string; ready: boolean }) {
   return (
     <main className="pr-page pr-page--cream">
@@ -159,11 +158,12 @@ function SignIn({ error, ready }: { error?: string; ready: boolean }) {
         <h1 className="pr-title">Program links</h1>
         {ready ? (
           <form action={enter} className="adm-pin">
-            <p>Enter your 4-digit code</p>
-            <PinBoxes />
+            <label htmlFor="adm-password">Enter your password</label>
+            <input id="adm-password" name="pin" type="password" autoComplete="current-password" required autoFocus />
+            <button type="submit" className="pr-btn">Sign in</button>
             {error && <p className="form-error" role="alert">{error}</p>}
           </form>
-        ) : <p className="form-error">Sign-in is not set up: add a 4-digit ADMIN_PIN to this server’s settings.</p>}
+        ) : <p className="form-error">Sign-in is not set up: add ADMIN_PASSWORD to this server’s settings.</p>}
       </section>
     </main>
   );
