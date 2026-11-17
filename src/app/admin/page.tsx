@@ -1,5 +1,5 @@
 // Private: link each course in Remi's Thinkific school to its program page on the site, and put it on sale.
-// Open /admin/programs and enter the password (ADMIN_PASSWORD; lib/admin-auth.ts); signed in for 7 days on that browser.
+// Open /admin and enter the password (ADMIN_PASSWORD; lib/admin-auth.ts); signed in for 7 days on that browser.
 // Not in the sitemap, not indexed, rendered on request. Saving writes to Redis (lib/program-links.ts) and refreshes the
 // program's page, so its sign-up turns into a Buy button (Stripe Checkout → enrolment in the linked course) or back.
 import type { Metadata } from 'next';
@@ -21,7 +21,7 @@ const when = (iso: string) => new Date(iso).toLocaleString('en-AU', { timeZone: 
 
 async function save(form: FormData) {
   'use server';
-  if (!(await isAdmin())) redirect('/admin/programs');
+  if (!(await isAdmin())) redirect('/admin');
   const courseId = Number(form.get('courseId'));
   const course = String(form.get('course') ?? '');
   const slug = String(form.get('slug') ?? '');
@@ -42,7 +42,7 @@ async function save(form: FormData) {
   }
   updateTag(LINKS_TAG);
   for (const s of touched) revalidatePath(productHref(s));
-  redirect(`/admin/programs?saved=${courseId}`);
+  redirect(`/admin?saved=${courseId}`);
 }
 
 export default async function ProgramLinksPage({ searchParams }: { searchParams: Promise<{ saved?: string; error?: string }> }) {
@@ -146,7 +146,7 @@ export default async function ProgramLinksPage({ searchParams }: { searchParams:
 async function enter(form: FormData) {
   'use server';
   const err = await signIn(String(form.get('pin') ?? ''));
-  redirect(err ? `/admin/programs?error=${encodeURIComponent(err)}` : '/admin/programs');
+  redirect(err ? `/admin?error=${encodeURIComponent(err)}` : '/admin');
 }
 
 /** The sign-in screen: one password. */

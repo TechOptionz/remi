@@ -58,6 +58,7 @@ const nextConfig = {
       { source: '/post/:slug*', destination: '/perspectives#archive', permanent: true },
       { source: '/blog/:path*', destination: '/perspectives#archive', permanent: true },
       { source: '/copy-of-speaking-v2', destination: '/invite-remi', permanent: true },
+      { source: '/admin/programs', destination: '/admin', permanent: false },
       { source: '/workwithremi', destination: '/invite-remi', permanent: true },
       { source: '/ambassador-program', destination: '/programs', permanent: true },
       { source: '/plans-pricing', destination: '/programs', permanent: true },

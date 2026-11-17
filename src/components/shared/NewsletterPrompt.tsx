@@ -17,7 +17,7 @@ const QUIET_MS = 60_000;
 const DISMISSED_KEY = 'rp:newsletter-prompt-dismissed';
 const SESSION_START_KEY = 'rp:visit-start';
 // The newsletter's own page, private / legal pages and the pages people land on after buying or unsubscribing
-const SKIP = /^\/(subscribe|stats|weekly-teaching|privacy-policy)(\/|$)|\/thank-you$/;
+const SKIP = /^\/(subscribe|stats|admin|weekly-teaching|privacy-policy)(\/|$)|\/thank-you$/;
 
 const read = (store: 'localStorage' | 'sessionStorage', key: string) => { try { return window[store].getItem(key); } catch { return null; } };
 const write = (store: 'localStorage' | 'sessionStorage', key: string, value: string) => { try { window[store].setItem(key, value); } catch {} };
