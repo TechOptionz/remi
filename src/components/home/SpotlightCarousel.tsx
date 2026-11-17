@@ -15,24 +15,40 @@ export default function SpotlightCarousel({ slides }: { slides: SpotlightSlide[]
   const [holding, setHolding] = useState(false); // pointer or focus inside
   const id = useId();
 
+  // A copy of the first slide sits after the last, so the carousel always moves forward: it glides onto the copy, then
+  // jumps (unseen) back to the real first slide. Going back from the first slide does the reverse.
+  const loop = slides.length > 1;
   const go = useCallback((i: number) => {
     const el = track.current;
     if (!el) return;
-    const n = (i + slides.length) % slides.length;
+    const n = slides.length, w = el.clientWidth;
     const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    el.scrollTo({ left: n * el.clientWidth, behavior: smooth ? 'smooth' : 'auto' });
+    if (!smooth) { el.scrollTo({ left: ((i % n + n) % n) * w, behavior: 'auto' }); return; }
+    if (i < 0) {
+      el.scrollTo({ left: n * w, behavior: 'instant' });
+      requestAnimationFrame(() => el.scrollTo({ left: (n - 1) * w, behavior: 'smooth' }));
+      return;
+    }
+    el.scrollTo({ left: Math.min(i, n) * w, behavior: 'smooth' });
   }, [slides.length]);
 
   useEffect(() => { if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) setStill(true); }, []);
 
-  // Which slide is showing, however it got there (buttons, swipe, timer)
+  // Which slide is showing, however it got there (buttons, swipe, timer); once it settles on the copy, swap to the original
   useEffect(() => {
     const el = track.current;
     if (!el) return;
-    const onScroll = () => setCurrent(Math.round(el.scrollLeft / el.clientWidth));
+    const n = slides.length;
+    let settle = 0;
+    const onScroll = () => {
+      const w = el.clientWidth;
+      setCurrent(Math.round(el.scrollLeft / w) % n);
+      window.clearTimeout(settle);
+      if (loop && el.scrollLeft >= n * w - 1) settle = window.setTimeout(() => el.scrollTo({ left: 0, behavior: 'instant' }), 120);
+    };
     el.addEventListener('scroll', onScroll, { passive: true });
-    return () => el.removeEventListener('scroll', onScroll);
-  }, []);
+    return () => { el.removeEventListener('scroll', onScroll); window.clearTimeout(settle); };
+  }, [slides.length, loop]);
 
   useEffect(() => {
     if (still || holding || slides.length < 2) return;
@@ -62,6 +78,21 @@ export default function SpotlightCarousel({ slides }: { slides: SpotlightSlide[]
             </div>
           </article>
         ))}
+        {loop && (
+          <article className={`hm-spot-slide hm-spot--${slides[0].tone}`} aria-hidden inert>
+            <div className="hm-spot-copy">
+              <p className="hm-spot-eyebrow">{slides[0].eyebrow}</p>
+              <p className="hm-spot-title">{slides[0].title}</p>
+              {slides[0].text && <p className="hm-spot-text">{slides[0].text}</p>}
+              <span className="hm-btn hm-btn--sm">{slides[0].cta}</span>
+            </div>
+            <div className={`hm-spot-art${slides[0].fit ? ' hm-spot-art--contain' : ''}${slides[0].multiply ? ' hm-spot-art--multiply' : ''}`}
+              style={slides[0].bg ? { background: slides[0].bg } : undefined}>
+              <img src={slides[0].image} alt="" style={slides[0].pos ? { objectPosition: slides[0].pos } : undefined}
+                loading="lazy" decoding="async" />
+            </div>
+          </article>
+        )}
       </div>
       {slides.length > 1 && (
         <div className="hm-spot-controls">
