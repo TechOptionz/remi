@@ -1,6 +1,7 @@
 // The kit shared by the designed product sales pages (components/triad-landing/, components/cam-landing/): photos cut
 // from a design, the condensed headings with their brush stroke, the buy button. Styles: styles/landing.css (.stl-*).
 import { Sym } from '@/components/home/ui';
+import { LiveHref } from '@/components/landing/BuyMode';
 
 /** Photograph cut from a page's design (public/assets/<dir>/), multiplied onto the paper with feathered edges. */
 export function Photo({ dir, name, alt = '', width, height, className = '' }: { dir: string; name: string; alt?: string; width: number; height: number; className?: string }) {
@@ -20,8 +21,8 @@ export function Head({ id, children, star, as: Tag = 'h2', className = '' }: { i
 /** The rust buy button (cream on a rust band with `light`), with the design's arrow when `arrow`. */
 export function BuyBtn({ href, children, light, arrow }: { href: string; children: React.ReactNode; light?: boolean; arrow?: boolean }) {
   return (
-    <a href={href} className={`hm-btn stl-btn${light ? ' stl-btn--light' : ''}`}>
+    <LiveHref href={href} className={`hm-btn stl-btn${light ? ' stl-btn--light' : ''}`}>
       {children}{arrow && <span className="stl-btn-arrow" aria-hidden="true">⟶</span>}
-    </a>
+    </LiveHref>
   );
 }

@@ -5,12 +5,16 @@
 import { useId, useState } from 'react';
 import { submitLead } from '@/lib/forms';
 import WeeklyOptIn from '@/components/shared/WeeklyOptIn';
+import { useBuy } from '@/components/landing/BuyMode';
 
 export default function WaitlistForm({ product, segment }: { product: string; segment?: string }) {
   const [sent, setSent] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const id = useId();
+  const buy = useBuy();
+
+  if (buy) return <a href={buy.href} className="n90-btn n90-btn--dark">{buy.label}</a>;
 
   if (sent) return <p className="n90-thanks" role="status">Thank you. You’re on the waitlist, and you’ll receive the launch details as soon as they’re ready.</p>;
   return (

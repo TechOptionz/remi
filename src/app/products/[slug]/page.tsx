@@ -30,6 +30,8 @@ import TthLanding from '@/components/tth-landing/TthLanding';
 import UifLanding from '@/components/uif-landing/UifLanding';
 import SffLanding from '@/components/sff-landing/SffLanding';
 import { PRODUCTS, productBySlug, LANDING_SLUGS } from '@/content/products';
+import { BuyMode } from '@/components/landing/BuyMode';
+import { liveBuyHref } from '@/lib/program-links';
 
 const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.ReactNode; metadata: Metadata }> = {
   'self-esteem-triad': {
@@ -231,5 +233,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const p = productBySlug(slug);
   if (!p) notFound();
   const Landing = LANDINGS[slug as (typeof LANDING_SLUGS)[number]]?.page;
-  return Landing ? <Landing /> : <ProductPage product={p} />;
+  // On sale (admin screen, lib/program-links.ts): the page's sign-ups and "Coming soon" turn into a Buy button.
+  const href = await liveBuyHref(slug);
+  const buy = href ? { href, label: `Buy now • ${p.price}` } : null;
+  return <BuyMode buy={buy}>{Landing ? <Landing /> : <ProductPage product={p} />}</BuyMode>;
 }

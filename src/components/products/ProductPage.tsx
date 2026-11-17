@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { CATEGORIES, levelLine, priceLine, productBySlug, productHref, productsIn, type Product } from '@/content/products';
 import NotifyForm from './NotifyForm';
+import { SoonLabel } from '@/components/landing/BuyMode';
 
 /** One product's page. Until the sales copy exists (`body`) and a `buyHref` is set, it says Coming soon and takes
  *  "tell me when it's ready" sign-ups; the related programs below keep the visitor moving. */
@@ -20,7 +21,7 @@ export default function ProductPage({ product }: { product: Product }) {
         <p className="pr-price pr-price--lg">{priceLine(product)}{product.level && <span className="pr-level">{levelLine(product)}</span>}</p>
         {product.buyHref
           ? <a href={product.buyHref} className="pr-btn">{product.cta ?? 'Get started'}</a>
-          : <p className="pr-soon"><span>Coming soon</span></p>}
+          : <SoonLabel className="pr-soon"><span>Coming soon</span></SoonLabel>}
       </section>
 
       {product.includes && (

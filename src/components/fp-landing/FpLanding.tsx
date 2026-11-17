@@ -6,6 +6,7 @@
 // beside their answers and the burgundy close. Copy and lists in content/fp-landing.ts; styles styles/fp-landing.css (.fpl-*).
 import Link from 'next/link';
 import NotifyForm from '@/components/products/NotifyForm';
+import { LiveHref, SoonLabel } from '@/components/landing/BuyMode';
 import {
   COSTS, FAMILIAR, FAQ, FOR_YOU, FP, FP_PRICE, INCLUDES, LEARN, PATH_IMAGES, PATHS, TESTIMONIALS, TRIGGER_LINKS, TRIGGERS_Q, WORKSHEET,
 } from '@/content/fp-landing';
@@ -16,7 +17,7 @@ function Img({ name, alt, width, height, className = '' }: { name: string; alt: 
 
 /** The copper button with its chevron: the checkout once the product has a `buyHref`, until then the closing band (#get). */
 function Btn({ children }: { children: React.ReactNode }) {
-  return <a href={FP.ctaHref} className="fpl-btn">{children}<span aria-hidden="true">›</span></a>;
+  return <LiveHref href={FP.ctaHref} className="fpl-btn">{children}<span aria-hidden="true">›</span></LiveHref>;
 }
 
 /** Copper-ticked list. */
@@ -242,7 +243,7 @@ export default function FpLanding() {
           <p className="fpl-close-terms">{FP_PRICE} · One payment · Self-paced</p>
           {FP.buyHref
             ? <Btn>Yes, I want access to the program · {FP_PRICE}</Btn>
-            : <div className="fpl-soon"><p>Coming soon</p><NotifyForm product={FP.title} segment={FP.segment} /></div>}
+            : <div className="fpl-soon"><SoonLabel /><NotifyForm product={FP.title} segment={FP.segment} /></div>}
         </div>
       </section>
     </main>

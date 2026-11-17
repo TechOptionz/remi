@@ -6,6 +6,7 @@
 import Link from 'next/link';
 import Icon from '@/components/shared/Icon';
 import NotifyForm from '@/components/products/NotifyForm';
+import { LiveHref, SoonLabel } from '@/components/landing/BuyMode';
 import { FAQ, HS, INCLUDES, LESSON_IMAGES, LESSONS, PILLARS, PRACTISE, RECOGNISE, TESTIMONIALS, WORKBOOK } from '@/content/hs-landing';
 
 const num = (i: number) => String(i + 1).padStart(2, '0');
@@ -16,7 +17,7 @@ function Img({ name, alt, width, height, className = '' }: { name: string; alt: 
 
 /** The orange button: the checkout once the product has a `buyHref`, until then the closing band (#get). */
 function Btn({ children }: { children: React.ReactNode }) {
-  return <a href={HS.ctaHref} className="hsl-btn">{children}</a>;
+  return <LiveHref href={HS.ctaHref} className="hsl-btn">{children}</LiveHref>;
 }
 
 /** Gold-ticked list. */
@@ -240,7 +241,7 @@ export default function HsLanding() {
           <p className="hsl-close-terms">Five videos with Remi Pearson + companion workbook<br />{HS.price} · One payment · Self-paced</p>
           {HS.buyHref
             ? <a href={HS.buyHref} className="hsl-btn">Yes, I want to learn this · {HS.price}</a>
-            : <div className="hsl-soon"><p>Coming soon</p><NotifyForm product={HS.title} segment={HS.segment} /></div>}
+            : <div className="hsl-soon"><SoonLabel /><NotifyForm product={HS.title} segment={HS.segment} /></div>}
         </div>
       </section>
     </main>

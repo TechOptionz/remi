@@ -4,6 +4,7 @@
 import Link from 'next/link';
 import Icon from '@/components/shared/Icon';
 import NotifyForm from '@/components/products/NotifyForm';
+import { SoonLabel } from '@/components/landing/BuyMode';
 import { CATEGORIES } from '@/content/products';
 import { BuyBtn, Head, Photo, Price } from './ui';
 import { AUDIENCE, CLOSE_INCLUDES, FAQ, INCLUDES, LEARN, STEPS, TESTIMONIALS, UIL_BUY_HREF, VIDEOS } from '@/content/ui-landing';
@@ -186,7 +187,7 @@ export default function UiLanding() {
             <Price note="One payment. Self-paced. Immediate access." />
             {UIL_BUY_HREF
               ? <BuyBtn light />
-              : <><p className="stl-close-soon">Coming soon</p><NotifyForm product="Ultimate Influence" segment={CATEGORIES.influence.segment} /></>}
+              : <><SoonLabel className="stl-close-soon" /><NotifyForm product="Ultimate Influence" segment={CATEGORIES.influence.segment} /></>}
           </div>
         </div>
       </section>

@@ -8,6 +8,7 @@ import { useId, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { submitLead } from '@/lib/forms';
 import WeeklyOptIn from '@/components/shared/WeeklyOptIn';
+import { useBuy } from '@/components/landing/BuyMode';
 
 export default function WaitlistForm({ product, segment, prefix, namePlaceholder = 'Name', thanks, thanksHref }: {
   product: string; segment?: string; prefix: string; namePlaceholder?: string; thanks: string; thanksHref?: string;
@@ -17,7 +18,9 @@ export default function WaitlistForm({ product, segment, prefix, namePlaceholder
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const id = useId();
+  const buy = useBuy();
 
+  if (buy) return <a href={buy.href} className={`${prefix}-btn ${prefix}-btn--dark`}>{buy.label}</a>;
   if (sent) return <p className={`${prefix}-thanks`} role="status">{thanks}</p>;
   return (
     <form className={`${prefix}-form`} onSubmit={async e => {

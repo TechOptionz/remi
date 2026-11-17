@@ -6,13 +6,14 @@
 import Link from 'next/link';
 import Icon from '@/components/shared/Icon';
 import NotifyForm from '@/components/products/NotifyForm';
+import { LiveHref, SoonLabel } from '@/components/landing/BuyMode';
 import { BC, BEGIN_TO, BEGIN_TO_ICONS, FAQ, LESSON_IMAGES, LESSONS, TESTIMONIALS } from '@/content/bc-landing';
 
 const num = (i: number) => String(i + 1).padStart(2, '0');
 
 /** The gold button with its arrow: the checkout once the product has a `buyHref`, until then the closing band (#get). */
 function Btn() {
-  return <a href={BC.ctaHref} className="bcl-btn">Get Becoming Conscious • {BC.price}<span aria-hidden="true">→</span></a>;
+  return <LiveHref href={BC.ctaHref} className="bcl-btn">Get Becoming Conscious • {BC.price}<span aria-hidden="true">→</span></LiveHref>;
 }
 
 export default function BcLanding() {
@@ -118,7 +119,7 @@ export default function BcLanding() {
           <p className="bcl-small">{BC.price} • One payment</p>
           {BC.buyHref
             ? <Btn />
-            : <div className="bcl-soon"><p>Coming soon</p><NotifyForm product={BC.title} segment={BC.segment} /></div>}
+            : <div className="bcl-soon"><SoonLabel /><NotifyForm product={BC.title} segment={BC.segment} /></div>}
         </div>
       </section>
     </main>

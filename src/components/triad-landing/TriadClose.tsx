@@ -1,6 +1,7 @@
 // PART 06 — "Love the work? Help it reach someone else." (the ambassador offer) and the closing rust band (#get) with the
 // book, the price and the button, or the "tell me when it's ready" sign-up until the product has a checkout link.
 import NotifyForm from '@/components/products/NotifyForm';
+import { SoonLabel } from '@/components/landing/BuyMode';
 import { CATEGORIES } from '@/content/products';
 import { BuyBtn, Head, Photo } from './ui';
 import { INCLUDES, TRIAD_BUY_HREF, TRIAD_PRICE } from '@/content/triad-landing';
@@ -37,7 +38,7 @@ export default function TriadClose() {
             <p className="stl-close-once">One payment.</p>
             {TRIAD_BUY_HREF
               ? <BuyBtn light />
-              : <><p className="stl-close-soon">Coming soon</p><NotifyForm product="The Self-Esteem Triad" segment={CATEGORIES.personal.segment} /></>}
+              : <><SoonLabel className="stl-close-soon" /><NotifyForm product="The Self-Esteem Triad" segment={CATEGORIES.personal.segment} /></>}
           </div>
         </div>
       </div>
