@@ -82,8 +82,8 @@ export const PRODUCTS: Product[] = [
   // Selling from Stage replaced Move the Room; Selling Something Intangible and Understand Before You Prescribe were removed (Remi, Oct 2026)
   P({ slug: 'selling-from-stage', title: 'Selling from Stage', text: 'Learn how to shape a compelling offer and communicate its value, on a live stage or a webinar.', category: 'influence', tone: 'gold', price: 'AUD $1,997 including GST', level: 'Introduction', kicker: 'Self-paced online program', cta: 'Explore Selling from Stage' }),
   P({ slug: 'selling-from-stage-fundamentals', title: 'Selling from Stage Fundamentals', text: 'The eight-step pitch structure that connects your teaching to an offer, explains its value and invites your audience to buy. Three focused videos.', category: 'influence', tone: 'green', price: 'AUD $79', level: 'Introduction', kicker: 'Three focused videos', cta: 'Explore Fundamentals' }),
-  // Bundle still to be reworked now Selling Something Intangible and Understand Before You Prescribe are gone (Remi will advise); it lists the two that remain
-  P({ slug: 'influence-without-pressure', title: 'Influence Without Pressure', text: 'Two programs.', category: 'influence', tone: 'navy', bundle: true, price: 'AUD $129', cta: 'Explore the bundle',
+  // Its two programs, at their combined price (Foundations $79 + Holding Space for Magnetic Sales, free), Nov 2026
+  P({ slug: 'influence-without-pressure', title: 'Influence Without Pressure', text: 'Ultimate Influence Foundations and Holding Space for Magnetic Sales.', category: 'influence', tone: 'navy', bundle: true, price: 'AUD $79', cta: 'Explore the bundle',
     includes: ['ultimate-influence-foundations', 'holding-space-for-magnetic-sales'] }),
   // Business & enterprise
   P({ slug: 'from-practice-to-enterprise', title: 'From Practice to Enterprise', text: 'Turn expertise into intellectual property, systems and an asset that can operate beyond you.', category: 'business', tone: 'black', price: 'AUD $79', level: 'Intermediate', kicker: 'The Founder Pathway', cta: 'Build beyond yourself' }),
