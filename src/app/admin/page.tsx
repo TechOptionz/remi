@@ -69,7 +69,6 @@ export default async function ProgramLinksPage({ searchParams }: { searchParams:
         <p className="pr-lede">Every course in Remi’s Thinkific school. Link a course to its page on the website and tick <strong>On sale</strong>: the page’s sign-up becomes a Buy button, buyers pay through Stripe on the website at the page’s price, and they are enrolled in the linked course automatically. Untick it and the page goes back to its waitlist.</p>
 
         <ul className="adm-checks">
-          <li className={stripeOn ? 'ok' : 'bad'}>Stripe: {stripeOn ? `connected (${process.env.STRIPE_SECRET_KEY!.startsWith('sk_live') ? 'live' : 'test'} mode)` : 'not set up on this server, so nothing can be bought'}</li>
           <li className={thinkificReady() && !thinkificError ? 'ok' : 'bad'}>Thinkific: {thinkificError ? `could not load the courses (${thinkificError})` : thinkificReady() ? `${courses.length} courses found` : 'not set up on this server'}</li>
           <li className={linksReady() ? 'ok' : 'bad'}>Saving: {linksReady() ? 'ready' : 'Redis is not set up on this server, so links cannot be saved'}</li>
         </ul>
