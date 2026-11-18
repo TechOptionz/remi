@@ -28,7 +28,6 @@ export const THINKIFIC_COURSES: Record<string, number> = {
   'obstacles-to-love': 3577756,
   'safe-or-risky-problems': 3577758,
   'why-do-i-keep-doing-this': 3577761,
-  'ultimate-influence-consultative-sales-introduction': 3577764,
   'holding-space-without-rescuing-or-disappearing': 3577765,
   'emotion-integration-technique-foundations': 3577769,
   'finding-our-way-back': 3577770,
@@ -46,7 +45,7 @@ export const THINKIFIC_COURSES: Record<string, number> = {
 
 /** Programs whose price is shown before GST ("$79 AUD + GST"): Checkout adds 10% GST on top. Every other price
  *  already includes GST, and Checkout shows the GST inside it on the receipt. */
-export const PLUS_GST = new Set(['critical-alignment-model-for-leaders', 'ultimate-influence-consultative-sales-introduction', 'ultimate-influence-foundations']);
+export const PLUS_GST = new Set(['critical-alignment-model-for-leaders', 'ultimate-influence-foundations']);
 
 /** The price in cents before any added GST: the first figure the page shows ("AUD $1,997 including GST" → 199700;
  *  "AUD $197 or 4 payments of $59" → 19700, the one-payment price). 0 for a free program. */

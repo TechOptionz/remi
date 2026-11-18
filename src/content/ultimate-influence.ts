@@ -56,10 +56,10 @@ export const PSYCHOLOGY = [
 ] as const;
 
 // ---------- The Ultimate Influence Fast Start Guide (its price is its product's, in content/products.ts) ----------
-export const GUIDE_PRICE = priceOf('ultimate-influence-consultative-sales-introduction');
+export const GUIDE_PRICE = priceOf('ultimate-influence-foundations');
 export const GUIDE_STEPS = ['The complete eight-step conversation map', 'Questions and language prompts for every stage', 'How to diagnose, match and recommend', 'How to backtrack, close and future pace naturally'];
-/** "Start with Ultimate Influence": the enquiry form preset to Books & programs until the product page exists. */
-export const GUIDE_HREF = '/products/ultimate-influence-consultative-sales-introduction';
+/** "Start with Ultimate Influence": Ultimate Influence Foundations. */
+export const GUIDE_HREF = '/products/ultimate-influence-foundations';
 
 // ---------- Especially when what you sell is hard to hold ----------
 export const HARD_TO_HOLD = [

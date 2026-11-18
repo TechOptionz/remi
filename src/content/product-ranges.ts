@@ -75,14 +75,12 @@ export const RANGE_DESIGNS: Partial<Record<CategoryId, RangeDesign>> = {
     art: {
       'untriggerable': pic('photos/rebel-hero', 1800, 1090, 'Remi Pearson speaking, hands raised mid-thought'),
       'critical-alignment-model-for-leaders': pic('cam-landing/cml-hero', 470, 900),
-      'ultimate-influence-consultative-sales-introduction': pic('ui-landing/uil-hero', 495, 880),
       'selling-from-stage': pic('product-ranges/pb-inf-room', 1004, 542),
     },
   },
   influence: {
     layout: 'bands',
     art: {
-      'ultimate-influence-consultative-sales-introduction': pic('ui-landing/uil-hero', 495, 880),
       'ultimate-influence-foundations': pic('uif-landing/uif-hero', 758, 1226, 'Two women in conversation in armchairs'),
       'holding-space-for-magnetic-sales': { ...art('pb-inf-holding', 824, 574), side: 'left' },
       'selling-from-stage': { ...art('pb-inf-room', 1004, 542), side: 'right' },

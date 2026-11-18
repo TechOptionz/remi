@@ -1,6 +1,5 @@
 // Ultimate Influence Foundations (/products/ultimate-influence-foundations, AUD $79 + GST) — the introduction to
-// Ultimate Influence, a separate product from the complete program (/products/ultimate-influence-consultative-sales-
-// introduction). From Remi's copy deck "ULTIMATE INFLUENCE LANDING PAGE COPY" and the four-part mockup "ULTIMATE
+// Ultimate Influence, now the only Ultimate Influence product (the complete program was removed, Nov 2026). From Remi's copy deck "ULTIMATE INFLUENCE LANDING PAGE COPY" and the four-part mockup "ULTIMATE
 // INFLUENCE MOCKUP ONE–FOUR" (Oct 2026). Copy carried over word for word from the deck (the mockups shorten it; the
 // deck wins; its opening note to Remi is not page copy); the layout and pictures follow the mockups. Not on sale yet:
 // every "Join the waitlist" goes to the burgundy closing band (#get). Component: components/uif-landing/UifLanding.tsx;
@@ -14,8 +13,6 @@ export const UIF = programOf(UIF_SLUG);
 const amount = Number(UIF.amount.replace(/[^0-9.]/g, ''));
 export const UIF_PRICE = UIF.price;
 export const UIF_PRICE_INC_GST = `$${(amount * 1.1).toFixed(2)}`;
-/** The complete program the deck builds towards. */
-export const UI_SLUG = 'ultimate-influence-consultative-sales-introduction';
 
 /** "Inside Foundations, you’ll begin learning how to:" — the mockup's ringed icons, two across. */
 export const LEARN: (LeadItem & { icon: IconName })[] = [
