@@ -44,17 +44,24 @@ export default function SpotlightCarousel({ slides }: { slides: SpotlightSlide[]
       const w = el.clientWidth;
       setCurrent(Math.round(el.scrollLeft / w) % n);
       window.clearTimeout(settle);
-      if (loop && el.scrollLeft >= n * w - 1) settle = window.setTimeout(() => el.scrollTo({ left: 0, behavior: 'instant' }), 120);
+      // On the copy = scrolled to the very end (measured from the end, as slide widths can be fractional)
+      if (loop && el.scrollLeft >= el.scrollWidth - w - 2) settle = window.setTimeout(() => el.scrollTo({ left: 0, behavior: 'instant' }), 120);
     };
     el.addEventListener('scroll', onScroll, { passive: true });
     return () => { el.removeEventListener('scroll', onScroll); window.clearTimeout(settle); };
   }, [slides.length, loop]);
 
+  // The timer re-arms itself on every tick, not only when the slide changes: a tick that moves nothing (tab hidden,
+  // a scroll that didn't happen) would otherwise stop the carousel for good.
+  const [tick, setTick] = useState(0);
   useEffect(() => {
     if (still || holding || slides.length < 2) return;
-    const t = window.setTimeout(() => { if (!document.hidden) go(current + 1); }, EVERY);
+    const t = window.setTimeout(() => {
+      if (!document.hidden) go(current + 1);
+      setTick(x => x + 1);
+    }, EVERY);
     return () => window.clearTimeout(t);
-  }, [still, holding, current, go, slides.length]);
+  }, [still, holding, current, tick, go, slides.length]);
 
   if (!slides.length) return null;
   return (
