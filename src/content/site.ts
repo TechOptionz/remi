@@ -46,6 +46,8 @@ export const NAV: NavItem[] = [
   { label: 'Programs', href: '/programs', children: [
     { label: 'All programs', href: '/programs' },
     { label: 'Self-paced programs', href: '/products' },
+    { label: 'Critical Alignment Model for Leaders', href: '/products/critical-alignment-model-for-leaders' },
+    { label: 'Selling from Stage', href: '/products/selling-from-stage' },
     { label: 'Rebel Yell', href: '/programs/rebel-yell' },
     { label: 'The Shift', href: '/programs/the-shift' },
     { label: 'Ultimate Self Club', href: ULTIMATE_SELF_CLUB_URL, external: true },
