@@ -1,4 +1,5 @@
 // Every page, once, at its final address: what Google should index. Built from the routes on disk at build time.
+// scripts/llms-txt.mjs reads the built sitemap too, so llms.txt lists the same pages.
 import type { MetadataRoute } from 'next';
 import { readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
