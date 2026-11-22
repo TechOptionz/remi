@@ -20,8 +20,11 @@ export const THINKIFIC_COURSES: Record<string, number> = {
   'critical-alignment-model-for-leaders': 3562638,
   // Added Nov 2026 (Remi's pre-order courses). A course id here only says where a buyer is enrolled; a program goes on
   // sale only when its slug is also in SOLD_HERE. Free programs (FREE in content/products.ts) are never sold through
-  // Checkout. Not linked: "New course" (3569403) and the first draft of the Triad (3572982), both empty drafts, and
-  // "Selling from Stage with Remi Pearson" (3569406), still a draft.
+  // Checkout. Not linked: "New course" (3569403) and the first draft of the Triad (3572982), both empty drafts; the
+  // duplicate "Safe Versus Risky Problems" (3580553); "Ultimate Influence with Remi Pearson" (3577764, 42 lessons: the
+  // full program, not the Foundations product); and the six "… bundle" courses (3582831, 3582833, 3582840, 3582845,
+  // 3582848, 3582852): a bundle's buyers are enrolled in each included program's own course.
+  // No standalone course exists yet for Ultimate Influence Foundations or Holding Space for Magnetic Sales.
   'self-esteem-triad': 3577750,
   'self-regulation-when-it-matters': 3577754,
   'five-paths-to-a-healthy-relationship': 3577755,
@@ -30,11 +33,19 @@ export const THINKIFIC_COURSES: Record<string, number> = {
   'why-do-i-keep-doing-this': 3577761,
   'holding-space-without-rescuing-or-disappearing': 3577765,
   'emotion-integration-technique-foundations': 3577769,
-  'finding-our-way-back': 3577770,
+  'finding-our-way-back': 3580533,
+  'becoming-conscious': 3580526,
+  'attachment-or-love': 3580532,
+  'find-the-gap-in-your-own-life': 3580549,
+  'when-your-values-and-your-life-stop-matching': 3580550,
+  'let-truth-lead': 3580555,
+  'your-first-90-days-as-a-leader': 3580546,
+  'the-ground-rules-nobody-wrote-down': 3580547,
+  'untriggerable': 3580557,
+  'selling-from-stage': 3569406,
   'deep-state-repatterning': 3577771,
   'the-90-day-review': 3577775,
   'benchmarking-what-good-actually-looks-like': 3577779,
-  'build-beyond-the-founder': 3577782,
   'disruptive-leadership': 3577783,
   'the-performance-management-blueprint': 3577784,
   'trust-that-holds': 3577786,
@@ -58,12 +69,12 @@ export function amountOf(p: Product) {
 export function coursesOf(slug: string): number[] | null {
   const p = productBySlug(slug);
   if (!p) return null;
-  if (THINKIFIC_COURSES[slug]) return [THINKIFIC_COURSES[slug]];
-  if (p.bundle && p.includes?.length) {
+  if (p.bundle) {
+    if (!p.includes?.length) return null;
     const ids = p.includes.map(s => THINKIFIC_COURSES[s]);
-    return ids.every(Boolean) ? ids : null;
+    return ids.every(Boolean) ? [...new Set(ids)] : null;
   }
-  return null;
+  return THINKIFIC_COURSES[slug] ? [THINKIFIC_COURSES[slug]] : null;
 }
 
 /** True when the program's buy buttons open Stripe Checkout. */

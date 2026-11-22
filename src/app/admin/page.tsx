@@ -8,7 +8,7 @@ import { notFound, redirect } from 'next/navigation';
 import { revalidatePath, updateTag } from 'next/cache';
 import { PRODUCTS, FREE, productBySlug, productHref } from '@/content/products';
 import { amountOf } from '@/content/checkout';
-import { LINKS_TAG, linkOf, linksReady, liveOnSale, recentChanges, saveLink } from '@/lib/program-links';
+import { LINKS_TAG, linkOf, linksReady, liveCoursesOf, liveOnSale, recentChanges, saveLink } from '@/lib/program-links';
 import { adminReady, isAdmin, signIn } from '@/lib/admin-auth';
 import { listCourses, thinkificReady, type SchoolCourse } from '@/lib/thinkific';
 
@@ -26,7 +26,8 @@ async function save(form: FormData) {
   const course = String(form.get('course') ?? '');
   const slug = String(form.get('slug') ?? '');
   const onSale = form.get('onSale') === 'on';
-  if (!courseId || (slug && !productBySlug(slug))) notFound();
+  const product = slug ? productBySlug(slug) : undefined;
+  if (!courseId || (slug && (!product || product.bundle))) notFound();
 
   // One page per course: unlink any other page that sold this course.
   const touched = new Set<string>();
@@ -36,13 +37,30 @@ async function save(form: FormData) {
       touched.add(p.slug);
     }
   }
-  if (slug) {
-    await saveLink(slug, { courseId, onSale }, course);
+  if (product) {
+    // A free program can be linked (so bundles can enrol buyers in it) but is never sold by itself.
+    await saveLink(slug, { courseId, onSale: onSale && amountOf(product) > 0 }, course);
     touched.add(slug);
   }
   updateTag(LINKS_TAG);
+  // A bundle's page depends on its programs' links too.
+  for (const b of PRODUCTS) if (b.bundle && b.includes?.some(s => touched.has(s))) touched.add(b.slug);
   for (const s of touched) revalidatePath(productHref(s));
   redirect(`/admin?saved=${courseId}`);
+}
+
+/** Puts a bundle on sale or takes it off. It can go on sale only once every included program is linked to a course. */
+async function saveBundle(form: FormData) {
+  'use server';
+  if (!(await isAdmin())) redirect('/admin');
+  const slug = String(form.get('slug') ?? '');
+  const bundle = productBySlug(slug);
+  if (!bundle?.bundle) notFound();
+  const onSale = form.get('onSale') === 'on' && !!(await liveCoursesOf(slug));
+  await saveLink(slug, { courseId: null, onSale }, 'Bundle');
+  updateTag(LINKS_TAG);
+  revalidatePath(productHref(slug));
+  redirect(`/admin?saved=${slug}`);
 }
 
 export default async function ProgramLinksPage({ searchParams }: { searchParams: Promise<{ saved?: string; error?: string }> }) {
@@ -59,14 +77,24 @@ export default async function ProgramLinksPage({ searchParams }: { searchParams:
   const pageOf = (courseId: number) => links.find(l => l.link.courseId === courseId);
   const changes = await recentChanges();
   const stripeOn = !!process.env.STRIPE_SECRET_KEY;
-  const options = [...PRODUCTS].sort((a, b) => a.title.localeCompare(b.title));
+  // Bundles are not linked to a course: they have their own section, below the courses.
+  const options = PRODUCTS.filter(p => !p.bundle).sort((a, b) => a.title.localeCompare(b.title));
+  const courseById = new Map(courses.map(c => [c.id, c]));
+  const bundles = links.filter(l => l.p.bundle).map(l => ({
+    ...l,
+    programs: (l.p.includes ?? []).map(s => {
+      const inc = links.find(x => x.p.slug === s);
+      const id = inc?.link.courseId ?? null;
+      return { slug: s, title: inc?.p.title ?? s, id, course: id ? courseById.get(id) : undefined };
+    }),
+  }));
 
   return (
     <main className="pr-page pr-page--cream">
       <section className="pr-hero adm">
         <p className="pr-eyebrow">Private · for the team</p>
         <h1 className="pr-title">Program links</h1>
-        <p className="pr-lede">Every course in Remi’s Thinkific school. Link a course to its page on the website and tick <strong>On sale</strong>: the page’s sign-up becomes a Buy button, buyers pay through Stripe on the website at the page’s price, and they are enrolled in the linked course automatically. Untick it and the page goes back to its waitlist.</p>
+        <p className="pr-lede">Every course in Remi’s Thinkific school. Link a course to its page on the website and tick <strong>On sale</strong>: the page’s sign-up becomes a Buy button, buyers pay through Stripe on the website at the page’s price, and they are enrolled in the linked course automatically. Untick it and the page goes back to its waitlist. Bundles are further down: a bundle buyer is enrolled in the course of every program it includes.</p>
 
         <ul className="adm-checks">
           <li className={thinkificReady() && !thinkificError ? 'ok' : 'bad'}>Thinkific: {thinkificError ? `could not load the courses (${thinkificError})` : thinkificReady() ? `${courses.length} courses found` : 'not set up on this server'}</li>
@@ -101,7 +129,7 @@ export default async function ProgramLinksPage({ searchParams }: { searchParams:
                     <option value="">— Not linked —</option>
                     {options.map(p => {
                       const free = amountOf(p) === 0;
-                      return <option key={p.slug} value={p.slug} disabled={free}>{p.title} · {p.price === FREE ? 'Free' : p.price}{free ? ' (free: cannot be sold)' : ''}</option>;
+                      return <option key={p.slug} value={p.slug}>{p.title} · {p.price === FREE ? 'Free' : p.price}{free ? ' (link only, for bundles)' : ''}</option>;
                     })}
                   </select>
                   {suggested && <small>Suggested: {suggested.title}</small>}
@@ -117,6 +145,7 @@ export default async function ProgramLinksPage({ searchParams }: { searchParams:
                   <p className="adm-state">
                     {!current ? 'Not linked.'
                       : current.live ? <>Selling on <Link href={productHref(current.p.slug)}>{productHref(current.p.slug)}</Link></>
+                      : amountOf(current.p) === 0 ? <>Linked to <Link href={productHref(current.p.slug)}>{current.p.title}</Link>. Free, so not sold by itself; bundles enrol buyers in it.</>
                       : current.link.onSale ? <>Linked to <Link href={productHref(current.p.slug)}>{current.p.title}</Link>, but not selling{stripeOn ? '' : ': Stripe is not set up'}.</>
                       : <>Linked to <Link href={productHref(current.p.slug)}>{current.p.title}</Link>. Page shows its waitlist.</>}
                   </p>
@@ -127,12 +156,48 @@ export default async function ProgramLinksPage({ searchParams }: { searchParams:
           {!courses.length && !thinkificError && <p>No courses to show.</p>}
         </div>
 
+        <h2 className="pr-h2 adm-h2">Bundles</h2>
+        <div className="adm-list">
+          {bundles.map(({ p, link, live, programs }) => {
+            const missing = programs.filter(x => !x.id);
+            const drafts = programs.filter(x => x.course?.status === 'draft');
+            return (
+              <form key={p.slug} action={saveBundle} className={`adm-row${p.slug === saved ? ' adm-row--saved' : ''}`}>
+                <input type="hidden" name="slug" value={p.slug} />
+                <div>
+                  <h2 className="adm-bundle-title">{p.title}</h2>
+                  <p className="adm-meta">{p.price}</p>
+                  {drafts.length > 0 && <p className="adm-warn">Still a draft in Thinkific: {drafts.map(x => x.title).join(', ')}. Set to Pre-order or Published before selling.</p>}
+                </div>
+                <ul className="adm-bundle-list">
+                  {programs.map(x => (
+                    <li key={x.slug} className={x.id ? 'ok' : 'bad'}>{x.title}{x.id ? '' : ': no course linked'}</li>
+                  ))}
+                </ul>
+                <label className="adm-check">
+                  <input type="checkbox" name="onSale" defaultChecked={link.onSale && !missing.length} disabled={missing.length > 0} />
+                  <span>On sale</span>
+                </label>
+                <div className="adm-actions">
+                  <button type="submit" className="pr-btn">Save</button>
+                  <p className="adm-state">
+                    {missing.length ? `Cannot go on sale: link ${missing.length === 1 ? 'the missing program' : `the ${missing.length} missing programs`} above first.`
+                      : live ? <>Selling on <Link href={productHref(p.slug)}>{productHref(p.slug)}</Link></>
+                      : link.onSale ? `Ticked, but not selling${stripeOn ? '' : ': Stripe is not set up'}.`
+                      : 'Ready to sell. Page shows its waitlist.'}
+                  </p>
+                </div>
+              </form>
+            );
+          })}
+        </div>
+
         {changes.length > 0 && (
           <>
             <h2 className="pr-h2 adm-h2">Recent changes</h2>
             <ul className="adm-log">
               {changes.map((ch, i) => (
-                <li key={i}>{when(ch.at)} · {ch.course ? `${ch.course} → ` : ''}{productBySlug(ch.slug)?.title ?? ch.slug}: {ch.courseId ? (ch.onSale ? 'linked, on sale' : 'linked, not on sale') : 'unlinked'}</li>
+                <li key={i}>{when(ch.at)} · {ch.course ? `${ch.course} → ` : ''}{productBySlug(ch.slug)?.title ?? ch.slug}: {productBySlug(ch.slug)?.bundle ? (ch.onSale ? 'on sale' : 'not on sale') : ch.courseId ? (ch.onSale ? 'linked, on sale' : 'linked, not on sale') : 'unlinked'}</li>
               ))}
             </ul>
           </>

@@ -57,21 +57,23 @@ export const savedLinks = cache(async (): Promise<Record<string, ProgramLink>> =
 /** The link in force for a program: the saved one, else the code default. */
 export async function linkOf(slug: string): Promise<ProgramLink> {
   const saved = (await savedLinks())[slug];
-  if (saved) return saved;
-  return { courseId: THINKIFIC_COURSES[slug] ?? null, onSale: SOLD_HERE.has(slug), at: '' };
+  const link = saved ?? { courseId: THINKIFIC_COURSES[slug] ?? null, onSale: SOLD_HERE.has(slug), at: '' };
+  // A bundle has no course of its own (an older saved link may name one): it enrols in its programs' courses.
+  return productBySlug(slug)?.bundle ? { ...link, courseId: null } : link;
 }
 
-/** The Thinkific courses a purchase enrols the buyer in (a bundle: each of its programs' courses), or null. */
+/** The Thinkific courses a purchase enrols the buyer in (a bundle: every one of its programs' courses), or null when
+ *  any of them is not linked yet, so a bundle is never sold with part of it missing. */
 export async function liveCoursesOf(slug: string): Promise<number[] | null> {
   const p = productBySlug(slug);
   if (!p) return null;
-  const own = (await linkOf(slug)).courseId;
-  if (own) return [own];
-  if (p.bundle && p.includes?.length) {
+  if (p.bundle) {
+    if (!p.includes?.length) return null;
     const ids = await Promise.all(p.includes.map(async s => (await linkOf(s)).courseId));
-    return ids.every(Boolean) ? (ids as number[]) : null;
+    return ids.every(Boolean) ? [...new Set(ids as number[])] : null;
   }
-  return null;
+  const own = (await linkOf(slug)).courseId;
+  return own ? [own] : null;
 }
 
 /** True when the program's buy buttons open Stripe Checkout right now. */
