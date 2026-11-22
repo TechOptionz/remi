@@ -1,4 +1,4 @@
-/* Private admin screens (/admin/programs): plain and readable, on the product pages' cream. */
+/* Private admin screens (/admin): plain and readable, on the product pages' cream. */
 .adm .pr-lede { max-width: 820px; }
 .adm-checks { list-style: none; padding: 0; margin: 20px 0 28px; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 15px; }
 .adm-checks li::before { content: '●'; margin-right: 6px; }

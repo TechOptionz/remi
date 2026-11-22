@@ -1,5 +1,5 @@
 // Private: link each course in Remi's Thinkific school to its program page on the site, and put it on sale.
-// Open /admin/programs and enter the password (ADMIN_PASSWORD; lib/admin-auth.ts); signed in for 7 days on that browser.
+// Open /admin and enter the password (ADMIN_PASSWORD; lib/admin-auth.ts); signed in for 7 days on that browser.
 // Not in the sitemap, not indexed, rendered on request. Saving writes to Redis (lib/program-links.ts) and refreshes the
 // program's page, so its sign-up turns into a Buy button (Stripe Checkout → enrolment in the linked course) or back.
 import type { Metadata } from 'next';
@@ -21,7 +21,7 @@ const when = (iso: string) => new Date(iso).toLocaleString('en-AU', { timeZone: 
 
 async function save(form: FormData) {
   'use server';
-  if (!(await isAdmin())) redirect('/admin/programs');
+  if (!(await isAdmin())) redirect('/admin');
   const courseId = Number(form.get('courseId'));
   const course = String(form.get('course') ?? '');
   const slug = String(form.get('slug') ?? '');
@@ -42,7 +42,7 @@ async function save(form: FormData) {
   }
   updateTag(LINKS_TAG);
   for (const s of touched) revalidatePath(productHref(s));
-  redirect(`/admin/programs?saved=${courseId}`);
+  redirect(`/admin?saved=${courseId}`);
 }
 
 export default async function ProgramLinksPage({ searchParams }: { searchParams: Promise<{ saved?: string; error?: string }> }) {
@@ -69,7 +69,6 @@ export default async function ProgramLinksPage({ searchParams }: { searchParams:
         <p className="pr-lede">Every course in Remi’s Thinkific school. Link a course to its page on the website and tick <strong>On sale</strong>: the page’s sign-up becomes a Buy button, buyers pay through Stripe on the website at the page’s price, and they are enrolled in the linked course automatically. Untick it and the page goes back to its waitlist.</p>
 
         <ul className="adm-checks">
-          <li className={stripeOn ? 'ok' : 'bad'}>Stripe: {stripeOn ? `connected (${process.env.STRIPE_SECRET_KEY!.startsWith('sk_live') ? 'live' : 'test'} mode)` : 'not set up on this server, so nothing can be bought'}</li>
           <li className={thinkificReady() && !thinkificError ? 'ok' : 'bad'}>Thinkific: {thinkificError ? `could not load the courses (${thinkificError})` : thinkificReady() ? `${courses.length} courses found` : 'not set up on this server'}</li>
           <li className={linksReady() ? 'ok' : 'bad'}>Saving: {linksReady() ? 'ready' : 'Redis is not set up on this server, so links cannot be saved'}</li>
         </ul>
@@ -146,7 +145,7 @@ export default async function ProgramLinksPage({ searchParams }: { searchParams:
 async function enter(form: FormData) {
   'use server';
   const err = await signIn(String(form.get('pin') ?? ''));
-  redirect(err ? `/admin/programs?error=${encodeURIComponent(err)}` : '/admin/programs');
+  redirect(err ? `/admin?error=${encodeURIComponent(err)}` : '/admin');
 }
 
 /** The sign-in screen: one password. */

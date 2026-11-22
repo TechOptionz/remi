@@ -77,15 +77,14 @@ export const PRODUCTS: Product[] = [
   P({ slug: 'lead-align-and-perform', title: 'Lead, Align and Perform', text: 'Five programs plus Critical Alignment Model for Leaders.', category: 'leadership', tone: 'gold', bundle: true, price: 'AUD $129', cta: 'Explore the bundle',
     includes: ['the-performance-management-blueprint', 'your-first-90-days-as-a-leader', 'the-ground-rules-nobody-wrote-down', 'the-90-day-review', 'benchmarking-what-good-actually-looks-like', 'critical-alignment-model-for-leaders'] }),
   // Influence & consultative sales
-  P({ slug: 'ultimate-influence-consultative-sales-introduction', title: 'Ultimate Influence', text: 'The complete eight-step consultative sales methodology: understand the person in front of you, connect your recommendation to their needs and ask for a decision without becoming pushy.', category: 'influence', tone: 'black', price: 'AUD $79', level: 'Intermediate', kicker: 'The complete methodology', cta: 'Explore Ultimate Influence', also: ['further'] }),
   P({ slug: 'ultimate-influence-foundations', title: 'Ultimate Influence Foundations', text: 'An accessible introduction to the psychology, eight-step process and persuasive language behind Ultimate Influence: understand what your buyer wants and ask them to begin with confidence.', category: 'influence', tone: 'burgundy', price: 'AUD $79', level: 'Introduction', kicker: 'Six self-paced lessons', cta: 'Explore Foundations' }),
   P({ slug: 'holding-space-for-magnetic-sales', title: 'Holding Space for Magnetic Sales', text: 'Create the conditions for an honest buying conversation.', category: 'influence', tone: 'green', price: FREE, level: 'Introduction' }),
   // Selling from Stage replaced Move the Room; Selling Something Intangible and Understand Before You Prescribe were removed (Remi, Oct 2026)
   P({ slug: 'selling-from-stage', title: 'Selling from Stage', text: 'Learn how to shape a compelling offer and communicate its value, on a live stage or a webinar.', category: 'influence', tone: 'gold', price: 'AUD $1,997 including GST', level: 'Introduction', kicker: 'Self-paced online program', cta: 'Explore Selling from Stage' }),
   P({ slug: 'selling-from-stage-fundamentals', title: 'Selling from Stage Fundamentals', text: 'The eight-step pitch structure that connects your teaching to an offer, explains its value and invites your audience to buy. Three focused videos.', category: 'influence', tone: 'green', price: 'AUD $79', level: 'Introduction', kicker: 'Three focused videos', cta: 'Explore Fundamentals' }),
-  // Bundle still to be reworked now Selling Something Intangible and Understand Before You Prescribe are gone (Remi will advise); it lists the two that remain
-  P({ slug: 'influence-without-pressure', title: 'Influence Without Pressure', text: 'Two programs.', category: 'influence', tone: 'navy', bundle: true, price: 'AUD $129', cta: 'Explore the bundle',
-    includes: ['ultimate-influence-consultative-sales-introduction', 'holding-space-for-magnetic-sales'] }),
+  // Its two programs, at their combined price (Foundations $79 + Holding Space for Magnetic Sales, free), Nov 2026
+  P({ slug: 'influence-without-pressure', title: 'Influence Without Pressure', text: 'Ultimate Influence Foundations and Holding Space for Magnetic Sales.', category: 'influence', tone: 'navy', bundle: true, price: 'AUD $79', cta: 'Explore the bundle',
+    includes: ['ultimate-influence-foundations', 'holding-space-for-magnetic-sales'] }),
   // Business & enterprise
   P({ slug: 'from-practice-to-enterprise', title: 'From Practice to Enterprise', text: 'Turn expertise into intellectual property, systems and an asset that can operate beyond you.', category: 'business', tone: 'black', price: 'AUD $79', level: 'Intermediate', kicker: 'The Founder Pathway', cta: 'Build beyond yourself' }),
   P({ slug: 'core-improve-innovate', title: 'Core, Improve, Innovate', text: 'Know what to protect, what to strengthen and where genuine innovation belongs.', category: 'business', tone: 'navy', price: FREE, level: 'Introduction' }),
@@ -100,7 +99,7 @@ export const PRODUCTS: Product[] = [
 export const productBySlug = (slug: string) => PRODUCTS.find(p => p.slug === slug);
 export const productHref = (slug: string) => `/products/${slug}`;
 /** Products with their own designed sales page (LANDINGS in app/products/[slug]/page.tsx); the sitemap ranks them higher. */
-export const LANDING_SLUGS = ['self-esteem-triad', 'critical-alignment-model-for-leaders', 'ultimate-influence-consultative-sales-introduction', 'selling-from-stage', 'why-do-i-keep-doing-this',
+export const LANDING_SLUGS = ['self-esteem-triad', 'critical-alignment-model-for-leaders', 'selling-from-stage', 'why-do-i-keep-doing-this',
   'emotion-integration-technique-foundations', 'self-regulation-when-it-matters', 'becoming-conscious',
   'deep-state-repatterning', 'holding-space-without-rescuing-or-disappearing', 'obstacles-to-love',
   'five-paths-to-a-healthy-relationship', 'attachment-or-love', 'finding-our-way-back', 'the-90-day-review',

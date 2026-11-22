@@ -3,8 +3,8 @@
 
 export const UIC_PAGE_HREF = '/ideas-models/ultimate-influence';
 
-/** "Explore the Ultimate Influence online training program": the enquiry form until the program page exists. */
-export const UIC_TRAINING_HREF = '/products/ultimate-influence-consultative-sales-introduction';
+/** "Explore the Ultimate Influence online training program": Ultimate Influence Foundations. */
+export const UIC_TRAINING_HREF = '/products/ultimate-influence-foundations';
 
 /** The eight steps, in order, with the line each one's heading carries in the deck. Colours follow the stones in the illustration. */
 export type Step = { num: number; name: string; tag: string };

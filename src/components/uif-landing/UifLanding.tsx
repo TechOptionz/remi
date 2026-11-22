@@ -8,8 +8,7 @@
 import Link from 'next/link';
 import Icon from '@/components/shared/Icon';
 import WaitlistForm from '@/components/landing/WaitlistForm';
-import { productHref } from '@/content/products';
-import { FAQ, LEARN, LESSONS, UIF, UIF_PRICE, UIF_PRICE_INC_GST, UI_SLUG } from '@/content/uif-landing';
+import { FAQ, LEARN, LESSONS, UIF, UIF_PRICE, UIF_PRICE_INC_GST } from '@/content/uif-landing';
 
 function Img({ name, alt, width, height, className = '', eager }: { name: string; alt: string; width: number; height: number; className?: string; eager?: boolean }) {
   return <img className={className} src={`/assets/uif-landing/${name}.webp`} alt={alt} width={width} height={height} loading={eager ? 'eager' : 'lazy'} fetchPriority={eager ? 'high' : undefined} decoding="async" />;
@@ -37,7 +36,7 @@ export default function UifLanding() {
           </nav>
           <p className="uif-eyebrow">Ultimate Influence Foundations <span className="uif-with">With Remi Pearson</span></p>
           <h1 id="uif-title" className="uif-title">Help the right people see the value in working with you … and feel confident asking them to begin.</h1>
-          <p className="uif-lede">Learn how to understand what your buyer really wants, lead a meaningful sales conversation and make a recommendation that feels relevant to them. An accessible introduction to the psychology, eight-step process and persuasive language behind <Link href={productHref(UI_SLUG)}>Ultimate Influence</Link>.</p>
+          <p className="uif-lede">Learn how to understand what your buyer really wants, lead a meaningful sales conversation and make a recommendation that feels relevant to them. An accessible introduction to the psychology, eight-step process and persuasive language behind <Link href="/ideas-models/ultimate-influence">Ultimate Influence</Link>.</p>
           <span className="uif-short-rule" aria-hidden="true" />
           <Price />
           <p className="uif-meta">Six self-paced video lessons and a practical workbook.</p>

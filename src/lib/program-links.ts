@@ -1,5 +1,5 @@
 // Which Thinkific course each program page sells, and whether it is on sale, as set on the private admin screen
-// (/admin/programs?key=<ADMIN_KEY>). Kept in Upstash Redis (the same store as the "Was this helpful?" counts), so a
+// (/admin). Kept in Upstash Redis (the same store as the "Was this helpful?" counts), so a
 // change takes effect without a deploy. Server only.
 //   programs:links      hash: product slug → { courseId, onSale, at }   (an entry here wins over the code defaults)
 //   programs:links:log  list: the last 200 changes, newest first

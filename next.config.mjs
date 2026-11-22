@@ -12,6 +12,7 @@ const nextConfig = {
       { source: '/products/move-the-room', destination: '/products/selling-from-stage', permanent: true }, // replaced by Selling from Stage
       { source: '/products/selling-something-intangible', destination: '/products#influence', permanent: true }, // removed
       { source: '/products/understand-before-you-prescribe', destination: '/products#influence', permanent: true }, // removed
+      { source: '/products/ultimate-influence-consultative-sales-introduction', destination: '/products/ultimate-influence-foundations', permanent: true }, // removed (Nov 2026): Foundations is the one Ultimate Influence program
       { source: '/attachment-style-quiz', destination: '/products/attachment-or-love', permanent: true }, // assessment page removed (Oct 2026); two articles still link here
       { source: '/products/conflict-repair-and-harmony', destination: '/products/finding-our-way-back', permanent: true }, // retitled Finding Our Way Back
       { source: '/about-remi.html', destination: '/about-remi', permanent: true },
@@ -58,6 +59,7 @@ const nextConfig = {
       { source: '/post/:slug*', destination: '/perspectives#archive', permanent: true },
       { source: '/blog/:path*', destination: '/perspectives#archive', permanent: true },
       { source: '/copy-of-speaking-v2', destination: '/invite-remi', permanent: true },
+      { source: '/admin/programs', destination: '/admin', permanent: false },
       { source: '/workwithremi', destination: '/invite-remi', permanent: true },
       { source: '/ambassador-program', destination: '/programs', permanent: true },
       { source: '/plans-pricing', destination: '/programs', permanent: true },

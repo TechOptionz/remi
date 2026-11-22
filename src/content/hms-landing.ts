@@ -9,8 +9,8 @@ import type { IconName } from '@/components/shared/Icon';
 
 export const HMS_SLUG = 'holding-space-for-magnetic-sales';
 export const HMS = programOf(HMS_SLUG);
-/** Ultimate Influence, which the deck points to as the complete methodology. */
-export const UI_SLUG = 'ultimate-influence-consultative-sales-introduction';
+/** Ultimate Influence, which the deck points to: Ultimate Influence Foundations, the one Ultimate Influence program. */
+export const UI_SLUG = 'ultimate-influence-foundations';
 
 /** "See if any of this feels familiar:" — the mockup's ringed icons; each opens with its bold lead. */
 export const FAMILIAR: (LeadItem & { icon: IconName })[] = [
