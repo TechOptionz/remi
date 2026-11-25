@@ -191,7 +191,7 @@ const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.React
     page: TthLanding,
     metadata: {
       title: 'Trust That Holds: The T.R.U.S.T.M.E. Program — Remi Pearson',
-      description: 'Understand why pressure pulls you back into old patterns and develop more useful ways to respond, with the T.R.U.S.T.M.E. model: 11 videos, a reflective self-assessment and an application workbook from Remi Pearson. AUD $49. Join the waitlist.',
+      description: 'Understand why pressure pulls you back into old patterns and develop more useful ways to respond, with the T.R.U.S.T.M.E. model: 11 videos, a reflective self-assessment and an application workbook from Remi Pearson. AUD $49. Self-paced, available now.',
     },
   },
   'ultimate-influence-foundations': {
