@@ -80,3 +80,21 @@ export const FAQ: Faq[] = [
   { q: 'Is there individual coaching or feedback?', a: 'No. This is a self-paced program of recorded teaching and guided exercises. It suits people who want a structured way to learn and reflect independently.' },
   { q: 'What happens when I join the waitlist?', a: 'You’ll be on the list to receive an invitation when enrolment opens. Joining is free, and it does not commit you to purchasing the program.' },
 ];
+
+// ---------- On sale (Nov 2026) ----------
+// Shown in place of the deck's waitlist wording once the program is on sale (the admin screen, /admin); the waitlist
+// copy above comes back if it is taken off sale.
+
+/** Under each buy button and in the close. */
+export const SALE_NOTE = 'Secure checkout through Stripe. Your access details are emailed to you as soon as you’ve paid.';
+
+/** While Remi is still recording: when the videos will be in the course. Set to null once all 11 are uploaded. */
+export const TTH_VIDEOS_NOTE: string | null = 'Remi is recording the 11 videos now. All 11 will be in your course by Friday 27 November 2026, and each one appears as soon as it’s ready; your access starts the moment you buy.';
+
+/** FAQ answers that change once the program is on sale, by the waitlist question they replace. */
+export const FAQ_ON_SALE: Record<string, Faq> = {
+  'What happens when I join the waitlist?': {
+    q: 'What happens after I buy?',
+    a: 'You’ll pay through a secure Stripe checkout. Straight afterwards you’re enrolled in the program in Remi’s online school and emailed how to sign in (if you’re new to the school, you’ll also receive an email to set your password). Your receipt comes separately from Stripe.',
+  },
+};

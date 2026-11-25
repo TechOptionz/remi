@@ -9,11 +9,17 @@
 import Link from 'next/link';
 import Icon from '@/components/shared/Icon';
 import WaitlistForm from '@/components/landing/WaitlistForm';
-import { FAQ, GOOD_FIT, NOT_FOR, STRIP, TESTIMONIALS, TTH, VIDEOS, WORKBOOK, WORK_ON } from '@/content/tth-landing';
+import { LiveHref, OnSale } from '@/components/landing/BuyMode';
+import { FAQ, FAQ_ON_SALE, GOOD_FIT, NOT_FOR, STRIP, SALE_NOTE, TESTIMONIALS, TTH, TTH_VIDEOS_NOTE, VIDEOS, WORKBOOK, WORK_ON } from '@/content/tth-landing';
 
-/** Every button goes to the waitlist form in the closing band. */
+/** Every button goes to the waitlist form in the closing band; once on sale, straight to checkout. */
 function Btn() {
-  return <a href="#get" className="tth-btn">Join the waitlist <span aria-hidden="true">→</span></a>;
+  return <LiveHref href="#get" className="tth-btn"><OnSale sale={`Buy now • ${TTH.price}`}>Join the waitlist</OnSale> <span aria-hidden="true">→</span></LiveHref>;
+}
+
+/** The note under a buy button: the deck's waitlist line, or (on sale) the checkout line and when the videos arrive. */
+function Note({ waitlist, className = 'tth-small' }: { waitlist: string; className?: string }) {
+  return <OnSale sale={<p className={className}>{SALE_NOTE}{TTH_VIDEOS_NOTE && <><br /><strong>{TTH_VIDEOS_NOTE}</strong></>}</p>}><p className={className}>{waitlist}</p></OnSale>;
 }
 
 const pad = (n: number) => String(n).padStart(2, '0');
@@ -36,7 +42,7 @@ export default function TthLanding() {
           <p className="tth-strong">Explore your patterns through a self-assessment. Learn with Remi across 11 videos. Apply the model to your own challenges in the accompanying workbook.</p>
           <p className="tth-meta"><strong>Advanced thinking,</strong> explained step by step. Self-paced. {TTH.price}.</p>
           <div className="tth-buy"><Btn /></div>
-          <p className="tth-small">No payment required. Joining puts you on the invitation list, with no obligation to purchase.</p>
+          <Note waitlist="No payment required. Joining puts you on the invitation list, with no obligation to purchase." />
         </div>
         <img className="tth-hero-photo" src="/assets/ltl/ltl-hero.webp" alt="Remi Pearson in a pink jacket, smiling with one arm raised on stage" width={900} height={1092} fetchPriority="high" decoding="async" />
       </section>
@@ -193,13 +199,17 @@ export default function TthLanding() {
             <li><strong>An application workbook</strong>, helping you use the ideas in a real situation and plan your next step.</li>
           </ul>
           <div className="tth-buy"><Btn /></div>
-          <p className="tth-small">No payment details required. You’ll receive an invitation when enrolment opens and can decide then whether to purchase.</p>
+          <Note waitlist="No payment details required. You’ll receive an invitation when enrolment opens and can decide then whether to purchase." />
         </section>
 
         <section className="tth-section tth-rule" aria-labelledby="tth-faq-h">
           <h2 id="tth-faq-h" className="tth-h2 tth-h2--big">Before you decide</h2>
           <dl className="tth-faq">
-            {FAQ.map(f => <div key={f.q}><dt>{f.q}</dt><dd>{f.a}</dd></div>)}
+            {FAQ.map(f => {
+              const row = (x: typeof f) => <div key={x.q}><dt>{x.q}</dt><dd>{x.a}</dd></div>;
+              const sale = FAQ_ON_SALE[f.q];
+              return sale ? <OnSale key={f.q} sale={row(sale)}>{row(f)}</OnSale> : row(f);
+            })}
           </dl>
         </section>
       </div>
@@ -216,7 +226,7 @@ export default function TthLanding() {
           </div>
           <div>
             <WaitlistForm product={TTH.title} segment={TTH.segment} prefix="tth" namePlaceholder="First name" thanks="Thank you. You’re on the list, and you’ll receive your invitation when enrolment opens." />
-            <p className="tth-small">No payment today. Receive your invitation and decide from there.</p>
+            <Note waitlist="No payment today. Receive your invitation and decide from there." />
           </div>
         </div>
       </section>

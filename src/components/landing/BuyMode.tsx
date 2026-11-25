@@ -20,6 +20,11 @@ export function SoonLabel({ className, children = 'Coming soon' }: { className?:
   return useBuy() ? null : <p className={className}>{children}</p>;
 }
 
+/** `sale` once the program is on sale, otherwise `children` (the page's waitlist wording). */
+export function OnSale({ sale, children }: { sale: React.ReactNode; children: React.ReactNode }) {
+  return <>{useBuy() ? sale : children}</>;
+}
+
 /** A link to the closing band (#get) that goes straight to checkout once the program is on sale. */
 export function LiveHref({ href, className, children }: { href: string; className?: string; children: React.ReactNode }) {
   const buy = useBuy();
