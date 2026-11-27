@@ -24,7 +24,7 @@ export const THINKIFIC_COURSES: Record<string, number> = {
   // Added Nov 2026 (Remi's pre-order courses). A course id here only says where a buyer is enrolled; a program goes on
   // sale only when its slug is also in SOLD_HERE (or ticked on the admin screen). Free programs (FREE in
   // content/products.ts) are never sold through Checkout: when open, their page takes a free registration instead. Not linked: "New course" (3569403) and the first draft of the Triad (3572982), both empty drafts; the
-  // duplicate "Safe Versus Risky Problems" (3580553); "Ultimate Influence with Remi Pearson" (3577764, 42 lessons: the
+  // other "Safe Versus Risky Problems - Discover what keeps you stuck …" (3577758; the team chose 3580553, Nov 2026); "Ultimate Influence with Remi Pearson" (3577764, 42 lessons: the
   // full program, not the Foundations product); and the six "… bundle" courses (3582831, 3582833, 3582840, 3582845,
   // 3582848, 3582852): a bundle's buyers are enrolled in each included program's own course.
   // No standalone course exists yet for Ultimate Influence Foundations or Holding Space for Magnetic Sales.
@@ -32,7 +32,7 @@ export const THINKIFIC_COURSES: Record<string, number> = {
   'self-regulation-when-it-matters': 3577754,
   'five-paths-to-a-healthy-relationship': 3577755,
   'obstacles-to-love': 3577756,
-  'safe-or-risky-problems': 3577758,
+  'safe-or-risky-problems': 3580553, // thinkific.com/courses/safe-versus-risky-problems
   'why-do-i-keep-doing-this': 3577761,
   'holding-space-without-rescuing-or-disappearing': 3577765,
   'emotion-integration-technique-foundations': 3577769,
