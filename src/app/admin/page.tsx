@@ -8,7 +8,7 @@ import { notFound, redirect } from 'next/navigation';
 import { revalidatePath, updateTag } from 'next/cache';
 import { PRODUCTS, FREE, productBySlug, productHref } from '@/content/products';
 import { amountOf } from '@/content/checkout';
-import { LINKS_TAG, linkOf, linksReady, liveCoursesOf, liveOnSale, recentChanges, saveLink } from '@/lib/program-links';
+import { LINKS_TAG, linkOf, linksReady, liveCoursesOf, liveFree, liveOnSale, recentChanges, saveLink } from '@/lib/program-links';
 import { adminReady, isAdmin, signIn } from '@/lib/admin-auth';
 import { listCourses, thinkificReady, type SchoolCourse } from '@/lib/thinkific';
 
@@ -38,8 +38,8 @@ async function save(form: FormData) {
     }
   }
   if (product) {
-    // A free program can be linked (so bundles can enrol buyers in it) but is never sold by itself.
-    await saveLink(slug, { courseId, onSale: onSale && amountOf(product) > 0 }, course);
+    // A free program is never sold: "On sale" opens its free registration, which enrols people in the linked course.
+    await saveLink(slug, { courseId, onSale }, course);
     touched.add(slug);
   }
   updateTag(LINKS_TAG);
@@ -73,7 +73,7 @@ export default async function ProgramLinksPage({ searchParams }: { searchParams:
     try { courses = await listCourses(); } catch (e) { thinkificError = e instanceof Error ? e.message : String(e); }
   }
   // Which page each course is linked to now (saved on this screen, or the code default).
-  const links = await Promise.all(PRODUCTS.map(async p => ({ p, link: await linkOf(p.slug), live: await liveOnSale(p.slug) })));
+  const links = await Promise.all(PRODUCTS.map(async p => ({ p, link: await linkOf(p.slug), live: await liveOnSale(p.slug), open: await liveFree(p.slug) })));
   const pageOf = (courseId: number) => links.find(l => l.link.courseId === courseId);
   const changes = await recentChanges();
   const stripeOn = !!process.env.STRIPE_SECRET_KEY;
@@ -94,7 +94,7 @@ export default async function ProgramLinksPage({ searchParams }: { searchParams:
       <section className="pr-hero adm">
         <p className="pr-eyebrow">Private · for the team</p>
         <h1 className="pr-title">Program links</h1>
-        <p className="pr-lede">Every course in Remi’s Thinkific school. Link a course to its page on the website and tick <strong>On sale</strong>: the page’s sign-up becomes a Buy button, buyers pay through Stripe on the website at the page’s price, and they are enrolled in the linked course automatically. Untick it and the page goes back to its waitlist. Bundles are further down: a bundle buyer is enrolled in the course of every program it includes.</p>
+        <p className="pr-lede">Every course in Remi’s Thinkific school. Link a course to its page on the website and tick <strong>On sale</strong>: the page’s sign-up becomes a Buy button, buyers pay through Stripe on the website at the page’s price, and they are enrolled in the linked course automatically. Untick it and the page goes back to its waitlist. A free program has no checkout: ticked, its page takes a first name and email and enrols the person straight away. Bundles are further down: a bundle buyer is enrolled in the course of every program it includes.</p>
 
         <ul className="adm-checks">
           <li className={thinkificReady() && !thinkificError ? 'ok' : 'bad'}>Thinkific: {thinkificError ? `could not load the courses (${thinkificError})` : thinkificReady() ? `${courses.length} courses found` : 'not set up on this server'}</li>
@@ -120,6 +120,7 @@ export default async function ProgramLinksPage({ searchParams }: { searchParams:
                     </p>
                     {open && <p className="adm-warn">Visible in the Thinkific catalog{c.price === 0 ? ': it is free there, so anyone can enrol without paying. Hide it in Thinkific.' : ', with its own Thinkific price.'}</p>}
                     {c.status === 'draft' && <p className="adm-warn">Draft in Thinkific: set it to Pre-order or Published before selling it.</p>}
+                    {c.status === 'presell' && (current?.live || current?.open) && <p className="adm-warn">Pre-order in Thinkific while open on the website: check that an enrolled student can open the lessons, or set it to Published.</p>}
                   </div>
                 </div>
 
@@ -129,7 +130,7 @@ export default async function ProgramLinksPage({ searchParams }: { searchParams:
                     <option value="">— Not linked —</option>
                     {options.map(p => {
                       const free = amountOf(p) === 0;
-                      return <option key={p.slug} value={p.slug}>{p.title} · {p.price === FREE ? 'Free' : p.price}{free ? ' (link only, for bundles)' : ''}</option>;
+                      return <option key={p.slug} value={p.slug}>{p.title} · {p.price === FREE ? 'Free' : p.price}{free ? ' (free registration)' : ''}</option>;
                     })}
                   </select>
                   {suggested && <small>Suggested: {suggested.title}</small>}
@@ -145,7 +146,8 @@ export default async function ProgramLinksPage({ searchParams }: { searchParams:
                   <p className="adm-state">
                     {!current ? 'Not linked.'
                       : current.live ? <>Selling on <Link href={productHref(current.p.slug)}>{productHref(current.p.slug)}</Link></>
-                      : amountOf(current.p) === 0 ? <>Linked to <Link href={productHref(current.p.slug)}>{current.p.title}</Link>. Free, so not sold by itself; bundles enrol buyers in it.</>
+                      : current.open ? <>Open, free: registering on <Link href={productHref(current.p.slug)}>{productHref(current.p.slug)}</Link> enrols straight away.</>
+                      : amountOf(current.p) === 0 ? <>Linked to <Link href={productHref(current.p.slug)}>{current.p.title}</Link>. Free: tick On sale to open its registration; bundles enrol buyers in it either way.</>
                       : current.link.onSale ? <>Linked to <Link href={productHref(current.p.slug)}>{current.p.title}</Link>, but not selling{stripeOn ? '' : ': Stripe is not set up'}.</>
                       : <>Linked to <Link href={productHref(current.p.slug)}>{current.p.title}</Link>. Page shows its waitlist.</>}
                   </p>

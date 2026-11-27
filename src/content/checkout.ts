@@ -1,7 +1,8 @@
 // Which programs can be bought on the site, and where their buy buttons go: Stripe Checkout on this site, then the buyer
-// is enrolled in the program's Thinkific course (lib/product-sales.ts, lib/thinkific.ts). For now (Nov 2026) only
-// Critical Alignment Model for Leaders is sold this way (SOLD_HERE); the other programs keep their "Coming soon" /
-// waitlist sign-ups. CAM goes on sale when BOTH
+// is enrolled in the program's Thinkific course (lib/product-sales.ts, lib/thinkific.ts). Open by default (SOLD_HERE, Nov 2026):
+// Critical Alignment Model for Leaders, Trust That Holds and the free Safe or Risky Problems? (a registration, not a
+// sale); the other programs keep their "Coming soon" / waitlist sign-ups until the admin screen (/admin) opens them.
+// A paid program goes on sale when BOTH
 //   - STRIPE_SECRET_KEY is set at build time, and
 //   - its Thinkific course id is in THINKIFIC_COURSES below,
 // so nothing can be bought before there is a course to put the buyer in. A product's own `buyHref` still wins.
@@ -11,16 +12,18 @@
 import { FREE, PRODUCTS, productBySlug, type Product } from '@/content/products';
 import { RANGE_DESIGNS } from '@/content/product-ranges';
 
-/** The programs sold through Stripe + Thinkific on this site. */
-export const SOLD_HERE = new Set(['critical-alignment-model-for-leaders']);
+/** The programs that are open by default (a link saved on the admin screen, /admin, wins over this): a paid one is sold
+ *  through Stripe Checkout and the buyer enrolled in its Thinkific course; a free one (Safe or Risky Problems?) has a
+ *  registration form on its page that enrols the person straight away (liveFree in lib/program-links.ts). */
+export const SOLD_HERE = new Set(['critical-alignment-model-for-leaders', 'trust-that-holds', 'safe-or-risky-problems']);
 
 /** Thinkific course id for each program, by product slug: the number in the course's admin address,
  *  https://remi-s-site-9bea.thinkific.com/manage/courses/<id>. Add a line as each course is built. */
 export const THINKIFIC_COURSES: Record<string, number> = {
   'critical-alignment-model-for-leaders': 3562638,
   // Added Nov 2026 (Remi's pre-order courses). A course id here only says where a buyer is enrolled; a program goes on
-  // sale only when its slug is also in SOLD_HERE. Free programs (FREE in content/products.ts) are never sold through
-  // Checkout. Not linked: "New course" (3569403) and the first draft of the Triad (3572982), both empty drafts; the
+  // sale only when its slug is also in SOLD_HERE (or ticked on the admin screen). Free programs (FREE in
+  // content/products.ts) are never sold through Checkout: when open, their page takes a free registration instead. Not linked: "New course" (3569403) and the first draft of the Triad (3572982), both empty drafts; the
   // duplicate "Safe Versus Risky Problems" (3580553); "Ultimate Influence with Remi Pearson" (3577764, 42 lessons: the
   // full program, not the Foundations product); and the six "… bundle" courses (3582831, 3582833, 3582840, 3582845,
   // 3582848, 3582852): a bundle's buyers are enrolled in each included program's own course.

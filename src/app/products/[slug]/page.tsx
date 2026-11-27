@@ -30,7 +30,8 @@ import UifLanding from '@/components/uif-landing/UifLanding';
 import SffLanding from '@/components/sff-landing/SffLanding';
 import { PRODUCTS, productBySlug, LANDING_SLUGS } from '@/content/products';
 import { BuyMode } from '@/components/landing/BuyMode';
-import { liveBuyHref } from '@/lib/program-links';
+import { liveBuyHref, liveFree } from '@/lib/program-links';
+import { schoolSignIn } from '@/lib/thinkific';
 
 const LANDINGS: Record<(typeof LANDING_SLUGS)[number], { page: () => React.ReactNode; metadata: Metadata }> = {
   'self-esteem-triad': {
@@ -227,6 +228,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const Landing = LANDINGS[slug as (typeof LANDING_SLUGS)[number]]?.page;
   // On sale (admin screen, lib/program-links.ts): the page's sign-ups and "Coming soon" turn into a Buy button.
   const href = await liveBuyHref(slug);
-  const buy = href ? { href, label: `Buy now • ${p.price}` } : null;
+  // A free program that is open: the same sign-ups become its registration, which enrols the person straight away.
+  const buy = href ? { href, label: `Buy now • ${p.price}` }
+    : (await liveFree(slug)) ? { href: '#get', label: 'Get free access', free: { slug, access: schoolSignIn() } }
+    : null;
   return <BuyMode buy={buy}>{Landing ? <Landing /> : <ProductPage product={p} />}</BuyMode>;
 }

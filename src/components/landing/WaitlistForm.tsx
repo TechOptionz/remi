@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation';
 import { submitLead } from '@/lib/forms';
 import WeeklyOptIn from '@/components/shared/WeeklyOptIn';
 import { useBuy } from '@/components/landing/BuyMode';
+import FreeAccessForm from '@/components/landing/FreeAccessForm';
 
 export default function WaitlistForm({ product, segment, prefix, namePlaceholder = 'Name', thanks, thanksHref }: {
   product: string; segment?: string; prefix: string; namePlaceholder?: string; thanks: string; thanksHref?: string;
@@ -20,6 +21,7 @@ export default function WaitlistForm({ product, segment, prefix, namePlaceholder
   const id = useId();
   const buy = useBuy();
 
+  if (buy?.free) return <FreeAccessForm {...buy.free} product={product} segment={segment} label={buy.label} formClass={`${prefix}-form`} btnClass={`${prefix}-btn ${prefix}-btn--dark`} thanksClass={`${prefix}-thanks`} />;
   if (buy) return <a href={buy.href} className={`${prefix}-btn ${prefix}-btn--dark`}>{buy.label}</a>;
   if (sent) return <p className={`${prefix}-thanks`} role="status">{thanks}</p>;
   return (

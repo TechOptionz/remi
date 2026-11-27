@@ -6,6 +6,7 @@
 //     in the program's Thinkific course(s) (lib/thinkific.ts: a new student also gets Thinkific's own email to set a
 //     password), then emailed how to start, and the team gets a sale notification; once per order.
 //  3. Stripe returns the buyer to /products/thank-you, which shows the same sign-in link straight away.
+// A free program that is open has no Stripe step: its registration form (/api/lead) calls enrolFree below.
 // Without THINKIFIC_ACCESS_TOKEN (or THINKIFIC_API_KEY) / THINKIFIC_SUBDOMAIN the buyer is told their access details will follow and the team's
 // notification says to enrol them by hand.
 import type Stripe from 'stripe';
@@ -43,6 +44,43 @@ export async function paidProductOrder(sessionId: string) {
 const esc = (s: string) => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 const money = (cents: number | null | undefined, currency: string | null) => cents == null ? '' : `${(currency ?? 'aud').toUpperCase()} $${(cents / 100).toFixed(2)}`;
 
+/** The "Welcome to <program>" email: how to sign in and start. `receipt`: a paid order, whose receipt comes from Stripe. */
+async function sendWelcome(resend: Resend, from: string, o: { email: string; name?: string; product: Product; access: string | null; isNew?: boolean; receipt: boolean }) {
+  const { email, name, product, access } = o;
+  const p = 'style="font-family:sans-serif;font-size:15px;line-height:1.6;color:#221b17"';
+  const btn = 'style="display:inline-block;margin:4px 0;padding:12px 22px;background:#a8401a;color:#fbf1e3;border-radius:2px;font-family:sans-serif;font-size:14px;font-weight:600;letter-spacing:.06em;text-decoration:none"';
+  const how = !access
+    ? 'Your access details will follow by email shortly (within one business day). If they haven’t arrived, simply reply to this email.'
+    : o.isNew
+      ? 'Your place in the program is ready. You will also receive a separate email from Remi’s online school to set your password; once it is set, use the button below to sign in and start. Keep this email: the link is how you come back to the program.'
+      : 'Your place in the program is ready. Sign in to Remi’s online school with your usual email and password to start. Keep this email: the link is how you come back to the program.';
+  const receipt = o.receipt ? 'Your receipt comes separately from Stripe.' : '';
+
+  const sent = await resend.emails.send({
+    from, to: email,
+    subject: `Welcome to ${product.title}`,
+    html: `<p ${p}>${name ? `Hi ${esc(name)},` : 'Hello,'}</p>
+<p ${p}>Thank you for joining <strong>${esc(product.title)}</strong>. ${how}</p>
+${access ? `<p><a href="${esc(access)}" ${btn}>Start ${esc(product.title)}</a></p>` : ''}
+${receipt ? `<p ${p}>${receipt}</p>` : ''}
+<p ${p}>Remi Pearson</p>`,
+    text: `${name ? `Hi ${name},` : 'Hello,'}\n\nThank you for joining ${product.title}. ${how}\n\n${access ? `${access}\n\n` : ''}${receipt ? `${receipt}\n\n` : ''}Remi Pearson`,
+  });
+  if (sent.error) throw new Error(`Welcome email failed: ${sent.error.message}`);
+}
+
+/** A free program's registration: enrols the person in its course and emails them how to start. Safe to repeat (an
+ *  existing student or enrolment is reused). Throws when Thinkific or the email fails, so the form can say so. */
+export async function enrolFree(product: Product, email: string, firstName?: string) {
+  const { RESEND_API_KEY, RESEND_FROM } = process.env;
+  if (!RESEND_API_KEY || !RESEND_FROM) throw new Error('Resend is not configured');
+  const courses = thinkificReady() ? await liveCoursesOf(product.slug) : null;
+  if (!courses) throw new Error(`${product.slug} has no Thinkific course to enrol in`);
+  const student = await enrol(courses, email, firstName);
+  await sendWelcome(new Resend(RESEND_API_KEY), RESEND_FROM, { email, name: firstName, product, access: accessUrl(), isNew: student.isNew, receipt: false });
+  return student;
+}
+
 /** Emails the buyer their access and tells the team. Throws when the buyer's email fails. `resendLink`: buyer only. */
 export async function deliverProduct(session: Stripe.Checkout.Session, product: Product, resendLink = false) {
   const { RESEND_API_KEY, RESEND_FROM, RESEND_TO } = process.env;
@@ -55,25 +93,7 @@ export async function deliverProduct(session: Stripe.Checkout.Session, product: 
   const courses = thinkificReady() ? await liveCoursesOf(product.slug) : null;
   const student = courses ? await enrol(courses, email, session.customer_details?.name) : null;
   const access = student ? accessUrl() : null;
-  const p = 'style="font-family:sans-serif;font-size:15px;line-height:1.6;color:#221b17"';
-  const btn = 'style="display:inline-block;margin:4px 0;padding:12px 22px;background:#a8401a;color:#fbf1e3;border-radius:2px;font-family:sans-serif;font-size:14px;font-weight:600;letter-spacing:.06em;text-decoration:none"';
-  const how = !access
-    ? 'Your access details will follow by email shortly (within one business day). If they haven’t arrived, simply reply to this email.'
-    : student?.isNew
-      ? 'Your place in the program is ready. You will also receive a separate email from Remi’s online school to set your password; once it is set, use the button below to sign in and start. Keep this email: the link is how you come back to the program.'
-      : 'Your place in the program is ready. Sign in to Remi’s online school with your usual email and password to start. Keep this email: the link is how you come back to the program.';
-
-  const sent = await resend.emails.send({
-    from: RESEND_FROM, to: email,
-    subject: `Welcome to ${product.title}`,
-    html: `<p ${p}>${name ? `Hi ${esc(name)},` : 'Hello,'}</p>
-<p ${p}>Thank you for joining <strong>${esc(product.title)}</strong>. ${how}</p>
-${access ? `<p><a href="${esc(access)}" ${btn}>Start ${esc(product.title)}</a></p>` : ''}
-<p ${p}>Your receipt comes separately from Stripe.</p>
-<p ${p}>Remi Pearson</p>`,
-    text: `${name ? `Hi ${name},` : 'Hello,'}\n\nThank you for joining ${product.title}. ${how}\n\n${access ? `${access}\n\n` : ''}Your receipt comes separately from Stripe.\n\nRemi Pearson`,
-  });
-  if (sent.error) throw new Error(`Welcome email failed: ${sent.error.message}`);
+  await sendWelcome(resend, RESEND_FROM, { email, name, product, access, isNew: student?.isNew, receipt: true });
 
   if (RESEND_TO && !resendLink) {
     const rows: [string, string][] = [

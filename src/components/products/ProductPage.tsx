@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import { CATEGORIES, levelLine, priceLine, productBySlug, productHref, productsIn, type Product } from '@/content/products';
 import NotifyForm from './NotifyForm';
-import { SoonLabel } from '@/components/landing/BuyMode';
+import { BuyLink, OnSale, SoonLabel } from '@/components/landing/BuyMode';
 
 /** One product's page. Until the sales copy exists (`body`) and a `buyHref` is set, it says Coming soon and takes
- *  "tell me when it's ready" sign-ups; the related programs below keep the visitor moving. */
+ *  "tell me when it's ready" sign-ups; the related programs below keep the visitor moving. Once the admin screen puts
+ *  it on sale (BuyMode) the label becomes its button and the band its checkout, or a free program's registration. */
 export default function ProductPage({ product }: { product: Product }) {
   const c = CATEGORIES[product.category];
   const related = productsIn(product.category).filter(p => p.slug !== product.slug && !p.bundle && !product.includes?.includes(p.slug)).slice(0, 3);
@@ -21,7 +22,7 @@ export default function ProductPage({ product }: { product: Product }) {
         <p className="pr-price pr-price--lg">{priceLine(product)}{product.level && <span className="pr-level">{levelLine(product)}</span>}</p>
         {product.buyHref
           ? <a href={product.buyHref} className="pr-btn">{product.cta ?? 'Get started'}</a>
-          : <SoonLabel className="pr-soon"><span>Coming soon</span></SoonLabel>}
+          : <><SoonLabel className="pr-soon"><span>Coming soon</span></SoonLabel><BuyLink className="pr-btn" /></>}
       </section>
 
       {product.includes && (
@@ -40,9 +41,14 @@ export default function ProductPage({ product }: { product: Product }) {
       )}
 
       {!product.buyHref && (
-        <section className="pr-notify-band" aria-labelledby="pr-notify-h">
-          <h2 id="pr-notify-h" className="pr-h2">This one is still being written.</h2>
-          <p>Leave your email and I’ll tell you the moment {product.title} is ready.</p>
+        <section id="get" className="pr-notify-band" aria-labelledby="pr-notify-h">
+          <h2 id="pr-notify-h" className="pr-h2"><OnSale sale="Ready when you are." free="Start now. It’s free.">This one is still being written.</OnSale></h2>
+          <p>
+            <OnSale
+              sale={<>{product.title} is open. Pay through a secure Stripe checkout and your access details are emailed to you straight away.</>}
+              free={<>Enter your first name and email and you’re enrolled in {product.title} straight away, at your own pace.</>}
+            >Leave your email and I’ll tell you the moment {product.title} is ready.</OnSale>
+          </p>
           <NotifyForm product={product.title} segment={c.segment} />
           <p className="pr-fine">Prefer to talk it through first? <Link href={`/?interest=Products&about=${encodeURIComponent(product.title)}#contact`}>Send an enquiry</Link>.</p>
         </section>

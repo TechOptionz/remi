@@ -6,6 +6,7 @@ import { useId, useState } from 'react';
 import { submitLead } from '@/lib/forms';
 import WeeklyOptIn from '@/components/shared/WeeklyOptIn';
 import { useBuy } from '@/components/landing/BuyMode';
+import FreeAccessForm from '@/components/landing/FreeAccessForm';
 
 export default function NotifyForm({ product, segment }: { product: string; segment?: string }) {
   const [sent, setSent] = useState(false);
@@ -14,6 +15,7 @@ export default function NotifyForm({ product, segment }: { product: string; segm
   const id = useId();
   const buy = useBuy();
 
+  if (buy?.free) return <FreeAccessForm {...buy.free} product={product} segment={segment} label={buy.label} formClass="pr-notify" btnClass="pr-btn" thanksClass="pr-thanks" />;
   if (buy) return <a href={buy.href} className="pr-btn">{buy.label}</a>;
   if (sent) return <p className="pr-thanks" role="status">Thank you. I’ll let you know as soon as it’s ready.</p>;
   return (

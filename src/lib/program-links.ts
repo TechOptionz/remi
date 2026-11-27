@@ -5,10 +5,12 @@
 //   programs:links:log  list: the last 200 changes, newest first
 // The code defaults (THINKIFIC_COURSES / SOLD_HERE in content/checkout.ts) still apply to any page the admin screen has
 // never touched, and to everything when Redis is not configured.
+import { createHash } from 'node:crypto';
 import { cache } from 'react';
 import { Redis } from '@upstash/redis';
-import { productBySlug } from '@/content/products';
+import { FREE, productBySlug } from '@/content/products';
 import { amountOf, checkoutHref, SOLD_HERE, THINKIFIC_COURSES } from '@/content/checkout';
+import { thinkificReady } from '@/lib/thinkific';
 
 export type ProgramLink = { courseId: number | null; onSale: boolean; at: string };
 export type LinkChange = ProgramLink & { slug: string; course?: string };
@@ -81,6 +83,30 @@ export async function liveOnSale(slug: string) {
   const p = productBySlug(slug);
   if (!p || p.buyHref || !process.env.STRIPE_SECRET_KEY || amountOf(p) <= 0) return false;
   return (await linkOf(slug)).onSale && !!(await liveCoursesOf(slug));
+}
+
+/** True when a free program is open: its page takes a registration that enrols the person in its course straight away
+ *  (components/landing/FreeAccessForm.tsx -> /api/lead). Needs its course linked and Thinkific set up, since the
+ *  enrolment is the whole point. */
+export async function liveFree(slug: string) {
+  const p = productBySlug(slug);
+  if (!p || p.buyHref || p.bundle || p.price !== FREE || !thinkificReady()) return false;
+  return (await linkOf(slug)).onSale && !!(await liveCoursesOf(slug));
+}
+
+/** A free registration creates a student and sends email, so each connection gets a few an hour (no limit without Redis). */
+export async function enrolAllowed(ip: string) {
+  const r = redis();
+  if (!r) return true;
+  const key = `programs:enrol:rate:${createHash('sha256').update(ip).digest('hex').slice(0, 24)}`;
+  try {
+    const n = await r.incr(key);
+    if (n === 1) await r.expire(key, 60 * 60);
+    return n <= 5;
+  } catch (e) {
+    console.error('Enrolment rate limit could not be read', e);
+    return true;
+  }
 }
 
 /** Where the program's buy buttons go: its outside `buyHref`, Stripe Checkout when on sale, else null (its sign-up). */

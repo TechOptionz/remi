@@ -6,6 +6,9 @@
 import { Resend } from 'resend';
 import { addToGhl } from '@/lib/ghl';
 import { recordOptIn, wordingOf, WEEKLY_TAG } from '@/lib/consent';
+import { productBySlug, type Product } from '@/content/products';
+import { enrolAllowed, liveFree } from '@/lib/program-links';
+import { enrolFree } from '@/lib/product-sales';
 
 export const runtime = 'nodejs';
 
@@ -24,6 +27,9 @@ const NOTIFY_SUBJECT = 'Tell me when it’s ready';
 // …except a free series' registration form (components/wdk-landing/RegisterForm.tsx, aol-landing/RegisterForm.tsx)
 const FREE_SERIES = ['Why Do I Keep Doing This?', 'Attachment or Love?'];
 const REGISTER_SUBJECT = 'Free series registration';
+// …or the registration for a free program that is open (components/landing/FreeAccessForm.tsx, `enrol` = its slug):
+// the person is enrolled in its Thinkific course and emailed how to start before the team is told
+const ENROL_SUBJECT = 'Free program registration';
 const SEGMENT_NAMES: Record<string, string> = {
   leadership: 'Leadership', business: 'Business', 'personal-development': 'Personal development',
   'consultative-sales': 'Consultative sales', relationships: 'Relationships',
@@ -48,7 +54,7 @@ const AUTO_REPLY: Partial<Record<Kind, { subject: string; body: string }>> = {
 };
 
 const LABELS: Record<string, string> = {
-  firstName: 'First name', marketing: 'Ideas and program invitations', weekly: 'Weekly teaching emails', weeklyVersion: 'Weekly consent version', weeklyWording: 'Weekly consent wording', why_now: 'Why now', when: 'Date, location or online', audience: 'Who will be in the room',
+  firstName: 'First name', access: 'Access', marketing: 'Ideas and program invitations', weekly: 'Weekly teaching emails', weeklyVersion: 'Weekly consent version', weeklyWording: 'Weekly consent wording', why_now: 'Why now', when: 'Date, location or online', audience: 'Who will be in the room',
   explore: 'What to explore', fit: 'Why the right fit', stuck: 'Where the organisation is stuck', attempted: 'Already attempted',
   who: 'Who needs to be involved', about: 'About', helpful: 'Was it helpful?', message: 'Question or feedback', segment: 'List', page: 'Sent from', url: 'Page address',
 };
@@ -78,7 +84,7 @@ const segmentIds = new Map<string, string>(); // name → id, kept while the fun
 async function segmentId(resend: Resend, key: string) {
   const pinned = process.env[`RESEND_SEGMENT_ID_${key.toUpperCase().replace(/-/g, '_')}`];
   if (pinned) return pinned;
-  const name = LISTS[key];
+  const name = LISTS[key] ?? key; // a free program's own list is passed by its name
   if (!segmentIds.has(name)) {
     const { data } = await resend.segments.list({ limit: 100 });
     for (const s of data?.data ?? []) segmentIds.set(s.name, s.id);
@@ -134,6 +140,7 @@ export async function POST(request: Request) {
   const weekly = kind === 'waitlist' && data.weekly === 'Yes';
   if (kind !== 'waitlist') { delete data.weekly; delete data.weeklyVersion; }
   delete data.weeklyWording;
+  delete data.access; // set below, by the server only
   if (weekly) {
     const { version, wording } = wordingOf(data.weeklyVersion);
     data.weeklyVersion = version;
@@ -152,9 +159,29 @@ export async function POST(request: Request) {
   }
   const resend = new Resend(RESEND_API_KEY);
   const type = kind as Kind;
+
+  // A free program's registration: enrol first, so the person is never told "you're in" without a place in the course
+  let free: Product | undefined;
+  const enrolSlug = data.enrol;
+  delete data.enrol;
+  if (type === 'waitlist' && enrolSlug) {
+    const program = productBySlug(enrolSlug);
+    if (!program || !(await liveFree(program.slug))) return json({ error: 'Registration for this program isn’t open just now. Please try again later.' }, 409);
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0].trim() || 'unknown';
+    if (!(await enrolAllowed(ip))) return json({ error: 'That’s a lot of registrations from one connection. Please try again in an hour.' }, 429);
+    try {
+      const student = await enrolFree(program, email, data.firstName ?? data.name);
+      data.access = `Enrolled in Thinkific (${student.isNew ? 'new student, welcome email sent' : 'existing student'})`;
+    } catch (e) {
+      console.error('Free program enrolment failed', program.slug, e);
+      return json({ error: 'We could not open your access just now. Please try again in a moment.' }, 502);
+    }
+    free = program;
+    data.product = program.title;
+  }
   const who = data.name ?? data.firstName ?? (email || (data.helpful ? '' : 'anonymous'));
   const topic = topicOf(type, data);
-  const heading = type === 'waitlist' && data.product ? (FREE_SERIES.includes(data.product) ? REGISTER_SUBJECT : NOTIFY_SUBJECT) : type === 'feedback' && data.message ? 'Reader question' : SUBJECTS[type];
+  const heading = free ? ENROL_SUBJECT : type === 'waitlist' && data.product ? (FREE_SERIES.includes(data.product) ? REGISTER_SUBJECT : NOTIFY_SUBJECT) : type === 'feedback' && data.message ? 'Reader question' : SUBJECTS[type];
   const subject = [heading, topic && oneLine(topic).slice(0, 120), oneLine(who).slice(0, 80)]
     .filter(Boolean).join(' — ');
 
@@ -178,11 +205,13 @@ export async function POST(request: Request) {
   // Newsletter and "tell me when it's ready" sign-ups also join the general list; invitations and Rebel Yell do not.
   const rebelYell = type === 'waitlist' && !data.product;
   // A form with a marketing choice (marketing = "Yes" / "No") left unticked joins only its product's own segment
-  const ownListOnly = type === 'waitlist' && data.marketing === 'No' && !!data.product && !!PRODUCT_LISTS[data.product];
+  // A free program's registration has its own list, by name; it joins the others only on an explicit Yes
+  const own = free ? `Free program — ${free.title}` : data.product && PRODUCT_LISTS[data.product];
+  const ownListOnly = type === 'waitlist' && !!own && (free ? data.marketing !== 'Yes' : data.marketing === 'No');
   const keys = type === 'invitation' ? ['invitation']
     : rebelYell ? ['rebel-yell']
-    : ownListOnly ? [PRODUCT_LISTS[data.product]]
-    : type === 'newsletter' || type === 'waitlist' ? [data.segment, data.product && PRODUCT_LISTS[data.product]] : [];
+    : ownListOnly ? [own]
+    : type === 'newsletter' || type === 'waitlist' ? [data.segment, own] : [];
   const generalList = !(type === 'invitation' || rebelYell || ownListOnly);
   const [firstName, ...rest] = oneLine(data.firstName ?? data.name ?? '').split(' ');
   const lastName = (!data.firstName && rest.join(' ')) || undefined;
@@ -192,10 +221,10 @@ export async function POST(request: Request) {
   const ghl = !email ? undefined : addToGhl({
     email, firstName: firstName || undefined, lastName,
     tags: [
-      ...keys.map(key => key && LISTS[key]),
+      ...keys.map(key => key && (LISTS[key] ?? key)),
       type === 'enquiry' && 'Enquiry', type === 'enquiry' && data.interest && `Interest — ${data.interest}`,
       type === 'invitation' && data.invitation && `Invitation — ${data.invitation}`,
-      type === 'waitlist' && data.product && !PRODUCT_LISTS[data.product] && `Waitlist — ${data.product}`,
+      type === 'waitlist' && !free && data.product && !PRODUCT_LISTS[data.product] && `Waitlist — ${data.product}`,
       (type === 'newsletter' || type === 'waitlist') && generalList && 'Newsletter',
       type === 'feedback' && 'Reader question',
       weekly && WEEKLY_TAG,
