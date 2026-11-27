@@ -89,7 +89,7 @@ export const FAQ: Faq[] = [
 export const SALE_NOTE = 'Secure checkout through Stripe. Your access details are emailed to you as soon as you’ve paid.';
 
 /** While Remi is still recording: when the videos will be in the course. Set to null once all 11 are uploaded. */
-export const TTH_VIDEOS_NOTE: string | null = 'Remi is recording the 11 videos now. All 11 will be in your course by Friday 27 November 2026, and each one appears as soon as it’s ready; your access starts the moment you buy.';
+export const TTH_VIDEOS_NOTE: string | null = null;
 
 /** FAQ answers that change once the program is on sale, by the waitlist question they replace. */
 export const FAQ_ON_SALE: Record<string, Faq> = {
